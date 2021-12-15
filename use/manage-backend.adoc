@@ -60,7 +60,7 @@ TIP: NetApp Cloud Insights に接続した場合、 Cloud Insights からの抜�
 +
 image:../use/acc_backends_ci_connection2.png["バックエンドページのスクリーンショット"]
 
-. Cloud Insights に直接移動するには、指標の画像の横にある * Cloud Insights * アイコンをクリックします。
+. Cloud Insights に直接移動するには、指標画像の横にある * Cloud Insights * アイコンを選択します。
 
 
 

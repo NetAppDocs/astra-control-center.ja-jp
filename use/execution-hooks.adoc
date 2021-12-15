@@ -1,11 +1,14 @@
+---
+sidebar: sidebar 
+permalink: use/execution-hooks.html 
+keywords: execution hook, snapshot, hook, kubernetes, astra control, astra 
+summary: 実行フックは、管理対象アプリケーションのスナップショットの前または後に実行できるカスタムスクリプトです。 
+---
 = アプリケーション実行フックを管理します
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
 
-
-SELECT ---- サイドバー : サイドバーパーマリンク : execution-hooks.html キーワード :execution hook 、 snapshot 、 hook 、 Kubernetes 、 Astra control 、 Astra Summary ：実行フックは、管理対象アプリケーションのスナップショットの前後に実行できるカスタムスクリプトです。- - -
-
-
-
-= アプリケーション実行フックを管理します
 
 [role="lead"]
 実行フックは、管理対象アプリケーションのスナップショットの前または後に実行できるカスタムスクリプトです。たとえば、データベースアプリケーションがある場合、実行フックを使用して、スナップショットの前にすべてのデータベーストランザクションを一時停止し、スナップショットの完了後にトランザクションを再開できます。これにより、アプリケーションと整合性のある Snapshot を作成できます。
