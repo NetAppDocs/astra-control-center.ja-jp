@@ -1,0 +1,19 @@
+---
+section: get-started
+title: はじめに
+entries:
+- title: Astra Control Center の要件
+  url: "/get-started/requirements.html"
+- title: Astra Control Center のクイックスタート
+  url: "/get-started/quick-start.html"
+- title: Astra Control Center をインストールします
+  url: "/get-started/install_acc.html"
+- title: Astra Control Center をセットアップします
+  url: "/get-started/setup_overview.html"
+  entries:
+  - title: クラスタを追加するための前提条件
+    url: "/get-started/add-cluster-reqs.html"
+  - title: カスタム TLS 証明書を追加します
+    url: "/get-started/add-custom-tls-certificate.html"
+- title: よく寄せられる質問
+  url: "/get-started/faq.html"

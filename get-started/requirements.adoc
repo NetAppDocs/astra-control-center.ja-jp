@@ -1,0 +1,192 @@
+---
+sidebar: sidebar 
+permalink: get-started/requirements.html 
+keywords: what are astra kubernetes requirements, astra control requirements, astra supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
+summary: Kubernetes クラスタ、アプリ、 Web ブラウザのサポートを確認して、 Astra Control Center を使い始めましょう。 
+---
+= Astra Control Center の要件
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+まず、 Kubernetes クラスタ、アプリケーション、ライセンス、 Web ブラウザのサポート状況を確認します。
+
+
+
+== Kubernetes クラスタの一般的な要件
+
+Astra Control Center には、次のいずれかのタイプのホストクラスタが必要です。
+
+* Red Hat OpenShift Container Platform 4.4.8 、 4.7 、または 4.8
+* Rancher 2.5
+* Kubernetes 1.19 ~ 1.21 （ 1.21 x を含む）
+
+
+Astra Control Center からクラスタを検出して管理するには、クラスタが次の一般的な要件を満たしている必要があります。
+
+* バックエンドの ONTAP ストレージ容量では 300GB 以上の容量が使用可能です
+* 3 台のコントローラノード： CPU コア × 4 、 16GB RAM 、および 120 GB のストレージを搭載
+* 3 つのワーカーノードに 12 個以上の CPU コア、 32GB RAM 、 50GB のストレージを搭載
+* サービスタイプ「 LoadBalancer 」は、 OpenShift クラスタ内のサービスに送信される入力トラフィックに使用できます
+* Astra Control Center の FQDN をロードバランシング IP アドレスに指定する方法
+
+
+
+NOTE: これらの要件は、 OpenShift クラスタ上で実行される唯一のアプリケーションが Astra Control Center であることを前提としています。クラスタで追加のアプリケーションを実行している場合は、それに応じてこれらの最小要件を調整します。
+
+* * イメージレジストリ * ： Astra Control Center ビルドイメージをプッシュできる、既存のプライベート Docker イメージレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
+* * Astra Trident / ONTAP ストレージ構成 * ： Astra Control Center には、 Astra Trident バージョン 21.04 以降がインストールされ、ストレージバックエンドとして NetApp ONTAP バージョン 9.5 以降と連携するように設定されている必要があります。Astra Control Center を使用するには、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。
++
+** ONTAP - NAS
+** ONTAP-NAS-flexgroup
+** ONTAP - SAN
+** ONTAP - SAN - 経済性
+
+
+
+
+Kubernetes クラスタを Astra Control Center から管理し、クラスタを使用して Astra Control Center インストールをホストする場合、クラスタには次の追加要件があります。
+
+* Kubernetes の最新バージョン https://kubernetes-csi.github.io/docs/snapshot-controller.html["Snapshot コントローラコンポーネント"^] がインストールされている
+* Astra Trident https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["volumesnapshotclass オブジェクト"^] は管理者によって定義されています
+* クラスタにはデフォルトの Kubernetes ストレージクラスが存在します
+* Astra Trident を使用するように少なくとも 1 つのストレージクラスが設定されている
+* Astra Control Center の FQDN を Astra Control Center サービスの外部 IP アドレスに指定する方法
+
+
+[NOTE]
+====
+Astra Control Center では、アプリケーションのクローニング中に、 OpenShift でボリュームをマウントし、必要に応じてファイルの所有権を変更できるようにする必要があります。このため、ボリューム操作が正常に完了するように ONTAP ボリュームエクスポートポリシーを設定する必要があります。次のコマンドを使用して実行できます。
+
+「 export-policy rule modify -vserver <storage virtual machine name> -policyname <policy name> -ruleindex 1 -superuser sysm -- anon 65534 」という形式で指定します
+
+====
+
+NOTE: 管理対象のコンピューティングリソースとして 2 つ目の OpenShift クラスタを追加する場合は、 Astra Trident ボリューム Snapshot 機能を有効にする必要があります。ネットアップの公式 Astra Trident をご覧ください https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["手順"^] Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。
+
+
+
+== アプリケーション管理の要件
+
+Astra Control には、次のアプリケーション管理要件があります。
+
+* * ライセンス * ： Astra Control Center を使用してアプリケーションを管理するには、 Astra Control Center ライセンスが必要です。
+* * 名前空間 * ： Astra Control では、アプリケーションが複数の名前空間にまたがることはありませんが、名前空間には複数のアプリケーションを含めることができます。
+* * StorageClass* ： StorageClass が明示的に設定されたアプリケーションをインストールし、そのアプリケーションをクローニングする必要がある場合、クローン処理のターゲットクラスタに最初に指定された StorageClass が必要です。明示的に StorageClass を設定したアプリケーションを、同じストレージクラスを使用しないクラスタにクローニングすると、失敗します。
+* * Kubernetes のリソース * ： Astra Control で収集されていない Kubernetes リソースを使用するアプリケーションには、完全なアプリケーションデータ管理機能がない可能性があります。Astra Control では、次の Kubernetes リソースが収集されます。
++
+** クラスタロール
+** ClusterRoleBinding
+** ConfigMap
+** CustomResourceDefinition の場合
+** CustomResource の場合
+** デモンセット（ DemonSet ）
+** 導入
+** DeploymentConfig
+** 入力
+** MutingWebhook
+** PersistentVolumeClaim のように表示され
+** ポッド
+** ReplicaSet
+** RoleBinding です
+** ロール
+** ルート
+** 秘密
+** サービス
+** サービスアカウント
+** Stateful役立つ セット
+** 検証 Webhook
+
+
+
+
+
+
+=== サポートされているアプリインストール方法
+
+Astra Control は、次のアプリケーションインストール方法をサポートしています。
+
+* * マニフェストファイル * ： Astra Control は、 kubectl を使用してマニフェストファイルからインストールされたアプリケーションをサポートします。例：
++
+[listing]
+----
+kubectl apply -f myapp.yaml
+----
+* * Helm 3 * ： Helm を使用してアプリケーションをインストールする場合、 Astra Control には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用してインストールされたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 でインストールされたアプリケーションの管理はサポートされていません。
+* * オペレータが導入したアプリケーション * ： Astra Control は、名前空間を対象とした演算子を使用してインストールされたアプリケーションをサポートします。このインストールモデルで検証されたアプリケーションには、次のものがあります。
++
+** https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
+** https://github.com/jenkinsci/kubernetes-operator["Jenkins CI"^]
+** https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB クラスタ"^]
+
+
+
+
+
+NOTE: インストールする演算子とアプリケーションは、同じ名前空間を使用する必要があります。このような名前空間を使用するには、演算子の deployment.yaml ファイルを変更する必要があります。
+
+
+
+== インターネットにアクセスできます
+
+インターネットに外部からアクセスできるかどうかを確認する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります https://mysupport.netapp.com/site/["ネットアップサポートサイト"^]。
+
+
+
+== 使用許諾
+
+Astra Control Center の全機能を使用するには、 Astra Control Center ライセンスが必要です。評価用ライセンスまたはフルライセンスをネットアップから取得する。ライセンスがないと、次のことができません。
+
+* カスタムアプリケーションを定義します
+* 既存のアプリケーションのスナップショットまたはクローンを作成します
+* データ保護ポリシーを設定
+
+
+Astra Control Center をお試しになりたい場合は link:setup_overview.html#add-a-full-or-evaluation-license["90 日間の評価版ライセンスを使用する"]。
+
+
+
+== オンプレミスの Kubernetes クラスタ用のサービスタイプ「 LoadBalancer 」
+
+Astra Control Center は、 "LoadBalancer （ Astra Control Center ネームスペースの svc/traefik ）タイプのサービスを使用し、アクセス可能な外部 IP アドレスが割り当てられている必要があります。環境でロードバランサを許可しており、まだ設定していない場合は、を使用できます https://docs.netapp.com/us-en/netapp-solutions/containers/rh-os-n_LB_MetalLB.html#installing-the-metallb-load-balancer["MetalLB"^] 外部 IP アドレスをサービスに自動的に割り当てる。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。
+
+
+NOTE: MetalLB バージョン 0.11.0 はサポートされていません。
+
+
+
+== ネットワーク要件
+
+Astra Control Center をホストするクラスタは、次の TCP ポートを使用して通信します。これらのポートがファイアウォールを通過できることを確認し、 Astra ネットワークからの HTTPS 出力トラフィックを許可するようにファイアウォールを設定する必要があります。一部のポートでは、アストラコントロールセンターをホストするクラスタと各管理対象クラスタ（該当する場合はメモ）の両方の接続方法が必要です。
+
+|===
+| プロダクト | ポート | プロトコル | 方向（ Direction ） | 目的 
+
+
+| Astra Control Center の略 | 443 | HTTPS | 入力 | UI / API アクセス： Astra Control Center をホストしているクラスタと各管理対象クラスタの間で、このポートが双方向に開いていることを確認します 
+
+
+| Astra Control Center の略 | 9090 | HTTPS  a| 
+* 入力（ Astra Control Center をホストするクラスタへ）
+* 出力（各管理対象クラスタの各ワーカーノードのノード IP アドレスからのランダムポート）
+
+| 指標データから指標利用者へ：各管理対象クラスタが、 Astra Control Center をホストしているクラスタ上のこのポートにアクセスできることを確認します 
+
+
+| Astra Trident | 34571 | HTTPS | 入力 | ノードポッドの通信 
+
+
+| Astra Trident | 9220 | HTTP | 入力 | 指標エンドポイント 
+|===
+
+
+== サポートされている Web ブラウザ
+
+Astra Control Center は、最新バージョンの Firefox 、 Safari 、 Chrome をサポートし、解像度は 1280 x 720 以上です。
+
+
+
+== 次の手順
+
+を表示します link:quick-start.html["クイックスタート"] 概要（ Overview ）：

@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: use/manage-buckets.html 
+keywords: how to set up object storage in astra, how to set up astra buckets, s3, astra, setting up astra control, how to set up astra control center, kubernetes 
+summary: のアプリケーションと永続的ストレージをバックアップする場合は、クラスタ間でアプリケーションをクローニングするには、オブジェクトストアバケットプロバイダの追加が不可欠です。 
+---
+= バケットを管理する
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+アプリケーションや永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションをクローニングする場合は、オブジェクトストアバケットプロバイダが不可欠です。Astra Control Center を使用して、オフクラスタのバックアップ先として、アプリケーションのオブジェクトストアプロバイダを追加します。
+
+アプリケーション構成と永続的ストレージを同じクラスタにクローニングする場合、バケットは必要ありません。
+
+次のいずれかのバケットプロバイダを使用：
+
+* NetApp ONTAP S3
+* NetApp StorageGRID S3 の略
+* 汎用 S3
+
+
+
+NOTE: Astra Control Center は Amazon S3 を汎用 S3 バケットプロバイダとしてサポートしていますが、 Astra Control Center は Amazon の S3 サポートを要求するすべてのオブジェクトストアベンダーをサポートしているわけではありません。
+
+バケットは削除できませんが、編集することはできます。
+
+バケットの状態は次のいずれかになります。
+
+* Pending ：バケットの検出がスケジュールされています。
+* Available ：バケットは使用可能です。
+* Removed ：バケットには現在アクセスできません。
+
+
+Astra Control API を使用してバケットを管理する方法については、を参照してください link:https://docs.netapp.com/us-en/astra-automation/["Astra の自動化と API に関する情報"^]。
+
+バケットの管理に関連して次のタスクを実行できます。
+
+* link:../get-started/setup_overview.html#add-a-bucket["バケットを追加します"]
+* <<Edit a bucket>>
+
+
+
+NOTE: Astra Control Center の S3 バケットは、使用可能容量を報告しません。Astra Control Center で管理されているアプリケーションのバックアップまたはクローニングを行う前に、 ONTAP または StorageGRID 管理システムでバケット情報を確認します。
+
+
+
+== クレデンシャルを削除する
+
+Astra Control API を使用して、アカウントから S3 クレデンシャルをいつでも削除できます。
+
+詳細については、を参照してください https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]。
+
+
+TIP: Astra Control に追加する最初のクレデンシャルセットは、 Astra Control がバックアップバケットの認証にクレデンシャルを使用するため、常に使用されています。これらの資格情報は削除しないことをお勧めします。
+
+
+
+== バケットを編集する
+
+バケットのアクセスクレデンシャル情報を変更したり、選択したバケットがデフォルトバケットかどうかを変更したりできます。
+
+
+NOTE: バケットを追加するときは、正しいバケットプロバイダを選択し、そのプロバイダに適したクレデンシャルを指定します。たとえば、タイプとして NetApp ONTAP S3 が許可され、 StorageGRID クレデンシャルが受け入れられますが、このバケットを使用して原因の以降のアプリケーションのバックアップとリストアはすべて失敗します。を参照してください link:../release-notes/known-issues.html#selecting-a-bucket-provider-type-with-credentials-for-another-type-causes-data-protection-failures["リリースノート"]。
+
+.手順
+. 左ナビゲーションから、 * バケット * を選択します。
+. アクションメニューから * 編集 * を選択します。
+. バケットタイプ以外の情報を変更します。
++
+
+TIP: バケットタイプは変更できません。
+
+. 「 * Update * 」を選択します。
+
+
+
+
+== 詳細については、こちらをご覧ください
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+

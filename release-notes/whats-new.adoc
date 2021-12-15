@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new.html 
+keywords: what's new, bugs, bug fixes, new features, enhancements 
+summary: ネットアップは Astra Control Center を定期的に更新して、新機能、拡張機能、バグ修正を提供します。 
+---
+= このリリースの Astra Control Center の新機能
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+アストラコントロールセンターの最新の 21.12 リリースを発表します。
+
+
+
+== 2021 年 12 月 14 日（ 21.12 ）
+
+Astra Control Center のアップデートリリース。
+
+.新機能とサポート
+* link:../use/restore-apps.html["アプリケーションのリストア"]
+* link:../use/execution-hooks.html["実行フック"]
+* link:../get-started/requirements.html#supported-app-installation-methods["ネームスペースを対象とした演算子を使用して展開されたアプリケーションのサポート"]
+* link:../get-started/requirements.html["アップストリーム Kubernetes と Rancher もサポートしています"]
+* link:../get-started/setup_overview.html#add-a-storage-backend["Astra データストアバックエンドの管理と監視"]
+* link:../use/upgrade-acc.html["Astra Control Center のアップグレード"]
+
+
+.解決済みの問題
+* link:../release-notes/resolved-issues.html["このリリースの解決済みの問題"]
+
+
+.既知の問題および制限事項
+* link:../release-notes/known-issues.html["このリリースの既知の問題"]
+* link:../release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
+
+
+
+
+== 2021 年 8 月 5 日（ 21.08 ）
+
+Astra Control Center の初回リリース。
+
+* link:../concepts/intro.html["それは何であるか"]
+* link:../concepts/architecture.html["アーキテクチャとコンポーネントを理解する"]
+* link:../get-started/requirements.html["開始には何が必要ですか"]
+* link:../get-started/install_acc.html["をインストールします"] および 
+* link:../use/manage-apps.html["管理"] および  アプリケーション
+* link:../use/manage-buckets.html["バケットを管理する"] および 
+* link:../use/manage-users.html["アカウントを管理"]
+* link:../rest-api/api-intro.html["API による自動化"]
+
+
+
+
+== 詳細については、こちらをご覧ください
+
+* link:../release-notes/known-issues.html["このリリースの既知の問題"]
+* link:../release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
+* link:../acc-earlier-versions.html["以前のバージョンの Astra Control Center ドキュメント"]
+

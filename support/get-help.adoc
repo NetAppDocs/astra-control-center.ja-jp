@@ -1,0 +1,128 @@
+---
+sidebar: sidebar 
+permalink: support/get-help.html 
+keywords: how to get help with astra control, how to get support with astra control, astra control knowledgebase, netapp technical support, slack, phone, web, ticket, contact support, support ticket, support bundle 
+summary: ネットアップでは、 Astra Control をさまざまな方法でサポートしています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Control アカウントには、 Web チケット発行によるリモートテクニカルサポートが含まれています。 
+---
+= ヘルプを表示します
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/support/
+
+
+ネットアップでは、 Astra Control をさまざまな方法でサポートしています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Control アカウントには、 Web チケット発行によるリモートテクニカルサポートが含まれています。
+
+
+IMPORTANT: Astra Control Center の評価用ライセンスをお持ちの場合は、テクニカルサポートを受けることができます。ただし、ネットアップサポートサイト（ NSS ）でケースを作成することはできません。フィードバックオプションを通じてサポートに連絡するか、 Slack チャンネルを利用してセルフサービスで連絡できます。
+
+最初に実行する必要があります link:../get-started/setup_overview.html["ネットアップのシリアル番号のサポートを有効にします"] これらの非セルフサービスサポートオプションを使用するには、次の手順に従います。チャットや Web でのチケット発行、ケース管理には、ネットアップサポートサイト（ NSS ）の SSO アカウントが必要です。
+
+メインメニューから * Support * タブを選択すると、 Astra Control Center UI からサポートオプションにアクセスできます。
+
+image:astracc-support.png["に、 Astra Control Center のサポートページを示します。"]
+
+
+
+== セルフサポートオプション
+
+次のオプションは、 24 時間 365 日無料で利用できます。
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra["ナレッジベース（ログインが必要）"^]
++
+Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。
+
+* ドキュメント
++
+現在表示しているドキュメントサイトです。
+
+* https://netapppub.slack.com/#astra["Slack"^]
++
+thePub ワークスペースのコンテナチャネルに移動して、ピアやエキスパートと交流しましょう。
+
+* ネットアップサポートにトラブルシューティング用のサポートバンドルを生成する
+* フィードバック用 E メール
++
+astra.feedback@netapp.com に電子メールを送信して、あなたの考え、アイデア、懸念事項をお知らせください。
+
+
+
+
+
+== ネットアップサポートへのサポートバンドルの日次アップロードを有効にします
+
+Astra Control Center のインストール時に、 Astra Control Center Custom Resource Definition （ CRD ）ファイル（「 Astra_control_center_min.yaml 」）で「 AutoSupport 」に「 enroled:true 」を指定すると、毎日のサポートバンドルがに自動的にアップロードされます https://mysupport.netapp.com/site/["ネットアップサポートサイト"^]。
+
+
+
+== ネットアップサポートに提供するサポートバンドルを生成する
+
+Astra Control Center を使用すると、管理者ユーザはバンドルを生成できます。バンドルには、ネットアップサポートに役立つログ、 Astra 環境のすべてのコンポーネントに対するイベント、管理対象のクラスタとアプリケーションに関する指標、トポロジ情報などが含まれます。インターネットに接続している場合は、ネットアップサポートサイト（ NSS ）に Astra Control Center の UI から直接サポートバンドルをアップロードすることができます。
+
+
+NOTE: Astra Control Center がバンドルを生成するのにかかる時間は、 Astra Control Center のインストールのサイズと、要求されたサポートバンドルのパラメータによって異なります。サポートバンドルの生成要求時に指定した期間によって、バンドルの生成にかかる時間が決まります（たとえば、期間を短くするとバンドルの生成にかかる時間が短縮されます）。
+
+開始する前に、 NSS へのバンドルのアップロードにプロキシ接続が必要かどうかを確認します。プロキシ接続が必要な場合は、 Astra Control Center がプロキシサーバーを使用するように設定されていることを確認します。
+
+. [ * アカウント * > * 接続 * ] を選択します。
+. * 接続設定 * でプロキシ設定を確認します。
+
+
+.手順
+. NSS ポータルで、 Astra Control Center UI の * Support * ページに記載されているライセンスシリアル番号を使用してケースを作成します。
+. Astra Control Center UI を使用して、サポートバンドルを生成するには、次の手順を実行します。
++
+.. [ サポート * （ Support * ） ] ページの [ サポートバンドル（ Support bundle ） ] タイルで、 [ * 生成（ Generate ） ] を選択します。
+.. [* サポートバンドルの生成 * （ Generate a Support Bundle * ） ] ウィンドウで、期間を選択します。
++
+クイックタイムフレームまたはカスタムタイムフレームのいずれかを選択できます。
+
++
+
+NOTE: カスタムの日付範囲を選択したり、期間にカスタムの期間を指定したりできます。
+
+.. 選択したら、 * 確認 * を選択します。
+.. 「 Upload the bundle to the NetApp Support Site when generated* 」を確認します。
++
+image:upload-bundle.png["に、サポートバンドルを NSS にアップロードするチェックボックスを示します。"]
+
+.. [* バンドルの生成 * ] を選択します。
++
+サポートバンドルの準備が完了すると、アラート領域の * アカウント * > * 通知 * ページ、 * アクティビティ * ページ、および通知リストに通知が表示されます（ UI の右上にあるアイコンを選択してアクセスできます）。
+
++
+生成が失敗した場合は、バンドルの生成ページにアイコンが表示されます。アイコンを選択すると、メッセージが表示されます。
+
+
+
+
+
+
+TIP: UI の右上にある通知アイコンには、バンドルの作成に成功したタイミング、バンドルの作成に失敗したタイミング、バンドルをアップロードできなかったタイミング、バンドルをダウンロードできなかったタイミングなど、サポートバンドルに関連するイベントに関する情報が表示されます。
+
+
+
+=== エアギャップ設置がある場合
+
+エアギャップのある設置の場合は、サポートバンドルが生成されたあとに次の手順を実行します。ダウンロード可能なバンドルは、 * Support * ページの * Support Bundles * セクションで「 Generated * 」の横に次のように表示されます。
+
+image:support-bundle.png["生成されたサポートバンドルを表示し、ダウンロード可能な状態にします。"]
+
+. [ ダウンロード（ Download ） ] アイコンを選択して、バンドルをローカルにダウンロードします。
+. 手動で NSS にバンドルをアップロードします。
++
+これを行うには、次のいずれかの方法を使用します。
+
++
+** 使用 https://upload.netapp.com/sg["NetApp Authenticated File Upload （ログインが必要）"^]。
+** NSS でケースにバンドルを直接添付します。
+** NetApp AIQ を使用
+
+
+
+
+[discrete]
+== 詳細については、こちらをご覧ください
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["ネットアップにファイルをアップロードする方法（ログインが必要）"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9["ネットアップにファイルを手動でアップロードする方法（ログインが必要）"^]
+

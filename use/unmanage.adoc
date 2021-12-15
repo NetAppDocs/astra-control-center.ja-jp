@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: use/unmanage.html 
+keywords: unmanage app, remove app, stop managing app, stop managing clusters, unmanage cluster, remove cluster, kubernetes, astra, astra control 
+summary: 管理する必要がなくなったアプリケーションやコンピューティングを Astra Control から削除 
+---
+= アプリケーションとクラスタの管理を解除します
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+管理する必要がなくなったアプリケーションやクラスタを Astra Control Center から削除します。
+
+
+
+== アプリの管理を解除します
+
+バックアップ、スナップショット、またはクローンを作成する必要がなくなったアプリケーションの管理を Astra Control Center から停止します。
+
+* 既存のバックアップと Snapshot がすべて削除されます。
+* アプリケーションとデータは引き続き使用できます。
+
+
+.手順
+. 左側のナビゲーションバーから、「 * アプリケーション * 」を選択します。
+. 管理する必要がなくなったアプリのチェックボックスをオンにします。
+. [ アクション * （ Action * ） ] メニューから、 [ * アンマネージ * （ * Unmanage * ） ] を選択し
+. 「 unmanage 」と入力して確定します。
+. アプリの管理を解除することを確認し、 [ はい、アプリケーションの管理を解除します * ] を選択します。
+
+
+Astra Control Center がアプリケーションの管理を停止。
+
+
+
+== クラスタの管理を解除します
+
+管理する必要がなくなったクラスタの管理を Astra Control Center から解除します。
+
+* この処理を実行すると、 Astra Control Center でクラスタが管理されなくなります。クラスタの構成は変更されず、クラスタも削除されません。
+* Trident はクラスタからアンインストールされません。 https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Trident のアンインストール方法をご確認ください"^]。
+
+
+
+NOTE: クラスタの管理を解除する前に、クラスタに関連付けられているアプリケーションの管理を解除する必要があります。
+
+.手順
+. 左側のナビゲーションバーから、 * クラスタ * を選択します。
+. Astra Control Center で管理する必要がなくなったクラスタのチェックボックスを選択します。
+. [ アクション * （ Actions * ） ] メニューから、 [ * 管理解除 * （ Unmanage * ） ] を選択する。
+. クラスタの管理を解除することを確認し、「 * Yes 、 unmanage cluster * 」を選択します。
+
+
+クラスタのステータスが「クラスタ」ページから「削除中」に変わり、クラスタが「クラスタ」ページから削除され、 Astra Control Center によって管理されなくなります。
+
+
+IMPORTANT: * Astra Control Center と Cloud Insights が接続されていない場合 * 、クラスタの管理を解除すると、テレメトリ・データの送信用にインストールされたすべてのリソースが削除されます。*Astra Control Center と Cloud Insights が接続されている場合 * ' クラスタの管理を解除すると 'fluentbit' および 'event-exporter ポッドのみが削除されます

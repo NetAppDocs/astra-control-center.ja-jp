@@ -1,0 +1,309 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-issues.html 
+keywords: astra, control center, bugs, known issues, problems 
+summary: 既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。 
+---
+= 既知の問題
+:hardbreaks:
+:source-highlighter: highlight.js
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。
+
+現在のリリースに影響する既知の問題は次のとおりです。
+
+* <<App with user-defined label goes into "removed" state>>
+* <<Unable to stop running app backup>>
+* <<During app restore from backup Trident creates a larger PV than the original PV>>
+* <<Clone performance impacted by large persistent volumes>>
+* <<App clones fail using a specific version of PostgreSQL>>
+* <<App clones fail when using Service Account level OCP Security Context Constraints (SCC)>>
+* <<Reusing buckets between instances of Astra Control Center causes failures>>
+* <<Selecting a bucket provider type with credentials for another type causes data protection failures>>
+* <<Backups and snapshots might not be retained during removal of an Astra Control Center instance>>
+* link:known-issues.html#clone-operation-cant-use-other-buckets-besides-the-default["クローン処理では、デフォルト以外のバケットを使用できません"]
+* <<Managing a cluster with Astra Control Center fails when default kubeconfig file contains more than one context>>
+* <<500 internal service error when attempting Trident app data management>>
+* <<Custom app execution hook scripts time out and cause post-snapshot scripts not to execute>>
+* link:known-issues.html#cant-determine-asup-tar-bundle-status-in-scaled-environment["拡張環境で ASUP tar バンドルのステータスを確認できません"]
+* <<Snapshots eventually begin to fail when using external-snapshotter version 4.2.0>>
+* <<Simultaneous app restore operations in the same namespace can fail>>
+* <<Upgrade fails if source version uses a container image registry that does not require authentication and target version uses a container image registry that requires authentication>>
+* <<Uninstall of Astra Control Center fails to clean up the monitoring-operator pod on the managed cluster>>
+* <<Uninstall of Astra Control Center fails to clean up Traefik CRDs>>
+
+
+
+
+== ユーザー定義ラベルを持つアプリケーションは、「削除済み」状態になります
+
+存在しない k8s ラベルを持つアプリケーションを定義すると、 Astra Control Center はそのアプリケーションを作成、管理し、すぐに削除します。この問題を回避するには、 Astra Control Center でアプリケーションを管理した後でポッドとリソースに Kubernetes ラベルを追加します。
+
+
+
+== アプリケーションバックアップの実行を停止できません
+
+実行中のバックアップを停止する方法はありません。バックアップを削除する必要がある場合は、完了するまで待ってから、の手順を実行してください link:../use/protect-apps.html#delete-backups["バックアップを削除します"]。失敗したバックアップを削除するには、を使用します link:https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API の略"^]。
+
+
+
+== Trident は、バックアップからアプリケーションをリストアする際に、元の PV よりも大きな PV を作成します
+
+バックアップの作成後に永続ボリュームのサイズを変更し、そのバックアップからリストアすると、永続ボリュームのサイズはバックアップのサイズではなく PV の新しいサイズと一致します。
+
+
+
+== クローンのパフォーマンスが大規模な永続ボリュームによる影響を受ける
+
+非常に大容量で消費されている永続ボリュームのクローンが、オブジェクトストアへのクラスタアクセスによって断続的に低速になる可能性があります。クローンが停止し、データが 30 分以上コピーされていない場合、 Astra Control はクローン処理を終了します。
+
+
+
+== 特定のバージョンの PostgreSQL を使用すると、アプリケーションクローンが失敗します
+
+Bitnami PostgreSQL 11.5.0 チャートを使用すると、同じクラスタ内のアプリケーションクローンは一貫して失敗します。正常にクローニングするには、以前のバージョンのグラフを使用してください。
+
+
+
+== サービスアカウントレベルの OCP セキュリティコンテキスト制約（ SCC ）を使用すると、アプリケーションのクローンが失敗する
+
+OCP クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されている場合、アプリケーションのクローニングが失敗することがあります。アプリケーションのクローンが失敗すると、 Astra Control Center の管理対象アプリケーション領域にステータス「 Removed 」と表示されます。を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Application_clone_is_failing_for_an_application_in_Astra_Control_Center["技術情報アーティクル"] を参照してください。
+
+
+
+== ストレージクラスを設定してアプリケーションを導入すると、アプリケーションのクローンが失敗する
+
+ストレージクラスを明示的に設定してアプリケーションをデプロイした後 ( たとえば、「 helm install...-set global.storageClass=NetApp-cvs-perf-extreme 」 ) 、アプリケーションのクローンを作成しようとすると、ターゲットクラスタに最初に指定されたストレージクラスが必要になります。ストレージクラスを明示的に設定したアプリケーションを、同じストレージクラスを含まないクラスタにクローニングすると、失敗します。このシナリオではリカバリ手順はありません。
+
+
+
+== Astra Control Center のインスタンス間でバケットを再利用すると、障害が発生する
+
+Astra Control Center の別のインストールまたは以前のインストールで使用されていたバケットを再利用しようとすると、バックアップおよび復元操作が失敗します。別のバケットを使用するか、以前に使用したバケットを完全に消去する必要があります。Astra Control Center のインスタンス間でバケットを共有することはできません。
+
+
+
+== 別のタイプのクレデンシャルを使用するバケットプロバイダタイプを選択すると、データ保護が失敗します
+
+バケットを追加するときは、正しいバケットプロバイダを選択し、そのプロバイダに適したクレデンシャルを入力します。たとえば、タイプとして NetApp ONTAP S3 が許可され、 StorageGRID クレデンシャルが受け入れられますが、このバケットを使用して原因の以降のアプリケーションのバックアップとリストアはすべて失敗します。
+
+
+
+== Astra Control Center インスタンスの削除中にバックアップとスナップショットが保持されない場合があります
+
+評価用ライセンスをお持ちの場合は、 Astra Control Center に障害が発生したときに ASUP を送信していないときにデータが失われないように、アカウント ID を必ず保存してください。
+
+
+
+== クローン操作では、デフォルト以外のバケットは使用できません
+
+アプリケーションのバックアップやリストア時に、バケット ID を必要に応じて指定することができます。ただし、アプリケーションのクローニング処理では、定義済みのデフォルトバケットが常に使用されます。クローンのバケットを変更するオプションはありません。どのバケットを使用するかを制御する必要がある場合は、どちらかを選択できます link:../use/manage-buckets.html#edit-a-bucket["バケットのデフォルト設定を変更する"] または、を実行します  その後にを押します  個別。
+
+
+
+== デフォルトの kubeconfig ファイルに複数のコンテキストが含まれている場合、 Astra Control Center を使用したクラスタの管理が失敗します
+
+複数のクラスタおよびコンテキストで kubeconfig を使用することはできません。を参照してください link:https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Managing_cluster_with_Astra_Control_Center_may_fail_when_using_default_kubeconfig_file_contains_more_than_one_context["技術情報アーティクル"] を参照してください。
+
+
+
+== Trident アプリケーションのデータ管理を試行したときに 500 件の内部サービスエラーが発生しました
+
+アプリケーションクラスタの Trident がオフラインになり（オンラインに戻った）、 500 件の内部サービスエラーが発生してアプリケーションデータ管理を試行した場合は、アプリケーションクラスタ内のすべての Kubernetes ノードを再起動して機能を復元します。
+
+
+
+== カスタムアプリケーション実行フックスクリプトがタイムアウトし、原因のスナップショット後のスクリプトが実行されない
+
+実行フックの実行に 25 分以上かかる場合 ' フックは失敗し ' 戻りコードが N/A のイベント・ログ・エントリが作成されます影響を受けた Snapshot はタイムアウトして失敗とマークされ、タイムアウトを通知するイベントログエントリが生成されます。
+
+実行フックは、実行中のアプリケーションの機能を低下させたり、完全に無効にしたりすることが多いため、カスタム実行フックの実行時間を最小限に抑えるようにしてください。
+
+
+
+== 拡張環境で ASUP tar バンドルのステータスを確認できません
+
+ASUP の収集時に、 UI に表示されるバンドルのステータスは「 collecting 」または「 d one 」として報告されます。大規模な環境では、収集に最大 1 時間かかることがあります。ASUP のダウンロード中、バンドルのネットワークファイル転送速度が不十分になったり、 15 分経っても UI に何も表示されずにダウンロードがタイムアウトする場合があります。ダウンロードに関する問題は、 ASUP のサイズ、クラスタのサイズ、および収集時間が 7 日間の上限を超えた場合に発生します。
+
+
+
+== 外部スナップショットバージョン 4.2.0 を使用している場合、スナップショットは最終的に失敗します
+
+Kubernetes 1.20 または 1.21 で Kubernetes snapshot-controller （別名 external-snapshotter ）バージョン 4.2.0 を使用すると、 Snapshot が失敗することがあります。これを防ぐには、別のを使用してください https://kubernetes-csi.github.io/docs/snapshot-controller.html["サポートされているバージョン"^] バージョン 4.2.1 などの外部 Snapshot データ。 Kubernetes バージョン 1.20 または 1.21 で使用。
+
+
+
+== 同じネームスペースで同時にアプリケーションのリストア処理を実行しようとすると失敗することがあります
+
+ネームスペース内の個別に管理されたアプリケーションを同時にリストアしようとすると、長時間後にリストア処理が失敗することがあります。回避策として、各アプリケーションを一度に 1 つずつリストアします。
+
+
+
+== ソースバージョンが認証を必要としないコンテナイメージレジストリを使用しており、ターゲットバージョンが認証を必要とするコンテナイメージレジストリを使用している場合、アップグレードは失敗します
+
+認証を必要としないレジストリを使用する Astra Control Center システムを、認証を必要とするレジストリを使用する新しいバージョンにアップグレードすると、アップグレードは失敗します。回避策として、次の手順を実行します。
+
+. ネットワーク経由で Astra Control Center クラスタにアクセスできるホストにログインします。
+. ホストが次のように設定されていることを確認します。
++
+** kubectl' バージョン 1.19 以降がインストールされています
+** KUBECONFIG 環境変数は、アストラコントロールセンタークラスタの kubeconfig ファイルに設定されます
+
+
+. 次のスクリプトを実行します。
++
+[source, shell]
+----
+
+namespace="<netapp-acc>"
+statefulsets=("polaris-vault" "polaris-mongodb" "influxdb2" "nats" "loki")
+for ss in ${statefulsets[@]}; do
+	existing=$(kubectl get -n ${namespace} statefulsets.apps ${ss} -o jsonpath='{.spec.template.spec.imagePullSecrets}')
+	if [ "${existing}" = "[{}]" ] || [ "${existing}" = "[{},{},{}]" ]; then
+		kubectl patch -n ${namespace} statefulsets.apps ${ss} --type merge --patch '{"spec": {"template": {"spec": {"imagePullSecrets": []}}}}'
+	else
+		echo "${ss} not patched"
+	fi
+done
+----
++
+次のような出力が表示されます。
+
++
+[listing]
+----
+statefulset.apps/polaris-vault patched
+statefulset.apps/polaris-mongodb patched
+statefulset.apps/influxdb2 patched
+statefulset.apps/nats patched
+statefulset.apps/loki patched
+----
+. を使用してアップグレードを続行します link:../use/upgrade-acc.html#add-the-images-to-your-local-registry["Astra Control Center のアップグレード手順"]。
+
+
+
+
+== Astra Control Center をアンインストールしても、管理対象クラスタで監視オペレータポッドがクリーンアップされない
+
+Astra Control Center をアンインストールする前にクラスタの管理を解除していない場合は、次のコマンドを使用して、ネットアップ監視ネームスペースとネームスペース内のポッドを手動で削除できます。
+
+.手順
+. 「 acc-monitoring 」エージェントを削除します。
++
+[listing]
+----
+oc delete agents acc-monitoring -n netapp-monitoring
+----
++
+結果
+
++
+[listing]
+----
+agent.monitoring.netapp.com "acc-monitoring" deleted
+----
+. ネームスペースを削除します。
++
+[listing]
+----
+oc delete ns netapp-monitoring
+----
++
+結果
+
++
+[listing]
+----
+namespace "netapp-monitoring" deleted
+----
+. リソースの削除を確認します。
++
+[listing]
+----
+oc get pods -n netapp-monitoring
+----
++
+結果
+
++
+[listing]
+----
+No resources found in netapp-monitoring namespace.
+----
+. 監視エージェントが削除されたことを確認：
++
+[listing]
+----
+oc get crd|grep agent
+----
++
+サンプル結果：
+
++
+[listing]
+----
+agents.monitoring.netapp.com                     2021-07-21T06:08:13Z
+----
+. カスタムリソース定義（ CRD ）情報の削除：
++
+[listing]
+----
+oc delete crds agents.monitoring.netapp.com
+----
++
+結果
+
++
+[listing]
+----
+customresourcedefinition.apiextensions.k8s.io "agents.monitoring.netapp.com" deleted
+----
+
+
+
+
+== Astra Control Center をアンインストールしても、 Traefik CRD をクリーンアップできない
+
+Traefik CRD を手動で削除できます。
+
+.手順
+. アンインストールプロセスで削除されなかった CRD を確認します。
++
+[listing]
+----
+kubectl get crds |grep -E 'traefik'
+----
++
+応答
+
++
+[listing]
+----
+ingressroutes.traefik.containo.us             2021-06-23T23:29:11Z
+ingressroutetcps.traefik.containo.us          2021-06-23T23:29:11Z
+ingressrouteudps.traefik.containo.us          2021-06-23T23:29:12Z
+middlewares.traefik.containo.us               2021-06-23T23:29:12Z
+middlewaretcps.traefik.containo.us 				    2021-06-23T23:29:12Z
+serverstransports.traefik.containo.us         2021-06-23T23:29:13Z
+tlsoptions.traefik.containo.us                2021-06-23T23:29:13Z
+tlsstores.traefik.containo.us                 2021-06-23T23:29:14Z
+traefikservices.traefik.containo.us           2021-06-23T23:29:15Z
+----
+. CRD を削除します。
++
+[listing]
+----
+kubectl delete crd ingressroutes.traefik.containo.us ingressroutetcps.traefik.containo.us ingressrouteudps.traefik.containo.us middlewares.traefik.containo.us serverstransports.traefik.containo.us tlsoptions.traefik.containo.us tlsstores.traefik.containo.us traefikservices.traefik.containo.us middlewaretcps.traefik.containo.us
+----
+
+
+
+
+== 詳細については、こちらをご覧ください
+
+* link:../release-notes/resolved-issues.html["解決済みの問題"]
+* link:../release-notes/known-limitations.html["既知の制限"]
+

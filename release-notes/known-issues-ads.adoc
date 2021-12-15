@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-issues-ads.html 
+keywords: astra, control center, ads, data store, bugs, known issues, problems 
+summary: 既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。 
+---
+= Astra Data Store およびこの Astra Control Center リリースでの既知の問題
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。
+
+次の既知の問題は、この最新リリースの Astra Control Center で Astra データストアの管理に影響を与えます。
+
+
+
+== MongoDB ポッドの活性プローブ障害が原因で、 Astra データストアを Astra Control Center のストレージクラスとして使用できない
+
+Astra Control Center の導入時に、ストレージクラスのプロビジョニングツールとして Astra データストアを使用しようとすると、 MongoDB の活性性プローブが失敗し、導入が完了しなくなります。
+
+この問題を修正するには、の完了時に次の変更を行います link:../get-started/install_acc.html#configure-astra-control-center["Astra Control Center のインストールプロセス"]：
+
+. Astra Control Center オペレータ配置 YAML （ Astra_control_center_deployment.yaml ）を設定して、 Helm インストールタイムアウトを変更します。
++
+[listing]
+----
+kubectl set env -n netapp-acc-operator deployment/acc-operator-controller-manager ACCOP_HELM_INSTALLTIMEOUT=20m
+----
+. 更新を Astra_control_center_operator_deployment.yaml に適用します。
++
+[listing]
+----
+kubectl apply -f astra_control_center_operator_deploy.yaml
+----
+. Astra Control Center カスタムリソース（ CR ）ファイル（ Astra _control_center_min YAML ）を編集し、「 PEC ：」の下に次のように記述します。
++
+[listing, subs="+quotes"]
+----
+apiVersion: astra.netapp.io/v1
+kind: AstraControlCenter
+metadata:
+  name: astra
+*spec:*
+  accountName: "Example"
+  astraVersion: "ASTRA_VERSION"
+  astraAddress: "astra.example.com"
+  autoSupport:
+    enrolled: true
+  email: "[admin@example.com]"
+  firstName: "SRE"
+  lastName: "Admin"
+  imageRegistry:
+    name: "[your_registry_path]"
+    secret: "astra-registry-cred"
+  storageClass: "ontap-gold"
+  *additionalValues:*
+    *polaris-mongodb:*
+      *mongodb:*
+        *livenessProbe:*
+          *initialDelaySeconds: 400*
+      *metrics:*
+        *livenessProbe:*
+          *initialDelaySeconds: 400*
+----
+. Astra_control_center_min YAML に更新を適用します。
++
+[listing]
+----
+kubectl apply -f astra_control_center_min.yaml -n [netapp-acc or custom namespace]
+----
+
+
+
+
+== Astra Control Center が、 Astra データストアストレージバックエンドを不明な状態で表示
+
+Astra Control Center は 'Astra Data Store ストレージバックエンドを UI のバックエンドページから Unknown 状態で表示しますこの状況では、ストレージバックエンドを実際に使用でき、通信可能です。ストレージバックエンド内のコンポーネントは正常な状態ではない可能性があり ' ストレージバックエンドが利用可能と表示されるためには正常な状態に戻す必要があります
+
+
+
+== 詳細については、こちらをご覧ください
+
+* link:../release-notes/resolved-issues.html["解決済みの問題"]
+* link:../release-notes/known-issues.html["既知の問題"]
+* link:../release-notes/known-limitations.html["既知の制限"]
+

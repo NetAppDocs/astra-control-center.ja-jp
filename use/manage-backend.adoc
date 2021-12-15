@@ -1,0 +1,85 @@
+---
+sidebar: sidebar 
+permalink: use/manage-backend.html 
+keywords: how to use astra control, what is astra storage, how to set up astra backend storage, ontap storage in astra, kubernetes, 
+summary: オンプレミスの Kubernetes アプリケーション用のストレージを追加Astra Control は、 Trident 、 ONTAP 、関連ストレージクラスなど、導入済みのリソースを検出して使用します。 
+---
+= ストレージバックエンドを管理します
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。ストレージ容量と健全性の詳細を監視できます。 Astra Control Center が Cloud Insights に接続されている場合のパフォーマンスも監視できます。
+
+Astra Control API を使用してストレージバックエンドを管理する方法については、を参照してください link:https://docs.netapp.com/us-en/astra-automation/["Astra の自動化と API に関する情報"^]。
+
+ストレージバックエンドの管理に関連して、次のタスクを実行できます。
+
+* link:../get-started/setup_overview.html#add-a-storage-backend["ストレージバックエンドを追加します"]
+* <<View storage backend details>>
+* <<Unmanage a storage backend>>
+
+
+
+
+== ストレージバックエンドの詳細を表示します
+
+ストレージバックエンドの情報は、ダッシュボードまたはバックエンドオプションで確認できます。
+
+
+
+=== ダッシュボードでストレージバックエンドの詳細を確認します
+
+.手順
+. 左側のナビゲーションから、 * ダッシュボード * を選択します。
+. 状態を示す Storage backend セクションを確認します。
++
+** * 正常でない * ：ストレージが最適な状態ではありません。これは、レイテンシの問題やコンテナの問題が原因でアプリケーションがデグレードした場合などに発生します。
+** * すべて正常 * ：ストレージは管理されており、最適な状態です。
+** * 検出 * ：ストレージは検出されましたが、 Astra Control では管理されていません。
+
+
+
+
+
+
+=== バックエンドからストレージバックエンドの詳細を表示するオプションを選択します
+
+バックエンドの健常性、容量、パフォーマンス（ IOPS スループット、レイテンシ）に関する情報を表示します。
+
+Cloud Insights に接続すると、 Kubernetes アプリケーションが使用しているボリュームが表示されます。このボリュームは、選択したストレージバックエンドに格納されます。
+
+.手順
+. 左側のナビゲーション領域で、 * Backends * を選択します。
+. ストレージバックエンドを選択します。
++
+
+TIP: NetApp Cloud Insights に接続した場合、 Cloud Insights からの抜粋がバックエンドのページに表示されます。
+
++
+image:../use/acc_backends_ci_connection2.png["バックエンドページのスクリーンショット"]
+
+. Cloud Insights に直接移動するには、指標の画像の横にある * Cloud Insights * アイコンをクリックします。
+
+
+
+
+== ストレージバックエンドの管理を解除します
+
+バックエンドの管理を解除できます。
+
+.手順
+. 左ナビゲーションから、 * Backends * を選択します。
+. バックエンドストレージを選択します。
+. [ アクション ] メニューから、 *Unmanage* を選択します。
+. 「 unmanage 」と入力して削除を確認します。
+. 「 * Yes 、 remove storage backend * 」を選択します。
+
+
+
+
+== 詳細については、こちらをご覧ください
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+

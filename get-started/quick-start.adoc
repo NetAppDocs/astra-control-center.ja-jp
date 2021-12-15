@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: get-started/quick-start.html 
+keywords: how to get started with astra, astra quick start, astra installation, how to install astra control, deploy, deployment, kubernetes 
+summary: 数ステップで Astra Control を使い始めましょう。 
+---
+= Astra Control Center のクイックスタート
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+このページでは、 Astra Control Center の導入に必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。
+
+ぜひお試しください。Astra Control Center を試す場合は、 90 日間の評価ライセンスを使用できます。を参照してください link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["ライセンス情報"] を参照してください。
+
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> Kubernetes クラスタの要件を確認します
+* Astra は、 Trident が設定された ONTAP ストレージバックエンドまたは Astra データストアストレージバックエンドを使用して、 Kubernetes クラスタと連携します。
+* クラスタが正常な状態で稼働し、少なくとも 3 つのオンラインワーカーノードが必要です。
+* クラスタで Kubernetes が実行されている必要があります。
+
+
+[role="quick-margin-para"]
+link:../get-started/requirements.html["Astra Control Center の要件の詳細をご覧ください"]。
+
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt="2"></span> Astra Control Center をダウンロードしてインストールします
+* から Astra Control Center をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイトの「 Astra Control Center Downloads 」ページ"^]。
+* Astra Control Center をローカル環境にインストールします。
++
+必要に応じて、 Red Hat OperatorHub から Astra Control Center をインストールします。
+
+* ONTAP ストレージバックエンドに基づく Trident 構成を検出または、 Astra データストアクラスタをストレージバックエンドとして検出します。
++
+イメージは OpenShift レジストリにインストールするか、ローカルレジストリを使用します。
+
+
+
+[role="quick-margin-para"]
+link:../get-started/install_acc.html["Astra Control Center のインストールの詳細"]。
+
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] Alt="3"></span> 初期設定タスクをいくつか実行します
+* ライセンスを追加します
+* Kubernetes クラスタと Astra Control Center を追加すると、詳細が検出されます。
+* ONTAP または Astra データストアストレージバックエンドを追加します。
+* 必要に応じて、アプリケーションバックアップを格納するオブジェクトストアバケットを追加します。
+
+
+[role="quick-margin-para"]
+link:../get-started/setup_overview.html["初期セットアッププロセスの詳細については、こちらをご覧ください"]。
+
+[role="quick-margin-list"]
+Astra Control Center のセットアップが完了したら、次の手順を実行します。
+
+* アプリを管理します。 link:../use/manage-apps.html["アプリの管理方法については、こちらをご覧ください"]。
+* 必要に応じて、 NetApp Cloud Insights に接続し、 Astra Control Center UI 内のシステム、容量、およびスループットの健全性に関する指標を表示します。 link:../use/monitor-protect.html["Cloud Insights への接続の詳細については、こちらをご覧ください"]。
+
+
+[role="quick-margin-para"]
+link:../get-started/install_acc.html["Astra Control Center をインストールします"]。
+
+
+
+== 詳細については、こちらをご覧ください
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+

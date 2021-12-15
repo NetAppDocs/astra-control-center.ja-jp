@@ -1,0 +1,247 @@
+---
+sidebar: sidebar 
+permalink: get-started/setup_overview.html 
+keywords: set up astra control, setup astra control, setting up Astra Control Center, astra control license, add cluster, import storage, add bucket 
+summary: Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。 
+---
+= Astra Control Center をセットアップします
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra Control Center は、 ONTAP と Astra のデータストアをバックエンドストレージとしてサポートおよび監視します。Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。
+
+.タスク
+* <<Add a license for Astra Control Center>>
+* <<Add cluster>>
+* <<Add a storage backend>>
+* <<Add a bucket>>
+
+
+
+
+== Astra Control Center のライセンスを追加します
+
+UI またはを使用して新しいライセンスを追加できます https://docs.netapp.com/us-en/astra-automation/index.html["API"^] Astra Control Center の全機能を利用できます。ライセンスがないと、 Astra Control Center の使用は、ユーザの管理と新しいクラスタの追加に限定されます。
+
+から Astra Control Center をダウンロードした場合 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]には、 NetApp License File （ NLF ）もダウンロードします。このライセンスファイルにアクセスできることを確認してください。
+
+
+NOTE: 既存の評価版またはフルライセンスを更新するには、を参照してください link:../use/update-licenses.html["既存のライセンスを更新する"]。
+
+
+
+=== フルライセンスまたは評価ライセンスを追加します
+
+Astra Control Center ライセンスは、 Kubernetes CPU ユニットを使用して CPU リソースを測定します。ライセンスには、管理対象のすべての Kubernetes クラスタのワーカーノードに割り当てられた CPU リソースが含まれている必要があります。ライセンスを追加する前に、からライセンスファイル（ NLF ）を取得する必要があります link:https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
+
+また、 Astra Control Center に評価ライセンスをお試しいただくこともできます。このライセンスは、 Astra Control Center をダウンロードした日から 90 日間使用できます。登録すると、無償トライアルに登録できます link:https://cloud.netapp.com/astra-register["こちらをご覧ください"^]。
+
+
+NOTE: インストールがライセンス数を超えると、 Astra Control Center は新しいアプリケーションを管理できなくなります。容量を超えるとアラートが表示されます。
+
+.手順
+. Astra Control Center UI にログインします。
+. 「 * アカウント * > * ライセンス * 」を選択します。
+. 「 * ライセンスの追加 * 」を選択します。
+. ダウンロードしたライセンスファイル（ NLF ）を参照します。
+. 「 * ライセンスの追加 * 」を選択します。
+
+
+*Account*>*License* ページには、ライセンス情報、有効期限、ライセンスシリアル番号、アカウント ID 、および使用されている CPU ユニットが表示されます。
+
+
+NOTE: 評価用ライセンスをお持ちの場合は、 Astra Control Center に障害が発生したときに ASUP を送信していないときにデータが失われないように、アカウント ID を必ず保存してください。
+
+
+
+== クラスタを追加
+
+アプリケーションの管理を開始するには、 Kubernetes クラスタを追加し、コンピューティングリソースとして管理します。Kubernetes アプリケーションを検出するには、 Astra Control Center のクラスタを追加する必要があります。Astra データストアの場合は、 Astra データストアによってプロビジョニングされたボリュームを使用するアプリケーションを含む Kubernetes アプリケーションクラスタを追加します。
+
+
+TIP: 他のクラスタを Astra Control Center に追加して管理する前に、 Astra Control Center が最初に導入したクラスタを管理することをお勧めします。指標およびトラブルシューティング用の Kubemetrics データとクラスタ関連データを送信するには、最初のクラスタを管理下に配置する必要があります。Add Cluster * 機能を使用して、 Astra Control Center でクラスタを管理できます。
+
+.必要なもの
+
+IMPORTANT: クラスタを追加する前に、必要なを確認し、実行しておきます link:add-cluster-reqs.html["前提条件となるタスク"^]。
+
+.手順
+. Astra Control Center UI の * ダッシュボード * から、クラスタセクションで * 追加 * を選択します。
+. 表示された「クラスタを追加」ウィンドウで、「 kubeconfig .yaml 」ファイルをアップロードするか、「 kubeconfig .yaml 」ファイルの内容を貼り付けます。
++
+
+NOTE: 「 kubeconfig .yaml 」ファイルには、 1 つのクラスタのクラスタ・クレデンシャルのみを含める必要があります。
+
++
+image:cluster-creds.png["に、クラスタの kubeconfig .yaml をアップロードする画面を示します。"]
+
++
+
+IMPORTANT: 独自の「 kubeconfig 」ファイルを作成する場合は、その中で * 1 つの * コンテキストエレメントのみを定義する必要があります。を参照してください https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes のドキュメント"^] 「 kubeconfig 」ファイルの作成方法については、を参照してください。
+
+. クレデンシャル名を指定します。デフォルトでは、クレデンシャル名がクラスタの名前として自動的に入力されます。
+. 「ストレージの設定」を選択します。
+. この Kubernetes クラスタに使用するストレージクラスを選択し、 * Review * を選択します。
++
+
+NOTE: ONTAP ストレージまたは Astra データストアからバックアップされた Trident ストレージクラスを選択する必要があります。
+
++
+image:cluster-storage.png["クラスタで使用されるストレージクラスが表示されます。"]
+
+. 情報を確認し、問題がない場合は「 * クラスタの追加 * 」を選択します。
+
+
+クラスタが「 Discovering * 」ステータスになり、「 Running 」に変わります。Kubernetes クラスタが正常に追加され、 Astra Control Center で管理できるようになりました。
+
+
+IMPORTANT: Astra Control Center で管理するクラスタを追加したあと、監視オペレータの配置に数分かかる場合があります。それまでは、通知アイコンが赤に変わり、 * モニタリングエージェントステータスチェック失敗 * イベントが記録されます。この問題は無視してかまいません。問題は、 Astra Control Center が正しいステータスを取得したときに解決します。数分で問題が解決しない場合は、クラスタに移動し、「 OC get pod -n NetApp-monitoring 」を開始点として実行します。問題をデバッグするには、監視オペレータのログを調べる必要があります。
+
+
+
+== ストレージバックエンドを追加します
+
+ストレージバックエンドを追加して、 Astra Control がリソースを管理できるようにすることができます。ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。
+
+検出されたストレージバックエンドを追加するには、ダッシュボードまたはバックエンドメニューからプロンプトを選択します。
+
+.必要なもの
+* これで完了です link:../get-started/setup_overview.html#add-cluster["クラスタが追加されました"] また、 Astra Control によって管理されます。
++
+
+NOTE: 管理対象クラスタには、 Astra Control によって検出可能なサポート対象のバックエンドが接続されています。
+
+* Astra データストアのインストールの場合： Kubernetes アプリケーションクラスタを追加しておきます。
++
+
+NOTE: Astra Data Store 用の Kubernetes アプリケーションクラスタを追加すると、検出されたバックエンドのリストに「 unmanaged 」と表示されます。次に、 Astra データストアを含むコンピューティングクラスタを追加し、 Kubernetes アプリケーションクラスタの基盤を構築する必要があります。これは、 UI の * Backends * から実行できます。クラスタの [Actions] メニューを選択し、 [`Manage] を選択して、およびを選択します link:../get-started/setup_overview.html#add-cluster["クラスタを追加"]。「 unmanaged 」のクラスタ状態が Kubernetes クラスタの名前に変わったら、バックエンドの追加に進むことができます。
+
+
+
+.手順
+. 次のいずれかを実行します。
++
+** ダッシュボードから * ：
++
+... ダッシュボードストレージバックエンドセクションで、 * 管理 * を選択します。
+... Dashboard Resource Summary > Storage Backends セクションで、 * Add * を選択します。
+
+
+** バックエンドから * ：
++
+... 左側のナビゲーション領域で、 * Backends * を選択します。
+... 「 * Manage * 」を選択します。
+
+
+
+
+. バックエンドの種類に応じて、次のいずれかの操作を行います。
++
+** * Astra データストア * ：
++
+... 「 * Astra Data Store * 」タブを選択します。
+... 管理対象のコンピューティングクラスタを選択し、 * 次へ * をクリックします。
+... バックエンドの詳細を確認し、「 * ストレージバックエンドの管理 * 」を選択します。
+
+
+** * ONTAP * ：
++
+... ONTAP の管理者クレデンシャルを入力し、「 * Review * 」を選択します。
+... バックエンドの詳細を確認し、 * Manage * を選択します。
+
+
+
+
++
+バックエンドは ' サマリー情報とともに ' リスト内の [Available （使用可能） ] 状態で表示されます
+
+
+
+
+NOTE: バックエンドが表示されるようにページを更新する必要がある場合があります。
+
+
+
+== バケットを追加します
+
+アプリケーションと永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションのクローニングを行う場合は、オブジェクトストアバケットプロバイダの追加が不可欠です。Astra Control は、これらのバックアップまたはクローンを、定義したオブジェクトストアバケットに格納します。
+
+バケットを追加すると、 Astra Control によって、 1 つのバケットがデフォルトのバケットインジケータとしてマークされます。最初に作成したバケットがデフォルトバケットになります。
+
+アプリケーション構成と永続的ストレージを同じクラスタにクローニングする場合、バケットは必要ありません。
+
+次のいずれかのバケットタイプを使用します。
+
+* NetApp ONTAP S3
+* NetApp StorageGRID S3 の略
+* 汎用 S3
+
+
+
+NOTE: Astra Control Center は Amazon S3 を汎用 S3 バケットプロバイダとしてサポートしていますが、 Astra Control Center は Amazon の S3 サポートを要求するすべてのオブジェクトストアベンダーをサポートしているわけではありません。
+
+Astra Control API を使用してバケットを追加する手順については、を参照してください link:https://docs.netapp.com/us-en/astra-automation/["Astra の自動化と API に関する情報"^]。
+
+.手順
+. 左側のナビゲーション領域で、 * バケット * を選択します。
++
+.. 「 * 追加」を選択します。
+.. バケットタイプを選択します。
++
+
+NOTE: バケットを追加するときは、正しいバケットプロバイダを選択し、そのプロバイダに適したクレデンシャルを指定します。たとえば、タイプとして NetApp ONTAP S3 が許可され、 StorageGRID クレデンシャルが受け入れられますが、このバケットを使用して原因の以降のアプリケーションのバックアップとリストアはすべて失敗します。
+
+.. 新しいバケット名を作成するか、既存のバケット名とオプションの概要を入力します。
++
+
+TIP: バケット名と概要は、バックアップを作成するときに後で選択できるバックアップの場所として表示されます。この名前は、保護ポリシーの設定時にも表示されます。
+
+.. S3 エンドポイントの名前または IP アドレスを入力します。
+.. このバケットをすべてのバックアップのデフォルトバケットにする場合は、「このバケットをこのプライベートクラウドのデフォルトバケットにする」オプションを選択します。
++
+
+NOTE: このオプションは、最初に作成したバケットに対しては表示されません。
+
+.. 追加して続行します <<Add S3 access credentials,クレデンシャル情報>>。
+
+
+
+
+
+
+=== S3 アクセスクレデンシャルを追加します
+
+S3 アクセスクレデンシャルはいつでも追加できます。
+
+.手順
+. バケット（ Buckets ）ダイアログで、 * 追加（ Add ） * または * 既存の * を使用（ Use Existing * ）タブのいずれかを選択します。
++
+.. Astra Control の他のクレデンシャルと区別するクレデンシャルの名前を入力します。
+.. クリップボードからコンテンツを貼り付けて、アクセス ID とシークレットキーを入力します。
+
+
+
+
+
+
+== 次の手順
+
+Astra Control Center にログインしてクラスタを追加したので、 Astra Control Center のアプリケーションデータ管理機能を使い始めることができます。
+
+* link:../use/manage-users.html["ユーザを管理します"]
+* link:../use/manage-apps.html["アプリの管理を開始します"]
+* link:../use/protect-apps.html["アプリを保護します"]
+* link:../use/clone-apps.html["アプリケーションをクローニング"]
+* link:../use/manage-notifications.html["通知を管理します"]
+* link:../use/monitor-protect.html#connect-to-cloud-insights["Cloud Insights に接続します"]
+* link:../get-started/add-custom-tls-certificate.html["カスタム TLS 証明書を追加します"]
+
+
+[discrete]
+== 詳細については、こちらをご覧ください
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+* link:../release-notes/known-issues.html["既知の問題"]
+

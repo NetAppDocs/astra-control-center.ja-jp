@@ -1,0 +1,55 @@
+---
+section: use
+title: Astra を使用する
+entries:
+- title: アプリの管理
+  entries:
+  - title: アプリの管理を開始します
+    url: "/use/manage-apps.html"
+  - title: カスタムアプリケーションを定義します
+    url: "/use/define-custom-app.html"
+- title: アプリを保護します
+  entries:
+  - title: アプリを保護します
+    url: "/use/protect-apps.html"
+  - title: アプリケーションのリストア
+    url: "/use/restore-apps.html"
+  - title: アプリケーションのクローン作成と移行
+    url: "/use/clone-apps.html"
+  - title: アプリケーション実行フックを管理します
+    url: "/use/execution-hooks.html"
+    entries:
+    - title: 実行フックの例
+      url: "/use/execution-hook-examples.html"
+- title: アプリケーションとクラスタの健常性を表示します
+  entries:
+  - title: ダッシュボードの概要
+    url: "/use/view-dashboard.html"
+  - title: クラスタの健常性と詳細
+    url: "/use/view-clusters.html"
+  - title: アプリケーションの健全性と詳細
+    url: "/use/view-apps.html"
+- title: アカウントを管理します
+  entries:
+  - title: ユーザを管理します
+    url: "/use/manage-users.html"
+  - title: 通知を管理します
+    url: "/use/manage-notifications.html"
+  - title: クレデンシャルを管理する
+    url: "/use/manage-credentials.html"
+  - title: 既存のライセンスを更新する
+    url: "/use/update-licenses.html"
+- title: バケットを管理する
+  url: "/use/manage-buckets.html"
+- title: ストレージバックエンドを管理します
+  url: "/use/manage-backend.html"
+- title: インフラを監視、保護
+  url: "/use/monitor-protect.html"
+- title: 既存のライセンスを更新する
+  url: "/use/update-licenses.html"
+- title: アプリケーションとクラスタの管理を解除します
+  url: "/use/unmanage.html"
+- title: Astra Control Center をアップグレードします
+  url: "/use/upgrade-acc.html"
+- title: Astra Control Center をアンインストールします
+  url: "/use/uninstall_acc.html"

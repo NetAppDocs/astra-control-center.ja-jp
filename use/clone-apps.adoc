@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: use/clone-apps.html 
+keywords: clone app, clone storage, clone persistent storage, clone data, move workload, clone data, migrate data, data migration, move storage, move application, move data 
+summary: 既存のアプリケーションをクローニングして、同じ Kubernetes クラスタまたは別のクラスタに重複するアプリケーションを作成する。Kubernetes クラスタ間でアプリケーションとストレージを移動する必要がある場合は、クローニングが役立ちます。たとえば、 CI CD パイプラインや Kubernetes ネームスペース間でワークロードを移動できます。 
+---
+= アプリケーションのクローン作成と移行
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+既存のアプリケーションをクローニングして、同じ Kubernetes クラスタまたは別のクラスタに重複するアプリケーションを作成する。Kubernetes クラスタ間でアプリケーションとストレージを移動する必要がある場合は、クローニングが役立ちます。たとえば、 CI / CD パイプラインや Kubernetes ネームスペース間でワークロードを移動できます。Astra の UI またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] アプリケーションのクローン作成と移行を実行します。
+
+
+NOTE: StorageClass が明示的に設定されたアプリケーションを展開し、そのアプリケーションをクローニングする必要がある場合、ターゲットクラスタには元の StorageClass が指定されている必要があります。明示的に StorageClass を設定したアプリケーションを、同じストレージクラスを使用しないクラスタにクローニングすると、失敗します。
+
+
+NOTE: オペレータが配置した Jenkins CI のインスタンスをクローニングする場合は、永続データを手動でリストアする必要があります。これは、アプリケーションの展開モデルの制限事項です。
+
+
+NOTE: クラスタ間でアプリケーションをクローニングする場合、ソースクラスタとデスティネーションクラスタは OpenShift の同じディストリビューションである必要があります。たとえば、 OpenShift 4.7 クラスタからアプリケーションをクローニングする場合は、 OpenShift 4.7 でもあるデスティネーションクラスタを使用します。
+
+Astra Control Center は、アプリケーションのクローンを作成するときに、アプリケーション構成と永続的ストレージのクローンを作成します。
+
+
+NOTE: Astra Control Center の S3 バケットは、使用可能容量を報告しません。Astra Control Center で管理されているアプリケーションのバックアップまたはクローニングを行う前に、 ONTAP または StorageGRID 管理システムでバケット情報を確認します。
+
+[NOTE]
+====
+OpenShift クラスタでアプリケーションをホストするプロジェクトを作成すると、プロジェクト（または Kubernetes ネームスペース）に SecurityContext UID が割り当てられます。Astra Control Center でアプリケーションを保護し、 OpenShift でそのアプリケーションを別のクラスタまたはプロジェクトに移動できるようにするには、アプリケーションを任意の UID として実行できるようにポリシーを追加する必要があります。たとえば、次の OpenShift CLI コマンドは、 WordPress アプリケーションに適切なポリシーを付与します。
+
+OC new-project ワードプレス ` OC adm policy add -scc to -group anyuid system: serviceaccounts:wordpress `OC adm policy add -scc to -user Privileged -z default-n wordpress
+
+====
+アプリケーションを別のクラスタにクローニングするには、デフォルトのバケットが必要です。最初のバケットを追加した時点でデフォルトのバケットになります。
+
+.手順
+. [* アプリケーション ] をクリックします。
+. 次のいずれかを実行します。
++
+** 目的のアプリケーションの [ * アクション * （ * Actions * ） ] 列のドロップダウンリストをクリックする。
+** 目的のアプリケーションの名前をクリックし、ページの右上にあるステータスドロップダウンリストを選択します。
+
+
+. [* Clone* ] をクリックします。
+. * クローンの詳細 * ：クローンの詳細を指定します。
++
+** 名前を入力します。
+** クローンのネームスペースを入力します。
+** クローンのデスティネーションクラスタを選択してください。
+** 既存の Snapshot からクローンを作成するかバックアップを作成するかを選択します。このオプションを選択しない場合、 Astra Control Center はアプリケーションの現在の状態からクローンを作成します。
+
+
+. * 出典 * ：既存のスナップショットまたはバックアップからクローンを作成する場合は、使用するスナップショットまたはバックアップを選択します。
+. [* Review （レビュー） ] をクリックします
+. * Clone Summary * ：クローンの詳細を確認し、 * Clone * をクリックします。
+
+
+Astra Control Center では、入力した情報に基づいてアプリケーションのクローンを作成します。新しいアプリケーション・クローンが [*Applications] ページの [Available （使用可能） ] 状態になっている場合 ' クローン操作は正常に実行されます
+
+
+NOTE: データ保護処理（クローン、バックアップ、リストア）が完了して永続ボリュームのサイズを変更したあと、新しいボリュームのサイズが UI に表示されるまでに最大 20 分かかります。データ保護処理にかかる時間は数分です。また、ストレージバックエンドの管理ソフトウェアを使用してボリュームサイズの変更を確認できます。

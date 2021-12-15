@@ -1,0 +1,274 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-cluster-reqs.html 
+keywords: what are astra prerequisites, what is Astra Control, add kubernetes cluster, astra trident version 
+summary: 評価可能性チェックを実行して、 Astra Control Center にクラスタを追加する準備ができていることを確認する必要があります。 
+---
+= クラスタを追加するための前提条件
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+クラスタを追加する前に、前提条件が満たされていることを確認する必要があります。また、資格チェックを実行して、アストラコントロールセンターにクラスタを追加する準備ができていることを確認する必要があります。
+
+
+
+== クラスタを追加する前に必要な作業
+
+* 次のいずれかのタイプのクラスタ：
++
+** OpenShift 4.6 、 4.7 、または 4.8 を実行するクラスタ。 Trident ストレージクラスは ONTAP 9.5 以降をサポートしています。
+** Rancher 2.5 を実行しているクラスタ
+** Kubernetes 1.19 ~ 1.21 を実行するクラスタ（ 1.21x を含む）
++
+クラスタに 1 つ以上のワーカーノードがあり、テレメトリサービスの実行には 1GB 以上の RAM が使用されていることを確認します。
+
++
+
+NOTE: 管理対象のコンピューティングリソースとして 2 つ目の OpenShift 4.6 、 4.7 、または 4.8 クラスタを追加する場合は、 Astra Trident ボリュームスナップショット機能が有効になっていることを確認する必要があります。ネットアップの公式 Astra Trident をご覧ください https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["手順"^] Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。
+
+
+
+* Astra Control Center （ ACC ）を使用してアプリケーションをバックアップおよび復元するために、バックアップ ONTAP システムに設定されたスーパーユーザーおよびユーザー ID 。ONTAP コマンドラインで次のコマンドを実行します。「 export-policy rule modify -vserver <storage virtual machine name> -policyname <policy name> -ruleindex 1 -superuser sysm -- anon 65534 」
+* 管理者によって定義された Astra Trident 'volumesnapshotclass' オブジェクトAstra Trident の詳細をご確認ください https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["手順"^] Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。
+
+
+
+
+== 資格チェックを実行します
+
+次の資格チェックを実行して、 Astra Control Center にクラスタを追加する準備ができていることを確認します。
+
+.手順
+. Trident のバージョンを確認
++
+[listing]
+----
+kubectl get tridentversions -n trident
+----
++
+Trident が存在する場合は、次のような出力が表示されます。
+
++
+[listing]
+----
+NAME      VERSION
+trident   21.04.0
+----
++
+Trident が存在しない場合は、次のような出力が表示されます。
+
++
+[listing]
+----
+error: the server doesn't have a resource type "tridentversions"
+----
++
+
+NOTE: Trident がインストールされていない場合や、インストールされているバージョンが最新でない場合は、次に進む前に最新バージョンの Trident をインストールする必要があります。を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Trident のドキュメント"^] 手順については、を参照し
+
+. サポートされている Trident ドライバをストレージクラスが使用しているかどうかを確認します。プロビジョニング担当者の名前は「 csi.trident.netapp.io` 」にする必要があります。次の例を参照してください。
++
+[listing]
+----
+kubectl get sc
+NAME                   PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+ontap-gold (default)   csi.trident.netapp.io          Delete          Immediate           true                   5d23h
+thin                   kubernetes.io/vsphere-volume   Delete          Immediate           false                  6d
+----
+
+
+
+
+== admin ロールの kubeconfig を作成します
+
+手順を実行する前に、マシンに次のものがあることを確認してください。
+
+* kubectl'V1.19 以降がインストールされています
+* アクティブなコンテキストのクラスタ管理者権限があるアクティブな kubeconfig です
+
+
+.手順
+. 次の手順でサービスアカウントを作成します。
++
+.. 「 astracontrol-service-account.yaml 」という名前のサービスアカウントファイルを作成します。
++
+名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。
+
++
+[source, subs="specialcharacters,quotes"]
+----
+*astracontrol-service-account.yaml*
+----
++
+[listing]
+----
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: astracontrol-service-account
+  namespace: default
+----
+.. サービスアカウントを適用します。
++
+[listing]
+----
+kubectl apply -f astracontrol-service-account.yaml
+----
+
+
+. 次のようにクラスタ管理者権限を付与します。
++
+.. 「 astracontrol-clusterrolbinding.yaml 」という名前の「 ClusterRoleBinding 」ファイルを作成します。
++
+必要に応じて、サービスアカウントの作成時に変更した名前と名前空間を調整します。
+
++
+[source, subs="specialcharacters,quotes"]
+----
+*astracontrol-clusterrolebinding.yaml*
+----
++
+[listing]
+----
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: astracontrol-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: astracontrol-service-account
+  namespace: default
+----
+.. クラスタロールバインドを適用します。
++
+[listing]
+----
+kubectl apply -f astracontrol-clusterrolebinding.yaml
+----
+
+
+. 「 <context> 」をインストールの正しいコンテキストに置き換えて、サービスアカウントのシークレットをリストします。
++
+[listing]
+----
+kubectl get serviceaccount astracontrol-service-account --context <context> --namespace default -o json
+----
++
+出力の末尾は次のようになります。
+
++
+[listing]
+----
+"secrets": [
+{ "name": "astracontrol-service-account-dockercfg-vhz87"},
+{ "name": "astracontrol-service-account-token-r59kr"}
+]
+----
++
+'ecsレット ' 配列内の各要素のインデックスは 0 から始まります上記の例では、「 astracontrol-service-account-dockercfg-vhz87 」のインデックスは 0 になり、「 astracontrol-service-account-token-r59kr 」のインデックスは 1 になります。出力で、 "token" という単語が含まれるサービスアカウント名のインデックスをメモしてください。
+
+. 次のように kubeconfig を生成します。
++
+.. 「 create-kubeconfig .sh` ファイル」を作成します。前の手順でメモしたトークン・インデックスが 0 でない場合は ' 次のスクリプトの先頭にあるトークン・インデックスの値を正しい値に置き換えます
++
+[source, subs="specialcharacters,quotes"]
+----
+*create-kubeconfig.sh*
+----
++
+[listing]
+----
+# Update these to match your environment. Replace the value for TOKEN_INDEX from
+# the output in the previous step if it was not 0. If you didn't change anything
+# else above, don't change anything else here.
+
+SERVICE_ACCOUNT_NAME=astracontrol-service-account
+NAMESPACE=default
+NEW_CONTEXT=astracontrol
+KUBECONFIG_FILE='kubeconfig-sa'
+TOKEN_INDEX=0
+
+CONTEXT=$(kubectl config current-context)
+
+SECRET_NAME=$(kubectl get serviceaccount ${SERVICE_ACCOUNT_NAME} \
+  --context ${CONTEXT} \
+  --namespace ${NAMESPACE} \
+  -o jsonpath='{.secrets[TOKEN_INDEX].name}')
+TOKEN_DATA=$(kubectl get secret ${SECRET_NAME} \
+  --context ${CONTEXT} \
+  --namespace ${NAMESPACE} \
+  -o jsonpath='{.data.token}')
+
+TOKEN=$(echo ${TOKEN_DATA} | base64 -d)
+
+# Create dedicated kubeconfig
+# Create a full copy
+kubectl config view --raw > ${KUBECONFIG_FILE}.full.tmp
+
+# Switch working context to correct context
+kubectl --kubeconfig ${KUBECONFIG_FILE}.full.tmp config use-context ${CONTEXT}
+
+# Minify
+kubectl --kubeconfig ${KUBECONFIG_FILE}.full.tmp \
+  config view --flatten --minify > ${KUBECONFIG_FILE}.tmp
+
+# Rename context
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  rename-context ${CONTEXT} ${NEW_CONTEXT}
+
+# Create token user
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  set-credentials ${CONTEXT}-${NAMESPACE}-token-user \
+  --token ${TOKEN}
+
+# Set context to use token user
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  set-context ${NEW_CONTEXT} --user ${CONTEXT}-${NAMESPACE}-token-user
+
+# Set context to correct namespace
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  set-context ${NEW_CONTEXT} --namespace ${NAMESPACE}
+
+# Flatten/minify kubeconfig
+kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
+  view --flatten --minify > ${KUBECONFIG_FILE}
+
+# Remove tmp
+rm ${KUBECONFIG_FILE}.full.tmp
+rm ${KUBECONFIG_FILE}.tmp
+----
+.. コマンドをソースにし、 Kubernetes クラスタに適用します。
++
+[listing]
+----
+source create-kubeconfig.sh
+----
+
+
+. （ * オプション * ）クラスタにわかりやすい名前にコベ econfig の名前を変更します。クラスタのクレデンシャルを保護します。
++
+[listing]
+----
+chmod 700 create-kubeconfig.sh
+mv kubeconfig-sa.txt YOUR_CLUSTER_NAME_kubeconfig
+----
+
+
+
+
+== 次の手順
+
+前提条件が満たされていることを確認したら、次は準備ができています link:setup_overview.html["クラスタを追加"^]。
+
+[discrete]
+== 詳細については、こちらをご覧ください
+
+* https://docs.netapp.com/us-en/trident/index.html["Trident のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+

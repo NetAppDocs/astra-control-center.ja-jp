@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: use/update-licenses.html 
+keywords: manage, licenses, licensing, Astra Control Center, add license, update license 
+summary: 評価用ライセンスをフルライセンスに変換したり、既存の評価用ライセンスまたはフルライセンスを新しいライセンスで更新したりできます。 
+---
+= 既存のライセンスを更新する
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+評価用ライセンスをフルライセンスに変換したり、既存の評価用ライセンスまたはフルライセンスを新しいライセンスで更新したりできます。フルライセンスがない場合は、ネットアップの営業担当者に連絡して、ライセンスとシリアル番号の全文を入手してください。Astra の UI またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] 既存のライセンスを更新します。
+
+.手順
+. にログインします https://mysupport.netapp.com/site/["ネットアップサポートサイト"^]。
+. Astra Control Center のダウンロードページにアクセスし、シリアル番号を入力して、ネットアップライセンスファイル（ NLF ）をダウンロードする。
+. Astra Control Center UI にログインします。
+. 左側のナビゲーションから、 * アカウント * > * ライセンス * を選択します。
+. [*Account*>*License*] ページで、既存のライセンスの [status] ドロップダウンメニューをクリックし、 [*Replace*] を選択します。
+. ダウンロードしたライセンスファイルを参照します。
+. 「 * 追加」を選択します。
+
+
+[*Account*>*Licenses*] ページには、ライセンス情報、有効期限、ライセンスシリアル番号、アカウント ID 、および使用されている CPU ユニットが表示されます。

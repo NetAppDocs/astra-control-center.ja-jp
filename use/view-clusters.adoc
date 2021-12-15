@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: use/view-clusters.html 
+keywords: view cluster, cluster storage, cluster overview 
+summary: Astra Control Center にクラスタを追加すると、クラスタの場所、ワーカーノード、永続ボリューム、ストレージクラスなど、クラスタに関する詳細を表示できます。 
+---
+= クラスタの健常性と詳細を表示します
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Astra Control Center で管理するクラスタを追加すると、その場所、ワーカーノード、永続ボリューム、ストレージクラスなど、クラスタに関する詳細を表示できます。
+
+.手順
+. Astra Control Center UI で、 [* Clusters] を選択します。
+. [* Clusters] ページで、詳細を表示するクラスタを選択します。
+. [Overview （概要） ] 、 [* Storage （ * ストレージ） ] 、 [* Activity * （アクティビティ * ） ] タブの情報を表示して、必要な情報を検索します。
++
+** * 概要 * ：状態を含むワーカーノードの詳細。
+** * ストレージ * ：ストレージクラスと状態を含む、コンピューティングに関連付けられた永続的ボリューム。
+** * アクティビティ * ：クラスタに関連するアクティビティを表示します。
+
+
+
+
+
+NOTE: Astra Control Center * Dashboard * から始まるクラスタ情報を表示することもできます。[ * クラスタ * ] タブの [ * リソースサマリ * ] で、管理対象クラスタを選択して [ * クラスタ * ] ページに移動できます。[* Clusters] ページが表示されたら、上記の手順を実行します。

@@ -1,0 +1,94 @@
+---
+settings:
+  name: Astra Control Center
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: true
+    langs: ja-jp,us-en,zh-cn
+sidebar:
+  entries:
+  - title: Astra Control Center のドキュメント
+    url: "/index.html"
+  - section: release-notes
+  - section: concepts
+  - section: get-started
+  - section: use
+  - section: rest-api
+  - section: solutions
+  - section: support
+  - title: 以前のバージョン
+    url: "/acc-earlier-versions.html"
+  - title: 法的通知
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: Astra Control Center の利用を開始しましょう
+    links:
+    - title: Astra Control Center の詳細をご確認ください
+      url: "/concepts/intro.html"
+    - title: Astra Control Center の新機能
+      url: "/release-notes/whats-new.html"
+    - title: リリースノート
+      url: "/release-notes/rn_overview.html"
+    - title: ぜひお試しください
+      url: "/get-started/setup_overview.html#add-a-license-for-astra-control-center"
+    - title: Astra Control Center をインストールします
+      url: "/get-started/install_acc.html"
+  - title: Astra Control Center を使用
+    links:
+    - title: アカウントを管理
+      url: "/use/manage-users.html"
+    - title: アプリの管理
+      url: "/use/manage-apps.html"
+    - title: アプリを保護します
+      url: "/use/protect-apps.html"
+    - title: アプリケーションのクローン作成と移行
+      url: "/use/clone-apps.html"
+  - title: Astra Control API を使用
+    links:
+    - title: Astra Control API の使用を開始します
+      url: https://docs.netapp.com/us-en/astra-automation/get-started/before_get_started.html
+    - title: API リファレンス
+      url: https://docs.netapp.com/us-en/astra-automation/reference/api_reference.html
+    - title: API ワークフロー
+      url: https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html
+  - title: Astra Control Service を使用
+    links:
+    - title: Astra Control Service の概要
+      url: https://docs.netapp.com/us-en/astra/get-started/intro.html
+    - title: 新機能
+      url: https://docs.netapp.com/us-en/astra/release-notes/whats-new.html
+    - title: Astra Control Service のクイックスタート
+      url: https://docs.netapp.com/us-en/astra/get-started/quick-start.html
+  - title: 解決策概要
+    links:
+    - title: Astra Control を使用した PostgreSQL DBaaS
+      url: https://cloud.netapp.com/hubfs/SB-4122-0221-PostgresSQL-DBaaS-with-Astra%20(2).pdf
+    - title: Astra Control を使用した MySQL DBaaS
+      url: https://cloud.netapp.com/hubfs/SB-4110-0221-MySQL-Astra%20(2).pdf
+    - title: Jenkins のライフサイクル管理を簡易化
+      url: https://cloud.netapp.com/hubfs/SB-4100-Jenkins%20(2).pdf
+  - title: デモチュートリアル
+    links:
+    - title: Jenkins をデプロイします
+      url: "/solutions/jenkins-deploy-from-helm-chart.html"
+    - title: MariaDB を導入します
+      url: "/solutions/mariadb-deploy-from-helm-chart.html"
+    - title: MySQL を導入
+      url: "/solutions/mysql-deploy-from-helm-chart.html"
+    - title: Postgres を導入する
+      url: "/solutions/postgres-deploy-from-helm-chart.html"
+  - title: ブログコミュニティ
+    links:
+    - title: スラックチャンネル
+      url: https://netapppub.slack.com/#astra
+    - title: Astra Control ブログ
+      url: https://cloud.netapp.com/blog/topic/astra
+    - title: ネットアップコミュニティ
+      url: https://community.netapp.com/
+    - title: Kubernetes ハブ
+      url: https://cloud.netapp.com/kubernetes-hub
+    - title: サポートへのアクセス
+      url: "/support/get-help.html"

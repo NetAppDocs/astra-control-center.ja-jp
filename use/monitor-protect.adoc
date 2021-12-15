@@ -1,0 +1,251 @@
+---
+sidebar: sidebar 
+permalink: use/monitor-protect.html 
+keywords: proxy, cloud insights, connections, fluent bit, accounts, protect, security 
+summary: 複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合は、 Astra Control Center でそのプロキシサーバーを設定します。NetApp Cloud Insights を使用して、インフラ全体を監視し、詳細を把握することができます。Fluent ビット接続を追加して、コンテナからデータとログを収集できます。 
+---
+= インフラを監視、保護
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合（サポートバンドルをネットアップサポートサイトにアップロードする場合、または Cloud Insights への接続を確立する場合）は、 Astra Control Center でプロキシサーバを設定する必要があります。インフラ全体を監視して詳細を把握するには、 NetApp Cloud Insights への接続を確立します。Astra Control Center によって監視されているシステムから Kubernetes イベントを収集するには、 Fluentd 接続を追加します。
+
+
+NOTE: Cloud Insights 接続を有効にすると、スループット情報をバックエンド * ページで確認できるほか、ストレージバックエンドを選択したあとにここから Cloud Insights に接続できます。ダッシュボード * に関する情報はクラスタセクションでも確認できます。また、ここから Cloud Insights に接続できます。
+
+
+
+== プロキシサーバを追加します
+
+Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合（サポートバンドルをネットアップサポートサイトにアップロードする場合、または Cloud Insights への接続を確立する場合）は、 Astra Control Center でプロキシサーバを設定する必要があります。
+
+
+IMPORTANT: Astra Control Center は、プロキシサーバー用に入力した詳細を検証しません。必ず正しい値を入力してください。
+
+.手順
+. * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
+. [*Account*>*Connections*] を選択します。
+. ドロップダウンリストから [*Connect*] を選択して、プロキシサーバを追加します。
++
+image:proxy-connect.png["は、プロキシ接続を有効にする接続オプションを示しています。"]
+
+. プロキシサーバの名前または IP アドレスとプロキシポート番号を入力します。
+. プロキシサーバで認証が必要な場合は、チェックボックスを選択し、ユーザ名とパスワードを入力します。
+. 「 * 接続」を選択します。
+
+
+入力したプロキシ情報が保存されている場合は、 *Account*>*Connections* ページの *HTTP Proxy* セクションに、接続されていることが示され、サーバー名が表示されます。
+
+image:proxy-new.png["プロキシサーバが正常に接続されたことを示します。"]
+
+
+
+=== プロキシサーバの設定を編集します
+
+プロキシサーバの設定を編集できます。
+
+.手順
+. * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
+. [*Account*>*Connections*] を選択します。
+. ドロップダウンリストから * Edit * を選択して、接続を編集します。
+. サーバの詳細と認証情報を編集します。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+=== プロキシサーバ接続を無効にします
+
+プロキシサーバ接続を無効にすることができます。他の接続が中断される可能性があることを無効にする前に警告が表示されます。
+
+.手順
+. * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
+. [*Account*>*Connections*] を選択します。
+. 接続を無効にするには、ドロップダウンリストから * 切断 * を選択します。
+. 表示されたダイアログボックスで、処理を確認します。
+
+
+
+
+== Cloud Insights に接続します
+
+NetApp Cloud Insights を Astra Control Center インスタンスに接続すると、インフラ全体を監視して詳細に把握できます。Cloud Insights は、 Astra Control Center ライセンスに含まれています。
+
+
+NOTE: Cloud Insights には、 Astra Control Center が使用するネットワークから、またはプロキシサーバー経由で間接的にアクセスできる必要があります。
+
+
+NOTE: Cloud Insights にアストラコントロールセンターを接続すると、 Acquisition Unit ポッドが作成されます。このポッドは、 Astra Control Center で管理されているストレージバックエンドからデータを収集し、 Cloud Insights にプッシュします。このポッドには、 8GB の RAM と 2 つの CPU コアが必要です。
+
+.必要なもの
+* admin * / * owner * 権限を持つ Astra Control Center アカウント。
+* 有効な Astra Control Center ライセンス。
+* Astra Control Center を実行しているネットワークで、インターネットに接続するためにプロキシが必要な場合は、プロキシサーバーです。
+
+
+
+TIP: Cloud Insights を初めて使用する場合は、の機能について理解しておいてください link:https://docs.netapp.com/us-en/cloudinsights/index.html["こちらをご覧ください"^]。
+
+.手順
+. * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
+. [*Account*>*Connections*] を選択します。
+. 接続を追加するには、ドロップダウンリストで * 切断されている * と表示されている * 接続 * を選択します。
++
+image:ci-connect.png["に、ドロップダウンリストから [ 接続（ Connect ） ] オプションを表示して、 Cloud Insights 接続を有効にします。"]
+
+. Cloud Insights API トークンとテナント URL を入力します。テナント URL の形式は次のようになります。
++
+[listing]
+----
+https://<environment-name>.c01.cloudinsights.netapp.com/
+----
++
+テナント URL は、 Cloud Insights ライセンスを取得すると取得されます。テナント URL がない場合は、を参照してください link:https://docs.netapp.com/us-en/cloudinsights/task_cloud_insights_onboarding_1.html["Cloud Insights のドキュメント"^]。
+
++
+.. をダウンロードしてください link:https://docs.netapp.com/us-en/cloudinsights/API_Overview.html#api-access-tokens["API トークン"^]をクリックし、 Cloud Insights テナントの URL にログインします。
+.. Cloud Insights で、 * 読み取り専用 * タイプの API トークンを生成します。
++
+image:cloud-insights-api.png["に、 Cloud Insights API トークン生成ページを示します。"]
+
+.. 「 * Read Only * 」キーをコピーします。Cloud Insights 接続を有効にするには、 [Astra Control Center] ウィンドウに貼り付ける必要があります。
+.. Cloud Insights で、 * 読み取り / 書き込み * タイプの API トークンを生成します。
+.. 「 * Read/Write 」キーをコピーします。Astra Control Center * Connect Cloud Insights * ウィンドウに貼り付ける必要があります。
++
+
+NOTE: * 読み取り専用 * キーと * 読み取り / 書き込み * キーを生成することを推奨します。両方の目的で同じキーを使用することは推奨しません。デフォルトでは、トークンの有効期限は 1 年に設定されています。トークンが期限切れになるまでの最大期間を指定するために、デフォルトの選択を維持することをお勧めします。トークンの有効期限が切れると、テレメトリが停止します。
+
+.. Cloud Insights からコピーしたキーを Astra コントロールセンターに貼り付けます。
+
+
+. 「 * 接続」を選択します。
+
+
+
+IMPORTANT: [ * 接続 ] を選択すると、 [ * アカウント * > * 接続 * ] ページの [ * Cloud Insights * ] セクションで、接続の状態が [ * 保留中 ] に変わります。接続が有効になり、ステータスが * 接続済み * に変わるまで数分かかることがあります。
+
+
+NOTE: Astra Control Center と Cloud Insights UI の間を簡単に行き来するには、両方にログインしていることを確認します。
+
+
+
+=== Cloud Insights でデータを表示します
+
+接続に成功した場合は、「 * アカウント * > * 接続 * 」ページの「 * Cloud Insights * 」セクションに接続されていることが示され、テナントの URL が表示されます。Cloud Insights にアクセスして、データが正常に受信されて表示されることを確認できます。
+
+image:cloud-insights.png["に、アストラコントロールセンターの UI で有効になっている Cloud Insights 接続を示します。"]
+
+何らかの理由で接続に失敗した場合、ステータスは「 * 失敗 * 」と表示されます。失敗の理由は、 UI の右上にある * Notifications * で確認できます。
+
+image:cloud-insights-notifications.png["は、 Cloud Insights 接続が失敗した場合のエラーメッセージを示しています。"]
+
+同じ情報は、「 * アカウント * > * 通知 * 」にも記載されています。
+
+Astra Control Center では、スループット情報をバックエンド * ページで表示したり、ストレージバックエンドを選択した後にここから Cloud Insights に接続したりできます。image:throughput.png["は、 Astra Control Center のバックエンドページのスループット情報を示しています。"]
+
+Cloud Insights に直接移動するには、指標画像の横にある * Cloud Insights * アイコンを選択します。
+
+また、情報は * ダッシュボード * でも確認できます。
+
+image:dashboard-ci.png["は、ダッシュボードに Cloud Insights アイコンを示しています。"]
+
+
+IMPORTANT: Cloud Insights 接続を有効にした後、 Astra Control Center に追加したバックエンドを削除すると、バックエンドは Cloud Insights へのレポートを停止します。
+
+
+
+=== Cloud Insights 接続を編集します
+
+Cloud Insights 接続を編集できます。
+
+
+NOTE: 編集できるのは API キーのみです。Cloud Insights テナント URL を変更するには、 Cloud Insights 接続を切断して新しい URL に接続することを推奨します。
+
+.手順
+. * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
+. [*Account*>*Connections*] を選択します。
+. ドロップダウンリストから * Edit * を選択して、接続を編集します。
+. Cloud Insights 接続設定を編集します。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+=== Cloud Insights 接続を無効にします
+
+Cloud Insights 接続は、 Astra Control Center で管理されている Kubernetes クラスタに対して無効にすることができます。Cloud Insights 接続を無効にしても、すでに Cloud Insights にアップロードされている計測データは削除されません。
+
+.手順
+. * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
+. [*Account*>*Connections*] を選択します。
+. 接続を無効にするには、ドロップダウンリストから * 切断 * を選択します。
+. 表示されたダイアログボックスで、処理を確認します。操作を確定すると、 [*Account*>*Connections*] ページで、 Cloud Insights のステータスが [*Pending （保留中） ] に変わります。ステータスが * 切断された * に変わるまで数分かかります。
+
+
+
+
+== Fluentd に接続します
+
+Astra Control Center から Fluentd エンドポイントにログ（ Kubernetes イベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。
+
+image:fluentbit.png["に、 Astra から Fluentd までのイベントログの概念図を示します。"]
+
+
+NOTE: 管理対象クラスタのイベントログのみが Fluentd に転送されます。
+
+.必要なもの
+* admin * / * owner * 権限を持つ Astra Control Center アカウント。
+* Kubernetes クラスタに Astra Control Center をインストールして実行
+
+
+
+IMPORTANT: Astra Control Center では、 Fluentd サーバーに入力した詳細は検証されません。必ず正しい値を入力してください。
+
+.手順
+. * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
+. [*Account*>*Connections*] を選択します。
+. 接続を追加するには、ドロップダウンリストから [* 接続（ * Connect * ） ] を選択します。
++
+image:connect-fluentd.png["に、 Fluentd への接続を有効にするための UI 画面を示します。"]
+
+. Fluentd サーバーのホスト IP アドレス、ポート番号、および共有キーを入力します。
+. 「 * 接続」を選択します。
+
+
+Fluentd サーバーに入力した詳細が保存されている場合は、 * アカウント * > * 接続 * ページの * Fluentd * セクションに接続されていることが示されます。これで、接続した Fluentd サーバーにアクセスし、イベントログを表示できます。
+
+何らかの理由で接続に失敗した場合、ステータスは「 * 失敗 * 」と表示されます。失敗の理由は、 UI の右上にある * Notifications * で確認できます。
+
+同じ情報は、「 * アカウント * > * 通知 * 」にも記載されています。
+
+
+IMPORTANT: ログ収集に問題がある場合は ' ワーカー・ノードにログインし ' ログが /var/log/container/ で使用可能であることを確認してください
+
+
+
+=== Fluentd 接続を編集します
+
+Fluentd 接続を Astra Control Center インスタンスに編集できます。
+
+.手順
+. * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
+. [*Account*>*Connections*] を選択します。
+. ドロップダウンリストから * Edit * を選択して、接続を編集します。
+. Fluentd エンドポイントの設定を変更します。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+=== Fluentd 接続を無効にします
+
+Astra Control Center インスタンスへの Fluentd 接続を無効にできます。
+
+.手順
+. * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
+. [*Account*>*Connections*] を選択します。
+. 接続を無効にするには、ドロップダウンリストから * 切断 * を選択します。
+. 表示されたダイアログボックスで、処理を確認します。
+
