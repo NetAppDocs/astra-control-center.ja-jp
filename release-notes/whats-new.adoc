@@ -23,8 +23,9 @@ Astra Control Center のアップデートリリース。
 * link:../use/execution-hooks.html["実行フック"]
 * link:../get-started/requirements.html#supported-app-installation-methods["ネームスペースを対象とした演算子を使用して展開されたアプリケーションのサポート"]
 * link:../get-started/requirements.html["アップストリーム Kubernetes と Rancher もサポートしています"]
-* link:../get-started/setup_overview.html#add-a-storage-backend["Astra データストアバックエンドの管理と監視"]
+* link:../get-started/setup_oversview.html#add-a-storage-backend["Astra データストアバックエンドの管理と監視"]
 * link:../use/upgrade-acc.html["Astra Control Center のアップグレード"]
+* link:../get-started/acc_operatorhub_install.html["インストール用の Red Hat OperatorHub オプションです"]
 
 
 .解決済みの問題

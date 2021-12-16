@@ -1,0 +1,190 @@
+---
+sidebar: sidebar 
+permalink: get-started/acc_operatorhub_install.html 
+keywords: how to install astra control center, operator, operatorhub, openshift, install astra control center operator 
+summary: Red Hat OpenShift を使用する場合は、オペレータを使用して Astra Control Center をインストールできます。 
+---
+= OpenShift OperatorHub を使用して Astra Control Center をインストールします
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Red Hat OpenShift を使用する場合は、 Red Hat 認定オペレータを使用して Astra Control Center をインストールできます。この手順を使用して、から Astra Control Center をインストールします https://catalog.redhat.com/software/operators/explore["Red Hat エコシステムカタログ"^] または、 Red Hat OpenShift Container Platform を使用します。
+
+この手順を完了したら、インストール手順に戻ってを実行する必要があります link:../get-started/install_acc.html#verify-system-status["残りのステップ"] インストールが成功したかどうかを確認し、ログオンします。
+
+.必要なもの
+* link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"]。
+* OpenShift クラスタから、すべてのクラスタオペレータが正常な状態にあることを確認します（「 available 」は「 true 」）。
++
+[listing]
+----
+oc get clusteroperators
+----
+* OpenShift クラスタから、すべての API サービスが正常な状態（「 available 」は「 true 」）になっていることを確認します。
++
+[listing]
+----
+oc get apiservices
+----
+* データセンターに Astra Control Center の FQDN アドレスを作成しておきます。
+* 説明したインストール手順を実行するために必要な権限と Red Hat OpenShift Container Platform へのアクセスが必要です。
+
+
+.手順
+* <<Download the Astra Control Center bundle>>
+* <<Unpack the bundle and change directory>>
+* <<Add the images to your local registry>>
+* <<Find the operator install page>>
+* <<Install the operator>>
+* <<Install Astra Control Center>>
+
+
+
+
+== Astra Control Center バンドルをダウンロードします
+
+. から Astra Control Center バンドル（「 Astra - control-ccenter-[version].tar.gz` ）をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
+. から Astra Control Center 証明書とキーの zip をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
+. （任意）次のコマンドを使用して、バンドルのシグニチャを確認します。
++
+[listing]
+----
+openssl dgst -sha256 -verify astra-control-center[version].pub -signature <astra-control-center[version].sig astra-control-center[version].tar.gz
+----
+
+
+
+
+== バンドルを開梱し、ディレクトリを変更します
+
+. 画像を抽出します。
++
+[listing]
+----
+tar -vxzf astra-control-center-[version].tar.gz
+----
+. Astra ディレクトリに移動します。
++
+[listing]
+----
+cd astra-control-center-[version]
+----
+
+
+
+
+== イメージをローカルレジストリに追加します
+
+. Astra Control Center イメージディレクトリ内のファイルをローカルレジストリに追加します。
++
+
+NOTE: 以下の画像の自動ロードについては、サンプルスクリプトを参照してください。
+
++
+.. Docker レジストリにログインします。
++
+[listing]
+----
+docker login [your_registry_path]
+----
+.. Docker にイメージをロードする。
+.. 画像にタグを付けます。
+.. [[[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1></Z1></Z1>_image_local_registry_push]]]]]]]]</Z2> ローカルレジストリにイメージをプッシュ
+
+
++
+[listing]
+----
+export REGISTRY=[Docker_registry_path]
+for astraImageFile in $(ls images/*.tar) ; do
+  # Load to local cache. And store the name of the loaded image trimming the 'Loaded images: '
+  astraImage=$(docker load --input ${astraImageFile} | sed 's/Loaded image: //')
+  astraImage=$(echo ${astraImage} | sed 's!localhost/!!')
+  # Tag with local image repo.
+  docker tag ${astraImage} ${REGISTRY}/${astraImage}
+  # Push to the local repo.
+  docker push ${REGISTRY}/${astraImage}
+done
+----
+
+
+
+
+== オペレータインストールページを検索します
+
+. 次のいずれかの手順を実行して、オペレータインストールページにアクセスします。
++
+** Red Hat OpenShift の Web コンソールから：image:openshift_operatorhub.png["Astra Control Center のインストールページ"]
++
+... OpenShift Container Platform UI にログインします。
+... サイドメニューから、 * 演算子 > OperatorHub * を選択します。
+... NetApp Astra Control Center オペレータを選択します。
+... 「 * Install * 」を選択します。
+
+
+** Red Hat エコシステムカタログから：image:red_hat_catalog.png["Astra Control Center の概要ページ"]
++
+... NetApp Astra Control Center を選択します https://catalog.redhat.com/software/operators/detail/611fd22aaf489b8bb1d0f274["演算子"]。
+... [Deploy and Use] を選択します。
+
+
+
+
+
+
+
+
+== オペレータをインストールします
+
+. 「 * インストールオペレータ * 」ページに必要事項を入力し、オペレータをインストールします。
++
+
+NOTE: オペレータはすべてのクラスタネームスペースで使用できます。
+
++
+.. operator 名前空間または NetApp-acc-operator' 名前空間を選択すると、オペレータのインストール時に自動的に作成されます。
+.. 手動または自動の承認方法を選択します。
++
+
+NOTE: 手動による承認が推奨されます。1 つのクラスタで実行する演算子インスタンスは 1 つだけです。
+
+.. 「 * Install * 」を選択します。
++
+
+NOTE: 手動承認方式を選択した場合は、このオペレータの手動インストール計画を承認するように求められます。
+
+
+
+. コンソールで、 OperatorHub メニューに移動して、オペレータが正常にインストールされたことを確認します。
+
+
+
+
+== Astra Control Center をインストールします
+
+. Astra Control Center オペレータの詳細ビュー内のコンソールから、 [Provided API] セクションの [Create instance] を選択します。
+. Create AstraControlCenter フォーム・フィールドに次のように入力します
++
+.. Astra Control Center の名前を保持または調整します。
+.. （オプション） AutoSupport を有効または無効にします。Auto Support 機能の保持を推奨します。
+.. Astra Control Center のアドレスを入力します。アドレスには 'http://' または https:// を入力しないでください
+.. アカウント名、 E メールアドレス、および管理者の姓を入力します。
+.. デフォルトのボリューム再利用ポリシーをそのまま使用します。
+.. * Image Registry * に、ローカルコンテナイメージのレジストリパスを入力します。アドレスには 'http://' または https:// を入力しないでください
+.. 認証が必要なレジストリを使用する場合は、シークレットを入力します。
+.. 管理者の名を入力します。
+.. リソースの拡張を構成する。
+.. デフォルトのストレージクラスは保持します。
+.. CRD 処理の環境設定を定義します。
+
+
+. 「 Create 」を選択します。
+
+
+
+
+== 次の手順
+
+Astra Control Center が正しくインストールされたことを確認し、を完了します link:../get-started/install_acc.html#verify-system-status["残りのステップ"] ログインしてください。さらに、の導入も完了します 。

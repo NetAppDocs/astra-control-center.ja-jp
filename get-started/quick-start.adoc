@@ -27,7 +27,7 @@ link:../get-started/requirements.html["Astra Control Center の要件の詳細�
 * から Astra Control Center をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイトの「 Astra Control Center Downloads 」ページ"^]。
 * Astra Control Center をローカル環境にインストールします。
 +
-必要に応じて、 Red Hat OperatorHub から Astra Control Center をインストールします。
+必要に応じて、 Red Hat OperatorHub を使用して Astra Control Center をインストールします。
 
 * ONTAP ストレージバックエンドに基づく Trident 構成を検出または、 Astra データストアクラスタをストレージバックエンドとして検出します。
 +

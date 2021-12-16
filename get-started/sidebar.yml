@@ -6,8 +6,13 @@ entries:
   url: "/get-started/requirements.html"
 - title: Astra Control Center のクイックスタート
   url: "/get-started/quick-start.html"
-- title: Astra Control Center をインストールします
-  url: "/get-started/install_acc.html"
+- title: インストールの概要
+  url: "/get-started/install_overview.html"
+  entries:
+  - title: Astra Control Center をインストールします
+    url: "/get-started/install_acc.html"
+  - title: OpenShift OperatorHub を使用して Astra Control Center をインストールします
+    url: "/get-started/acc_operatorhub_install.html"
 - title: Astra Control Center をセットアップします
   url: "/get-started/setup_overview.html"
   entries:

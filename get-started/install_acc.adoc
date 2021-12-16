@@ -4,13 +4,15 @@ permalink: get-started/install_acc.html
 keywords: astra installation, install astra control center, how to install astra control, deploy, download from netapp support 
 summary: 環境に関するいくつかの前提条件に対処した後に Astra Control Center をインストールするには、バンドルをダウンロードして、説明されている手順に従ってインストールします。 
 ---
-= Astra Control Center をインストールします
+= 標準の手順で Astra Control Center をインストールします
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-Astra Control Center をインストールするには、からインストールバンドルをダウンロードします https://mysupport.netapp.com/site/["ネットアップサポートサイト"^] 一連のコマンドを実行して、環境に Astra Control Center Operator と Astra Control Center をインストールします。この手順を使用して、インターネット接続環境またはエアギャップ環境に Astra コントロールセンターをインストールできます。
+Astra Control Center をインストールするには、ネットアップサポートサイトからインストールバンドルをダウンロードし、次の手順を実行して、 Astra Control Center Operator と Astra Control Center を環境にインストールします。この手順を使用して、インターネット接続環境またはエアギャップ環境に Astra コントロールセンターをインストールできます。
+
+Red Hat OpenShift 環境では、を使用することもできます link:../get-started/acc_operatorhub_install.html["代替手順"] OpenShift OperatorHub を使用して Astra Control Center をインストールします。
 
 .必要なもの
 * link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"]。
@@ -32,6 +34,7 @@ OpenShift の例：
 ----
 oc get apiservices
 ----
+* データセンターに Astra Control Center の FQDN アドレスを作成しておきます。
 
 
 Astra Control Center のインストールプロセスでは、次のことが実行されます。
@@ -55,7 +58,7 @@ Astra Control Center をインストールするには、次の手順に従い�
 * <<Unpack the bundle and change directory>>
 * <<Add the images to your local registry>>
 * <<Set up namespace and secret for registries with auth requirements>>
-* <<Configure the Astra Control Center operator>>
+* <<Install the Astra Control Center operator>>
 * <<Configure Astra Control Center>>
 * <<Complete Astra Control Center and operator installation>>
 * <<Verify system status>>
@@ -201,7 +204,7 @@ secret/astra-registry-cred created
 
 
 
-== Astra Control Center オペレータを設定します
+== Astra Control Center オペレータを設置します
 
 . Astra Control Center オペレータの配備 YAML (`Astra_control_center_deployment.yaml ') を編集して、ローカルのレジストリと秘密を参照します。
 +
@@ -265,6 +268,31 @@ spec:
         imagePullPolicy: IfNotPresent
       *imagePullSecrets: []*
 ----
+. Astra Control Center オペレータをインストールします。
++
+[listing]
+----
+kubectl apply -f astra_control_center_operator_deploy.yaml
+----
++
+回答例：
+
++
+[listing]
+----
+namespace/netapp-acc-operator created
+customresourcedefinition.apiextensions.k8s.io/astracontrolcenters.astra.netapp.io created
+role.rbac.authorization.k8s.io/acc-operator-leader-election-role created
+clusterrole.rbac.authorization.k8s.io/acc-operator-manager-role created
+clusterrole.rbac.authorization.k8s.io/acc-operator-metrics-reader created
+clusterrole.rbac.authorization.k8s.io/acc-operator-proxy-role created
+rolebinding.rbac.authorization.k8s.io/acc-operator-leader-election-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/acc-operator-manager-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/acc-operator-proxy-rolebinding created
+configmap/acc-operator-manager-config created
+service/acc-operator-controller-manager-metrics-service created
+deployment.apps/acc-operator-controller-manager created
+----
 
 
 
@@ -326,31 +354,6 @@ spec:
 
 == Astra Control Center とオペレータのインストールを完了します
 
-. Astra Control Center オペレータをインストールします。
-+
-[listing]
-----
-kubectl apply -f astra_control_center_operator_deploy.yaml
-----
-+
-回答例：
-
-+
-[listing]
-----
-namespace/netapp-acc-operator created
-customresourcedefinition.apiextensions.k8s.io/astracontrolcenters.astra.netapp.io created
-role.rbac.authorization.k8s.io/acc-operator-leader-election-role created
-clusterrole.rbac.authorization.k8s.io/acc-operator-manager-role created
-clusterrole.rbac.authorization.k8s.io/acc-operator-metrics-reader created
-clusterrole.rbac.authorization.k8s.io/acc-operator-proxy-role created
-rolebinding.rbac.authorization.k8s.io/acc-operator-leader-election-rolebinding created
-clusterrolebinding.rbac.authorization.k8s.io/acc-operator-manager-rolebinding created
-clusterrolebinding.rbac.authorization.k8s.io/acc-operator-proxy-rolebinding created
-configmap/acc-operator-manager-config created
-service/acc-operator-controller-manager-metrics-service created
-deployment.apps/acc-operator-controller-manager created
-----
 . 前の手順で NetApp-acc` （またはカスタム）ネームスペースを作成していない場合は、次のようにします。
 +
 [listing]
@@ -384,6 +387,9 @@ astracontrolcenter.astra.netapp.io/astra created
 
 
 == システムステータスを確認します
+
+
+NOTE: OpenShift を使用する場合は、同等の OC コマンドを検証手順に使用できます。
 
 . すべてのシステムコンポーネントが正常にインストールされたことを確認します。
 +
