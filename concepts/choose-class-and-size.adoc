@@ -11,7 +11,7 @@ summary: Astra Control Center は、 ONTAP ストレージクラスまたは Ast
 
 
 [role="lead"]
-Astra Control Center は、バックエンドストレージとして ONTAP または Astra データストアをサポートします。ストレージクラスと永続的ボリューム（ PV ）のサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。
+Astra Control Center は、 ONTAP または Astra データストアをストレージバックエンドとしてサポートします。ストレージクラスと永続的ボリューム（ PV ）のサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。
 
 
 
@@ -35,7 +35,7 @@ NOTE: Trident のストレージクラスは、 Astra Control Center の外部�
 
 Astra Control Center にクラスタを追加すると、そのクラスタで以前に設定したストレージクラスをデフォルトのストレージクラスとして選択するように求められます。このストレージクラスは、永続ボリューム要求（ PVC ）でストレージクラスが指定されていない場合に使用されます。デフォルトのストレージクラスは、 Astra Control Center 内でいつでも変更できます。また、 PVC または Helm チャート内のストレージクラスの名前を指定することで、任意のストレージクラスをいつでも使用できます。
 
-Astra Control Center を Astra Data Store バックエンドストレージと統合して使用する場合、インストール後にストレージクラスは定義されません。Trident のデフォルトストレージクラスを作成し、ストレージバックエンドに適用する必要があります。デフォルトの Astra データストアストレージクラスの作成方法については、 Astra データストアの情報を参照してください。
+Astra Control Center を Astra データストアストレージバックエンドと統合して使用する場合、インストール後にストレージクラスは定義されません。Trident のデフォルトストレージクラスを作成し、ストレージバックエンドに適用する必要があります。を参照してください https://docs.netapp.com/us-en/astra-data-store/get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend["Astra データストア入門"] をクリックして、デフォルトの Astra データストアストレージクラスを作成します。
 
 
 

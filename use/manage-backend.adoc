@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/manage-backend.html 
-keywords: how to use astra control, what is astra storage, how to set up astra backend storage, ontap storage in astra, kubernetes, 
+keywords: how to use astra control, what is astra storage, how to set up astra storage backend, ontap storage in astra, kubernetes, 
 summary: オンプレミスの Kubernetes アプリケーション用のストレージを追加Astra Control は、 Trident 、 ONTAP 、関連ストレージクラスなど、導入済みのリソースを検出して使用します。 
 ---
 = ストレージバックエンドを管理します
@@ -71,7 +71,7 @@ image:../use/acc_backends_ci_connection2.png["バックエンドページのス�
 
 .手順
 . 左ナビゲーションから、 * Backends * を選択します。
-. バックエンドストレージを選択します。
+. ストレージバックエンドを選択します。
 . [ アクション ] メニューから、 *Unmanage* を選択します。
 . 「 unmanage 」と入力して削除を確認します。
 . 「 * Yes 、 remove storage backend * 」を選択します。

@@ -10,7 +10,7 @@ summary: Astra Control Center をインストールして UI にログインし�
 :imagesdir: ../media/get-started/
 
 
-Astra Control Center は、 ONTAP と Astra のデータストアをバックエンドストレージとしてサポートおよび監視します。Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。
+Astra Control Center は、 ONTAP と Astra データストアをストレージバックエンドとしてサポートおよび監視します。Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。
 
 .タスク
 * <<Add a license for Astra Control Center>>
@@ -58,7 +58,7 @@ NOTE: 評価用ライセンスをお持ちの場合は、 Astra Control Center �
 
 == クラスタを追加
 
-アプリケーションの管理を開始するには、 Kubernetes クラスタを追加し、コンピューティングリソースとして管理します。Kubernetes アプリケーションを検出するには、 Astra Control Center のクラスタを追加する必要があります。Astra データストアの場合は、 Astra データストアによってプロビジョニングされたボリュームを使用するアプリケーションを含む Kubernetes アプリケーションクラスタを追加します。
+アプリケーションの管理を開始するには、 Kubernetes クラスタを追加し、コンピューティングリソースとして管理します。Kubernetes アプリケーションを検出するには、 Astra Control Center のクラスタを追加する必要があります。Astra データストアプレビューでは、 Astra データストアプレビューでプロビジョニングしたボリュームを使用するアプリケーションを含む Kubernetes アプリケーションクラスタを追加します。
 
 
 TIP: 他のクラスタを Astra Control Center に追加して管理する前に、 Astra Control Center が最初に導入したクラスタを管理することをお勧めします。指標およびトラブルシューティング用の Kubemetrics データとクラスタ関連データを送信するには、最初のクラスタを管理下に配置する必要があります。Add Cluster * 機能を使用して、 Astra Control Center でクラスタを管理できます。
@@ -113,7 +113,7 @@ IMPORTANT: Astra Control Center で管理するクラスタを追加したあと
 
 NOTE: 管理対象クラスタには、 Astra Control によって検出可能なサポート対象のバックエンドが接続されています。
 
-* Astra データストアのインストールの場合： Kubernetes アプリケーションクラスタを追加しておきます。
+* Astra データストアプレビューインストールの場合： Kubernetes アプリケーションクラスタを追加しておきます。
 +
 
 NOTE: Astra Data Store 用の Kubernetes アプリケーションクラスタを追加すると、検出されたバックエンドのリストに「 unmanaged 」と表示されます。次に、 Astra データストアを含むコンピューティングクラスタを追加し、 Kubernetes アプリケーションクラスタの基盤を構築する必要があります。これは、 UI の * Backends * から実行できます。クラスタの [Actions] メニューを選択し、 [`Manage] を選択して、およびを選択します link:../get-started/setup_overview.html#add-cluster["クラスタを追加"]。「 unmanaged 」のクラスタ状態が Kubernetes クラスタの名前に変わったら、バックエンドの追加に進むことができます。

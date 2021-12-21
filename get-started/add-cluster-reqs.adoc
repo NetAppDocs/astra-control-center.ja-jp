@@ -18,7 +18,7 @@ summary: 評価可能性チェックを実行して、 Astra Control Center に�
 
 * 次のいずれかのタイプのクラスタ：
 +
-** OpenShift 4.6 、 4.7 、または 4.8 を実行するクラスタ。 Trident ストレージクラスは ONTAP 9.5 以降をサポートしています。
+** OpenShift 4.6 、 4.7 、または 4.8 を実行するクラスタ。 Astra Trident StorageClasses を搭載し、 Astra Data Store または ONTAP 9.5 以降をサポートしています
 ** Rancher 2.5 を実行しているクラスタ
 ** Kubernetes 1.19 ~ 1.21 を実行するクラスタ（ 1.21x を含む）
 +

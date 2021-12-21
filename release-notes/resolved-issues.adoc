@@ -54,4 +54,5 @@ ASUP ポッドが停止または再起動されると、 ASUP の収集が生成
 
 * link:../release-notes/known-issues.html["既知の問題"]
 * link:../release-notes/known-limitations.html["既知の制限"]
+* link:../release-notes/known-issues-ads.html["Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題"]
 

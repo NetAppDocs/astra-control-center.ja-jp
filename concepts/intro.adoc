@@ -59,14 +59,14 @@ Astra Control には、次の 2 つの導入モデルがあります。
 
 
 
-| アプリケーションデータ管理機能とは何ですか？ | バックエンドストレージと外部サービスを除き、両方のプラットフォームで同じ機能を利用できます  a| 
-バックエンドストレージと外部サービスを除き、両方のプラットフォームで同じ機能を利用できます
+| アプリケーションデータ管理機能とは何ですか？ | ストレージバックエンドと外部サービスを除く両方のプラットフォームで同じ機能を利用できます  a| 
+ストレージバックエンドと外部サービスを除く両方のプラットフォームで同じ機能を利用できます
 
 
 
-| バックエンドストレージのサポートについて教えてください。 | ネットアップのクラウドサービス  a| 
+| ストレージバックエンドでサポートされるもの | ネットアップのクラウドサービス  a| 
 * NetApp ONTAP AFF および FAS システム
-* バックエンドストレージとしての Astra データストア
+* ストレージバックエンドとしての Astra データストア
 
 
 |===
@@ -92,8 +92,8 @@ Astra Control Service の概要は次のように機能します。
 
 * Astra Control Service の利用を開始するには、クラウドプロバイダをセットアップし、 Astra アカウントに登録します。
 +
-** GKE クラスタでは、 Astra Control Service はを使用します https://cloud.netapp.com/cloud-volumes-service-for-gcp["NetApp Cloud Volumes Service for Google Cloud"^] を永続ボリュームのバックエンドストレージとして使用します。
-** AKS クラスタの場合、 Astra Control Service はを使用します https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files の特長"^] を永続ボリュームのバックエンドストレージとして使用します。
+** GKE クラスタでは、 Astra Control Service はを使用します https://cloud.netapp.com/cloud-volumes-service-for-gcp["NetApp Cloud Volumes Service for Google Cloud"^] 永続ボリュームのストレージバックエンドとして。
+** AKS クラスタの場合、 Astra Control Service はを使用します https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files の特長"^] 永続ボリュームのストレージバックエンドとして。
 
 
 * 最初の Kubernetes コンピューティングを Astra Control サービスに追加します。Astra Control Service は、次の処理を実行します。
@@ -143,7 +143,7 @@ Astra Control Center の概要は次のように機能します。
 +
 ** ライセンスをセットアップする
 ** 最初のクラスタを追加します。
-** クラスタを追加したときに検出されたバックエンドストレージを追加します。
+** クラスタを追加したときに検出されたストレージバックエンドを追加します。
 ** アプリケーションバックアップを格納するオブジェクトストアバケットを追加します。
 
 
@@ -166,6 +166,7 @@ Astra Control Center は、次のことを行います。
 
 * https://docs.netapp.com/us-en/astra/index.html["Astra Control Service のマニュアル"^]
 * https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-data-store/index.html["Astra データストアのドキュメント"]
 * https://docs.netapp.com/us-en/trident/index.html["Astra Trident のドキュメント"^]
 * https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
 * https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"^]

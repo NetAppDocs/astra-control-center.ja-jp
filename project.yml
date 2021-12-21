@@ -62,6 +62,14 @@ homepage:
       url: https://docs.netapp.com/us-en/astra/release-notes/whats-new.html
     - title: Astra Control Service のクイックスタート
       url: https://docs.netapp.com/us-en/astra/get-started/quick-start.html
+  - title: Astra データストアプレビューを使用
+    links:
+    - title: Astra データストアの概要
+      url: https://docs.netapp.com/us-en/astra-data-store/concepts/intro.html
+    - title: 今回のリリースの Astra データストアの内容
+      url: https://docs.netapp.com/us-en/astra-data-store/release-notes/whats-new.html
+    - title: Astra データストアプレビューのクイックスタート
+      url: https://docs.netapp.com/us-en/astra-data-store/get-started/quick-start.html
   - title: 解決策概要
     links:
     - title: Astra Control を使用した PostgreSQL DBaaS

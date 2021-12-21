@@ -222,8 +222,7 @@ imagePullSecrets:
 ----
 .. 「 kube-rbac プロキシ」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します <<substep_image_local_registry_push,前の手順>>。
 .. 「 acc-operator-controller-manager 」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します <<substep_image_local_registry_push,前の手順>>。
-
-
+.. （ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください link:../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure["その他の必要な変更"] YAML へ。
 +
 [listing, subs="+quotes"]
 ----
@@ -268,6 +267,8 @@ spec:
         imagePullPolicy: IfNotPresent
       *imagePullSecrets: []*
 ----
+
+
 . Astra Control Center オペレータをインストールします。
 +
 [listing]
@@ -325,6 +326,7 @@ IMPORTANT: 認証を必要としないレジストリを使用している場合
 .. インターネットに接続されていないサイトの場合は AutoSupport の「 enrolled 」を「 false 」に変更し、接続されているサイトの場合は「 true 」を保持します。
 .. （オプション）アカウントに関連付けられたユーザの姓「 firstName 」と名「 lastName 」を追加します。この手順は、 UI ですぐに実行することもあとで実行することもできます。
 .. （任意）インストールで必要に応じて、「 torageClass 」の値を別の Trident ストレージクラスリソースに変更します。
+.. （ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください link:../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure["その他の必要な変更"] YAML へ。
 
 
 +

@@ -23,7 +23,7 @@ Astra Control Center のアップデートリリース。
 * link:../use/execution-hooks.html["実行フック"]
 * link:../get-started/requirements.html#supported-app-installation-methods["ネームスペースを対象とした演算子を使用して展開されたアプリケーションのサポート"]
 * link:../get-started/requirements.html["アップストリーム Kubernetes と Rancher もサポートしています"]
-* link:../get-started/setup_oversview.html#add-a-storage-backend["Astra データストアバックエンドの管理と監視"]
+* link:../get-started/setup_overview.html#add-a-storage-backend["Astra データストアプレビューバックエンドの管理と監視"]
 * link:../use/upgrade-acc.html["Astra Control Center のアップグレード"]
 * link:../get-started/acc_operatorhub_install.html["インストール用の Red Hat OperatorHub オプションです"]
 
@@ -34,6 +34,7 @@ Astra Control Center のアップデートリリース。
 
 .既知の問題および制限事項
 * link:../release-notes/known-issues.html["このリリースの既知の問題"]
+* link:../release-notes/known-issues-ads.html["Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題"]
 * link:../release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
 
 
@@ -59,5 +60,6 @@ Astra Control Center の初回リリース。
 
 * link:../release-notes/known-issues.html["このリリースの既知の問題"]
 * link:../release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
+* https://docs.netapp.com/us-en/astra-data-store/index.html["Astra データストアのドキュメント"]
 * link:../acc-earlier-versions.html["以前のバージョンの Astra Control Center ドキュメント"]
 

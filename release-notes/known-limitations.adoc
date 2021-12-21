@@ -115,4 +115,5 @@ Trident は、 Astra Control Center からクラスタの管理を解除して�
 
 * link:../release-notes/resolved-issues.html["解決済みの問題"]
 * link:../release-notes/known-issues.html["既知の問題"]
+* link:../release-notes/known-issues-ads.html["Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題"]
 

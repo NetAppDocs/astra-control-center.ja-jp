@@ -7,6 +7,8 @@ entries:
   url: "/release-notes/whats-new.html"
 - title: 解決済みの問題
   url: "/release-notes/resolved-issues.html"
+- title: Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題
+  url: "/release-notes/known-issues-ads.html"
 - title: 既知の問題
   url: "/release-notes/known-issues.html"
 - title: 既知の制限

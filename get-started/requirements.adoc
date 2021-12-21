@@ -30,13 +30,15 @@ Astra Control Center からクラスタを検出して管理するには、ク�
 * 3 つのワーカーノードに 12 個以上の CPU コア、 32GB RAM 、 50GB のストレージを搭載
 * サービスタイプ「 LoadBalancer 」は、 OpenShift クラスタ内のサービスに送信される入力トラフィックに使用できます
 * Astra Control Center の FQDN をロードバランシング IP アドレスに指定する方法
+* NetApp ONTAP バージョン 9.5 以降をストレージバックエンドとして使用する場合は、 Trident 21.04 以降がインストールされて設定されている必要があります
+* Trident がストレージバックエンドとして使用される場合、 Astra Trident 21.10.1 以降をインストールして設定します
 
 
 
 NOTE: これらの要件は、 OpenShift クラスタ上で実行される唯一のアプリケーションが Astra Control Center であることを前提としています。クラスタで追加のアプリケーションを実行している場合は、それに応じてこれらの最小要件を調整します。
 
 * * イメージレジストリ * ： Astra Control Center ビルドイメージをプッシュできる、既存のプライベート Docker イメージレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
-* * Astra Trident / ONTAP ストレージ構成 * ： Astra Control Center には、 Astra Trident バージョン 21.04 以降がインストールされ、ストレージバックエンドとして NetApp ONTAP バージョン 9.5 以降と連携するように設定されている必要があります。Astra Control Center を使用するには、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。
+* * Astra Trident / ONTAP 構成 * ： Astra Control Center では、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。
 +
 ** ONTAP - NAS
 ** ONTAP-NAS-flexgroup
