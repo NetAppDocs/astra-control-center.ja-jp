@@ -175,7 +175,7 @@ kubectl get serviceaccount astracontrol-service-account --context <context> --na
 
 . 次のように kubeconfig を生成します。
 +
-.. 「 create-kubeconfig .sh` ファイル」を作成します。前の手順でメモしたトークン・インデックスが 0 でない場合は ' 次のスクリプトの先頭にあるトークン・インデックスの値を正しい値に置き換えます
+.. 「 create-kubeconfig .sh` ファイル」を作成します。次のスクリプトの先頭にある「 token_index 」を正しい値に置き換えます。
 +
 [source, subs="specialcharacters,quotes"]
 ----
@@ -184,15 +184,16 @@ kubectl get serviceaccount astracontrol-service-account --context <context> --na
 +
 [listing]
 ----
-# Update these to match your environment. Replace the value for TOKEN_INDEX from
-# the output in the previous step if it was not 0. If you didn't change anything
-# else above, don't change anything else here.
+# Update these to match your environment.
+# Replace TOKEN_INDEX with the correct value
+# from the output in the previous step. If you
+# didn't change anything else above, don't change
+# anything else here.
 
 SERVICE_ACCOUNT_NAME=astracontrol-service-account
 NAMESPACE=default
 NEW_CONTEXT=astracontrol
 KUBECONFIG_FILE='kubeconfig-sa'
-TOKEN_INDEX=0
 
 CONTEXT=$(kubectl config current-context)
 

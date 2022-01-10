@@ -1421,7 +1421,6 @@
   <block id="f087976277d273660b942918b43af841" category="paragraph">出力の末尾は次のようになります。</block>
   <block id="65c0a05d8c47a658174fbed46d46f8e7" category="paragraph">'ecsレット ' 配列内の各要素のインデックスは 0 から始まります上記の例では、「 astracontrol-service-account-dockercfg-vhz87 」のインデックスは 0 になり、「 astracontrol-service-account-token-r59kr 」のインデックスは 1 になります。出力で、 "token" という単語が含まれるサービスアカウント名のインデックスをメモしてください。</block>
   <block id="d3727d544efa902d0381ec79cec3d488" category="list-text">次のように kubeconfig を生成します。</block>
-  <block id="c2e9276c18aefa5ab46cb1b3fc86b3bb" category="list-text">「 create-kubeconfig .sh` ファイル」を作成します。前の手順でメモしたトークン・インデックスが 0 でない場合は ' 次のスクリプトの先頭にあるトークン・インデックスの値を正しい値に置き換えます</block>
   <block id="7d164f3971b504d6203cf274cc77dd35" category="list-text">コマンドをソースにし、 Kubernetes クラスタに適用します。</block>
   <block id="a2f929de0da027192d03a87b325f91cb" category="list-text">（ * オプション * ）クラスタにわかりやすい名前にコベ econfig の名前を変更します。クラスタのクレデンシャルを保護します。</block>
   <block id="3f297ef15cde0668e93b35f2752fd4fd" category="section-title">次の手順</block>
@@ -1742,4 +1741,5 @@
   <block id="9f828d6c562cc0df256e51d5d235c7bb" category="sidebar">Astra データストアの概要</block>
   <block id="9496fd053449dc632695aa62786ebaf1" category="sidebar">今回のリリースの Astra データストアの内容</block>
   <block id="3551ec406ac2e45ff0f50e87c946ab31" category="sidebar">Astra データストアプレビューのクイックスタート</block>
+  <block id="ed6be01d66e94b422222a328f085d0bc" category="list-text">「 create-kubeconfig .sh` ファイル」を作成します。次のスクリプトの先頭にある「 token_index 」を正しい値に置き換えます。</block>
 </blocks>
