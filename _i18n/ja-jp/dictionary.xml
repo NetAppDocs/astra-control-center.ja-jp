@@ -1742,4 +1742,9 @@
   <block id="9496fd053449dc632695aa62786ebaf1" category="sidebar">今回のリリースの Astra データストアの内容</block>
   <block id="3551ec406ac2e45ff0f50e87c946ab31" category="sidebar">Astra データストアプレビューのクイックスタート</block>
   <block id="ed6be01d66e94b422222a328f085d0bc" category="list-text">「 create-kubeconfig .sh` ファイル」を作成します。次のスクリプトの先頭にある「 token_index 」を正しい値に置き換えます。</block>
+  <block id="8a610f3ea380fe1789ef14712ba6b1f0" category="admonition">以下の画像の自動ロードについては、サンプルスクリプトを参照してください。</block>
+  <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">レジストリにログインします。</block>
+  <block id="ea0a75505b0b24811b92c3214821dcac" category="paragraph">Docker ：</block>
+  <block id="ea52c6d9102288140df3fa3417e6d622" category="paragraph">Podman ：</block>
+  <block id="77b70c8d427825f357ab6bf8fd419de6" category="list-text">適切なスクリプトを使用して、イメージのロード、イメージのタグ付け、 [[[[[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;_image_local_registry_push]] ローカルレジストリにイメージをプッシュします。 &lt;/Z2&gt;</block>
 </blocks>

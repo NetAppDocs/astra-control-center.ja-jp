@@ -83,16 +83,26 @@ cd astra-control-center-[version]
 NOTE: 以下の画像の自動ロードについては、サンプルスクリプトを参照してください。
 
 +
-.. Docker レジストリにログインします。
+.. レジストリにログインします。
++
+Docker ：
+
 +
 [listing]
 ----
 docker login [your_registry_path]
 ----
-.. Docker にイメージをロードする。
-.. 画像にタグを付けます。
-.. [[[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1></Z1></Z1>_image_local_registry_push]]]]]]]]</Z2> ローカルレジストリにイメージをプッシュ
++
+Podman ：
 
++
+[listing]
+----
+podman login [your_registry_path]
+----
+.. 適切なスクリプトを使用して、イメージのロード、イメージのタグ付け、 [[[[[</Z1>[</Z1>[</Z1>_image_local_registry_push]] ローカルレジストリにイメージをプッシュします。 </Z2>
++
+Docker ：
 
 +
 [listing]
@@ -108,6 +118,25 @@ for astraImageFile in $(ls images/*.tar) ; do
   docker push ${REGISTRY}/${astraImage}
 done
 ----
++
+Podman ：
+
++
+[listing]
+----
+export REGISTRY=[Registry_path]
+for astraImageFile in $(ls images/*.tar) ; do
+  # Load to local cache. And store the name of the loaded image trimming the 'Loaded images: '
+  astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image(s): //')
+  astraImage=$(echo ${astraImage} | sed 's!localhost/!!')
+  # Tag with local image repo.
+  podman tag ${astraImage} ${REGISTRY}/${astraImage}
+  # Push to the local repo.
+  podman push ${REGISTRY}/${astraImage}
+done
+----
+
+
 
 
 
