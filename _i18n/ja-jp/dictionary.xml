@@ -1747,4 +1747,5 @@
   <block id="ea0a75505b0b24811b92c3214821dcac" category="paragraph">Docker ：</block>
   <block id="ea52c6d9102288140df3fa3417e6d622" category="paragraph">Podman ：</block>
   <block id="77b70c8d427825f357ab6bf8fd419de6" category="list-text">適切なスクリプトを使用して、イメージのロード、イメージのタグ付け、 [[[[[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;_image_local_registry_push]] ローカルレジストリにイメージをプッシュします。 &lt;/Z2&gt;</block>
+  <block id="8ba4664b08ecc7bbd36d1c4a65dfb521" category="list-text">Astra Control Center のバージョンを入力します。たとえば、 21.12.60 と入力します。</block>
 </blocks>
