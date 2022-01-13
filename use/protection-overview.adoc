@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: use/protection-overview.html 
+keywords: backup, back up, backup apps, back up apps, snapshots, snapshot an app, take a snapshot, take a backup, view backups, view snapshots, set policy, set schedule, schedule backups, schedule snapshots 
+summary: Astra Control Center で使用可能なデータ保護の種類と、それらを使用してアプリケーションを保護する最適な方法について説明します。 
+---
+= 保護の概要
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+Astra Control Center を使用して、アプリケーションのバックアップ、クローン、スナップショット、および保護ポリシーを作成できます。アプリケーションをバックアップすることで、サービスや関連データを可能な限り利用できるようになります。災害時にバックアップからリストアすることで、アプリケーションと関連データを最小限の中断で完全にリカバリできます。バックアップ、クローン、 Snapshot を使用すると、ランサムウェアや偶発的なデータ損失、環境障害などの一般的な脅威からデータを保護できます。 link:../concepts/data-protection.html["Astra Control Center で使用可能なデータ保護の種類と、それらを使用するタイミングについて説明します"]。
+
+
+
+== アプリケーション保護のワークフロー
+
+次のワークフロー例を使用して、アプリケーションの保護を開始できます。
+
+
+
+==== すべてのアプリケーションをバックアップ
+
+[role="quick-margin-para"]
+アプリケーションをすぐに保護するには、次の手順を実行します。 link:protect-apps.html#create-a-backup["すべてのアプリケーションの手動バックアップを作成する"]。
+
+
+
+==== 各アプリケーションの保護ポリシーを設定します
+
+[role="quick-margin-para"]
+将来のバックアップとスナップショットを自動化するには、 link:protect-apps.html#configure-a-protection-policy["各アプリケーションの保護ポリシーを設定します"]。たとえば、週単位のバックアップと日単位の Snapshot をそれぞれ 1 カ月ずつ保持して開始できます。手動バックアップやスナップショットよりも、保護ポリシーを使用してバックアップとスナップショットを自動化することを強く推奨します。
+
+
+
+==== オプション：保護ポリシーを調整します
+
+[role="quick-margin-para"]
+アプリとその使用パターンが変化したら、必要に応じて保護ポリシーを調整して、最適な保護を実現します。
+
+
+
+==== 災害が発生した場合は、アプリケーションをリストアします
+
+[role="quick-margin-para"]
+データ損失が発生した場合は、を使用してリカバリできます link:restore-apps.html["最新のバックアップをリストアしています"] まず、各アプリケーションについて説明します。その後、最新の Snapshot をリストアできます（使用可能な場合）。

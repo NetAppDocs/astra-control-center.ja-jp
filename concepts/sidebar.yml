@@ -6,6 +6,8 @@ entries:
   url: "/concepts/intro.html"
 - title: アーキテクチャとコンポーネント
   url: "/concepts/architecture.html"
+- title: データ保護
+  url: "/concepts/data-protection.html"
 - title: 検証済みのアプリケーションと標準のアプリケーションの比較
   url: "/concepts/validated-vs-standard.html"
 - title: ストレージクラスと PV サイズ

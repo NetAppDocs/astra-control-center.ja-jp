@@ -10,6 +10,8 @@ entries:
     url: "/use/define-custom-app.html"
 - title: アプリを保護します
   entries:
+  - title: 保護の概要
+    url: "/use/protection-overview.html"
   - title: アプリを保護します
     url: "/use/protect-apps.html"
   - title: アプリケーションのリストア
