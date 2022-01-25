@@ -11,9 +11,7 @@ summary: Astra では、スナップショットまたはバックアップか�
 
 
 [role="lead"]
-Astra Control Center では、スナップショットまたはバックアップからアプリケーションを復元できます。Astra Control UI またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] アプリを復元するには、
-
-データがオブジェクトストアから転送されるため、バックアップからのリストアには時間がかかることがあります。このため、既存の Snapshot から同じクラスタへのリストアは、他の方法よりも高速です。
+Astra Control を使用すると、スナップショットまたはバックアップからアプリケーションをリストアできます。同じクラスタにアプリケーションをリストアする場合、既存の Snapshot からのリストアは高速です。Astra Control UI またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] アプリを復元するには、
 
 
 NOTE: Helm を使用してアプリケーションを展開する場合、 Astra Control Center には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用して展開されたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 で展開されたアプリケーションはサポートされていません。

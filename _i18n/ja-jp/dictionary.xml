@@ -496,8 +496,6 @@
   <block id="201d245e3b93a26007d42f5f603f6230" category="paragraph">Astra Control Center は、アカウントからユーザーを削除します。</block>
   <block id="02c8c5fbeebdf293d83e1ec96ea30aff" category="summary">Astra では、スナップショットまたはバックアップからアプリケーション構成と永続的ストレージをリストアできます。オブジェクトストアから永続的ストレージのバックアップが転送されるため、既存のバックアップからのリストアが最も高速に完了します。</block>
   <block id="e07596cf624c6e8c354d1188f9bdb6bb" category="doc">アプリケーションのリストア</block>
-  <block id="41b6890553c133e0a80fee28f7a2bce2" category="paragraph">Astra Control Center では、スナップショットまたはバックアップからアプリケーションを復元できます。Astra Control UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> アプリを復元するには、</block>
-  <block id="547ac8d7a81a6b2601261a27b0d9d416" category="paragraph">データがオブジェクトストアから転送されるため、バックアップからのリストアには時間がかかることがあります。このため、既存の Snapshot から同じクラスタへのリストアは、他の方法よりも高速です。</block>
   <block id="e502e50919efc0bce1d30fabf1522cff" category="admonition">Helm を使用してアプリケーションを展開する場合、 Astra Control Center には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用して展開されたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 で展開されたアプリケーションはサポートされていません。</block>
   <block id="aafffef647c1af195c5bf1decab81f7f" category="admonition">別のクラスタにリストアする場合は、同じ永続的ボリュームアクセスモード（ ReadWriteMany など）をクラスタで使用していることを確認してください。デスティネーションの永続ボリュームアクセスモードが異なると、リストア処理は失敗します。</block>
   <block id="9d03fdc967fba647997be40db306a50b" category="paragraph">OpenShift クラスタでアプリケーションをホストするプロジェクトを作成すると、プロジェクト（または Kubernetes ネームスペース）に SecurityContext UID が割り当てられます。Astra Control Center でアプリケーションを保護し、 OpenShift でそのアプリケーションを別のクラスタまたはプロジェクトに移動できるようにするには、アプリケーションを任意の UID として実行できるようにポリシーを追加する必要があります。たとえば、次の OpenShift CLI コマンドは、 WordPress アプリケーションに適切なポリシーを付与します。</block>
@@ -1769,4 +1767,5 @@
   <block id="33bb9df0e608c1dab17890f54a41a8db" category="admonition">_ 最新のバックアップがあるまで、完全に保護することはできません _ 。これは、永続ボリュームから離れたオブジェクトストアにバックアップが格納されるために重要です。障害または事故によってクラスタとその永続的ストレージが消去された場合は、バックアップをリカバリする必要があります。Snapshot を使用してリカバリすることはできません。</block>
   <block id="999cc42b236c7aee1157ff02d6f1bcd5" category="section-title">クローン</block>
   <block id="3e92f2df0bda8968dc6665778c2f9b99" category="paragraph">a_clone_は 、アプリケーション、その構成、永続的ストレージの完全な複製です。クローンは、同じ Kubernetes クラスタまたは別のクラスタに手動で作成できます。アプリケーションとストレージを Kubernetes クラスタ間で移動する必要がある場合は、アプリケーションをクローニングすると便利です。</block>
+  <block id="bd48cb856a5ec10f9c3c2bf8d62fc86c" category="paragraph">Astra Control を使用すると、スナップショットまたはバックアップからアプリケーションをリストアできます。同じクラスタにアプリケーションをリストアする場合、既存の Snapshot からのリストアは高速です。Astra Control UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> アプリを復元するには、</block>
 </blocks>
