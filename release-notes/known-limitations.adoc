@@ -26,6 +26,42 @@ oc get pods n -netapp-monitoring
 
 
 
+== Astra Control Center は、同じ名前の 2 つのクラスタを同じクラウドで管理することはできません
+
+すでにクラウドに存在するクラスタと同じ名前のクラスタを追加しようとすると、処理に失敗します。この問題は、 Kubernetes 構成ファイルでクラスタ名のデフォルトを変更していない場合、通常は標準の Kubernetes 環境で発生します。
+
+回避策として、次の手順を実行します。
+
+. kubeadm -config 構成マップを編集します。
++
+[listing]
+----
+kubectl edit configmaps -n kube-system kubeadm-config
+----
+. 「 clusterName 」フィールドの値を「 Kubernetes 」（ Kubernetes のデフォルト名）から一意のカスタム名に変更します。
+. kubeconfig (`.kube/config`) を編集します。
+. クラスタ名を「 Kubernetes 」から一意のカスタム名に更新します（以下の例では「 xyz-cluster 」を使用します）。次の例に示すように 'clusters' および contexts の両方のセクションで更新を行います
++
+[listing, subs="+quotes"]
+----
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ExAmPLERb2tCcjZ5K3E2Njk4eQotLExAMpLEORCBDRVJUSUZJQ0FURS0txxxxXX==
+    server: https://x.x.x.x:6443
+  *name: xyz-cluster*
+contexts:
+- context:
+    *cluster: xyz-cluster*
+    namespace: default
+    user: kubernetes-admin
+  name: kubernetes-admin@kubernetes
+current-context: kubernetes-admin@kubernetes
+----
+
+
+
+
 == 参照渡し演算子を使用してインストールされたアプリケーションのクローンが失敗することがあります
 
 Astra Control は、名前空間を対象とした演算子でインストールされたアプリケーションをサポートします。これらの演算子は、一般に「パスバイリファレンス」アーキテクチャではなく「パスバイ値」で設計されています。これらのパターンに続くいくつかのオペレータアプリを次に示します。

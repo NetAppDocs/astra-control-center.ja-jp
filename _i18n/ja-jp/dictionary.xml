@@ -1768,4 +1768,11 @@
   <block id="999cc42b236c7aee1157ff02d6f1bcd5" category="section-title">クローン</block>
   <block id="3e92f2df0bda8968dc6665778c2f9b99" category="paragraph">a_clone_は 、アプリケーション、その構成、永続的ストレージの完全な複製です。クローンは、同じ Kubernetes クラスタまたは別のクラスタに手動で作成できます。アプリケーションとストレージを Kubernetes クラスタ間で移動する必要がある場合は、アプリケーションをクローニングすると便利です。</block>
   <block id="bd48cb856a5ec10f9c3c2bf8d62fc86c" category="paragraph">Astra Control を使用すると、スナップショットまたはバックアップからアプリケーションをリストアできます。同じクラスタにアプリケーションをリストアする場合、既存の Snapshot からのリストアは高速です。Astra Control UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> アプリを復元するには、</block>
+  <block id="92db826983b1418f74a79a587157b045" category="section-title">Astra Control Center は、同じ名前の 2 つのクラスタを同じクラウドで管理することはできません</block>
+  <block id="1c91b63172e93b5c096a494a79970b0e" category="paragraph">すでにクラウドに存在するクラスタと同じ名前のクラスタを追加しようとすると、処理に失敗します。この問題は、 Kubernetes 構成ファイルでクラスタ名のデフォルトを変更していない場合、通常は標準の Kubernetes 環境で発生します。</block>
+  <block id="22ec3951623db87fb800ca769fec5e8f" category="paragraph">回避策として、次の手順を実行します。</block>
+  <block id="b6dcf530db55b7783db7f050410455e4" category="list-text">kubeadm -config 構成マップを編集します。</block>
+  <block id="33fe94a78e4fc743a279dacacc468c5d" category="list-text">「 clusterName 」フィールドの値を「 Kubernetes 」（ Kubernetes のデフォルト名）から一意のカスタム名に変更します。</block>
+  <block id="890a77a8c921a60204701adfa2f5c160" category="list-text">kubeconfig (`.kube/config`) を編集します。</block>
+  <block id="6c97574dc1b4c1296eabcd490b901dbf" category="list-text">クラスタ名を「 Kubernetes 」から一意のカスタム名に更新します（以下の例では「 xyz-cluster 」を使用します）。次の例に示すように 'clusters' および contexts の両方のセクションで更新を行います</block>
 </blocks>
