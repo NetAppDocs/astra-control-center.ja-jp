@@ -983,7 +983,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-25 18:04:08 +0000">01/25/2022</time>
+    <time datetime="2022-01-27 19:26:36 +0000">01/27/2022</time>
     
   
 
@@ -1038,6 +1038,55 @@
 </div>
 <div class="paragraph">
 <p>そのネームスペースでポッドを実行していないことを確認するか、ネームスペースを存在させないようにします。どちらかが true の場合、クラスタは管理対象外です。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="astra-control-center-は同じ名前の-2-つのクラスタを同じクラウドで管理することはできません">Astra Control Center は、同じ名前の 2 つのクラスタを同じクラウドで管理することはできません</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>すでにクラウドに存在するクラスタと同じ名前のクラスタを追加しようとすると、処理に失敗します。この問題は、 Kubernetes 構成ファイルでクラスタ名のデフォルトを変更していない場合、通常は標準の Kubernetes 環境で発生します。</p>
+</div>
+<div class="paragraph">
+<p>回避策として、次の手順を実行します。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>kubeadm -config 構成マップを編集します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl edit configmaps -n kube-system kubeadm-config</pre>
+</div>
+</div>
+</li>
+<li>
+<p>「 clusterName 」フィールドの値を「 Kubernetes 」（ Kubernetes のデフォルト名）から一意のカスタム名に変更します。</p>
+</li>
+<li>
+<p>kubeconfig (<code>.kube/config</code>) を編集します。</p>
+</li>
+<li>
+<p>クラスタ名を「 Kubernetes 」から一意のカスタム名に更新します（以下の例では「 xyz-cluster 」を使用します）。次の例に示すように 'clusters' および contexts の両方のセクションで更新を行います</p>
+<div class="listingblock">
+<div class="content">
+<pre>apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ExAmPLERb2tCcjZ5K3E2Njk4eQotLExAMpLEORCBDRVJUSUZJQ0FURS0txxxxXX==
+    server: https://x.x.x.x:6443
+  <strong>name: xyz-cluster</strong>
+contexts:
+- context:
+    <strong>cluster: xyz-cluster</strong>
+    namespace: default
+    user: kubernetes-admin
+  name: kubernetes-admin@kubernetes
+current-context: kubernetes-admin@kubernetes</pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
