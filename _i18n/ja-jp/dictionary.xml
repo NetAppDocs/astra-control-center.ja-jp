@@ -349,7 +349,6 @@
   <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">既知の制限</block>
   <block id="58ddb149ad752e78b7ddd185699b6c95" category="list-text"><block ref="58ddb149ad752e78b7ddd185699b6c95" category="inline-link-macro-rx"></block></block>
   <block id="83d9b7618daad6df97a85360aa72e97b" category="summary">ネットアップは Astra Control Center を定期的に更新して、新機能、拡張機能、バグ修正を提供します。</block>
-  <block id="59252dceb661c54631f15d164c8509a3" category="doc">このリリースの Astra Control Center の新機能</block>
   <block id="e163632735ca9d0486603e8093602bc7" category="paragraph">アストラコントロールセンターの最新の 21.12 リリースを発表します。</block>
   <block id="a1be4875b5bb7cb5ecf7bdcde9034c85" category="section-title">2021 年 12 月 14 日（ 21.12 ）</block>
   <block id="971d6551c63734c1f30df7cc1cad2e64" category="paragraph">Astra Control Center のアップデートリリース。</block>
@@ -1775,4 +1774,5 @@
   <block id="33fe94a78e4fc743a279dacacc468c5d" category="list-text">「 clusterName 」フィールドの値を「 Kubernetes 」（ Kubernetes のデフォルト名）から一意のカスタム名に変更します。</block>
   <block id="890a77a8c921a60204701adfa2f5c160" category="list-text">kubeconfig (`.kube/config`) を編集します。</block>
   <block id="6c97574dc1b4c1296eabcd490b901dbf" category="list-text">クラスタ名を「 Kubernetes 」から一意のカスタム名に更新します（以下の例では「 xyz-cluster 」を使用します）。次の例に示すように 'clusters' および contexts の両方のセクションで更新を行います</block>
+  <block id="2d917589e4367d5e3e965e02872e555b" category="doc">このリリースの Astra Control Center の新機能</block>
 </blocks>
