@@ -992,7 +992,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 18:19:44 +0000">01/31/2022</time>
+    <time datetime="2022-02-02 23:06:07 +0000">02/02/2022</time>
     
   
 
@@ -1283,7 +1283,7 @@ done</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>（認証要件があるレジストリの場合のみ）認証が必要なレジストリを使用する場合は、次の手順を実行する必要があります。</p>
+<p>認証が必要なレジストリを使用する場合は、次の手順を実行する必要があります。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1387,7 +1387,7 @@ done</pre>
 <p>「 acc-operator-controller-manager 」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します <a href="#substep_image_local_registry_push">前の手順</a>。</p>
 </li>
 <li>
-<p>（ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください <a href="../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure">"その他の必要な変更"</a> YAML へ。</p>
+<p>（ Astra データストアプレビューを使用するインストールの場合）この問題に関する既知の情報を参照してください <a href="../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure">"ストレージクラスのプロビジョニングと YAML に対する追加の変更"</a>。</p>
 <div class="listingblock">
 <div class="content">
 <pre>apiVersion: apps/v1
@@ -1473,7 +1473,7 @@ deployment.apps/acc-operator-controller-manager created</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Astra Control Center カスタムリソース（ CR ）ファイル（ 'Astra _control_center_min YAML ）を編集します。</p>
+<p>Astra Control Center カスタムリソース（ CR ）ファイル（「 Astra _control_center_min YAML 」）を編集して、アカウント、 AutoSupport 、レジストリ、およびその他の必要な構成を作成します。</p>
 <div class="admonitionblock note">
 <table>
 <tr>
