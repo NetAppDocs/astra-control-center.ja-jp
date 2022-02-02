@@ -1334,13 +1334,11 @@
   <block id="37b9c0fe975f84a28c93ed400bbf96df" category="list-text">から Astra Control Center バンドル（「 Astra - control-ccenter-[version].tar.gz` ）をダウンロードします<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>。</block>
   <block id="b27a38bf3a2f1598cf85f6edd595c1f2" category="list-text">から Astra Control Center 証明書とキーの zip をダウンロードします<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>。</block>
   <block id="f748f65c20601bd5ff808f54e4a932d1" category="section-title">認証要件を持つレジストリのネームスペースとシークレットを設定します</block>
-  <block id="0847bd4ccdcd6882e6ff58df58030582" category="list-text">（認証要件があるレジストリの場合のみ）認証が必要なレジストリを使用する場合は、次の手順を実行する必要があります。</block>
   <block id="4f1676fe8dda03f26994cd830c2d09a1" category="list-text">NetApp-acc-operator という名前空間を作成します。</block>
   <block id="6991b18d1a4e22ab1157055468087de4" category="list-text">NetApp-acc-operator ネームスペースのシークレットを作成します。Docker 情報を追加して次のコマンドを実行します。</block>
   <block id="d62c5849c83a783e51d9f960d482751c" category="list-text">NetApp-acc` （またはカスタムの名前を付けた）ネームスペースを作成します。</block>
   <block id="4fda54d668773dca068eddcae2b9f6c0" category="list-text">NetApp-acc` （またはカスタムの名前を付けた）ネームスペースのシークレットを作成します。Docker 情報を追加して次のコマンドを実行します。</block>
   <block id="8763b5c0837ac6cf7ff31e202742432c" category="section-title">Astra Control Center を設定します</block>
-  <block id="25bc3690d011ed7eb8a9cb727a3de4a1" category="list-text">Astra Control Center カスタムリソース（ CR ）ファイル（ 'Astra _control_center_min YAML ）を編集します。</block>
   <block id="67c786024def27f9fe344173bf9e992c" category="admonition">環境に追加のカスタマイズが必要な場合は 'Astra_control_center.yaml を代替 CR として使用できます「 Astra_control_center_min YAML 」はデフォルトの CR で、ほとんどのインストールに適しています。</block>
   <block id="1b541447f46db215b4ac2a73f41115ca" category="admonition">CR によって設定されたプロパティは、最初の Astra Control Center の導入後に変更することはできません。</block>
   <block id="5f41634ced99810c0f400b7519177c04" category="admonition">認証を必要としないレジストリを使用している場合は、「 imageRegistry 」内の「秘密」行を削除する必要があります。削除しないとインストールが失敗します。</block>
@@ -1775,4 +1773,8 @@
   <block id="890a77a8c921a60204701adfa2f5c160" category="list-text">kubeconfig (`.kube/config`) を編集します。</block>
   <block id="6c97574dc1b4c1296eabcd490b901dbf" category="list-text">クラスタ名を「 Kubernetes 」から一意のカスタム名に更新します（以下の例では「 xyz-cluster 」を使用します）。次の例に示すように 'clusters' および contexts の両方のセクションで更新を行います</block>
   <block id="2d917589e4367d5e3e965e02872e555b" category="doc">このリリースの Astra Control Center の新機能</block>
+  <block id="863333fc6964aae7ff1cd85ff324bdad" category="list-text">認証が必要なレジストリを使用する場合は、次の手順を実行する必要があります。</block>
+  <block id="9fb31bf48e490c8cc9100621633a4882" category="inline-link-macro">ストレージクラスのプロビジョニングと YAML に対する追加の変更</block>
+  <block id="1ee30587538b0f2fb782cfd336e211af" category="list-text">（ Astra データストアプレビューを使用するインストールの場合）この問題に関する既知の情報を参照してください <block ref="41115f9f1d35c2b8edc407cb676a515f" category="inline-link-macro-rx"></block>。</block>
+  <block id="e30ec2af9a8a15a002fcf184ac176f18" category="list-text">Astra Control Center カスタムリソース（ CR ）ファイル（「 Astra _control_center_min YAML 」）を編集して、アカウント、 AutoSupport 、レジストリ、およびその他の必要な構成を作成します。</block>
 </blocks>
