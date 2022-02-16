@@ -992,7 +992,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-02 23:06:07 +0000">02/02/2022</time>
+    <time datetime="2022-02-16 17:18:01 +0000">02/16/2022</time>
     
   
 
@@ -1183,10 +1183,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>GKE クラスタでは、 Astra Control Service はを使用します <a href="https://cloud.netapp.com/cloud-volumes-service-for-gcp" target="_blank" rel="noopener">"NetApp Cloud Volumes Service for Google Cloud"</a> 永続ボリュームのストレージバックエンドとして。</p>
+<p>GKE クラスタでは、 Astra Control Service はを使用します <a href="https://cloud.netapp.com/cloud-volumes-service-for-gcp" target="_blank" rel="noopener">"NetApp Cloud Volumes Service for Google Cloud"</a> または、永続ボリューム用のストレージバックエンドとして Google Persistent Disk を使用します。</p>
 </li>
 <li>
-<p>AKS クラスタの場合、 Astra Control Service はを使用します <a href="https://cloud.netapp.com/azure-netapp-files" target="_blank" rel="noopener">"Azure NetApp Files の特長"</a> 永続ボリュームのストレージバックエンドとして。</p>
+<p>AKS クラスタの場合、 Astra Control Service はを使用します <a href="https://cloud.netapp.com/azure-netapp-files" target="_blank" rel="noopener">"Azure NetApp Files の特長"</a> または、永続ボリューム用のストレージバックエンドとして Azure Disk Storage を選択します。</p>
 </li>
 </ul>
 </div>
@@ -1208,7 +1208,7 @@
 <p>新しい admin ロールを使用してインストールします <a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"Astra Trident"</a> をクリックして、 1 つ以上のストレージクラスを作成します。</p>
 </li>
 <li>
-<p>Astra Trident を使用して、アプリケーション用の永続的ボリュームをプロビジョニング</p>
+<p>Azure NetApp Files または NetApp Cloud Volumes Service for Google Cloud をストレージバックエンドとして使用している場合、 Astra Control Service は Astra Trident を使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。</p>
 </li>
 </ul>
 </div>
