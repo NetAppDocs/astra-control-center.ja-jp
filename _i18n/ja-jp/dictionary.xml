@@ -81,7 +81,6 @@
   <block id="c2fd5ecb26eed8762bfa518199e6199f" category="list-text">クラスタに新しい admin ロールと Kubernetes サービスアカウントを作成します。</block>
   <block id="086e6c16e3fe8e13c336612ef636aa02" category="inline-link">Astra Trident</block>
   <block id="51fbabc51080a419e6a5019a1c169ab4" category="list-text">新しい admin ロールを使用してインストールします<block ref="0ff0cd427dac64ddc62afadc9a52e9d0" category="inline-link-rx"></block> をクリックして、 1 つ以上のストレージクラスを作成します。</block>
-  <block id="43dca1ad27491e19698527209ca74008" category="list-text">Astra Trident を使用して、アプリケーション用の永続的ボリュームをプロビジョニング</block>
   <block id="a853ecb1e1044a3ae5762294407c0fda" category="list-text">この時点で、アプリケーションをクラスタに追加できます。永続ボリュームは、新しいデフォルトのストレージクラスでプロビジョニングされます。</block>
   <block id="67d2a2db6f77778acc532b68658f63cc" category="list-text">次に、 Astra Control Service を使用してこれらのアプリケーションを管理し、スナップショット、バックアップ、クローンの作成を開始します。</block>
   <block id="a7eb0ba32f9706a479c6037bea16e1ca" category="paragraph">Astra Control Service は、状態の変化を常に監視しているので、新しいアプリケーションを追加していくことを認識しています。</block>
@@ -1690,8 +1689,6 @@
   <block id="1598aaab2cb9865732925d064c6978c2" category="cell">ストレージバックエンドと外部サービスを除く両方のプラットフォームで同じ機能を利用できます</block>
   <block id="c1d5f7fc5daa2ea9189ee2df5ca15da2" category="cell">ストレージバックエンドでサポートされるもの</block>
   <block id="b5f2cd553d6a44d90b26f50dcb979f46" category="list-text">ストレージバックエンドとしての Astra データストア</block>
-  <block id="87bed9eb61a03aa8496ee681d63b56b9" category="list-text">GKE クラスタでは、 Astra Control Service はを使用します<block ref="33441d63a8e7ace6860eab2024320819" category="inline-link-rx"></block> 永続ボリュームのストレージバックエンドとして。</block>
-  <block id="719caf9a493ac60627a73d0b272c3657" category="list-text">AKS クラスタの場合、 Astra Control Service はを使用します<block ref="16e1ab965c1d673c5cb3b5a28e77c1c1" category="inline-link-rx"></block> 永続ボリュームのストレージバックエンドとして。</block>
   <block id="6adefb23833ae29ed830d55a8a9ae713" category="list-text">クラスタを追加したときに検出されたストレージバックエンドを追加します。</block>
   <block id="be1c3d3113c4023e29e8dd947523c711" category="inline-link">Astra データストアのドキュメント</block>
   <block id="050916fdc75ec9ba557049b316bbfa98" category="list-text"><block ref="050916fdc75ec9ba557049b316bbfa98" category="inline-link-rx"></block></block>
@@ -1777,4 +1774,7 @@
   <block id="9fb31bf48e490c8cc9100621633a4882" category="inline-link-macro">ストレージクラスのプロビジョニングと YAML に対する追加の変更</block>
   <block id="1ee30587538b0f2fb782cfd336e211af" category="list-text">（ Astra データストアプレビューを使用するインストールの場合）この問題に関する既知の情報を参照してください <block ref="41115f9f1d35c2b8edc407cb676a515f" category="inline-link-macro-rx"></block>。</block>
   <block id="e30ec2af9a8a15a002fcf184ac176f18" category="list-text">Astra Control Center カスタムリソース（ CR ）ファイル（「 Astra _control_center_min YAML 」）を編集して、アカウント、 AutoSupport 、レジストリ、およびその他の必要な構成を作成します。</block>
+  <block id="052766753c4902f7b4dda44f55923c85" category="list-text">GKE クラスタでは、 Astra Control Service はを使用します<block ref="33441d63a8e7ace6860eab2024320819" category="inline-link-rx"></block> または、永続ボリューム用のストレージバックエンドとして Google Persistent Disk を使用します。</block>
+  <block id="e6b1925e4e775a70bcb5b95deee417b9" category="list-text">AKS クラスタの場合、 Astra Control Service はを使用します<block ref="16e1ab965c1d673c5cb3b5a28e77c1c1" category="inline-link-rx"></block> または、永続ボリューム用のストレージバックエンドとして Azure Disk Storage を選択します。</block>
+  <block id="53a30ad173bc821551d7bc21cfd2f4c8" category="list-text">Azure NetApp Files または NetApp Cloud Volumes Service for Google Cloud をストレージバックエンドとして使用している場合、 Astra Control Service は Astra Trident を使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。</block>
 </blocks>

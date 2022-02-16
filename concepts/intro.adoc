@@ -92,8 +92,8 @@ Astra Control Service の概要は次のように機能します。
 
 * Astra Control Service の利用を開始するには、クラウドプロバイダをセットアップし、 Astra アカウントに登録します。
 +
-** GKE クラスタでは、 Astra Control Service はを使用します https://cloud.netapp.com/cloud-volumes-service-for-gcp["NetApp Cloud Volumes Service for Google Cloud"^] 永続ボリュームのストレージバックエンドとして。
-** AKS クラスタの場合、 Astra Control Service はを使用します https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files の特長"^] 永続ボリュームのストレージバックエンドとして。
+** GKE クラスタでは、 Astra Control Service はを使用します https://cloud.netapp.com/cloud-volumes-service-for-gcp["NetApp Cloud Volumes Service for Google Cloud"^] または、永続ボリューム用のストレージバックエンドとして Google Persistent Disk を使用します。
+** AKS クラスタの場合、 Astra Control Service はを使用します https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files の特長"^] または、永続ボリューム用のストレージバックエンドとして Azure Disk Storage を選択します。
 
 
 * 最初の Kubernetes コンピューティングを Astra Control サービスに追加します。Astra Control Service は、次の処理を実行します。
@@ -104,7 +104,7 @@ Azure では、 Astra Control Service によって、 BLOB コンテナ用のリ
 
 ** クラスタに新しい admin ロールと Kubernetes サービスアカウントを作成します。
 ** 新しい admin ロールを使用してインストールします https://docs.netapp.com/us-en/trident/index.html["Astra Trident"^] をクリックして、 1 つ以上のストレージクラスを作成します。
-** Astra Trident を使用して、アプリケーション用の永続的ボリュームをプロビジョニング
+** Azure NetApp Files または NetApp Cloud Volumes Service for Google Cloud をストレージバックエンドとして使用している場合、 Astra Control Service は Astra Trident を使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。
 
 
 * この時点で、アプリケーションをクラスタに追加できます。永続ボリュームは、新しいデフォルトのストレージクラスでプロビジョニングされます。
