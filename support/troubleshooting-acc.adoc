@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: support/troubleshooting-acc.html 
+keywords: how to get help with astra control, astra control knowledgebase 
+summary: ネットアップでは、 Astra Control をさまざまな方法でサポートしています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Control アカウントには、 Web チケット発行によるリモートテクニカルサポートが含まれています。 
+---
+= トラブルシューティング
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/support/
+
+
+発生する可能性のある一般的な問題を回避する方法について説明します。
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra[]
+
+[discrete]
+== 詳細については、こちらをご覧ください
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["ネットアップにファイルをアップロードする方法（ログインが必要）"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9["ネットアップにファイルを手動でアップロードする方法（ログインが必要）"^]
+

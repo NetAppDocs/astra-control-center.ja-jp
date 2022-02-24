@@ -7,7 +7,6 @@
   <block id="51d249216b03414f10b242b851af7951" category="doc">Astra Control コンポーネント</block>
   <block id="60f694f21643599c137f6c610e48124e" category="paragraph">ここでは、 Astra Control 環境のさまざまなコンポーネントの概要を示します。</block>
   <block id="2325c645f4d2112a8e96b127fbad7bf2" category="inline-image-macro">Astra Control のアーキテクチャ図とコンポーネント</block>
-  <block id="06cdc9e30d742dad53fba16779d1c3ab" category="paragraph"><block ref="06cdc9e30d742dad53fba16779d1c3ab" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a8d77bbb11d2e1a349811767d194e9ba" category="list-text">* Kubernetes クラスタ * ： Kubernetes は、コンテナ化されたワークロードとサービスを管理するための、ポータブルで拡張性に優れたオープンソースプラットフォームであり、宣言型の設定と自動化の両方を促進します。Astra は、 Kubernetes クラスタでホストされているアプリケーションに管理サービスを提供します。</block>
   <block id="951fe18cc6e59e05fca3c0ca7de399fa" category="list-text">* ストレージバックエンド * ：</block>
   <block id="a3b5183ae6f5c3f1d6644448f795b5cb" category="inline-link">NetApp Cloud Volumes Service for Google Cloud</block>
@@ -1777,4 +1776,8 @@
   <block id="052766753c4902f7b4dda44f55923c85" category="list-text">GKE クラスタでは、 Astra Control Service はを使用します<block ref="33441d63a8e7ace6860eab2024320819" category="inline-link-rx"></block> または、永続ボリューム用のストレージバックエンドとして Google Persistent Disk を使用します。</block>
   <block id="e6b1925e4e775a70bcb5b95deee417b9" category="list-text">AKS クラスタの場合、 Astra Control Service はを使用します<block ref="16e1ab965c1d673c5cb3b5a28e77c1c1" category="inline-link-rx"></block> または、永続ボリューム用のストレージバックエンドとして Azure Disk Storage を選択します。</block>
   <block id="53a30ad173bc821551d7bc21cfd2f4c8" category="list-text">Azure NetApp Files または NetApp Cloud Volumes Service for Google Cloud をストレージバックエンドとして使用している場合、 Astra Control Service は Astra Trident を使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。</block>
+  <block id="28f3b0cd697bf5f33c7eab89e20baff4" category="paragraph"><block ref="28f3b0cd697bf5f33c7eab89e20baff4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="231cf4c70d866b616c21baddaeed0696" category="doc">トラブルシューティング</block>
+  <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="paragraph">発生する可能性のある一般的な問題を回避する方法について説明します。</block>
+  <block id="79c5785e2761673e59d8eea6f1277fe2" category="paragraph"><block ref="79c5785e2761673e59d8eea6f1277fe2" category="inline-link-rx"></block></block>
 </blocks>

@@ -2,5 +2,7 @@
 section: support
 title: 知識とサポート
 entries:
+- title: トラブルシューティング
+  url: "/support/troubleshooting-acc.html"
 - title: ヘルプを表示します
   url: "/support/get-help.html"
