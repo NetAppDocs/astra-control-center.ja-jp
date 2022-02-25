@@ -39,6 +39,8 @@ entries:
     url: "/use/manage-notifications.html"
   - title: クレデンシャルを管理する
     url: "/use/manage-credentials.html"
+  - title: アカウントのアクティビティを監視
+    url: "/use/view-account-activity.html"
   - title: 既存のライセンスを更新する
     url: "/use/update-licenses.html"
 - title: バケットを管理する
