@@ -1000,7 +1000,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-25 21:10:48 +0000">02/25/2022</time>
+    <time datetime="2022-02-28 17:59:20 +0000">02/28/2022</time>
     
   
 
@@ -1380,50 +1380,48 @@ MetalLB バージョン 0.11.0 はサポートされていません。
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">プロダクト</th>
+<th class="tableblock halign-left valign-top">ソース</th>
+<th class="tableblock halign-left valign-top">宛先</th>
 <th class="tableblock halign-left valign-top">ポート</th>
 <th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">方向（ Direction ）</th>
 <th class="tableblock halign-left valign-top">目的</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">クライアント PC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Astra Control Center の略</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UI / API アクセス： Astra Control Center をホストしているクラスタと各管理対象クラスタの間で、このポートが双方向に開いていることを確認します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UI / API アクセス - Astra Control Center をホストしているクラスタと各管理対象クラスタの間で、このポートが双方向に開いていることを確認します</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指標利用者</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Astra Control Center ワーカーノード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9090</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">メトリックデータ通信 - 各管理対象クラスタが、アストラコントロールセンターをホストしているクラスタ上のこのポートにアクセスできることを確認します （双方向通信が必要）</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Astra Control Center の略</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9090</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hosted Cloud Insights サービスの略 (<a href="https://cloudinsights.netapp.com)" class="bare">https://cloudinsights.netapp.com)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>入力（ Astra Control Center をホストするクラスタへ）</p>
-</li>
-<li>
-<p>出力（各管理対象クラスタの各ワーカーノードのノード IP アドレスからのランダムポート）</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">指標データから指標利用者へ：各管理対象クラスタが、 Astra Control Center をホストしているクラスタ上のこのポートにアクセスできることを確認します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Insights 通信</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Astra Trident</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">34571</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Astra Control Center の略</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3 ストレージバケットプロバイダ (<a href="https://my-bucket.s3.us-west-2.amazonaws.com/)" class="bare">https://my-bucket.s3.us-west-2.amazonaws.com/)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノードポッドの通信</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3 ストレージ通信</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Astra Trident</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9220</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">指標エンドポイント</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Astra Control Center の略</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ネットアップの ActiveIQ (<a href="https://activeiq.solidfire.com)" class="bare">https://activeiq.solidfire.com)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ネットアップの ActiveIQ 通信</p></td>
 </tr>
 </tbody>
 </table>
