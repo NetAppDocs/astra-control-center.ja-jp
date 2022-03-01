@@ -13,9 +13,6 @@ summary: 複数のオプション設定を構成して、 Astra Control Center �
 複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合（サポートバンドルをネットアップサポートサイトにアップロードする場合、または Cloud Insights への接続を確立する場合）は、 Astra Control Center でプロキシサーバを設定する必要があります。インフラ全体を監視して詳細を把握するには、 NetApp Cloud Insights への接続を確立します。Astra Control Center によって監視されているシステムから Kubernetes イベントを収集するには、 Fluentd 接続を追加します。
 
 
-NOTE: Cloud Insights 接続を有効にすると、スループット情報をバックエンド * ページで確認できるほか、ストレージバックエンドを選択したあとにここから Cloud Insights に接続できます。ダッシュボード * に関する情報はクラスタセクションでも確認できます。また、ここから Cloud Insights に接続できます。
-
-
 
 == プロキシサーバを追加します
 
@@ -73,11 +70,12 @@ image:proxy-new.png["プロキシサーバが正常に接続されたことを�
 
 NetApp Cloud Insights を Astra Control Center インスタンスに接続すると、インフラ全体を監視して詳細に把握できます。Cloud Insights は、 Astra Control Center ライセンスに含まれています。
 
+Cloud Insights には、 Astra Control Center が使用するネットワークから、またはプロキシサーバー経由で間接的にアクセスできる必要があります。
 
-NOTE: Cloud Insights には、 Astra Control Center が使用するネットワークから、またはプロキシサーバー経由で間接的にアクセスできる必要があります。
+Cloud Insights にアストラコントロールセンターを接続すると、 Acquisition Unit ポッドが作成されます。このポッドは、 Astra Control Center で管理されているストレージバックエンドからデータを収集し、 Cloud Insights にプッシュします。このポッドには、 8GB の RAM と 2 つの CPU コアが必要です。
 
 
-NOTE: Cloud Insights にアストラコントロールセンターを接続すると、 Acquisition Unit ポッドが作成されます。このポッドは、 Astra Control Center で管理されているストレージバックエンドからデータを収集し、 Cloud Insights にプッシュします。このポッドには、 8GB の RAM と 2 つの CPU コアが必要です。
+NOTE: Cloud Insights 接続を有効にすると、スループット情報をバックエンド * ページで確認できるほか、ストレージバックエンドを選択したあとにここから Cloud Insights に接続できます。ダッシュボード * の情報はクラスタセクションでも確認できます。また、そこから Cloud Insights に接続できます。
 
 .必要なもの
 * admin * / * owner * 権限を持つ Astra Control Center アカウント。
@@ -86,7 +84,7 @@ NOTE: Cloud Insights にアストラコントロールセンターを接続す�
 
 
 
-TIP: Cloud Insights を初めて使用する場合は、の機能について理解しておいてください link:https://docs.netapp.com/us-en/cloudinsights/index.html["こちらをご覧ください"^]。
+TIP: Cloud Insights を初めて使用する場合は、の機能について理解しておいてください。を参照してください link:https://docs.netapp.com/us-en/cloudinsights/index.html["Cloud Insights のドキュメント"^]。
 
 .手順
 . * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
@@ -106,13 +104,12 @@ https://<environment-name>.c01.cloudinsights.netapp.com/
 
 +
 .. をダウンロードしてください link:https://docs.netapp.com/us-en/cloudinsights/API_Overview.html#api-access-tokens["API トークン"^]をクリックし、 Cloud Insights テナントの URL にログインします。
-.. Cloud Insights で、 * 読み取り専用 * タイプの API トークンを生成します。
+.. Cloud Insights で、 * Admin*>* API Access* をクリックして、 * Read/Write * と * Read Only* API Access トークンの両方を生成します。
 +
 image:cloud-insights-api.png["に、 Cloud Insights API トークン生成ページを示します。"]
 
-.. 「 * Read Only * 」キーをコピーします。Cloud Insights 接続を有効にするには、 [Astra Control Center] ウィンドウに貼り付ける必要があります。
-.. Cloud Insights で、 * 読み取り / 書き込み * タイプの API トークンを生成します。
-.. 「 * Read/Write 」キーをコピーします。Astra Control Center * Connect Cloud Insights * ウィンドウに貼り付ける必要があります。
+.. 「 * Read Only * 」キーをコピーします。Cloud Insights 接続を有効にするには、 [Astra Control Center] ウィンドウに貼り付ける必要があります。Read API Access Token Key 権限で、 Assets 、 Alerts 、 Acquisition Unit 、 and Data Collection を選択します。
+.. 「 * Read/Write 」キーをコピーします。Astra Control Center * Connect Cloud Insights * ウィンドウに貼り付ける必要があります。Read/Write API Access Token キー権限で、 Assets 、 Data Ingestion 、 Log Ingestion 、 Acquisition Unit を選択します。 および Data Collection 。
 +
 
 NOTE: * 読み取り専用 * キーと * 読み取り / 書き込み * キーを生成することを推奨します。両方の目的で同じキーを使用することは推奨しません。デフォルトでは、トークンの有効期限は 1 年に設定されています。トークンが期限切れになるまでの最大期間を指定するために、デフォルトの選択を維持することをお勧めします。トークンの有効期限が切れると、テレメトリが停止します。
