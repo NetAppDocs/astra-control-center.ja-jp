@@ -63,6 +63,15 @@ NOTE: 評価用ライセンスをお持ちの場合は、 Astra Control Center �
 
 TIP: 他のクラスタを Astra Control Center に追加して管理する前に、 Astra Control Center が最初に導入したクラスタを管理することをお勧めします。指標およびトラブルシューティング用の Kubemetrics データとクラスタ関連データを送信するには、最初のクラスタを管理下に配置する必要があります。Add Cluster * 機能を使用して、 Astra Control Center でクラスタを管理できます。
 
+[NOTE]
+====
+Astra Control は、クラスタを管理するときに、クラスタのデフォルトのストレージクラスを追跡します。'kubectl' コマンドを使用して StorageClass を変更すると 'Astra Control は変更を元に戻しますAstra Control によって管理されるクラスタのデフォルトの StorageClass を変更するには、次のいずれかの方法を使用します。
+
+* Astra Control API'put/managedClusters' エンドポイントを使用して 'DefaultStorageClass' パラメータを指定して ' 別のデフォルト StorageClass を割り当てます
+* Astra Control 管理からクラスタを削除し、別のデフォルトの StorageClass を選択して追加し直します
+
+
+====
 .必要なもの
 
 IMPORTANT: クラスタを追加する前に、必要なを確認し、実行しておきます link:add-cluster-reqs.html["前提条件となるタスク"^]。
