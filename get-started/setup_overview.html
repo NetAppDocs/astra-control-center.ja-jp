@@ -1000,7 +1000,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-01 20:08:49 +0000">03/01/2022</time>
+    <time datetime="2022-03-01 23:05:55 +0000">03/01/2022</time>
     
   
 
@@ -1152,6 +1152,30 @@
 </td>
 <td class="content">
 他のクラスタを Astra Control Center に追加して管理する前に、 Astra Control Center が最初に導入したクラスタを管理することをお勧めします。指標およびトラブルシューティング用の Kubemetrics データとクラスタ関連データを送信するには、最初のクラスタを管理下に配置する必要があります。Add Cluster * 機能を使用して、 Astra Control Center でクラスタを管理できます。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-center/images/note.svg" alt="注記">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Astra Control は、クラスタを管理するときに、クラスタのデフォルトのストレージクラスを追跡します。'kubectl' コマンドを使用して StorageClass を変更すると 'Astra Control は変更を元に戻しますAstra Control によって管理されるクラスタのデフォルトの StorageClass を変更するには、次のいずれかの方法を使用します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Astra Control API&#8217;put/managedClusters' エンドポイントを使用して 'DefaultStorageClass' パラメータを指定して ' 別のデフォルト StorageClass を割り当てます</p>
+</li>
+<li>
+<p>Astra Control 管理からクラスタを削除し、別のデフォルトの StorageClass を選択して追加し直します</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
