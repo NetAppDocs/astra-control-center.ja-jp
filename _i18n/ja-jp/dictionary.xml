@@ -1161,7 +1161,6 @@
   <block id="56a2a4029e73c469c307bf583648cd20" category="list-text">* ONTAP ストレージ * がサポートする Trident ストレージクラス： ONTAP バックエンドを使用している場合、 Astra Control Center では、 ONTAP バックエンドをインポートしてさまざまな監視情報をレポートすることができます。</block>
   <block id="70e3c204bfcd6d0d484839b699e7653c" category="admonition">Trident のストレージクラスは、 Astra Control Center の外部で事前に設定しておく必要があります。</block>
   <block id="7672a092783c4348b96b40ea2dcf6681" category="section-title">ストレージクラス</block>
-  <block id="ee99e1e97839ffbebff4ddc1ca815081" category="paragraph">Astra Control Center にクラスタを追加すると、そのクラスタで以前に設定したストレージクラスをデフォルトのストレージクラスとして選択するように求められます。このストレージクラスは、永続ボリューム要求（ PVC ）でストレージクラスが指定されていない場合に使用されます。デフォルトのストレージクラスは、 Astra Control Center 内でいつでも変更できます。また、 PVC または Helm チャート内のストレージクラスの名前を指定することで、任意のストレージクラスをいつでも使用できます。</block>
   <block id="9282ad3aef7e124a3b2b9c7eab52b33d" category="doc">アーキテクチャとコンポーネント</block>
   <block id="42b90d40b51b0ccfc8a50cfa2f6c88bc" category="summary">Astra は、 Kubernetes アプリケーションデータライフサイクル管理サービスで、ステートフルアプリケーションの運用を簡易化します。Kubernetes ワークロードの保護、バックアップ、移行を簡易化し、作業用アプリケーションのクローンを瞬時に作成できます。</block>
   <block id="7e073986fe6af6ce1775bdfd558def36" category="doc">Astra Control の概要</block>
@@ -1797,4 +1796,6 @@
   <block id="f4105577bf107396cef41e7fc8b36c75" category="paragraph">Astra Control は、クラスタを管理するときに、クラスタのデフォルトのストレージクラスを追跡します。'kubectl' コマンドを使用して StorageClass を変更すると 'Astra Control は変更を元に戻しますAstra Control によって管理されるクラスタのデフォルトの StorageClass を変更するには、次のいずれかの方法を使用します。</block>
   <block id="e9fac85aa2673b1b448faa45d2eeb596" category="list-text">Astra Control API'put/managedClusters' エンドポイントを使用して 'DefaultStorageClass' パラメータを指定して ' 別のデフォルト StorageClass を割り当てます</block>
   <block id="11937632e52ddd422c6068df5f4a8641" category="list-text">Astra Control 管理からクラスタを削除し、別のデフォルトの StorageClass を選択して追加し直します</block>
+  <block id="81ffc06cbec6fd6654f00db161751c15" category="paragraph">Astra Control Center にクラスタを追加すると、そのクラスタで以前に設定したストレージクラスをデフォルトのストレージクラスとして選択するように求められます。このストレージクラスは、永続ボリューム要求（ PVC ）でストレージクラスが指定されていない場合に使用されます。デフォルトのストレージクラスは、 Astra Control Center 内でいつでも変更できます。また、 PVC または Helm チャート内のストレージクラスの名前を指定することで、任意のストレージクラスをいつでも使用できます。Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。</block>
+  <block id="1de4eda534b81a776926b71c5d509a3c" category="list-text">Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。</block>
 </blocks>
