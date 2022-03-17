@@ -267,10 +267,10 @@ customresourcedefinition.apiextensions.k8s.io "agents.monitoring.netapp.com" del
 
 == Astra Control Center をアンインストールしても、 Traefik CRD をクリーンアップできない
 
-Traefik CRD を手動で削除できます。
+Traefik CRD を手動で削除できます。CRD はグローバルリソースであり、削除するとクラスタ上の他のアプリケーションに影響を与える可能性があります。
 
 .手順
-. アンインストールプロセスで削除されなかった CRD を確認します。
+. クラスタにインストールされている Traefik CRD を表示します。
 +
 [listing]
 ----

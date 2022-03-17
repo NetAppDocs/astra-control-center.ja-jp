@@ -338,8 +338,6 @@
   <block id="e9af48b4b5ee8bcfadf7ef62dd4a4bfe" category="paragraph">サンプル結果：</block>
   <block id="4ff75587096ba2120a2bfc670ec2ac17" category="list-text">カスタムリソース定義（ CRD ）情報の削除：</block>
   <block id="fb65ba277fbc37590f65160abd06ff8b" category="section-title">Astra Control Center をアンインストールしても、 Traefik CRD をクリーンアップできない</block>
-  <block id="f95aab161e19ad7bea228b05dbbfd055" category="paragraph">Traefik CRD を手動で削除できます。</block>
-  <block id="b6b043c391721cf06571cdc68769e638" category="list-text">アンインストールプロセスで削除されなかった CRD を確認します。</block>
   <block id="d64ed3e9c10229648e069f56e32f4c8e" category="paragraph">応答</block>
   <block id="1aa64d23efd8fbdb9b2de01b1ad03883" category="list-text">CRD を削除します。</block>
   <block id="8e33d0035ce9088a5bcc4cff0c38cf36" category="inline-link-macro">解決済みの問題</block>
@@ -1798,4 +1796,6 @@
   <block id="11937632e52ddd422c6068df5f4a8641" category="list-text">Astra Control 管理からクラスタを削除し、別のデフォルトの StorageClass を選択して追加し直します</block>
   <block id="81ffc06cbec6fd6654f00db161751c15" category="paragraph">Astra Control Center にクラスタを追加すると、そのクラスタで以前に設定したストレージクラスをデフォルトのストレージクラスとして選択するように求められます。このストレージクラスは、永続ボリューム要求（ PVC ）でストレージクラスが指定されていない場合に使用されます。デフォルトのストレージクラスは、 Astra Control Center 内でいつでも変更できます。また、 PVC または Helm チャート内のストレージクラスの名前を指定することで、任意のストレージクラスをいつでも使用できます。Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。</block>
   <block id="1de4eda534b81a776926b71c5d509a3c" category="list-text">Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。</block>
+  <block id="a514c0ae3c82c51ee5b4cd862c3c6ae5" category="paragraph">Traefik CRD を手動で削除できます。CRD はグローバルリソースであり、削除するとクラスタ上の他のアプリケーションに影響を与える可能性があります。</block>
+  <block id="30e9f9c381fe23f7ce3650c2587f95e5" category="list-text">クラスタにインストールされている Traefik CRD を表示します。</block>
 </blocks>
