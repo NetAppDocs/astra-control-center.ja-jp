@@ -987,7 +987,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-15 21:43:34 +0000">03/15/2022</time>
+    <time datetime="2022-03-17 22:14:38 +0000">03/17/2022</time>
     
   
 
@@ -1380,13 +1380,13 @@ statefulset.apps/loki patched</pre>
 <h2 id="astra-control-center-をアンインストールしても-traefik-crd-をクリーンアップできない">Astra Control Center をアンインストールしても、 Traefik CRD をクリーンアップできない</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Traefik CRD を手動で削除できます。</p>
+<p>Traefik CRD を手動で削除できます。CRD はグローバルリソースであり、削除するとクラスタ上の他のアプリケーションに影響を与える可能性があります。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>アンインストールプロセスで削除されなかった CRD を確認します。</p>
+<p>クラスタにインストールされている Traefik CRD を表示します。</p>
 <div class="listingblock">
 <div class="content">
 <pre>kubectl get crds |grep -E 'traefik'</pre>
