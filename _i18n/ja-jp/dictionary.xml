@@ -1692,7 +1692,6 @@
   <block id="8af92bb4a82e9330d36767a461117b77" category="inline-link">Astra データストア入門</block>
   <block id="010fe8b2dcf8f2144d52f7fa09b19be3" category="paragraph">Astra Control Center を Astra データストアストレージバックエンドと統合して使用する場合、インストール後にストレージクラスは定義されません。Trident のデフォルトストレージクラスを作成し、ストレージバックエンドに適用する必要があります。を参照してください<block ref="31e869d7ae2f401f4a85bdc155c56e86" category="inline-link-rx"></block> をクリックして、デフォルトの Astra データストアストレージクラスを作成します。</block>
   <block id="985b6adb919aeef8919d4fde98114277" category="list-text">NetApp ONTAP バージョン 9.5 以降をストレージバックエンドとして使用する場合は、 Trident 21.04 以降がインストールされて設定されている必要があります</block>
-  <block id="0225f25459706cc4ae111fa1fcf6e6a4" category="list-text">Trident がストレージバックエンドとして使用される場合、 Astra Trident 21.10.1 以降をインストールして設定します</block>
   <block id="df819717a2baf5b48925d2b4cdaf4745" category="list-text">* Astra Trident / ONTAP 構成 * ： Astra Control Center では、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。</block>
   <block id="17eb8d332e75f64616b506be451b189f" category="inline-link-macro">その他の必要な変更</block>
   <block id="19dfa68f9af3ebcd8abb0bcfff39c5fd" category="list-text">（ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください <block ref="6511a1f600064236c7dbbb54dd879ccf" category="inline-link-macro-rx"></block> YAML へ。</block>
@@ -1798,4 +1797,5 @@
   <block id="1de4eda534b81a776926b71c5d509a3c" category="list-text">Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。</block>
   <block id="a514c0ae3c82c51ee5b4cd862c3c6ae5" category="paragraph">Traefik CRD を手動で削除できます。CRD はグローバルリソースであり、削除するとクラスタ上の他のアプリケーションに影響を与える可能性があります。</block>
   <block id="30e9f9c381fe23f7ce3650c2587f95e5" category="list-text">クラスタにインストールされている Traefik CRD を表示します。</block>
+  <block id="a533261ecbd74405d561fc2ee31235f5" category="list-text">Astra Trident 21.10.1 以降がインストールされ、 Astra データストアプレビューがストレージバックエンドとして使用される場合に設定されます</block>
 </blocks>
