@@ -354,7 +354,7 @@ IMPORTANT: 認証を必要としないレジストリを使用している場合
 .. 「 email 」の文字列をデフォルトの初期管理者アドレスに変更します。この E メールアドレスをコピーしてで使用します <<Log in to the Astra Control Center UI,後の手順>>。
 .. インターネットに接続されていないサイトの場合は AutoSupport の「 enrolled 」を「 false 」に変更し、接続されているサイトの場合は「 true 」を保持します。
 .. （オプション）アカウントに関連付けられたユーザの姓「 firstName 」と名「 lastName 」を追加します。この手順は、 UI ですぐに実行することもあとで実行することもできます。
-.. （任意）インストールで必要に応じて、「 torageClass 」の値を別の Trident ストレージクラスリソースに変更します。
+.. （任意）インストールで必要に応じて、「 storageClass 」の値を別の Astra Trident StorageClass リソースに変更します。
 .. （ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください link:../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure["その他の必要な変更"] YAML へ。
 
 
@@ -437,7 +437,7 @@ kubectl get pods -n [netapp-acc or custom namespace]
 +
 [listing]
 ----
-NAME                                         READY   STATUS    RESTARTS   AGE
+NAME                                       READY   STATUS    RESTARTS   AGE
 acc-helm-repo-5f75c5f564-bzqmt             1/1     Running   0          11m
 activity-6b8f7cccb9-mlrn4                  1/1     Running   0          9m2s
 api-token-authentication-6hznt             1/1     Running   0          8m50s
@@ -515,7 +515,7 @@ vault-controller-86c94fbf4f-krttq          1/1     Running   0          9m24s
 ----
 kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c manager -f
 ----
-. すべてのポッドが動作している場合は、 Astra Control Center Operator によってインストールされた AstraeControlCenter インスタンスを取得して、インストールが正常に完了したことを確認します。
+. すべてのポッドが動作している場合は、 Astra Control Center Operator によってインストールされた「 Astrad ControlCenter 」インスタンスを取得して、インストールが正常に完了したことを確認します。
 +
 [listing]
 ----

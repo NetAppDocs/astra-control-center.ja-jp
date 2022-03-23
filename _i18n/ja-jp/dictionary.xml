@@ -1232,37 +1232,22 @@
   <block id="42511da273423fbc3ea5080eac730b22" category="list-text">証明書の詳細がインストールした証明書の詳細と一致していることを確認します。</block>
   <block id="a916669e994506f936472b106140c25c" category="list-text">証明書をエクスポートし、結果を Web ブラウザの証明書マネージャにインポートします。</block>
   <block id="994e9e207b5ca34793cc2495e51460bc" category="summary">Kubernetes クラスタ、アプリ、 Web ブラウザのサポートを確認して、 Astra Control Center を使い始めましょう。</block>
-  <block id="db78c0f5b10c24664d231610a6659e34" category="paragraph">まず、 Kubernetes クラスタ、アプリケーション、ライセンス、 Web ブラウザのサポート状況を確認します。</block>
-  <block id="439adc0dbc528b64a9ff703d097e3b82" category="section-title">Kubernetes クラスタの一般的な要件</block>
-  <block id="511dd37a4aa35883fa7f6a24343dd0d1" category="paragraph">Astra Control Center には、次のいずれかのタイプのホストクラスタが必要です。</block>
   <block id="cef4d0b91bb8aab2c211dd304e0c4289" category="list-text">Red Hat OpenShift Container Platform 4.4.8 、 4.7 、または 4.8</block>
   <block id="fe139348e0ca57eb38a7899f6c69d91c" category="list-text">Rancher 2.5</block>
   <block id="25a0186371b45414a82f2649706103b6" category="list-text">Kubernetes 1.19 ~ 1.21 （ 1.21 x を含む）</block>
-  <block id="a70d162049b4f5b885b073d3b53d8de7" category="paragraph">Astra Control Center からクラスタを検出して管理するには、クラスタが次の一般的な要件を満たしている必要があります。</block>
-  <block id="66d8fdfd4de86ba586bce7eab476d6b6" category="list-text">バックエンドの ONTAP ストレージ容量では 300GB 以上の容量が使用可能です</block>
-  <block id="1aea8280bfe9dc50d8d63908d2ea4801" category="list-text">3 台のコントローラノード： CPU コア × 4 、 16GB RAM 、および 120 GB のストレージを搭載</block>
-  <block id="f5ed70fa9021d53e9429378968189632" category="list-text">3 つのワーカーノードに 12 個以上の CPU コア、 32GB RAM 、 50GB のストレージを搭載</block>
-  <block id="b0dd8997eb75bb5389338a7e9cd03f9d" category="list-text">サービスタイプ「 LoadBalancer 」は、 OpenShift クラスタ内のサービスに送信される入力トラフィックに使用できます</block>
   <block id="388d11680799d7c6a6a659aa88d96d5f" category="list-text">Astra Control Center の FQDN をロードバランシング IP アドレスに指定する方法</block>
-  <block id="18c2119e330cd6c8461f3a3e1a0f0e81" category="admonition">これらの要件は、 OpenShift クラスタ上で実行される唯一のアプリケーションが Astra Control Center であることを前提としています。クラスタで追加のアプリケーションを実行している場合は、それに応じてこれらの最小要件を調整します。</block>
   <block id="4d40a8e178faea46fe31329801bc6573" category="list-text">* イメージレジストリ * ： Astra Control Center ビルドイメージをプッシュできる、既存のプライベート Docker イメージレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。</block>
   <block id="8321592ce24c8a122ecf26a63cfca407" category="list-text">ONTAP - NAS</block>
   <block id="844e84da8e822b4a33c4d8188da97937" category="list-text">ONTAP-NAS-flexgroup</block>
   <block id="73a3350a1b91aeb6e2836fdf5975672c" category="list-text">ONTAP - SAN</block>
   <block id="3016c12c1db45f14c80c9c1731b9c26a" category="list-text">ONTAP - SAN - 経済性</block>
-  <block id="d30f38ab78c0916a3437789046f724f7" category="paragraph">Kubernetes クラスタを Astra Control Center から管理し、クラスタを使用して Astra Control Center インストールをホストする場合、クラスタには次の追加要件があります。</block>
   <block id="3a918414d05f891a1261ec3c5c3782b4" category="inline-link">Snapshot コントローラコンポーネント</block>
   <block id="5179f058e3f9e02f1e48773756bf7e37" category="list-text">Kubernetes の最新バージョン<block ref="8bfa435518674179afbdcd4004c26111" category="inline-link-rx"></block> がインストールされている</block>
   <block id="07784a2c28addddfc9538216d05bebfd" category="inline-link">volumesnapshotclass オブジェクト</block>
   <block id="827b040b0ecaa2fb883fc51cf0c2bc68" category="list-text">Astra Trident<block ref="958f5eca13bd67633095ea960be168a9" category="inline-link-rx"></block> は管理者によって定義されています</block>
   <block id="485f29484d3f576809313d5c7af147f7" category="list-text">クラスタにはデフォルトの Kubernetes ストレージクラスが存在します</block>
   <block id="b277ec6caf6aa96c35055cf875a5ebf9" category="list-text">Astra Trident を使用するように少なくとも 1 つのストレージクラスが設定されている</block>
-  <block id="f4a66dbdf3443a9624d18c32fca9ced1" category="list-text">Astra Control Center の FQDN を Astra Control Center サービスの外部 IP アドレスに指定する方法</block>
-  <block id="8815830e33eede3983a905812fb1d407" category="paragraph">Astra Control Center では、アプリケーションのクローニング中に、 OpenShift でボリュームをマウントし、必要に応じてファイルの所有権を変更できるようにする必要があります。このため、ボリューム操作が正常に完了するように ONTAP ボリュームエクスポートポリシーを設定する必要があります。次のコマンドを使用して実行できます。</block>
-  <block id="75b768a65bdd69fa66b038f8fb8f2d23" category="paragraph">「 export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -superuser sysm -- anon 65534 」という形式で指定します</block>
   <block id="cbde2df6a7c89370edc449dc5705d30c" category="inline-link">手順</block>
-  <block id="29656b93b05d848d092d38cecf57f5ba" category="admonition">管理対象のコンピューティングリソースとして 2 つ目の OpenShift クラスタを追加する場合は、 Astra Trident ボリューム Snapshot 機能を有効にする必要があります。ネットアップの公式 Astra Trident をご覧ください<block ref="556b3c0c56aa97a1bc2ad282c2c6ac73" category="inline-link-rx"></block> Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。</block>
-  <block id="8839e830db85b9ff275511128b9ab255" category="list-text">* Kubernetes のリソース * ： Astra Control で収集されていない Kubernetes リソースを使用するアプリケーションには、完全なアプリケーションデータ管理機能がない可能性があります。Astra Control では、次の Kubernetes リソースが収集されます。</block>
   <block id="7c17a9c491c5e0d15acef220e3ba0652" category="list-text">* オペレータが導入したアプリケーション * ： Astra Control は、名前空間を対象とした演算子を使用してインストールされたアプリケーションをサポートします。このインストールモデルで検証されたアプリケーションには、次のものがあります。</block>
   <block id="c62e13b3973df086f7d17eeaf006b535" category="section-title">インターネットにアクセスできます</block>
   <block id="46cce64fca5b60351328e94ed2b72255" category="paragraph">インターネットに外部からアクセスできるかどうかを確認する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block>。</block>
@@ -1276,9 +1261,7 @@
   <block id="b404529afca09f5a2fb2b21f843c5b5b" category="section-title">オンプレミスの Kubernetes クラスタ用のサービスタイプ「 LoadBalancer 」</block>
   <block id="2b545f7c547a71eaeda9dcb451aea0c5" category="inline-link">MetalLB</block>
   <block id="a9dfa8f964107f6d896a76f58003f9a9" category="paragraph">Astra Control Center は、 "LoadBalancer （ Astra Control Center ネームスペースの svc/traefik ）タイプのサービスを使用し、アクセス可能な外部 IP アドレスが割り当てられている必要があります。環境でロードバランサを許可しており、まだ設定していない場合は、を使用できます<block ref="9b49f108c23e1909f3cfe7a1eaa3a8cd" category="inline-link-rx"></block> 外部 IP アドレスをサービスに自動的に割り当てる。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。</block>
-  <block id="428324956bb1d934255acfcca9f5c85d" category="admonition">MetalLB バージョン 0.11.0 はサポートされていません。</block>
   <block id="9251700e586dc1a410f2e755a8643751" category="section-title">ネットワーク要件</block>
-  <block id="2feeeeaca31f7c9852665b6eca3013b1" category="paragraph">Astra Control Center をホストするクラスタは、次の TCP ポートを使用して通信します。これらのポートがファイアウォールを通過できることを確認し、 Astra ネットワークからの HTTPS 出力トラフィックを許可するようにファイアウォールを設定する必要があります。一部のポートでは、アストラコントロールセンターをホストするクラスタと各管理対象クラスタ（該当する場合はメモ）の両方の接続方法が必要です。</block>
   <block id="60aaf44d4b562252c04db7f98497e9aa" category="cell">ポート</block>
   <block id="888a77f5ac0748b6c8001822417df8b6" category="cell">プロトコル</block>
   <block id="261addf78c7b2c961032b3dd08ba0b1f" category="cell">目的</block>
@@ -1325,9 +1308,7 @@
   <block id="b74df8ed66dab15b4d425c5788286114" category="inline-xref">後の手順</block>
   <block id="eb9645176e7742ea508be8d0a75a1712" category="list-text">「 astraトラ アドレス」文字列をブラウザで使用する FQDN に変更して、 Astra にアクセスします。アドレスには 'http://' または https:// を使用しないでくださいこの FQDN をコピーしてで使用します <block ref="39c8566ec35b62823c898c5e38a4b78c" category="inline-xref-macro-rx"></block>。</block>
   <block id="7ae99e59821f8806f2d1675980b350e5" category="list-text">「 email 」の文字列をデフォルトの初期管理者アドレスに変更します。この E メールアドレスをコピーしてで使用します <block ref="39c8566ec35b62823c898c5e38a4b78c" category="inline-xref-macro-rx"></block>。</block>
-  <block id="fb319af16359e29cd25b37979fe83fee" category="list-text">インターネットに接続されていないサイトの場合は AutoSupport の「 enrolled 」を「 false 」に変更し、接続されているサイトの場合は「 true 」を保持します。</block>
   <block id="b401b2bf00b8f93934e05052f459d36e" category="list-text">（オプション）アカウントに関連付けられたユーザの姓「 firstName 」と名「 lastName 」を追加します。この手順は、 UI ですぐに実行することもあとで実行することもできます。</block>
-  <block id="5b624fa8d68852c0185da2d779709dc8" category="list-text">（任意）インストールで必要に応じて、「 torageClass 」の値を別の Trident ストレージクラスリソースに変更します。</block>
   <block id="a59774b3b337d42ea8340b94bf2d3f8e" category="section-title">Astra Control Center とオペレータのインストールを完了します</block>
   <block id="dfa816f2277b6d07821b3fb152d086c3" category="list-text">Astra Control Center オペレータをインストールします。</block>
   <block id="c788fbef242d8cbeac1895b022577b56" category="list-text">前の手順で NetApp-acc` （またはカスタム）ネームスペースを作成していない場合は、次のようにします。</block>
@@ -1335,7 +1316,6 @@
   <block id="0d8696fee8128bfee6ff7fd8a30bb0e4" category="list-text">すべてのシステムコンポーネントが正常にインストールされたことを確認します。</block>
   <block id="11c3861e648bc26a2b528eee5b947860" category="paragraph">各ポッドのステータスは「 Running 」になります。システムポッドが展開されるまでに数分かかることがあります。</block>
   <block id="13cfc7621dad08a2783d2e6063e03159" category="list-text">（オプション）インストールが完了したことを確認するには、次のコマンドを使用して「 acc-operator' 」ログを監視します。</block>
-  <block id="9b64c46ab72624dc349f638bc8a13507" category="list-text">すべてのポッドが動作している場合は、 Astra Control Center Operator によってインストールされた AstraeControlCenter インスタンスを取得して、インストールが正常に完了したことを確認します。</block>
   <block id="ae0ff6d35e31e4e342ca19ba7218d2ee" category="list-text">「展開」の値に対する応答の「 tatus.deploymentState` 」フィールドを確認します。導入に失敗した場合は、代わりにエラーメッセージが表示されます。</block>
   <block id="97df607c8bd3126c1e35e7ea5a7960a6" category="admonition">次の手順では 'uuid' を使用します</block>
   <block id="fea2809becd046aad95879e23b62d736" category="list-text">Astra Control Center にログインするときに使用するワンタイムパスワードを取得するには、前の手順で応答から「 tatus.uuid 」値をコピーします。パスワードは「 ACC-` 」の後に UUID 値が続きます。この例では「 ACC-[UUID] 」または「 ACC-c49008a5-4ef1-4c5d-a53e-830daf994116 」となります。</block>
@@ -1364,7 +1344,6 @@
   <block id="22de8d4f47d2a55f106f2f70f3e8353f" category="list-text">Kubernetes 1.19 ~ 1.21 を実行するクラスタ（ 1.21x を含む）</block>
   <block id="0fe8e21b3c54341023df7a85185c9f37" category="paragraph">クラスタに 1 つ以上のワーカーノードがあり、テレメトリサービスの実行には 1GB 以上の RAM が使用されていることを確認します。</block>
   <block id="b5a54438cd4ef372398ebc0939def4bb" category="admonition">管理対象のコンピューティングリソースとして 2 つ目の OpenShift 4.6 、 4.7 、または 4.8 クラスタを追加する場合は、 Astra Trident ボリュームスナップショット機能が有効になっていることを確認する必要があります。ネットアップの公式 Astra Trident をご覧ください<block ref="8b7ff4f9e99396172438cb6668056409" category="inline-link-rx"></block> Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。</block>
-  <block id="cd70c5fc6a6f862ba2ca038e2d0c39e0" category="list-text">Astra Control Center （ ACC ）を使用してアプリケーションをバックアップおよび復元するために、バックアップ ONTAP システムに設定されたスーパーユーザーおよびユーザー ID 。ONTAP コマンドラインで次のコマンドを実行します。「 export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -superuser sysm -- anon 65534 」</block>
   <block id="105932ea4fe1c5240d2bf6bced56c8fc" category="list-text">管理者によって定義された Astra Trident 'volumesnapshotclass' オブジェクトAstra Trident の詳細をご確認ください<block ref="556b3c0c56aa97a1bc2ad282c2c6ac73" category="inline-link-rx"></block> Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。</block>
   <block id="df17fddf226fe3399a8cb420856f3565" category="section-title">資格チェックを実行します</block>
   <block id="40152bf47b47316f99abeacf61572ddd" category="paragraph">次の資格チェックを実行して、 Astra Control Center にクラスタを追加する準備ができていることを確認します。</block>
@@ -1798,4 +1777,43 @@
   <block id="a514c0ae3c82c51ee5b4cd862c3c6ae5" category="paragraph">Traefik CRD を手動で削除できます。CRD はグローバルリソースであり、削除するとクラスタ上の他のアプリケーションに影響を与える可能性があります。</block>
   <block id="30e9f9c381fe23f7ce3650c2587f95e5" category="list-text">クラスタにインストールされている Traefik CRD を表示します。</block>
   <block id="a533261ecbd74405d561fc2ee31235f5" category="list-text">Astra Trident 21.10.1 以降がインストールされ、 Astra データストアプレビューがストレージバックエンドとして使用される場合に設定されます</block>
+  <block id="61f5bc231326b2369e71b3e4d9f8c986" category="paragraph">既存の自己署名 TLS 証明書を削除します。</block>
+  <block id="1cee46fe31fb6be4325d72afeb43c038" category="paragraph">CA によって署名された新しい TLS 証明書を追加します。</block>
+  <block id="38073e52be4dfccbbd24b3272a244562" category="list-text">から Astra Control Center 証明書とキーの zip をダウンロードします<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>。</block>
+  <block id="817e1aba6882bae4837bd1f640be671a" category="list-text">インターネットに接続されていないサイトの場合は AutoSupport の「 enrolled 」を「 false 」に変更し、接続されているサイトの場合は「 true 」を保持します。</block>
+  <block id="4004ff1a10260338c71b8e3d8620ee2e" category="list-text">（任意）インストールで必要に応じて、「 storageClass 」の値を別の Astra Trident StorageClass リソースに変更します。</block>
+  <block id="2a0a2b464d2715b6fb4ea6d68ae8f9c4" category="list-text">すべてのポッドが動作している場合は、 Astra Control Center Operator によってインストールされた「 Astrad ControlCenter 」インスタンスを取得して、インストールが正常に完了したことを確認します。</block>
+  <block id="7267bf4022ef959138b9f6b053eb4b37" category="paragraph">運用環境、アプリケーションクラスタ、アプリケーション、ライセンス、 Web ブラウザの準備ができているかどうかを検証します。</block>
+  <block id="14c3520c1ca6993e39c544e92a538f0b" category="section-title">運用環境の要件</block>
+  <block id="f309c81e3298ac86b7cca708e668bb1e" category="paragraph">Astra Control Center には、次のいずれかのタイプの運用環境が必要です。</block>
+  <block id="540bf6f549a34a85e07e4a8510890f43" category="paragraph">Astra Control Center をホストするオペレーティングシステムが、環境の公式ドキュメントに記載されている基本的なリソース要件を満たしていることを確認します。Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。</block>
+  <block id="2cb05e4bb7830be982f0922fed86b4cd" category="cell">コンポーネント</block>
+  <block id="9b97b7bd5e0a87be7bf218224ada83cf" category="cell">要件</block>
+  <block id="d2f19bd8f3c8ffc8a9d59cb0d2b1f64f" category="cell">バックエンド ONTAP のストレージ容量</block>
+  <block id="d790821fc08e7990a2ca5464b3010b41" category="cell">300GB 以上のデータがあります</block>
+  <block id="fcb81a84511da525a1581c4ccc00d0fb" category="cell">ワーカーノード</block>
+  <block id="3dc2f4e20c545bc208864c2f1c9ce93c" category="cell">少なくとも 3 つのワーカーノードがあり、それぞれ 4 つの CPU コアと 12GB の RAM が搭載されています</block>
+  <block id="7d361abb047884b8a99059e060849d09" category="cell">ロードバランサ</block>
+  <block id="9ce2a4ad8b4e3701686912911908c134" category="cell">動作環境クラスタ内のサービスに送信される入力トラフィックに使用できるサービスタイプ「 LoadBalancer 」</block>
+  <block id="f92f004bde3256be6cc9486a240be63d" category="cell">FQDN の解決</block>
+  <block id="865fcbd8a3a74376a7ff576d468c2697" category="admonition">これらの要件は、運用環境で実行されている唯一のアプリケーションが Astra Control Center であることを前提としています。環境で追加のアプリケーションを実行している場合は、それに応じてこれらの最小要件を調整します。</block>
+  <block id="a194c96c412e6851d927b9d0e77bba07" category="paragraph">OpenShift 環境でのアプリケーションのクローニングでは、 Astra Control Center が OpenShift でボリュームをマウントし、ファイルの所有権を変更できるようにする必要があります。そのため、これらの処理を許可するには、 ONTAP ボリュームのエクスポートポリシーを設定する必要があります。次のコマンドを使用して実行できます。</block>
+  <block id="6a100a7ad7e7c18962424f35ca8111fe" category="list-text">「 export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -superuser sys 」という形式で指定します</block>
+  <block id="fc2f1854d37f5b2e29ee40dea0f6d097" category="list-text">「 export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -anon 65534 」という形式で指定します</block>
+  <block id="071c5707a439bbd6de6c6e0344647c7f" category="inline-link">Astra Trident の公式ガイドをご覧ください</block>
+  <block id="3471e3ba742a3a9944bcbb20b1536158" category="admonition">管理対象のコンピューティングリソースとして 2 つ目の OpenShift 運用環境を追加する場合は、 Astra Trident ボリューム Snapshot 機能を有効にする必要があります。Astra Trident でボリューム Snapshot を有効にしてテストするには、<block ref="d93dc967bbaad34bc17aaffbb93a4567" category="inline-link-rx"></block>。</block>
+  <block id="16a0a46f449dbbcd05f16d54a6c8524f" category="section-title">アプリケーションクラスタの要件</block>
+  <block id="defc23c1d21672df9aa172827b1c3279" category="paragraph">Astra Control Center には、 Astra Control Center から管理するクラスタに対する次の要件があります。これらの要件は、管理するクラスタが Astra Control Center をホストする運用環境クラスタである場合にも適用されます。</block>
+  <block id="42c8504a22cba3e23d786539ecebf6d4" category="inline-link">kubeconfig ファイルの作成に関する情報</block>
+  <block id="8b428222ce88f1e162c46221c197b55e" category="admonition">アプリケーションクラスタには 'oneconconfig.yaml' ファイルが 1 つの _context_element だけを定義する必要がありますの Kubernetes のドキュメントを参照してください<block ref="8bdc55ab80651b9fc036fc9c0b8439d1" category="inline-link-rx"></block>。</block>
+  <block id="cd0f65e312a1020e80f5aa7da07171fb" category="admonition">Rancher 環境でアプリケーションクラスタを管理する場合は、 rancher API サーバコンテキストではなくコントロールプレーンコンテキストを使用するように、 rancher から提供される「 kubeconfig 」ファイルでアプリケーションクラスタのデフォルトコンテキストを変更します。これにより、 Rancher API サーバの負荷が軽減され、パフォーマンスが向上します。</block>
+  <block id="ca6f33719464e2320b44f90d6ae70eb7" category="section-title">アプリケーション管理の要件</block>
+  <block id="304f557d4b7e64bda6836386e7c79fc6" category="paragraph">Astra Control には、次のアプリケーション管理要件があります。</block>
+  <block id="279aeb8fefc116ce50f1bb81d8dc343c" category="list-text">* ライセンス * ： Astra Control Center を使用してアプリケーションを管理するには、 Astra Control Center ライセンスが必要です。</block>
+  <block id="5d9c523a0997c65517bdf38e2f85aecd" category="list-text">* StorageClass* ： StorageClass が明示的に設定されたアプリケーションをインストールし、そのアプリケーションをクローニングする必要がある場合、クローン処理のターゲットクラスタに最初に指定された StorageClass が必要です。明示的に StorageClass を設定したアプリケーションを、同じストレージクラスを使用しないクラスタにクローニングすると、失敗します。</block>
+  <block id="508704b5a40f45083050ce024bcadbd2" category="list-text">* Kubernetes リソース * ： Astra Control で収集されていない Kubernetes リソースを使用するアプリケーションには、アプリケーションのデータ管理機能がフル装備されていない可能性があります。Astra Control では、次の Kubernetes リソースが収集されます。</block>
+  <block id="b3104cfb935337df60d4e34408caa059" category="section-title">サポートされているアプリケーションのインストール方法</block>
+  <block id="d029da9201b0669cba4f3b93daf90afe" category="list-text">* Helm 3 * ： Helm を使用してアプリケーションをインストールする場合、 Astra Control には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用してインストールされたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 でインストールされたアプリケーションの管理はサポートされていません。</block>
+  <block id="8385440fe17d036a98c18fc4c23e2a74" category="paragraph">Astra Control Center をホストする運用環境は、次の TCP ポートを使用して通信します。これらのポートがファイアウォールを通過できることを確認し、 Astra ネットワークからの HTTPS 出力トラフィックを許可するようにファイアウォールを設定する必要があります。一部のポートでは、 Astra Control Center をホストする環境と各管理対象クラスタ（該当する場合はメモ）の両方の接続方法が必要です。</block>
+  <block id="50f5114fa3abb27ad72c5e0f536b7f7d" category="list-text">Astra Control Center を使用してアプリケーションをバックアップおよび復元するためにバックアップ ONTAP システムで設定されたスーパーユーザーおよびユーザー ID 。ONTAP コマンドラインで次のコマンドを実行します。「 export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -superuser sysm -- anon 65534 」</block>
 </blocks>

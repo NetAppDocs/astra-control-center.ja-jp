@@ -30,7 +30,7 @@ NOTE: 管理対象のコンピューティングリソースとして 2 つ目�
 
 
 
-* Astra Control Center （ ACC ）を使用してアプリケーションをバックアップおよび復元するために、バックアップ ONTAP システムに設定されたスーパーユーザーおよびユーザー ID 。ONTAP コマンドラインで次のコマンドを実行します。「 export-policy rule modify -vserver <storage virtual machine name> -policyname <policy name> -ruleindex 1 -superuser sysm -- anon 65534 」
+* Astra Control Center を使用してアプリケーションをバックアップおよび復元するためにバックアップ ONTAP システムで設定されたスーパーユーザーおよびユーザー ID 。ONTAP コマンドラインで次のコマンドを実行します。「 export-policy rule modify -vserver <storage virtual machine name> -policyname <policy name> -ruleindex 1 -superuser sysm -- anon 65534 」
 * 管理者によって定義された Astra Trident 'volumesnapshotclass' オブジェクトAstra Trident の詳細をご確認ください https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["手順"^] Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。
 * Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。
 

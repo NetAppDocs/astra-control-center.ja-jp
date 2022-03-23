@@ -18,7 +18,12 @@ summary: サードパーティの認証局（ CA ）が署名した TLS 証明�
 * CA の秘密鍵ファイルと証明書ファイル
 
 
-.自己署名証明書を削除します
+
+
+== 自己署名証明書を削除します
+
+既存の自己署名 TLS 証明書を削除します。
+
 . SSH を使用して、 Astra Control Center をホストする Kubernetes クラスタに管理ユーザとしてログインします。
 . 次のコマンドを使用して、現在の証明書に関連付けられている TLS シークレットを検索します。「 <ACC-deployment-namespace> 」は、 Astra Control Center 配置名前空間に置き換えてください。
 +
@@ -35,7 +40,12 @@ kubectl delete secret secure-testing-cert -n <ACC-deployment-namespace>
 ----
 
 
-.新しい証明書を追加します
+
+
+== 新しい証明書を追加します
+
+CA によって署名された新しい TLS 証明書を追加します。
+
 . 次のコマンドを使用して、 CA の秘密鍵ファイルと証明書ファイルを使用して新しい TLS シークレットを作成し、括弧 <> の引数を適切な情報に置き換えます。
 +
 [listing]
