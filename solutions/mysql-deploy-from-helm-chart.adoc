@@ -6,6 +6,7 @@ summary: Bitnami Helm チャートから MySQL を導入する方法を説明し
 ---
 = Helm チャートから MySQL を導入します
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

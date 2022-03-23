@@ -6,6 +6,7 @@ summary: 評価可能性チェックを実行して、 Astra Control Center に�
 ---
 = クラスタを追加するための前提条件
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

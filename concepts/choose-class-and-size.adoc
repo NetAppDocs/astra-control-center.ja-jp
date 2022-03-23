@@ -6,6 +6,7 @@ summary: Astra Control Center は、 ONTAP ストレージクラスまたは Ast
 ---
 = ストレージクラスと永続的ボリュームサイズ
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

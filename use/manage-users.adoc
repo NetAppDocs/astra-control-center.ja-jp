@@ -6,6 +6,7 @@ summary: ユーザーを Astra Control Center システムに追加し、シス�
 ---
 = ユーザを管理します
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

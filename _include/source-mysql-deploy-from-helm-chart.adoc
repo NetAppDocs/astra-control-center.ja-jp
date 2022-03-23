@@ -1,4 +1,5 @@
 = 要件
+:allow-uri-read: 
 
 
 から MySQL を導入する方法について説明します https://bitnami.com/stack/mysql/helm["Bitnami Helm チャート"^]。Kubernetes クラスタに MySQL を導入したら、 Astra Control を使用してアプリケーションを管理できます。

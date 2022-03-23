@@ -6,6 +6,7 @@ summary: Astra Control 、 Validated 、 Standard の 2 種類のアプリケー
 ---
 = 検証済みのアプリケーションと標準のアプリケーションの比較
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: Astra アカウントが不要になった場合は、いつでもア�
 ---
 = アカウントを閉じます
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

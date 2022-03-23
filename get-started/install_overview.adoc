@@ -6,6 +6,7 @@ summary: Astra Control Center のインストールには 2 つの選択肢が�
 ---
 = インストールの概要
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 

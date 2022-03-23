@@ -6,6 +6,7 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 ---
 = このリリースの Astra Control Center の新機能
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 
@@ -47,9 +48,9 @@ Astra Control Center の初回リリース。
 * link:../concepts/intro.html["それは何であるか"]
 * link:../concepts/architecture.html["アーキテクチャとコンポーネントを理解する"]
 * link:../get-started/requirements.html["開始には何が必要ですか"]
-* link:../get-started/install_acc.html["をインストールします"] および 
-* link:../use/manage-apps.html["管理"] および  アプリケーション
-* link:../use/manage-buckets.html["バケットを管理する"] および 
+* link:../get-started/install_acc.html["をインストールします"] および link:../get-started/setup_overview.html["セットアップ（ Setup ）"]
+* link:../use/manage-apps.html["管理"] および link:../use/protect-apps.html["保護"] アプリケーション
+* link:../use/manage-buckets.html["バケットを管理する"] および link:../use/manage-backend.html["ストレージバックエンド"]
 * link:../use/manage-users.html["アカウントを管理"]
 * link:../rest-api/api-intro.html["API による自動化"]
 

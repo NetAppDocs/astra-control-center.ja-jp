@@ -6,6 +6,7 @@ summary: 複数のオプション設定を構成して、 Astra Control Center �
 ---
 = インフラを監視、保護
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

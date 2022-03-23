@@ -6,6 +6,7 @@ summary: Helm チャートから Postgres を導入する方法について説�
 ---
 = Helm チャートから Postgres を導入します
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

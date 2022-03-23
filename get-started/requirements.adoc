@@ -6,6 +6,7 @@ summary: Kubernetes クラスタ、アプリ、 Web ブラウザのサポート�
 ---
 = Astra Control Center の要件
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

@@ -6,6 +6,7 @@ summary: Astra Control Center をアップグレードするには、バンド�
 ---
 = Astra Control Center をアップグレードします
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

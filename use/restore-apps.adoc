@@ -6,6 +6,7 @@ summary: Astra では、スナップショットまたはバックアップか�
 ---
 = アプリケーションのリストア
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

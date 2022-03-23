@@ -6,6 +6,7 @@ summary: Bitnami Helm チャートから Jenkins をデプロイする方法に�
 ---
 = Helm チャートから Jenkins をデプロイします
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: ダッシュボードを選択すると、アプリケーション、�
 ---
 = アプリケーションとクラスタの健常性の概要を表示します
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

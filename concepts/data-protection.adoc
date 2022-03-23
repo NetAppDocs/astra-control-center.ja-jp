@@ -6,6 +6,7 @@ summary: Astra Control Center で使用可能なデータ保護の種類と、�
 ---
 = データ保護
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

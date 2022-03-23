@@ -6,6 +6,7 @@ summary: 数ステップで Astra Control を使い始めましょう。
 ---
 = Astra Control Center のクイックスタート
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

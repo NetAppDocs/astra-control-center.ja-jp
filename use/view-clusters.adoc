@@ -6,6 +6,7 @@ summary: Astra Control Center にクラスタを追加すると、クラスタ�
 ---
 = クラスタの健常性と詳細を表示します
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

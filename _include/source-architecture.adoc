@@ -1,4 +1,5 @@
 = Astra Control コンポーネント
+:allow-uri-read: 
 
 
 ここでは、 Astra Control 環境のさまざまなコンポーネントの概要を示します。
@@ -13,7 +14,7 @@ image:astra-ads-architecture-diagram-v3.png["Astra Control のアーキテクチ
 * * Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Trident を使用すると、 Docker と Kubernetes で管理するコンテナ化されたアプリケーション用のストレージボリュームを作成できます。Trident を Astra Control Center とともに導入すると、構成済みの ONTAP ストレージバックエンドが含まれ、ストレージバックエンドとして Astra データストアもサポートされます。
 * * ストレージバックエンド * ：
 +
-** Astra Control Service で使用される https://www.netapp.com/cloud-services/cloud-volumes-service-for-google-cloud/["NetApp Cloud Volumes Service for Google Cloud"^] GKE クラスタおよびのストレージバックエンドとして AKS クラスタのストレージバックエンドとして。
+** Astra Control Service で使用される https://www.netapp.com/cloud-services/cloud-volumes-service-for-google-cloud/["NetApp Cloud Volumes Service for Google Cloud"^] GKE クラスタおよびのストレージバックエンドとして https://www.netapp.com/cloud-services/azure-netapp-files/["Azure NetApp Files の特長"^] AKS クラスタのストレージバックエンドとして。
 ** Astra Control Center は、次のストレージバックエンドを使用します。
 +
 *** Astra データストアストレージバックエンド

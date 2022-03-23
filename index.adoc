@@ -7,6 +7,7 @@ summary: Astra Control Center ソフトウェアは、オンプレミス環境�
 ---
 = Astra Control Center のドキュメント
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

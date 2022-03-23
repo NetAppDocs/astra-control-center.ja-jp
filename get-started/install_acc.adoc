@@ -6,6 +6,7 @@ summary: 環境に関するいくつかの前提条件に対処した後に Astr
 ---
 = 標準の手順で Astra Control Center をインストールします
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

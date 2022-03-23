@@ -6,6 +6,7 @@ summary: Astra は、 Kubernetes アプリケーションデータライフサ�
 ---
 = Astra Control の概要
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 
