@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>クラスタを追加するための前提条件</title>
+  <title>ロールの管理</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="クラスタを追加するための前提条件" />
+  <meta property="og:title" content="ロールの管理" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-control-center/get-started/add-cluster-reqs.html" />
-	<meta property="og:description" content="評価可能性チェックを実行して、 Astra Control Center にクラスタを追加する準備ができていることを確認する必要があります。" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-control-center/use/manage-roles.html" />
+	<meta property="og:description" content="ロールに制約を追加してユーザロールを管理する方法について説明します。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/astra-control-center/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="評価可能性チェックを実行して、 Astra Control Center にクラスタを追加する準備ができていることを確認する必要があります。">
-  <meta name="keywords" content=" what are astra prerequisites, what is Astra Control, add kubernetes cluster, astra trident version"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="ロールに制約を追加してユーザロールを管理する方法について説明します。">
+  <meta name="keywords" content=" users, roles, user roles, namespace, namespaces, account, accounts, permissions, restriction, restrict, constraint, constraints"><!-- Icons -->
   <link rel="icon" href="/ja-jp/astra-control-center/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/issues/new?body=Page%3A%20[クラスタを追加するための前提条件](https://docs.netapp.com/ja-jp/astra-control-center/get-started/add-cluster-reqs.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-control-center/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/blob/main/get-started/add-cluster-reqs.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-control-center/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-control-center/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/issues/new?body=Page%3A%20[ロールの管理](https://docs.netapp.com/ja-jp/astra-control-center/use/manage-roles.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-control-center/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-control-center/blob/main/use/manage-roles.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-control-center/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-control-center/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-control-center/get-started/add-cluster-reqs.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-control-center/use/manage-roles.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-control-center/get-started/add-cluster-reqs.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-control-center/use/manage-roles.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-control-center/get-started/add-cluster-reqs.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-control-center/use/manage-roles.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-control-center/get-started/add-cluster-reqs.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-control-center/use/manage-roles.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -522,15 +522,6 @@
             Astra Control Center をセットアップします
           </a>
           
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ja-jp/astra-control-center/pdfs/pages/get-started/add-cluster-reqs.pdf" >
-    <img src="/ja-jp/astra-control-center/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -711,6 +702,15 @@
           
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/astra-control-center/pdfs/pages/use/manage-roles.pdf" >
+    <img src="/ja-jp/astra-control-center/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -931,7 +931,7 @@
       </a></li></ul></li><li class="subfolders "><a href="/ja-jp/astra-control-center/get-started/setup_overview.html">
         <div class="na-navbar-padding"> Astra Control Center をセットアップします</div>
       </a>
-      <ul><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-control-center/get-started/add-cluster-reqs.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-control-center/get-started/add-cluster-reqs.html">
         クラスタを追加するための前提条件
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-control-center/get-started/add-custom-tls-certificate.html">
         カスタム TLS 証明書を追加します
@@ -979,7 +979,7 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-control-center/use/manage-users.html">
         ユーザを管理します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-control-center/use/manage-roles.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-control-center/use/manage-roles.html">
         ロールの管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-control-center/use/manage-notifications.html">
         通知を管理します
@@ -1082,7 +1082,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">クラスタを追加するための前提条件</h1>
+  <h1 class="n-doc__component-detail-heading">ロールの管理</h1>
 </div>
 
 
@@ -1099,32 +1099,62 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>クラスタを追加する前に、前提条件が満たされていることを確認する必要があります。また、資格チェックを実行して、アストラコントロールセンターにクラスタを追加する準備ができていることを確認する必要があります。</p>
+<p>ロールを管理するには、ネームスペースの制約を追加し、ユーザロールをその制約に制限します。これにより、組織内のリソースへのアクセスを制御できます。Astra Control UI またはを使用できます <a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"Astra Control API"</a> をクリックしてください。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="クラスタを追加する前に必要な作業">クラスタを追加する前に必要な作業</h2>
+<h2 id="ロールに名前空間制約を追加します">ロールに名前空間制約を追加します</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>次のいずれかのタイプのクラスタ：</p>
-<div class="ulist">
-<ul>
-<li>
-<p>OpenShift 4.6 、 4.7 、または 4.8 を実行するクラスタ。 Astra Trident StorageClasses を搭載し、 Astra Data Store または ONTAP 9.5 以降をサポートしています</p>
-</li>
-<li>
-<p>Rancher 2.5 を実行しているクラスタ</p>
-</li>
-<li>
-<p>Kubernetes 1.19 ~ 1.21 を実行するクラスタ（ 1.21x を含む）</p>
 <div class="paragraph">
-<p>クラスタに 1 つ以上のワーカーノードがあり、テレメトリサービスの実行には 1GB 以上の RAM が使用されていることを確認します。</p>
+<p>Admin または Owner ユーザは、ネームスペースの制約を追加できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>「アカウントの管理」ナビゲーション領域で、「 * アカウント * 」を選択します。</p>
+</li>
+<li>
+<p>[<strong>Users</strong>] タブを選択します。</p>
+</li>
+<li>
+<p>[ * アクション * （ * Actions * ） ] 列で、メンバーまたはビューアーの役割を持つユーザーのメニューボタンを選択します。</p>
+</li>
+<li>
+<p>[ 役割の編集 ] を選択します。</p>
+</li>
+<li>
+<p>[ ロールを制約に制限する *] チェックボックスをオンにします。</p>
+<div class="paragraph">
+<p>このチェックボックスは、メンバーロールまたはビューアロールでのみ使用できます。[*Role] ドロップダウン・リストから別のロールを選択できます</p>
 </div>
 </li>
-</ul>
+<li>
+<p>[ * 制約の追加 * ] を選択します。</p>
+<div class="paragraph">
+<p>使用可能な制約の一覧は、ネームスペースまたはネームスペースラベルで確認できます。</p>
+</div>
+</li>
+<li>
+<p>[ 制約タイプ * （ Constraint type * ） ] ドロップダウンリストで、ネームスペースの構成方法に応じて、 [* Kubernetes namespace] * または [* Kubernetes namespace label* ] を選択します。</p>
+</li>
+<li>
+<p>リストから 1 つ以上の名前空間またはラベルを選択して、それらの名前空間にロールを制限する制約を構成します。</p>
+</li>
+<li>
+<p>[* 確認 *] を選択します。</p>
+<div class="paragraph">
+<p>[ 役割の編集 *] ページには、この役割に選択した拘束のリストが表示されます。</p>
+</div>
+</li>
+<li>
+<p>[* 確認 *] を選択します。</p>
+<div class="paragraph">
+<p>[<strong>Account</strong>] ページでは、 [*Role] 列のメンバまたはビューアの役割の制約を表示できます。</p>
+</div>
+</li>
+</ol>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1133,334 +1163,58 @@
 <img src="/us-en/astra-control-center/images/note.svg" alt="注記">
 </td>
 <td class="content">
-管理対象のコンピューティングリソースとして 2 つ目の OpenShift 4.6 、 4.7 、または 4.8 クラスタを追加する場合は、 Astra Trident ボリュームスナップショット機能が有効になっていることを確認する必要があります。ネットアップの公式 Astra Trident をご覧ください <a href="https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html" target="_blank" rel="noopener">"手順"</a> Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。
+制約を追加せずに役割の制約を有効にし、 * 確認 * を選択すると、役割には完全な制限があると見なされます（役割は、名前空間に割り当てられているリソースへのアクセスを拒否されます）。
 </td>
 </tr>
 </table>
 </div>
-</li>
-<li>
-<p>Astra Control Center を使用してアプリケーションをバックアップおよび復元するためにバックアップ ONTAP システムで設定されたスーパーユーザーおよびユーザー ID 。ONTAP コマンドラインで次のコマンドを実行します。「 export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -superuser sysm&#8201;&#8212;&#8201;anon 65534 」</p>
-</li>
-<li>
-<p>管理者によって定義された Astra Trident 'volumesnapshotclass' オブジェクトAstra Trident の詳細をご確認ください <a href="https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html" target="_blank" rel="noopener">"手順"</a> Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。</p>
-</li>
-<li>
-<p>Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。</p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="資格チェックを実行します">資格チェックを実行します</h2>
+<h2 id="ロールから名前空間制約を削除します">ロールから名前空間制約を削除します</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>次の資格チェックを実行して、 Astra Control Center にクラスタを追加する準備ができていることを確認します。</p>
+<p>管理者または所有者ユーザーは、役割から名前空間の制約を削除できます。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>Trident のバージョンを確認</p>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl get tridentversions -n trident</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Trident が存在する場合は、次のような出力が表示されます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NAME      VERSION
-trident   21.04.0</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Trident が存在しない場合は、次のような出力が表示されます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>error: the server doesn't have a resource type "tridentversions"</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-control-center/images/note.svg" alt="注記">
-</td>
-<td class="content">
-Trident がインストールされていない場合や、インストールされているバージョンが最新でない場合は、次に進む前に最新バージョンの Trident をインストールする必要があります。を参照してください <a href="https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html" target="_blank" rel="noopener">"Trident のドキュメント"</a> 手順については、を参照し
-</td>
-</tr>
-</table>
-</div>
+<p>「アカウントの管理」ナビゲーション領域で、「 * アカウント * 」を選択します。</p>
 </li>
 <li>
-<p>サポートされている Trident ドライバをストレージクラスが使用しているかどうかを確認します。プロビジョニング担当者の名前は「 csi.trident.netapp.io` 」にする必要があります。次の例を参照してください。</p>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl get sc
-NAME                   PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-ontap-gold (default)   csi.trident.netapp.io          Delete          Immediate           true                   5d23h
-thin                   kubernetes.io/vsphere-volume   Delete          Immediate           false                  6d</pre>
-</div>
-</div>
+<p>[<strong>Users</strong>] タブを選択します。</p>
 </li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="admin-ロールの-kubeconfig-を作成します">admin ロールの kubeconfig を作成します</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>手順を実行する前に、マシンに次のものがあることを確認してください。</p>
-</div>
+<li>
+<p>[ * アクション * （ * Actions * ） ] 列で、アクティブな拘束を持つメンバーまたはビューアーの役割を持つユーザーのメニューボタンを選択する。</p>
+</li>
+<li>
+<p>[ 役割の編集 ] を選択します。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>kubectl&#8217;V1.19 以降がインストールされています</p>
-</li>
-<li>
-<p>アクティブなコンテキストのクラスタ管理者権限があるアクティブな kubeconfig です</p>
+<p>役割の編集 * （ Edit role * ）ダイアログには、役割のアクティブな拘束が表示されます。</p>
 </li>
 </ul>
 </div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>次の手順でサービスアカウントを作成します。</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>「 astracontrol-service-account.yaml 」という名前のサービスアカウントファイルを作成します。</p>
-<div class="paragraph">
-<p>名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code><strong>astracontrol-service-account.yaml</strong></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>+</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: astracontrol-service-account
-  namespace: default</code></pre>
-</div>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>サービスアカウントを適用します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl apply -f astracontrol-service-account.yaml</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
 </li>
 <li>
-<p>（オプション）権限付きポッドの作成を許可しない制限付きポッドセキュリティポリシーをクラスタで使用している場合、またはポッドコンテナ内のプロセスをルートユーザとして実行できるようにしていない場合は、 Astra Control でポッドを作成および管理できるように、クラスタ用のカスタムポッドセキュリティポリシーを作成します。手順については、を参照してください <a href="acc-create-podsecuritypolicy.html">"カスタムのポッドセキュリティポリシーを作成します"</a>。</p>
+<p>削除する拘束の右側にある * X * を選択します。</p>
 </li>
 <li>
-<p>次のようにクラスタ管理者権限を付与します。</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>「 astracontrol-clusterrolbinding.yaml 」という名前の「 ClusterRoleBinding 」ファイルを作成します。</p>
-<div class="paragraph">
-<p>必要に応じて、サービスアカウントの作成時に変更した名前と名前空間を調整します。</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code><strong>astracontrol-clusterrolebinding.yaml</strong></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>+</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: astracontrol-admin
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: astracontrol-service-account
-  namespace: default</code></pre>
-</div>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>クラスタロールバインドを適用します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl apply -f astracontrol-clusterrolebinding.yaml</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>「 &lt;context&gt; 」をインストールの正しいコンテキストに置き換えて、サービスアカウントのシークレットをリストします。</p>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl get serviceaccount astracontrol-service-account --context &lt;context&gt; --namespace default -o json</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>出力の末尾は次のようになります。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>"secrets": [
-{ "name": "astracontrol-service-account-dockercfg-vhz87"},
-{ "name": "astracontrol-service-account-token-r59kr"}
-]</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>'ecsレット ' 配列内の各要素のインデックスは 0 から始まります上記の例では、「 astracontrol-service-account-dockercfg-vhz87 」のインデックスは 0 になり、「 astracontrol-service-account-token-r59kr 」のインデックスは 1 になります。出力で、 "token" という単語が含まれるサービスアカウント名のインデックスをメモしてください。</p>
-</div>
-</li>
-<li>
-<p>次のように kubeconfig を生成します。</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>「 create-kubeconfig .sh` ファイル」を作成します。次のスクリプトの先頭にある「 token_index 」を正しい値に置き換えます。</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code><strong>create-kubeconfig.sh</strong></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh"># Update these to match your environment.
-# Replace TOKEN_INDEX with the correct value
-# from the output in the previous step. If you
-# didn't change anything else above, don't change
-# anything else here.
-
-SERVICE_ACCOUNT_NAME=astracontrol-service-account
-NAMESPACE=default
-NEW_CONTEXT=astracontrol
-KUBECONFIG_FILE='kubeconfig-sa'
-
-CONTEXT=$(kubectl config current-context)
-
-SECRET_NAME=$(kubectl get serviceaccount ${SERVICE_ACCOUNT_NAME} \
-  --context ${CONTEXT} \
-  --namespace ${NAMESPACE} \
-  -o jsonpath='{.secrets[TOKEN_INDEX].name}')
-TOKEN_DATA=$(kubectl get secret ${SECRET_NAME} \
-  --context ${CONTEXT} \
-  --namespace ${NAMESPACE} \
-  -o jsonpath='{.data.token}')
-
-TOKEN=$(echo ${TOKEN_DATA} | base64 -d)
-
-# Create dedicated kubeconfig
-# Create a full copy
-kubectl config view --raw &gt; ${KUBECONFIG_FILE}.full.tmp
-
-# Switch working context to correct context
-kubectl --kubeconfig ${KUBECONFIG_FILE}.full.tmp config use-context ${CONTEXT}
-
-# Minify
-kubectl --kubeconfig ${KUBECONFIG_FILE}.full.tmp \
-  config view --flatten --minify &gt; ${KUBECONFIG_FILE}.tmp
-
-# Rename context
-kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
-  rename-context ${CONTEXT} ${NEW_CONTEXT}
-
-# Create token user
-kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
-  set-credentials ${CONTEXT}-${NAMESPACE}-token-user \
-  --token ${TOKEN}
-
-# Set context to use token user
-kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
-  set-context ${NEW_CONTEXT} --user ${CONTEXT}-${NAMESPACE}-token-user
-
-# Set context to correct namespace
-kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
-  set-context ${NEW_CONTEXT} --namespace ${NAMESPACE}
-
-# Flatten/minify kubeconfig
-kubectl config --kubeconfig ${KUBECONFIG_FILE}.tmp \
-  view --flatten --minify &gt; ${KUBECONFIG_FILE}
-
-# Remove tmp
-rm ${KUBECONFIG_FILE}.full.tmp
-rm ${KUBECONFIG_FILE}.tmp</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>コマンドをソースにし、 Kubernetes クラスタに適用します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>source create-kubeconfig.sh</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>（ * オプション * ）クラスタにわかりやすい名前にコベ econfig の名前を変更します。クラスタのクレデンシャルを保護します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>chmod 700 create-kubeconfig.sh
-mv kubeconfig-sa.txt YOUR_CLUSTER_NAME_kubeconfig</pre>
-</div>
-</div>
+<p>[* 確認 *] を選択します。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="次の手順">次の手順</h2>
+<h2 id="を参照してください">を参照してください。</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>前提条件が満たされていることを確認したら、次は準備ができています <a href="setup_overview.html" target="_blank" rel="noopener">"クラスタを追加"</a>。</p>
-</div>
-<h2 id="詳細についてはこちらをご覧ください" class="discrete">詳細については、こちらをご覧ください</h2>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"Trident のドキュメント"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"Astra Control API を使用"</a></p>
+<p><a href="../concepts/user-roles-namespaces.html">"ユーザロールとネームスペース"</a></p>
 </li>
 </ul>
 </div>
