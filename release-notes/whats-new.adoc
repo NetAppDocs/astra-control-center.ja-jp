@@ -11,26 +11,18 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 :imagesdir: ../media/release-notes/
 
 
-アストラコントロールセンターの最新の 21.12 リリースを発表します。
+この度、最新の 22.04.0 リリースの Astra Control Center がリリースされました。
 
 
 
-== 2021 年 12 月 14 日（ 21.12 ）
-
-Astra Control Center のアップデートリリース。
+== 2022 年 4 月 26 日（ 22.04.0 ）
 
 .新機能とサポート
-* link:../use/restore-apps.html["アプリケーションのリストア"]
-* link:../use/execution-hooks.html["実行フック"]
-* link:../get-started/requirements.html#supported-app-installation-methods["ネームスペースを対象とした演算子を使用して展開されたアプリケーションのサポート"]
-* link:../get-started/requirements.html["アップストリーム Kubernetes と Rancher もサポートしています"]
-* link:../get-started/setup_overview.html#add-a-storage-backend["Astra データストアプレビューバックエンドの管理と監視"]
-* link:../use/upgrade-acc.html["Astra Control Center のアップグレード"]
-* link:../get-started/acc_operatorhub_install.html["インストール用の Red Hat OperatorHub オプションです"]
-
-
-.解決済みの問題
-* link:../release-notes/resolved-issues.html["このリリースの解決済みの問題"]
+* link:../concepts/user-roles-namespaces.html["ネームスペースのロールベースアクセス制御（ RBAC ）"]
+* link:../get-started/install_acc-cvo.html["Cloud Volumes ONTAP （ CVO ）のサポート"]
+* link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center の一般的な入力イネーブルメント"]
+* link:../use/manage-buckets.html#remove-a-bucket["Astra Control からバケットを取り外す"]
+* link:../get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["VMware Tanzu ポートフォリオのサポート"]
 
 
 .既知の問題および制限事項
@@ -41,18 +33,42 @@ Astra Control Center のアップデートリリース。
 
 
 
+== 2021 年 12 月 14 日（ 21.12 ）
+
+.新機能とサポート
+* https://docs.netapp.com/us-en/astra-control-center-2112/use/restore-apps.html["アプリケーションのリストア"]
+* https://docs.netapp.com/us-en/astra-control-center-2112/use/execution-hooks.html["実行フック"]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/requirements.html#supported-app-installation-methods["ネームスペースを対象とした演算子を使用して展開されたアプリケーションのサポート"]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/requirements.html["アップストリーム Kubernetes と Rancher もサポートしています"]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/setup_overview.html#add-a-storage-backend["Astra データストアプレビューバックエンドの管理と監視"]
+* https://docs.netapp.com/us-en/astra-control-center-2112/use/upgrade-acc.html["Astra Control Center のアップグレード"]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/acc_operatorhub_install.html["インストール用の Red Hat OperatorHub オプションです"]
+
+
+.解決済みの問題
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/resolved-issues.html["このリリースの解決済みの問題"]
+
+
+.既知の問題および制限事項
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-issues.html["このリリースの既知の問題"]
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-issues-ads.html["Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題"]
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
+
+
+
+
 == 2021 年 8 月 5 日（ 21.08 ）
 
 Astra Control Center の初回リリース。
 
-* link:../concepts/intro.html["それは何であるか"]
-* link:../concepts/architecture.html["アーキテクチャとコンポーネントを理解する"]
-* link:../get-started/requirements.html["開始には何が必要ですか"]
-* link:../get-started/install_acc.html["をインストールします"] および link:../get-started/setup_overview.html["セットアップ（ Setup ）"]
-* link:../use/manage-apps.html["管理"] および link:../use/protect-apps.html["保護"] アプリケーション
-* link:../use/manage-buckets.html["バケットを管理する"] および link:../use/manage-backend.html["ストレージバックエンド"]
-* link:../use/manage-users.html["アカウントを管理"]
-* link:../rest-api/api-intro.html["API による自動化"]
+* https://docs.netapp.com/us-en/astra-control-center-2108/concepts/intro.html["それは何であるか"]
+* https://docs.netapp.com/us-en/astra-control-center-2108/concepts/architecture.html["アーキテクチャとコンポーネントを理解する"]
+* https://docs.netapp.com/us-en/astra-control-center-2108/get-started/requirements.html["開始には何が必要ですか"]
+* https://docs.netapp.com/us-en/astra-control-center-2108/get-started/install_acc.html["をインストールします"] および https://docs.netapp.com/us-en/astra-control-center-2108/get-started/setup_overview.html["セットアップ（ Setup ）"]
+* https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-apps.html["管理"] および https://docs.netapp.com/us-en/astra-control-center-2108/use/protect-apps.html["保護"] アプリケーション
+* https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-buckets.html["バケットを管理する"] および https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-backend.html["ストレージバックエンド"]
+* https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-users.html["アカウントを管理"]
+* https://docs.netapp.com/us-en/astra-control-center-2108/rest-api/api-intro.html["API による自動化"]
 
 
 

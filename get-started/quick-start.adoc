@@ -30,19 +30,15 @@ link:../get-started/requirements.html["Astra Control Center の要件の詳細�
 +
 必要に応じて、 Red Hat OperatorHub を使用して Astra Control Center をインストールします。
 
-* ONTAP ストレージバックエンドに基づく Trident 構成を検出または、を検出します https://docs.netapp.com/us-en/astra-data-store/index.html["Astra データストアプレビュー版"] ストレージバックエンドとしてのクラスタ
-+
-イメージは OpenShift レジストリにインストールするか、ローカルレジストリを使用します。
-
 
 
 [role="quick-margin-para"]
-link:../get-started/install_acc.html["Astra Control Center のインストールの詳細"]。
+link:../get-started/install_overview.html["Astra Control Center のインストールの詳細"]。
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] Alt="3"></span> 初期設定タスクをいくつか実行します
 * ライセンスを追加します
 * Kubernetes クラスタと Astra Control Center を追加すると、詳細が検出されます。
-* ONTAP または Astra データストアプレビューストレージバックエンドを追加します。
+* ONTAP またはを追加します https://docs.netapp.com/us-en/astra-data-store/index.html["Astra データストアプレビュー版"] ストレージバックエンド：
 * 必要に応じて、アプリケーションバックアップを格納するオブジェクトストアバケットを追加します。
 
 
@@ -57,7 +53,7 @@ Astra Control Center のセットアップが完了したら、次の手順を�
 
 
 [role="quick-margin-para"]
-link:../get-started/install_acc.html["Astra Control Center をインストールします"]。
+link:../get-started/install_overview.html["Astra Control Center をインストールします"]。
 
 
 

@@ -5,11 +5,10 @@ url: "/release-notes/rn_overview.html"
 entries:
 - title: このリリースの Astra Control Center の新機能
   url: "/release-notes/whats-new.html"
-- title: 解決済みの問題
-  url: "/release-notes/resolved-issues.html"
-- title: Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題
-  url: "/release-notes/known-issues-ads.html"
 - title: 既知の問題
   url: "/release-notes/known-issues.html"
+  entries:
+  - title: Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題
+    url: "/release-notes/known-issues-ads.html"
 - title: 既知の制限
   url: "/release-notes/known-limitations.html"

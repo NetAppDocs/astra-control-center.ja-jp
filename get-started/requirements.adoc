@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: get-started/requirements.html 
-keywords: what are astra kubernetes requirements, astra control requirements, astra supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking, environment, operational, operational environment, hosting, host, cluster, clusters 
+keywords: what are astra kubernetes requirements, astra control requirements, astra supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking, environment, operational, operational environment, hosting, host, cluster, clusters, tanzu, tkg, tkgi, grid, kubernetes, k8s 
 summary: Kubernetes クラスタ、アプリ、 Web ブラウザのサポートを確認して、 Astra Control Center を使い始めましょう。 
 ---
 = Astra Control Center の要件
@@ -19,9 +19,11 @@ summary: Kubernetes クラスタ、アプリ、 Web ブラウザのサポート�
 
 Astra Control Center には、次のいずれかのタイプの運用環境が必要です。
 
-* Red Hat OpenShift Container Platform 4.4.8 、 4.7 、または 4.8
-* Rancher 2.5
-* Kubernetes 1.19 ~ 1.21 （ 1.21 x を含む）
+* Kubernetes 1.20 ～ 1.23
+* Rancher 2.5.8 、 2.5.9 、または 2.6 と RKE1
+* Red Hat OpenShift Container Platform 4.4.8 、 4.7 、 4.8 、または 4.9
+* VMware Tanzu Kubernetes Grid 1.4 の場合
+* VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2
 
 
 Astra Control Center をホストするオペレーティングシステムが、環境の公式ドキュメントに記載されている基本的なリソース要件を満たしていることを確認します。Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。
@@ -30,20 +32,17 @@ Astra Control Center をホストするオペレーティングシステムが�
 | コンポーネント | 要件 
 
 
-| バックエンド ONTAP のストレージ容量 | 300GB 以上のデータがあります 
+| ONTAP バックエンドのストレージ容量 | 300GB 以上のデータがあります 
 
 
 | ワーカーノード | 少なくとも 3 つのワーカーノードがあり、それぞれ 4 つの CPU コアと 12GB の RAM が搭載されています 
 
 
-| ロードバランサ | 動作環境クラスタ内のサービスに送信される入力トラフィックに使用できるサービスタイプ「 LoadBalancer 」 
-
-
-| FQDN の解決 | Astra Control Center の FQDN をロードバランシング IP アドレスに指定する方法 
+| FQDN アドレス | Astra Control Center の FQDN アドレス 
 
 
 | Astra Trident  a| 
-* NetApp ONTAP バージョン 9.5 以降をストレージバックエンドとして使用する場合は、 Trident 21.04 以降がインストールされて設定されている必要があります
+* Astra Trident 21.04 以降がインストールおよび設定されている
 * Astra Trident 21.10.1 以降がインストールされ、 Astra データストアプレビューがストレージバックエンドとして使用される場合に設定されます
 
 
@@ -76,6 +75,37 @@ NOTE: 管理対象のコンピューティングリソースとして 2 つ目�
 
 
 
+=== VMware Tanzu Kubernetes Grid クラスタの要件
+
+VMware Tanzu Kubernetes Grid （ TKG ）または Tanzu Kubernetes Grid Integrated Edition （ TKGi ）クラスタで Astra Control Center をホストする場合、次の点に注意してください。
+
+* TKG または TKGi のデフォルト・ストレージ・クラス・エンフォースメントは、 Astra Control によって管理されるすべてのアプリケーション・クラスタで無効にします。これを行うには、名前空間クラスタ上で「 TanzueutesCluster 」リソースを編集します。
+* Astra Control Center がクラスタ内にポッドを作成できるようにするセキュリティポリシーを作成する必要があります。これを行うには、次のコマンドを使用します。
++
+[listing]
+----
+kubectl config use-context <context-of-workload-cluster>
+kubectl create clusterrolebinding default-tkg-admin-privileged-binding --clusterrole=psp:vmware-system-privileged --group=system:authenticated
+----
+* TKG または TKGi 環境に Astra Control Center を導入する際には、 Astra Trident の特定の要件に注意してください。詳細については、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident のドキュメント"^]。
+
+
+
+NOTE: デフォルトの VMware TKG および TKGi 設定ファイルトークンの有効期限は、展開後 10 時間です。Tanzu ポートフォリオ製品を使用する場合は、 Astra Control Center と管理対象アプリケーションクラスタ間の接続の問題を回避するために、期限切れにならないトークンを含む Tanzu Kubernetes Cluster 構成ファイルを生成する必要があります。手順については、を参照してください https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX -T Data Center 製品ドキュメント"]
+
+
+
+== サポートされるストレージバックエンド
+
+Astra Control Center は、次のストレージバックエンドをサポートします。
+
+* Astra データストア
+* NetApp ONTAP 9.5 以降の AFF および FAS システム
+* NetApp Cloud Volumes ONTAP の略
+
+
+
+
 == アプリケーションクラスタの要件
 
 Astra Control Center には、 Astra Control Center から管理するクラスタに対する次の要件があります。これらの要件は、管理するクラスタが Astra Control Center をホストする運用環境クラスタである場合にも適用されます。
@@ -103,29 +133,36 @@ Astra Control には、次のアプリケーション管理要件があります
 * * StorageClass* ： StorageClass が明示的に設定されたアプリケーションをインストールし、そのアプリケーションをクローニングする必要がある場合、クローン処理のターゲットクラスタに最初に指定された StorageClass が必要です。明示的に StorageClass を設定したアプリケーションを、同じストレージクラスを使用しないクラスタにクローニングすると、失敗します。
 * * Kubernetes リソース * ： Astra Control で収集されていない Kubernetes リソースを使用するアプリケーションには、アプリケーションのデータ管理機能がフル装備されていない可能性があります。Astra Control では、次の Kubernetes リソースが収集されます。
 +
-** クラスタロール
-** ClusterRoleBinding
-** ConfigMap
-** CustomResourceDefinition の場合
-** CustomResource の場合
-** デモンセット（ DemonSet ）
-** 導入
-** DeploymentConfig
-** 入力
-** MutingWebhook
-** PersistentVolumeClaim のように表示され
-** ポッド
-** ReplicaSet
-** RoleBinding です
-** ロール
-** ルート
-** 秘密
-** サービス
-** サービスアカウント
-** Stateful役立つ セット
-** 検証 Webhook
+[cols="1,1,1"]
+|===
 
 
+| クラスタロール | ClusterRoleBinding | ConfigMap 
+
+
+| CustomResourceDefinition の場合 | CustomResource の場合 | cronjob 
+
+
+| デモンセット（ DemonSet ） | HorizontalPodAutoscaler のように表示されます | 入力 
+
+
+| DeploymentConfig | MutingWebhook | PersistentVolumeClaim のように表示され 
+
+
+| ポッド | PodDisruptionBudget （予算の廃止） | PodTemplate 
+
+
+| ネットワークポリシー | ReplicaSet | ロール 
+
+
+| RoleBinding です | ルート | 秘密 
+
+
+| サービス | サービスアカウント | Stateful役立つ セット 
+
+
+| 検証 Webhook |  |  
+|===
 
 
 
@@ -172,17 +209,25 @@ Astra Control Center の全機能を使用するには、 Astra Control Center �
 
 Astra Control Center をお試しになりたい場合は link:setup_overview.html#add-a-full-or-evaluation-license["90 日間の評価版ライセンスを使用する"]。
 
+ライセンスの機能の詳細については、を参照してください link:../concepts/licensing.html["ライセンス"]。
 
 
-== オンプレミスの Kubernetes クラスタ用のサービスタイプ「 LoadBalancer 」
 
-Astra Control Center は、 "LoadBalancer （ Astra Control Center ネームスペースの svc/traefik ）タイプのサービスを使用し、アクセス可能な外部 IP アドレスが割り当てられている必要があります。環境でロードバランサを許可しており、まだ設定していない場合は、を使用できます https://docs.netapp.com/us-en/netapp-solutions/containers/rh-os-n_LB_MetalLB.html#installing-the-metallb-load-balancer["MetalLB"^] 外部 IP アドレスをサービスに自動的に割り当てる。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。
+== オンプレミス Kubernetes クラスタへの入力
+
+ネットワーク入力アストラコントロールセンターで使用するタイプを選択できます。デフォルトでは、 Astra Control Center は Astra Control Center ゲートウェイ（サービス / traefik ）をクラスタ全体のリソースとして展開します。また、お客様の環境でサービスロードバランサが許可されている場合は、 Astra Control Center でサービスロードバランサの使用もサポートされます。サービスロードバランサを使用する必要があり、設定済みでない場合は、 MetalLB ロードバランサを使用して外部 IP アドレスを自動的にサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。
+
+
+NOTE: Tanzu Kubernetes Grid クラスタで Astra Control Center をホストしている場合は、「 kubectl get nsxlbmonitors -a` コマンドを使用して、入力トラフィックを受け入れるように設定されたサービスモニタがすでにあるかどうかを確認します。MetalLB が存在する場合は、既存のサービスモニタが新しいロードバランサ設定を上書きするため、 MetalLB をインストールしないでください。
 
 
 
 == ネットワーク要件
 
 Astra Control Center をホストする運用環境は、次の TCP ポートを使用して通信します。これらのポートがファイアウォールを通過できることを確認し、 Astra ネットワークからの HTTPS 出力トラフィックを許可するようにファイアウォールを設定する必要があります。一部のポートでは、 Astra Control Center をホストする環境と各管理対象クラスタ（該当する場合はメモ）の両方の接続方法が必要です。
+
+
+NOTE: Astra Control Center はデュアルスタック Kubernetes クラスタに導入でき、 Astra Control Center はデュアルスタック操作用に構成されたアプリケーションとストレージバックエンドを管理できます。デュアルスタッククラスタの要件の詳細については、を参照してください https://kubernetes.io/docs/concepts/services-networking/dual-stack/["Kubernetes のドキュメント"^]。
 
 |===
 | ソース | 宛先 | ポート | プロトコル | 目的 
@@ -200,7 +245,7 @@ Astra Control Center をホストする運用環境は、次の TCP ポートを
 | Astra Control Center の略 | Amazon S3 ストレージバケットプロバイダ (https://my-bucket.s3.us-west-2.amazonaws.com/)[] | 443 | HTTPS | Amazon S3 ストレージ通信 
 
 
-| Astra Control Center の略 | ネットアップの ActiveIQ (https://activeiq.solidfire.com)[] | 443 | HTTPS | ネットアップの ActiveIQ 通信 
+| Astra Control Center の略 | NetApp AutoSupport (https://support.netapp.com)[] | 443 | HTTPS | NetApp AutoSupport 通信 
 |===
 
 

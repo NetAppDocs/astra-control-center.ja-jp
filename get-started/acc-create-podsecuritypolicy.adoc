@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: get-started/acc-create-podsecuritypolicy.html 
+keywords: Create podsecurity policy, pod, security, policy, Astra Control, kubernetes 
+summary: より制限の少ない PoD セキュリティポリシーを作成して、 Astra Control が管理対象クラスタ上でポッドを作成および更新できるようにする必要があります。 
+---
+= カスタムのポッドセキュリティポリシーを作成します
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra Control では、管理対象のクラスタに Kubernetes ポッドを作成して管理する必要があります。クラスタで、特権ポッドの作成を許可しない制限付きポッドセキュリティポリシーを使用している場合、またはポッドコンテナ内のプロセスをルートユーザとして実行できるように許可していない場合は、制限の少ないポッドセキュリティポリシーを作成して、 Astra Control がこれらのポッドを作成および管理できるようにする必要があります。
+
+.手順
+. デフォルトよりも制限の緩いクラスタの PoD セキュリティポリシーを作成してファイルに保存します。例：
++
+[source, yaml]
+----
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: astracontrol
+  annotations:
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: '*'
+spec:
+  privileged: true
+  allowPrivilegeEscalation: true
+  allowedCapabilities:
+  - '*'
+  volumes:
+  - '*'
+  hostNetwork: true
+  hostPorts:
+  - min: 0
+    max: 65535
+  hostIPC: true
+  hostPID: true
+  runAsUser:
+    rule: 'RunAsAny'
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'RunAsAny'
+----
+. ポッドセキュリティポリシーの新しいロールを作成します。
++
+[source, sh]
+----
+kubectl-admin create role psp:astracontrol \
+    --verb=use \
+    --resource=podsecuritypolicy \
+    --resource-name=astracontrol
+----
+. 新しいロールをサービスアカウントにバインドします。
++
+[source, sh]
+----
+kubectl-admin create rolebinding default:psp:astracontrol \
+    --role=psp:astracontrol \
+    --serviceaccount=astracontrol-service-account:default
+----
+

@@ -12,7 +12,7 @@ summary: Astra Control Center は、 ONTAP ストレージクラスまたは Ast
 
 
 [role="lead"]
-Astra Control Center は、 ONTAP または Astra データストアをストレージバックエンドとしてサポートします。ストレージクラスと永続的ボリューム（ PV ）のサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。
+Astra Control Center は、 ONTAP または Astra データストアをストレージバックエンドとしてサポートします。
 
 
 

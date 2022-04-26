@@ -65,9 +65,7 @@ Astra Control からクラスタを削除しても、クラスタの構成（ア
 
 WARNING: 他の方法でクラスタを削除する場合は、必ず事前に Astra Control からクラスタを削除してください。Astra Control で管理している間に別のツールを使用してクラスタを削除した場合、原因で Astra Control アカウントに問題が発生する可能性があります。
 
-* Kubernetes クラスタを Astra Control から削除すると、 NetApp Trident はアンインストールされますか。 *
-
-Trident は、 Astra Control から削除してもクラスタからアンインストールされません。
+* NetApp Trident は、管理を解除すると自動的にクラスタからアンインストールされますか？ * Astra Control Center からクラスタを管理を解除しても、 Trident は自動的にクラスタからアンインストールされることはありません。Trident をアンインストールするには、が必要です https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Trident のドキュメントでは、次の手順を実行します"^]。
 
 
 
@@ -86,6 +84,8 @@ Astra Control はアプリケーションを導入しない。アプリケーシ
 いいえネットアップ以外のストレージを使用しているアプリケーションは Astra Control で検出できますが、ネットアップ以外のストレージを使用しているアプリケーションは管理できません。
 
 * Astra Control 自体を管理すべきですか？ * いいえ、 Astra Control 自体は「システムアプリケーション」であるため、管理すべきではありません。
+
+* 正常でないポッドはアプリケーション管理に影響しますか？ * 管理対象アプリケーションにポッドが正常な状態でない場合、 Astra Control は新しいバックアップとクローンを作成できません。
 
 
 

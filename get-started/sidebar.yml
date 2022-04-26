@@ -13,6 +13,8 @@ entries:
     url: "/get-started/install_acc.html"
   - title: OpenShift OperatorHub を使用して Astra Control Center をインストールします
     url: "/get-started/acc_operatorhub_install.html"
+  - title: Cloud Volumes ONTAP ストレージバックエンドに Astra Control Center をインストールします
+    url: "/get-started/install_acc-cvo.html"
 - title: Astra Control Center をセットアップします
   url: "/get-started/setup_overview.html"
   entries:
@@ -20,5 +22,7 @@ entries:
     url: "/get-started/add-cluster-reqs.html"
   - title: カスタム TLS 証明書を追加します
     url: "/get-started/add-custom-tls-certificate.html"
+  - title: カスタムのポッドセキュリティポリシーを作成します
+    url: "/get-started/acc-create-podsecuritypolicy.html"
 - title: よく寄せられる質問
   url: "/get-started/faq.html"

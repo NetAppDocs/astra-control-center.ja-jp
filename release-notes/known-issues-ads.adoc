@@ -64,15 +64,8 @@ metadata:
 
 
 
-== Astra Control Center が、 Astra データストアプレビューストレージバックエンドを不明な状態で表示
-
-Astra Control Center は、 Astra Data Store プレビューストレージバックエンドを UI のバックエンドページから「 Unknown 」状態で表示します。この状況では、ストレージバックエンドを実際に使用でき、通信可能です。ストレージバックエンド内のコンポーネントは正常な状態ではない可能性があり ' ストレージバックエンドが利用可能と表示されるためには正常な状態に戻す必要があります
-
-
-
 == 詳細については、こちらをご覧ください
 
-* link:../release-notes/resolved-issues.html["解決済みの問題"]
 * link:../release-notes/known-issues.html["既知の問題"]
 * link:../release-notes/known-limitations.html["既知の制限"]
 * https://docs.netapp.com/us-en/astra-data-store/index.html["Astra データストアのドキュメント"]

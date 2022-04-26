@@ -90,7 +90,6 @@
   <block id="c3314925ef2c97256c3237a450d6f4f5" category="list-text">Trident ストレージバックエンドは ONTAP 9.5 以降で構成されています</block>
   <block id="5b4b1a973a4751fbfc2fda3bd9bac412" category="list-text">Astra データストアストレージバックエンド</block>
   <block id="51269e2584d26b04961877ec77db6da7" category="paragraph">クラウド接続環境では、 Cloud Insights を使用して高度なモニタリングとテレメトリを提供します。Cloud Insights 接続がない場合、 Astra Control Center では、限定的な（ 7 日間の指標）監視と計測データを使用できます。また、オープン指標エンドポイントを介して Kubernetes の標準の監視ツール（ Prometheus や Grafana など）にエクスポートすることもできます。</block>
-  <block id="1bc8163319d46bff9915aa0226885a42" category="paragraph">Astra Control Center は、 AutoSupport と Active IQ のエコシステムに完全に統合されており、ユーザとネットアップのサポートにトラブルシューティングと使用に関する情報を提供します。</block>
   <block id="26849905a5aa23f71bc18ee28e352604" category="paragraph">Astra Control Center を試用するには、 90 日間の評価版ライセンスを使用します。評価版は、 E メールとコミュニティ（ Slack チャンネル）のオプションでサポートされています。また、製品内サポートダッシュボードから技術情報アーティクルやドキュメントにアクセスすることもできます。</block>
   <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link">要件</block>
   <block id="e63cc3795b9216d59b085bd3111a248d" category="paragraph">Astra Control Center をインストールして使用するには、一定の要件を満たす必要があります<block ref="bdde32b2c988689d803729c06660acb4" category="inline-link-rx"></block>。</block>
@@ -174,28 +173,13 @@
   <block id="9f1a9252fa8e7cccfce329f81193d946" category="inline-link-macro">ネットアップのシリアル番号のサポートを有効にします</block>
   <block id="9580bedb9d61fe3a06c2c0a84428340b" category="paragraph">最初に実行する必要があります <block ref="0da2bd51927b2e0d6e9f34a462b8052f" category="inline-link-macro-rx"></block> これらの非セルフサービスサポートオプションを使用するには、次の手順に従います。チャットや Web でのチケット発行、ケース管理には、ネットアップサポートサイト（ NSS ）の SSO アカウントが必要です。</block>
   <block id="e9f9b053971e4cd8cce3a402331a125b" category="paragraph">メインメニューから * Support * タブを選択すると、 Astra Control Center UI からサポートオプションにアクセスできます。</block>
-  <block id="ee1a5661ef39d6297491b0c70e1d96cf" category="inline-image-macro">に、 Astra Control Center のサポートページを示します。</block>
-  <block id="5a159e4469acfc4a2a7a486106c44ddb" category="paragraph"><block ref="5a159e4469acfc4a2a7a486106c44ddb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9a9999d7ae6f03b28df44f9616e27367" category="section-title">セルフサポートオプション</block>
-  <block id="6b9b3535d917a5890db4ef00a3718361" category="paragraph">次のオプションは、 24 時間 365 日無料で利用できます。</block>
-  <block id="51ad2162ed9916cdcbfc1328306dae36" category="inline-link">ナレッジベース（ログインが必要）</block>
-  <block id="ad73b9e5ef9788348d09f760c02c490b" category="list-text"><block ref="ad73b9e5ef9788348d09f760c02c490b" category="inline-link-rx"></block></block>
-  <block id="81cbd312a10cad3230cda33b84ee9321" category="paragraph">Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。</block>
-  <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">ドキュメント</block>
-  <block id="9a4d3fdb6af496c18bc70f14153f8c4f" category="paragraph">現在表示しているドキュメントサイトです。</block>
-  <block id="3561f3a3c5576e2ce0dc0d1e268bb9b2" category="inline-link">Slack</block>
-  <block id="935d650ae57bf919ec511d8f5c18b480" category="list-text"><block ref="935d650ae57bf919ec511d8f5c18b480" category="inline-link-rx"></block></block>
-  <block id="7e8d8ed6b8d09e924666569bac3e7749" category="paragraph">thePub ワークスペースのコンテナチャネルに移動して、ピアやエキスパートと交流しましょう。</block>
-  <block id="a6bdac91b30cb0122b6b742051dd86d6" category="list-text">ネットアップサポートにトラブルシューティング用のサポートバンドルを生成する</block>
-  <block id="9945b7c9f8a0452d5794aa8f1b4132db" category="list-text">フィードバック用 E メール</block>
-  <block id="ddcadc1ed2a47b8718aecd096c744e15" category="paragraph">astra.feedback@netapp.com に電子メールを送信して、あなたの考え、アイデア、懸念事項をお知らせください。</block>
   <block id="6b929e182262c063677431ec9399ea67" category="section-title">ネットアップサポートへのサポートバンドルの日次アップロードを有効にします</block>
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">ネットアップサポートサイト</block>
   <block id="e83ce724970c41be0506c6a3c048af04" category="paragraph">Astra Control Center のインストール時に、 Astra Control Center Custom Resource Definition （ CRD ）ファイル（「 Astra_control_center_min.yaml 」）で「 AutoSupport 」に「 enroled:true 」を指定すると、毎日のサポートバンドルがに自動的にアップロードされます<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block>。</block>
   <block id="eff41a0ff4bfbbd66cb8923aaf442352" category="section-title">ネットアップサポートに提供するサポートバンドルを生成する</block>
   <block id="4d9475c96fdb1cb3e5f10f35c0f677fe" category="paragraph">Astra Control Center を使用すると、管理者ユーザはバンドルを生成できます。バンドルには、ネットアップサポートに役立つログ、 Astra 環境のすべてのコンポーネントに対するイベント、管理対象のクラスタとアプリケーションに関する指標、トポロジ情報などが含まれます。インターネットに接続している場合は、ネットアップサポートサイト（ NSS ）に Astra Control Center の UI から直接サポートバンドルをアップロードすることができます。</block>
   <block id="f46198e565cff5f816ca03cbca79248e" category="admonition">Astra Control Center がバンドルを生成するのにかかる時間は、 Astra Control Center のインストールのサイズと、要求されたサポートバンドルのパラメータによって異なります。サポートバンドルの生成要求時に指定した期間によって、バンドルの生成にかかる時間が決まります（たとえば、期間を短くするとバンドルの生成にかかる時間が短縮されます）。</block>
-  <block id="4818d53909db9b9f3283e9ff94c9db43" category="paragraph">開始する前に、 NSS へのバンドルのアップロードにプロキシ接続が必要かどうかを確認します。プロキシ接続が必要な場合は、 Astra Control Center がプロキシサーバーを使用するように設定されていることを確認します。</block>
   <block id="261eb2cf4df7379339d2033569237f62" category="list-text">[ * アカウント * &gt; * 接続 * ] を選択します。</block>
   <block id="0165a5fd8fb713736cfdfac5739eb327" category="list-text">* 接続設定 * でプロキシ設定を確認します。</block>
   <block id="7ee8595a6368bdd6ab97d142fe1799de" category="list-text">NSS ポータルで、 Astra Control Center UI の * Support * ページに記載されているライセンスシリアル番号を使用してケースを作成します。</block>
@@ -205,24 +189,16 @@
   <block id="f0a476e764387ceb3b1bbfa41f428bf7" category="paragraph">クイックタイムフレームまたはカスタムタイムフレームのいずれかを選択できます。</block>
   <block id="5f781adf4bd8e67ba614471b808c28c2" category="admonition">カスタムの日付範囲を選択したり、期間にカスタムの期間を指定したりできます。</block>
   <block id="73eb9192fc5a41f662e22d52b3a0e42c" category="list-text">選択したら、 * 確認 * を選択します。</block>
-  <block id="4811c15e632039210008398a7ab1015e" category="list-text">「 Upload the bundle to the NetApp Support Site when generated* 」を確認します。</block>
-  <block id="b1653d059154fbf664762e9db4a7b151" category="inline-image-macro">に、サポートバンドルを NSS にアップロードするチェックボックスを示します。</block>
-  <block id="bef4bf49bad7ae51b0984ba03e01bc95" category="paragraph"><block ref="bef4bf49bad7ae51b0984ba03e01bc95" category="inline-image-macro-rx" type="image"></block></block>
   <block id="69eb6f233c6edcccc883d4bd0a072730" category="list-text">[* バンドルの生成 * ] を選択します。</block>
   <block id="e6a39f571c00156ab39405d2b6e34356" category="paragraph">サポートバンドルの準備が完了すると、アラート領域の * アカウント * &gt; * 通知 * ページ、 * アクティビティ * ページ、および通知リストに通知が表示されます（ UI の右上にあるアイコンを選択してアクセスできます）。</block>
   <block id="340328528030cd12db1a301c1c957202" category="paragraph">生成が失敗した場合は、バンドルの生成ページにアイコンが表示されます。アイコンを選択すると、メッセージが表示されます。</block>
   <block id="9478f8c3bba2eda5c49b9b4ad2a6fd77" category="admonition">UI の右上にある通知アイコンには、バンドルの作成に成功したタイミング、バンドルの作成に失敗したタイミング、バンドルをアップロードできなかったタイミング、バンドルをダウンロードできなかったタイミングなど、サポートバンドルに関連するイベントに関する情報が表示されます。</block>
   <block id="999db88ebfd26aad4b5d249f0dd98d60" category="section-title">エアギャップ設置がある場合</block>
-  <block id="c8349e7214f8c123245f641b35ba0121" category="paragraph">エアギャップのある設置の場合は、サポートバンドルが生成されたあとに次の手順を実行します。ダウンロード可能なバンドルは、 * Support * ページの * Support Bundles * セクションで「 Generated * 」の横に次のように表示されます。</block>
-  <block id="ff2986a2757d235702c153e30c08698c" category="inline-image-macro">生成されたサポートバンドルを表示し、ダウンロード可能な状態にします。</block>
-  <block id="70de981735a0b1fc298bc3ad9e7b417f" category="paragraph"><block ref="70de981735a0b1fc298bc3ad9e7b417f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="8cbebd4b69839c987b9501926a3805d6" category="list-text">[ ダウンロード（ Download ） ] アイコンを選択して、バンドルをローカルにダウンロードします。</block>
   <block id="9ac89e516d3be087e1d388f1fafd7f59" category="list-text">手動で NSS にバンドルをアップロードします。</block>
   <block id="1cbaba6941e4574e44e01d8fbb11db3c" category="paragraph">これを行うには、次のいずれかの方法を使用します。</block>
   <block id="35f3a2f7a0f2c01d03afedb95ece66ab" category="inline-link">NetApp Authenticated File Upload （ログインが必要）</block>
   <block id="1c2989d4329c8aeec5e01506816fb04e" category="list-text">使用<block ref="4b0bc63f683ccbf4dcf0ba2a6a1b561f" category="inline-link-rx"></block>。</block>
   <block id="94bcffc8ff8a109a8267202d2aaa5526" category="list-text">NSS でケースにバンドルを直接添付します。</block>
-  <block id="ba89649946424eac67d48305f146fb4f" category="list-text">NetApp AIQ を使用</block>
   <block id="9c83e144e5481ac6766f4055e566594d" category="floating-title">詳細については、こちらをご覧ください</block>
   <block id="4be9b50faf5ab46a9d28ac23f7713bec" category="inline-link">ネットアップにファイルをアップロードする方法（ログインが必要）</block>
   <block id="3b6bf15bbdfc90c8dc6d6778808539e1" category="list-text"><block ref="3b6bf15bbdfc90c8dc6d6778808539e1" category="inline-link-rx"></block></block>
@@ -255,79 +231,29 @@
   <block id="34515f1d88b10d0db0a78eba6c533394" category="summary">既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。</block>
   <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="doc">既知の問題</block>
   <block id="825cc355a6b503245e0d84d26f0e16d1" category="paragraph">現在のリリースに影響する既知の問題は次のとおりです。</block>
-  <block id="78e7e198dda9b11fa9a965d3dd3356fe" category="list-text"><block ref="854013ac99528e7a262c9e97de92fbf2" category="inline-xref-macro-rx"></block></block>
-  <block id="5de088201c37321210684bf47b4bce8a" category="list-text"><block ref="39e9ecf4ae70e80aeb633987e29f78a6" category="inline-xref-macro-rx"></block></block>
-  <block id="df18f3911f9eb57b8eae244e152aab61" category="list-text"><block ref="10a14253581b7b0edbaf038ce2f015b5" category="inline-xref-macro-rx"></block></block>
-  <block id="7226b79c874924cba1c47ffd9eb36304" category="list-text"><block ref="f6caba7cca284ecfec562cc842c83aee" category="inline-xref-macro-rx"></block></block>
   <block id="d3e9aa65af62841e4f76b512ae2f0bc6" category="list-text"><block ref="b3245371f9a4420028b8568536aa8ffb" category="inline-xref-macro-rx"></block></block>
   <block id="44bbaceb9730fce0bf79a03b1cb03590" category="list-text"><block ref="ef100d4c8be3f2a7ebbf72b00fb6753a" category="inline-xref-macro-rx"></block></block>
-  <block id="9f317474fa394fd07b5528969510b3e9" category="list-text"><block ref="15c45dc987b29dfac1e660e8708d90a8" category="inline-xref-macro-rx"></block></block>
-  <block id="7483cb08f20dd7d913845904e178dbe6" category="list-text"><block ref="b8d0c4d09079ac0d0c5922f712496fa5" category="inline-xref-macro-rx"></block></block>
   <block id="afd67a029bbc3d626a57863c0463ffde" category="list-text"><block ref="515fadbfad517b21ae910bd738504cc1" category="inline-xref-macro-rx"></block></block>
-  <block id="c4b5dad53484de532e71f67d04b87b49" category="inline-link-macro">クローン処理では、デフォルト以外のバケットを使用できません</block>
-  <block id="ec0259df8c62403921b9bb399012e246" category="list-text"><block ref="ec0259df8c62403921b9bb399012e246" category="inline-link-macro-rx"></block></block>
   <block id="79e14bb63b840b793278e7157047e544" category="list-text"><block ref="61497857da55dc3a83cffe91385a8c5f" category="inline-xref-macro-rx"></block></block>
-  <block id="5b8fc03ea0d3ceb4e4015ebc8f81c7e8" category="list-text"><block ref="0d1e87d13b8671e80ae3de6f1223f321" category="inline-xref-macro-rx"></block></block>
-  <block id="912be0c0f28d3149659e1c69ab046da2" category="list-text"><block ref="c7612c316be10fbd4e77f7281bf6e841" category="inline-xref-macro-rx"></block></block>
-  <block id="df9beefb1b279581356edeb888441b9a" category="inline-link-macro">拡張環境で ASUP tar バンドルのステータスを確認できません</block>
-  <block id="bdc89388c8106cd2a27429f9bc142ad0" category="list-text"><block ref="bdc89388c8106cd2a27429f9bc142ad0" category="inline-link-macro-rx"></block></block>
-  <block id="70349fbabd47d30bbfa25bf8e3755abd" category="list-text"><block ref="cc32903e451bee2b84a8f72fefa8ee63" category="inline-xref-macro-rx"></block></block>
-  <block id="22523fe6d37fbd919200f409f6e0992e" category="list-text"><block ref="a896da4003375fbcc9c25e321bafff33" category="inline-xref-macro-rx"></block></block>
-  <block id="9f073d781f32b65367a50f8d68776a75" category="list-text"><block ref="880e47dd0de24f66d35209910cb22ed0" category="inline-xref-macro-rx"></block></block>
-  <block id="af2158376cac61c83eaee55623c5571e" category="list-text"><block ref="73a0454474550222e70d06f20befaf45" category="inline-xref-macro-rx"></block></block>
-  <block id="0201cc1ef13221acf3a21f8f488c87b3" category="list-text"><block ref="df97d4e2509919e6e9e1e5b58097b9d3" category="inline-xref-macro-rx"></block></block>
-  <block id="41411d4d90fa38d5dbd392b7b4dbf320" category="section-title">ユーザー定義ラベルを持つアプリケーションは、「削除済み」状態になります</block>
-  <block id="60f7226576ca635f8c7229813d15493c" category="paragraph">存在しない k8s ラベルを持つアプリケーションを定義すると、 Astra Control Center はそのアプリケーションを作成、管理し、すぐに削除します。この問題を回避するには、 Astra Control Center でアプリケーションを管理した後でポッドとリソースに Kubernetes ラベルを追加します。</block>
-  <block id="e77720bd91d980409ea57235b611dd6e" category="section-title">アプリケーションバックアップの実行を停止できません</block>
   <block id="de00c1e27be1485dd099e4cd2aaa554d" category="inline-link-macro">バックアップを削除します</block>
   <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link-macro">Astra Control API の略</block>
-  <block id="f4c361c271be0f27908cb399bdcbc00e" category="paragraph">実行中のバックアップを停止する方法はありません。バックアップを削除する必要がある場合は、完了するまで待ってから、の手順を実行してください <block ref="777724861a1b2b54feb45c8bdf61227c" category="inline-link-macro-rx"></block>。失敗したバックアップを削除するには、を使用します <block ref="e1ee36a2817db7c6eb3bbf8eb271b560" category="inline-link-macro-rx"></block>。</block>
-  <block id="59dec524e1b8c6ddd419bd457e4f4604" category="section-title">Trident は、バックアップからアプリケーションをリストアする際に、元の PV よりも大きな PV を作成します</block>
   <block id="c1ab420107ece0814547044cc11d2689" category="paragraph">バックアップの作成後に永続ボリュームのサイズを変更し、そのバックアップからリストアすると、永続ボリュームのサイズはバックアップのサイズではなく PV の新しいサイズと一致します。</block>
-  <block id="34f1fb0a639798d786295128c418033e" category="section-title">クローンのパフォーマンスが大規模な永続ボリュームによる影響を受ける</block>
-  <block id="6a9c64918e194ee5fa575e9bd9f0cc07" category="paragraph">非常に大容量で消費されている永続ボリュームのクローンが、オブジェクトストアへのクラスタアクセスによって断続的に低速になる可能性があります。クローンが停止し、データが 30 分以上コピーされていない場合、 Astra Control はクローン処理を終了します。</block>
   <block id="cbe80683ce886af66ccaaa3c0870a530" category="section-title">特定のバージョンの PostgreSQL を使用すると、アプリケーションクローンが失敗します</block>
   <block id="70fc1bae36d48b09899dc323f7fbc3b4" category="paragraph">Bitnami PostgreSQL 11.5.0 チャートを使用すると、同じクラスタ内のアプリケーションクローンは一貫して失敗します。正常にクローニングするには、以前のバージョンのグラフを使用してください。</block>
   <block id="9a9f5df9245945e0d6fd7c59478636f9" category="section-title">サービスアカウントレベルの OCP セキュリティコンテキスト制約（ SCC ）を使用すると、アプリケーションのクローンが失敗する</block>
   <block id="d3436d442a8980f0fa5c7451b72dc851" category="inline-link">技術情報アーティクル</block>
-  <block id="1aab0996d700c20320d182ddcbf2ad61" category="paragraph">OCP クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されている場合、アプリケーションのクローニングが失敗することがあります。アプリケーションのクローンが失敗すると、 Astra Control Center の管理対象アプリケーション領域にステータス「 Removed 」と表示されます。を参照してください<block ref="f1c7d7fb697989827a1145aa0a582ff0" category="inline-link-rx"></block> を参照してください。</block>
   <block id="1af0576f77189b1c71e1d3a9eade995a" category="section-title">ストレージクラスを設定してアプリケーションを導入すると、アプリケーションのクローンが失敗する</block>
   <block id="99dd9758763fdd9d63c8172bb77a83e6" category="paragraph">ストレージクラスを明示的に設定してアプリケーションをデプロイした後 ( たとえば、「 helm install...-set global.storageClass=NetApp-cvs-perf-extreme 」 ) 、アプリケーションのクローンを作成しようとすると、ターゲットクラスタに最初に指定されたストレージクラスが必要になります。ストレージクラスを明示的に設定したアプリケーションを、同じストレージクラスを含まないクラスタにクローニングすると、失敗します。このシナリオではリカバリ手順はありません。</block>
-  <block id="40b6b14ab69510339eb4aba0da434a45" category="section-title">Astra Control Center のインスタンス間でバケットを再利用すると、障害が発生する</block>
-  <block id="0e2fdcce58b178e4e5e24880f1311577" category="paragraph">Astra Control Center の別のインストールまたは以前のインストールで使用されていたバケットを再利用しようとすると、バックアップおよび復元操作が失敗します。別のバケットを使用するか、以前に使用したバケットを完全に消去する必要があります。Astra Control Center のインスタンス間でバケットを共有することはできません。</block>
-  <block id="865703399dbe83111d40cdbc0cf36d50" category="section-title">別のタイプのクレデンシャルを使用するバケットプロバイダタイプを選択すると、データ保護が失敗します</block>
-  <block id="4f36fb3713e66643baef6c35bc9f41b6" category="paragraph">バケットを追加するときは、正しいバケットプロバイダを選択し、そのプロバイダに適したクレデンシャルを入力します。たとえば、タイプとして NetApp ONTAP S3 が許可され、 StorageGRID クレデンシャルが受け入れられますが、このバケットを使用して原因の以降のアプリケーションのバックアップとリストアはすべて失敗します。</block>
   <block id="c62766292d642e4d3c2f78cc22c7d571" category="section-title">Astra Control Center インスタンスの削除中にバックアップとスナップショットが保持されない場合があります</block>
   <block id="720b504e7f38616e8ca9f116d5879587" category="paragraph">評価用ライセンスをお持ちの場合は、 Astra Control Center に障害が発生したときに ASUP を送信していないときにデータが失われないように、アカウント ID を必ず保存してください。</block>
-  <block id="5b3294628def37531167489c5f2faf95" category="section-title">クローン操作では、デフォルト以外のバケットは使用できません</block>
   <block id="9f097dac85ac3ea6adc46bf130f734ac" category="inline-link-macro">バケットのデフォルト設定を変更する</block>
   <block id="402051f4be0cc3aad33bcf3ac3d6532b" category="inline-link-macro">バックアップ</block>
   <block id="bb2ac0b8da1f64a3498af147ba43fc10" category="inline-link-macro">リストア</block>
   <block id="7c922cc9c47040e49d8d572ed1a29f5b" category="paragraph">アプリケーションのバックアップやリストア時に、バケット ID を必要に応じて指定することができます。ただし、アプリケーションのクローニング処理では、定義済みのデフォルトバケットが常に使用されます。クローンのバケットを変更するオプションはありません。どのバケットを使用するかを制御する必要がある場合は、どちらかを選択できます <block ref="aefe6ea1b0b92dd65028296dfe305ad3" category="inline-link-macro-rx"></block> または、を実行します <block ref="5a0ced1a5e4eaf523ec6c8f1e4de7f81" category="inline-link-macro-rx"></block> その後にを押します <block ref="ade375e828882781f654729e54a482ee" category="inline-link-macro-rx"></block> 個別。</block>
   <block id="36b09903bc03f599758bd10a012681dc" category="section-title">デフォルトの kubeconfig ファイルに複数のコンテキストが含まれている場合、 Astra Control Center を使用したクラスタの管理が失敗します</block>
   <block id="c2ac98d7ceae8e47ff6c393623bd7c1e" category="paragraph">複数のクラスタおよびコンテキストで kubeconfig を使用することはできません。を参照してください <block ref="5c6ea7df10319b240eb35135a35a3cb5" category="inline-link-macro-rx"></block> を参照してください。</block>
-  <block id="cb6886d2f5cc9a8c84765843908b1ab3" category="section-title">Trident アプリケーションのデータ管理を試行したときに 500 件の内部サービスエラーが発生しました</block>
-  <block id="c84e86b2972d232952770aa62e3a4075" category="paragraph">アプリケーションクラスタの Trident がオフラインになり（オンラインに戻った）、 500 件の内部サービスエラーが発生してアプリケーションデータ管理を試行した場合は、アプリケーションクラスタ内のすべての Kubernetes ノードを再起動して機能を復元します。</block>
-  <block id="885a0d954fa2993f5dd836d15e760d49" category="section-title">カスタムアプリケーション実行フックスクリプトがタイムアウトし、原因のスナップショット後のスクリプトが実行されない</block>
-  <block id="1f8c5caea7c9ae9483dd91dca0cbea0e" category="paragraph">実行フックの実行に 25 分以上かかる場合 ' フックは失敗し ' 戻りコードが N/A のイベント・ログ・エントリが作成されます影響を受けた Snapshot はタイムアウトして失敗とマークされ、タイムアウトを通知するイベントログエントリが生成されます。</block>
-  <block id="17d3f28d49d56e0703e3a6f4d50f0a36" category="paragraph">実行フックは、実行中のアプリケーションの機能を低下させたり、完全に無効にしたりすることが多いため、カスタム実行フックの実行時間を最小限に抑えるようにしてください。</block>
-  <block id="d9ad9044513bb2a4324591a9e0425c85" category="section-title">拡張環境で ASUP tar バンドルのステータスを確認できません</block>
-  <block id="666f9f1fc732418db675716e4d964efc" category="paragraph">ASUP の収集時に、 UI に表示されるバンドルのステータスは「 collecting 」または「 d one 」として報告されます。大規模な環境では、収集に最大 1 時間かかることがあります。ASUP のダウンロード中、バンドルのネットワークファイル転送速度が不十分になったり、 15 分経っても UI に何も表示されずにダウンロードがタイムアウトする場合があります。ダウンロードに関する問題は、 ASUP のサイズ、クラスタのサイズ、および収集時間が 7 日間の上限を超えた場合に発生します。</block>
-  <block id="277d303328081a08d224ba1791474f8c" category="section-title">外部スナップショットバージョン 4.2.0 を使用している場合、スナップショットは最終的に失敗します</block>
   <block id="989f15ab4fafcbe33b5c793f7c17921f" category="inline-link">サポートされているバージョン</block>
   <block id="b07ba4d88165e7d28588bdffecc7b23e" category="paragraph">Kubernetes 1.20 または 1.21 で Kubernetes snapshot-controller （別名 external-snapshotter ）バージョン 4.2.0 を使用すると、 Snapshot が失敗することがあります。これを防ぐには、別のを使用してください<block ref="4a7fe4e7f109667d1c8972a591d16348" category="inline-link-rx"></block> バージョン 4.2.1 などの外部 Snapshot データ。 Kubernetes バージョン 1.20 または 1.21 で使用。</block>
-  <block id="b40c1720b5310892d96ee661df005b4f" category="section-title">同じネームスペースで同時にアプリケーションのリストア処理を実行しようとすると失敗することがあります</block>
-  <block id="f9700182463519eb244a3e6fbae86db6" category="paragraph">ネームスペース内の個別に管理されたアプリケーションを同時にリストアしようとすると、長時間後にリストア処理が失敗することがあります。回避策として、各アプリケーションを一度に 1 つずつリストアします。</block>
-  <block id="a96f3dc63077db20f8c948ae1170e856" category="section-title">ソースバージョンが認証を必要としないコンテナイメージレジストリを使用しており、ターゲットバージョンが認証を必要とするコンテナイメージレジストリを使用している場合、アップグレードは失敗します</block>
-  <block id="675a94ba38361b2089be0aaf7c55976c" category="paragraph">認証を必要としないレジストリを使用する Astra Control Center システムを、認証を必要とするレジストリを使用する新しいバージョンにアップグレードすると、アップグレードは失敗します。回避策として、次の手順を実行します。</block>
-  <block id="f72311f62adb447cb3de40fe9c3d28a5" category="list-text">ネットワーク経由で Astra Control Center クラスタにアクセスできるホストにログインします。</block>
-  <block id="f1386a44ec6dd674e5a9d27e264ddd44" category="list-text">ホストが次のように設定されていることを確認します。</block>
-  <block id="2c33b5cf7c699b4eeded68ecbcfaa82d" category="list-text">kubectl' バージョン 1.19 以降がインストールされています</block>
-  <block id="62cfa6b9bdeb8a26e7f217b02ef0fa0a" category="list-text">KUBECONFIG 環境変数は、アストラコントロールセンタークラスタの kubeconfig ファイルに設定されます</block>
-  <block id="4a17b8fb79d8ddae6f8c6288c1dc0ca3" category="list-text">次のスクリプトを実行します。</block>
-  <block id="d0848afd8553c34945705222a97a4553" category="paragraph">次のような出力が表示されます。</block>
-  <block id="e10e904edba60d067220cb4263fdf96e" category="inline-link-macro">Astra Control Center のアップグレード手順</block>
-  <block id="7506958670c9602a83744796bea2e5a0" category="list-text">を使用してアップグレードを続行します <block ref="efe251e2e76a35c8296fce4ac0522735" category="inline-link-macro-rx"></block>。</block>
   <block id="886724137bc7914c606d6d8869d43fdc" category="section-title">Astra Control Center をアンインストールしても、管理対象クラスタで監視オペレータポッドがクリーンアップされない</block>
   <block id="bf4630e3d3e7f4201dd37b09622ec440" category="paragraph">Astra Control Center をアンインストールする前にクラスタの管理を解除していない場合は、次のコマンドを使用して、ネットアップ監視ネームスペースとネームスペース内のポッドを手動で削除できます。</block>
   <block id="ed10507c2015094add0b86140437d39f" category="list-text">「 acc-monitoring 」エージェントを削除します。</block>
@@ -341,26 +267,17 @@
   <block id="d64ed3e9c10229648e069f56e32f4c8e" category="paragraph">応答</block>
   <block id="1aa64d23efd8fbdb9b2de01b1ad03883" category="list-text">CRD を削除します。</block>
   <block id="8e33d0035ce9088a5bcc4cff0c38cf36" category="inline-link-macro">解決済みの問題</block>
-  <block id="1bbc2c911ad84b888a3a81466e9dc65e" category="list-text"><block ref="1bbc2c911ad84b888a3a81466e9dc65e" category="inline-link-macro-rx"></block></block>
   <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">既知の制限</block>
   <block id="58ddb149ad752e78b7ddd185699b6c95" category="list-text"><block ref="58ddb149ad752e78b7ddd185699b6c95" category="inline-link-macro-rx"></block></block>
   <block id="83d9b7618daad6df97a85360aa72e97b" category="summary">ネットアップは Astra Control Center を定期的に更新して、新機能、拡張機能、バグ修正を提供します。</block>
-  <block id="e163632735ca9d0486603e8093602bc7" category="paragraph">アストラコントロールセンターの最新の 21.12 リリースを発表します。</block>
   <block id="a1be4875b5bb7cb5ecf7bdcde9034c85" category="section-title">2021 年 12 月 14 日（ 21.12 ）</block>
-  <block id="971d6551c63734c1f30df7cc1cad2e64" category="paragraph">Astra Control Center のアップデートリリース。</block>
   <block id="9ed67fb9a4ad2ebd97ca13fe2eb81541" category="list-title">新機能とサポート</block>
   <block id="6e872df52a2a558df6e7d3ed6ac75f11" category="inline-link-macro">アプリケーションのリストア</block>
-  <block id="9d23a6375398e588d318c33c23a75979" category="list-text"><block ref="9d23a6375398e588d318c33c23a75979" category="inline-link-macro-rx"></block></block>
   <block id="792950eb0da271000be8912d0b48972b" category="inline-link-macro">実行フック</block>
-  <block id="2f6c53fca87c9555b68e97d091ea25ca" category="list-text"><block ref="2f6c53fca87c9555b68e97d091ea25ca" category="inline-link-macro-rx"></block></block>
   <block id="47be092b6dfb8cfb0aaab006dc1d9c12" category="inline-link-macro">ネームスペースを対象とした演算子を使用して展開されたアプリケーションのサポート</block>
-  <block id="4ab0523baf0e134a1ddb0f963292b06d" category="list-text"><block ref="4ab0523baf0e134a1ddb0f963292b06d" category="inline-link-macro-rx"></block></block>
   <block id="93b56b9578017297217418b72ff40fbc" category="inline-link-macro">アップストリーム Kubernetes と Rancher もサポートしています</block>
-  <block id="05b717a9f0704ef0acb8b8d5a5c987be" category="list-text"><block ref="05b717a9f0704ef0acb8b8d5a5c987be" category="inline-link-macro-rx"></block></block>
   <block id="d1879efa6b71fd1f276ba61087108559" category="inline-link-macro">Astra Control Center のアップグレード</block>
-  <block id="5cd7678f3dff4842453101e8e61fd407" category="list-text"><block ref="5cd7678f3dff4842453101e8e61fd407" category="inline-link-macro-rx"></block></block>
   <block id="6b892616f929d1b058e3f03572a07ba8" category="inline-link-macro">このリリースの解決済みの問題</block>
-  <block id="5b360d926abc1a2101298c742789c9f3" category="list-text"><block ref="5b360d926abc1a2101298c742789c9f3" category="inline-link-macro-rx"></block></block>
   <block id="3a3b7ac2e39541ea05707ccd6eb054d4" category="list-title">既知の問題および制限事項</block>
   <block id="740eb4189d3efee5546cc5fba4fded77" category="inline-link-macro">このリリースの既知の問題</block>
   <block id="d1dd5fb317ad23b395c8c846c80e0e5f" category="list-text"><block ref="d1dd5fb317ad23b395c8c846c80e0e5f" category="inline-link-macro-rx"></block></block>
@@ -369,41 +286,19 @@
   <block id="b179356a4d80ff3c8707972005712b2f" category="section-title">2021 年 8 月 5 日（ 21.08 ）</block>
   <block id="b4ed55b6796bb7f2d27743bd7ac1aa7d" category="paragraph">Astra Control Center の初回リリース。</block>
   <block id="b90b098f5e10f362e0311f845f8db412" category="inline-link-macro">それは何であるか</block>
-  <block id="0366914bfcaaf0f822d79c3c7babc483" category="list-text"><block ref="0366914bfcaaf0f822d79c3c7babc483" category="inline-link-macro-rx"></block></block>
   <block id="98fe201bb3b98bdf87c205655ab035fa" category="inline-link-macro">アーキテクチャとコンポーネントを理解する</block>
-  <block id="a0ac4dc4e19e59d069c10d9bf1912dc2" category="list-text"><block ref="a0ac4dc4e19e59d069c10d9bf1912dc2" category="inline-link-macro-rx"></block></block>
   <block id="c9a21e3a3141bc9001bc0958ff7af4e0" category="inline-link-macro">開始には何が必要ですか</block>
-  <block id="0523965ded2c88ae66e7e4d44ca41a94" category="list-text"><block ref="0523965ded2c88ae66e7e4d44ca41a94" category="inline-link-macro-rx"></block></block>
   <block id="349838fb1d851d3e2014b9fe39203275" category="inline-link-macro">をインストールします</block>
   <block id="a0f848942ce863cf53c0fa6cc684007d" category="inline-link-macro">セットアップ（ Setup ）</block>
-  <block id="6c5edb2881e9029e9edd8afe312b1cd8" category="list-text"><block ref="6362efe20299a06e535738d1cceb3ac0" category="inline-link-macro-rx"></block> および <block ref="e4e86c646ff8aa142d5e4b26c7b4ec76" category="inline-link-macro-rx"></block></block>
   <block id="34e34c43ec6b943c10a3cc1a1a16fb11" category="inline-link-macro">管理</block>
   <block id="124c16e5bae30d956b37ef14c9a00ab4" category="inline-link-macro">保護</block>
-  <block id="c88671a8dd58c81472dc57f09d4ac799" category="list-text"><block ref="39494ea012206ce77c4c99504cdda9d1" category="inline-link-macro-rx"></block> および <block ref="14af967e6ae007bd3ac7e8b67133429f" category="inline-link-macro-rx"></block> アプリケーション</block>
   <block id="79aa9197dc185dded5eb383a683a5219" category="inline-link-macro">バケットを管理する</block>
   <block id="d40b92e5daf53d16c4c1ce9490198aec" category="inline-link-macro">ストレージバックエンド</block>
-  <block id="d4054427a75cdc7e74160bfd4764dc3e" category="list-text"><block ref="b8e0d8248d4ced7bc854879cb8922db8" category="inline-link-macro-rx"></block> および <block ref="0b5e114fef796b675d42c200b0973e04" category="inline-link-macro-rx"></block></block>
   <block id="afa76abc4566eab1fcb19c24508a45f6" category="inline-link-macro">アカウントを管理</block>
-  <block id="dd6bd15d7a1510debf95328d8f2a2ca4" category="list-text"><block ref="dd6bd15d7a1510debf95328d8f2a2ca4" category="inline-link-macro-rx"></block></block>
   <block id="533233a9f1bc7afcefb31e5e34cf3ebf" category="inline-link-macro">API による自動化</block>
-  <block id="b79080ea1f2256059dfc933aaa5103fb" category="list-text"><block ref="b79080ea1f2256059dfc933aaa5103fb" category="inline-link-macro-rx"></block></block>
   <block id="cb4cb1029fe7caebf558babd22124574" category="list-text"><block ref="cb4cb1029fe7caebf558babd22124574" category="inline-link-macro-rx"></block></block>
-  <block id="640748e2e0f82731017195bf16030061" category="paragraph">このリリースの製品では、これらの問題が修正されています。</block>
-  <block id="4fc8b8758715863e1a09b124319f8e9b" category="section-title">追加のバックアップはスケジュールされたバックアップの一部として保持されます</block>
-  <block id="fbdc8a0660ef98b083be8a51983fd5e5" category="paragraph">Astra Control Center の 1 つまたは複数のバックアップが、バックアップスケジュールで保持するように指定された数を超えて保持されることがあります。これらの追加バックアップは ' スケジュール・バックアップの一部として削除する必要がありますが ' 削除されず ' 保留状態になっています</block>
-  <block id="6ae56a1a18204a6cbea959022093fd50" category="section-title">Astra Control Center で 10 進数の PVC を使用しているアプリケーションのバックアップまたはクローニングが失敗する</block>
-  <block id="f88865db3ac1f4e059f26df6c1b8048e" category="paragraph">10 進数で作成したボリュームは、 Astra Control Center のバックアップまたはクローンプロセスを使用して失敗します。</block>
-  <block id="a9b1ed09da7f5ca112098fb3bf618b72" category="section-title">Astra Control Center UI では、永続的ボリュームの変更などのアプリケーションリソースの変更が表示されるまでに時間がかかります</block>
-  <block id="5683b7964e1b7510dc0b40351ae7e7a8" category="paragraph">データ保護処理（クローン、バックアップ、リストア）が完了して永続ボリュームのサイズを変更したあと、新しいボリュームのサイズが UI に表示されるまでに最大 20 分かかります。この UI の遅延は、アプリケーションリソースが追加または変更された場合にも発生する可能性があります。この場合、データ保護処理が数分以内に完了し、ストレージバックエンドの管理ソフトウェアを使用してボリュームサイズの変更を確認できます。</block>
-  <block id="2a3a7d99889b9108d0740b1abe6ee4b7" category="section-title">インストール時に Astra Control Center カスタムリソース定義によって作成されたクラスタロールバインドが正しくない</block>
-  <block id="10c9dcfafc7e74b04a0359f156026134" category="paragraph">このリリースでは、インストール中にクラスタロールを正しくバインドするためのパッチは不要になりました。</block>
-  <block id="009ccf79c68957c72ef7e86fd3342809" category="section-title">ASUP の収集が生成中またはアップロード中の状態で停止します</block>
-  <block id="1d7d3dac2bbe9c603252628db2807e8c" category="paragraph">ASUP ポッドが停止または再起動されると、 ASUP の収集が生成中またはアップロード中の状態で停止する可能性があります。</block>
-  <block id="c192a9d8c637bdc3929f70218b5b7fbf" category="section-title">オペレータが展開したアプリケーションと名前空間</block>
-  <block id="d5b062288f54ed6a0c014479ee75c916" category="paragraph">展開する演算子とアプリケーションは、同じ名前空間を使用する必要があります。Astra Control では、 1 つのネームスペースにつき 1 つのオペレータが導入したアプリケーションのみがサポートされます</block>
   <block id="0956972ccb3f1ffed4c31a057c597e7d" category="list-text"><block ref="0956972ccb3f1ffed4c31a057c597e7d" category="inline-link-macro-rx"></block></block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="doc">リリースノート</block>
-  <block id="89830bd8d2ec46e7e34e647c7b8964d6" category="paragraph">アストラコントロールセンターの 21.12 リリースを発表します。</block>
   <block id="83f0c0234c22e54a4c0550bfcf6de225" category="inline-link-macro">このリリースの Astra Control Center の内容</block>
   <block id="0197eedefddfa1dc3c535db285d61bc5" category="list-text"><block ref="0197eedefddfa1dc3c535db285d61bc5" category="inline-link-macro-rx"></block></block>
   <block id="3f4fc4220755866f399810fee47c7884" category="inline-link-macro">GitHub の貢献者</block>
@@ -415,7 +310,6 @@
   <block id="1bca7607e51d744e7281a7c4772adc9f" category="inline-link-macro">クラスタの管理を解除します</block>
   <block id="1f7a30a87f1e03ae9b4e5a75054aea44" category="paragraph">別の Astra Control Center インスタンスでクラスタを管理する場合は、最初にを実行する必要があります <block ref="db506b8ca3f9d6b67f586ae44373200f" category="inline-link-macro-rx"></block> 別のインスタンスで管理する前に、管理対象のインスタンスから管理します。管理対象からクラスタを削除したら、次のコマンドを実行してクラスタが管理対象外であることを確認します。</block>
   <block id="df968f82e7fe0ad4aa9c7e7fa3f7746b" category="paragraph">そのネームスペースでポッドを実行していないことを確認するか、ネームスペースを存在させないようにします。どちらかが true の場合、クラスタは管理対象外です。</block>
-  <block id="a445040139f09298f7fa8e3a22ea47fa" category="section-title">参照渡し演算子を使用してインストールされたアプリケーションのクローンが失敗することがあります</block>
   <block id="cee3f7f1743165823d88b27d5998cf00" category="paragraph">Astra Control は、名前空間を対象とした演算子でインストールされたアプリケーションをサポートします。これらの演算子は、一般に「パスバイリファレンス」アーキテクチャではなく「パスバイ値」で設計されています。これらのパターンに続くいくつかのオペレータアプリを次に示します。</block>
   <block id="489435e765db57e2156b5a11839b6533" category="inline-link">Apache K8ssandra</block>
   <block id="3440b7c2bc625432a7948e390eab90ab" category="list-text"><block ref="3440b7c2bc625432a7948e390eab90ab" category="inline-link-rx"></block></block>
@@ -424,38 +318,24 @@
   <block id="31131d7e3685b20b85f5636870f62782" category="inline-link">Percona XtraDB クラスタ</block>
   <block id="c1575cacf426b45878d5adfc037a028f" category="list-text"><block ref="c1575cacf426b45878d5adfc037a028f" category="inline-link-rx"></block></block>
   <block id="17cc01540b66b5969e8b039af78f39bd" category="paragraph">Astra Control では、「パスバイリファレンス」アーキテクチャ（ CockroachDB オペレータなど）で設計されたオペレータをクローニングできない場合があります。クローニング処理では、クローニング処理の一環として独自の新しいシークレットが存在する場合でも、クローニングされたオペレータがソースオペレータから Kubernetes シークレットを参照しようとします。Astra Control がソースオペレータの Kubernetes シークレットを認識しないため、クローニング処理が失敗する場合があります。</block>
-  <block id="015b7ce9577ab8215272b79fab0e4df6" category="section-title">クラスタとネットワークが想定どおりに動作していますが、クラスタは削除された状態です</block>
-  <block id="94058465ef9a6d58d42576a344fed5af" category="paragraph">クラスタが「 re moved 」状態であり、ネットワーク接続が正常であると表示される場合（ Kubernetes API を使用してクラスタに外部からアクセスしようとすると成功します）、 Astra Control に指定した beckufig は無効になる可能性があります。クラスタでの証明書のローテーションまたは有効期限が原因の可能性があります。この問題を修正するには、を使用して、 Astra Control のクラスタに関連付けられたクレデンシャルを更新します <block ref="a2191a9273bc54ae2e00dd51b40d424f" category="inline-link-macro-rx"></block>：</block>
   <block id="66edf4995b8868e964c7fcd7d02a19e0" category="list-text">POST 呼び出しを実行して更新された kubeconfig ファイルを「 /credentials 」エンドポイントに追加し、応答本文から割り当てられた「 id 」を取得します。</block>
   <block id="d0becff2191f0fa6114340d29cd03f72" category="list-text">適切なクラスタ ID を使用して '/clusters' エンドポイントから PUT 呼び出しを実行し 'credentialId' を前の手順の id' 値に設定します</block>
   <block id="e5c2d65f2a0a3504c7fb94d2f3f8e408" category="paragraph">これらの手順を完了すると、クラスタに関連付けられたクレデンシャルが更新され、クラスタは再接続して、その状態を「 available 」に更新する必要があります。</block>
   <block id="b2cd1803c2e568310827730381791b61" category="section-title">OLM 対応およびクラスタ対象のオペレータ展開アプリケーションはサポートされていません</block>
-  <block id="3a54aa940f4f100708ea189c6ce031c7" category="paragraph">Astra Control Center は、 Operator Lifecycle Manager （ OLM ）対応のオペレータまたはクラスタを対象としたオペレータによって展開されるアプリケーションをサポートしません。</block>
-  <block id="a6a6ad4944ab8981cc2988a80e089b6d" category="section-title">アプリケーションのクローニングは、同じ Kubernetes ディストリビューションでのみ実行できます</block>
-  <block id="e7bb10b638c956d18e6c9f618946afee" category="paragraph">クラスタ間でアプリケーションをクローニングする場合は、ソースクラスタとデスティネーションクラスタが Kubernetes に同一に分散されている必要があります。たとえば、 OpenShift 4.7 クラスタからアプリケーションをクローニングする場合は、 OpenShift 4.7 でもあるデスティネーションクラスタを使用します。</block>
   <block id="e6040af39194f07f37b656692cbaafaf" category="section-title">Astra Control Center の S3 バケットは、使用可能容量を報告しません</block>
   <block id="0e218bfe2b5ff044cdd9f49b84c26315" category="paragraph">Astra Control Center で管理されているアプリケーションのバックアップまたはクローニングを行う前に、 ONTAP または StorageGRID 管理システムでバケット情報を確認します。</block>
-  <block id="68c30ea84ffce800b5aa44f942d572e7" category="section-title">MetalLB 0.11.0 はサポートされていません</block>
   <block id="b1c0f5fea43226e1ffa246ed1546e33b" category="inline-link-macro">Astra Control Center の要件</block>
-  <block id="08513947dbeaf0763e0e868781ef4fdf" category="paragraph">metalLB 0.11.0 は、 Astra Control Center でサポートされているロードバランサではありません。サポートされているロードバランサの詳細については、を参照してください <block ref="53a3d8b420a4fb67c04c785641ebe993" category="inline-link-macro-rx"></block>。</block>
   <block id="fd1d9e68b00f80c37ad27ceadea7ddb3" category="section-title">Helm 2 で展開されたアプリケーションはサポートされていません</block>
   <block id="58ab73f564346f324fc6656a7cb479e7" category="paragraph">Helm を使用してアプリケーションを展開する場合、 Astra Control Center には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用して展開されたアプリケーションの管理とクローニングが完全にサポートされています。詳細については、を参照してください <block ref="a41c664e3d2520e4c4deb907d0286272" category="inline-link-macro-rx"></block>。</block>
   <block id="58d79c3b7603eb5b1b4326c3aa1454a6" category="section-title">Astra Control Center は、プロキシサーバー用に入力した詳細を検証しません</block>
   <block id="cfefd1cb11182407b9ad42fef18d6118" category="inline-link-macro">正しい値を入力します</block>
   <block id="f99f038781fc48aada5865fc36b1d518" category="paragraph">実行することを確認してください <block ref="18fbb20c2dec7dc2c270711d5671f275" category="inline-link-macro-rx"></block> 接続を確立するとき。</block>
-  <block id="f33e469037248f530b6cc5eba6e12368" category="section-title">Astra Control Center のデータ保護はまだ利用できません</block>
-  <block id="6d3a59a82d9b87e554f8613972bbcbaf" category="paragraph">このリリースでは、 Snapshot 、バックアップ、リストアの各オプションを使用して Astra をアプリケーションとして管理する機能はサポートされていません。</block>
-  <block id="dd3a2db9d2624c1f74d5695e67b20c7a" category="section-title">正常でないポッドは、アプリケーション管理に影響を与えます</block>
-  <block id="6dd84389e57d1bd5301a28cd06213505" category="paragraph">管理対象アプリケーションにポッドが正常な状態でない場合、 Astra Control は新しいバックアップとクローンを作成できません。</block>
   <block id="52613a0e2a34040faff2fa3713d61414" category="section-title">Postgres ポッドへの既存の接続が原因で障害が発生します</block>
   <block id="a3e438b957ae4a8b4731d63d2e88365f" category="paragraph">Postgres ポッドで操作を実行する場合は、 psql コマンドを使用するためにポッド内で直接接続しないでください。Astra Control では、 psql にアクセスしてデータベースをフリーズし、解凍する必要があります。既存の接続がある場合、スナップショット、バックアップ、またはクローンは失敗します。</block>
-  <block id="39feb634693572723a378befc20023aa" category="section-title">Trident はクラスタからアンインストールされません</block>
   <block id="185d9e7bb43f5673a0095e89e4b5cfc9" category="inline-link">Trident のドキュメントでは、次の手順を実行します</block>
-  <block id="e516d0c3ddb020e2ecc9f93439922ef0" category="paragraph">Trident は、 Astra Control Center からクラスタの管理を解除しても、クラスタから自動的にはアンインストールされません。Trident をアンインストールするには、が必要です<block ref="11951e75a5c670d49400c1d12d4333d6" category="inline-link-rx"></block>。</block>
   <block id="299722bd05bd376cc7b0c795d68d2265" category="summary">ユーザーを Astra Control Center システムに追加し、システムにアクセスできなくなったユーザーを削除します。</block>
   <block id="1b4fcfaacbd0ae3e24bc82f8d7a82211" category="doc">ユーザを管理します</block>
   <block id="a4f53e5340ac3c6ab0e1234f9f27981c" category="inline-link">Astra Control API</block>
-  <block id="e29e283fdc01b13d8e0762da441d7c3c" category="paragraph">Astra Control Center UI を使用して、 Astra Control Center インストールのユーザーを追加、削除、および編集できます。Astra の UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> ユーザを管理するには、を実行</block>
   <block id="3bf6330f5f4c7c3dfddc9670cfaf4a22" category="section-title">ユーザを追加します</block>
   <block id="7f0565c9d875cf23c2d121f8bed2397f" category="paragraph">アカウント所有者と管理者は、 Astra Control Center のインストールにさらにユーザーを追加できます。</block>
   <block id="d3b6c91f645198e0ab8a9728102eabb0" category="list-text">[*Users*] タブを選択します。</block>
@@ -465,7 +345,6 @@
   <block id="259720d94b46ddf06ff81abbfb957e50" category="list-text">適切なシステム権限を持つユーザロールを選択します。</block>
   <block id="07bb712636ed13b638d72bb327675777" category="paragraph">各ロールには次の権限があります。</block>
   <block id="12683a08e59030d6f53d51de7d346b89" category="list-text">* Viewer * はリソースを表示できます。</block>
-  <block id="04c062dd4fbc5ed4eecc2f5b1bae4a1d" category="list-text">* メンバー * には、ビューア・ロールの権限があり、アプリやクラスタを管理できますが、アプリやクラスタの管理を解除したり、スナップショットやバックアップを削除することはできません。</block>
   <block id="fd3a43e727f4910a692eca5df64305b6" category="list-text">*Admin* にはメンバーの役割権限があり、 Owner 以外の他のユーザーを追加および削除できます。</block>
   <block id="8524de27a02d529a67474e8b6bd5310c" category="list-text">* Owner * には Admin ロールの権限があり、任意のユーザーアカウントを追加および削除できます。</block>
   <block id="ce0ce3ea98d033e77751261b2720fefe" category="section-title">パスワードを管理します</block>
@@ -477,17 +356,13 @@
   <block id="57d4c802b66507e7e8b66d11f3a59a6f" category="list-text">確認のためパスワードをもう一度入力します。</block>
   <block id="90f1c6fc655d106b5040673f4fce5f99" category="section-title">別のユーザーのパスワードをリセットします</block>
   <block id="777944860c5bbcdb1b4a4a0a593efb52" category="paragraph">アカウントに Admin ロールまたは Owner ロールの権限がある場合は、自分だけでなく他のユーザアカウントのパスワードもリセットできます。パスワードをリセットする場合は、ログイン時にユーザが変更しなければならない一時パスワードを割り当てます。</block>
-  <block id="109438fb5a37882f518dc1879a8744ef" category="list-text">[* ユーザー * ] タブで、ユーザーの [ 状態 * ] 列のドロップダウンリストを選択します。</block>
   <block id="df429da64d721747277606b598df29c4" category="list-text">「 * パスワードのリセット * 」を選択します。</block>
   <block id="67873c21262ba112b2e21148d43428f5" category="list-text">パスワードの要件に適合する一時パスワードを入力します。</block>
-  <block id="7d52685360edaccc999997fc87429251" category="admonition">次回ユーザがログインすると、パスワードの変更を求めるプロンプトが表示されます。</block>
   <block id="a3f6d57c07e3d951867e570c6f3e5028" category="section-title">ユーザーの役割を変更します</block>
   <block id="24c0d48852d7cd070e2d6f992f4c74ab" category="paragraph">Owner ロールのユーザはすべてのユーザのロールを変更できますが、 Admin ロールのユーザは Admin 、 Member 、 Viewer のロールを持つユーザのロールを変更できます。</block>
-  <block id="bda2a6db69313c6436901a69dc87e01b" category="list-text">[*Users*] タブで、ユーザーの [*Role] 列のドロップダウンリストを選択します。</block>
   <block id="eae7082bb2b77cb55ea98ab1237ed5c6" category="paragraph">Astra Control Center は、選択した新しいロールに基づいてユーザーの権限を更新します。</block>
   <block id="8c7e9f2dfcd0125922dfbce36a1a4c2a" category="section-title">ユーザを削除します</block>
   <block id="7bdbece63d2f5153ecde5f774601c3bd" category="paragraph">所有者ロールまたは管理者ロールを持つユーザは、いつでもそのアカウントから他のユーザを削除できます。</block>
-  <block id="c6de00b9aefa501435a17828dbcb9f1e" category="list-text">[* ユーザー * ] タブで、削除する各ユーザーの行のチェックボックスをオンにします。</block>
   <block id="201d245e3b93a26007d42f5f603f6230" category="paragraph">Astra Control Center は、アカウントからユーザーを削除します。</block>
   <block id="02c8c5fbeebdf293d83e1ec96ea30aff" category="summary">Astra では、スナップショットまたはバックアップからアプリケーション構成と永続的ストレージをリストアできます。オブジェクトストアから永続的ストレージのバックアップが転送されるため、既存のバックアップからのリストアが最も高速に完了します。</block>
   <block id="e07596cf624c6e8c354d1188f9bdb6bb" category="doc">アプリケーションのリストア</block>
@@ -508,7 +383,6 @@
   <block id="1eb15cc34f73a18c5010c7e078c2820b" category="list-text">既存のバックアップと Snapshot がすべて削除されます。</block>
   <block id="206d3d5116152cdbe009ea752713551d" category="list-text">アプリケーションとデータは引き続き使用できます。</block>
   <block id="f1f255d2845e9a647d073e0a190b4677" category="list-text">左側のナビゲーションバーから、「 * アプリケーション * 」を選択します。</block>
-  <block id="8dd23e1c568228548325f2fea14fb95e" category="list-text">管理する必要がなくなったアプリのチェックボックスをオンにします。</block>
   <block id="9167952910a6a9fb62e6b4aad81abf6c" category="list-text">[ アクション * （ Action * ） ] メニューから、 [ * アンマネージ * （ * Unmanage * ） ] を選択し</block>
   <block id="6ecdfe44e7e92d315afb95938bf3afc6" category="list-text">「 unmanage 」と入力して確定します。</block>
   <block id="2e779ae5ce936d93bd8df1ed4593caf8" category="list-text">アプリの管理を解除することを確認し、 [ はい、アプリケーションの管理を解除します * ] を選択します。</block>
@@ -520,8 +394,6 @@
   <block id="aa8fdd954e441012c7fa4f75cf0a1e47" category="list-text">Trident はクラスタからアンインストールされません。<block ref="2b9355ae4f550df74c6ddd50ecfe387a" category="inline-link-rx"></block>。</block>
   <block id="9c95c3fc0f233a0913a6e1f0cff2dcd3" category="admonition">クラスタの管理を解除する前に、クラスタに関連付けられているアプリケーションの管理を解除する必要があります。</block>
   <block id="c2008a53ff6f4dd3bd34d87edf129616" category="list-text">左側のナビゲーションバーから、 * クラスタ * を選択します。</block>
-  <block id="c6ff953428ac8710c8f5f06a6a9fe0c4" category="list-text">Astra Control Center で管理する必要がなくなったクラスタのチェックボックスを選択します。</block>
-  <block id="b6d3a34fb7bffab8cde7b561d8f5a094" category="list-text">[ アクション * （ Actions * ） ] メニューから、 [ * 管理解除 * （ Unmanage * ） ] を選択する。</block>
   <block id="bc044e78d97d319b1d70c1a7d2370e89" category="list-text">クラスタの管理を解除することを確認し、「 * Yes 、 unmanage cluster * 」を選択します。</block>
   <block id="d8c516e4708b97e339070b5b7841bccd" category="paragraph">クラスタのステータスが「クラスタ」ページから「削除中」に変わり、クラスタが「クラスタ」ページから削除され、 Astra Control Center によって管理されなくなります。</block>
   <block id="c62097eabfe030fb5c11ec492419eea4" category="admonition">* Astra Control Center と Cloud Insights が接続されていない場合 * 、クラスタの管理を解除すると、テレメトリ・データの送信用にインストールされたすべてのリソースが削除されます。*Astra Control Center と Cloud Insights が接続されている場合 * ' クラスタの管理を解除すると 'fluentbit' および 'event-exporter ポッドのみが削除されます</block>
@@ -541,18 +413,10 @@
   <block id="19ecf1db6dfc5b50ce17298a3591b19a" category="paragraph">Astra Control Center は、アカウントから資格情報を削除します。</block>
   <block id="c6e068d5338a3e9ea2e7f1fe3a3ed0a6" category="summary">アクションが完了または失敗すると、 Astra から通知が表示されます。たとえば、アプリケーションのバックアップが正常に完了した場合に通知が表示されます。</block>
   <block id="9d760e8b8676774ba338c292ab4a130d" category="doc">通知を表示および管理します</block>
-  <block id="d576284c4e2dd11cfb68c262f5b633a5" category="paragraph">未読通知の数は、インターフェイスの右上に表示されます。</block>
   <block id="8d00c779daf42bd7a0d49d6d7e64b73b" category="inline-image-macro">未読通知の数を表示できる Astra インターフェイスを示すスクリーンショット。</block>
-  <block id="9aa159d77fcc84518630b00a00c11ad9" category="paragraph"><block ref="9aa159d77fcc84518630b00a00c11ad9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="26063f616424ab272dd4cd2f9441985c" category="paragraph">これらの通知を表示して、既読としてマークすることができます（未読の通知を消去する場合などに便利です）。</block>
-  <block id="a6cde2d7dea301d39ce525c111e453a4" category="inline-image-macro">Astra インターフェイスで展開された通知を示すスクリーンショット。</block>
-  <block id="6d6be4088900c2f95c62250cde4ac641" category="paragraph"><block ref="6d6be4088900c2f95c62250cde4ac641" category="inline-image-macro-rx" type="image"></block></block>
   <block id="638401ef2c1670018a150e14614deb99" category="summary">ダッシュボードを選択すると、アプリケーション、コンピューティング、健全性の概要が表示されます。</block>
   <block id="896a3b387775ffd7575778fc2ed41da6" category="doc">アプリケーションとクラスタの健常性の概要を表示します</block>
   <block id="0e44af92764113cef20aa94338a53080" category="paragraph">ダッシュボード * を選択すると、アプリ、クラスター、ストレージバックエンド、それらのヘルスの概要が表示されます。</block>
-  <block id="44b5fdd66f958e781c8dc3009ed01bbc" category="inline-image-macro">に、 Astra Control Center ダッシュボードを示します。</block>
-  <block id="85041b7ae6703fb3163b51431408d709" category="paragraph"><block ref="85041b7ae6703fb3163b51431408d709" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fa6750152f2b474f167084f8fd526332" category="paragraph">これらは静的な数値やステータスだけではなく、それぞれのステータスからドリルダウンすることもできます。たとえば、アプリが完全に保護されていない場合は、アイコンの上にカーソルを置くと、完全に保護されていないアプリを特定できます。その理由が含まれます。</block>
   <block id="a0ebf92c6d662c4b4cb6eb61c0014354" category="section-title">アプリケーションタイル</block>
   <block id="4e6b10a88fddc4726540895a01a14e2e" category="paragraph">「 * アプリケーション * 」タイルは、次の項目を識別するのに役立ちます。</block>
   <block id="b39a5715521e6304c7b97c3d5392a299" category="list-text">Astra で現在管理しているアプリケーションの数。</block>
@@ -584,7 +448,6 @@
   <block id="99bc4b850e05bafd67cf5f5f49344c1e" category="list-text">CustomResourceDefinition の場合</block>
   <block id="2597d86efa761b80f198c7208e859dd7" category="list-text">CustomResource の場合</block>
   <block id="0d4eb61dc57afc7f3f8d51439c96eedd" category="list-text">デモンセット（ DemonSet ）</block>
-  <block id="ea355214fd4bc7c57f471bd92918879b" category="list-text">導入</block>
   <block id="788c34b60baf42eb1cac433ba1f0b64a" category="list-text">DeploymentConfig</block>
   <block id="7d05c708b92b4809bfe9bf66edf8f765" category="list-text">入力</block>
   <block id="1fcd027e4be180b1536eba3afa93e6be" category="list-text">MutingWebhook</block>
@@ -632,27 +495,18 @@
   <block id="8bfc4cb4fff96597635f56f65ebcede0" category="paragraph">たとえば、毎週同じ頻度で「 Maria 」のバックアップポリシーを設定したいのに、同じネームスペースにある「 MariaDB 」をバックアップする頻度を高く設定するとします。これらのニーズに基づいて、アプリケーションを個別に管理する必要があり、単一のネームスペースで管理する必要はありません。</block>
   <block id="4c609aa24da73ca7be0590b5eec7aaeb" category="paragraph">Astra Control を使用すると、階層の両方のレベル（名前空間とその名前空間内のアプリケーション）を個別に管理できますが、いずれか一方を選択することをお勧めします。Astra Control で実行したアクションは、ネームスペースレベルとアプリケーションレベルの両方で同時に実行される場合、失敗する可能性があります。</block>
   <block id="990f20d768eb9cf48375c1d4915122fd" category="list-text">[* Discovered （検出済み） ] を選択</block>
-  <block id="d1bf1fbd572ac9ef31a7a5aa5f49afba" category="inline-image-macro">検出されたアプリケーションのスクリーンショット</block>
-  <block id="6d79a54203152f27c67e60a3bd52f0a6" category="paragraph"><block ref="6d79a54203152f27c67e60a3bd52f0a6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4afb12473aad13866efa5e71a08c8842" category="list-text">検出されたネームスペースのリストを表示します。ネームスペースを展開して、アプリケーションおよび関連するリソースを表示します。</block>
   <block id="4938873cd4c6222286b2fc66dd0273cf" category="paragraph">Astra Control では、 Helm アプリケーションとカスタムラベルの付いたアプリケーションがネームスペースに表示されます。Helm ラベルがある場合は、タグアイコンで指定されます。</block>
   <block id="79fc8ab6098799840fff1ee141bc74ce" category="list-text">[*Group*] 列を参照して、アプリケーションが実行している名前空間を確認します ( フォルダアイコンで指定されています ) 。</block>
   <block id="c8e5b4e5d17fb1cf0756ed0f7caeadae" category="list-text">各アプリケーションを個別に管理するか、ネームスペースレベルで管理するかを決定します。</block>
-  <block id="ddadba2df5149cbcfe18c15705797820" category="list-text">階層内で目的のレベルにするアプリを探し、 [ アクション ] メニューから [ * 管理 ] を選択します。</block>
-  <block id="c976782cc5d12700c98c3425eb9dc47f" category="list-text">アプリを管理しない場合は、アプリの横にある [ アクション ] メニューから [ * 無視 * ] を選択します。</block>
   <block id="3c2fec92040461dd573ce9a90bae919a" category="paragraph">たとえば、「 Maria 」ネームスペースの下にあるすべてのアプリケーションを同じスナップショットポリシーとバックアップポリシーで管理したい場合は、ネームスペースを管理し、ネームスペース内のアプリケーションは無視してください。</block>
   <block id="6c20f4d9a0417bb5f2b014b862624f69" category="list-text">管理対象アプリのリストを表示するには、表示フィルターとして「 * 管理対象 * 」を選択します。</block>
-  <block id="09e5a3d412993722214ee2b7c682f81b" category="inline-image-macro">管理対象アプリケーションのスクリーンショット</block>
-  <block id="d8444a4e6de7a09c1c1118d8b7e70fab" category="paragraph"><block ref="d8444a4e6de7a09c1c1118d8b7e70fab" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d5d787e8cd90f4872b2e37b7fb435c17" category="paragraph">追加したアプリケーションの [ 保護 ] 列に警告アイコンが表示されていることを確認します。このアイコンは、バックアップされておらず、まだバックアップのスケジュールが設定されていないことを示しています。</block>
   <block id="21bc83f1a45ccd9ced02ab96641c2f58" category="list-text">特定のアプリケーションの詳細を表示するには、アプリケーション名を選択します。</block>
   <block id="b921f272cfcf883e922b6fe018ad35ac" category="paragraph">管理対象として選択したアプリは、 [ 管理対象 * ] タブから利用できるようになりました。無視されたアプリは、 * 無視された * タブに移動します。新しいアプリケーションがインストールされると、検出されたタブにはアプリが表示されないため、見つけやすくなり、管理も簡単になります。</block>
   <block id="6af5a492909049f5a3f3a317f33387c5" category="section-title">Kubernetes ラベルでアプリケーションを管理</block>
   <block id="83a1187521d85e9ccd16a0a7aad4cbd2" category="inline-link-macro">Kubernetes ラベルでカスタムアプリケーションを定義する方法については、こちらをご覧ください</block>
   <block id="01b96ba95cd80ff0d9c22e6231932fc0" category="paragraph">Astra Control の [ アプリ ] ページの上部には、「 * カスタムアプリの定義 * 」という名前のアクションが含まれています。このアクションを使用して、 Kubernetes ラベルで識別されるアプリケーションを管理できます。 <block ref="1c2a3e5a8127b7f88cae944774d58bf4" category="inline-link-macro-rx"></block>。</block>
   <block id="f5b27b81adeaf8f7c4bba04ab4588703" category="list-text">[ * 定義（ Define ） ] を選択します</block>
-  <block id="c37d1bec3f61b02e8d6ed69b3f017247" category="inline-image-macro">カスタムアプリケーションの定義のスクリーンショット</block>
-  <block id="b64742d3c57d6b0e6837659b759b4f4c" category="paragraph"><block ref="b64742d3c57d6b0e6837659b759b4f4c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2745a14e2f83b3dabcc1f1a4341f7dcb" category="list-text">[ * カスタムアプリケーションの定義 * （ Define custom application * ） ] ダイアログボックスで、アプリケーションを管理するために必要な情報を入力します。</block>
   <block id="b0e41529770f4e2b9a698031a68dc524" category="list-text">* 新しいアプリ * ：アプリの表示名を入力します。</block>
   <block id="9dd5ba8915f4f0e871fe52c39c0b4f80" category="list-text">* クラスタ * ：アプリケーションが存在するクラスタを選択します。</block>
@@ -668,20 +522,15 @@
   <block id="739b4f174b939306b071ed11d29e447d" category="paragraph">また、アプリケーションを 1 つのネームスペースで同時に管理することもできます（ネームスペース管理）。ネームスペースから除外するアプリケーションは無視してかまいません。</block>
   <block id="c3228c8bcfdecd9496e4cd66910db892" category="list-text">フィルタとして * Discovered * を選択します。</block>
   <block id="b928c0a981619916cc0eb092f043945a" category="list-text">アプリケーションを選択します。</block>
-  <block id="7d1da3ac91d77a07f8b2b9faefd2a140" category="list-text">アクションメニューから * 無視 * を選択します。</block>
-  <block id="2aeb58519166a8c4e8f5515f0f89ffe5" category="list-text">無視を解除するには、 [ アクション ] メニューから [ * 無視解除 * ] を選択します。</block>
   <block id="5f924a535770ff0f45694c1e9c8fcb88" category="section-title">アプリの管理を解除します</block>
   <block id="b306fa5773974ca6e7bfe517afb3fc35" category="paragraph">アプリケーションのバックアップ、スナップショット、またはクローンを作成する必要がなくなった場合は、管理を停止できます。</block>
   <block id="8224e161d58abdff2a5513d724d43014" category="admonition">アプリケーションの管理を解除すると、以前に作成したバックアップやスナップショットは失われます。</block>
   <block id="49e8b9f86ccd46455dd32c8318ce446d" category="list-text">フィルタとして [*Managed] を選択します。</block>
-  <block id="2adbdcd79843e8f5d5b48ef1b59965f1" category="list-text">[ アクション ] メニューから、 *Unmanage* を選択します。</block>
   <block id="10fc3677ad54ad462530bea7be664ea6" category="list-text">情報を確認します。</block>
   <block id="e70eee61377e2dd5bf6e1379b113ed7b" category="list-text">[ はい、アプリケーションの管理を解除 * ] を選択します。</block>
   <block id="f620b5e05e6e7eabf125361d9667f6bd" category="section-title">システムアプリケーションについて教えてください。</block>
-  <block id="785cdd01ccf7ad73ce18b963bc050143" category="paragraph">Astra Control は、 Kubernetes クラスタで実行されているシステムアプリケーションも検出します。ツールバーのクラスターフィルターの下にある * システムアプリを表示 * チェックボックスを選択すると、システムアプリを表示できます。</block>
   <block id="d232ca000c05ba97e49c6c72b1618829" category="inline-image-macro">アプリケーション（ Apps ）ページで使用可能なシステムアプリケーションを表示（ Show System Apps ）オプションを示すスクリーンショット。</block>
   <block id="9339357ed9696b791282a3e8fe64b01c" category="paragraph"><block ref="9339357ed9696b791282a3e8fe64b01c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="95a653c1fa5fdad4423d2f1481477043" category="paragraph">これらのシステムアプリは、バックアップが必要になることが稀であるため、デフォルトでは表示されません。</block>
   <block id="8d84029414602faeba19e321d529f771" category="summary">Astra アカウントが不要になった場合は、いつでもアカウントを閉じることができます。</block>
   <block id="d6017f17ab6511046838220ddab0c3c4" category="doc">アカウントを閉じます</block>
   <block id="a9143a81c229e9ca30a48ea449a151be" category="paragraph">Astra アカウントが不要になった場合は、いつでもアカウントを閉じることができます。</block>
@@ -704,7 +553,6 @@
   <block id="2179b7b2a88ef2e506e76d57c25fa237" category="inline-image-macro">は、プロキシ接続を有効にする接続オプションを示しています。</block>
   <block id="7ff85d76f103065032d94a8c68974092" category="paragraph"><block ref="7ff85d76f103065032d94a8c68974092" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ea0e7e79990da962999dce45447bba55" category="list-text">プロキシサーバの名前または IP アドレスとプロキシポート番号を入力します。</block>
-  <block id="ac0d586b0cc5f8754d3ccf087d2367f0" category="list-text">プロキシサーバで認証が必要な場合は、チェックボックスを選択し、ユーザ名とパスワードを入力します。</block>
   <block id="0f265823a78c858e83b858d5e6089fce" category="list-text">「 * 接続」を選択します。</block>
   <block id="867f3b9a2a85b4e5b34de33b997d7b7c" category="paragraph">入力したプロキシ情報が保存されている場合は、 *Account*&gt;*Connections* ページの *HTTP Proxy* セクションに、接続されていることが示され、サーバー名が表示されます。</block>
   <block id="42b67f9f298a9aeaa29b219aa2f29a90" category="inline-image-macro">プロキシサーバが正常に接続されたことを示します。</block>
@@ -835,13 +683,10 @@
   <block id="6d4a5ef582e95d5022946acc47ce0f2e" category="list-text">[ * フックを追加 * ] を選択します。</block>
   <block id="12bf76ea0a88e9814b22daef0831337b" category="section-title">実行フックを無効にします</block>
   <block id="df61c20b7e6ebb23392c4395835c3e51" category="paragraph">アプリケーションのスナップショットの前または後に実行を一時的に禁止する場合は、実行フックを無効にできます。実行フックを無効にするには、 Owner 、 Admin 、または Member のいずれかの権限が必要です。</block>
-  <block id="3db19f7cf910c7ffa84134b063a1fe01" category="list-text">無効にするフックの * Actions * ドロップダウンを選択します。</block>
   <block id="dbf8ea65a71d9e2042b03a97a0da4095" category="list-text">[*Disable*] を選択します。</block>
   <block id="2ac3de7754eb6e2a50dccc9a566f5b2c" category="section-title">実行フックを削除します</block>
   <block id="da5e9c066635008b4b3ce13bb28ca328" category="paragraph">不要になった実行フックは完全に削除できます。実行フックを削除するには、 Owner 、 Admin 、または Member のいずれかの権限が必要です。</block>
-  <block id="c36567ab36724bd818f6572adf810828" category="list-text">削除するフックの * Actions * ドロップダウンを選択します。</block>
   <block id="0f024621e0673f1f4e657983682d6e72" category="list-text">「 * 削除」を選択します。</block>
-  <block id="dffb3f008a66e6ee72d3314057769ea5" category="summary">カスタムアプリケーションを作成すると、 Kubernetes クラスタの要素を 1 つのアプリケーションにグループ化できます。</block>
   <block id="e9dd5570e256ac725299d2bd1ca7b043" category="doc">カスタムアプリケーションの例を定義します</block>
   <block id="1567558dc23e01e46fe4a434b8fd1943" category="paragraph">カスタムアプリケーションを使用すると、 Astra Control 操作に含めるものをより細かく制御できます。次のものが含まれます。</block>
   <block id="ff24590464659ee8cdec688128c35f89" category="list-text">クローン</block>
@@ -849,20 +694,13 @@
   <block id="3500ba09d0538297440ca620c9dd46bf" category="list-text">バックアップ</block>
   <block id="b109ea01007ed8d7b325b48f05417b1d" category="list-text">保護ポリシー</block>
   <block id="6cf693b8a547e8de77a63886233ebad4" category="paragraph">ほとんどの場合、アプリケーション全体で Astra Control の機能を使用します。ただし、これらの機能を使用するカスタムアプリケーションを、名前空間内の Kubernetes オブジェクトに割り当てるラベルで作成することもできます。</block>
-  <block id="310e44225fe685ff00420eeba766cb7d" category="paragraph">選択すると、カスタムアプリケーションウィンドウに、カスタムアプリケーションに含まれるリソースまたはカスタムアプリケーションから除外されるリソースが表示されます。これにより、カスタムアプリケーションを定義するための正しい条件を選択できるようになります。</block>
   <block id="b4e4261cbcafdac6ec4eaadaf0bb036d" category="admonition">カスタムアプリケーションは、単一クラスタの指定したネームスペース内でのみ作成できます。Astra Control では、カスタムアプリケーションを複数のネームスペースまたはクラスタにまたがって使用することはできません。</block>
   <block id="a24daf3d2d584a2ee6adcd097ffde406" category="inline-link">Kubernetes の公式ドキュメントを参照してください</block>
   <block id="0de4b069ef42dc2162b352a8d0c79120" category="paragraph">ラベルは、 Kubernetes オブジェクトに割り当てて識別できるキーと値のペアです。ラベルを使用すると、 Kubernetes オブジェクトのソート、整理、検索が簡単になります。Kubernetes のラベルの詳細については、<block ref="52425cbbdd8e653f3efe28de3861375f" category="inline-link-rx"></block>。</block>
   <block id="e6a7c17a8fdbf7a8f11dbb4df2f13f2f" category="admonition">同じリソースに対して名前の異なるポリシーが重複していると、原因のデータが競合する可能性があります。リソースのカスタムアプリケーションを作成する場合は、そのアプリケーションが他のポリシーに基づいてクローニングまたはバックアップされていないことを確認してください。</block>
-  <block id="e5a9e17f6a1404cd1f70b4b189b4f503" category="section-title">例：カナリアリリースの保護ポリシーを分離します</block>
   <block id="d0338ffe05bb0fae059a24d91c1e2065" category="paragraph">この例では、 DevOps チームがカナリアリリースの導入を管理しています。そのクラスタには nginx を実行するポッドが 3 つあります。そのうちの 2 つのポッドは、安定版リリース専用です。3 番目のポッドはカナリアリリース用です。</block>
   <block id="d5b295762bafa1224bb85530c38c11b0" category="paragraph">DevOps チームの Kubernetes 管理者は、安定したリリースポッドに「展開 = 安定」というラベルを追加します。チームは、カナリアリリースポッドに「展開 = カナリア」というラベルを追加します。</block>
   <block id="9dc58f6d84e6af04a28d5b06dc921ce1" category="paragraph">チームの安定版リリースには、 1 時間ごとの Snapshot と日次バックアップの要件が含まれています。カナリアリリースは、より一時的なものです。したがって、「配置」 = 「カナリア」というラベルの付いたすべてのものに対して、より積極的で短期的な保護ポリシーを作成したいと考えています。</block>
-  <block id="5de17197f561705ab028cb0456be04a7" category="paragraph">データの競合を回避するために、管理者はカナリアリリース用と安定版リリース用の 2 つのカスタムアプリケーションを作成します。これにより、 Kubernetes オブジェクトの 2 つのグループに対して、バックアップ、 Snapshot 、およびクローニングの処理が分離されます。</block>
-  <block id="dbc4b7fc2552664ca8992617c31d854f" category="list-text">表示されるポップアップウィンドウで、チームは「 vops-canary-deployment 」をアプリケーション名として設定します。チームは **Cluster** ドロップダウンでクラスタを選択し、次にアプリケーションの名前空間を **Namespace ** ドロップダウンから選択します。</block>
-  <block id="faa8590d6fdd33dcaf85b9a94618f0ed" category="list-text">チームは、 [** ラベル ** ] フィールドに「配置 = カナリア」と入力するか、以下のリソースからそのラベルを選択できます。</block>
-  <block id="9bc57d8dbd48bd43bbef119208fb39ff" category="list-text">カナリアデプロイメント用のカスタムアプリケーションを定義した後、チームは安定した展開のためにプロセスを繰り返します。</block>
-  <block id="c4dd3cd13167d0ec97772ef8e1ca3f94" category="paragraph">2 つのカスタムアプリケーションの作成が完了したら、それらのリソースを他の Astra Control アプリケーションとして扱うことができます。Kubernetes ラベルに基づいて、リソースグループごとにデータのクローンを作成し、バックアップと Snapshot を作成し、リソースグループごとにカスタムの保護ポリシーを作成できます。</block>
   <block id="a77683ae8edcb3cd1537700411834ab9" category="summary">次の例を使用して、実行フックの構造を確認してください。</block>
   <block id="3a93b0a9cf88ddc06d563489a2895c27" category="paragraph">次の例を使用して、実行フックの構造を確認してください。これらのフックは、テンプレートまたはテストスクリプトとして使用できます。</block>
   <block id="4080d94759fa38e6a6b1dba142b2c090" category="section-title">シンプルな成功例</block>
@@ -941,7 +779,6 @@
   <block id="14905c130cb21eb99b32fda77b5847e3" category="list-text"><block ref="8f05616ca07e5e0f0a406924d57cac8c" category="inline-xref-macro-rx"></block></block>
   <block id="279afcccd954d47b442a29a6bd38e688" category="list-text"><block ref="75ed4647183314a63168429062f35c29" category="inline-xref-macro-rx"></block></block>
   <block id="41df3de87c6ea858ea2bb342ad613900" category="list-text"><block ref="4185a8362c964abfe734b0dc16083199" category="inline-xref-macro-rx"></block></block>
-  <block id="d875b96ebadd898e432c517ad638e607" category="list-text"><block ref="404c7213549857222294bb9e1f57ab94" category="inline-xref-macro-rx"></block></block>
   <block id="df0df2649277c823afc938e5fde361c3" category="list-text"><block ref="501c3f749f8486b64153aadd98c7492d" category="inline-xref-macro-rx"></block></block>
   <block id="f58269ec5227f41888bda66df3bd5886" category="admonition">すべての Astra Control Center ポッドが削除されないようにするため、アップグレードプロセス全体で次のコマンドを実行しないでください。 'kubectl delete -f Astra_control_center_deployment.yaml</block>
   <block id="64ab6dee28636075579961e17cb0df5f" category="admonition">スケジュール、バックアップ、 Snapshot が実行されていないときは、メンテナンス時間内にアップグレードを実行します。</block>
@@ -967,45 +804,7 @@
   <block id="3fc23b4fedae4721affb705305cb7790" category="list-text">「 acc-operator-controller-manager 」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します <block ref="5490c84406d897baa6eb1de1aa7fc6d7" category="inline-xref-macro-rx"></block>。</block>
   <block id="4e937138a61e6f89a5d6c6d812c62fd8" category="list-text">更新された Astra Control Center オペレータをインストールします。</block>
   <block id="6d55356ca8cb9b27cfa6e2bb46ebb089" category="paragraph">回答例：</block>
-  <block id="5b52e1de2916284c78472f019889f986" category="list-text">Astra Control Center カスタムリソース（ CR ）を編集し、 Astra バージョン（「 S PEC 」内の「 astraVersion 」）を最新のものに変更します。</block>
-  <block id="4e8e40b5e01ebcb91d94d9fee3bdf36d" category="admonition">Astra バージョンの変更は、 Astra Control Center のアップグレードの唯一の要件です。レジストリパスは、のイメージをプッシュしたレジストリパスと一致する必要があります <block ref="5490c84406d897baa6eb1de1aa7fc6d7" category="inline-xref-macro-rx"></block>。</block>
-  <block id="44bd08247d2d9624dcfdca1ffedcba85" category="list-text">ポッドが終了し、再び使用可能になったことを確認します。</block>
-  <block id="0b90b5bfebf3991cef1a3450eed7a87c" category="list-text">すべてのシステムコンポーネントが正常にアップグレードされたことを確認します</block>
-  <block id="b95937530abd7d6de585bf17cf105f36" category="paragraph">各ポッドのステータスは、「 Running 」と「 Age 」になります。システムポッドが展開されるまでに数分かかることがあります。</block>
-  <block id="58e03a85ffb4498bd5b184783d2aebcf" category="list-text">アップグレードが完了して準備完了になったことが Astra のステータス状態で示されていることを確認します。</block>
   <block id="54472d1da4b0c6eadf8684e846b25dcc" category="paragraph">対応：</block>
-  <block id="ce38a53a879e3e1a24a2476655c0d7d0" category="section-title">サードパーティサービスをアップグレードします</block>
-  <block id="f34e9bfc535444ab44d2fc237aad562b" category="paragraph">以前のアップグレード手順では、サードパーティサービス Traefik および Cert-manager はアップグレードされません。オプションで、ここで説明する手順を使用してアップグレードしたり、システムに必要な既存のサービスバージョンを保持したりできます。推奨される Traefik および Certs-manager のアップグレード手順は次のとおりです。</block>
-  <block id="d15b07f619c44b123a5c87cdd3140516" category="list-text"><block ref="c5ca40fb61b5695d364fce09d52382e8" category="inline-xref-macro-rx"></block></block>
-  <block id="83d064d35363cea420e6015335b94956" category="list-text"><block ref="d5e7f4ca44fe5f90ef9dd5c4ebf5327e" category="inline-xref-macro-rx"></block></block>
-  <block id="c10a6d30cd4e9e5fd1596a2ab37dc062" category="list-text"><block ref="ee46d06e5beb616c47ff90171a1b52f3" category="inline-xref-macro-rx"></block></block>
-  <block id="8e37aa25ab098aa9aef385d457295aea" category="section-title">acc-helm -repo をセットアップし、 Traefik と Cert-manager をアップグレードします</block>
-  <block id="c3e71ecd8bb6e1d225575cd9f983654f" category="list-text">ローカル Docker キャッシュにロードされている「 enterprise-helm-repo 」を検索します。</block>
-  <block id="f02d6c3f627a328e9bc30df91eabb26c" category="list-text">前の手順のタグを使用してコンテナを開始します。</block>
-  <block id="24c6f6a3ab45439de22cb96c03f403d2" category="list-text">ローカルホストリポジトリに Helm repo を追加します。</block>
-  <block id="33ec807b4fce80ea5d1861ad4ac3d5b7" category="list-text">次の Python スクリプトを '`et_previous_value.py` のようなファイルとして保存します</block>
-  <block id="07c9e2e688455c276ed8603954e4118c" category="admonition">この Python スクリプトは、 Helm 値を保持するために以降のアップグレード手順で使用される 2 つのファイルを作成します。</block>
-  <block id="f687dbdc268709bf167d103584f6ef8f" category="list-text">スクリプトを実行します。</block>
-  <block id="5a30812bbc16b47192b785ef547e4c4f" category="section-title">acc-helm -repo を使用して Traefik サービスを更新します</block>
-  <block id="a3c443fb2a771cd7265d8de34b98096d" category="inline-xref">acc-helm -repo をセットアップします</block>
-  <block id="ab617ceccfa56a0929e14f15fea3dbdf" category="admonition">を用意しておく必要があります <block ref="44495db9e7e9f32ce25f4bd144f96c28" category="inline-xref-macro-rx"></block> 次の手順を実行する前に、</block>
-  <block id="4f59def1f31ffa5c3edfd07bc56b8711" category="list-text">GNU wget などの安全なファイル転送ツールを使用して Traefik バンドルをダウンロードします。</block>
-  <block id="52ad21bce32bdacc0a1f449e0b026858" category="list-text">次のように Traefik CRDs を適用します。</block>
-  <block id="aefef6b905b884b7c6f5dc90765146ba" category="list-text">アップグレードした Traefik で使用する Helm チャートバージョンを検索します。</block>
-  <block id="20bdee00da5c5e76ff1ded3d7837d822" category="list-text">アップグレード用の traefik_value.json ファイルを検証します。</block>
-  <block id="ce620e8bf4de9d27269637672e33b700" category="list-text">traefik_value.json ファイルを開きます。</block>
-  <block id="82cd057b44ad54bbd36c83eb506730b7" category="list-text">「 imagePullSecret 」フィールドに値があるかどうかを確認します。空の場合は、ファイルから次のテキストを削除します。</block>
-  <block id="353315ec204ba27b220aa4598ebd71f9" category="list-text">次のように、 traefik 画像が正しい場所に転送され、正しい名前が付けられていることを確認します。</block>
-  <block id="f23ec25b4f4fe407eb38afc96432fb5b" category="list-text">Traefik 設定をアップグレードします。</block>
-  <block id="21e6891c9f8db78a8448b00ea97abd99" category="section-title">Cert-manager サービスを更新します</block>
-  <block id="e9b10dd461d99af33a0bdb6708ee0f44" category="inline-xref">Traefik アップデート</block>
-  <block id="5c0bef288e8d93e19f981d248ed9a6e2" category="inline-xref">Helm に acc-helm-repo が追加されました</block>
-  <block id="547083f9c161ee99f29723d248b4d4fa" category="admonition">の設定が完了している必要があります <block ref="ca682912aa065ef345c2d69eb7a9506b" category="inline-xref-macro-rx"></block> および <block ref="ce15e30fcf95882aedc83d56b3310951" category="inline-xref-macro-rx"></block> 次の手順を実行する前に、</block>
-  <block id="c50351cabd9e3df61b92775b599a2a18" category="list-text">アップグレードした Cert-manager で使用する Helm チャートバージョンを探します。</block>
-  <block id="6587e6d943a59e132523800e47754ff4" category="list-text">cert_manager_value.json ファイルをアップグレード用に検証します。</block>
-  <block id="0d1c17fb3e044e6ed00efa37e2ec5b13" category="list-text">cert_manager_value.json ファイルを開きます。</block>
-  <block id="927e1be7965e99e4fa0e6f8a86913b66" category="list-text">3 つの cert-manager イメージが正しい場所に転送され、正しい名前が付けられていることを確認します。</block>
-  <block id="99cf90d328363cabd691407631749202" category="list-text">Cert-manager 設定をアップグレードします。</block>
   <block id="d53b6b0c2c2f34e55f96142077bf7ee1" category="section-title">システムステータスを確認します</block>
   <block id="53a65537f6c43a8e6834a407250a3348" category="list-text">Astra Control Center にログインします。</block>
   <block id="09266849d587c552d4de5dd3a1beddb3" category="list-text">すべての管理対象クラスタとアプリケーションが引き続き存在し、保護されていることを確認します。</block>
@@ -1037,7 +836,6 @@
   <block id="f57b8354105fca4aac29ae2d26190dd4" category="section-title">ストレージバックエンドの管理を解除します</block>
   <block id="8b99f44f0c8c2337436131d1301ca65f" category="paragraph">バックエンドの管理を解除できます。</block>
   <block id="60d47fd78d4f8656bb0f888d042cfea3" category="list-text">左ナビゲーションから、 * Backends * を選択します。</block>
-  <block id="1c6323f03f0cbf2e8bd172dd0140dabe" category="list-text">「 unmanage 」と入力して削除を確認します。</block>
   <block id="88f4f6240bf5585674f1d440e779bdf8" category="list-text">「 * Yes 、 remove storage backend * 」を選択します。</block>
   <block id="60487fcdacfcf0e2feb2363106047906" category="summary">自動保護ポリシーまたはアドホックベースを使用してスナップショットやバックアップを作成することで、アプリケーションを保護します。</block>
   <block id="c48341950d06dc5b2b657a869930da35" category="doc">Snapshot とバックアップでアプリケーションを保護</block>
@@ -1057,15 +855,12 @@
   <block id="af9c364e0933200b7b8c1e7e13947ccf" category="section-title">Snapshot を作成します</block>
   <block id="9bbdcd6083ca1f29424ab7d4e6e6d3f5" category="paragraph">オンデマンド Snapshot はいつでも作成できます。</block>
   <block id="b058dacc1faf94086ef550612e83f43c" category="list-text">「 * アプリケーション * 」を選択します。</block>
-  <block id="18f826cc7db38186dcd31ec19566b51d" category="list-text">目的のアプリケーションの [ * アクション * （ * Actions * ） ] 列でドロップダウンリストを選択します。</block>
-  <block id="c10dd54adebaecf67220815ed7d95972" category="list-text">「 * Snapshot * 」を選択します。</block>
   <block id="d84ba40b3195d41d6875225a0d2b6df5" category="list-text">スナップショットの名前をカスタマイズし、 * Review * を選択します。</block>
   <block id="932f89164903be81ff337dd1df9741eb" category="list-text">Snapshot の概要を確認し、「 * Snapshot * 」を選択します。</block>
   <block id="8ec3e0d36eff7dd752cee0a01b111a47" category="paragraph">スナップショットプロセスが開始されます。スナップショットは、ステータスが「 * 使用可能 * 」である場合に成功します。この場合、「 * データ保護 * &gt; * スナップショット * 」ページの「 * アクション * 」列に表示されます。</block>
   <block id="f99b69945a176ffbedac86a22cf6c413" category="section-title">バックアップを作成します</block>
   <block id="e57b2723efb0e6483b7be7e1e83d9b30" category="paragraph">アプリケーションはいつでもバックアップできます。</block>
   <block id="8e32f9f538ee6e5589e701ec62550ae5" category="admonition">Astra Control Center の S3 バケットは、使用可能容量を報告しません。Astra Control Center で管理されているアプリケーションのバックアップまたはクローニングを行う前に、 ONTAP または StorageGRID 管理システムでバケット情報を確認します。</block>
-  <block id="fec2251f36365f1f041be06f3809bae9" category="list-text">「 * Backup * 」を選択します。</block>
   <block id="154044900ec18a9168786e9732e60aea" category="list-text">バックアップ名をカスタマイズする。</block>
   <block id="693e02c2755e3bd5aa6c9cd127fef46e" category="list-text">既存のスナップショットからアプリケーションをバックアップするかどうかを選択します。このオプションを選択すると、既存の Snapshot のリストから選択できます。</block>
   <block id="f66aeabfd62cdf735a319e96cf8d48d7" category="list-text">ストレージバケットのリストから選択して、バックアップのデスティネーションを選択します。</block>
@@ -1080,24 +875,18 @@
   <block id="21edb917a28989ae581923ea55405922" category="list-text">バックアップのリストを表示するには、「 * Backups * 」を選択します。</block>
   <block id="8500d6221925869568fd1f2e92a1c01c" category="section-title">Snapshot を削除します</block>
   <block id="a37bf6328466dc531288498c6041de5f" category="paragraph">不要になったスケジュール済みまたはオンデマンドの Snapshot を削除します。</block>
-  <block id="87dd065328781ae451bf4fc765d6eccc" category="list-text">目的のスナップショットの [* アクション * （ * Actions * ） ] 列でドロップダウンリストを選択します。</block>
-  <block id="8f3e079c08befb72121a4f9cb7953aac" category="list-text">「 * スナップショットの削除 * 」を選択します。</block>
   <block id="89344c40f120955a63d7739528fd4b73" category="list-text">削除を確認するために「 delete 」と入力し、「 * はい、 Snapshot を削除します * 」を選択します。</block>
   <block id="28b8ee1ecbde57df52fcc275c0be2768" category="paragraph">Astra Control Center がスナップショットを削除します。</block>
   <block id="2072fc95a1bd08ae58a002d5b61a84d0" category="paragraph">不要になったスケジュール済みまたはオンデマンドのバックアップを削除します。</block>
   <block id="a30262d6afaf36a19a7561092a422291" category="admonition">実行中のバックアップを停止する方法はありません。バックアップを削除する必要がある場合は、完了するまで待ってから、以下の手順を実行してください。失敗したバックアップを削除するには、<block ref="8c61a57582c89e51043cfde4b10d9da8" category="inline-link-rx"></block>。</block>
   <block id="c629829cf1bc7915fff12e8f5be0438f" category="list-text">「 * Backups * 」を選択します。</block>
-  <block id="ed02000afcfffdc047188a0d66b648cb" category="list-text">目的のバックアップの [* アクション * ] 列のドロップダウン・リストを選択します。</block>
-  <block id="ae251e02c85981fad4dc31670ec75627" category="list-text">[ * バックアップの削除 * ] を選択します。</block>
   <block id="6f1ab2323d6aef1a6946b680cc54ec7c" category="list-text">削除を確認するために「 delete 」と入力し、「 * はい、バックアップを削除 * 」を選択します。</block>
   <block id="ed472cf71db4e3b4757bd74fef979b6e" category="paragraph">Astra Control Center はバックアップを削除します。</block>
   <block id="73e5c8ce985735a0c92b24da1a48a7fb" category="summary">既存のアプリケーションをクローニングして、同じ Kubernetes クラスタまたは別のクラスタに重複するアプリケーションを作成する。Kubernetes クラスタ間でアプリケーションとストレージを移動する必要がある場合は、クローニングが役立ちます。たとえば、 CI CD パイプラインや Kubernetes ネームスペース間でワークロードを移動できます。</block>
   <block id="0adcbb2b9c783786f0ac0b7cfb133292" category="doc">アプリケーションのクローン作成と移行</block>
-  <block id="74ff9ae335815a17a69bb1c127ab8132" category="paragraph">既存のアプリケーションをクローニングして、同じ Kubernetes クラスタまたは別のクラスタに重複するアプリケーションを作成する。Kubernetes クラスタ間でアプリケーションとストレージを移動する必要がある場合は、クローニングが役立ちます。たとえば、 CI / CD パイプラインや Kubernetes ネームスペース間でワークロードを移動できます。Astra の UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> アプリケーションのクローン作成と移行を実行します。</block>
   <block id="de630a4ac4f8e7e0a9e20d3f541a85b7" category="admonition">StorageClass が明示的に設定されたアプリケーションを展開し、そのアプリケーションをクローニングする必要がある場合、ターゲットクラスタには元の StorageClass が指定されている必要があります。明示的に StorageClass を設定したアプリケーションを、同じストレージクラスを使用しないクラスタにクローニングすると、失敗します。</block>
   <block id="b236785facde2b09aab0f1358b3003c7" category="admonition">オペレータが配置した Jenkins CI のインスタンスをクローニングする場合は、永続データを手動でリストアする必要があります。これは、アプリケーションの展開モデルの制限事項です。</block>
   <block id="791b19870f7e6ae7f6d58ef11135f9cc" category="admonition">クラスタ間でアプリケーションをクローニングする場合、ソースクラスタとデスティネーションクラスタは OpenShift の同じディストリビューションである必要があります。たとえば、 OpenShift 4.7 クラスタからアプリケーションをクローニングする場合は、 OpenShift 4.7 でもあるデスティネーションクラスタを使用します。</block>
-  <block id="2624bfc2c25516f49a44b36216a67078" category="paragraph">Astra Control Center は、アプリケーションのクローンを作成するときに、アプリケーション構成と永続的ストレージのクローンを作成します。</block>
   <block id="ab62a04e97130f45535e357bce3a6ea1" category="paragraph">アプリケーションを別のクラスタにクローニングするには、デフォルトのバケットが必要です。最初のバケットを追加した時点でデフォルトのバケットになります。</block>
   <block id="365d382b2d9ecca9b0d40171c69b38ff" category="list-text">次のいずれかを実行します。</block>
   <block id="a69f8caed78eab8c89f997c7e54966ba" category="list-text">* クローンの詳細 * ：クローンの詳細を指定します。</block>
@@ -1107,15 +896,12 @@
   <block id="b46ababc2613e3b600f7e8b12db303fc" category="list-text">既存の Snapshot からクローンを作成するかバックアップを作成するかを選択します。このオプションを選択しない場合、 Astra Control Center はアプリケーションの現在の状態からクローンを作成します。</block>
   <block id="f90950378695069c644c596c2d092ec9" category="list-text">* 出典 * ：既存のスナップショットまたはバックアップからクローンを作成する場合は、使用するスナップショットまたはバックアップを選択します。</block>
   <block id="25507f4f595d2cfeab377abd42f31003" category="paragraph">Astra Control Center では、入力した情報に基づいてアプリケーションのクローンを作成します。新しいアプリケーション・クローンが [*Applications] ページの [Available （使用可能） ] 状態になっている場合 ' クローン操作は正常に実行されます</block>
-  <block id="ca49971bd5be0c34c40f5b3142ee3e2f" category="summary">のアプリケーションと永続的ストレージをバックアップする場合は、クラスタ間でアプリケーションをクローニングするには、オブジェクトストアバケットプロバイダの追加が不可欠です。</block>
   <block id="c6026de894eab4233269713f21d557bb" category="paragraph">アプリケーションや永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションをクローニングする場合は、オブジェクトストアバケットプロバイダが不可欠です。Astra Control Center を使用して、オフクラスタのバックアップ先として、アプリケーションのオブジェクトストアプロバイダを追加します。</block>
   <block id="c719a70ed6ad99810624039991264b04" category="paragraph">アプリケーション構成と永続的ストレージを同じクラスタにクローニングする場合、バケットは必要ありません。</block>
-  <block id="f6a1d8527952c9b7c92448a67c3d50ad" category="paragraph">次のいずれかのバケットプロバイダを使用：</block>
   <block id="df2c24964ca3e99761acc48b2c8a75c9" category="list-text">NetApp ONTAP S3</block>
   <block id="ddcd79fba6592bc379dfa1df9f804760" category="list-text">NetApp StorageGRID S3 の略</block>
   <block id="b2aa71ee04e531f0b6d1f084ba45f52f" category="list-text">汎用 S3</block>
   <block id="44e1b9eb7453a6b3d0fd253951769584" category="admonition">Astra Control Center は Amazon S3 を汎用 S3 バケットプロバイダとしてサポートしていますが、 Astra Control Center は Amazon の S3 サポートを要求するすべてのオブジェクトストアベンダーをサポートしているわけではありません。</block>
-  <block id="e7fe9e1f904ac867e8afa39085956b3a" category="paragraph">バケットは削除できませんが、編集することはできます。</block>
   <block id="9814d372a97a81b36a132ad2cacfdff7" category="paragraph">バケットの状態は次のいずれかになります。</block>
   <block id="42a0d288cadd6192424c03a28590c9fd" category="list-text">Pending ：バケットの検出がスケジュールされています。</block>
   <block id="fac51c0a7c720a76e584ea5b21dc752a" category="list-text">Available ：バケットは使用可能です。</block>
@@ -1133,7 +919,6 @@
   <block id="5dd03e8d039863e563e049be198c3fd3" category="inline-link-macro">リリースノート</block>
   <block id="9d51fe0409675ba8d719678581de46d5" category="admonition">バケットを追加するときは、正しいバケットプロバイダを選択し、そのプロバイダに適したクレデンシャルを指定します。たとえば、タイプとして NetApp ONTAP S3 が許可され、 StorageGRID クレデンシャルが受け入れられますが、このバケットを使用して原因の以降のアプリケーションのバックアップとリストアはすべて失敗します。を参照してください <block ref="6635cf1f59c228488d619bdcf0b3bc55" category="inline-link-macro-rx"></block>。</block>
   <block id="a7233ba4da74285b53997302d9a94817" category="list-text">左ナビゲーションから、 * バケット * を選択します。</block>
-  <block id="65259cbbf25731a9608f1f309eb5df0c" category="list-text">アクションメニューから * 編集 * を選択します。</block>
   <block id="a1528454842cc7ec985b647f82dba9ab" category="list-text">バケットタイプ以外の情報を変更します。</block>
   <block id="c51988f8486010cfbb76c755dce149bc" category="admonition">バケットタイプは変更できません。</block>
   <block id="35165f9b14f6cde03fa7f6f9b03732ba" category="list-text">「 * Update * 」を選択します。</block>
@@ -1147,10 +932,7 @@
   <block id="b75ca60736c6893f52a9d2f551270a1a" category="list-text">Astra Control Center オペレータシステムコンポーネントを削除するには、次のコマンドを使用します。</block>
   <block id="09722d284b5ee32968e0df627e09c55d" category="inline-link-macro">アンインストールに関する既知の問題</block>
   <block id="59f23566b748f4ca524f9008bc7ad2be" category="list-text"><block ref="59f23566b748f4ca524f9008bc7ad2be" category="inline-link-macro-rx"></block></block>
-  <block id="c59ae8d7beeb519a23478ab048af482c" category="paragraph"><block ref="c59ae8d7beeb519a23478ab048af482c" category="inline-link-macro-rx"></block></block>
-  <block id="6f2ac1cf1da8ec34232c651d4bba0149" category="paragraph"><block ref="6f2ac1cf1da8ec34232c651d4bba0149" category="inline-link-macro-rx"></block></block>
   <block id="cae4ab898e0de6e692eb3d10b6a95dbf" category="inline-link-macro">Astra Control Center へのお知らせ</block>
-  <block id="272589e3bba01ae30195621960908a6b" category="paragraph"><block ref="272589e3bba01ae30195621960908a6b" category="inline-link-macro-rx"></block></block>
   <block id="d7c7d29d3805da2de5195519be0c1b5d" category="summary">Astra Control Center は、 ONTAP ストレージクラスまたは Astra データストアストレージクラスを使用する Trident ストレージクラスをサポートしています。ストレージクラスと永続的ボリュームのサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。</block>
   <block id="1266a5a3fd194fe421f8d3d701b44de7" category="doc">ストレージクラスと永続的ボリュームサイズ</block>
   <block id="2a48cd265597705926220f5e81d03941" category="paragraph">Astra Control Center は、次の機能をサポートします。</block>
@@ -1193,8 +975,6 @@
   <block id="bd9e39df2a4783068ac79eb1cbc3602b" category="paragraph">* Kubernetes クラスタを Astra Control から削除した後、アプリケーションとデータはどうなりますか。 *</block>
   <block id="8ce424856922443bb79c34a944daacaf" category="paragraph">Astra Control からクラスタを削除しても、クラスタの構成（アプリケーションと永続的ストレージ）は変更されません。このクラスタで作成されたアプリケーションの Snapshot やバックアップを Astra Control で復元することはできません。Astra Control で作成した永続的ストレージのバックアップは Astra Control に残っていますが、リストアには使用できません。</block>
   <block id="03d32d7daecae8d532e26e0c040b4ff0" category="admonition">他の方法でクラスタを削除する場合は、必ず事前に Astra Control からクラスタを削除してください。Astra Control で管理している間に別のツールを使用してクラスタを削除した場合、原因で Astra Control アカウントに問題が発生する可能性があります。</block>
-  <block id="cca46844c8d97c5dbe347c55e4011d2d" category="paragraph">* Kubernetes クラスタを Astra Control から削除すると、 NetApp Trident はアンインストールされますか。 *</block>
-  <block id="bcebaafd3c5c8e5d6f0076ad58bbb7c4" category="paragraph">Trident は、 Astra Control から削除してもクラスタからアンインストールされません。</block>
   <block id="f75d983d4bc87e1a244c894a4357e93a" category="section-title">アプリケーションの管理</block>
   <block id="eaeb56aabe324b7270ae7355bb58edcb" category="paragraph">* Astra Control はアプリケーションを導入できますか。 *</block>
   <block id="48df7f09a242df239385ebae869133b8" category="paragraph">Astra Control はアプリケーションを導入しない。アプリケーションは Astra Control の外部に導入する必要があります。</block>
@@ -1232,9 +1012,6 @@
   <block id="42511da273423fbc3ea5080eac730b22" category="list-text">証明書の詳細がインストールした証明書の詳細と一致していることを確認します。</block>
   <block id="a916669e994506f936472b106140c25c" category="list-text">証明書をエクスポートし、結果を Web ブラウザの証明書マネージャにインポートします。</block>
   <block id="994e9e207b5ca34793cc2495e51460bc" category="summary">Kubernetes クラスタ、アプリ、 Web ブラウザのサポートを確認して、 Astra Control Center を使い始めましょう。</block>
-  <block id="cef4d0b91bb8aab2c211dd304e0c4289" category="list-text">Red Hat OpenShift Container Platform 4.4.8 、 4.7 、または 4.8</block>
-  <block id="fe139348e0ca57eb38a7899f6c69d91c" category="list-text">Rancher 2.5</block>
-  <block id="25a0186371b45414a82f2649706103b6" category="list-text">Kubernetes 1.19 ~ 1.21 （ 1.21 x を含む）</block>
   <block id="388d11680799d7c6a6a659aa88d96d5f" category="list-text">Astra Control Center の FQDN をロードバランシング IP アドレスに指定する方法</block>
   <block id="4d40a8e178faea46fe31329801bc6573" category="list-text">* イメージレジストリ * ： Astra Control Center ビルドイメージをプッシュできる、既存のプライベート Docker イメージレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。</block>
   <block id="8321592ce24c8a122ecf26a63cfca407" category="list-text">ONTAP - NAS</block>
@@ -1258,9 +1035,6 @@
   <block id="52edc9582dd9649bf5c1dc07e4e2db40" category="list-text">データ保護ポリシーを設定</block>
   <block id="fbd7f511b2e75e5ab019b2450e398c1d" category="inline-link-macro">90 日間の評価版ライセンスを使用する</block>
   <block id="3899f9844f98943d4e24ef93b03e511a" category="paragraph">Astra Control Center をお試しになりたい場合は <block ref="f7fe48c6da560c77452dd7318b8ae9f9" category="inline-link-macro-rx"></block>。</block>
-  <block id="b404529afca09f5a2fb2b21f843c5b5b" category="section-title">オンプレミスの Kubernetes クラスタ用のサービスタイプ「 LoadBalancer 」</block>
-  <block id="2b545f7c547a71eaeda9dcb451aea0c5" category="inline-link">MetalLB</block>
-  <block id="a9dfa8f964107f6d896a76f58003f9a9" category="paragraph">Astra Control Center は、 "LoadBalancer （ Astra Control Center ネームスペースの svc/traefik ）タイプのサービスを使用し、アクセス可能な外部 IP アドレスが割り当てられている必要があります。環境でロードバランサを許可しており、まだ設定していない場合は、を使用できます<block ref="9b49f108c23e1909f3cfe7a1eaa3a8cd" category="inline-link-rx"></block> 外部 IP アドレスをサービスに自動的に割り当てる。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。</block>
   <block id="9251700e586dc1a410f2e755a8643751" category="section-title">ネットワーク要件</block>
   <block id="60aaf44d4b562252c04db7f98497e9aa" category="cell">ポート</block>
   <block id="888a77f5ac0748b6c8001822417df8b6" category="cell">プロトコル</block>
@@ -1279,7 +1053,6 @@
   <block id="44e141a783b8346b1ee5c52bcf894d19" category="list-text"><block ref="689b20f2e0a9cb0a12bc48475b3f81ee" category="inline-link-macro-rx"></block>。</block>
   <block id="c7a6b30f3874b15dc6f9794ebff2cd4b" category="list-text">すべての API サービスが正常な状態であり、使用可能であることを確認します。</block>
   <block id="fbb5d0dc5739cb46fcc8204812356bda" category="paragraph">Astra Control Center のインストールプロセスでは、次のことが実行されます。</block>
-  <block id="07037045b8f6143229f9ada8054b8d73" category="list-text">Astra コンポーネントを NetApp-acc' （またはカスタムの名前付き）名前空間にインストールします</block>
   <block id="6739452d7865ae590ddb62b7a2b79581" category="list-text">デフォルトアカウントを作成します。</block>
   <block id="0cb561ffd60496b7e5a7936499d3fbf9" category="list-text">Astra Control Center のこのインスタンスに対して、デフォルトの管理ユーザの電子メールアドレスとデフォルトのワンタイムパスワード「 ACC-&lt;UUID_OF_INSTALLIVE&gt; 」を設定します。このユーザーには、システムのオーナーロールが割り当てられ、 UI への初回ログイン時に必要になります。</block>
   <block id="1099804e7d32473cb82a77dbba976b9f" category="list-text">Astra Control Center のすべてのポッドが実行されていることを確認するのに役立ちます。</block>
@@ -1316,9 +1089,6 @@
   <block id="0d8696fee8128bfee6ff7fd8a30bb0e4" category="list-text">すべてのシステムコンポーネントが正常にインストールされたことを確認します。</block>
   <block id="11c3861e648bc26a2b528eee5b947860" category="paragraph">各ポッドのステータスは「 Running 」になります。システムポッドが展開されるまでに数分かかることがあります。</block>
   <block id="13cfc7621dad08a2783d2e6063e03159" category="list-text">（オプション）インストールが完了したことを確認するには、次のコマンドを使用して「 acc-operator' 」ログを監視します。</block>
-  <block id="ae0ff6d35e31e4e342ca19ba7218d2ee" category="list-text">「展開」の値に対する応答の「 tatus.deploymentState` 」フィールドを確認します。導入に失敗した場合は、代わりにエラーメッセージが表示されます。</block>
-  <block id="97df607c8bd3126c1e35e7ea5a7960a6" category="admonition">次の手順では 'uuid' を使用します</block>
-  <block id="fea2809becd046aad95879e23b62d736" category="list-text">Astra Control Center にログインするときに使用するワンタイムパスワードを取得するには、前の手順で応答から「 tatus.uuid 」値をコピーします。パスワードは「 ACC-` 」の後に UUID 値が続きます。この例では「 ACC-[UUID] 」または「 ACC-c49008a5-4ef1-4c5d-a53e-830daf994116 」となります。</block>
   <block id="57502383dd464e72f74b266da253f57f" category="section-title">Astra Control Center UI にログインします</block>
   <block id="bb16257665d62ee6a5bf8c4d37b2aac0" category="paragraph">Astra Control Center をインストールした後、デフォルトの管理者のパスワードを変更し、 Astra Control Center UI ダッシュボードにログインします。</block>
   <block id="db054947df7cf8cd0657ebbe047d6786" category="inline-xref">Astra Control Center をインストールした</block>
@@ -1389,9 +1159,7 @@
   <block id="afdff0e68ce5b4b3109d398df16872f7" category="inline-link">ネットアップサポートサイトの「 Astra Control Center Downloads 」ページ</block>
   <block id="b6511e86f155fe09cdd3bb8e739ea6b5" category="list-text">から Astra Control Center をダウンロードします<block ref="287561c5277beeaf3b39a65b237114c8" category="inline-link-rx"></block>。</block>
   <block id="276a11727deff1a1f5ebf349b23835fc" category="list-text">Astra Control Center をローカル環境にインストールします。</block>
-  <block id="caa2daddac20e8701619c1fd7c38fe0b" category="paragraph">イメージは OpenShift レジストリにインストールするか、ローカルレジストリを使用します。</block>
   <block id="4cb444388821c2b32d8c80c962e7f1c0" category="inline-link-macro">Astra Control Center のインストールの詳細</block>
-  <block id="868d347e9c5a5e26320992d6e87924f1" category="paragraph"><block ref="85d4e7b942cbd0c7d715ed76a5e5652f" category="inline-link-macro-rx"></block>。</block>
   <block id="80de081c75779cda8e2db1de0f292684" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="ddd753dc2858fe3a5582f20b300a0541" category="inline-link-rx"></block> Alt="3"&gt;&lt;/span&gt; 初期設定タスクをいくつか実行します</block>
   <block id="f13e95a655fb97423bd52082209d8781" category="list-text">ライセンスを追加します</block>
   <block id="89a40ca78d4ff20ec6d54ba006768895" category="list-text">Kubernetes クラスタと Astra Control Center を追加すると、詳細が検出されます。</block>
@@ -1403,7 +1171,6 @@
   <block id="1d6659bf1854bf0469670ac4f97e9181" category="list-text">アプリを管理します。 <block ref="4963e35346522bbc5627366c0be0f048" category="inline-link-macro-rx"></block>。</block>
   <block id="e746991cfeb5b6a72629662618d89fd8" category="inline-link-macro">Cloud Insights への接続の詳細については、こちらをご覧ください</block>
   <block id="dcde337510fa6abacde76850d8dfb34f" category="list-text">必要に応じて、 NetApp Cloud Insights に接続し、 Astra Control Center UI 内のシステム、容量、およびスループットの健全性に関する指標を表示します。 <block ref="26c266e2f618a4d4913a4efc9baa9572" category="inline-link-macro-rx"></block>。</block>
-  <block id="50163fe12849b86fd33513d8e9d88331" category="paragraph"><block ref="77590b44f90500dc5947be95e5a6eb47" category="inline-link-macro-rx"></block>。</block>
   <block id="efb8331a92b47dc173e5cbcd8ae1a87b" category="summary">Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。</block>
   <block id="d507eb4e66b24d44edccbe2de081c8ee" category="doc">Astra Control Center をセットアップします</block>
   <block id="ef615563c8e8ea902c7fcac3cd2c4246" category="list-title">タスク</block>
@@ -1416,7 +1183,6 @@
   <block id="1dce80120ee39f4aab113549ab33259d" category="paragraph">UI またはを使用して新しいライセンスを追加できます<block ref="3f4eec2c2c841509295f8beef0b157bb" category="inline-link-rx"></block> Astra Control Center の全機能を利用できます。ライセンスがないと、 Astra Control Center の使用は、ユーザの管理と新しいクラスタの追加に限定されます。</block>
   <block id="023e85b756a5519379cc81c9797b04cd" category="paragraph">から Astra Control Center をダウンロードした場合<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>には、 NetApp License File （ NLF ）もダウンロードします。このライセンスファイルにアクセスできることを確認してください。</block>
   <block id="86573025ef3f7119f73649ab37335d5f" category="admonition">既存の評価版またはフルライセンスを更新するには、を参照してください <block ref="c985292efffba104a103f0714c4407ab" category="inline-link-macro-rx"></block>。</block>
-  <block id="b7f7c2d7e3041eaae8413ca8b14bd155" category="section-title">フルライセンスまたは評価ライセンスを追加します</block>
   <block id="02a305f4c96b27ccae0ed63692081099" category="paragraph">Astra Control Center ライセンスは、 Kubernetes CPU ユニットを使用して CPU リソースを測定します。ライセンスには、管理対象のすべての Kubernetes クラスタのワーカーノードに割り当てられた CPU リソースが含まれている必要があります。ライセンスを追加する前に、からライセンスファイル（ NLF ）を取得する必要があります <block ref="206c33a2dba20dd0d5bd753457534e53" category="inline-link-macro-rx"></block>。</block>
   <block id="04b88e668923c3a98f8c9a6c13677a05" category="paragraph">また、 Astra Control Center に評価ライセンスをお試しいただくこともできます。このライセンスは、 Astra Control Center をダウンロードした日から 90 日間使用できます。登録すると、無償トライアルに登録できます <block ref="94c4952ff767dc7f2318bf778dfb79d4" category="inline-link-macro-rx"></block>。</block>
   <block id="c867b312646c7b0352a53ec73b46b3da" category="admonition">インストールがライセンス数を超えると、 Astra Control Center は新しいアプリケーションを管理できなくなります。容量を超えるとアラートが表示されます。</block>
@@ -1450,10 +1216,7 @@
   <block id="129d92c88545c014f5981e4bedd69fd4" category="inline-link-macro">クラスタを追加</block>
   <block id="d50382f4f1656b37fe3490e3ea650497" category="admonition">Astra Data Store 用の Kubernetes アプリケーションクラスタを追加すると、検出されたバックエンドのリストに「 unmanaged 」と表示されます。次に、 Astra データストアを含むコンピューティングクラスタを追加し、 Kubernetes アプリケーションクラスタの基盤を構築する必要があります。これは、 UI の * Backends * から実行できます。クラスタの [Actions] メニューを選択し、 [`Manage] を選択して、およびを選択します <block ref="8c30ee7267ee6c93cf0c195b661c2cd2" category="inline-link-macro-rx"></block>。「 unmanaged 」のクラスタ状態が Kubernetes クラスタの名前に変わったら、バックエンドの追加に進むことができます。</block>
   <block id="d8c9edabd6660da785c04c0b0f470ab7" category="list-text">ダッシュボードから * ：</block>
-  <block id="b2d829f53a03bf36914953ef3cd0820d" category="list-text">ダッシュボードストレージバックエンドセクションで、 * 管理 * を選択します。</block>
-  <block id="711b51199dc3114b82393239e65e2210" category="list-text">Dashboard Resource Summary &gt; Storage Backends セクションで、 * Add * を選択します。</block>
   <block id="94fdb40b8f29075643feafb58a5c7715" category="list-text">バックエンドから * ：</block>
-  <block id="5870733e590b9892e4d7543080453ba8" category="list-text">「 * Manage * 」を選択します。</block>
   <block id="4b46912a4f3acad842c6ef52f8b990dc" category="list-text">バックエンドの種類に応じて、次のいずれかの操作を行います。</block>
   <block id="527c8a8fccaa699a0c6292d5018c13a3" category="list-text">* Astra データストア * ：</block>
   <block id="99b183b5232e3f7f3fd7aa98ed075954" category="list-text">「 * Astra Data Store * 」タブを選択します。</block>
@@ -1544,22 +1307,13 @@
   <block id="2ab8aa7ea2a2ec0ac2efdd130e014884" category="list-text"><block ref="2ab8aa7ea2a2ec0ac2efdd130e014884" category="inline-link-rx"></block></block>
   <block id="d59a011be6ae515e4a203cd2844e878f" category="list-text">「アカウントの管理」ナビゲーション領域で、「 * アカウント * 」を選択します。</block>
   <block id="b8872c38ace146047411175238e130dc" category="list-text">画面の右上にあるユーザアイコンを選択します。</block>
-  <block id="bf89c1d7fbdf4031c1a231d161ead956" category="list-text">[ * アクション * （ * Actions * ） ] ドロップダウンリストを選択し、 [ * パスワードの変更 * （ Change Password * ） ] を選択します。</block>
   <block id="45e3b3a50e0542121cdf2766502b7b56" category="list-text">「 * パスワードの変更 * 」を選択します。</block>
   <block id="3930015dcc2810869591e35a2b5d714b" category="list-text">「 * パスワードのリセット * 」を選択します。</block>
-  <block id="05a9626e14c53ce2e11d8519815be8dd" category="list-text">新しいロールを選択し、プロンプトが表示されたら ［ * 役割の変更 * ］ を選択します。</block>
-  <block id="e9846b7e281cf72d93add69a087ce065" category="list-text">アクション * を選択し、 * ユーザー / 秒を削除 * を選択します。</block>
   <block id="4d56d66fc4ff5cbbc8603df737848e93" category="list-text">プロンプトが表示されたら、「 remove 」という単語を入力して削除を確認し、「 * Yes 、 Remove User * 」を選択します。</block>
   <block id="26fef20c54adaf79090f5b60c1e34ec0" category="list-text">「 * データ保護 * 」を選択します。</block>
   <block id="2bdc031714474d030b133e53ce1788bd" category="list-text">Snapshot からリストアする場合は、 * Snapshots * アイコンを選択したままにします。それ以外の場合は、「 * Backups * 」アイコンを選択してバックアップからリストアします。</block>
-  <block id="45be6922ea46cdfad717d76a8e9d862a" category="list-text">リストアする Snapshot またはバックアップの * Actions * 列で、ドロップダウンリストを選択します。</block>
-  <block id="fdda761cee94fee49fbb822516eac1e8" category="list-text">[ アプリケーションの復元 ] を選択します。</block>
   <block id="3bf3f10b2659eb75aef71cd7a9f821c9" category="list-text">* リストアの概要 * ：リストア操作の詳細を確認し、「 restore 」と入力して、 * Restore * を選択します。</block>
-  <block id="0569fe01ec1262e14c93b5ee1e86fc59" category="list-text">[*Account] &gt; [Credentials] を選択します。</block>
-  <block id="1a5f98a95779208d9234fca9491f7096" category="list-text">削除するクレデンシャルの「 * State * 」列でドロップダウンリストを選択します。</block>
   <block id="6f99fa9b2e1f4893851a8aeb82d171f9" category="list-text">「 * 削除」を選択します。</block>
-  <block id="875bf16c6b9dad05e90b08382f16298a" category="inline-image-macro">[ アカウント ] ページの [ 資格情報 ] タブのスクリーンショットで、状態列を選択して [ 削除 ] アクションを選択できます。</block>
-  <block id="46e50fd79f2f1d03bc549bd40af26fe0" category="paragraph"><block ref="46e50fd79f2f1d03bc549bd40af26fe0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bccfd21b5b2011bfe40a32ec6caf15e5" category="list-text">削除を確認するために「削除」と入力し、「はい」、「認証情報を削除」を選択します。</block>
   <block id="010c9bde92b0cde73229163a97d0e9c0" category="list-text">右上の未読通知の数を選択します。</block>
   <block id="78932dbd465a1c5f4703bb7ca34ad216" category="list-text">通知を確認し、 [ * 既読としてマークする * ] または [ すべての通知を表示する * ] を選択します。</block>
@@ -1568,8 +1322,6 @@
   <block id="8e578deb1f2c2a72a6baacb6150152ed" category="list-text">リソースを展開し、ラベル数を選択して、使用可能なラベルを表示します。</block>
   <block id="b03b6f8bc2ee0da82901a8ed74850329" category="list-text">「 * カスタムアプリケーションの定義 * 」を選択します。</block>
   <block id="9d8f2c43275b418d0a8bb43287edc93a" category="summary">実行フックは、管理対象アプリケーションのスナップショットの前または後に実行できるカスタムスクリプトです。</block>
-  <block id="a46b9e8096db935c6086ff0bc9e7fca0" category="paragraph">カスタムアプリケーションを作成するには、 [ アプリケーション ] ページに移動し、 [**+ 定義 ] を選択します。</block>
-  <block id="52219674329d07e090a2b7345bad2810" category="list-text">チームが Astra Control にクラスタを追加したら、次はカスタムアプリケーションを定義します。これを行うには、 [ アプリケーション ] ページで [**+ 定義 **] ボタンを選択します。</block>
   <block id="20e310cccf1da98d95bf519182b2f66b" category="list-text">[*Account*&gt;*License*] ページで、既存のライセンスのステータスドロップダウンメニューを選択し、 [*Replace*] を選択します。</block>
   <block id="4271789f0046cfd66563e8d252266146" category="list-text">お探しの情報を検索してください。</block>
   <block id="cc780f873830d07e1b56e8c829e2a689" category="list-text">目的のアプリケーションの名前を選択し、ページの右上にあるステータスドロップダウンリストを選択します。</block>
@@ -1577,7 +1329,6 @@
   <block id="5b61834813d7f3309a69f7290ea63a30" category="list-text">* Clone Summary * ：クローンの詳細を確認し、 * Clone * を選択します。</block>
   <block id="7fc51f41da7b2a2245c552ae08b9e61d" category="list-text">管理対象のコンピューティングクラスタを選択し、 * Next * を選択します。</block>
   <block id="0df000eb4beca8d0a81a45b343d35f99" category="inline-link-macro">インストール用の Red Hat OperatorHub オプションです</block>
-  <block id="a9fecccda3867d27c0facb2d20b2d744" category="list-text"><block ref="a9fecccda3867d27c0facb2d20b2d744" category="inline-link-macro-rx"></block></block>
   <block id="d15664749a56effbbb05a3423ea5e504" category="summary">Red Hat OpenShift を使用する場合は、オペレータを使用して Astra Control Center をインストールできます。</block>
   <block id="d74cdf75cddd8ade6d1b83dd387ec2f2" category="doc">OpenShift OperatorHub を使用して Astra Control Center をインストールします</block>
   <block id="cd165c3825c1608d9ab0d7fb7273e21a" category="inline-link">Red Hat エコシステムカタログ</block>
@@ -1636,7 +1387,6 @@
   <block id="5697bb57ca3018341d9c037cd8499ec1" category="list-text">Astra Control Center オペレータの配備 YAML (`Astra_control_center_deployment.yaml ') を編集して、ローカルのレジストリと秘密を参照します。</block>
   <block id="48a071385ba38a453473b2eca34728d6" category="admonition">OpenShift を使用する場合は、同等の OC コマンドを検証手順に使用できます。</block>
   <block id="0e941f8350a728f8786d81c6ce155c8c" category="paragraph">必要に応じて、 Red Hat OperatorHub を使用して Astra Control Center をインストールします。</block>
-  <block id="c55e11b550a8c2a8131da8875b06b54f" category="summary">Astra Control Center のインストールには 2 つの選択肢があります。</block>
   <block id="46921a75e8534ad7d1c379a9e3aec033" category="doc">インストールの概要</block>
   <block id="2835a37ac89f56f462499928fa4f5630" category="paragraph">次の Astra Control Center のインストール手順のいずれかを選択して実行します。</block>
   <block id="8810f3085242ca927538791ec7fc8110" category="list-text"><block ref="8810f3085242ca927538791ec7fc8110" category="inline-link-macro-rx"></block></block>
@@ -1653,7 +1403,6 @@
   <block id="f5d9d24d940ae73d19518997227845ae" category="inline-link-macro">Astra Data Store の既知の問題と、この Astra Control Center リリース</block>
   <block id="e3ef67ef771ccecb9617669e034f8a72" category="list-text"><block ref="e3ef67ef771ccecb9617669e034f8a72" category="inline-link-macro-rx"></block></block>
   <block id="eeb5139838bc01ee74f5e84228e770e3" category="inline-link-macro">Astra データストアプレビューバックエンドの管理と監視</block>
-  <block id="3b5bcfdb1095bc6e9d274d9f8541dd79" category="list-text"><block ref="3b5bcfdb1095bc6e9d274d9f8541dd79" category="inline-link-macro-rx"></block></block>
   <block id="88c91ef58cacca0ce7311796478d0cf3" category="inline-link-macro">Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題</block>
   <block id="fc8259e97b18a3baf3d9ca96fb8b483d" category="list-text"><block ref="fc8259e97b18a3baf3d9ca96fb8b483d" category="inline-link-macro-rx"></block></block>
   <block id="5132446b033e54d6debc0548b45d49ae" category="section-title">MongoDB ポッドの活性プローブに障害が発生したため、 Astra データストアプレビューを Astra Control Center のストレージクラスとして使用できない</block>
@@ -1663,22 +1412,16 @@
   <block id="85d3f736ce18017c45e8a6ae4d1e8fe5" category="list-text">を編集します <block ref="aa49db316689710519b7c8def18b8801" category="inline-link-macro-rx"></block> Helm のインストールタイムアウトを変更するには：</block>
   <block id="7a80cbdb518e1d355b96f0f85cfc440d" category="inline-link-macro">Astra Control Center カスタムリソース（ CR ）ファイル（ Astra_control_center_min YAML ）</block>
   <block id="f0e4789c9bc3e68aa311924dc6728d18" category="list-text">を編集します <block ref="4c6c00b260f38942b09c4617203862e3" category="inline-link-macro-rx"></block> そして 'spec' の下にハイライト表示された追加値を含めます</block>
-  <block id="d9eccd26e5cbb8da91b3a27fd92bd333" category="section-title">Astra Control Center が、 Astra データストアプレビューストレージバックエンドを不明な状態で表示</block>
-  <block id="549ef937be092b5163803516d9dba2ce" category="paragraph">Astra Control Center は、 Astra Data Store プレビューストレージバックエンドを UI のバックエンドページから「 Unknown 」状態で表示します。この状況では、ストレージバックエンドを実際に使用でき、通信可能です。ストレージバックエンド内のコンポーネントは正常な状態ではない可能性があり ' ストレージバックエンドが利用可能と表示されるためには正常な状態に戻す必要があります</block>
   <block id="f885d736613811b426f3882868416c0c" category="inline-link-macro">Astra データストアのプレビュー版に注目してください</block>
   <block id="866684ba00f3eaa7ffb3119bad439e6e" category="list-text"><block ref="866684ba00f3eaa7ffb3119bad439e6e" category="inline-link-macro-rx"></block></block>
-  <block id="16b48c0e3b4aacde3bfc58584c2bd392" category="paragraph">Astra Control Center は、 ONTAP または Astra データストアをストレージバックエンドとしてサポートします。ストレージクラスと永続的ボリューム（ PV ）のサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。</block>
   <block id="8af92bb4a82e9330d36767a461117b77" category="inline-link">Astra データストア入門</block>
   <block id="010fe8b2dcf8f2144d52f7fa09b19be3" category="paragraph">Astra Control Center を Astra データストアストレージバックエンドと統合して使用する場合、インストール後にストレージクラスは定義されません。Trident のデフォルトストレージクラスを作成し、ストレージバックエンドに適用する必要があります。を参照してください<block ref="31e869d7ae2f401f4a85bdc155c56e86" category="inline-link-rx"></block> をクリックして、デフォルトの Astra データストアストレージクラスを作成します。</block>
-  <block id="985b6adb919aeef8919d4fde98114277" category="list-text">NetApp ONTAP バージョン 9.5 以降をストレージバックエンドとして使用する場合は、 Trident 21.04 以降がインストールされて設定されている必要があります</block>
   <block id="df819717a2baf5b48925d2b4cdaf4745" category="list-text">* Astra Trident / ONTAP 構成 * ： Astra Control Center では、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。</block>
   <block id="17eb8d332e75f64616b506be451b189f" category="inline-link-macro">その他の必要な変更</block>
   <block id="19dfa68f9af3ebcd8abb0bcfff39c5fd" category="list-text">（ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください <block ref="6511a1f600064236c7dbbb54dd879ccf" category="inline-link-macro-rx"></block> YAML へ。</block>
   <block id="a4a555ce407a7c7e6c4672e426b35f6d" category="list-text">OpenShift 4.6 、 4.7 、または 4.8 を実行するクラスタ。 Astra Trident StorageClasses を搭載し、 Astra Data Store または ONTAP 9.5 以降をサポートしています</block>
   <block id="c287552db25a1fab7b049bb27d492f51" category="list-text">Astra は Kubernetes クラスタと連携し、 Trident が設定された ONTAP ストレージバックエンドまたは Astra データストアプレビューストレージバックエンドを使用</block>
   <block id="15124155930d299e6f1779b4748a5e68" category="inline-link">Astra データストアプレビュー版</block>
-  <block id="f327cdc0a653517cdcb026a40e649593" category="list-text">ONTAP ストレージバックエンドに基づく Trident 構成を検出または、を検出します<block ref="e41935a824f782ed0b4e20297d584896" category="inline-link-rx"></block> ストレージバックエンドとしてのクラスタ</block>
-  <block id="6d1c9119490d3892054a1cfdca439215" category="list-text">ONTAP または Astra データストアプレビューストレージバックエンドを追加します。</block>
   <block id="9103a93ceb430727f35a3f9417e478c1" category="paragraph">Astra Control Center は、 ONTAP と Astra データストアをストレージバックエンドとしてサポートおよび監視します。Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。</block>
   <block id="af529ec0ce8e62fc49e3f11779d0350c" category="paragraph">アプリケーションの管理を開始するには、 Kubernetes クラスタを追加し、コンピューティングリソースとして管理します。Kubernetes アプリケーションを検出するには、 Astra Control Center のクラスタを追加する必要があります。Astra データストアプレビューでは、 Astra データストアプレビューでプロビジョニングしたボリュームを使用するアプリケーションを含む Kubernetes アプリケーションクラスタを追加します。</block>
   <block id="3c8d59911b2ed233f35086eafb17748f" category="list-text">Astra データストアプレビューインストールの場合： Kubernetes アプリケーションクラスタを追加しておきます。</block>
@@ -1719,8 +1462,6 @@
   <block id="999cc42b236c7aee1157ff02d6f1bcd5" category="section-title">クローン</block>
   <block id="3e92f2df0bda8968dc6665778c2f9b99" category="paragraph">a_clone_は 、アプリケーション、その構成、永続的ストレージの完全な複製です。クローンは、同じ Kubernetes クラスタまたは別のクラスタに手動で作成できます。アプリケーションとストレージを Kubernetes クラスタ間で移動する必要がある場合は、アプリケーションをクローニングすると便利です。</block>
   <block id="bd48cb856a5ec10f9c3c2bf8d62fc86c" category="paragraph">Astra Control を使用すると、スナップショットまたはバックアップからアプリケーションをリストアできます。同じクラスタにアプリケーションをリストアする場合、既存の Snapshot からのリストアは高速です。Astra Control UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> アプリを復元するには、</block>
-  <block id="92db826983b1418f74a79a587157b045" category="section-title">Astra Control Center は、同じ名前の 2 つのクラスタを同じクラウドで管理することはできません</block>
-  <block id="1c91b63172e93b5c096a494a79970b0e" category="paragraph">すでにクラウドに存在するクラスタと同じ名前のクラスタを追加しようとすると、処理に失敗します。この問題は、 Kubernetes 構成ファイルでクラスタ名のデフォルトを変更していない場合、通常は標準の Kubernetes 環境で発生します。</block>
   <block id="22ec3951623db87fb800ca769fec5e8f" category="paragraph">回避策として、次の手順を実行します。</block>
   <block id="b6dcf530db55b7783db7f050410455e4" category="list-text">kubeadm -config 構成マップを編集します。</block>
   <block id="33fe94a78e4fc743a279dacacc468c5d" category="list-text">「 clusterName 」フィールドの値を「 Kubernetes 」（ Kubernetes のデフォルト名）から一意のカスタム名に変更します。</block>
@@ -1762,8 +1503,6 @@
   <block id="641aa484b65c0e7fde013bc2c73c8773" category="cell">Cloud Insights 通信</block>
   <block id="dca17a8eb713c4979ff90034336d90db" category="cell">Amazon S3 ストレージバケットプロバイダ <block ref="4e90f284db65fc9cd863090aa8767e3c" category="inline-link-rx"></block></block>
   <block id="30e3526a27f1ee2a9a8203d224600891" category="cell">Amazon S3 ストレージ通信</block>
-  <block id="814db317c49c42a57e9b5fe4d5943fa8" category="cell">ネットアップの ActiveIQ <block ref="9e45a0209dd868ae736875db61b96d9d" category="inline-link-rx"></block></block>
-  <block id="5dbf9f76b95952a36b5c81bedd95e1c8" category="cell">ネットアップの ActiveIQ 通信</block>
   <block id="e52cc9ca02a7bc549eb6dba47cd2ee25" category="admonition">Cloud Insights 接続を有効にすると、スループット情報をバックエンド * ページで確認できるほか、ストレージバックエンドを選択したあとにここから Cloud Insights に接続できます。ダッシュボード * の情報はクラスタセクションでも確認できます。また、そこから Cloud Insights に接続できます。</block>
   <block id="c9bcb1e1ffd0a3c4060e93553536017d" category="admonition">Cloud Insights を初めて使用する場合は、の機能について理解しておいてください。を参照してください <block ref="c0165bf1c80302323bce293718326d03" category="inline-link-macro-rx"></block>。</block>
   <block id="0f21509577569fcfd44247652db09da1" category="list-text">Cloud Insights で、 * Admin*&gt;* API Access* をクリックして、 * Read/Write * と * Read Only* API Access トークンの両方を生成します。</block>
@@ -1781,7 +1520,6 @@
   <block id="1cee46fe31fb6be4325d72afeb43c038" category="paragraph">CA によって署名された新しい TLS 証明書を追加します。</block>
   <block id="38073e52be4dfccbbd24b3272a244562" category="list-text">から Astra Control Center 証明書とキーの zip をダウンロードします<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>。</block>
   <block id="817e1aba6882bae4837bd1f640be671a" category="list-text">インターネットに接続されていないサイトの場合は AutoSupport の「 enrolled 」を「 false 」に変更し、接続されているサイトの場合は「 true 」を保持します。</block>
-  <block id="4004ff1a10260338c71b8e3d8620ee2e" category="list-text">（任意）インストールで必要に応じて、「 storageClass 」の値を別の Astra Trident StorageClass リソースに変更します。</block>
   <block id="2a0a2b464d2715b6fb4ea6d68ae8f9c4" category="list-text">すべてのポッドが動作している場合は、 Astra Control Center Operator によってインストールされた「 Astrad ControlCenter 」インスタンスを取得して、インストールが正常に完了したことを確認します。</block>
   <block id="7267bf4022ef959138b9f6b053eb4b37" category="paragraph">運用環境、アプリケーションクラスタ、アプリケーション、ライセンス、 Web ブラウザの準備ができているかどうかを検証します。</block>
   <block id="14c3520c1ca6993e39c544e92a538f0b" category="section-title">運用環境の要件</block>
@@ -1789,13 +1527,11 @@
   <block id="540bf6f549a34a85e07e4a8510890f43" category="paragraph">Astra Control Center をホストするオペレーティングシステムが、環境の公式ドキュメントに記載されている基本的なリソース要件を満たしていることを確認します。Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。</block>
   <block id="2cb05e4bb7830be982f0922fed86b4cd" category="cell">コンポーネント</block>
   <block id="9b97b7bd5e0a87be7bf218224ada83cf" category="cell">要件</block>
-  <block id="d2f19bd8f3c8ffc8a9d59cb0d2b1f64f" category="cell">バックエンド ONTAP のストレージ容量</block>
   <block id="d790821fc08e7990a2ca5464b3010b41" category="cell">300GB 以上のデータがあります</block>
   <block id="fcb81a84511da525a1581c4ccc00d0fb" category="cell">ワーカーノード</block>
   <block id="3dc2f4e20c545bc208864c2f1c9ce93c" category="cell">少なくとも 3 つのワーカーノードがあり、それぞれ 4 つの CPU コアと 12GB の RAM が搭載されています</block>
   <block id="7d361abb047884b8a99059e060849d09" category="cell">ロードバランサ</block>
   <block id="9ce2a4ad8b4e3701686912911908c134" category="cell">動作環境クラスタ内のサービスに送信される入力トラフィックに使用できるサービスタイプ「 LoadBalancer 」</block>
-  <block id="f92f004bde3256be6cc9486a240be63d" category="cell">FQDN の解決</block>
   <block id="865fcbd8a3a74376a7ff576d468c2697" category="admonition">これらの要件は、運用環境で実行されている唯一のアプリケーションが Astra Control Center であることを前提としています。環境で追加のアプリケーションを実行している場合は、それに応じてこれらの最小要件を調整します。</block>
   <block id="a194c96c412e6851d927b9d0e77bba07" category="paragraph">OpenShift 環境でのアプリケーションのクローニングでは、 Astra Control Center が OpenShift でボリュームをマウントし、ファイルの所有権を変更できるようにする必要があります。そのため、これらの処理を許可するには、 ONTAP ボリュームのエクスポートポリシーを設定する必要があります。次のコマンドを使用して実行できます。</block>
   <block id="6a100a7ad7e7c18962424f35ca8111fe" category="list-text">「 export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -superuser sys 」という形式で指定します</block>
@@ -1816,4 +1552,571 @@
   <block id="d029da9201b0669cba4f3b93daf90afe" category="list-text">* Helm 3 * ： Helm を使用してアプリケーションをインストールする場合、 Astra Control には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用してインストールされたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 でインストールされたアプリケーションの管理はサポートされていません。</block>
   <block id="8385440fe17d036a98c18fc4c23e2a74" category="paragraph">Astra Control Center をホストする運用環境は、次の TCP ポートを使用して通信します。これらのポートがファイアウォールを通過できることを確認し、 Astra ネットワークからの HTTPS 出力トラフィックを許可するようにファイアウォールを設定する必要があります。一部のポートでは、 Astra Control Center をホストする環境と各管理対象クラスタ（該当する場合はメモ）の両方の接続方法が必要です。</block>
   <block id="50f5114fa3abb27ad72c5e0f536b7f7d" category="list-text">Astra Control Center を使用してアプリケーションをバックアップおよび復元するためにバックアップ ONTAP システムで設定されたスーパーユーザーおよびユーザー ID 。ONTAP コマンドラインで次のコマンドを実行します。「 export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -superuser sysm -- anon 65534 」</block>
+  <block id="570fa99ce4fbf8deb198b97a6931d63a" category="list-text">Cloud Volumes ONTAP ストレージバックエンド</block>
+  <block id="ea2708b459fc0cad6936ec216bd9405e" category="paragraph">Astra Control Center は、 AutoSupport と Active IQ のエコシステムに完全に統合されており、ユーザとネットアップサポートにトラブルシューティングと使用に関する情報を提供します。</block>
+  <block id="3501ebb9ad570ed4f4987af3dd48dc47" category="list-text">Astra Control Service は、 Azure Managed Disks と Google Persistent Disk をバックエンドストレージオプションとしてサポートします。</block>
+  <block id="83db6310c0426b3a1710299b7c28421e" category="list-text"><block ref="a57c95a4385d3950287f96e6800bcbf7" category="inline-xref-macro-rx"></block></block>
+  <block id="204db8b2b5d67b9afb2ee20548906123" category="list-text"><block ref="9fc4bb6e863f03c79dcb11db3ad085a2" category="inline-xref-macro-rx"></block></block>
+  <block id="9b73abdb19845a598990585584e1f1d0" category="list-text"><block ref="fc1a41947de37bff42a791f65840061b" category="inline-xref-macro-rx"></block></block>
+  <block id="675b47686d83e0cfe62b904d27803024" category="list-text">左のナビゲーションから、 * Backends * を選択します。</block>
+  <block id="76261f172114b33975a8f2d79841ce74" category="list-text">* アクション * 列のオプションメニューから、 * 管理解除 * を選択します。</block>
+  <block id="321ab228157d7fb191805252d7ddbada" category="list-text">「 unmanage 」と入力して操作を確定します。</block>
+  <block id="e4519891fe333e131571cb1bef24266b" category="list-text">「 * Yes 、 unmanage storage backend * 」を選択します。</block>
+  <block id="7908751cb040ab081903abe21fb2d220" category="section-title">ストレージバックエンドを削除します</block>
+  <block id="4b737532fa0df4754d915b9ac66eb042" category="paragraph">使用されなくなったストレージバックエンドを削除できます。これは、設定をシンプルかつ最新の状態に保つために役立ちます。</block>
+  <block id="e20aa9ddd5ca64296655e4dfc2982e7a" category="admonition">Astra データストアバックエンドを削除する場合、 vCenter で作成されていないことが必要です。</block>
+  <block id="6792e8081a24b06b8906617e6ba93443" category="list-text">ストレージバックエンドが管理対象外であることを確認します。</block>
+  <block id="972cf533741b7fc3c283a5d30a36c0fc" category="list-text">ストレージバックエンドに Astra データストアクラスタに関連付けられたボリュームがないことを確認します。</block>
+  <block id="a83b1dabf512dc8f3576e7a9d12fd07d" category="list-text">バックエンドが管理されている場合は、管理を解除します。</block>
+  <block id="3a063d643460a8293750f65cdfa577b3" category="list-text">[*Managed] を選択します。</block>
+  <block id="56285c2d16f5987c891254134cb63a7f" category="list-text">[ * アクション * （ * Actions * ） ] オプションから、 [ * アンマネージ * （ * Unmanage * ） ] を</block>
+  <block id="4837500140ff446c92a31bd5ec0a8e13" category="list-text">[ * アクション * （ * Actions * ） ] オプションから、 [ * 削除（ * Remove ） ] を選択する。</block>
+  <block id="a11a0e1d242df8616f3c50d7c65bb304" category="list-text">「 remove 」と入力して操作を確認します。</block>
+  <block id="ce8afd973097f2a5db276ec32e06c163" category="section-title">ストレージバックエンドライセンスを更新する</block>
+  <block id="02b4fdcff3108fdbab48fda7517e77a6" category="paragraph">より大規模な導入や拡張機能をサポートするために、 Astra データストアストレージバックエンドのライセンスを更新できます。</block>
+  <block id="0d6a0b4ff88d33831cdf8302d6f4d636" category="list-text">導入および管理された Astra データストアストレージバックエンド</block>
+  <block id="8ff093262ab4588936566aa5eb25a42f" category="list-text">Astra データストアライセンスファイル（ネットアップの営業担当者に連絡して Astra データストアライセンスを購入）</block>
+  <block id="fac828474586c4baa2e12ed37254e3bc" category="list-text">ストレージバックエンドの名前を選択します。</block>
+  <block id="f94ec21b3c0c7b47ac39427793903380" category="list-text">[* 基本情報 * ] では、インストールされているライセンスのタイプを確認できます（ある場合）。</block>
+  <block id="06396cd50d61096b559e91288e0a0460" category="paragraph">ライセンス情報にカーソルを合わせると、有効期限や使用権の情報などの詳細情報を示すポップアップが表示されます。</block>
+  <block id="862b26354fab838d0bc4c72a4d1e45c6" category="list-text">[* License] で、ライセンス名の横にある編集アイコンを選択します。</block>
+  <block id="793c2102fbdb2f1f590ab9cd7867e98f" category="list-text">[ ライセンスの更新 *] ページで、 [ ライセンスの追加 *] を選択します。</block>
+  <block id="5b4282392687039f164888af6aae32bd" category="list-text">ネットアップから入手したライセンスファイルを選択します。</block>
+  <block id="cca05d90c5263f2a5fa3bf4eb854fba0" category="section-title">ストレージバックエンドクラスタにノードを追加します</block>
+  <block id="d114496fcc61250e5f3f6bc3c93263c9" category="paragraph">Astra Data Store クラスタにノードを追加できます。このノードは、 Astra Data Store 用にインストールされたライセンスのタイプでサポートされるノード数まで追加できます。</block>
+  <block id="451d9def44f6d43bde528c5862033f71" category="list-text">導入済みでライセンス供与されている Astra データストアストレージバックエンド</block>
+  <block id="41f4de3c9ed32fbf44a96893c2cb04e9" category="list-text">Astra Data Store ソフトウェアパッケージを Astra Control Center に追加しておきます</block>
+  <block id="809501f695308587ac542fc0829ff728" category="list-text">クラスタに追加する 1 つ以上の新しいノード</block>
+  <block id="3c74b901fe7b2e6fb7a81a5feccbef7c" category="list-text">基本情報では、このストレージバックエンドクラスタ内のノード数を確認できます。</block>
+  <block id="238c91a6bfc641188ca303eda5d32aad" category="list-text">[ ノード数（ * Nodes ） ] で、ノード数の横にある編集アイコンを選択します。</block>
+  <block id="48c763a750477991242b0827620a3e4f" category="list-text">[ ノードの追加 * ] ページで、新しいノードに関する情報を入力します。</block>
+  <block id="f592d1b4cee37ca74d9f56fb1825a2a0" category="list-text">各ノードにノードラベルを割り当てます。</block>
+  <block id="bba651aac530ce00d5024d2dc18b843b" category="list-text">Astra データストアでライセンスに基づいて常に使用可能な最大数のノードを使用する場合は、「常に最大数のノードを使用する」チェックボックスを有効にします。</block>
+  <block id="e8240fc3ed774f7175a74ffea9a8d77d" category="list-text">Astra データストアで常に使用可能なノードの最大数を使用しない場合は、使用するノードの合計数を必要な数だけ選択します。</block>
+  <block id="3c2893a32473928b4e77a59077a80e9f" category="list-text">保護ドメインを有効にした状態で Astra データストアを導入した場合は、新しいノードを保護ドメインに割り当てます。</block>
+  <block id="e6cd86d61f4639c8a27006c6c29b3e9f" category="list-text">「 * 次へ * 」を選択します。</block>
+  <block id="ba784f2eb5fbc3696004dfd2f6bb000e" category="list-text">新しい各ノードの IP アドレスとネットワーク情報を入力します。1 つの新しいノードに 1 つの IP アドレスを入力するか、複数の新しいノードに 1 つの IP アドレスプールを入力します。</block>
+  <block id="e444ea0f980150c7d18734df8a767d9b" category="paragraph">Astra データストアで導入時に設定した IP アドレスを使用できる場合は、 IP アドレス情報を入力する必要はありません。</block>
+  <block id="bc600c0835eea162890372f8c9567a10" category="list-text">新しいノードの設定を確認します。</block>
+  <block id="e44e8bb939785d912124acb5d8b995e0" category="list-text">[ ノードの追加 ] を選択します。</block>
+  <block id="5acfa2bc809db5956ea651edbf833ab3" category="summary">ロールに制約を追加してユーザロールを管理する方法について説明します。</block>
+  <block id="19f1799814a50fc19daad0ce851f2b34" category="doc">ロールの管理</block>
+  <block id="a570617b73a4a19e27f1777e4332cbb0" category="paragraph">ロールを管理するには、ネームスペースの制約を追加し、ユーザロールをその制約に制限します。これにより、組織内のリソースへのアクセスを制御できます。Astra Control UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> をクリックしてください。</block>
+  <block id="676588bdedb566aa975286a947887eb5" category="section-title">ロールに名前空間制約を追加します</block>
+  <block id="54821860146968c37fff85867d70d345" category="paragraph">Admin または Owner ユーザは、ネームスペースの制約を追加できます。</block>
+  <block id="7f60c72cf941277cd8d80aa0e42f845b" category="list-text">[ * アクション * （ * Actions * ） ] 列で、メンバーまたはビューアーの役割を持つユーザーのメニューボタンを選択します。</block>
+  <block id="8b950be10553ca14d8752cc7cbea7834" category="list-text">[ 役割の編集 ] を選択します。</block>
+  <block id="8cb9c0648ccab34fd7fb2d6fd9358928" category="list-text">[ ロールを制約に制限する *] チェックボックスをオンにします。</block>
+  <block id="d61a300d29487815d81c4fd70541393d" category="paragraph">このチェックボックスは、メンバーロールまたはビューアロールでのみ使用できます。[*Role] ドロップダウン・リストから別のロールを選択できます</block>
+  <block id="cd71b69548f43c245c81171c615d1222" category="list-text">[ * 制約の追加 * ] を選択します。</block>
+  <block id="e8dd44667556caa1e16dea7679cf0b17" category="paragraph">使用可能な制約の一覧は、ネームスペースまたはネームスペースラベルで確認できます。</block>
+  <block id="d0468ce47191a95c608af691cb963e66" category="list-text">[ 制約タイプ * （ Constraint type * ） ] ドロップダウンリストで、ネームスペースの構成方法に応じて、 [* Kubernetes namespace] * または [* Kubernetes namespace label* ] を選択します。</block>
+  <block id="b1dd21f8a94b28f05b42d4974ef02325" category="list-text">リストから 1 つ以上の名前空間またはラベルを選択して、それらの名前空間にロールを制限する制約を構成します。</block>
+  <block id="60095993ec280305ee303101883a68da" category="list-text">[* 確認 *] を選択します。</block>
+  <block id="3639f87c985235c3ace47412f58b66bc" category="paragraph">[ 役割の編集 *] ページには、この役割に選択した拘束のリストが表示されます。</block>
+  <block id="5971b4ce846bbc032d2f2877cdbe6bd7" category="paragraph">[*Account*] ページでは、 [*Role] 列のメンバまたはビューアの役割の制約を表示できます。</block>
+  <block id="61bd32d5a6a5658b3552ffda9d955cd2" category="admonition">制約を追加せずに役割の制約を有効にし、 * 確認 * を選択すると、役割には完全な制限があると見なされます（役割は、名前空間に割り当てられているリソースへのアクセスを拒否されます）。</block>
+  <block id="7ff838318a9e3cc3da585adf91c7b28d" category="section-title">ロールから名前空間制約を削除します</block>
+  <block id="a0afc7d9a8d9c820681fc28564c1231a" category="paragraph">管理者または所有者ユーザーは、役割から名前空間の制約を削除できます。</block>
+  <block id="91fb5f4d8780abd08326c98374476b9f" category="list-text">[ * アクション * （ * Actions * ） ] 列で、アクティブな拘束を持つメンバーまたはビューアーの役割を持つユーザーのメニューボタンを選択する。</block>
+  <block id="43eec07d098f1f1ccbf180a2d097f683" category="paragraph">* 役割の編集 * （ Edit role * ）ダイアログには、役割のアクティブな拘束が表示されます。</block>
+  <block id="8fc83de3acd5a50dded43bfb013b1371" category="list-text">削除する拘束の右側にある * X * を選択します。</block>
+  <block id="8b3d0f4732164acbbcf0546961e00939" category="inline-link-macro">ユーザロールとネームスペース</block>
+  <block id="ae44e4f9f4b1b81858650850e786852f" category="list-text"><block ref="ae44e4f9f4b1b81858650850e786852f" category="inline-link-macro-rx"></block></block>
+  <block id="683680341c1485a9254d81c06fc946e1" category="admonition">クラスタが「 re moved 」状態であり、ネットワーク接続が正常であると表示される場合（ Kubernetes API を使用してクラスタに外部からアクセスしようとすると成功します）、 Astra Control に指定した beckufig は無効になる可能性があります。クラスタでの証明書のローテーションまたは有効期限が原因の可能性があります。この問題を修正するには、を使用して、 Astra Control のクラスタに関連付けられたクレデンシャルを更新します <block ref="a2191a9273bc54ae2e00dd51b40d424f" category="inline-link-macro-rx"></block>。</block>
+  <block id="8ac8cdab8f5e3debaeca852b2bd827a5" category="paragraph">これらの通知は、インターフェイスの右上から管理できます。</block>
+  <block id="7cd96b636ffaef16d4d36364bdc95346" category="paragraph"><block ref="7cd96b636ffaef16d4d36364bdc95346" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f9386599e106f0fc0aa96901f979be08" category="list-text">管理する必要がなくなったアプリのチェックボックスをオンにします。</block>
+  <block id="4472b1adc63ae7718735ce8b819c0c29" category="list-text">Astra Control Center で管理する必要がなくなったクラスタのチェックボックスを選択します。</block>
+  <block id="0c3b0202fda7d6831c1b3eebfdf7aeb9" category="list-text">「 * アカウント * 」を選択します。</block>
+  <block id="50f91f4fd2c427adebfa0eb8a9cfee7e" category="list-text">[*Credentials] タブを選択します。</block>
+  <block id="2861b03fbbe9b99d27ac187cc58ed7b1" category="list-text">削除するクレデンシャルの [ 状態 *] 列で [ オプション ] メニューを選択します。</block>
+  <block id="40367e6c44af5a439e61cfe614a5c0a5" category="inline-link-macro">Astra Control Center のライセンス</block>
+  <block id="e2760eaaa615c3cb7d81be5300c716e1" category="list-text"><block ref="e2760eaaa615c3cb7d81be5300c716e1" category="inline-link-macro-rx"></block></block>
+  <block id="65a891fb25b3f2147bc133e853c9c78f" category="paragraph">既存のアプリケーションをクローニングして、同じ Kubernetes クラスタまたは別のクラスタに重複するアプリケーションを作成する。Astra Control Center は、アプリケーションのクローンを作成するときに、アプリケーション構成と永続的ストレージのクローンを作成します。</block>
+  <block id="ac29876325ad99cfc9f7a5498ef0bbc8" category="paragraph">Kubernetes クラスタ間でアプリケーションとストレージを移動する必要がある場合は、クローニングが役立ちます。たとえば、 CI / CD パイプラインや Kubernetes ネームスペース間でワークロードを移動できます。Astra の UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> アプリケーションのクローン作成と移行を実行します。</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="list-title">このタスクについて</block>
+  <block id="8afbf711a0945a6d5b2ccb893465fd67" category="list-title">OpenShift に関する考慮事項</block>
+  <block id="adc683ee9625bcc123abc1f3c3ebebd7" category="list-text">目的のアプリケーションの [ * アクション * （ * Actions * ） ] 列で [ オプション（ Options ） ] メニューを選択します。</block>
+  <block id="78e8fc32c3b168a3792d8761ea97e657" category="list-text">プロキシサーバで認証が必要な場合は、このチェックボックスをオンにしてユーザ名とパスワードを入力します。</block>
+  <block id="0d67cfbbc2ee350c7d7ba6b5512b268e" category="summary">カスタムアプリケーションを作成すると、 Kubernetes クラスタの要素を 1 つのアプリケーションにグループ化できます。</block>
+  <block id="f7d510291e86246d00e36d0df0725ccd" category="paragraph">カスタムアプリケーションを作成すると、 Kubernetes クラスタの要素を 1 つのアプリケーションにグループ化できます。Kubernetes リソースのこの収集は、ネームスペースとラベルに基づいています。</block>
+  <block id="ddd7c260640cc40fb97a8cdc3ffbd74a" category="list-text">Astra Control にクラスタを追加</block>
+  <block id="b23e8416d759e7e0c360b1312939a5f1" category="list-text">[ アプリケーション ] ページで、 [**+ 定義 ] を選択します。</block>
+  <block id="7271397671bc47a41f53120cea90a928" category="paragraph">[ カスタムアプリケーション ] ウィンドウには、カスタムアプリケーションに含まれるリソースまたはカスタムアプリケーションから除外されるリソースが表示されます。これにより、カスタムアプリケーションを定義するための正しい条件を選択できるようになります。</block>
+  <block id="db23d2eeb9091ad322050b6447714e44" category="list-text">ポップアップウィンドウで、アプリケーション名を入力し、 **Cluster** ドロップダウンでクラスタを選択し、 **Namespace ** ドロップダウンからアプリケーションの名前空間を選択します。</block>
+  <block id="7a5a06395ee5c5d9b3b67f86db1e4e4b" category="list-text">ドロップダウン * ラベル * リストから、アプリと名前空間のラベルを選択します。</block>
+  <block id="4cbaf872afa7873c473d326396c13c3e" category="list-text">1 つの配置に対してカスタムアプリケーションを定義した後、必要に応じて他の配置についても同じ手順を繰り返します。</block>
+  <block id="ffc6d4b2d0e413afbf2dcd9f9a609a38" category="paragraph">2 つのカスタムアプリケーションの作成が完了したら、これらのリソースを他の Astra Control アプリケーションとして扱うことができます。Kubernetes ラベルに基づいて、リソースグループごとにデータのクローンを作成し、バックアップと Snapshot を作成し、リソースグループごとにカスタムの保護ポリシーを作成できます。</block>
+  <block id="d59d363e55dddf4e920d04383b519ea7" category="section-title">例：リリースごとに保護ポリシーを分ける</block>
+  <block id="61daf3d1a676235a5a4851317d6a57fb" category="paragraph">データの競合を回避するために、管理者は 2 つのカスタムアプリケーションを作成します。 1 つは「カナリア」リリース用、もう 1 つは「 stable 」リリース用です。これにより、 Kubernetes オブジェクトの 2 つのグループに対して、バックアップ、 Snapshot 、およびクローニングの処理が分離されます。</block>
+  <block id="0db7c992d7eae92a060c7b2815e16acd" category="paragraph">これらは静的な数値やステータスだけでなく、それぞれからドリルダウンすることもできます。たとえば、アプリが完全に保護されていない場合は、アイコンの上にカーソルを置くと、完全に保護されていないアプリを特定できます。その理由が含まれます。</block>
+  <block id="8cf5def8eede43ff4c75800399b44fb7" category="list-text">目的のアプリケーションの * アクション * 列のオプションメニューから、 * スナップショット * を選択します。</block>
+  <block id="47d25fe144e5f72ce75277a60cf0f3d0" category="list-text">目的のアプリケーションの * アクション * 列のオプションメニューから、 * バックアップ * を選択します。</block>
+  <block id="57cec2186373e15c3082b81aa26022cc" category="list-text">目的のスナップショットの * アクション * 列のオプションメニューから、 * スナップショットの削除 * を選択します。</block>
+  <block id="abd2fd37e547a799b49566579281bc49" category="list-text">目的のバックアップの [ * アクション * ] 列の [ オプション ] メニューから、 [ * バックアップの削除 * ] を選択します。</block>
+  <block id="69664c30db7f84c7549ed52d1a1cf04b" category="list-text"><block ref="597f0ea9562a4442ef8413c0a98a4315" category="inline-xref-macro-rx"></block></block>
+  <block id="c98858042b23de9ff257dc0b2d9450c1" category="list-text"><block ref="13ece5cc8cd69742b645dc62f96cc63d" category="inline-xref-macro-rx"></block></block>
+  <block id="b693c64ae6465cc37d63bb7e1a3bc84e" category="list-text">「 env 」セクションに次の値を追加します。</block>
+  <block id="66531eb9798feacb3bfa74ea1a377fa3" category="list-text">Astra Control Center カスタムリソース（ CR ）（ 'Astra_control_center_min.yaml ）を編集し、 Astra バージョン（ 'Spec' の中の 'astrave) の番号を最新のものに変更します。</block>
+  <block id="4a590d3163d5a124d5d7adcc89f675b2" category="admonition">レジストリパスは、のイメージをプッシュしたレジストリパスと一致する必要があります <block ref="5490c84406d897baa6eb1de1aa7fc6d7" category="inline-xref-macro-rx"></block>。</block>
+  <block id="fb1351c2d3cb4b91d5fd90311145afd1" category="list-text">Astra Control Center CR の 'Spec' の中にある 'additionalValues' 内に次の行を追加します</block>
+  <block id="37354e30325b22100339b0dbc2f21fc3" category="list-text">独自の IngressController または入力がなく、トラフィックゲートウェイをロードバランサタイプサービスとして使用していて、そのセットアップを続行する場合は、別のフィールド「 ingressType 」を指定し（まだ存在しない場合）、それを「 AccTraefik 」に設定します。</block>
+  <block id="8fe9360d7569bd9e4054a76bd3c0ecea" category="list-text">デフォルトの Astra Control Center の一般的な入力配置に切り替える場合は、独自の IngressController/Ingress セットアップ（ TLS 終端など）を指定し、 Astra Control Center へのルートを開き、「 ingressType 」を「 Generic 」に設定します。</block>
+  <block id="7dfd81d39846c54dfec6d643230de74c" category="admonition">フィールドを省略すると、プロセスは汎用的な配置になります。汎用的な導入が不要な場合は、必ずフィールドを追加してください。</block>
+  <block id="abbdf883cc067b91d7f07fa1caa34803" category="list-text">（オプション）ポッドが終了し、再び使用可能になったことを確認します。</block>
+  <block id="bc0b868e9e891c350245da8b2d16f256" category="list-text">Astra のステータス状態がアップグレードが完了し、準備ができたことを示すまで待ちます。</block>
+  <block id="1eaec4ea15c98d1c81dbbfa1da8b99a0" category="list-text">ログインし直して、すべての管理対象クラスタとアプリケーションが引き続き存在し、保護されていることを確認します。</block>
+  <block id="4a610dfb9a1acc8588eb735ecbcc3f82" category="list-text">オペレータが Cert-manager を更新しなかった場合は、次の手順でサードパーティのサービスをアップグレードします。</block>
+  <block id="e5d8d2f324924ec5b496a76777c1bace" category="section-title">サードパーティサービスのアップグレード（オプション）</block>
+  <block id="59eedbf0f6a855635280339325dab96a" category="paragraph">以前のアップグレード手順では、サードパーティサービス Traefik および Cert-manager はアップグレードされません。オプションで、ここで説明する手順を使用してアップグレードしたり、システムに必要な既存のサービスバージョンを保持したりできます。</block>
+  <block id="5db5ef6e1e0d527a74722e842e683f5f" category="list-text">* Traefik* ：デフォルトでは、 Astra Control Center が Traefik 導入のライフサイクルを管理します。「 externalTraefik 」を「 false 」（デフォルト）に設定すると、外部 Traefik がシステムに存在せず、 Astra Control Center によってインストールおよび管理されていることを示します。この場合、「 externalTraefik 」は「 false 」に設定されます。</block>
+  <block id="2ac39112a9d81eb81c55baf27b3f61ed" category="paragraph">一方、 Traefik を独自に導入している場合は、「 externalTraefik 」を「 true 」に設定します。この場合 ' 配置を維持して 'Astra Control Center は 'shouldUpgrade' が true' に設定されていない限り 'CRD をアップグレードしません</block>
+  <block id="e01224736fd8ca44a48c67dc52fe65c6" category="list-text">*Cert-managor*: デフォルトでは 'externalCertManager` を TRUE に設定しない限り 'Astra Control Center は cert-manager ( および CRD) をインストールします'shouldUpgrade' を 'true' に設定すると 'Astra Control Center が CRD をアップグレードします</block>
+  <block id="d539d24d8cb47b9716335e19ac0f046c" category="paragraph">次のいずれかの条件に該当する場合は、 Traefik がアップグレードされます。</block>
+  <block id="0801da3f7763004588882f32f491aeae" category="list-text">externalTraefik ： false または</block>
+  <block id="567eecf64eb493dfacf3e7942d939839" category="list-text">externalTraefik: true と shouldUpgrade: true 。</block>
+  <block id="051f5f8a63b78271e63cf8e68fe9f346" category="list-text">「 acc`cr: 」を編集します。</block>
+  <block id="332c4f89ea7d2e13e11080816c191db9" category="list-text">「 externalTraefik 」フィールドと「 shouldUpgrade 」フィールドを必要に応じて「 true 」または「 false 」に変更します。</block>
+  <block id="28bf422476991dfbb020a7ba40609d34" category="section-title">ロードバランシング用の入力を設定します</block>
+  <block id="af0644198c7af05a818cf2c4f8fc5a1f" category="paragraph">Kubernetes 入力オブジェクトを設定して、クラスタ内でのロードバランシングなどのサービスへの外部アクセスを管理できます。</block>
+  <block id="fb6c091f7b886789e2523148ead3a115" category="list-text">デフォルトアップグレードでは、一般的な入力配置が使用されます。この場合は、入力コントローラまたは入力リソースも設定する必要があります。</block>
+  <block id="386f0baedc8ec85ad008385e72179206" category="list-text">入力コントローラが不要で、すでに持っているものを保持したい場合は、「 ingressType 」を「 AccTraefik 」に設定します。</block>
+  <block id="fe9f3840ed1d743d80e99bc176b5e2ad" category="admonition">サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>。</block>
+  <block id="c76c16b55eb02f0444a95cb22a511c6e" category="paragraph">この手順は、使用する入力コントローラのタイプによって異なります。</block>
+  <block id="d2e0bfa92cbdb9744792901598e01895" category="list-text">nginx 入力コントローラ</block>
+  <block id="af7ce6fd0022e0cfad8a3a38be49e57e" category="list-text">OpenShift 入力コントローラ</block>
+  <block id="52936f4254516124f20f9abd366fcad5" category="list-text">CR 仕様で、</block>
+  <block id="c250884a292fbbc7a417d23c61e777b0" category="list-text">「 CRD .externalTraefik 」が存在する場合は、「 false 」またはに設定する必要があります</block>
+  <block id="6ffe77f5070d2b273718935c24a78989" category="list-text">「 CRD.externalTraefik 」が「真」の場合、「 CRD.shoulldUpgrade 」も「真」でなければなりません。</block>
+  <block id="755b9231ee42d01f14847f168ef9e8e3" category="inline-link">入力コントローラ</block>
+  <block id="b41881693f4532694540e72b24335021" category="list-text">が必要です<block ref="9920b40167a2299d5c2c4f21b9ae2269" category="inline-link-rx"></block> すでに導入されている必要があります。</block>
+  <block id="a29bee01337640a12ba996d7054f3cc5" category="inline-link">入力クラス</block>
+  <block id="a18ffe589f51b2e8842d425e72f3267a" category="list-text">。<block ref="a5882513c2df5d3067eddd81ae049c5c" category="inline-link-rx"></block> 入力コントローラに対応するものがすでに作成されている必要があります。</block>
+  <block id="aaaab6a43be0946d4047c135907a45d5" category="list-text">V1.19 と v1.21 の間で Kubernetes のバージョンを使用している。</block>
+  <block id="729bdb5319ea7e408d8db1fc3179d448" category="list-title">Nginx Ingress Controller の手順</block>
+  <block id="8a637503539b25b68130b6e8003579d9" category="inline-link">「 sKubernetes .io/tls 」と入力します</block>
+  <block id="a980dad9ace20d62c935af0cd906e94b" category="inline-link">TLS シークレット</block>
+  <block id="b8f8ca59e22fc841fff93c36afdc7722" category="list-text">既存のシークレット「 secure-testing-cert 」を使用するか、タイプのシークレットを作成します<block ref="37832da3e75d3d08f1b0f5b5ed8a3dc0" category="inline-link-rx"></block> に示すように 'NetApp-acc' （またはカスタム名前の）名前空間内の TLS 秘密鍵と証明書の場合<block ref="749b9942574f6d94028c602d678053d4" category="inline-link-rx"></block>。</block>
+  <block id="aa34b47423099730412dc106577e8b8e" category="list-text">非推奨または新しいスキーマのいずれかの入力リソースを NetApp-acc` （またはカスタム名前付き）ネームスペースに配置します。</block>
+  <block id="c19f972dbe80476dc7629fe8a8b93535" category="list-text">廃止されたスキーマについては、次の例を参照してください。</block>
+  <block id="2732779581b6307cae6ac4fb21fcdd07" category="list-text">新しいスキーマについては、次の例を参照してください。</block>
+  <block id="e5c07ae1d41bf7775a863925ed834c7f" category="list-title">OpenShift 入力コントローラの手順</block>
+  <block id="8edc8a23bb6139639ef07fc986355b63" category="list-text">証明書を調達し、 OpenShift ルートで使用できるようにキー、証明書、および CA ファイルを取得します。</block>
+  <block id="47b3cb18cbfdc564941707eec03c6fab" category="list-text">OpenShift ルートを作成します。</block>
+  <block id="3e2bcc830ef9c01fac47e9cc2b57804b" category="section-title">入力セットアップを確認します</block>
+  <block id="04b86f5817d0e8e149f525d881a0f95d" category="paragraph">入力セットアップを確認してから、続行できます。</block>
+  <block id="49a5fe5a11a3f89e6ce2bdb0d993a92e" category="list-text">Loadbalancer から Traefik が clusterIP に変更されていることを確認します</block>
+  <block id="3ef629e9d6f3a23bce33043010ba433a" category="list-text">Traefik でルートを確認します。</block>
+  <block id="76b9a5e1321457e9d8940ea50879ff62" category="admonition">結果は空である必要があります。</block>
+  <block id="3fad3494aa5c58ccad4607e93c084418" category="list-text">リストアを続行する前に、アプリケーションのスナップショットを作成するか、バックアップを作成することを強く推奨します。リストアに失敗した場合に、 Snapshot またはバックアップからクローニングできます。</block>
+  <block id="e1392cd5a84b9e2661cec2830d5c10bf" category="list-text">リストア元のスナップショットまたはバックアップの [* アクション * ] 列の [ オプション ] メニューから、 [ * アプリケーションのリストア * ] を選択します。</block>
+  <block id="8f6edaa349d35c7c626f3add19e2eefd" category="list-text">無効にするフックの * アクション * 列のオプションメニューを選択します。</block>
+  <block id="4e75c1131e25cc31233d420f5e02fca7" category="list-text">削除するフックの * アクション * 列のオプションメニューを選択します。</block>
+  <block id="8cdabe1a0e235d2c6d413796a3d36a3e" category="paragraph">Astra Control UI を使用して、 Astra Control Center インストールのユーザーを招待、追加、削除、および編集できます。Astra Control UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> ユーザを管理するには、を実行</block>
+  <block id="44a72539ab388ef935cc928a8fb1ce85" category="section-title">ユーザーを招待します</block>
+  <block id="a9108f9486f76c6e7a5bde63b536135b" category="paragraph">アカウント所有者と管理者は、 Astra Control Center に新しいユーザを招待できます。</block>
+  <block id="47c10293a9aaa5003ceca0a063f11f87" category="list-text">[* ユーザーの招待 * ] を選択します。</block>
+  <block id="24bff3dc4a57f2e3cf52518ee0320c40" category="list-text">ユーザの名前と E メールアドレスを入力します。</block>
+  <block id="63b399ea000611cb5924af59c34403ed" category="list-text">メンバー * には、ビューア・ロールの権限があり、アプリとクラスタの管理、アプリの管理解除、スナップショットとバックアップの削除ができます。</block>
+  <block id="7db390618915f5cf14f0a045ddccc95f" category="list-text">メンバーロールまたはビューアロールを持つユーザーに制約を追加するには、 * 制約へのロールの制限 * チェックボックスをオンにします。</block>
+  <block id="42adeb90b0f3a4a988d809b0aa25dd99" category="paragraph">制約の追加の詳細については、を参照してください <block ref="f9b0c5590ff6fff298698f3844cae23c" category="inline-link-macro-rx"></block>。</block>
+  <block id="b9e9a0596a083c96a1f0e81b4b4439db" category="list-text">[* ユーザーを招待する * ] を選択します。</block>
+  <block id="8a2dc015cbce1629e6ea1c4f79a9b847" category="paragraph">ユーザーは、 Astra Control Center に招待されたことを通知する電子メールを受信します。このメールには一時的なパスワードが含まれています。このパスワードは初回ログイン時に変更する必要があります。</block>
+  <block id="5f63775b05f0615a3415b07bd28c45e1" category="list-text">[ * アクション * （ * Actions * ） ] 列の [ オプション（ Options ） ] メニューから、 [ * パスワードの変更 * （ * Change Password ） ] を選択します</block>
+  <block id="db30d3c2fee806f0319b663d27edf75c" category="list-text">[* アクション * （ * Actions * ） ] ドロップダウンリストを選択します。</block>
+  <block id="7ba107a1d1f1a8008563386e4edebd3d" category="admonition">次回ユーザがログインするときに、パスワードの変更を求めるプロンプトが表示されます。</block>
+  <block id="697f40aaae8b73ccaa173cd46b34fbd2" category="list-text">新しいロールを選択します。</block>
+  <block id="47666ee116070193fb46cfa946f72486" category="list-text">ロールに制約を適用するには、 * 制約へのロールの制限 * チェックボックスを有効にして、リストから制約を選択します。</block>
+  <block id="a661dec1f3d607f54a30e52bff66b4e3" category="paragraph">拘束がない場合は、拘束を追加できます。詳細については、を参照してください <block ref="f9b0c5590ff6fff298698f3844cae23c" category="inline-link-macro-rx"></block>。</block>
+  <block id="2bb81129ea15156b9623abb09e68d445" category="list-text">[* ユーザー * ] タブで、削除する各ユーザーの行にあるチェックボックスをオンにします。</block>
+  <block id="439bbc2e67801e938f10dc62cc0fa47a" category="list-text">[ * アクション * （ * Actions * ） ] 列の [ オプション（ Options ） ] メニューから、 [ * ユーザー / 秒を削除（ * Remove user/s * ） ] を選択する</block>
+  <block id="3d1c04820861e371e0246d54b6519853" category="summary">アプリケーションと永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションのクローニングを行う場合は、オブジェクトストアバケットプロバイダの追加が不可欠です。</block>
+  <block id="aa1c9c743a5fbecf89d523d193760e14" category="paragraph">次の Amazon Simple Storage Service （ S3 ）バケットプロバイダのいずれかを使用します。</block>
+  <block id="1668ca1bd914c1d847f23b491319ac91" category="list-text">Microsoft Azure</block>
+  <block id="7f6fe37c59807acc115a4d2c0d69077d" category="list-text"><block ref="887f1e66c72c284cbdccfcc9cb11eeeb" category="inline-xref-macro-rx"></block></block>
+  <block id="98d62875e52a1381d3bd70281176b21b" category="list-text">[ * アクション * （ * Actions * ） ] 列の [ オプション（ Options ） ] メニューから、 [ * 編集（ * Edit ） ] を選択する。</block>
+  <block id="52eddccfd67295f46df3a2a0dcec5e44" category="section-title">バケットを削除する</block>
+  <block id="f53ffd7307293ef8f5f91ade211805ee" category="paragraph">使用されなくなったバケットや正常でないバケットを削除することができます。これは、オブジェクトストアの設定をシンプルかつ最新の状態に保つために役立ちます。</block>
+  <block id="65fafb6393f492dddd2b39c508a868b1" category="admonition">デフォルトバケットを削除することはできません。そのバケットを削除する場合は、最初に別のバケットをデフォルトとして選択します。</block>
+  <block id="bae13f62e47cf70a66b881726ec9699c" category="list-text">開始する前に、このバケットの実行中または完了済みのバックアップがないことを確認してください。</block>
+  <block id="59249aaa3a4655db2bbd6fd65fda058d" category="list-text">アクティブな保護ポリシーでバケットが使用されていないことを確認する必要があります。</block>
+  <block id="08c780fb833aaad84f743b305eae6da6" category="paragraph">ある場合は、続行できません。</block>
+  <block id="699cd0a01977f583b5a4bc003624b2fe" category="list-text">[ アクション * （ Actions * ） ] メニューから、 [ * 削除（ Remove ） ] を選択します。</block>
+  <block id="f0fec00dbedd4cc8693ee54b0ed0925e" category="admonition">Astra Control を使用すると、最初にバケットを使用してバックアップを実行するスケジュールポリシーが存在せず、削除しようとしているバケットにアクティブなバックアップが存在しないようにすることができます。</block>
+  <block id="ba2f6425b8f267dbd5a2f8ddb2f7116a" category="list-text">「 * Yes 、 remove bucket * 」を選択します。</block>
+  <block id="64cb0260e671ae8ed51e6002d5f536ea" category="paragraph">アンインストールに問題がある場合は、を参照してください <block ref="9f638abea52fde943dd3b533bf503de0" category="inline-xref-macro-rx"></block>。</block>
+  <block id="24b2dd561e8c1a78806d971ae48c2d3d" category="section-title">アンインストールに関する問題のトラブルシューティング</block>
+  <block id="ed0619bd2334d416b3942020e0ba89b0" category="paragraph">Astra Control Center のアンインストールで発生した問題に対処するには、次の回避策を実行します。</block>
+  <block id="639125955d3128c08b048bc254433dbf" category="cell">cronjob</block>
+  <block id="f82570cd8dd080fcb0fe525f9b081bdb" category="cell">HorizontalPodAutoscaler のように表示されます</block>
+  <block id="d8babd242bd93046572e7f50a3fbb394" category="cell">PodDisruptionBudget （予算の廃止）</block>
+  <block id="3f4dbf8b7a689375f651090e7a111098" category="cell">PodTemplate</block>
+  <block id="c794a682153b998c6dca3efddf650512" category="cell">ネットワークポリシー</block>
+  <block id="16df92c37d9b0eaa60db47b35bd925fb" category="list-text">[* Discovered * （検出されました * ） ] フィルタ</block>
+  <block id="7702bdc2b275fcb0a2b858f66288f5b0" category="inline-image-macro">検出されたアプリフィルターのスクリーンショット</block>
+  <block id="6757219609f22d040bbaf16675e29211" category="paragraph"><block ref="6757219609f22d040bbaf16675e29211" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4202093423673c53bd25391ba177ef74" category="list-text">階層内の目的のレベルで目的のアプリケーションを検索し、 [ アクション * ] 列の [ オプション ] メニューから [ * 管理 * ] を選択します。</block>
+  <block id="2969c4b0b4c59f3c72ab2d8bd4b35510" category="list-text">アプリを管理しない場合は、 [ アクション * ] 列の [ オプション ] メニューから [ * 無視 * ] を選択します。</block>
+  <block id="6954395a3831df96c2fd0e9f36d489fd" category="inline-image-macro">管理アプリフィルタのスクリーンショット</block>
+  <block id="d8a931e63e63b8e5cd544fc0d4c8201d" category="paragraph"><block ref="d8a931e63e63b8e5cd544fc0d4c8201d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4ea4809229f58272b813b2c68b742bc5" category="admonition">追加したアプリケーションの保護列に警告アイコンが表示されている場合は、バックアップされておらず、まだバックアップのスケジュールが設定されていないことを示しています。</block>
+  <block id="ed3cb516a556645ec296ae952897aed0" category="list-text">[ * アクション * （ * Actions * ） ] 列の [ オプション（ Options ） ] メニューから、 [ * 無視 * （ * Ignore * ） ] を選択</block>
+  <block id="7e98e1bbde457b48ad0433f454d69493" category="list-text">無視を解除するには、 * 無視解除 * を選択します。</block>
+  <block id="aa356e6c798d0e1458f52b19b491d271" category="paragraph">Astra Control は、 Kubernetes クラスタで実行されているシステムアプリケーションも検出します。これらのシステムアプリは、バックアップが必要になることが稀であるため、デフォルトでは表示されません。</block>
+  <block id="d058ecd38cd9c1b24342d99f44430be3" category="paragraph">ツールバーのクラスターフィルターの下にあるシステムアプリを表示 * システムアプリを表示 * チェックボックスをオンにすると、アプリケーションページからシステムアプリを表示できます。</block>
+  <block id="2c1b2aa1361b2b30f079d2afc37936be" category="admonition">Astra Control 自体は標準のアプリケーションではなく、「システムアプリケーション」です。 Astra Control 自体は管理しないでください。Astra Control 自体は、管理用にデフォルトでは表示されません。</block>
+  <block id="0ec24420f91223b35f271fb4a5f65f2f" category="summary">Astra Control Center で実行できる操作は、ライセンスの状態に応じて異なります。また、 Astra Control Center を使用するとライセンスの消費にどのような影響があるかについても説明します。</block>
+  <block id="0b9c6eef4e3d3a222eb04e910d252339" category="doc">ライセンス</block>
+  <block id="61ac76bdcf47d387dfb9efb8d39ce1d9" category="paragraph">アプリケーションデータ管理機能を有効にするには、 Astra Control Center にライセンスがインストールされている必要があります。Astra Control Center をライセンスなしで導入すると、システム機能が制限されていることを示すバナーが Web UI に表示されます。</block>
+  <block id="23c455802681d71fa7b93cceb849af79" category="paragraph">次の操作には有効なライセンスが必要です。</block>
+  <block id="866b10bb84f65c6e8641ad5e4d19560e" category="list-text">新しいアプリケーションの管理</block>
+  <block id="aba42bf1b2c7c8728d1d2b28ff0070bd" category="list-text">Snapshot またはバックアップを作成します</block>
+  <block id="8502ac7f2b384f2e9bb1695305ce53a9" category="list-text">Snapshot またはバックアップのスケジュールを設定する保護ポリシーを設定する</block>
+  <block id="e95ea6c9ba285675e3841a7a3e18a7e4" category="list-text">Snapshot またはバックアップからのリストア</block>
+  <block id="584ffe6d9c3d3b6838bd35dc4e360aa7" category="list-text">Snapshot または現在の状態からクローニングしています</block>
+  <block id="1c4c138d31621be6b2c37c33e6157586" category="admonition">クラスタの追加、バケットの追加、 Astra Data Store ストレージバックエンドの管理を、ライセンスなしで実行できます。ただし、 Astra Data Store をストレージバックエンドとして使用するアプリケーションを管理するには、有効な Astra Control Center ライセンスが必要です。</block>
+  <block id="b2492fb1fd7556ab678e6f20a0553c6b" category="section-title">ライセンス消費量の計算方法</block>
+  <block id="3c6b6cd9d1dacee4b5fe67b12150dda4" category="paragraph">新しいクラスタを Astra Control Center に追加しても、クラスター上で実行されているアプリケーションの少なくとも 1 つが Astra Control Center によって管理されるまで、使用済みのライセンスにはカウントされません。また、 Astra Data Store ストレージバックエンドを Astra Control Center に追加しても、ライセンスの消費には影響しません。これにより、ライセンスのない Astra Control Center システムから Astra Data Store バックエンドを管理できます。</block>
+  <block id="51df72d5934e1aa3f60d6cdb177b29a7" category="paragraph">クラスタ上でアプリケーションの管理を開始すると、クラスタの CPU ユニットが Astra Control Center ライセンス消費量の計算に含まれます。</block>
+  <block id="c985292efffba104a103f0714c4407ab" category="list-text"><block ref="c985292efffba104a103f0714c4407ab" category="inline-link-macro-rx"></block></block>
+  <block id="f26ee8a93c95de7a50a14b73f85172c5" category="paragraph">Astra Control のユーザロールとネームスペースについて説明し、それらを使用して組織内のリソースへのアクセスを制御する方法を説明します。</block>
+  <block id="f4040f71a7d553f2519487070892b115" category="section-title">ユーザロール</block>
+  <block id="1e3ebe0de263d9fe555c077cd11dbc15" category="paragraph">ロールを使用して、ユーザが Astra Control のリソースまたは機能にアクセスできるように制御できます。Astra Control のユーザロールは次のとおりです。</block>
+  <block id="ceb11a86ee18e5b9e1218aeb8a31d694" category="paragraph">メンバーまたはビューアユーザーに制約を追加して、ユーザーを 1 つ以上に制限できます <block ref="9df35f98599fcd4e0eca5e27a8ede8c0" category="inline-xref-macro-rx"></block>。</block>
+  <block id="13d28e8dfc702e3456e0767dff9a128a" category="section-title">ネームスペース</block>
+  <block id="d9cc676cc9f27a51d1e6de8201649cfb" category="paragraph">ネームスペースは、 Astra Control によって管理されるクラスタ内の特定のリソースに割り当てることができるスコープです。Astra Control では、 Astra Control にクラスタを追加すると、クラスタのネームスペースが検出されます。検出されたネームスペースは、ユーザに制約として割り当てることができます。そのリソースを使用できるのは、そのネームスペースにアクセスできるメンバーだけです。名前空間を使用すると、組織に適したパラダイム（たとえば、会社内の物理的なリージョンや部門）を使用して、リソースへのアクセスを制御できます。ユーザに制約を追加する場合は、そのユーザにすべてのネームスペースへのアクセス権を設定するか、特定のネームスペースのセットのみを設定できます。ネームスペースラベルを使用して、ネームスペースの制約を割り当てることもできます。</block>
+  <block id="73b2ad293eda73ca2acff9008e7ac0e8" category="paragraph"><block ref="73b2ad293eda73ca2acff9008e7ac0e8" category="inline-link-macro-rx"></block></block>
+  <block id="199fb3d9fe279055296bfb501dde4556" category="paragraph">Astra Control Center は、 ONTAP または Astra データストアをストレージバックエンドとしてサポートします。</block>
+  <block id="c95deb0b38b91727ae70217b718c15b6" category="inline-link">Astra Control Center 21.12 ドキュメント</block>
+  <block id="94174dd2e4b3f67d49805b74040e3fbf" category="list-text"><block ref="94174dd2e4b3f67d49805b74040e3fbf" category="inline-link-rx"></block></block>
+  <block id="4f8d010e860956031d20fa5be10bf6e6" category="doc">Cloud Volumes ONTAP ストレージバックエンドに Astra Control Center をインストールします</block>
+  <block id="5393a81971c7f6d5a2fe5f5a8e4bdf5c" category="paragraph">Astra Control Center を使用すると、 Kubernetes クラスタと Cloud Volumes ONTAP インスタンスを自己管理することで、ハイブリッドクラウド環境でアプリケーションを管理できます。Astra Control Center は、オンプレミスの Kubernetes クラスタ、またはクラウド環境内の自己管理型 Kubernetes クラスタのいずれかに導入できます。</block>
+  <block id="c04013afca22f8891a14626d97030a38" category="paragraph">これらのいずれかの環境では、 Cloud Volumes ONTAP をストレージバックエンドとして使用して、アプリケーションデータの管理処理を実行できます。バックアップターゲットとして S3 バケットを設定することもできます。</block>
+  <block id="e624ed574525585c685008c2f08743fe" category="paragraph">Amazon Web Services （ AWS ）および Cloud Volumes ONTAP ストレージバックエンドを使用する Microsoft Azure に Astra Control Center をインストールするには、クラウド環境に応じて次の手順を実行します。</block>
+  <block id="63a3ec0e0f90aa951a9bab60ae25b8f5" category="list-text"><block ref="71cd372809cfada10662b9cfa5c56473" category="inline-xref-macro-rx"></block></block>
+  <block id="e276a2ae0c328a61a235ae7ba15f71a3" category="list-text"><block ref="afa82c5fe7ac560615325c4fdfba4b92" category="inline-xref-macro-rx"></block></block>
+  <block id="5f70f12e51733f39df8a8d8f2f0742da" category="section-title">Amazon Web Services に Astra Control Center を導入</block>
+  <block id="b4504a5af800e56b2ac7bc310c520499" category="paragraph">Amazon Web Services （ AWS ）パブリッククラウドでホストされる自己管理型の Kubernetes クラスタに Astra Control Center を導入できます。</block>
+  <block id="09cd08225c53bd8f4ccf737618d3fd24" category="paragraph">Astra Control Center の導入でサポートされるのは、自己管理 OpenShift Container Platform （ OCP ）クラスタのみです。</block>
+  <block id="4ad0f595b9dbd4c0336e372a8a1b2410" category="section-title">AWS に必要なもの</block>
+  <block id="a5a36964a87d94d5ac0851af923c64fc" category="paragraph">AWS に Astra Control Center を導入する前に、次のものが必要です。</block>
+  <block id="e7e1ddd48b888f0547b40d916ec5553d" category="inline-link-macro">Astra Control Center のライセンス要件</block>
+  <block id="b488bebfd7a3a01cdcc54ea5856291cb" category="list-text">Astra Control Center ライセンス。を参照してください <block ref="fc4957629b78fc8c58b84966810cc78b" category="inline-link-macro-rx"></block>。</block>
+  <block id="962a965cf88e3974508a49a177bfab16" category="inline-link-macro">Astra Control Center の要件を満たす</block>
+  <block id="432bc10b47ea475ecbbc50fb50d0978a" category="list-text"><block ref="cdf0380926240bc589ee0ad782ff731a" category="inline-link-macro-rx"></block>。</block>
+  <block id="3a6435e71d5b3aaba8dfb2b39bf255c9" category="list-text">NetApp Cloud Central アカウント</block>
+  <block id="3b6edb8eb729a7afdf6dfbd4642bf654" category="list-text">Red Hat OpenShift Container Platform （ OCP ）権限（ポッドを作成するためのネームスペースレベル）</block>
+  <block id="21b6348603465642d3b74890973e2947" category="list-text">バケットとコネクタを作成するための権限を持つ AWS クレデンシャル、アクセス ID 、シークレットキー</block>
+  <block id="b9724bca640bb00ddfd17050c789c0c6" category="list-text">AWS アカウント Elastic Container Registry （ ECR ）アクセスおよびログイン</block>
+  <block id="9aed630e926461540134fd3b366acb60" category="list-text">AWS がホストするゾーンと Route 53 エントリは、 Astra Control UI にアクセスするために必要です</block>
+  <block id="b28afa4a53082b7d05699e299fe2cd40" category="section-title">AWS の運用環境の要件</block>
+  <block id="f6580f51bb34b0db2ca218feade3ddd8" category="paragraph">Astra Control Center を使用するには、 AWS 向けに次の運用環境が必要です。</block>
+  <block id="52481546a79142d2bcdcfcf0e38d6c4c" category="list-text">Red Hat OpenShift Container Platform 4.8 の場合</block>
+  <block id="0e63e0d89e59800fedeff53418ff3739" category="admonition">Astra Control Center をホストするオペレーティングシステムが、環境の公式ドキュメントに記載されている基本的なリソース要件を満たしていることを確認します。</block>
+  <block id="19794288fc281d7eb7546cba8ca980ed" category="paragraph">Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。</block>
+  <block id="7c50a0d1133c9c14ea49301c56caba6d" category="cell">バックエンドの NetApp Cloud Volumes ONTAP ストレージ容量</block>
+  <block id="a7eddf1020c78d019a92db75f2a7c1cf" category="cell">ワーカーノード（ AWS EC2 の要件）</block>
+  <block id="54d10ad0596f83f1ca32d3762690d6fa" category="paragraph">少なくとも 3 つのワーカーノードが必要です。 vCPU コア 4 基、 RAM はそれぞれ 12GB です</block>
+  <block id="d36eca5e0bf1dfff485d4978d6d506b6" category="cell">FQDN</block>
+  <block id="343470856081cefce856689735e28432" category="cell">Astra Trident （ NetApp Cloud Manager の Kubernetes クラスタ検出の一部としてインストール）</block>
+  <block id="bb726d94be3e1be9701ebfefbabe7415" category="paragraph">Trident 21.04 以降がインストールおよび設定され、 NetApp ONTAP バージョン 9.5 以降がストレージバックエンドとしてインストールされている必要があります</block>
+  <block id="4d7c5466d2e8269a12c5fb2c17325819" category="cell">イメージレジストリ</block>
+  <block id="b844d342c437c771a94b9a4b4da9c67c" category="paragraph">Astra Control Center のビルドイメージをプッシュできる、 AWS Elastic Container Registry などの既存のプライベートレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。</block>
+  <block id="9bc2578a013052472b750d7a7b04dc0f" category="admonition">Restic ベースのイメージを使用してアプリケーションをバックアップおよび復元するには、 Astra Control Center ホストクラスタと管理対象クラスタが同じイメージレジストリにアクセスできる必要があります。</block>
+  <block id="4dc3bf2499855bf156a82b0e9ff67920" category="cell">Astra Trident / ONTAP 構成</block>
+  <block id="534401de10dcf24e44633c3e35564928" category="paragraph">Astra Control Center を使用するには、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center では、 Kubernetes クラスタを NetApp Cloud Manager にインポートする際に作成される次の ONTAP Kubernetes ストレージクラスがサポートされます。Astra Trident によって提供される機能は次のとおりです。</block>
+  <block id="cfb98b2d123707127a972849904f7111" category="list-text">「 vsaworkingenvironment 」 -&lt;&gt; -ha - NAS csi.trident.netapp.io`</block>
+  <block id="55405586af1eb9a2222645a9dac71176" category="list-text">「 vsaworkingenvironment 」 -&lt;&gt; -ha -san csi.trident.netapp.io`</block>
+  <block id="5ef1afc8d3655fb1ca3086a20aeff8f0" category="list-text">「 vsaworkingenvironment 」 -&lt;&gt;-singsingle-nas csi.trident.netapp.io`</block>
+  <block id="6fe2058aac46507f918904036cfd175c" category="list-text">「 vsaworkingenvironment 」 -&lt;&gt;-singsingle-san csi.trident.netapp.io`</block>
+  <block id="6055e00eebdf671d0aa895d5446217ba" category="admonition">AWS レジストリトークンは 12 時間で期限切れになり、その後 Docker イメージのレジストリシークレットを更新する必要があります。</block>
+  <block id="0f5976eacd46f4b7121620dfa52396cc" category="section-title">AWS の導入の概要を参照してください</block>
+  <block id="adb8fd6e484d371d955dd985dbd8d38d" category="paragraph">Cloud Volumes ONTAP をストレージバックエンドとして使用して Astra Control Center for AWS をインストールするプロセスの概要を以下に示します。</block>
+  <block id="7091c5fbc7ad1db76cf500f629cc6fdc" category="paragraph">これらの各手順については、以下で詳しく説明します。</block>
+  <block id="f97eb7df89e6d5b140aff24aecd9ac66" category="list-text"><block ref="e46eb46c854b41efdfd67d1542b138c4" category="inline-xref-macro-rx"></block>。</block>
+  <block id="3fcaa14e3888a8c480c5649b55053a88" category="list-text"><block ref="43644c385261a26f9d1f978bada80f13" category="inline-xref-macro-rx"></block>。</block>
+  <block id="96dd56f2f526762c42621cfb35afb898" category="list-text"><block ref="8ca1188abf137e806b39f3a695758502" category="inline-xref-macro-rx"></block>。</block>
+  <block id="11531d35bffa3200921e5a8ee5950b84" category="list-text"><block ref="c4954d5a433a0b3badc3311583a31b34" category="inline-xref-macro-rx"></block>。</block>
+  <block id="aa212b05ee6b0b78026790241fbde05d" category="list-text"><block ref="27fe6aaf425c0f95213ec6c507a97d2d" category="inline-xref-macro-rx"></block>。</block>
+  <block id="e8e336c6539723454a54092c15b17831" category="section-title">十分な IAM 権限があることを確認します</block>
+  <block id="4cccd232c18c48f403e1b0ca88018111" category="paragraph">Red Hat OpenShift クラスタと NetApp Cloud Volumes ONTAP Connector をインストールできる十分な数の IAM ロールと権限があることを確認します。</block>
+  <block id="9ef43b020d41cab5808d78fdf855c429" category="inline-link">AWS の初期クレデンシャル</block>
+  <block id="8bf9b9f442874d498c38dc3f714a9739" category="paragraph">を参照してください<block ref="1a5e66975901600375e1b84abc3d58bd" category="inline-link-rx"></block>。</block>
+  <block id="ed759a399e3faa755d36418e610d10fb" category="section-title">AWS に Red Hat OpenShift クラスタをインストールします</block>
+  <block id="cf332e80a7ec669ab4bcd7132f9cf315" category="paragraph">AWS に Red Hat OpenShift Container Platform クラスタをインストールします。</block>
+  <block id="fe44234b66d63db4cd81036ae75cf378" category="inline-link">AWS で OpenShift Container Platform にクラスタをインストールします</block>
+  <block id="09c5cce6c0b81c5a122141133cc096d8" category="paragraph">インストール手順については、を参照してください<block ref="02dece0ad7d56c8ca4c0002821b8ba8e" category="inline-link-rx"></block>。</block>
+  <block id="431d662f081880135f580544e6ebca68" category="section-title">AWS を設定します</block>
+  <block id="cccaf966d7360e27e6fae03ddd583733" category="paragraph">次に、仮想プライベートクラウドの作成、 EC2 コンピューティングインスタンスのセットアップ、 AWS S3 バケットの作成、 Astra Control Center イメージをホストする Elastic Container Register （ ECR ）の作成、このレジストリへのイメージのプッシュを行うように AWS を設定します。</block>
+  <block id="455960d50b151ff6ed28fa01f3d6356f" category="inline-link">AWS インストールドキュメント</block>
+  <block id="e874bd0f330d9513016dc844dfd62e6f" category="paragraph">AWS のドキュメントに従って次の手順を実行します。を参照してください<block ref="b5a7979c22035fe192b9eb8d0cab1e4a" category="inline-link-rx"></block>。</block>
+  <block id="799fec05d94fec2c59fc527e8f91c4c6" category="list-text">AWS 仮想プライベートクラウドを作成します。</block>
+  <block id="92d9212a67ec9da982a091cf92cb4347" category="list-text">EC2 コンピューティングインスタンスを確認します。AWS ではベアメタルサーバまたは VM を使用できます。</block>
+  <block id="b881f78be517f5315cfb2d556f3448f7" category="list-text">インスタンスタイプが、マスターノードとワーカーノードの Astra の最小リソース要件に一致していない場合は、 Astra の要件に合わせて AWS でインスタンスタイプを変更します。を参照してください <block ref="32be9c8362ea42075ea0b5d43bb3b5d0" category="inline-link-macro-rx"></block>。</block>
+  <block id="b109e192f966bb3bb3e8cd30e1a59bfa" category="list-text">バックアップを格納する AWS S3 バケットを少なくとも 1 つ作成します。</block>
+  <block id="e5c5351f3ea6206a7f110205b4155acc" category="list-text">すべての ACC イメージをホストする AWS Elastic Container Registry （ ECR ）を作成します。</block>
+  <block id="b6e02cb40f51ac7c03a21989247074b0" category="admonition">ECR を作成しないと、 Astra Control Center は、 AWS バックエンドの CVO を含むクラスタから監視データにアクセスできません。問題 は、 Astra Control Center を使用して検出および管理しようとしたクラスタに AWS ECR アクセスがない場合に発生します。</block>
+  <block id="6da6782dc02c8e2ffb3f2eeb0c8f4f10" category="list-text">ACC イメージを定義済みのレジストリにプッシュします。</block>
+  <block id="0aa9d7a142af7c23c39b44a27f0dcc8f" category="admonition">AWS Elastic Container Registry （ ECR ）トークンの有効期限は 12 時間です。有効期限が切れたため、クラスタ間のクローニング処理が失敗します。この問題 は、 AWS 用に設定された Cloud Volumes ONTAP （ CVO ）からストレージバックエンドを管理する場合に発生します。この問題 を修正するには、 ECR で再度認証を行い、クローン操作を再開するための新しいシークレットを生成します。</block>
+  <block id="d0d3a0a6bbae566c1e61c2fc0d0377ad" category="paragraph">AWS 環境の例を次に示します。</block>
+  <block id="00e2fab6bb1c1ddf5a08853aa2b05595" category="inline-image-macro">Cloud Volumes ONTAP を使用した Astra Control Center の導入例</block>
+  <block id="a5f9219af3aa469c4909489aee2c2362" category="paragraph"><block ref="a5f9219af3aa469c4909489aee2c2362" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="61d2eb450cd365140882ead80f04d49b" category="section-title">NetApp Cloud Manager を設定します</block>
+  <block id="e8b485f545fc18a4f8243271832ab76f" category="paragraph">Cloud Manager を使用して、ワークスペースの作成、 AWS へのコネクタの追加、作業環境の作成、クラスタのインポートを行います。</block>
+  <block id="fb459cd5a9ac773187f6e9e4b0d4a457" category="paragraph">Cloud Manager のドキュメントに従って、次の手順を実行します。以下を参照してください。</block>
+  <block id="f7bba7b010fcf309ed99329ba3de1d34" category="inline-link">AWS で Cloud Volumes ONTAP を使用するための準備</block>
+  <block id="875986068fd60999889e672086c4a739" category="list-text"><block ref="c7ce1d84b369179362f6c701fb404ff4" category="inline-link-rx"></block>。</block>
+  <block id="e4d5b32b4574e0f72d5d769f06ba60af" category="inline-link">Cloud Manager を使用して AWS でコネクタを作成します</block>
+  <block id="184eecd5e605ca613a4522bfea39f0e3" category="list-text"><block ref="184eecd5e605ca613a4522bfea39f0e3" category="inline-link-rx"></block></block>
+  <block id="6f6f9cc9726836bedfc0e7b39e547086" category="list-text">Cloud Manager にクレデンシャルを追加します。</block>
+  <block id="050e0fc66b4a702f2c0bcd4593f2022d" category="list-text">ワークスペースを作成します。</block>
+  <block id="78eda0374e384540ba9163ed5e15c209" category="list-text">AWS 用のコネクタを追加します。プロバイダとして AWS を選択します。</block>
+  <block id="7068b4549ff446fc5783cbd1735b1ef4" category="list-text">クラウド環境の作業環境を構築</block>
+  <block id="da4c4faef7dfc127215059abc33642e8" category="list-text">場所：「 Amazon Web Services （ AWS ）」</block>
+  <block id="ea9cc1142d937185db198ec4ffc8fd67" category="list-text">「 Cloud Volumes ONTAP HA 」と入力します。</block>
+  <block id="cbfa9d5d5f4077d6a69685136b18df04" category="list-text">OpenShift クラスタをインポートします。作成した作業環境にクラスタが接続されます。</block>
+  <block id="93b153667aff38c7d5e80224ff7a62dc" category="list-text">ネットアップクラスタの詳細を表示するには、 * K8s * &gt; * Cluster list * &gt; * Cluster Details * を選択します。</block>
+  <block id="e1001cf6163456f78888de73e0dd8241" category="list-text">右上隅に Trident のバージョンが表示されていることを確認します。</block>
+  <block id="879166e5d3ed3d9886dcb671dee52d57" category="list-text">Cloud Volumes ONTAP クラスタのストレージクラスは、プロビジョニングツールとしてネットアップを使用していることに注目してください。</block>
+  <block id="6f132ecc107812f9bd274ba758fce276" category="paragraph">これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスに割り当てられます。ストレージクラスを選択します。Trident は、インポートと検出のプロセスの一環として自動的にインストールされます。</block>
+  <block id="3cc9e3bbc9dd541f4db8ebbb5b141c8c" category="list-text">この CVO 導入では、すべての永続的ボリュームとボリュームをメモしておきます。</block>
+  <block id="022f3cb861d350bac16e19b15e4f1f9c" category="admonition">Cloud Volumes ONTAP は、シングルノードまたはハイアベイラビリティとして動作できます。HA が有効になっている場合は、 AWS で実行されている HA ステータスとノード導入ステータスを確認します。</block>
+  <block id="d35cd0582def6a18a65ff02ce2d5ff77" category="inline-link-macro">Astra Control Center のインストール手順</block>
+  <block id="1cb58fa5a8f36029f128e85d88276810" category="paragraph">標準に従ってください <block ref="ef8e47848fa28ef11d8d85ade3f221ee" category="inline-link-macro-rx"></block>。</block>
+  <block id="4d9093ca668edda8a4b7f1d5efe8d4bd" category="section-title">Microsoft Azure に Astra Control Center を導入</block>
+  <block id="7f18f262f0f4112be8239133aa15cff4" category="paragraph">Microsoft Azure パブリッククラウドでホストされる自己管理型の Kubernetes クラスタに Astra Control Center を導入できます。</block>
+  <block id="24fdd2eaa17fe7802a949abb767e47ff" category="section-title">Azure に必要なもの</block>
+  <block id="0868fde25a786c798cfe63227a2e632c" category="paragraph">Azure に Astra Control Center を導入する前に、次のものが必要です。</block>
+  <block id="80495d67a6c40d68dcd4966f400a72b8" category="list-text">Red Hat OpenShift Container Platform （ OCP ） 4.8 の場合</block>
+  <block id="067c001dbf7480cc26099ff0edfb8bda" category="list-text">バケットとコネクタの作成を可能にする権限を持つ Azure クレデンシャル</block>
+  <block id="a7ab880bb218b2e0b517005f90e662c8" category="section-title">Azure の運用環境の要件</block>
+  <block id="ac388b858e49b0566fa15ba968147e01" category="inline-link-macro">Astra Control Center の運用環境要件</block>
+  <block id="397e11d0b195dcd1681e8fd5e3045455" category="paragraph">を参照してください <block ref="7041daff547ca52b88252dab80375556" category="inline-link-macro-rx"></block>。</block>
+  <block id="98c6bc51841c094bfa7f813391562f38" category="cell">ワーカーノード（ Azure コンピューティング要件）</block>
+  <block id="e047c10f2ecd816933f9e5d910ba88e5" category="cell">FQDN （ Azure DNS ゾーン）</block>
+  <block id="55aed975133aa6d461724ac8194fcfde" category="paragraph">Trident 21.04 以降がインストールおよび設定され、 NetApp ONTAP バージョン 9.5 以降がストレージバックエンドとして使用されます</block>
+  <block id="1966e0f797b16227e0907947f62d07b4" category="paragraph">Astra Control Center ビルドイメージをプッシュできる、 Azure Container Registry （ ACR ）などの既存のプライベートレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。</block>
+  <block id="8420dcef28527cf221a78c85d6aeda26" category="admonition">バックアップ用にリストアイメージを取得するには、匿名アクセスを有効にする必要があります。</block>
+  <block id="1043ba2e5d59561d093286d357279240" category="section-title">Azure の導入の概要</block>
+  <block id="c7474e7220f6d793dfc9113c7ba4ad8a" category="paragraph">ここでは、 Astra Control Center for Azure のインストールプロセスの概要を示します。</block>
+  <block id="778f76cda891ad843a706cd1ecf7ac22" category="list-text"><block ref="444696d2efd935b258fde9473e231ab5" category="inline-xref-macro-rx"></block>。</block>
+  <block id="974c64d14b8888ab65fb2a513c5df980" category="list-text"><block ref="5f4c3bda8ff5ca72dd231ae18ca14f8d" category="inline-xref-macro-rx"></block>。</block>
+  <block id="32ce1280aa1f90e0beb68a4da1e37419" category="list-text"><block ref="c8522ebe147db364838192f96407c49e" category="inline-xref-macro-rx"></block>。</block>
+  <block id="d1fc12b83dd5d027e5bcadcf287a16af" category="list-text"><block ref="b5494b94dbff287f68cd90ac03222f44" category="inline-xref-macro-rx"></block>。</block>
+  <block id="2cce86879561a32f83b0b211ad079596" category="section-title">Azure に Red Hat OpenShift クラスタをインストールします</block>
+  <block id="ac7776656696332f732a35f1a0662432" category="paragraph">まず、 Azure に Red Hat OpenShift クラスタをインストールします。</block>
+  <block id="4a3ec74d604704b9803df28451c8fc6b" category="paragraph">インストール手順については、次を参照してください。</block>
+  <block id="4f6685bd07b182993d024dcf856ff5ae" category="inline-link">Azure への OpenShift クラスタのインストール</block>
+  <block id="fef256305fde869fc9c1b90f96dbebe5" category="list-text"><block ref="6613cf818db4dcdf36b939920f432c05" category="inline-link-rx"></block>。</block>
+  <block id="eed9d4fe807c07d271c864a1240c1c3f" category="inline-link">Azure アカウントをインストールする</block>
+  <block id="03936dba93dbfb5fc2df3ced6ce0b025" category="list-text"><block ref="2950a8cca92e141f7cc27cfe82878caa" category="inline-link-rx"></block>。</block>
+  <block id="9b227636b2d4cea11291793360089d9f" category="section-title">Azure リソースグループを作成する</block>
+  <block id="b15c7c1cada48f735340ffa1ec2e4b6d" category="paragraph">Azure リソースグループを少なくとも 1 つ作成します。</block>
+  <block id="f754cf28e9ca6bd457246cb85d6d5535" category="admonition">OpenShift では、独自のリソースグループを作成できます。さらに、 Azure リソースグループも定義する必要があります。OpenShift のドキュメントを参照してください。</block>
+  <block id="e05aa0761a6673a9f62453faeed8232c" category="paragraph">プラットフォームクラスタリソースグループおよびターゲットアプリケーション OpenShift クラスタリソースグループを作成できます。</block>
+  <block id="1ab5193f89cf79df51fd4138318923ac" category="inline-link">Azure のクレデンシャルと権限</block>
+  <block id="ac5af645cec8d25669a5a9893f571bcc" category="paragraph">を参照してください<block ref="47e48c38bbba09ad0234959e4f70e6b5" category="inline-link-rx"></block>。</block>
+  <block id="ffe7dbf60b2fbe9ee35b02eca9bedb83" category="section-title">Azure を設定</block>
+  <block id="def08885f6fc7373c0b5463ba8cfcf9b" category="paragraph">次に、 Azure を設定して、仮想プライベートクラウドの作成、コンピューティングインスタンスのセットアップ、 Azure Blob バケットの作成、 Astra Control Center イメージをホストする Azure Container Register （ ACR ）の作成、このレジストリへのイメージのプッシュを行います。</block>
+  <block id="310c2720a5523c6a1f55532ee951393c" category="paragraph">Azure のドキュメントに従って、次の手順を実行します。を参照してください<block ref="604df1e02f9d2d76a67db6e61299339e" category="inline-link-rx"></block>。</block>
+  <block id="1f5c184a439ca64495bef0e301c34bb1" category="list-text">Azure Virtual Private Cloud を作成する。</block>
+  <block id="d03589157dd63e1aaf5497955f5058f5" category="list-text">コンピューティングインスタンスを確認します。Azure の場合、ベアメタルサーバまたは VM を使用できます。</block>
+  <block id="b82f3e0352c4295f8db3114c4d861a92" category="inline-link-macro">Astra Control Center の要件</block>
+  <block id="8a803e817d15e18f4c26de7531681f8c" category="list-text">インスタンスタイプがまだマスターノードとワーカーノードの Astra 最小リソース要件に一致していない場合は、 Azure でインスタンスタイプを変更して Astra の要件を満たします。を参照してください <block ref="69ebc365ae107089b5acea91d6e6ce3d" category="inline-link-macro-rx"></block>。</block>
+  <block id="ece21a337138f7f8683bac6e6615e56e" category="list-text">バックアップを格納する Azure Blob バケットを少なくとも 1 つ作成します。</block>
+  <block id="307374e80fc7db1b05d765029543d9c8" category="list-text">ストレージアカウントを作成します。Astra Control Center でバケットとして使用するコンテナを作成するには、ストレージアカウントが必要です。</block>
+  <block id="a9d92f56cc3dae134fc1ee53e8136378" category="list-text">バケットへのアクセスに必要なシークレットを作成します。</block>
+  <block id="7d8431378165cbd970da3a000187a79e" category="list-text">Azure Container Registry （ ACR ）を作成して、すべての Astra Control Center イメージをホストします。</block>
+  <block id="4f5af91528c01098c29871fe09ac9d57" category="list-text">ACR アクセスを設定して Docker プッシュ / プルをすべての Astra Control Center イメージに適用します。</block>
+  <block id="d529175e9b6c64524a535d3c41e5dbc0" category="list-text">次のスクリプトを入力して、 ACC イメージをこのレジストリにプッシュします。</block>
+  <block id="29fb476acd8884c5f94b56255bdac62c" category="paragraph">* 例 * ：</block>
+  <block id="01e3a2cdfc793998c37015da1e6ba225" category="list-text">DNS ゾーンを設定します。</block>
+  <block id="46673f8e38542ef448677d4f5b05ad9c" category="paragraph">Cloud Manager を使用して、ワークスペースの作成、 Azure へのコネクタの追加、作業環境の作成、クラスタのインポートを行います。</block>
+  <block id="d95b8ade606a763db2ff048aa0ccca6e" category="inline-link">Azure で Cloud Manager を使用する準備をしています</block>
+  <block id="6c45a43a28de7a036e7326630589cd8c" category="paragraph">Cloud Manager のドキュメントに従って、次の手順を実行します。を参照してください<block ref="f60e5bc9b155a8e8c296b53d7bf8787f" category="inline-link-rx"></block>。</block>
+  <block id="da5ad27abf5b7efd518ee58724aa05fd" category="paragraph">必要な IAM 権限とロールを持つ Azure アカウントにアクセスします</block>
+  <block id="a6a65a24118ecb361d8448c01a28d4c2" category="inline-link">Cloud Manager のポリシー</block>
+  <block id="1ac7cd3a0a95a66865c81a42e0fc8a8d" category="list-text">Azure 用のコネクタを追加します。を参照してください<block ref="7a83ad6398c7a9926eb3c3dc5a3947e8" category="inline-link-rx"></block>。</block>
+  <block id="ddd48d1b5438ee1b2c946936cfc03d9e" category="list-text">プロバイダとして「 * Azure * 」を選択します。</block>
+  <block id="c8f787e5aed02af303a6d3aa6d01e256" category="list-text">アプリケーション ID 、クライアントシークレット、ディレクトリ（テナント） ID など、 Azure クレデンシャルを入力します。</block>
+  <block id="ad7e89e11b33667749832d156a88215f" category="inline-link">Cloud Manager から Azure にコネクタを作成する</block>
+  <block id="ab2377d683060fea1dd072141dcaed23" category="paragraph">を参照してください<block ref="0766a1482b0757f3386cbf776b5d479b" category="inline-link-rx"></block>。</block>
+  <block id="87c7357de6ea0227d87f925e90e15e08" category="list-text">コネクタが動作していることを確認し、コネクタに切り替えます。</block>
+  <block id="d830f1a76d5c62f7b531dad53fcb4c1b" category="inline-image-macro">Cloud Manager でコネクタを切り替えています</block>
+  <block id="aa087fbc95df14e355269d17d89b208f" category="paragraph"><block ref="aa087fbc95df14e355269d17d89b208f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="44930626eab5155e142a48063b020936" category="list-text">場所：「 Microsoft Azure 」。</block>
+  <block id="882ed833487b96a9be53006e9ad9ffa5" category="list-text">「 Cloud Volumes ONTAP HA 」と入力します。</block>
+  <block id="28c2752603dd9f14265631baf4fe6ece" category="inline-image-macro">Cloud Manager での作業環境の作成</block>
+  <block id="889cbe9961ca696a510e412a4b30232a" category="paragraph"><block ref="889cbe9961ca696a510e412a4b30232a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e94546b01b99a1eb48dc2aa847bd1bc9" category="inline-image-macro">Cloud Manager にクラスタをインポートします</block>
+  <block id="a340fe93d59bc226299f8720ea322256" category="paragraph"><block ref="a340fe93d59bc226299f8720ea322256" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d9ea115977abd9d7e16409cba9fd16f6" category="list-text">CVO クラスタのストレージクラスは、ネットアップをプロビジョニングツールとして示しています。</block>
+  <block id="5acebafc0c752497041f5a0d80fe30bb" category="paragraph">これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスが割り当てられます。ストレージクラスを選択します。Trident は、インポートと検出のプロセスの一環として自動的にインストールされます。</block>
+  <block id="a4f1bc6952ef35fa4b362d48d0bae5cf" category="list-text">Cloud Volumes ONTAP は、シングルノードまたはハイアベイラビリティとして動作できます。HA が有効になっている場合は、 Azure で実行されている HA ステータスとノード導入ステータスを確認します。</block>
+  <block id="ed5ef8c204e33b0e0f057dc70e0b4867" category="section-title">Astra Control Center をインストールして設定します</block>
+  <block id="7586dbf5f3ac1a66383f6c201a17a341" category="inline-link-macro">インストール手順</block>
+  <block id="5381969706e609f872c366c6e1a670a3" category="paragraph">Astra Control Center を標準でインストールします <block ref="3dc99e8ac5a903068ed044215599aeeb" category="inline-link-macro-rx"></block>。</block>
+  <block id="22a505b5cbfe40e35bb7fb0543690f0e" category="inline-link-macro">Astra Control Center をセットアップし、バケットを追加する</block>
+  <block id="7a971c76db7e65f29d30288ac83cec37" category="paragraph">Astra Control Center を使用して、 Azure バケットを追加する。を参照してください <block ref="84c85bd9149d8879a472dbef331261f3" category="inline-link-macro-rx"></block>。</block>
+  <block id="5aa431ebb0b0805358c5d6b3a9b9745d" category="paragraph">ライセンスの計算方法の詳細については、を参照してください <block ref="5d4863a02d05fc8628043f5d98bb32ab" category="inline-link-macro-rx"></block>。</block>
+  <block id="4d9379be73ba55f4c1b079ee884897de" category="list-text">[ ストレージバックエンド ] セクションで、 *Add* を選択します。</block>
+  <block id="a60d8d99de1db552bb0ff25496934484" category="list-text">Resource Summary &gt; Storage Backends セクションで、 * Add * を選択します。</block>
+  <block id="4e5f7f6ac61851274c3d50decf63b5a2" category="list-text">[ 既存の使用（ Use Existing ） ] * タブを選択します。</block>
+  <block id="dbf61aa578cd1d84f45f72364fceae0b" category="summary">より制限の少ない PoD セキュリティポリシーを作成して、 Astra Control が管理対象クラスタ上でポッドを作成および更新できるようにする必要があります。</block>
+  <block id="c8083e34bef7c1ffc5a6569022032c94" category="doc">カスタムのポッドセキュリティポリシーを作成します</block>
+  <block id="7c6b8c8b3b979e4e38dcedac99bf2876" category="paragraph">Astra Control では、管理対象のクラスタに Kubernetes ポッドを作成して管理する必要があります。クラスタで、特権ポッドの作成を許可しない制限付きポッドセキュリティポリシーを使用している場合、またはポッドコンテナ内のプロセスをルートユーザとして実行できるように許可していない場合は、制限の少ないポッドセキュリティポリシーを作成して、 Astra Control がこれらのポッドを作成および管理できるようにする必要があります。</block>
+  <block id="65384a0e04738f4736febf8e94c0d84d" category="list-text">デフォルトよりも制限の緩いクラスタの PoD セキュリティポリシーを作成してファイルに保存します。例：</block>
+  <block id="d13a1edddeea90128174a632bb5306b0" category="list-text">ポッドセキュリティポリシーの新しいロールを作成します。</block>
+  <block id="6c14c5ec8d63a7d6ee3423dc27b2a2ec" category="list-text">新しいロールをサービスアカウントにバインドします。</block>
+  <block id="81ecf920d90408bfaf4f0e2334db94f5" category="list-text">使用するネットアップ FQDN が、このクラスタにルーティング可能である必要があります。つまり、内部 DNS サーバに DNS エントリがあるか、すでに登録されているコア URL ルートを使用しています。</block>
+  <block id="20ef444d3d2ed080fc38b3b354045f49" category="list-text">Astra コンポーネントを NetApp-acc' （またはカスタム名前の）名前空間にインストールします</block>
+  <block id="e0f9cfa930de42cc2415bca652f6f01c" category="admonition">Docker Engine の代わりに Red Hat の Podman を使用している場合は、 Docker コマンドの代わりに Podman コマンドを使用できます。</block>
+  <block id="5dc5ee39f46cb7f56c0e02e14f717a70" category="list-text">[[[[sup_kubeconfig _secret]] （オプション）インストール後に Astra Control Center でクラスタを自動的に管理する場合は、このコマンドを使用して展開する Astra Control Center ネームスペース内のシークレットとして kubeconfig を指定する必要があります。</block>
+  <block id="5b624fa8d68852c0185da2d779709dc8" category="list-text">（任意）インストールで必要に応じて、「 torageClass 」の値を別の Trident ストレージクラスリソースに変更します。</block>
+  <block id="59b65c5ab80693197ae6264bf8195ff4" category="inline-xref">このクラスタの kubeconfig を含むシークレットを作成しました</block>
+  <block id="232e5f225c4e3dea0c47f6b61d348ff6" category="list-text">（オプション）インストール後に Astra Control Center でクラスタを自動的に管理する場合は <block ref="4b3f6fd1d0b1fbe48eab0531d0c004a0" category="inline-xref-macro-rx"></block>を使用して、シークレットの名前を指定します。この YAML ファイルに「 astraeKubeConfigSecret ： "acc-kubeconfig -cred or custom secret name" 」という名前の新しいフィールドを追加します</block>
+  <block id="d5645bdd26cb1c7cd7fc2462048eb19a" category="list-text">次のいずれかの手順を実行します。</block>
+  <block id="69d2cdec68ad88dce63bbd3a23310e4b" category="list-text">* その他の入力コントローラ（ ingressType: Generic ） * ：これはアストラコントロールセンターでのデフォルトのアクションです。Astra Control Center を展開したら、 Astra Control Center を URL で公開するように入力コントローラを設定する必要があります。</block>
+  <block id="fa5b96d477aba994c2e6630f3280a378" category="paragraph">デフォルトの Astra Control Center インストールでは ' ゲートウェイ (service/traefik`) が ClusterIP` タイプに設定されますこのデフォルトのインストールでは、トラフィックをルーティングするために Kubernetes IngressController/Ingress を追加で設定する必要があります。入力を使用する場合は、を参照してください <block ref="ad125f0a3036e9b5f57b3a7077f489d9" category="inline-link-macro-rx"></block>。</block>
+  <block id="f653f22c76cf218c651edc4c61083157" category="list-text">* サービスロードバランサ (ingressType: AccTraefik) *: IngressController をインストールしない場合、または入力リソースを作成しない場合は、「 ingressType 」を「 AccTraefik 」に設定します。</block>
+  <block id="ec81a04c20f0b656737e9b296cc5ce5a" category="paragraph">これにより 'Astra Control Center traefik' ゲートウェイが Kubernetes LoadBalancer タイプのサービスとして導入されます</block>
+  <block id="f23f52f8ea19f7c2cd0f8e74d92eacff" category="paragraph">Astra Control Center は、 Astra Control Center ネームスペースの "LoadBalancer (svc/traefik`) タイプのサービスを使用し、アクセス可能な外部 IP アドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、 MetalLB または別の外部サービスロードバランサを使用して、外部 IP アドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。</block>
+  <block id="77e0de8ecc5568c2d3a063c7dc7001ec" category="admonition">サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>。</block>
+  <block id="ee0526590c13af447ef6f7015055f42a" category="inline-link-macro">UI で</block>
+  <block id="7273584d0fdded6be7a9a6e1cc3f03b4" category="admonition">「 accHost 」クラスタの登録は最後の操作の 1 つであり、失敗した場合、原因 の配備に失敗することはありません。ログにクラスタ登録エラーが示された場合は、クラスタ追加ワークフローを通じて再度登録を試行できます <block ref="b470e1e769f57d21f243dd7007dff492" category="inline-link-macro-rx"></block> または API 。</block>
+  <block id="ac7bb8980fbb62357b278b4b6c7c9338" category="list-text">YAML で、「 Deployed 」値に対する応答の「 status.deploymentState` 」フィールドを確認します。導入に失敗した場合は、代わりにエラーメッセージが表示されます。</block>
+  <block id="28bbf0acdd3b39e5c8c561287bc93cb0" category="list-text">Astra Control Center にログインするときに使用するワンタイムパスワードを取得するには、「 status.uuid 」値をコピーします。パスワードは「 ACC-` 」の後に UUID 値（「 ACC-[UUID] 」）、またはこの例では「 ACC-9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f 」）です。</block>
+  <block id="9b1d9a579e35c7ae0c56196f2ec084e1" category="example-title">YAML の詳細のサンプル</block>
+  <block id="d6cdb892fe9623e9782bae6db8d7dcd7" category="paragraph">Kubernetes 入力コントローラをセットアップして、クラスタのロードバランシングなどのサービスへの外部アクセスを管理できます。</block>
+  <block id="0d1c106f5017462d9de6e4f8a82e074c" category="paragraph">この手順 では、入力コントローラ（「 ingressType: Generic 」）の設定方法について説明します。これは、 Astra Control Center でのデフォルトのアクションです。Astra Control Center を展開したら、 Astra Control Center を URL で公開するように入力コントローラを設定する必要があります。</block>
+  <block id="4bed96e1b3536d83eb37a83daf2c99fe" category="admonition">入力コントローラを設定しない場合は、「 ingressType: AccTraefik 」を設定できます。Astra Control Center は、 Astra Control Center ネームスペースの "LoadBalancer (svc/traefik`) タイプのサービスを使用し、アクセス可能な外部 IP アドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、 MetalLB または別の外部サービスロードバランサを使用して、外部 IP アドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>。</block>
+  <block id="f249cbb12b555fa6b1b839d1fbb9cf54" category="list-text">V1.19 と v1.22 の間で Kubernetes のバージョンを使用している。</block>
+  <block id="9f951818010de2aab97830e9f0c7256b" category="list-text">タイプのシークレットを作成します<block ref="37832da3e75d3d08f1b0f5b5ed8a3dc0" category="inline-link-rx"></block> に示すように 'NetApp-acc' （またはカスタム名前の）名前空間内の TLS 秘密鍵と証明書の場合<block ref="749b9942574f6d94028c602d678053d4" category="inline-link-rx"></block>。</block>
+  <block id="2b55900b5b4ded37616cd8c50d90a2e1" category="list-text">「 vibeta1 」（または 1.22 未満の Kubernetes バージョンでは非推奨）または「 v1' 」リソースタイプを使用して、「 NetApp-acc` （またはカスタム名前）」ネームスペースに入力リソースを配置します。</block>
+  <block id="59e5200207736e87bc4367abefa2e78b" category="list-text">v1beta' 非推奨スキーマについては ' 次の例を参照してください</block>
+  <block id="bd9816e38f7956650afc1ffe8318e16d" category="list-text">「 v1 」の新しいスキーマについては、次の例を参照してください。</block>
+  <block id="db199481bf6cf2d5e29909b07d83a660" category="summary">Astra Control Center のインストール方法を選択できます。</block>
+  <block id="29a22a050bd07366c87409e65a0fd0cd" category="list-text"><block ref="29a22a050bd07366c87409e65a0fd0cd" category="inline-link-macro-rx"></block></block>
+  <block id="869e88fdb2291fe31fc2aeb4bc0d3c4f" category="paragraph"><block ref="9eecb239704d706edd0e9065cdf42037" category="inline-link-macro-rx"></block>。</block>
+  <block id="6514f4d4ab7040c9d32ce9aea0fd62ad" category="list-text">ONTAP またはを追加します<block ref="e41935a824f782ed0b4e20297d584896" category="inline-link-rx"></block> ストレージバックエンド：</block>
+  <block id="5c3ecd2a6e7743910c01e8a3ede5d0e2" category="paragraph"><block ref="4f53ab095a585e280035de1f6822ef65" category="inline-link-macro-rx"></block>。</block>
+  <block id="938b18df1cf4fc30adffffdbd05580fb" category="list-text">（オプション）権限付きポッドの作成を許可しない制限付きポッドセキュリティポリシーをクラスタで使用している場合、またはポッドコンテナ内のプロセスをルートユーザとして実行できるようにしていない場合は、 Astra Control でポッドを作成および管理できるように、クラスタ用のカスタムポッドセキュリティポリシーを作成します。手順については、を参照してください <block ref="a0c087a50043435816db1a08670aaa8c" category="inline-link-macro-rx"></block>。</block>
+  <block id="a705d9c4def0cc55ff217de6d14232c6" category="list-text">Kubernetes 1.20 ～ 1.23</block>
+  <block id="46e088d5c464fb0749b1ba98a028e6c1" category="list-text">Rancher 2.5.8 、 2.5.9 、または 2.6 と RKE1</block>
+  <block id="43f3d97ccd6796a3175dc4b954b117d5" category="list-text">Red Hat OpenShift Container Platform 4.4.8 、 4.7 、 4.8 、または 4.9</block>
+  <block id="1c7b98666e263594b1210d624b6018b5" category="list-text">VMware Tanzu Kubernetes Grid 1.4 の場合</block>
+  <block id="22a419d5d77916bed9436540926a459b" category="list-text">VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2</block>
+  <block id="aea29060af1aacdb3f8aff291b534e55" category="cell">ONTAP バックエンドのストレージ容量</block>
+  <block id="1db3861c7c604e022707e65328ef7cc2" category="cell">FQDN アドレス</block>
+  <block id="b3071c30261a1e065c64f3de227b01ff" category="cell">Astra Control Center の FQDN アドレス</block>
+  <block id="782ddd5eae9f93dbf990bc08c3f35c1a" category="list-text">Astra Trident 21.04 以降がインストールおよび設定されている</block>
+  <block id="6e8275b6ade503dd8103605c96de24f1" category="section-title">VMware Tanzu Kubernetes Grid クラスタの要件</block>
+  <block id="0cad90723506c3c9f67cd3783aeae219" category="paragraph">VMware Tanzu Kubernetes Grid （ TKG ）または Tanzu Kubernetes Grid Integrated Edition （ TKGi ）クラスタで Astra Control Center をホストする場合、次の点に注意してください。</block>
+  <block id="883a74644c0071959dda599b0318b7ca" category="list-text">TKG または TKGi のデフォルト・ストレージ・クラス・エンフォースメントは、 Astra Control によって管理されるすべてのアプリケーション・クラスタで無効にします。これを行うには、名前空間クラスタ上で「 TanzueutesCluster 」リソースを編集します。</block>
+  <block id="206598160d48cb0352154b4886e36c6a" category="list-text">Astra Control Center がクラスタ内にポッドを作成できるようにするセキュリティポリシーを作成する必要があります。これを行うには、次のコマンドを使用します。</block>
+  <block id="9677a883a700a1804af4204a39942a01" category="list-text">TKG または TKGi 環境に Astra Control Center を導入する際には、 Astra Trident の特定の要件に注意してください。詳細については、を参照してください<block ref="7262878c61e63204c825af54299b7a49" category="inline-link-rx"></block>。</block>
+  <block id="1c48088dc1732bdac3e27be1a94c191a" category="inline-link">VMware NSX -T Data Center 製品ドキュメント</block>
+  <block id="79c6eeaaf8d96d513388ecbf530b0ae3" category="admonition">デフォルトの VMware TKG および TKGi 設定ファイルトークンの有効期限は、展開後 10 時間です。Tanzu ポートフォリオ製品を使用する場合は、 Astra Control Center と管理対象アプリケーションクラスタ間の接続の問題を回避するために、期限切れにならないトークンを含む Tanzu Kubernetes Cluster 構成ファイルを生成する必要があります。手順については、を参照してください<block ref="c26a653248aa528b1bef9d4c5fae1fc5" category="inline-link-rx"></block></block>
+  <block id="783d1a3e740eff9085416ec3f709793f" category="section-title">サポートされるストレージバックエンド</block>
+  <block id="160a276b6627d6a6aa9859d6c2835948" category="paragraph">Astra Control Center は、次のストレージバックエンドをサポートします。</block>
+  <block id="8035d5d39b2b48f6ec1a3133b688513c" category="list-text">Astra データストア</block>
+  <block id="dfac4790f1edf6101275f3ef6bff1bf3" category="list-text">NetApp ONTAP 9.5 以降の AFF および FAS システム</block>
+  <block id="0f0b99ea2f70cd363c2c6a279f74e760" category="list-text">NetApp Cloud Volumes ONTAP の略</block>
+  <block id="ff79203caa78d64e952438adf3dac421" category="paragraph">ライセンスの機能の詳細については、を参照してください <block ref="5d4863a02d05fc8628043f5d98bb32ab" category="inline-link-macro-rx"></block>。</block>
+  <block id="a935ac1929664c98f15473ff54019d68" category="section-title">オンプレミス Kubernetes クラスタへの入力</block>
+  <block id="a725c0ade3038af309a6f44b57e8b3e4" category="paragraph">ネットワーク入力アストラコントロールセンターで使用するタイプを選択できます。デフォルトでは、 Astra Control Center は Astra Control Center ゲートウェイ（サービス / traefik ）をクラスタ全体のリソースとして展開します。また、お客様の環境でサービスロードバランサが許可されている場合は、 Astra Control Center でサービスロードバランサの使用もサポートされます。サービスロードバランサを使用する必要があり、設定済みでない場合は、 MetalLB ロードバランサを使用して外部 IP アドレスを自動的にサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。</block>
+  <block id="3535d3befb15db2a6b9a1413eed8204e" category="admonition">Tanzu Kubernetes Grid クラスタで Astra Control Center をホストしている場合は、「 kubectl get nsxlbmonitors -a` コマンドを使用して、入力トラフィックを受け入れるように設定されたサービスモニタがすでにあるかどうかを確認します。MetalLB が存在する場合は、既存のサービスモニタが新しいロードバランサ設定を上書きするため、 MetalLB をインストールしないでください。</block>
+  <block id="9094bc8efffaaa3a7bff5aba20de1ca7" category="admonition">Astra Control Center はデュアルスタック Kubernetes クラスタに導入でき、 Astra Control Center はデュアルスタック操作用に構成されたアプリケーションとストレージバックエンドを管理できます。デュアルスタッククラスタの要件の詳細については、を参照してください<block ref="4e26c1cd22436fb9612733bcd727160e" category="inline-link-rx"></block>。</block>
+  <block id="4b873c67645eb86742bf821df2fd20b3" category="cell">NetApp AutoSupport <block ref="c62335da5e33220e8626bdc132f0ce39" category="inline-link-rx"></block></block>
+  <block id="009673abdb70c0ffd1710edeb60d8cd2" category="cell">NetApp AutoSupport 通信</block>
+  <block id="09deba2ad910e084c6f3145f1aa3d1ea" category="paragraph">* NetApp Trident は、管理を解除すると自動的にクラスタからアンインストールされますか？ * Astra Control Center からクラスタを管理を解除しても、 Trident は自動的にクラスタからアンインストールされることはありません。Trident をアンインストールするには、が必要です<block ref="11951e75a5c670d49400c1d12d4333d6" category="inline-link-rx"></block>。</block>
+  <block id="521b3bfc75046a33a8363d3be24cc4a8" category="paragraph">* 正常でないポッドはアプリケーション管理に影響しますか？ * 管理対象アプリケーションにポッドが正常な状態でない場合、 Astra Control は新しいバックアップとクローンを作成できません。</block>
+  <block id="da5d4508481a86b7c3d0b834d23f4037" category="list-text"><block ref="da5d4508481a86b7c3d0b834d23f4037" category="inline-link-macro-rx"></block></block>
+  <block id="9d007a46d69b936029562abdc3c56240" category="paragraph">この度、最新の 22.04.0 リリースの Astra Control Center がリリースされました。</block>
+  <block id="636d6f4332398bd5b282d3ece2b35c37" category="section-title">2022 年 4 月 26 日（ 22.04.0 ）</block>
+  <block id="0097e428776046ceb8cd1fcde6d6fa2e" category="inline-link-macro">ネームスペースのロールベースアクセス制御（ RBAC ）</block>
+  <block id="64bad51f74b4f1807a7d2af0cf87257c" category="list-text"><block ref="64bad51f74b4f1807a7d2af0cf87257c" category="inline-link-macro-rx"></block></block>
+  <block id="6d1f817d433aa2ed5357833d205f7ecc" category="inline-link-macro">Cloud Volumes ONTAP （ CVO ）のサポート</block>
+  <block id="a0d0deee3c5c466bfed70fd7382479c3" category="list-text"><block ref="a0d0deee3c5c466bfed70fd7382479c3" category="inline-link-macro-rx"></block></block>
+  <block id="b2c30cdbb458ef4f85645f614f9a044c" category="inline-link-macro">Astra Control Center の一般的な入力イネーブルメント</block>
+  <block id="7488f95bd73a954d45792854208eec9a" category="list-text"><block ref="7488f95bd73a954d45792854208eec9a" category="inline-link-macro-rx"></block></block>
+  <block id="ec4f18f5d437fda081d810a9841b26d4" category="inline-link-macro">Astra Control からバケットを取り外す</block>
+  <block id="61919f8ed6a4559b38f81d9a03af7c7e" category="list-text"><block ref="61919f8ed6a4559b38f81d9a03af7c7e" category="inline-link-macro-rx"></block></block>
+  <block id="8129213766a460b291fb99be007611f8" category="inline-link-macro">VMware Tanzu ポートフォリオのサポート</block>
+  <block id="d694b53d89bf6c370a946e6c4739b082" category="list-text"><block ref="d694b53d89bf6c370a946e6c4739b082" category="inline-link-macro-rx"></block></block>
+  <block id="162c583a9419e9e9ef6bdd9b125884de" category="list-text"><block ref="162c583a9419e9e9ef6bdd9b125884de" category="inline-link-rx"></block></block>
+  <block id="ea0ac2e7a0ec9bc6f3f6306903d70cf5" category="list-text"><block ref="ea0ac2e7a0ec9bc6f3f6306903d70cf5" category="inline-link-rx"></block></block>
+  <block id="0adc605f1fb9c132c2d403bcc2adaad1" category="list-text"><block ref="0adc605f1fb9c132c2d403bcc2adaad1" category="inline-link-rx"></block></block>
+  <block id="ff65f5fbabf1c5f1d65da663c77bd371" category="list-text"><block ref="ff65f5fbabf1c5f1d65da663c77bd371" category="inline-link-rx"></block></block>
+  <block id="11c0fd565e51012936bd009c2b3a673c" category="list-text"><block ref="11c0fd565e51012936bd009c2b3a673c" category="inline-link-rx"></block></block>
+  <block id="48ed655a0692f034d592c9afc6d90e6d" category="list-text"><block ref="48ed655a0692f034d592c9afc6d90e6d" category="inline-link-rx"></block></block>
+  <block id="ba2a4fb031b7bf74930beb5469e04eab" category="list-text"><block ref="ba2a4fb031b7bf74930beb5469e04eab" category="inline-link-rx"></block></block>
+  <block id="e1ec5945a89b3a26b7d1064484f288c8" category="list-text"><block ref="e1ec5945a89b3a26b7d1064484f288c8" category="inline-link-rx"></block></block>
+  <block id="6b116be1c05745d9b7d81739130428e7" category="list-text"><block ref="6b116be1c05745d9b7d81739130428e7" category="inline-link-rx"></block></block>
+  <block id="d16f95f51a31a7bfb208791bb8df402c" category="list-text"><block ref="d16f95f51a31a7bfb208791bb8df402c" category="inline-link-rx"></block></block>
+  <block id="c7fbd45c3ad4bc5cdd49c42150d44a7d" category="list-text"><block ref="c7fbd45c3ad4bc5cdd49c42150d44a7d" category="inline-link-rx"></block></block>
+  <block id="94fb8e1492fc6ba7471eb16e61e77901" category="list-text"><block ref="94fb8e1492fc6ba7471eb16e61e77901" category="inline-link-rx"></block></block>
+  <block id="73e8e7917aef8a94a53c1571bb5d498a" category="list-text"><block ref="73e8e7917aef8a94a53c1571bb5d498a" category="inline-link-rx"></block></block>
+  <block id="f0690b1a8def1bb3e74fc8101093fa52" category="list-text"><block ref="f0690b1a8def1bb3e74fc8101093fa52" category="inline-link-rx"></block></block>
+  <block id="c56b58ed8f9b276554482efd3a4be878" category="list-text"><block ref="5a965f5cda67b2c8018730dccf0bce79" category="inline-link-rx"></block> および<block ref="190334a632c272d2893dafa0601ddf2e" category="inline-link-rx"></block></block>
+  <block id="400aee187d43d54b5326d7efac9983e7" category="list-text"><block ref="a7fdf766e43fbd24d1cd0c9533a02b51" category="inline-link-rx"></block> および<block ref="9b189c2495b6f2ea2fca9c2316b25d55" category="inline-link-rx"></block> アプリケーション</block>
+  <block id="17ed8e2e579e3555a165d2be0d0f2253" category="list-text"><block ref="da23c72bbbcf49c8bb912b0a83f8f699" category="inline-link-rx"></block> および<block ref="79074041e6f94e100f13ed758c4c05e8" category="inline-link-rx"></block></block>
+  <block id="0839cfa5b1e8b99d643e6304899b3729" category="list-text"><block ref="0839cfa5b1e8b99d643e6304899b3729" category="inline-link-rx"></block></block>
+  <block id="9b30eadeeb1eb8a4dd294a08f59ed02d" category="list-text"><block ref="9b30eadeeb1eb8a4dd294a08f59ed02d" category="inline-link-rx"></block></block>
+  <block id="36ca4b12e94f7f77ccd6700cbb0d85c7" category="list-title">クラスタ管理の制限事項</block>
+  <block id="e01059e5d12812cdeae69a89c571fcd0" category="list-text"><block ref="372421c4f6d28777a404ea99982adad0" category="inline-xref-macro-rx"></block></block>
+  <block id="c198f005af93363b23c0583d11980e76" category="list-text"><block ref="e43f05398a515e7831c1ad56aeb8fddd" category="inline-xref-macro-rx"></block></block>
+  <block id="19c1911c15404b466d1dbdce1f447fa5" category="list-title">Role-Based Access Control （ RBAC ；ロールベースアクセス制御）の制限事項があります</block>
+  <block id="06f121da43c8b9e648a8aa029ad9c1ca" category="list-text"><block ref="0ff2bc9c7cdbd106f2423a9af8105247" category="inline-xref-macro-rx"></block></block>
+  <block id="692bef51c3cefb709496e672979fafda" category="list-text"><block ref="c3444bf1f6ccff644809494fcfe68216" category="inline-xref-macro-rx"></block></block>
+  <block id="ec566a7ae96d8d40feeed984810bbeaa" category="list-title">アプリケーション管理の制限</block>
+  <block id="5847b2e6817cdee1b2312a0d4c60d2dd" category="list-text"><block ref="4b0b74e1c32b1087f8300ff930833f35" category="inline-xref-macro-rx"></block></block>
+  <block id="d6aecdecacb7cb41bd96009bea321c02" category="list-text"><block ref="85a43651eb874e0332c9ab2d2662076d" category="inline-xref-macro-rx"></block></block>
+  <block id="43a43f73112791eff6baa40fc8076740" category="list-text"><block ref="df634ab88d533e7ad05b50fb9326e7c4" category="inline-xref-macro-rx"></block></block>
+  <block id="af32ebca2ab839802c82638ff0ad043b" category="list-text"><block ref="6ceab0f1840da5dd284fe2a2036126d7" category="inline-xref-macro-rx"></block></block>
+  <block id="fdea071b260009726be88da7cd92b9a5" category="list-text"><block ref="8eea5af6bdc9b48faf574abf2e6e514a" category="inline-xref-macro-rx"></block></block>
+  <block id="1ac484b7039a7a63fa107c6b607c9db1" category="list-title">一般的な制限事項</block>
+  <block id="acd515b02814a1328630b3a5c36499a0" category="list-text"><block ref="d90e123109cab0f6b506d2962edfe515" category="inline-xref-macro-rx"></block></block>
+  <block id="39e755434551414e1e4eaed183f16e89" category="list-text"><block ref="c2aaccd4a5ce017a49f7e54352b69e31" category="inline-xref-macro-rx"></block></block>
+  <block id="d7146a8731312bd51758da3dfbf0afc6" category="list-text"><block ref="4e270de10e806e60b73648a227e6a3f6" category="inline-xref-macro-rx"></block></block>
+  <block id="a0874f32a1010f0ad9545fec43505eb8" category="section-title">Astra Control Center は、同じ名前の 2 つのクラスタを管理できません</block>
+  <block id="7a74863a3e751df4941db2bd87309f5f" category="paragraph">既存のクラスタと同じ名前のクラスタを追加しようとすると、処理に失敗します。この問題は、 Kubernetes 構成ファイルでクラスタ名のデフォルトを変更していない場合、通常は標準の Kubernetes 環境で発生します。</block>
+  <block id="66ba81be546d7a5973fa02b72f2d22d7" category="section-title">ネームスペースの RBAC に制約があるユーザは、クラスタの追加と管理解除を行うことができます</block>
+  <block id="6d70905dce5a2e1f37d99d5fa5a0fca9" category="paragraph">ネームスペースの RBAC に制限があるユーザは、クラスタの追加または管理解除を行うことができません。現在の制限により、 Astra は、このようなユーザによるクラスタの管理解除を妨げません。</block>
+  <block id="8164f139371aabdbe264f5f85a178858" category="section-title">名前空間の制約を持つメンバは、管理者が名前空間を制約に追加するまで、クローンまたは復元されたアプリケーションにアクセスできません</block>
+  <block id="f97ac7f699d5423ec5ad493782fa55ff" category="paragraph">名前空間の名前 /ID または名前空間ラベルによって RBAC の制約を受けているメンバーユーザーは ' 同じクラスタ上の新しい名前空間 ' または組織のアカウント内の他のクラスタにアプリケーションを複製またはリストアできますただし、同じユーザが、クローニングまたはリストアされたアプリケーションに新しいネームスペースからアクセスすることはできません。クローンまたはリストア操作によって新しい名前空間が作成されると ' アカウントの管理者 / 所有者は ' メンバーのユーザー・アカウントを編集し ' 影響を受けるユーザーの役割制約を更新して ' 新しい名前空間へのアクセスを許可できます</block>
+  <block id="7864b54b6d8d3ed14a5fe851678db227" category="section-title">実行中のアプリケーションのバックアップを停止することはできません</block>
+  <block id="bbe2e99f03914186dfd17b9f20b74fe2" category="paragraph">実行中のバックアップを停止する方法はありません。バックアップを削除する必要がある場合は、完了するまで待ってから、の手順を実行してください <block ref="777724861a1b2b54feb45c8bdf61227c" category="inline-link-macro-rx"></block>。失敗したバックアップを削除するには、を使用します <block ref="6d7abac5fbffd7ff3c52773487545293" category="inline-link-macro-rx"></block>。</block>
+  <block id="7e7238c05e3b1dcf3e882e6ef2251cbb" category="section-title">パスバイリファレンス演算子を使用してインストールされたアプリケーションのクローンが失敗することがあります</block>
+  <block id="1815092c8149587d0b20c39d938df877" category="admonition">K8ssandra では、 In Place リストア処理がサポートされます。新しいネームスペースまたはクラスタにリストアするには、アプリケーションの元のインスタンスを停止する必要があります。これは、ピアグループ情報がインスタンス間通信を行わないようにするためです。アプリケーションのクローニングはサポートされていません。</block>
+  <block id="2628d7b5cc84b024c4b920441addcb86" category="section-title">証明書マネージャを使用するアプリケーションの In Place リストア処理はサポートされていません</block>
+  <block id="0c720a6e3ad49e060d1d688dfae826f4" category="paragraph">このリリースの Astra Control Center では、証明書マネージャを使用したアプリのインプレースリストアはサポートされていません。別のネームスペースへのリストア処理とクローニング処理がサポートされています。</block>
+  <block id="81b2ffe313f89c0d8ef823b0e4724a40" category="paragraph">Astra Control Center は、クラスタを対象としたオペレータによるアプリケーション管理アクティビティをサポートしません。</block>
+  <block id="a6f00c82b6eb55a13a1f242313aaf9c9" category="list-title">アプリケーション</block>
+  <block id="b24e23005ed2cadfce9c683ec2b754c5" category="list-text"><block ref="213007433d1a45330875fe1630ec15fa" category="inline-xref-macro-rx"></block></block>
+  <block id="b9cce366a2d9d759915518e851cf0665" category="list-text"><block ref="16c16afb381b877e03025eb37da25b48" category="inline-xref-macro-rx"></block></block>
+  <block id="9b99bf7d2bfd4b09363304c166832734" category="list-title">クラスタ</block>
+  <block id="c44dd49a83e18cbd27c250a656ebf16d" category="list-title">その他の問題</block>
+  <block id="440441988db4dd1a631f18e5ce228880" category="list-text"><block ref="4791c8debe5295c527a6dd0dc7f0957f" category="inline-xref-macro-rx"></block></block>
+  <block id="b8d64874718cdb46319516dff2e798e3" category="list-text"><block ref="f609a16ec2e014495ac65287e675fab9" category="inline-xref-macro-rx"></block></block>
+  <block id="ca318d6b4eed133149be28dcaf9203ab" category="section-title">アプリケーションをリストアすると、 PV のサイズが元の PV よりも大きくなります</block>
+  <block id="7ade950b11d51b15c2b87c670eb4d5f0" category="paragraph">OpenShift Container Platform クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されていると、アプリケーションクローンが失敗する場合があります。アプリケーションのクローンが失敗すると、 Astra Control Center の管理対象アプリケーション領域にステータス「 Removed 」と表示されます。を参照してください<block ref="f1c7d7fb697989827a1145aa0a582ff0" category="inline-link-rx"></block> を参照してください。</block>
+  <block id="f64cab133147d09d35d2708459ada555" category="section-title">Astra Trident がオフラインの場合、 Internal Service Error （ 500 ）によりアプリケーションデータ管理処理が失敗する</block>
+  <block id="5ffd50b83740bc0749b40034cddea615" category="paragraph">アプリケーションクラスタの Astra Trident がオフラインになり（オンラインに戻った）、 500 件の内部サービスエラーが発生した場合に、アプリケーションデータ管理を試みると、アプリケーションクラスタ内のすべての Kubernetes ノードを再起動して機能を復旧します。</block>
+  <block id="3eee546d9d689cd7093d3e9f1af04da0" category="section-title">Snapshot コントローラバージョン 4.2.0 では、 Snapshot が失敗することがあります</block>
+  <block id="fae751b5864b4ceac112891ef4789e35" category="paragraph">この度、アストラコントロールセンターの 22.04.0 リリースが発表されました。</block>
+  <block id="9d795eb350d2c42a03b181a4bc513987" category="paragraph">次のオプションは、 24 時間 365 日無料で利用できます。</block>
+  <block id="68f269105158a82f8e06dd324631610e" category="inline-link">* ナレッジベース * （ログインが必要）</block>
+  <block id="3ce7820e1a8dcaf1b20e89638e9eb65c" category="list-text"><block ref="c21c91b055ef6d38b9e7473e1602e44f" category="inline-link-rx"></block>： Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。</block>
+  <block id="54fb836d65dfa963fa159aa13bf9fe60" category="list-text">* ドキュメントセンター * ：現在表示しているドキュメントサイトです。</block>
+  <block id="8fcc40b57fd2544f263ddca555e1a42f" category="inline-link">* Slack * でヘルプを入手してください</block>
+  <block id="f3bd3849c5621364cd7faf04bda271ca" category="list-text"><block ref="f235ba35538949dfe124c04907cdfa51" category="inline-link-rx"></block>： thePub ワークスペースのコンテナチャネルに移動して、ピアやエキスパートと交流しましょう。</block>
+  <block id="2d1cdbb35250ece1f1e88fdafee9d683" category="list-text">* サポートケースの作成 * ：トラブルシューティングのためにネットアップサポートに提供するサポートバンドルを生成</block>
+  <block id="5a7e155bd663e7d6145fbd05e0908d7e" category="list-text">* Astra Control についてのフィードバック * ： astra.feedback@netapp.com に電子メールを送信して、あなたの考え、アイデア、懸念を知らせてください。</block>
+  <block id="8c32a73fa8e487b617354c9f67eced24" category="paragraph">NSS へのバンドルのアップロードにプロキシ接続が必要かどうかを確認します。プロキシ接続が必要な場合は、 Astra Control Center がプロキシサーバーを使用するように設定されていることを確認します。</block>
+  <block id="0e53b14ed17cc6702b5e052ed08259b6" category="list-text">[ 生成時にネットアップサポートサイトにバンドルをアップロードする * ] チェックボックスをオンにします。</block>
+  <block id="916abcd023426dbbc4e3b29f0bafe83a" category="paragraph">エアギャップのある設置の場合は、サポートバンドルが生成されたあとに次の手順を実行します。バンドルがダウンロード可能になると、 [ サポート * ] ページの [ サポートバンドル * ] セクションの [ 生成 * ] の横に [ ダウンロード ] アイコンが表示されます。</block>
+  <block id="f3ccd882d52648e593d05c699f459f60" category="list-text">ダウンロードアイコンを選択して、バンドルをローカルにダウンロードします。</block>
+  <block id="4345f2150d39e38a6a11ee7ee57bed28" category="list-text">NetApp Active IQ を使用する。</block>
 </blocks>

@@ -35,12 +35,12 @@ OpenShift の例：
 ----
 oc get apiservices
 ----
-* データセンターに Astra Control Center の FQDN アドレスを作成しておきます。
+* 使用するネットアップ FQDN が、このクラスタにルーティング可能である必要があります。つまり、内部 DNS サーバに DNS エントリがあるか、すでに登録されているコア URL ルートを使用しています。
 
 
 Astra Control Center のインストールプロセスでは、次のことが実行されます。
 
-* Astra コンポーネントを NetApp-acc' （またはカスタムの名前付き）名前空間にインストールします
+* Astra コンポーネントを NetApp-acc' （またはカスタム名前の）名前空間にインストールします
 * デフォルトアカウントを作成します。
 * Astra Control Center のこのインスタンスに対して、デフォルトの管理ユーザの電子メールアドレスとデフォルトのワンタイムパスワード「 ACC-<UUID_OF_INSTALLIVE> 」を設定します。このユーザーには、システムのオーナーロールが割り当てられ、 UI への初回ログイン時に必要になります。
 * Astra Control Center のすべてのポッドが実行されていることを確認するのに役立ちます。
@@ -63,10 +63,9 @@ Astra Control Center をインストールするには、次の手順に従い�
 * <<Configure Astra Control Center>>
 * <<Complete Astra Control Center and operator installation>>
 * <<Verify system status>>
+* <<Set up ingress for load balancing>>
 * <<Log in to the Astra Control Center UI>>
 
-
-を実行して導入を完了します link:setup_overview.html["セットアップのタスク"]。
 
 
 
@@ -228,6 +227,12 @@ kubectl create secret docker-registry astra-registry-cred -n [netapp-acc or cust
 ----
 secret/astra-registry-cred created
 ----
+.. [[[[sup_kubeconfig _secret]] （オプション）インストール後に Astra Control Center でクラスタを自動的に管理する場合は、このコマンドを使用して展開する Astra Control Center ネームスペース内のシークレットとして kubeconfig を指定する必要があります。
++
+[listing]
+----
+kubectl create secret generic [acc-kubeconfig-cred or custom secret name] --from-file=<path-to-your-kubeconfig> -n [netapp-acc or custom namespace]
+----
 
 
 
@@ -355,7 +360,27 @@ IMPORTANT: 認証を必要としないレジストリを使用している場合
 .. 「 email 」の文字列をデフォルトの初期管理者アドレスに変更します。この E メールアドレスをコピーしてで使用します <<Log in to the Astra Control Center UI,後の手順>>。
 .. インターネットに接続されていないサイトの場合は AutoSupport の「 enrolled 」を「 false 」に変更し、接続されているサイトの場合は「 true 」を保持します。
 .. （オプション）アカウントに関連付けられたユーザの姓「 firstName 」と名「 lastName 」を追加します。この手順は、 UI ですぐに実行することもあとで実行することもできます。
-.. （任意）インストールで必要に応じて、「 storageClass 」の値を別の Astra Trident StorageClass リソースに変更します。
+.. （任意）インストールで必要に応じて、「 torageClass 」の値を別の Trident ストレージクラスリソースに変更します。
+.. （オプション）インストール後に Astra Control Center でクラスタを自動的に管理する場合は <<substep_kubeconfig_secret,このクラスタの kubeconfig を含むシークレットを作成しました>>を使用して、シークレットの名前を指定します。この YAML ファイルに「 astraeKubeConfigSecret ： "acc-kubeconfig -cred or custom secret name" 」という名前の新しいフィールドを追加します
+.. 次のいずれかの手順を実行します。
++
+*** * その他の入力コントローラ（ ingressType: Generic ） * ：これはアストラコントロールセンターでのデフォルトのアクションです。Astra Control Center を展開したら、 Astra Control Center を URL で公開するように入力コントローラを設定する必要があります。
++
+デフォルトの Astra Control Center インストールでは ' ゲートウェイ (service/traefik`) が ClusterIP` タイプに設定されますこのデフォルトのインストールでは、トラフィックをルーティングするために Kubernetes IngressController/Ingress を追加で設定する必要があります。入力を使用する場合は、を参照してください link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["ロードバランシング用の入力を設定します"]。
+
+*** * サービスロードバランサ (ingressType: AccTraefik) *: IngressController をインストールしない場合、または入力リソースを作成しない場合は、「 ingressType 」を「 AccTraefik 」に設定します。
++
+これにより 'Astra Control Center traefik' ゲートウェイが Kubernetes LoadBalancer タイプのサービスとして導入されます
+
++
+Astra Control Center は、 Astra Control Center ネームスペースの "LoadBalancer (svc/traefik`) タイプのサービスを使用し、アクセス可能な外部 IP アドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、 MetalLB または別の外部サービスロードバランサを使用して、外部 IP アドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。
+
++
+
+NOTE: サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください link:../get-started/requirements.html["要件"]。
+
+
+
 .. （ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください link:../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure["その他の必要な変更"] YAML へ。
 
 
@@ -370,6 +395,8 @@ spec:
   *accountName: "Example"*
   astraVersion: "ASTRA_VERSION"
   *astraAddress: "astra.example.com"*
+  *astraKubeConfigSecret: "acc-kubeconfig-cred or custom secret name"*
+  *ingressType: "Generic"*
   autoSupport:
     *enrolled: true*
   *email: "[admin@example.com]"*
@@ -516,18 +543,22 @@ vault-controller-86c94fbf4f-krttq          1/1     Running   0          9m24s
 ----
 kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c manager -f
 ----
++
+
+NOTE: 「 accHost 」クラスタの登録は最後の操作の 1 つであり、失敗した場合、原因 の配備に失敗することはありません。ログにクラスタ登録エラーが示された場合は、クラスタ追加ワークフローを通じて再度登録を試行できます link:../get-started/setup_overview.html#add-cluster["UI で"] または API 。
+
 . すべてのポッドが動作している場合は、 Astra Control Center Operator によってインストールされた「 Astrad ControlCenter 」インスタンスを取得して、インストールが正常に完了したことを確認します。
 +
 [listing]
 ----
 kubectl get acc -o yaml -n [netapp-acc or custom namespace]
 ----
-. 「展開」の値に対する応答の「 tatus.deploymentState` 」フィールドを確認します。導入に失敗した場合は、代わりにエラーメッセージが表示されます。
-+
+. YAML で、「 Deployed 」値に対する応答の「 status.deploymentState` 」フィールドを確認します。導入に失敗した場合は、代わりにエラーメッセージが表示されます。
+. Astra Control Center にログインするときに使用するワンタイムパスワードを取得するには、「 status.uuid 」値をコピーします。パスワードは「 ACC-` 」の後に UUID 値（「 ACC-[UUID] 」）、またはこの例では「 ACC-9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f 」）です。
 
-NOTE: 次の手順では 'uuid' を使用します
 
-+
+.YAML の詳細のサンプル
+====
 [listing, subs="+quotes"]
 ----
 name: astra
@@ -748,7 +779,101 @@ metadata:
  resourceVersion: ""
  selfLink: ""
 ----
-. Astra Control Center にログインするときに使用するワンタイムパスワードを取得するには、前の手順で応答から「 tatus.uuid 」値をコピーします。パスワードは「 ACC-` 」の後に UUID 値が続きます。この例では「 ACC-[UUID] 」または「 ACC-c49008a5-4ef1-4c5d-a53e-830daf994116 」となります。
+====
+
+
+== ロードバランシング用の入力を設定します
+
+Kubernetes 入力コントローラをセットアップして、クラスタのロードバランシングなどのサービスへの外部アクセスを管理できます。
+
+この手順 では、入力コントローラ（「 ingressType: Generic 」）の設定方法について説明します。これは、 Astra Control Center でのデフォルトのアクションです。Astra Control Center を展開したら、 Astra Control Center を URL で公開するように入力コントローラを設定する必要があります。
+
+
+NOTE: 入力コントローラを設定しない場合は、「 ingressType: AccTraefik 」を設定できます。Astra Control Center は、 Astra Control Center ネームスペースの "LoadBalancer (svc/traefik`) タイプのサービスを使用し、アクセス可能な外部 IP アドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、 MetalLB または別の外部サービスロードバランサを使用して、外部 IP アドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください link:../get-started/requirements.html["要件"]。
+
+この手順は、使用する入力コントローラのタイプによって異なります。
+
+* nginx 入力コントローラ
+* OpenShift 入力コントローラ
+
+
+.必要なもの
+* が必要です https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/["入力コントローラ"] すでに導入されている必要があります。
+* 。 https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class["入力クラス"] 入力コントローラに対応するものがすでに作成されている必要があります。
+* V1.19 と v1.22 の間で Kubernetes のバージョンを使用している。
+
+
+.Nginx Ingress Controller の手順
+. タイプのシークレットを作成します http://kubernetes.io/tls["「 sKubernetes .io/tls 」と入力します"] に示すように 'NetApp-acc' （またはカスタム名前の）名前空間内の TLS 秘密鍵と証明書の場合 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS シークレット"]。
+. 「 vibeta1 」（または 1.22 未満の Kubernetes バージョンでは非推奨）または「 v1' 」リソースタイプを使用して、「 NetApp-acc` （またはカスタム名前）」ネームスペースに入力リソースを配置します。
++
+.. v1beta' 非推奨スキーマについては ' 次の例を参照してください
++
+[listing]
+----
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-acc
+  namespace: [netapp-acc or custom namespace]
+  annotations:
+    kubernetes.io/ingress.class: [class name for nginx controller]
+spec:
+  tls:
+  - hosts:
+    - <ACC address>
+    secretName: [tls secret name]
+  rules:
+  - host: [ACC address]
+    http:
+      paths:
+      - backend:
+        serviceName: traefik
+        servicePort: 80
+        pathType: ImplementationSpecific
+----
+.. 「 v1 」の新しいスキーマについては、次の例を参照してください。
++
+[listing]
+----
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: netapp-acc-ingress
+  namespace: [netapp-acc or custom namespace]
+spec:
+  ingressClassName: [class name for nginx controller]
+  tls:
+  - hosts:
+    - <ACC address>
+    secretName: [tls secret name]
+  rules:
+  - host: <ACC addess>
+    http:
+      paths:
+        - path:
+          backend:
+            service:
+              name: traefik
+              port:
+                number: 80
+          pathType: ImplementationSpecific
+----
+
+
+
+
+.OpenShift 入力コントローラの手順
+. 証明書を調達し、 OpenShift ルートで使用できるようにキー、証明書、および CA ファイルを取得します。
+. OpenShift ルートを作成します。
++
+[listing]
+----
+oc create route edge --service=traefik
+--port=web -n [netapp-acc or custom namespace]
+--insecure-policy=Redirect --hostname=<ACC address>
+--cert=cert.pem --key=key.pem
+----
 
 
 

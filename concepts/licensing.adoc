@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: concepts/licensing.html 
+keywords: license, licensing 
+summary: Astra Control Center で実行できる操作は、ライセンスの状態に応じて異なります。また、 Astra Control Center を使用するとライセンスの消費にどのような影響があるかについても説明します。 
+---
+= ライセンス
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+[role="lead"]
+アプリケーションデータ管理機能を有効にするには、 Astra Control Center にライセンスがインストールされている必要があります。Astra Control Center をライセンスなしで導入すると、システム機能が制限されていることを示すバナーが Web UI に表示されます。
+
+次の操作には有効なライセンスが必要です。
+
+* 新しいアプリケーションの管理
+* Snapshot またはバックアップを作成します
+* Snapshot またはバックアップのスケジュールを設定する保護ポリシーを設定する
+* Snapshot またはバックアップからのリストア
+* Snapshot または現在の状態からクローニングしています
+
+
+
+NOTE: クラスタの追加、バケットの追加、 Astra Data Store ストレージバックエンドの管理を、ライセンスなしで実行できます。ただし、 Astra Data Store をストレージバックエンドとして使用するアプリケーションを管理するには、有効な Astra Control Center ライセンスが必要です。
+
+
+
+== ライセンス消費量の計算方法
+
+新しいクラスタを Astra Control Center に追加しても、クラスター上で実行されているアプリケーションの少なくとも 1 つが Astra Control Center によって管理されるまで、使用済みのライセンスにはカウントされません。また、 Astra Data Store ストレージバックエンドを Astra Control Center に追加しても、ライセンスの消費には影響しません。これにより、ライセンスのない Astra Control Center システムから Astra Data Store バックエンドを管理できます。
+
+クラスタ上でアプリケーションの管理を開始すると、クラスタの CPU ユニットが Astra Control Center ライセンス消費量の計算に含まれます。
+
+
+
+== 詳細については、こちらをご覧ください
+
+* link:../use/update-licenses.html["既存のライセンスを更新する"]
+

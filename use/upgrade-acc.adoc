@@ -43,8 +43,9 @@ Astra Control Center のアップグレードプロセスでは、次の手順�
 * <<Add the images to your local registry>>
 * <<Install the updated Astra Control Center operator>>
 * <<Upgrade Astra Control Center>>
-* <<Upgrade third-party services>>
+* <<Upgrade third-party services (Optional)>>
 * <<Verify system status>>
+* <<Set up ingress for load balancing>>
 
 
 
@@ -144,8 +145,13 @@ imagePullSecrets:
 ----
 .. 「 kube-rbac プロキシ」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します <<substep_image_local_registry_push,前の手順>>。
 .. 「 acc-operator-controller-manager 」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します <<substep_image_local_registry_push,前の手順>>。
-
-
+.. 「 env 」セクションに次の値を追加します。
++
+[listing]
+----
+- name: ACCOP_HELM_UPGRADETIMEOUT
+  value: 300m
+----
 +
 [listing, subs="+quotes"]
 ----
@@ -186,10 +192,14 @@ spec:
         env:
         - name: ACCOP_LOG_LEVEL
           value: "2"
+        *- name: ACCOP_HELM_UPGRADETIMEOUT*
+          *value: 300m*
         *image: [your_registry_path]/acc-operator:[version x.y.z]*
         imagePullPolicy: IfNotPresent
       *imagePullSecrets: []*
 ----
+
+
 . 更新された Astra Control Center オペレータをインストールします。
 +
 [listing]
@@ -221,7 +231,7 @@ deployment.apps/acc-operator-controller-manager configured
 
 == Astra Control Center をアップグレードします
 
-. Astra Control Center カスタムリソース（ CR ）を編集し、 Astra バージョン（「 S PEC 」内の「 astraVersion 」）を最新のものに変更します。
+. Astra Control Center カスタムリソース（ CR ）（ 'Astra_control_center_min.yaml ）を編集し、 Astra バージョン（ 'Spec' の中の 'astrave) の番号を最新のものに変更します。
 +
 [listing]
 ----
@@ -229,102 +239,45 @@ kubectl edit acc -n [netapp-acc or custom namespace]
 ----
 +
 
-NOTE: Astra バージョンの変更は、 Astra Control Center のアップグレードの唯一の要件です。レジストリパスは、のイメージをプッシュしたレジストリパスと一致する必要があります <<substep_image_local_registry_push,前の手順>>。
+NOTE: レジストリパスは、のイメージをプッシュしたレジストリパスと一致する必要があります <<substep_image_local_registry_push,前の手順>>。
 
-. ポッドが終了し、再び使用可能になったことを確認します。
+. Astra Control Center CR の 'Spec' の中にある 'additionalValues' 内に次の行を追加します
 +
 [listing]
 ----
-watch kubectl get pods -n [netapp-acc or custom namespace]
+additionalValues:
+    nautilus:
+      startupProbe:
+        periodSeconds: 30
+        failureThreshold: 600
 ----
-. すべてのシステムコンポーネントが正常にアップグレードされたことを確認します
+. 次のいずれかを実行します。
++
+.. 独自の IngressController または入力がなく、トラフィックゲートウェイをロードバランサタイプサービスとして使用していて、そのセットアップを続行する場合は、別のフィールド「 ingressType 」を指定し（まだ存在しない場合）、それを「 AccTraefik 」に設定します。
 +
 [listing]
 ----
-kubectl get pods -n [netapp-acc or custom namespace]
+ingressType:AccTraefik
 ----
-+
-各ポッドのステータスは、「 Running 」と「 Age 」になります。システムポッドが展開されるまでに数分かかることがあります。
-
-+
-回答例：
-
+.. デフォルトの Astra Control Center の一般的な入力配置に切り替える場合は、独自の IngressController/Ingress セットアップ（ TLS 終端など）を指定し、 Astra Control Center へのルートを開き、「 ingressType 」を「 Generic 」に設定します。
 +
 [listing]
 ----
-NAME                                         READY   STATUS    RESTARTS   AGE
-acc-helm-repo-5f75c5f564-bzqmt             1/1     Running   0          11m
-activity-6b8f7cccb9-mlrn4                  1/1     Running   0          9m2s
-api-token-authentication-6hznt             1/1     Running   0          8m50s
-api-token-authentication-qpfgb             1/1     Running   0          8m50s
-api-token-authentication-sqnb7             1/1     Running   0          8m50s
-asup-5578bbdd57-dxkbp                      1/1     Running   0          9m3s
-authentication-56bff4f95d-mspmq            1/1     Running   0          7m31s
-bucketservice-6f7968b95d-9rrrl             1/1     Running   0          8m36s
-cert-manager-5f6cf4bc4b-82khn              1/1     Running   0          6m19s
-cert-manager-cainjector-76cf976458-sdrbc   1/1     Running   0          6m19s
-cert-manager-webhook-5b7896bfd8-2n45j      1/1     Running   0          6m19s
-cloud-extension-749d9f684c-8bdhq           1/1     Running   0          9m6s
-cloud-insights-service-7d58687d9-h5tzw     1/1     Running   2          8m56s
-composite-compute-968c79cb5-nv7l4          1/1     Running   0          9m11s
-composite-volume-7687569985-jg9gg          1/1     Running   0          8m33s
-credentials-5c9b75f4d6-nx9cz               1/1     Running   0          8m42s
-entitlement-6c96fd8b78-zt7f8               1/1     Running   0          8m28s
-features-5f7bfc9f68-gsjnl                  1/1     Running   0          8m57s
-fluent-bit-ds-h88p7                        1/1     Running   0          7m22s
-fluent-bit-ds-krhnj                        1/1     Running   0          7m23s
-fluent-bit-ds-l5bjj                        1/1     Running   0          7m22s
-fluent-bit-ds-lrclb                        1/1     Running   0          7m23s
-fluent-bit-ds-s5t4n                        1/1     Running   0          7m23s
-fluent-bit-ds-zpr6v                        1/1     Running   0          7m22s
-graphql-server-5f5976f4bd-vbb4z            1/1     Running   0          7m13s
-identity-56f78b8f9f-8h9p9                  1/1     Running   0          8m29s
-influxdb2-0                                1/1     Running   0          11m
-krakend-6f8d995b4d-5khkl                   1/1     Running   0          7m7s
-license-5b5db87c97-jmxzc                   1/1     Running   0          9m
-login-ui-57b57c74b8-6xtv7                  1/1     Running   0          7m10s
-loki-0                                     1/1     Running   0          11m
-monitoring-operator-9dbc9c76d-8znck        2/2     Running   0          7m33s
-nats-0                                     1/1     Running   0          11m
-nats-1                                     1/1     Running   0          10m
-nats-2                                     1/1     Running   0          10m
-nautilus-6b9d88bc86-h8kfb                  1/1     Running   0          8m6s
-nautilus-6b9d88bc86-vn68r                  1/1     Running   0          8m35s
-openapi-b87d77dd8-5dz9h                    1/1     Running   0          9m7s
-polaris-consul-consul-5ljfb                1/1     Running   0          11m
-polaris-consul-consul-s5d5z                1/1     Running   0          11m
-polaris-consul-consul-server-0             1/1     Running   0          11m
-polaris-consul-consul-server-1             1/1     Running   0          11m
-polaris-consul-consul-server-2             1/1     Running   0          11m
-polaris-consul-consul-twmpq                1/1     Running   0          11m
-polaris-mongodb-0                          2/2     Running   0          11m
-polaris-mongodb-1                          2/2     Running   0          10m
-polaris-mongodb-2                          2/2     Running   0          10m
-polaris-ui-84dc87847f-zrg8w                1/1     Running   0          7m12s
-polaris-vault-0                            1/1     Running   0          11m
-polaris-vault-1                            1/1     Running   0          11m
-polaris-vault-2                            1/1     Running   0          11m
-public-metrics-657698b66f-67pgt            1/1     Running   0          8m47s
-storage-backend-metrics-6848b9fd87-w7x8r   1/1     Running   0          8m39s
-storage-provider-5ff5868cd5-r9hj7          1/1     Running   0          8m45s
-telegraf-ds-dw4hg                          1/1     Running   0          7m23s
-telegraf-ds-k92gn                          1/1     Running   0          7m23s
-telegraf-ds-mmxjl                          1/1     Running   0          7m23s
-telegraf-ds-nhs8s                          1/1     Running   0          7m23s
-telegraf-ds-rj7lw                          1/1     Running   0          7m23s
-telegraf-ds-tqrkb                          1/1     Running   0          7m23s
-telegraf-rs-9mwgj                          1/1     Running   0          7m23s
-telemetry-service-56c49d689b-ffrzx         1/1     Running   0          8m42s
-tenancy-767c77fb9d-g9ctv                   1/1     Running   0          8m52s
-traefik-5857d87f85-7pmx8                   1/1     Running   0          6m49s
-traefik-5857d87f85-cpxgv                   1/1     Running   0          5m34s
-traefik-5857d87f85-lvmlb                   1/1     Running   0          4m33s
-traefik-5857d87f85-t2xlk                   1/1     Running   0          4m33s
-traefik-5857d87f85-v9wpf                   1/1     Running   0          7m3s
-trident-svc-595f84dd78-zb8l6               1/1     Running   0          8m54s
-vault-controller-86c94fbf4f-krttq          1/1     Running   0          9m24s
+ingressType:Generic
 ----
-. アップグレードが完了して準備完了になったことが Astra のステータス状態で示されていることを確認します。
++
+
+TIP: フィールドを省略すると、プロセスは汎用的な配置になります。汎用的な導入が不要な場合は、必ずフィールドを追加してください。
+
+
+
+. （オプション）ポッドが終了し、再び使用可能になったことを確認します。
++
+[listing]
+----
+watch kubectl get po -n [netapp-acc or custom namespace]
+----
+. Astra のステータス状態がアップグレードが完了し、準備ができたことを示すまで待ちます。
 +
 [listing]
 ----
@@ -348,246 +301,44 @@ conditions:
     status: "False"
     type: Upgrading
 ----
+. ログインし直して、すべての管理対象クラスタとアプリケーションが引き続き存在し、保護されていることを確認します。
+. オペレータが Cert-manager を更新しなかった場合は、次の手順でサードパーティのサービスをアップグレードします。
 
 
 
 
-== サードパーティサービスをアップグレードします
+== サードパーティサービスのアップグレード（オプション）
 
-以前のアップグレード手順では、サードパーティサービス Traefik および Cert-manager はアップグレードされません。オプションで、ここで説明する手順を使用してアップグレードしたり、システムに必要な既存のサービスバージョンを保持したりできます。推奨される Traefik および Certs-manager のアップグレード手順は次のとおりです。
+以前のアップグレード手順では、サードパーティサービス Traefik および Cert-manager はアップグレードされません。オプションで、ここで説明する手順を使用してアップグレードしたり、システムに必要な既存のサービスバージョンを保持したりできます。
 
-. <<Set up acc-helm-repo to upgrade Traefik and Cert-manager>>
-. <<Update Traefik service using acc-helm-repo>>
-. <<Update the Cert-manager service>>
+* * Traefik* ：デフォルトでは、 Astra Control Center が Traefik 導入のライフサイクルを管理します。「 externalTraefik 」を「 false 」（デフォルト）に設定すると、外部 Traefik がシステムに存在せず、 Astra Control Center によってインストールおよび管理されていることを示します。この場合、「 externalTraefik 」は「 false 」に設定されます。
++
+一方、 Traefik を独自に導入している場合は、「 externalTraefik 」を「 true 」に設定します。この場合 ' 配置を維持して 'Astra Control Center は 'shouldUpgrade' が true' に設定されていない限り 'CRD をアップグレードしません
+
+* *Cert-managor*: デフォルトでは 'externalCertManager` を TRUE に設定しない限り 'Astra Control Center は cert-manager ( および CRD) をインストールします'shouldUpgrade' を 'true' に設定すると 'Astra Control Center が CRD をアップグレードします
 
 
+次のいずれかの条件に該当する場合は、 Traefik がアップグレードされます。
+
+* externalTraefik ： false または
+* externalTraefik: true と shouldUpgrade: true 。
 
 
-== acc-helm -repo をセットアップし、 Traefik と Cert-manager をアップグレードします
-
-. ローカル Docker キャッシュにロードされている「 enterprise-helm-repo 」を検索します。
+.手順
+. 「 acc`cr: 」を編集します。
 +
 [listing]
 ----
-docker images enterprise-helm-repo
+kubectl edit acc -n [netapp-acc or custom namespace]
 ----
-+
-対応：
-
+. 「 externalTraefik 」フィールドと「 shouldUpgrade 」フィールドを必要に応じて「 true 」または「 false 」に変更します。
 +
 [listing]
 ----
-REPOSITORY             TAG         IMAGE ID       CREATED        SIZE
-enterprise-helm-repo   21.10.218   7a182d6b30f3   20 hours ago   464MB
-----
-. 前の手順のタグを使用してコンテナを開始します。
-+
-[listing]
-----
-docker run -dp 8082:8080 enterprise-helm-repo:21.10.218
-----
-+
-対応：
-
-+
-[listing]
-----
-940436e67fa86d2c4559ac4987b96bb35588313c2c9ddc9cec195651963f08d8
-----
-. ローカルホストリポジトリに Helm repo を追加します。
-+
-[listing]
-----
-helm repo add acc-helm-repo http://localhost:8082/
-----
-+
-対応：
-
-+
-[listing]
-----
-"acc-helm-repo" has been added to your repositories
-----
-. 次の Python スクリプトを '`et_previous_value.py` のようなファイルとして保存します
-+
-
-NOTE: この Python スクリプトは、 Helm 値を保持するために以降のアップグレード手順で使用される 2 つのファイルを作成します。
-
-+
-[listing]
-----
-#!/usr/bin/env python3
-import json
-import os
-
-NAMESPACE = "netapp-acc"
-
-os.system(f"helm get values traefik -n {NAMESPACE} -o json > traefik_values.json")
-os.system(f"helm get values cert-manager -n {NAMESPACE} -o json > cert_manager_values.json")
-
-# reformat traefik values
-f = open("traefik_values.json", "r")
-traefik_values = {'traefik': json.load(f)}
-f.close()
-
-with open('traefik_values.json', 'w') as output_file:
-    json.dump(traefik_values, output_file)
-
-# reformat cert-manager values
-f = open("cert_manager_values.json", "r")
-cm_values = {'cert-manager': json.load(f)}
-f.close()
-
-cm_values['global'] = cm_values['cert-manager']['global']
-del cm_values['cert-manager']['global']
-
-with open('cert_manager_values.json', 'w') as output_file:
-    json.dump(cm_values, output_file)
-
-print('Done')
-----
-. スクリプトを実行します。
-+
-[listing]
-----
-python3.7 ./set_previous_values.py
-----
-
-
-
-
-== acc-helm -repo を使用して Traefik サービスを更新します
-
-
-NOTE: を用意しておく必要があります <<Set up acc-helm-repo to upgrade Traefik and Cert-manager,acc-helm -repo をセットアップします>> 次の手順を実行する前に、
-
-. GNU wget などの安全なファイル転送ツールを使用して Traefik バンドルをダウンロードします。
-+
-[listing]
-----
-wget http://localhost:8082/traefik-0.2.0.tgz
-----
-. 画像を抽出します。
-+
-[listing]
-----
-tar -vxzf traefik-0.2.0.tgz
-----
-. 次のように Traefik CRDs を適用します。
-+
-[listing]
-----
-kubectl apply -f ./traefik/charts/traefik/crds/
-----
-. アップグレードした Traefik で使用する Helm チャートバージョンを検索します。
-+
-[listing]
-----
-helm search repo acc-helm-repo/traefik
-----
-+
-対応：
-
-+
-[listing]
-----
-NAME                                    CHART VERSION   APP VERSION DESCRIPTION
-acc-helm-repo/traefik                 0.2.0           2.5.3       Helm chart for Traefik Ingress controller
-acc-helm-repo/traefik-ingressroutes   0.2.0           2.5.3       A Helm chart for Kubernetes
-----
-. アップグレード用の traefik_value.json ファイルを検証します。
-+
-.. traefik_value.json ファイルを開きます。
-.. 「 imagePullSecret 」フィールドに値があるかどうかを確認します。空の場合は、ファイルから次のテキストを削除します。
-+
-[listing]
-----
-"imagePullSecrets": [{"name": ""}],
-----
-.. 次のように、 traefik 画像が正しい場所に転送され、正しい名前が付けられていることを確認します。
-+
-[listing]
-----
-image: [your_registry_path]/traefik
-----
-
-
-. Traefik 設定をアップグレードします。
-+
-[listing]
-----
-helm upgrade --version 0.2.0 --namespace netapp-acc -f traefik_values.json traefik acc-helm-repo/traefik
-----
-+
-対応：
-
-+
-[listing]
-----
-Release "traefik" has been upgraded. Happy Helming!
-NAME: traefik
-LAST DEPLOYED: Mon Oct 25 22:53:19 2021
-NAMESPACE: netapp-acc
-STATUS: deployed
-REVISION: 2
-TEST SUITE: None
-----
-
-
-
-
-== Cert-manager サービスを更新します
-
-
-NOTE: の設定が完了している必要があります <<Update Traefik service using acc-helm-repo,Traefik アップデート>> および <<Set up acc-helm-repo to upgrade Traefik and Cert-manager,Helm に acc-helm-repo が追加されました>> 次の手順を実行する前に、
-
-. アップグレードした Cert-manager で使用する Helm チャートバージョンを探します。
-+
-[listing]
-----
-helm search repo acc-helm-repo/cert-manager
-----
-+
-対応：
-
-+
-[listing]
-----
-NAME CHART VERSION APP VERSION DESCRIPTION
-acc-helm-repo/cert-manager 0.3.0 v1.5.4 A Helm chart for cert-manager
-acc-helm-repo/cert-manager-certificates 0.1.0 1.16.0 A Helm chart for Kubernetes
-----
-. cert_manager_value.json ファイルをアップグレード用に検証します。
-+
-.. cert_manager_value.json ファイルを開きます。
-.. 「 imagePullSecret 」フィールドに値があるかどうかを確認します。空の場合は、ファイルから次のテキストを削除します。
-+
-[listing]
-----
-"imagePullSecrets": [{"name": ""}],
-----
-.. 3 つの cert-manager イメージが正しい場所に転送され、正しい名前が付けられていることを確認します。
-
-
-. Cert-manager 設定をアップグレードします。
-+
-[listing]
-----
-helm upgrade --version 0.3.0 --namespace netapp-acc -f cert_manager_values.json cert-manager acc-helm-repo/cert-manager
-----
-+
-対応：
-
-+
-[listing]
-----
-Release "cert-manager" has been upgraded. Happy Helming!
-NAME: cert-manager
-LAST DEPLOYED: Tue Nov 23 11:20:05 2021
-NAMESPACE: netapp-acc
-STATUS: deployed
-REVISION: 2
-TEST SUITE: None
+crds:
+    externalTraefik: false
+    externalCertManager: false
+    shouldUpgrade: false
 ----
 
 
@@ -597,4 +348,133 @@ TEST SUITE: None
 
 . Astra Control Center にログインします。
 . すべての管理対象クラスタとアプリケーションが引き続き存在し、保護されていることを確認します。
+
+
+
+
+== ロードバランシング用の入力を設定します
+
+Kubernetes 入力オブジェクトを設定して、クラスタ内でのロードバランシングなどのサービスへの外部アクセスを管理できます。
+
+* デフォルトアップグレードでは、一般的な入力配置が使用されます。この場合は、入力コントローラまたは入力リソースも設定する必要があります。
+* 入力コントローラが不要で、すでに持っているものを保持したい場合は、「 ingressType 」を「 AccTraefik 」に設定します。
+
+
+
+NOTE: サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください link:../get-started/requirements.html["要件"]。
+
+この手順は、使用する入力コントローラのタイプによって異なります。
+
+* nginx 入力コントローラ
+* OpenShift 入力コントローラ
+
+
+.必要なもの
+* CR 仕様で、
++
+** 「 CRD .externalTraefik 」が存在する場合は、「 false 」またはに設定する必要があります
+** 「 CRD.externalTraefik 」が「真」の場合、「 CRD.shoulldUpgrade 」も「真」でなければなりません。
+
+
+* が必要です https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/["入力コントローラ"] すでに導入されている必要があります。
+* 。 https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class["入力クラス"] 入力コントローラに対応するものがすでに作成されている必要があります。
+* V1.19 と v1.21 の間で Kubernetes のバージョンを使用している。
+
+
+.Nginx Ingress Controller の手順
+. 既存のシークレット「 secure-testing-cert 」を使用するか、タイプのシークレットを作成します http://kubernetes.io/tls["「 sKubernetes .io/tls 」と入力します"] に示すように 'NetApp-acc' （またはカスタム名前の）名前空間内の TLS 秘密鍵と証明書の場合 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS シークレット"]。
+. 非推奨または新しいスキーマのいずれかの入力リソースを NetApp-acc` （またはカスタム名前付き）ネームスペースに配置します。
++
+.. 廃止されたスキーマについては、次の例を参照してください。
++
+[listing]
+----
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-acc
+  namespace: [netapp-acc or custom namespace]
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+  - hosts:
+    - <ACC address>
+    secretName: [tls secret name]
+  rules:
+  - host: [ACC address]
+    http:
+      paths:
+      - backend:
+        serviceName: traefik
+        servicePort: 80
+        pathType: ImplementationSpecific
+----
+.. 新しいスキーマについては、次の例を参照してください。
+
+
++
+[listing]
+----
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: netapp-acc-ingress
+  namespace: [netapp-acc or custom namespace]
+spec:
+  ingressClassName: [class name for nginx controller]
+  tls:
+  - hosts:
+    - <ACC address>
+    secretName: [tls secret name]
+  rules:
+  - host: <ACC address>
+    http:
+      paths:
+        - path:
+          backend:
+            service:
+              name: traefik
+              port:
+                number: 80
+          pathType: ImplementationSpecific
+----
+
+
+.OpenShift 入力コントローラの手順
+. 証明書を調達し、 OpenShift ルートで使用できるようにキー、証明書、および CA ファイルを取得します。
+. OpenShift ルートを作成します。
++
+[listing]
+----
+oc create route edge --service=traefik
+--port=web -n [netapp-acc or custom namespace]
+--insecure-policy=Redirect --hostname=<ACC address>
+--cert=cert.pem --key=key.pem
+----
+
+
+
+
+=== 入力セットアップを確認します
+
+入力セットアップを確認してから、続行できます。
+
+. Loadbalancer から Traefik が clusterIP に変更されていることを確認します
++
+[listing]
+----
+kubectl get service traefik -n [netapp-acc or custom namespace]
+----
+. Traefik でルートを確認します。
++
+[listing]
+----
+Kubectl get ingressroute ingressroutetls -n [netapp-acc or custom namespace]
+-o yaml | grep "Host("
+----
++
+
+NOTE: 結果は空である必要があります。
+
 

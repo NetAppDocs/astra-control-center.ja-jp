@@ -26,14 +26,10 @@ Astra Control Center は、 ONTAP と Astra データストアをストレージ
 
 UI またはを使用して新しいライセンスを追加できます https://docs.netapp.com/us-en/astra-automation/index.html["API"^] Astra Control Center の全機能を利用できます。ライセンスがないと、 Astra Control Center の使用は、ユーザの管理と新しいクラスタの追加に限定されます。
 
-から Astra Control Center をダウンロードした場合 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]には、 NetApp License File （ NLF ）もダウンロードします。このライセンスファイルにアクセスできることを確認してください。
+ライセンスの計算方法の詳細については、を参照してください link:../concepts/licensing.html["ライセンス"]。
 
 
 NOTE: 既存の評価版またはフルライセンスを更新するには、を参照してください link:../use/update-licenses.html["既存のライセンスを更新する"]。
-
-
-
-=== フルライセンスまたは評価ライセンスを追加します
 
 Astra Control Center ライセンスは、 Kubernetes CPU ユニットを使用して CPU リソースを測定します。ライセンスには、管理対象のすべての Kubernetes クラスタのワーカーノードに割り当てられた CPU リソースが含まれている必要があります。ライセンスを追加する前に、からライセンスファイル（ NLF ）を取得する必要があります link:https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
 
@@ -41,6 +37,8 @@ Astra Control Center ライセンスは、 Kubernetes CPU ユニットを使用�
 
 
 NOTE: インストールがライセンス数を超えると、 Astra Control Center は新しいアプリケーションを管理できなくなります。容量を超えるとアラートが表示されます。
+
+から Astra Control Center をダウンロードした場合 https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]には、 NetApp License File （ NLF ）もダウンロードします。このライセンスファイルにアクセスできることを確認してください。
 
 .手順
 . Astra Control Center UI にログインします。
@@ -135,14 +133,14 @@ NOTE: Astra Data Store 用の Kubernetes アプリケーションクラスタを
 +
 ** ダッシュボードから * ：
 +
-... ダッシュボードストレージバックエンドセクションで、 * 管理 * を選択します。
-... Dashboard Resource Summary > Storage Backends セクションで、 * Add * を選択します。
+... [ ストレージバックエンド ] セクションで、 *Add* を選択します。
+... Resource Summary > Storage Backends セクションで、 * Add * を選択します。
 
 
 ** バックエンドから * ：
 +
 ... 左側のナビゲーション領域で、 * Backends * を選択します。
-... 「 * Manage * 」を選択します。
+... 「 * 追加」を選択します。
 
 
 
@@ -151,6 +149,7 @@ NOTE: Astra Data Store 用の Kubernetes アプリケーションクラスタを
 +
 ** * Astra データストア * ：
 +
+... [ 既存の使用（ Use Existing ） ] * タブを選択します。
 ... 「 * Astra Data Store * 」タブを選択します。
 ... 管理対象のコンピューティングクラスタを選択し、 * Next * を選択します。
 ... バックエンドの詳細を確認し、「 * ストレージバックエンドの管理 * 」を選択します。
@@ -158,6 +157,7 @@ NOTE: Astra Data Store 用の Kubernetes アプリケーションクラスタを
 
 ** * ONTAP * ：
 +
+... [ 既存の使用（ Use Existing ） ] * タブを選択します。
 ... ONTAP の管理者クレデンシャルを入力し、「 * Review * 」を選択します。
 ... バックエンドの詳細を確認し、 * Manage * を選択します。
 

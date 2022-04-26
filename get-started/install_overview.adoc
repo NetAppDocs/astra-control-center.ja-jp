@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: get-started/install_overview.html 
-keywords: astra installation, install astra control center, how to install astra control, deploy, download from netapp support 
-summary: Astra Control Center のインストールには 2 つの選択肢があります。 
+keywords: astra installation, install astra control center, openshift, amazon web services, azure, how to install astra control, deploy, download from netapp support 
+summary: Astra Control Center のインストール方法を選択できます。 
 ---
 = インストールの概要
 :hardbreaks:
@@ -15,4 +15,5 @@ summary: Astra Control Center のインストールには 2 つの選択肢が�
 
 * link:../get-started/install_acc.html["標準の手順で Astra Control Center をインストールします"]
 * link:../get-started/acc_operatorhub_install.html["（ Red Hat OpenShift を使用する場合） OpenShift OperatorHub を使用して Astra Control Center をインストールします"]
+* link:../get-started/install_acc-cvo.html["Cloud Volumes ONTAP ストレージバックエンドに Astra Control Center をインストールします"]
 
