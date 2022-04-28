@@ -2119,4 +2119,5 @@
   <block id="f40dda1cd02e9ee8f5e162848caadd83" category="list-text"><block ref="9efb3235917ed6ee5ca4f6d3c009bcea" category="inline-link-rx"></block> および<block ref="99c9739f78d0a0a06ac43aab27b410b9" category="inline-link-rx"></block></block>
   <block id="da1ad815b5ce4f824168d73638363d30" category="list-text"><block ref="da1ad815b5ce4f824168d73638363d30" category="inline-link-rx"></block></block>
   <block id="be626d1089f32a72dd9f0fb107f44f16" category="list-text"><block ref="be626d1089f32a72dd9f0fb107f44f16" category="inline-link-rx"></block></block>
+  <block id="81a948049e34f0b0478cdb4d7fee5cb1" category="list-text">名前空間の名前 / ID または名前空間ラベルによる名前空間の制約を持つメンバーユーザーは、同じクラスタ上の新しい名前空間、または組織のアカウント内の他のクラスタに対して、アプリケーションのクローンまたはリストアを実行できます。ただし、同じユーザが、クローニングまたはリストアされたアプリケーションに新しいネームスペースからアクセスすることはできません。クローンまたはリストア処理によって新しいネームスペースが作成されると、アカウントの管理者 / 所有者はメンバーユーザアカウントを編集し、該当するユーザに新しいネームスペースへのアクセスを許可するロールの制限を更新できます。</block>
 </blocks>
