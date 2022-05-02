@@ -1110,8 +1110,6 @@
   <block id="84fccda9e18ab736ae1e33ef33ff8543" category="paragraph">クラスタを追加する前に、前提条件が満たされていることを確認する必要があります。また、資格チェックを実行して、アストラコントロールセンターにクラスタを追加する準備ができていることを確認する必要があります。</block>
   <block id="32ce911ba9da44dfbcba79bbe607d8f0" category="section-title">クラスタを追加する前に必要な作業</block>
   <block id="46071ecf3cc6ea1619ad76021e951cc6" category="list-text">次のいずれかのタイプのクラスタ：</block>
-  <block id="651cf0b7f84c677320f45d5d6816398a" category="list-text">Rancher 2.5 を実行しているクラスタ</block>
-  <block id="22de8d4f47d2a55f106f2f70f3e8353f" category="list-text">Kubernetes 1.19 ~ 1.21 を実行するクラスタ（ 1.21x を含む）</block>
   <block id="0fe8e21b3c54341023df7a85185c9f37" category="paragraph">クラスタに 1 つ以上のワーカーノードがあり、テレメトリサービスの実行には 1GB 以上の RAM が使用されていることを確認します。</block>
   <block id="b5a54438cd4ef372398ebc0939def4bb" category="admonition">管理対象のコンピューティングリソースとして 2 つ目の OpenShift 4.6 、 4.7 、または 4.8 クラスタを追加する場合は、 Astra Trident ボリュームスナップショット機能が有効になっていることを確認する必要があります。ネットアップの公式 Astra Trident をご覧ください<block ref="8b7ff4f9e99396172438cb6668056409" category="inline-link-rx"></block> Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。</block>
   <block id="105932ea4fe1c5240d2bf6bced56c8fc" category="list-text">管理者によって定義された Astra Trident 'volumesnapshotclass' オブジェクトAstra Trident の詳細をご確認ください<block ref="556b3c0c56aa97a1bc2ad282c2c6ac73" category="inline-link-rx"></block> Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。</block>
@@ -1419,7 +1417,6 @@
   <block id="df819717a2baf5b48925d2b4cdaf4745" category="list-text">* Astra Trident / ONTAP 構成 * ： Astra Control Center では、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。</block>
   <block id="17eb8d332e75f64616b506be451b189f" category="inline-link-macro">その他の必要な変更</block>
   <block id="19dfa68f9af3ebcd8abb0bcfff39c5fd" category="list-text">（ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください <block ref="6511a1f600064236c7dbbb54dd879ccf" category="inline-link-macro-rx"></block> YAML へ。</block>
-  <block id="a4a555ce407a7c7e6c4672e426b35f6d" category="list-text">OpenShift 4.6 、 4.7 、または 4.8 を実行するクラスタ。 Astra Trident StorageClasses を搭載し、 Astra Data Store または ONTAP 9.5 以降をサポートしています</block>
   <block id="c287552db25a1fab7b049bb27d492f51" category="list-text">Astra は Kubernetes クラスタと連携し、 Trident が設定された ONTAP ストレージバックエンドまたは Astra データストアプレビューストレージバックエンドを使用</block>
   <block id="15124155930d299e6f1779b4748a5e68" category="inline-link">Astra データストアプレビュー版</block>
   <block id="9103a93ceb430727f35a3f9417e478c1" category="paragraph">Astra Control Center は、 ONTAP と Astra データストアをストレージバックエンドとしてサポートおよび監視します。Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。</block>
@@ -2120,4 +2117,11 @@
   <block id="da1ad815b5ce4f824168d73638363d30" category="list-text"><block ref="da1ad815b5ce4f824168d73638363d30" category="inline-link-rx"></block></block>
   <block id="be626d1089f32a72dd9f0fb107f44f16" category="list-text"><block ref="be626d1089f32a72dd9f0fb107f44f16" category="inline-link-rx"></block></block>
   <block id="81a948049e34f0b0478cdb4d7fee5cb1" category="list-text">名前空間の名前 / ID または名前空間ラベルによる名前空間の制約を持つメンバーユーザーは、同じクラスタ上の新しい名前空間、または組織のアカウント内の他のクラスタに対して、アプリケーションのクローンまたはリストアを実行できます。ただし、同じユーザが、クローニングまたはリストアされたアプリケーションに新しいネームスペースからアクセスすることはできません。クローンまたはリストア処理によって新しいネームスペースが作成されると、アカウントの管理者 / 所有者はメンバーユーザアカウントを編集し、該当するユーザに新しいネームスペースへのアクセスを許可するロールの制限を更新できます。</block>
+  <block id="04836771e0f63e9503643a0ab68fa3c1" category="list-text">OpenShift 4.4.8、4.7、4.8、または4.9を実行しているクラスタ</block>
+  <block id="3a2b605b2443215a0b7ae1bc41decc01" category="list-text">RKE1を使用してRancher 2.5.8、2.5.9、または2.6を実行しているクラスタ</block>
+  <block id="4a3db371a2a9c3a3366a01b03634fa7b" category="list-text">Kubernetes 1.20 ~ 1.23を実行するクラスタ</block>
+  <block id="1289603112f9c3615bcae4123ffe8b19" category="list-text">VMware Tanzu Kubernetes Grid 1.4を実行しているクラスタ</block>
+  <block id="ad0fc95c44aeed3ac73310973f16f935" category="list-text">VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2を実行するクラスタ</block>
+  <block id="1a18d97aba49d472b746ce28ae926d7b" category="inline-link-macro">サポートされるストレージバックエンド</block>
+  <block id="070ad46046dde9383841affeae8d1582" category="list-text">で構成されたAstra Trident StorageClasses <block ref="fd11461319251c08cd1706087c3f4e9f" category="inline-link-macro-rx"></block> （すべてのタイプのクラスタに必要）</block>
 </blocks>
