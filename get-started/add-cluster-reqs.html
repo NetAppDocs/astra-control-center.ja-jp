@@ -1089,7 +1089,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-26 16:29:02 +0000">04/26/2022</time>
+    <time datetime="2022-05-02 15:11:09 +0000">05/02/2022</time>
     
   
 
@@ -1113,13 +1113,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>OpenShift 4.6 、 4.7 、または 4.8 を実行するクラスタ。 Astra Trident StorageClasses を搭載し、 Astra Data Store または ONTAP 9.5 以降をサポートしています</p>
+<p>OpenShift 4.4.8、4.7、4.8、または4.9を実行しているクラスタ</p>
 </li>
 <li>
-<p>Rancher 2.5 を実行しているクラスタ</p>
+<p>RKE1を使用してRancher 2.5.8、2.5.9、または2.6を実行しているクラスタ</p>
 </li>
 <li>
-<p>Kubernetes 1.19 ~ 1.21 を実行するクラスタ（ 1.21x を含む）</p>
+<p>Kubernetes 1.20 ~ 1.23を実行するクラスタ</p>
+</li>
+<li>
+<p>VMware Tanzu Kubernetes Grid 1.4を実行しているクラスタ</p>
+</li>
+<li>
+<p>VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2を実行するクラスタ</p>
 <div class="paragraph">
 <p>クラスタに 1 つ以上のワーカーノードがあり、テレメトリサービスの実行には 1GB 以上の RAM が使用されていることを確認します。</p>
 </div>
@@ -1138,6 +1144,9 @@
 </tr>
 </table>
 </div>
+</li>
+<li>
+<p>で構成されたAstra Trident StorageClasses <a href="requirements.html#supported-storage-backends">"サポートされるストレージバックエンド"</a> （すべてのタイプのクラスタに必要）</p>
 </li>
 <li>
 <p>Astra Control Center を使用してアプリケーションをバックアップおよび復元するためにバックアップ ONTAP システムで設定されたスーパーユーザーおよびユーザー ID 。ONTAP コマンドラインで次のコマンドを実行します。「 export-policy rule modify -vserver &lt;storage virtual machine name&gt; -policyname &lt;policy name&gt; -ruleindex 1 -superuser sysm&#8201;&#8212;&#8201;anon 65534 」</p>
