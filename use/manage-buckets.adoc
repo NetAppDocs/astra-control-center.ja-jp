@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/manage-buckets.html 
-keywords: how to set up object storage in astra, how to set up astra buckets, s3, astra, setting up astra control, how to set up astra control center, kubernetes 
+keywords: how to set up object storage in astra, how to set up astra buckets, s3, astra, setting up astra control, astra control center, kubernetes 
 summary: アプリケーションと永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションのクローニングを行う場合は、オブジェクトストアバケットプロバイダの追加が不可欠です。 
 ---
 = バケットを管理する
@@ -39,22 +39,12 @@ Astra Control API を使用してバケットを管理する方法について�
 
 * link:../get-started/setup_overview.html#add-a-bucket["バケットを追加します"]
 * <<Edit a bucket>>
+* <<Rotate or remove bucket credentials>>
 * <<Remove a bucket>>
 
 
 
 NOTE: Astra Control Center の S3 バケットは、使用可能容量を報告しません。Astra Control Center で管理されているアプリケーションのバックアップまたはクローニングを行う前に、 ONTAP または StorageGRID 管理システムでバケット情報を確認します。
-
-
-
-== クレデンシャルを削除する
-
-Astra Control API を使用して、アカウントから S3 クレデンシャルをいつでも削除できます。
-
-詳細については、を参照してください https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]。
-
-
-TIP: Astra Control に追加する最初のクレデンシャルセットは、 Astra Control がバックアップバケットの認証にクレデンシャルを使用するため、常に使用されています。これらの資格情報は削除しないことをお勧めします。
 
 
 
@@ -66,7 +56,7 @@ TIP: Astra Control に追加する最初のクレデンシャルセットは、 
 NOTE: バケットを追加するときは、正しいバケットプロバイダを選択し、そのプロバイダに適したクレデンシャルを指定します。たとえば、タイプとして NetApp ONTAP S3 が許可され、 StorageGRID クレデンシャルが受け入れられますが、このバケットを使用して原因の以降のアプリケーションのバックアップとリストアはすべて失敗します。を参照してください link:../release-notes/known-issues.html#selecting-a-bucket-provider-type-with-credentials-for-another-type-causes-data-protection-failures["リリースノート"]。
 
 .手順
-. 左ナビゲーションから、 * バケット * を選択します。
+. 左側のナビゲーションから、*バケット*を選択します。
 . [ * アクション * （ * Actions * ） ] 列の [ オプション（ Options ） ] メニューから、 [ * 編集（ * Edit ） ] を選択する。
 . バケットタイプ以外の情報を変更します。
 +
@@ -75,6 +65,39 @@ TIP: バケットタイプは変更できません。
 
 . 「 * Update * 」を選択します。
 
+
+
+
+== バケットのクレデンシャルをローテーションするか、削除する
+
+Astra Controlは、バケットのクレデンシャルを使用してS3バケットにアクセスし、シークレットキーを提供することで、Astra Control Centerがバケットと通信できるようにします。
+
+
+
+=== バケットのクレデンシャルをローテーションする
+
+クレデンシャルのローテーションを行う場合は、バックアップが進行中でないとき（スケジュール設定またはオンデマンド）に、ローテーションを継続して実行してください。
+
+.クレデンシャルの編集やローテーションを行う手順
+. 左側のナビゲーションから、*バケット*を選択します。
+. [ * アクション * （ * Actions * ） ] 列の [ オプション（ Options ） ] メニューから、 [ * 編集（ * Edit ） ] を選択する。
+. 新しいクレデンシャルを作成します。
+. 「 * Update * 」を選択します。
+
+
+
+
+=== バケットのクレデンシャルを削除する
+
+バケットのクレデンシャルは、新しいクレデンシャルがバケットに適用されている場合やアクティブに使用されなくなった場合にのみ削除してください。
+
+
+TIP: Astra Control に追加する最初のクレデンシャルセットは、 Astra Control がバックアップバケットの認証にクレデンシャルを使用するため、常に使用されています。バケットがアクティブな状態で使用されている場合は、これらのクレデンシャルを削除しないでください。削除すると、バックアップが失敗してバックアップが使用できなくなります。
+
+
+NOTE: アクティブなバケットクレデンシャルを削除する場合は、を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Deleting_active_S3_bucket_credentials_leads_to_spurious_500_errors_reported_in_the_UI["バケットのクレデンシャル削除のトラブルシューティング"]。
+
+Astra Control APIを使用してS3クレデンシャルを削除する方法については、を参照してください link:https://docs.netapp.com/us-en/astra-automation/["Astra の自動化と API に関する情報"^]。
 
 
 
