@@ -19,7 +19,7 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 
 .新機能とサポート
 * link:../concepts/user-roles-namespaces.html["ネームスペースのロールベースアクセス制御（ RBAC ）"]
-* link:../get-started/install_acc-cvo.html["Cloud Volumes ONTAP （ CVO ）のサポート"]
+* link:../get-started/install_acc-cvo.html["Cloud Volumes ONTAP のサポート"]
 * link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center の一般的な入力イネーブルメント"]
 * link:../use/manage-buckets.html#remove-a-bucket["Astra Control からバケットを取り外す"]
 * link:../get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["VMware Tanzu ポートフォリオのサポート"]

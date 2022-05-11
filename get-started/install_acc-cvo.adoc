@@ -131,7 +131,7 @@ Cloud Volumes ONTAP をストレージバックエンドとして使用して As
 
 === 十分な IAM 権限があることを確認します
 
-Red Hat OpenShift クラスタと NetApp Cloud Volumes ONTAP Connector をインストールできる十分な数の IAM ロールと権限があることを確認します。
+Red Hat OpenShiftクラスタとNetApp Cloud Manager Connectorをインストールできる十分な数のIAMロールと権限があることを確認します。
 
 を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html#initial-aws-credentials["AWS の初期クレデンシャル"^]。
 
@@ -147,24 +147,24 @@ AWS に Red Hat OpenShift Container Platform クラスタをインストール�
 
 === AWS を設定します
 
-次に、仮想プライベートクラウドの作成、 EC2 コンピューティングインスタンスのセットアップ、 AWS S3 バケットの作成、 Astra Control Center イメージをホストする Elastic Container Register （ ECR ）の作成、このレジストリへのイメージのプッシュを行うように AWS を設定します。
+次に、仮想ネットワークの作成、EC2コンピューティングインスタンスのセットアップ、AWS S3バケットの作成、Astra Control CenterイメージをホストするElastic Container Register（ECR）の作成、このレジストリへのイメージのプッシュを行うようにAWSを設定します。
 
 AWS のドキュメントに従って次の手順を実行します。を参照してください https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["AWS インストールドキュメント"^]。
 
-. AWS 仮想プライベートクラウドを作成します。
+. AWS仮想ネットワークを作成します。
 . EC2 コンピューティングインスタンスを確認します。AWS ではベアメタルサーバまたは VM を使用できます。
 . インスタンスタイプが、マスターノードとワーカーノードの Astra の最小リソース要件に一致していない場合は、 Astra の要件に合わせて AWS でインスタンスタイプを変更します。を参照してください link:../requirements.html["Astra Control Center の要件"]。
 . バックアップを格納する AWS S3 バケットを少なくとも 1 つ作成します。
 . すべての ACC イメージをホストする AWS Elastic Container Registry （ ECR ）を作成します。
 +
 
-NOTE: ECR を作成しないと、 Astra Control Center は、 AWS バックエンドの CVO を含むクラスタから監視データにアクセスできません。問題 は、 Astra Control Center を使用して検出および管理しようとしたクラスタに AWS ECR アクセスがない場合に発生します。
+NOTE: ECRを作成しないと、Astra Control Centerは、AWSバックエンドを持つCloud Volumes ONTAP を含むクラスタからモニタリングデータにアクセスできません。問題 は、 Astra Control Center を使用して検出および管理しようとしたクラスタに AWS ECR アクセスがない場合に発生します。
 
 . ACC イメージを定義済みのレジストリにプッシュします。
 
 
 
-NOTE: AWS Elastic Container Registry （ ECR ）トークンの有効期限は 12 時間です。有効期限が切れたため、クラスタ間のクローニング処理が失敗します。この問題 は、 AWS 用に設定された Cloud Volumes ONTAP （ CVO ）からストレージバックエンドを管理する場合に発生します。この問題 を修正するには、 ECR で再度認証を行い、クローン操作を再開するための新しいシークレットを生成します。
+NOTE: AWS Elastic Container Registry （ ECR ）トークンの有効期限は 12 時間です。有効期限が切れたため、クラスタ間のクローニング処理が失敗します。この問題 は、AWS用に設定されたCloud Volumes ONTAP からストレージバックエンドを管理する場合に発生します。この問題 を修正するには、 ECR で再度認証を行い、クローン操作を再開するための新しいシークレットを生成します。
 
 AWS 環境の例を次に示します。
 
@@ -202,7 +202,7 @@ Cloud Manager のドキュメントに従って、次の手順を実行します
 
 
 
-. この CVO 導入では、すべての永続的ボリュームとボリュームをメモしておきます。
+. このCloud Volumes ONTAP 環境内のすべての永続ボリュームとボリュームをメモします。
 
 
 
@@ -338,7 +338,7 @@ NOTE: OpenShift では、独自のリソースグループを作成できます�
 
 === 十分な IAM 権限があることを確認します
 
-Red Hat OpenShift クラスタと NetApp Cloud Volumes ONTAP Connector をインストールできる十分な数の IAM ロールと権限があることを確認します。
+Red Hat OpenShiftクラスタとNetApp Cloud Manager Connectorをインストールできる十分な数のIAMロールと権限があることを確認します。
 
 を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure のクレデンシャルと権限"^]。
 
@@ -346,14 +346,14 @@ Red Hat OpenShift クラスタと NetApp Cloud Volumes ONTAP Connector をイン
 
 === Azure を設定
 
-次に、 Azure を設定して、仮想プライベートクラウドの作成、コンピューティングインスタンスのセットアップ、 Azure Blob バケットの作成、 Astra Control Center イメージをホストする Azure Container Register （ ACR ）の作成、このレジストリへのイメージのプッシュを行います。
+次に、仮想ネットワークの作成、コンピューティングインスタンスのセットアップ、Azure Blobコンテナの作成、Astra Control CenterイメージをホストするAzure Container Register（ACR）の作成、このレジストリへのイメージのプッシュを行うようにAzureを設定します。
 
 Azure のドキュメントに従って、次の手順を実行します。を参照してください https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-azure-default.html["Azure への OpenShift クラスタのインストール"^]。
 
-. Azure Virtual Private Cloud を作成する。
+. Azure Virtual Networkの作成
 . コンピューティングインスタンスを確認します。Azure の場合、ベアメタルサーバまたは VM を使用できます。
 . インスタンスタイプがまだマスターノードとワーカーノードの Astra 最小リソース要件に一致していない場合は、 Azure でインスタンスタイプを変更して Astra の要件を満たします。を参照してください link:../get-started/requirements.html["Astra Control Center の要件"]。
-. バックアップを格納する Azure Blob バケットを少なくとも 1 つ作成します。
+. バックアップを格納するAzure BLOBコンテナを少なくとも1つ作成します。
 . ストレージアカウントを作成します。Astra Control Center でバケットとして使用するコンテナを作成するには、ストレージアカウントが必要です。
 . バケットへのアクセスに必要なシークレットを作成します。
 . Azure Container Registry （ ACR ）を作成して、すべての Astra Control Center イメージをホストします。
@@ -428,13 +428,13 @@ image:acc-cvo-azure-working-environment.png["Cloud Manager での作業環境の
 image:acc-cvo-azure-connected.png["Cloud Manager にクラスタをインポートします"]
 
 .. 右上隅に Trident のバージョンが表示されていることを確認します。
-.. CVO クラスタのストレージクラスは、ネットアップをプロビジョニングツールとして示しています。
+.. Cloud Volumes ONTAP クラスタのストレージクラスは、プロビジョニングツールとしてネットアップを使用していることに注目してください。
 
 
 +
 これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスが割り当てられます。ストレージクラスを選択します。Trident は、インポートと検出のプロセスの一環として自動的にインストールされます。
 
-. この CVO 導入では、すべての永続的ボリュームとボリュームをメモしておきます。
+. このCloud Volumes ONTAP 環境内のすべての永続ボリュームとボリュームをメモします。
 . Cloud Volumes ONTAP は、シングルノードまたはハイアベイラビリティとして動作できます。HA が有効になっている場合は、 Azure で実行されている HA ステータスとノード導入ステータスを確認します。
 
 

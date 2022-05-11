@@ -1834,7 +1834,6 @@
   <block id="11531d35bffa3200921e5a8ee5950b84" category="list-text"><block ref="c4954d5a433a0b3badc3311583a31b34" category="inline-xref-macro-rx"></block>。</block>
   <block id="aa212b05ee6b0b78026790241fbde05d" category="list-text"><block ref="27fe6aaf425c0f95213ec6c507a97d2d" category="inline-xref-macro-rx"></block>。</block>
   <block id="e8e336c6539723454a54092c15b17831" category="section-title">十分な IAM 権限があることを確認します</block>
-  <block id="4cccd232c18c48f403e1b0ca88018111" category="paragraph">Red Hat OpenShift クラスタと NetApp Cloud Volumes ONTAP Connector をインストールできる十分な数の IAM ロールと権限があることを確認します。</block>
   <block id="9ef43b020d41cab5808d78fdf855c429" category="inline-link">AWS の初期クレデンシャル</block>
   <block id="8bf9b9f442874d498c38dc3f714a9739" category="paragraph">を参照してください<block ref="1a5e66975901600375e1b84abc3d58bd" category="inline-link-rx"></block>。</block>
   <block id="ed759a399e3faa755d36418e610d10fb" category="section-title">AWS に Red Hat OpenShift クラスタをインストールします</block>
@@ -1842,17 +1841,13 @@
   <block id="fe44234b66d63db4cd81036ae75cf378" category="inline-link">AWS で OpenShift Container Platform にクラスタをインストールします</block>
   <block id="09c5cce6c0b81c5a122141133cc096d8" category="paragraph">インストール手順については、を参照してください<block ref="02dece0ad7d56c8ca4c0002821b8ba8e" category="inline-link-rx"></block>。</block>
   <block id="431d662f081880135f580544e6ebca68" category="section-title">AWS を設定します</block>
-  <block id="cccaf966d7360e27e6fae03ddd583733" category="paragraph">次に、仮想プライベートクラウドの作成、 EC2 コンピューティングインスタンスのセットアップ、 AWS S3 バケットの作成、 Astra Control Center イメージをホストする Elastic Container Register （ ECR ）の作成、このレジストリへのイメージのプッシュを行うように AWS を設定します。</block>
   <block id="455960d50b151ff6ed28fa01f3d6356f" category="inline-link">AWS インストールドキュメント</block>
   <block id="e874bd0f330d9513016dc844dfd62e6f" category="paragraph">AWS のドキュメントに従って次の手順を実行します。を参照してください<block ref="b5a7979c22035fe192b9eb8d0cab1e4a" category="inline-link-rx"></block>。</block>
-  <block id="799fec05d94fec2c59fc527e8f91c4c6" category="list-text">AWS 仮想プライベートクラウドを作成します。</block>
   <block id="92d9212a67ec9da982a091cf92cb4347" category="list-text">EC2 コンピューティングインスタンスを確認します。AWS ではベアメタルサーバまたは VM を使用できます。</block>
   <block id="b881f78be517f5315cfb2d556f3448f7" category="list-text">インスタンスタイプが、マスターノードとワーカーノードの Astra の最小リソース要件に一致していない場合は、 Astra の要件に合わせて AWS でインスタンスタイプを変更します。を参照してください <block ref="32be9c8362ea42075ea0b5d43bb3b5d0" category="inline-link-macro-rx"></block>。</block>
   <block id="b109e192f966bb3bb3e8cd30e1a59bfa" category="list-text">バックアップを格納する AWS S3 バケットを少なくとも 1 つ作成します。</block>
   <block id="e5c5351f3ea6206a7f110205b4155acc" category="list-text">すべての ACC イメージをホストする AWS Elastic Container Registry （ ECR ）を作成します。</block>
-  <block id="b6e02cb40f51ac7c03a21989247074b0" category="admonition">ECR を作成しないと、 Astra Control Center は、 AWS バックエンドの CVO を含むクラスタから監視データにアクセスできません。問題 は、 Astra Control Center を使用して検出および管理しようとしたクラスタに AWS ECR アクセスがない場合に発生します。</block>
   <block id="6da6782dc02c8e2ffb3f2eeb0c8f4f10" category="list-text">ACC イメージを定義済みのレジストリにプッシュします。</block>
-  <block id="0aa9d7a142af7c23c39b44a27f0dcc8f" category="admonition">AWS Elastic Container Registry （ ECR ）トークンの有効期限は 12 時間です。有効期限が切れたため、クラスタ間のクローニング処理が失敗します。この問題 は、 AWS 用に設定された Cloud Volumes ONTAP （ CVO ）からストレージバックエンドを管理する場合に発生します。この問題 を修正するには、 ECR で再度認証を行い、クローン操作を再開するための新しいシークレットを生成します。</block>
   <block id="d0d3a0a6bbae566c1e61c2fc0d0377ad" category="paragraph">AWS 環境の例を次に示します。</block>
   <block id="00e2fab6bb1c1ddf5a08853aa2b05595" category="inline-image-macro">Cloud Volumes ONTAP を使用した Astra Control Center の導入例</block>
   <block id="a5f9219af3aa469c4909489aee2c2362" category="paragraph"><block ref="a5f9219af3aa469c4909489aee2c2362" category="inline-image-macro-rx" type="image"></block></block>
@@ -1874,7 +1869,6 @@
   <block id="e1001cf6163456f78888de73e0dd8241" category="list-text">右上隅に Trident のバージョンが表示されていることを確認します。</block>
   <block id="879166e5d3ed3d9886dcb671dee52d57" category="list-text">Cloud Volumes ONTAP クラスタのストレージクラスは、プロビジョニングツールとしてネットアップを使用していることに注目してください。</block>
   <block id="6f132ecc107812f9bd274ba758fce276" category="paragraph">これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスに割り当てられます。ストレージクラスを選択します。Trident は、インポートと検出のプロセスの一環として自動的にインストールされます。</block>
-  <block id="3cc9e3bbc9dd541f4db8ebbb5b141c8c" category="list-text">この CVO 導入では、すべての永続的ボリュームとボリュームをメモしておきます。</block>
   <block id="022f3cb861d350bac16e19b15e4f1f9c" category="admonition">Cloud Volumes ONTAP は、シングルノードまたはハイアベイラビリティとして動作できます。HA が有効になっている場合は、 AWS で実行されている HA ステータスとノード導入ステータスを確認します。</block>
   <block id="d35cd0582def6a18a65ff02ce2d5ff77" category="inline-link-macro">Astra Control Center のインストール手順</block>
   <block id="1cb58fa5a8f36029f128e85d88276810" category="paragraph">標準に従ってください <block ref="ef8e47848fa28ef11d8d85ade3f221ee" category="inline-link-macro-rx"></block>。</block>
@@ -1912,13 +1906,10 @@
   <block id="1ab5193f89cf79df51fd4138318923ac" category="inline-link">Azure のクレデンシャルと権限</block>
   <block id="ac5af645cec8d25669a5a9893f571bcc" category="paragraph">を参照してください<block ref="47e48c38bbba09ad0234959e4f70e6b5" category="inline-link-rx"></block>。</block>
   <block id="ffe7dbf60b2fbe9ee35b02eca9bedb83" category="section-title">Azure を設定</block>
-  <block id="def08885f6fc7373c0b5463ba8cfcf9b" category="paragraph">次に、 Azure を設定して、仮想プライベートクラウドの作成、コンピューティングインスタンスのセットアップ、 Azure Blob バケットの作成、 Astra Control Center イメージをホストする Azure Container Register （ ACR ）の作成、このレジストリへのイメージのプッシュを行います。</block>
   <block id="310c2720a5523c6a1f55532ee951393c" category="paragraph">Azure のドキュメントに従って、次の手順を実行します。を参照してください<block ref="604df1e02f9d2d76a67db6e61299339e" category="inline-link-rx"></block>。</block>
-  <block id="1f5c184a439ca64495bef0e301c34bb1" category="list-text">Azure Virtual Private Cloud を作成する。</block>
   <block id="d03589157dd63e1aaf5497955f5058f5" category="list-text">コンピューティングインスタンスを確認します。Azure の場合、ベアメタルサーバまたは VM を使用できます。</block>
   <block id="b82f3e0352c4295f8db3114c4d861a92" category="inline-link-macro">Astra Control Center の要件</block>
   <block id="8a803e817d15e18f4c26de7531681f8c" category="list-text">インスタンスタイプがまだマスターノードとワーカーノードの Astra 最小リソース要件に一致していない場合は、 Azure でインスタンスタイプを変更して Astra の要件を満たします。を参照してください <block ref="69ebc365ae107089b5acea91d6e6ce3d" category="inline-link-macro-rx"></block>。</block>
-  <block id="ece21a337138f7f8683bac6e6615e56e" category="list-text">バックアップを格納する Azure Blob バケットを少なくとも 1 つ作成します。</block>
   <block id="307374e80fc7db1b05d765029543d9c8" category="list-text">ストレージアカウントを作成します。Astra Control Center でバケットとして使用するコンテナを作成するには、ストレージアカウントが必要です。</block>
   <block id="a9d92f56cc3dae134fc1ee53e8136378" category="list-text">バケットへのアクセスに必要なシークレットを作成します。</block>
   <block id="7d8431378165cbd970da3a000187a79e" category="list-text">Azure Container Registry （ ACR ）を作成して、すべての Astra Control Center イメージをホストします。</block>
@@ -1945,7 +1936,6 @@
   <block id="889cbe9961ca696a510e412a4b30232a" category="paragraph"><block ref="889cbe9961ca696a510e412a4b30232a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e94546b01b99a1eb48dc2aa847bd1bc9" category="inline-image-macro">Cloud Manager にクラスタをインポートします</block>
   <block id="a340fe93d59bc226299f8720ea322256" category="paragraph"><block ref="a340fe93d59bc226299f8720ea322256" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d9ea115977abd9d7e16409cba9fd16f6" category="list-text">CVO クラスタのストレージクラスは、ネットアップをプロビジョニングツールとして示しています。</block>
   <block id="5acebafc0c752497041f5a0d80fe30bb" category="paragraph">これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスが割り当てられます。ストレージクラスを選択します。Trident は、インポートと検出のプロセスの一環として自動的にインストールされます。</block>
   <block id="a4f1bc6952ef35fa4b362d48d0bae5cf" category="list-text">Cloud Volumes ONTAP は、シングルノードまたはハイアベイラビリティとして動作できます。HA が有効になっている場合は、 Azure で実行されている HA ステータスとノード導入ステータスを確認します。</block>
   <block id="ed5ef8c204e33b0e0f057dc70e0b4867" category="section-title">Astra Control Center をインストールして設定します</block>
@@ -2031,8 +2021,6 @@
   <block id="636d6f4332398bd5b282d3ece2b35c37" category="section-title">2022 年 4 月 26 日（ 22.04.0 ）</block>
   <block id="0097e428776046ceb8cd1fcde6d6fa2e" category="inline-link-macro">ネームスペースのロールベースアクセス制御（ RBAC ）</block>
   <block id="64bad51f74b4f1807a7d2af0cf87257c" category="list-text"><block ref="64bad51f74b4f1807a7d2af0cf87257c" category="inline-link-macro-rx"></block></block>
-  <block id="6d1f817d433aa2ed5357833d205f7ecc" category="inline-link-macro">Cloud Volumes ONTAP （ CVO ）のサポート</block>
-  <block id="a0d0deee3c5c466bfed70fd7382479c3" category="list-text"><block ref="a0d0deee3c5c466bfed70fd7382479c3" category="inline-link-macro-rx"></block></block>
   <block id="b2c30cdbb458ef4f85645f614f9a044c" category="inline-link-macro">Astra Control Center の一般的な入力イネーブルメント</block>
   <block id="7488f95bd73a954d45792854208eec9a" category="list-text"><block ref="7488f95bd73a954d45792854208eec9a" category="inline-link-macro-rx"></block></block>
   <block id="ec4f18f5d437fda081d810a9841b26d4" category="inline-link-macro">Astra Control からバケットを取り外す</block>
@@ -2135,4 +2123,15 @@
   <block id="b2b8741126a8674edc86e6286a85c804" category="inline-link">バケットのクレデンシャル削除のトラブルシューティング</block>
   <block id="983be0b26fa308ee99003c55cac37fb5" category="admonition">アクティブなバケットクレデンシャルを削除する場合は、を参照してください<block ref="939cc867881057c221247142d6425e0a" category="inline-link-rx"></block>。</block>
   <block id="576924ceb67cb5e87c15acdcb112c47d" category="paragraph">Astra Control APIを使用してS3クレデンシャルを削除する方法については、を参照してください <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>。</block>
+  <block id="aa702244278ce9224bdf493dbd836fcf" category="inline-link-macro">Cloud Volumes ONTAP のサポート</block>
+  <block id="4de20b7239bb26359da9a0232e6d739e" category="list-text"><block ref="4de20b7239bb26359da9a0232e6d739e" category="inline-link-macro-rx"></block></block>
+  <block id="eb835db53d5442a3408fb4a797dd33d9" category="paragraph">Red Hat OpenShiftクラスタとNetApp Cloud Manager Connectorをインストールできる十分な数のIAMロールと権限があることを確認します。</block>
+  <block id="8752cd76f7db37e4826aaa5b11f2a007" category="paragraph">次に、仮想ネットワークの作成、EC2コンピューティングインスタンスのセットアップ、AWS S3バケットの作成、Astra Control CenterイメージをホストするElastic Container Register（ECR）の作成、このレジストリへのイメージのプッシュを行うようにAWSを設定します。</block>
+  <block id="9c7a256a23d947f541662b1e88bac33d" category="list-text">AWS仮想ネットワークを作成します。</block>
+  <block id="9d58e473a9f64a9efe76c63ca0a30602" category="admonition">ECRを作成しないと、Astra Control Centerは、AWSバックエンドを持つCloud Volumes ONTAP を含むクラスタからモニタリングデータにアクセスできません。問題 は、 Astra Control Center を使用して検出および管理しようとしたクラスタに AWS ECR アクセスがない場合に発生します。</block>
+  <block id="1768a4b0762c934953673bc18b18890a" category="admonition">AWS Elastic Container Registry （ ECR ）トークンの有効期限は 12 時間です。有効期限が切れたため、クラスタ間のクローニング処理が失敗します。この問題 は、AWS用に設定されたCloud Volumes ONTAP からストレージバックエンドを管理する場合に発生します。この問題 を修正するには、 ECR で再度認証を行い、クローン操作を再開するための新しいシークレットを生成します。</block>
+  <block id="b68aeba87c67e932282eec3bb99d6309" category="list-text">このCloud Volumes ONTAP 環境内のすべての永続ボリュームとボリュームをメモします。</block>
+  <block id="daee2a4caddb0f1fced149c9b185ab3e" category="paragraph">次に、仮想ネットワークの作成、コンピューティングインスタンスのセットアップ、Azure Blobコンテナの作成、Astra Control CenterイメージをホストするAzure Container Register（ACR）の作成、このレジストリへのイメージのプッシュを行うようにAzureを設定します。</block>
+  <block id="52393bb21023d79ef4e0fa374e54b83d" category="list-text">Azure Virtual Networkの作成</block>
+  <block id="5df56ab7fcd23252a7ac4c7a21742e57" category="list-text">バックアップを格納するAzure BLOBコンテナを少なくとも1つ作成します。</block>
 </blocks>
