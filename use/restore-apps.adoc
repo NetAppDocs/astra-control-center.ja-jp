@@ -37,8 +37,6 @@ OC new-project ワードプレス ` OC adm policy add -scc to -group anyuid syst
 ** [* Review （レビュー） ] を選択します
 
 
-
-
 . * リストアの概要 * ：リストア操作の詳細を確認し、「 restore 」と入力して、 * Restore * を選択します。
 
 
