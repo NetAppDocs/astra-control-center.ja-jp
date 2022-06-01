@@ -1,0 +1,133 @@
+---
+sidebar: sidebar 
+permalink: use/manage-packages-acc.html 
+keywords: manage package, packages, install 
+summary: Astra Control Centerにパッケージをアップロードしてインストールできます。 
+---
+= ソフトウェアパッケージを管理します
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+ネットアップでは、ネットアップサポートサイトからダウンロード可能なソフトウェアパッケージを使用して、Astra Control Center向けの機能を追加しています。Dockerとアーティファクトのリポジトリを接続したら、パッケージをアップロードしてインポートし、この機能をAstra Control Centerに追加できます。CLIまたはAstra Control CenterのWeb UIを使用して、ソフトウェアパッケージを管理できます。
+
+.必要なもの
+* Astra Control Center をインストールした Kubernetes クラスタ
+* ソフトウェアパッケージイメージを格納するために接続されたDockerイメージリポジトリ。詳細については、を参照してください link:manage-connections.html["リポジトリ接続を管理します"]。
+* ソフトウェアパッケージのバイナリやアーティファクトを保持するための、接続されたアーティファクトリポジトリ。詳細については、を参照してください link:manage-connections.html["リポジトリ接続を管理します"]。
+* ネットアップサポートサイトから提供されるソフトウェアパッケージ
+
+
+
+
+== ソフトウェアパッケージをリポジトリにアップロードします
+
+Astra Control Centerは、接続されたリポジトリ内のパッケージイメージとアーティファクトを参照します。CLIを使用して、リポジトリにイメージとアーティファクトをアップロードできます。
+
+.手順
+. ネットアップサポートサイトからソフトウェアパッケージをダウンロードし、「kubectl」ユーティリティがインストールされているマシンに保存します。
+. 圧縮されたパッケージファイルを展開し、ディレクトリをAstra Controlバンドルファイルの場所に変更します（例：「acc.manifest .bundle.yaml」）。
+. パッケージイメージをDockerリポジトリにプッシュします。次の置換を行います。
++
+** bundle_fileをAstra Controlバンドルファイルの名前に置き換えます。
+** my_registryをDockerリポジトリのURLに置き換えます。
+** my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます
++
+[listing]
+----
+kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_PASSWORD
+----
+
+
+. パッケージアーティファクトをアーティファクトリポジトリにコピーしますbundle_fileをAstra Controlバンドルファイルの名前に置き換え'network_locationをネットワークロケーションに置き換えて'アーティファクトファイルを次の場所にコピーします
++
+[listing]
+----
+kubectl astra packages copy-artifacts -m BUNDLE_FILE -n NETWORK_LOCATION
+----
+
+
+
+
+== ソフトウェアパッケージを追加します
+
+Astra Control Centerバンドルファイルを使用して、ソフトウェアパッケージをインポートできます。これにより、パッケージがインストールされ、Astra Control Centerで使用できるようになります。
+
+
+
+=== Astra Control Web UIを使用してソフトウェアパッケージを追加
+
+Astra Control Center Web UIを使用して、接続されたリポジトリにアップロードされたソフトウェアパッケージを追加できます。
+
+.手順
+. 「アカウントの管理」ナビゲーション領域で、「 * アカウント * 」を選択します。
+. [*パッケージ*]タブを選択します。
+. [*追加（Add *）]ボタンを選択します。
+. ファイル選択ダイアログで、アップロードアイコンを選択します。
+. アップロードするAstra Controlバンドルファイルを「.yaml」形式で選択します。
+. 「 * 追加」を選択します。
+
+
+バンドルファイルが有効で、パッケージイメージとアーティファクトが接続されているリポジトリにある場合、パッケージはAstra Control Centerに追加されます。[ステータス*]列のステータスが[使用可能*]に変わったら、パッケージを使用できます。パッケージのステータスにカーソルを合わせると、詳細を確認できます。
+
+
+NOTE: リポジトリ内にパッケージのイメージまたはアーティファクトが1つでも見つからない場合は'そのパッケージのエラーメッセージが表示されます
+
+
+
+=== CLIを使用してソフトウェアパッケージを追加します
+
+CLIを使用して、接続されたリポジトリにアップロードしたソフトウェアパッケージをインポートできます。そのためには、最初にAstra Control CenterのアカウントIDとAPIトークンを記録する必要があります。
+
+.手順
+. Webブラウザを使用して、Astra Control Center Web UIにログインします。
+. ダッシュボードの右上にあるユーザアイコンを選択します。
+. [API access*]を選択します。
+. 画面上部のアカウントIDをメモします。
+. [APIトークンの生成]を選択します。
+. 表示されたダイアログで、* APIトークンの生成*を選択します。
+. 生成されたトークンをメモし、*閉じる*を選択します。CLIで、展開されたパッケージの内容の中で、ディレクトリを「.yaml」バンドルファイルの場所に変更します。
+. バンドルファイルを使用してパッケージをインポートし、次のように置き換えます。
++
+** bundle_fileをAstra Controlバンドルファイルの名前に置き換えます。
+** serverをAstra ControlインスタンスのDNS名に置き換えます。
+** account_IDとtokenは、以前に記録したアカウントIDとAPIトークンに置き換えてください。
++
+[listing]
+----
+kubectl astra packages import -m BUNDLE_FILE -u SERVER -a ACCOUNT_ID -k TOKEN
+----
+
+
+
+
+バンドルファイルが有効で、パッケージイメージとアーティファクトが接続されているリポジトリにある場合、パッケージはAstra Control Centerに追加されます。
+
+
+NOTE: リポジトリ内にパッケージのイメージまたはアーティファクトが1つでも見つからない場合は'そのパッケージのエラーメッセージが表示されます
+
+
+
+== ソフトウェアパッケージを削除します
+
+Astra Control Center Web UIを使用して、Astra Control Centerに以前にインポートしたソフトウェアパッケージを削除できます。
+
+.手順
+. 「アカウントの管理」ナビゲーション領域で、「 * アカウント * 」を選択します。
+. [*パッケージ*]タブを選択します。
++
+このページには、インストールされているパッケージとそのステータスのリストが表示されます。
+
+. パッケージの*アクション*列で、アクションメニューを開きます。
+. 「 * 削除」を選択します。
+
+
+パッケージはAstra Control Centerから削除されますが、パッケージのイメージとアーティファクトはリポジトリに残ります。
+
+[discrete]
+== 詳細については、こちらをご覧ください
+
+* link:manage-connections.html["リポジトリ接続を管理します"]
+

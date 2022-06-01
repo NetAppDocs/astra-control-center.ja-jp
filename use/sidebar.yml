@@ -45,6 +45,10 @@ entries:
     url: "/use/view-account-activity.html"
   - title: 既存のライセンスを更新する
     url: "/use/update-licenses.html"
+  - title: リポジトリ接続を管理します
+    url: "/use/manage-connections.html"
+  - title: ソフトウェアパッケージを管理します
+    url: "/use/manage-packages-acc.html"
 - title: バケットを管理する
   url: "/use/manage-buckets.html"
 - title: ストレージバックエンドを管理します

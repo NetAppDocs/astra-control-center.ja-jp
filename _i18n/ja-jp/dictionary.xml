@@ -303,8 +303,6 @@
   <block id="0197eedefddfa1dc3c535db285d61bc5" category="list-text"><block ref="0197eedefddfa1dc3c535db285d61bc5" category="inline-link-macro-rx"></block></block>
   <block id="3f4fc4220755866f399810fee47c7884" category="inline-link-macro">GitHub の貢献者</block>
   <block id="65ed3c4720fad34d453db54755338725" category="paragraph">Twitter で @NetAppDoc をフォローしてください。を作成し、ドキュメントに関するフィードバックを送信します <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> または、 doccomments@netapp.com に電子メールを送信します。</block>
-  <block id="fdc2918b75d781bb6dd3c5b611748816" category="paragraph">次の既知の問題は、この最新リリースの Astra Control Center で Astra データストアの管理に影響を与えます。</block>
-  <block id="e81390ac7a4e5ed54e210e59e5b5f694" category="inline-link-macro">Astra Control Center のインストールプロセス</block>
   <block id="1eba71d64e6c5e410e558530711e835b" category="summary">既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください</block>
   <block id="733442372849ffb7318ed29ca9c55aaa" category="section-title">2 つの Astra Control Center インスタンスで同じクラスタを管理することはできません</block>
   <block id="1bca7607e51d744e7281a7c4772adc9f" category="inline-link-macro">クラスタの管理を解除します</block>
@@ -940,7 +938,6 @@
   <block id="7672a092783c4348b96b40ea2dcf6681" category="section-title">ストレージクラス</block>
   <block id="9282ad3aef7e124a3b2b9c7eab52b33d" category="doc">アーキテクチャとコンポーネント</block>
   <block id="42b90d40b51b0ccfc8a50cfa2f6c88bc" category="summary">Astra は、 Kubernetes アプリケーションデータライフサイクル管理サービスで、ステートフルアプリケーションの運用を簡易化します。Kubernetes ワークロードの保護、バックアップ、移行を簡易化し、作業用アプリケーションのクローンを瞬時に作成できます。</block>
-  <block id="7e073986fe6af6ce1775bdfd558def36" category="doc">Astra Control の概要</block>
   <block id="ed0ddcd9092b607bdbb746861c4340a7" category="summary">Astra Control 、 Validated 、 Standard の 2 種類のアプリケーションを利用できます。これら 2 つのカテゴリの違いと、プロジェクトと戦略に与える可能性のある影響について説明します。</block>
   <block id="c8a8951e747490d31a329c8be8936189" category="doc">検証済みのアプリケーションと標準のアプリケーションの比較</block>
   <block id="3e7ce18250825ebe097f3b6178f9d04a" category="summary">Bitnami Helm チャートから MariaDB を導入する方法を説明します。クラスタに MariaDB を導入すると、 Astra Control を使用してアプリケーションを管理できます。</block>
@@ -1203,22 +1200,12 @@
   <block id="c34e73c1ab29825cfabdde95f496f768" category="list-text">情報を確認し、問題がない場合は「 * クラスタの追加 * 」を選択します。</block>
   <block id="3b8e5272ef61221ea3c7e5d842687fae" category="paragraph">クラスタが「 Discovering * 」ステータスになり、「 Running 」に変わります。Kubernetes クラスタが正常に追加され、 Astra Control Center で管理できるようになりました。</block>
   <block id="30d1bfe2e9b6bfe1d2ea5dd7e0e26c80" category="admonition">Astra Control Center で管理するクラスタを追加したあと、監視オペレータの配置に数分かかる場合があります。それまでは、通知アイコンが赤に変わり、 * モニタリングエージェントステータスチェック失敗 * イベントが記録されます。この問題は無視してかまいません。問題は、 Astra Control Center が正しいステータスを取得したときに解決します。数分で問題が解決しない場合は、クラスタに移動し、「 OC get pod -n NetApp-monitoring 」を開始点として実行します。問題をデバッグするには、監視オペレータのログを調べる必要があります。</block>
-  <block id="00e06e3552b1b0b5e3883c5e00c80134" category="paragraph">ストレージバックエンドを追加して、 Astra Control がリソースを管理できるようにすることができます。ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。</block>
-  <block id="ee0ce8ad611b1fbf9c6721c60a0baf71" category="paragraph">検出されたストレージバックエンドを追加するには、ダッシュボードまたはバックエンドメニューからプロンプトを選択します。</block>
-  <block id="2cc9296c494487aee08ead4a5418cb26" category="inline-link-macro">クラスタが追加されました</block>
-  <block id="f3a8b51739759c7aab725f0b7c0b6d05" category="list-text">これで完了です <block ref="490469b1058ddba4dd23d8bc5d4ce310" category="inline-link-macro-rx"></block> また、 Astra Control によって管理されます。</block>
-  <block id="8df2a009a22eec9cf4e582865db9e073" category="admonition">管理対象クラスタには、 Astra Control によって検出可能なサポート対象のバックエンドが接続されています。</block>
   <block id="129d92c88545c014f5981e4bedd69fd4" category="inline-link-macro">クラスタを追加</block>
-  <block id="d50382f4f1656b37fe3490e3ea650497" category="admonition">Astra Data Store 用の Kubernetes アプリケーションクラスタを追加すると、検出されたバックエンドのリストに「 unmanaged 」と表示されます。次に、 Astra データストアを含むコンピューティングクラスタを追加し、 Kubernetes アプリケーションクラスタの基盤を構築する必要があります。これは、 UI の * Backends * から実行できます。クラスタの [Actions] メニューを選択し、 [`Manage] を選択して、およびを選択します <block ref="8c30ee7267ee6c93cf0c195b661c2cd2" category="inline-link-macro-rx"></block>。「 unmanaged 」のクラスタ状態が Kubernetes クラスタの名前に変わったら、バックエンドの追加に進むことができます。</block>
-  <block id="d8c9edabd6660da785c04c0b0f470ab7" category="list-text">ダッシュボードから * ：</block>
   <block id="94fdb40b8f29075643feafb58a5c7715" category="list-text">バックエンドから * ：</block>
   <block id="4b46912a4f3acad842c6ef52f8b990dc" category="list-text">バックエンドの種類に応じて、次のいずれかの操作を行います。</block>
   <block id="527c8a8fccaa699a0c6292d5018c13a3" category="list-text">* Astra データストア * ：</block>
-  <block id="99b183b5232e3f7f3fd7aa98ed075954" category="list-text">「 * Astra Data Store * 」タブを選択します。</block>
-  <block id="8d152c6be3319e8a434f4a4eded5f1d7" category="list-text">バックエンドの詳細を確認し、「 * ストレージバックエンドの管理 * 」を選択します。</block>
   <block id="c77884d91114de0aa4b7d8b549b2113e" category="list-text">* ONTAP * ：</block>
   <block id="bf2393bb3f17f3d2b4ff6979c3c20036" category="list-text">ONTAP の管理者クレデンシャルを入力し、「 * Review * 」を選択します。</block>
-  <block id="094888b3c75d89979aa1e343a8e5c119" category="list-text">バックエンドの詳細を確認し、 * Manage * を選択します。</block>
   <block id="a8511fe304f9e2caa12c3c1c129e452a" category="paragraph">バックエンドは ' サマリー情報とともに ' リスト内の [Available （使用可能） ] 状態で表示されます</block>
   <block id="d4608e29abe9d25f2211f4d29b0802fa" category="admonition">バックエンドが表示されるようにページを更新する必要がある場合があります。</block>
   <block id="deea85f1feaf69ed17f9d01c95389da1" category="paragraph">アプリケーションと永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションのクローニングを行う場合は、オブジェクトストアバケットプロバイダの追加が不可欠です。Astra Control は、これらのバックアップまたはクローンを、定義したオブジェクトストアバケットに格納します。</block>
@@ -1399,30 +1386,12 @@
   <block id="e3ef67ef771ccecb9617669e034f8a72" category="list-text"><block ref="e3ef67ef771ccecb9617669e034f8a72" category="inline-link-macro-rx"></block></block>
   <block id="eeb5139838bc01ee74f5e84228e770e3" category="inline-link-macro">Astra データストアプレビューバックエンドの管理と監視</block>
   <block id="88c91ef58cacca0ce7311796478d0cf3" category="inline-link-macro">Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題</block>
-  <block id="fc8259e97b18a3baf3d9ca96fb8b483d" category="list-text"><block ref="fc8259e97b18a3baf3d9ca96fb8b483d" category="inline-link-macro-rx"></block></block>
-  <block id="5132446b033e54d6debc0548b45d49ae" category="section-title">MongoDB ポッドの活性プローブに障害が発生したため、 Astra データストアプレビューを Astra Control Center のストレージクラスとして使用できない</block>
-  <block id="3c8fe1f135ab2ac9300f533669001f30" category="paragraph">Astra Control Center の導入時に、ストレージクラスのプロビジョニングツールとして Astra Data Store プレビューを使用しようとすると、 MongoDB の活性性プローブが失敗し、導入が完了しなくなります。</block>
-  <block id="6e8ac331af01cb23ac316dc2018c097d" category="paragraph">この問題を修正するには、の完了時に、 YAML の標準の変更に加えて、次の変更を行います <block ref="d14182609c4f3318aa56c7cc5e96252d" category="inline-link-macro-rx"></block>：</block>
-  <block id="8a13d448d34448db22a2b0a6dd1acefc" category="inline-link-macro">Astra Control Center オペレータによる YAML の導入（ Astra _control_center_operator_deployment.yaml ）</block>
-  <block id="85d3f736ce18017c45e8a6ae4d1e8fe5" category="list-text">を編集します <block ref="aa49db316689710519b7c8def18b8801" category="inline-link-macro-rx"></block> Helm のインストールタイムアウトを変更するには：</block>
-  <block id="7a80cbdb518e1d355b96f0f85cfc440d" category="inline-link-macro">Astra Control Center カスタムリソース（ CR ）ファイル（ Astra_control_center_min YAML ）</block>
-  <block id="f0e4789c9bc3e68aa311924dc6728d18" category="list-text">を編集します <block ref="4c6c00b260f38942b09c4617203862e3" category="inline-link-macro-rx"></block> そして 'spec' の下にハイライト表示された追加値を含めます</block>
-  <block id="f885d736613811b426f3882868416c0c" category="inline-link-macro">Astra データストアのプレビュー版に注目してください</block>
-  <block id="866684ba00f3eaa7ffb3119bad439e6e" category="list-text"><block ref="866684ba00f3eaa7ffb3119bad439e6e" category="inline-link-macro-rx"></block></block>
   <block id="8af92bb4a82e9330d36767a461117b77" category="inline-link">Astra データストア入門</block>
   <block id="010fe8b2dcf8f2144d52f7fa09b19be3" category="paragraph">Astra Control Center を Astra データストアストレージバックエンドと統合して使用する場合、インストール後にストレージクラスは定義されません。Trident のデフォルトストレージクラスを作成し、ストレージバックエンドに適用する必要があります。を参照してください<block ref="31e869d7ae2f401f4a85bdc155c56e86" category="inline-link-rx"></block> をクリックして、デフォルトの Astra データストアストレージクラスを作成します。</block>
   <block id="df819717a2baf5b48925d2b4cdaf4745" category="list-text">* Astra Trident / ONTAP 構成 * ： Astra Control Center では、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。</block>
-  <block id="17eb8d332e75f64616b506be451b189f" category="inline-link-macro">その他の必要な変更</block>
-  <block id="19dfa68f9af3ebcd8abb0bcfff39c5fd" category="list-text">（ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください <block ref="6511a1f600064236c7dbbb54dd879ccf" category="inline-link-macro-rx"></block> YAML へ。</block>
-  <block id="c287552db25a1fab7b049bb27d492f51" category="list-text">Astra は Kubernetes クラスタと連携し、 Trident が設定された ONTAP ストレージバックエンドまたは Astra データストアプレビューストレージバックエンドを使用</block>
-  <block id="15124155930d299e6f1779b4748a5e68" category="inline-link">Astra データストアプレビュー版</block>
   <block id="9103a93ceb430727f35a3f9417e478c1" category="paragraph">Astra Control Center は、 ONTAP と Astra データストアをストレージバックエンドとしてサポートおよび監視します。Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。</block>
-  <block id="af529ec0ce8e62fc49e3f11779d0350c" category="paragraph">アプリケーションの管理を開始するには、 Kubernetes クラスタを追加し、コンピューティングリソースとして管理します。Kubernetes アプリケーションを検出するには、 Astra Control Center のクラスタを追加する必要があります。Astra データストアプレビューでは、 Astra データストアプレビューでプロビジョニングしたボリュームを使用するアプリケーションを含む Kubernetes アプリケーションクラスタを追加します。</block>
-  <block id="3c8d59911b2ed233f35086eafb17748f" category="list-text">Astra データストアプレビューインストールの場合： Kubernetes アプリケーションクラスタを追加しておきます。</block>
-  <block id="7ea0911f99c3d96666fd9f883b4db9ca" category="sidebar">Astra データストアプレビューを使用</block>
   <block id="9f828d6c562cc0df256e51d5d235c7bb" category="sidebar">Astra データストアの概要</block>
   <block id="9496fd053449dc632695aa62786ebaf1" category="sidebar">今回のリリースの Astra データストアの内容</block>
-  <block id="3551ec406ac2e45ff0f50e87c946ab31" category="sidebar">Astra データストアプレビューのクイックスタート</block>
   <block id="ed6be01d66e94b422222a328f085d0bc" category="list-text">「 create-kubeconfig .sh` ファイル」を作成します。次のスクリプトの先頭にある「 token_index 」を正しい値に置き換えます。</block>
   <block id="8a610f3ea380fe1789ef14712ba6b1f0" category="admonition">以下の画像の自動ロードについては、サンプルスクリプトを参照してください。</block>
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">レジストリにログインします。</block>
@@ -1509,7 +1478,6 @@
   <block id="1de4eda534b81a776926b71c5d509a3c" category="list-text">Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。</block>
   <block id="a514c0ae3c82c51ee5b4cd862c3c6ae5" category="paragraph">Traefik CRD を手動で削除できます。CRD はグローバルリソースであり、削除するとクラスタ上の他のアプリケーションに影響を与える可能性があります。</block>
   <block id="30e9f9c381fe23f7ce3650c2587f95e5" category="list-text">クラスタにインストールされている Traefik CRD を表示します。</block>
-  <block id="a533261ecbd74405d561fc2ee31235f5" category="list-text">Astra Trident 21.10.1 以降がインストールされ、 Astra データストアプレビューがストレージバックエンドとして使用される場合に設定されます</block>
   <block id="61f5bc231326b2369e71b3e4d9f8c986" category="paragraph">既存の自己署名 TLS 証明書を削除します。</block>
   <block id="1cee46fe31fb6be4325d72afeb43c038" category="paragraph">CA によって署名された新しい TLS 証明書を追加します。</block>
   <block id="38073e52be4dfccbbd24b3272a244562" category="list-text">から Astra Control Center 証明書とキーの zip をダウンロードします<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>。</block>
@@ -1571,11 +1539,8 @@
   <block id="0d6a0b4ff88d33831cdf8302d6f4d636" category="list-text">導入および管理された Astra データストアストレージバックエンド</block>
   <block id="8ff093262ab4588936566aa5eb25a42f" category="list-text">Astra データストアライセンスファイル（ネットアップの営業担当者に連絡して Astra データストアライセンスを購入）</block>
   <block id="fac828474586c4baa2e12ed37254e3bc" category="list-text">ストレージバックエンドの名前を選択します。</block>
-  <block id="f94ec21b3c0c7b47ac39427793903380" category="list-text">[* 基本情報 * ] では、インストールされているライセンスのタイプを確認できます（ある場合）。</block>
   <block id="06396cd50d61096b559e91288e0a0460" category="paragraph">ライセンス情報にカーソルを合わせると、有効期限や使用権の情報などの詳細情報を示すポップアップが表示されます。</block>
   <block id="862b26354fab838d0bc4c72a4d1e45c6" category="list-text">[* License] で、ライセンス名の横にある編集アイコンを選択します。</block>
-  <block id="793c2102fbdb2f1f590ab9cd7867e98f" category="list-text">[ ライセンスの更新 *] ページで、 [ ライセンスの追加 *] を選択します。</block>
-  <block id="5b4282392687039f164888af6aae32bd" category="list-text">ネットアップから入手したライセンスファイルを選択します。</block>
   <block id="cca05d90c5263f2a5fa3bf4eb854fba0" category="section-title">ストレージバックエンドクラスタにノードを追加します</block>
   <block id="d114496fcc61250e5f3f6bc3c93263c9" category="paragraph">Astra Data Store クラスタにノードを追加できます。このノードは、 Astra Data Store 用にインストールされたライセンスのタイプでサポートされるノード数まで追加できます。</block>
   <block id="451d9def44f6d43bde528c5862033f71" category="list-text">導入済みでライセンス供与されている Astra データストアストレージバックエンド</block>
@@ -1944,8 +1909,6 @@
   <block id="22a505b5cbfe40e35bb7fb0543690f0e" category="inline-link-macro">Astra Control Center をセットアップし、バケットを追加する</block>
   <block id="7a971c76db7e65f29d30288ac83cec37" category="paragraph">Astra Control Center を使用して、 Azure バケットを追加する。を参照してください <block ref="84c85bd9149d8879a472dbef331261f3" category="inline-link-macro-rx"></block>。</block>
   <block id="5aa431ebb0b0805358c5d6b3a9b9745d" category="paragraph">ライセンスの計算方法の詳細については、を参照してください <block ref="5d4863a02d05fc8628043f5d98bb32ab" category="inline-link-macro-rx"></block>。</block>
-  <block id="4d9379be73ba55f4c1b079ee884897de" category="list-text">[ ストレージバックエンド ] セクションで、 *Add* を選択します。</block>
-  <block id="a60d8d99de1db552bb0ff25496934484" category="list-text">Resource Summary &gt; Storage Backends セクションで、 * Add * を選択します。</block>
   <block id="4e5f7f6ac61851274c3d50decf63b5a2" category="list-text">[ 既存の使用（ Use Existing ） ] * タブを選択します。</block>
   <block id="dbf61aa578cd1d84f45f72364fceae0b" category="summary">より制限の少ない PoD セキュリティポリシーを作成して、 Astra Control が管理対象クラスタ上でポッドを作成および更新できるようにする必要があります。</block>
   <block id="c8083e34bef7c1ffc5a6569022032c94" category="doc">カスタムのポッドセキュリティポリシーを作成します</block>
@@ -1983,7 +1946,6 @@
   <block id="db199481bf6cf2d5e29909b07d83a660" category="summary">Astra Control Center のインストール方法を選択できます。</block>
   <block id="29a22a050bd07366c87409e65a0fd0cd" category="list-text"><block ref="29a22a050bd07366c87409e65a0fd0cd" category="inline-link-macro-rx"></block></block>
   <block id="869e88fdb2291fe31fc2aeb4bc0d3c4f" category="paragraph"><block ref="9eecb239704d706edd0e9065cdf42037" category="inline-link-macro-rx"></block>。</block>
-  <block id="6514f4d4ab7040c9d32ce9aea0fd62ad" category="list-text">ONTAP またはを追加します<block ref="e41935a824f782ed0b4e20297d584896" category="inline-link-rx"></block> ストレージバックエンド：</block>
   <block id="5c3ecd2a6e7743910c01e8a3ede5d0e2" category="paragraph"><block ref="4f53ab095a585e280035de1f6822ef65" category="inline-link-macro-rx"></block>。</block>
   <block id="938b18df1cf4fc30adffffdbd05580fb" category="list-text">（オプション）権限付きポッドの作成を許可しない制限付きポッドセキュリティポリシーをクラスタで使用している場合、またはポッドコンテナ内のプロセスをルートユーザとして実行できるようにしていない場合は、 Astra Control でポッドを作成および管理できるように、クラスタ用のカスタムポッドセキュリティポリシーを作成します。手順については、を参照してください <block ref="a0c087a50043435816db1a08670aaa8c" category="inline-link-macro-rx"></block>。</block>
   <block id="a705d9c4def0cc55ff217de6d14232c6" category="list-text">Kubernetes 1.20 ～ 1.23</block>
@@ -2118,7 +2080,6 @@
   <block id="02007100629a6c88678f302f0918ab86" category="list-title">クレデンシャルの編集やローテーションを行う手順</block>
   <block id="08972981c30d730f81d00e7d6e7709cb" category="list-text">新しいクレデンシャルを作成します。</block>
   <block id="f8be12e25cfcab7e808ca98f80a56433" category="section-title">バケットのクレデンシャルを削除する</block>
-  <block id="47b2c3588cbae505ee9eeaf0ad395f38" category="paragraph">バケットのクレデンシャルは、新しいクレデンシャルがバケットに適用されている場合やアクティブに使用されなくなった場合にのみ削除してください。</block>
   <block id="a31d0ea55a51bfbd5a603a8f5fa7a37a" category="admonition">Astra Control に追加する最初のクレデンシャルセットは、 Astra Control がバックアップバケットの認証にクレデンシャルを使用するため、常に使用されています。バケットがアクティブな状態で使用されている場合は、これらのクレデンシャルを削除しないでください。削除すると、バックアップが失敗してバックアップが使用できなくなります。</block>
   <block id="b2b8741126a8674edc86e6286a85c804" category="inline-link">バケットのクレデンシャル削除のトラブルシューティング</block>
   <block id="983be0b26fa308ee99003c55cac37fb5" category="admonition">アクティブなバケットクレデンシャルを削除する場合は、を参照してください<block ref="939cc867881057c221247142d6425e0a" category="inline-link-rx"></block>。</block>
@@ -2134,4 +2095,146 @@
   <block id="daee2a4caddb0f1fced149c9b185ab3e" category="paragraph">次に、仮想ネットワークの作成、コンピューティングインスタンスのセットアップ、Azure Blobコンテナの作成、Astra Control CenterイメージをホストするAzure Container Register（ACR）の作成、このレジストリへのイメージのプッシュを行うようにAzureを設定します。</block>
   <block id="52393bb21023d79ef4e0fa374e54b83d" category="list-text">Azure Virtual Networkの作成</block>
   <block id="5df56ab7fcd23252a7ac4c7a21742e57" category="list-text">バックアップを格納するAzure BLOBコンテナを少なくとも1つ作成します。</block>
+  <block id="89110f39cddf501c149d691e3219c46f" category="list-text">Astra は、 Trident が設定された ONTAP ストレージバックエンドまたは Astra データストアストレージバックエンドを使用して、 Kubernetes クラスタと連携します。</block>
+  <block id="97b4ab60412f0ac1b694143b04594cea" category="list-text">ONTAP またはを追加します<block ref="fc4f86eeee76cae2d1ef9200e442add9" category="inline-link-rx"></block> ストレージバックエンド：</block>
+  <block id="fa137497aee412183c61f5b8fc5b4e06" category="list-text">Astra Trident 21.10.1以降がインストールされ、Astraデータストアがストレージバックエンドとして使用される場合に設定されます</block>
+  <block id="918bc432b267e0783b861303d55f277d" category="paragraph">アプリケーションの管理を開始するには、 Kubernetes クラスタを追加し、コンピューティングリソースとして管理します。Kubernetes アプリケーションを検出するには、 Astra Control Center のクラスタを追加する必要があります。Astra データストアの場合は、 Astra データストアによってプロビジョニングされたボリュームを使用するアプリケーションを含む Kubernetes アプリケーションクラスタを追加します。</block>
+  <block id="07bb61072986729e824079c9eb528582" category="paragraph">ストレージバックエンドを追加して、 Astra Control がリソースを管理できるようにすることができます。管理対象クラスタにストレージバックエンドを導入するか、既存のストレージバックエンドを使用できます。</block>
+  <block id="eb33ac2274505b5f55f336ecd9e9a2d2" category="paragraph">ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。</block>
+  <block id="f8f5539f53262607b5f2bff0f2048a87" category="list-title">既存のAstraデータストアの導入に必要なもの</block>
+  <block id="bbcdee2c81617430cf13df9d72e93bd4" category="list-text">Kubernetesアプリケーションクラスタと基盤となるコンピューティングクラスタを追加しておきます。</block>
+  <block id="dc03b544598d0dfcfdee0b1fce2a4730" category="admonition">Astra Data Store用のKubernetesアプリケーションクラスタを追加し、Astra Controlによって管理されると、クラスタは検出されたバックエンドのリストに「unmanaged」と表示されます。次に、 Astra データストアを含むコンピューティングクラスタを追加し、 Kubernetes アプリケーションクラスタの基盤を構築する必要があります。これは、 UI の * Backends * から実行できます。クラスタの [Actions] メニューを選択し、 [`Manage] を選択して、およびを選択します <block ref="8c30ee7267ee6c93cf0c195b661c2cd2" category="inline-link-macro-rx"></block>。「 unmanaged 」のクラスタ状態が Kubernetes クラスタの名前に変わったら、バックエンドの追加に進むことができます。</block>
+  <block id="5f8f1c10343756cee5ac9c33e098132e" category="list-title">新しいAstraデータストアの導入に必要なもの</block>
+  <block id="e149dd131ab58984f98a85e4acdc17f3" category="inline-link-macro">導入するインストールバンドルのバージョンをアップロードしました</block>
+  <block id="371c46463ca3b465cd0a0b198363c17f" category="list-text">これで完了です <block ref="ce9e25f6db2a9b698807ac8ac2ea2d16" category="inline-link-macro-rx"></block> Astra Controlからアクセス可能な場所への移動。</block>
+  <block id="562a8ee2a8f15700012f29228a3198c7" category="list-text">導入に使用するKubernetesクラスタを追加しておきます。</block>
+  <block id="458428a2ebc28699f1238b3813b734ca" category="inline-xref">Astraデータストアライセンス</block>
+  <block id="6948cc91a6c54649d12ce002178db797" category="list-text">をアップロードしました <block ref="ca242e38061772769065e88579b2054b" category="inline-xref-macro-rx"></block> Astra Controlからアクセス可能な場所への導入をサポートします。</block>
+  <block id="dae8ace18bdcbcc6ae5aece263e14fe8" category="list-title">オプション（ Options ）</block>
+  <block id="46b48276edd178cc02652b2502748e9b" category="list-text"><block ref="21c89fb696a98da415ef141d4426f5b4" category="inline-xref-macro-rx"></block></block>
+  <block id="eac5db2451716c6e754c5629b4aba911" category="list-text"><block ref="9112bb0ebca556cf8f0b58b937197e52" category="inline-xref-macro-rx"></block></block>
+  <block id="14eab9a2db4a5049557d0fd1dec518f6" category="section-title">ストレージリソースを導入</block>
+  <block id="7ddc987aad918c3aa5c7681afd4f0ad1" category="paragraph">新しいAstraデータストアを導入して、関連するストレージバックエンドを管理できます。</block>
+  <block id="08f444eb9d655ac72bff7a8c7a156be4" category="list-text">ダッシュボードまたはバックエンドメニューから移動します。</block>
+  <block id="dfb9c23bbc7c2e16774a33629fda3206" category="list-text">ダッシュボードから*：リソースサマリからストレージバックエンドペインからリンクを選択し、バックエンドセクションから*追加*を選択します。</block>
+  <block id="676bdf86441ac2653b79a3ebf49e8358" category="list-text">Deploy *タブで* Astra Data Store *導入オプションを選択します。</block>
+  <block id="597be48d7babaac4ca80e69876b30416" category="list-text">導入するAstraデータストアパッケージを選択：</block>
+  <block id="aec23c9187f09f1b6efccd1defa7e90a" category="list-text">Astraデータストアアプリケーションの名前を入力します。</block>
+  <block id="16d3b970beca75a7d4d9291bf7630d08" category="list-text">導入するAstraデータストアのバージョンを選択します。</block>
+  <block id="76df88555116f4997612dbb2de76c67f" category="inline-link-macro">パッケージ管理</block>
+  <block id="c91338544c12c273ccf29dae0abc13f3" category="admonition">展開するバージョンをまだアップロードしていない場合は、*パッケージの追加*オプションを使用するか、ウィザードを終了してを使用できます <block ref="e91d3a69532f4acdfd68c74249de52b4" category="inline-link-macro-rx"></block> インストールバンドルをアップロードします。</block>
+  <block id="054467aebfccd30e1439657836085172" category="list-text">以前にアップロードしたAstraデータストアライセンスを選択するか、*ライセンスの追加*オプションを使用して、アプリケーションで使用するライセンスをアップロードします。</block>
+  <block id="9947bbb930c0833599055262eb533350" category="admonition">完全な権限を持つAstra Data StoreライセンスはKubernetesクラスタに関連付けられており、この関連クラスタは自動的に表示されるはずです。管理対象クラスタがない場合は、*クラスタの追加*オプションを選択してAstra Control管理に追加できます。Astra Data Storeライセンスの場合、ライセンスとクラスタの間に関連付けが行われていない場合は、ウィザードの次のページでこの関連付けを定義できます。</block>
+  <block id="b9ab366bc5de1ee421a3f42aebb6e744" category="list-text">KubernetesクラスタをAstra Control管理に追加していない場合は、* Kubernetes cluster *ページから追加する必要があります。リストから既存のクラスタを選択するか、「*基盤となるクラスタを追加」を選択してAstra Control管理用にクラスタを追加します。</block>
+  <block id="2c907290e05b9dae6669b08995fc334f" category="list-text">Astraデータストアにリソースを提供するKubernetesクラスタの導入テンプレートサイズを選択します。</block>
+  <block id="cf0567ca20b66234ddc139b3ae9e9ee2" category="admonition">テンプレートを選択する際は、大規模なワークロードにはメモリとコアが多く、小規模なワークロードにはノード数が多い大規模なノードを選択します。ライセンスで許可されている内容に基づいてテンプレートを選択する必要があります。各テンプレートオプションは、各ノードのメモリとコアおよび容量のテンプレートパターンを満たす、適格なノードの数を提案します。</block>
+  <block id="c71bdd7933746d7b616e6590ce5bc1e6" category="list-text">ノードを設定します。</block>
+  <block id="196e58f817fb76b922d42ae8cb507b84" category="list-text">ノードラベルを追加して、このAstraデータストアクラスタをサポートするワーカーノードのプールを特定します。</block>
+  <block id="dbe2804e146eaed331f5634b7987d4b7" category="admonition">このラベルは、Astraデータストアの導入に使用するクラスタ内の各ノードに追加してからでないと、導入や導入が失敗します。</block>
+  <block id="597e664d9c313b97f534759016885f81" category="list-text">ノードあたりの容量（GiB）を手動で設定するか、許容される最大ノード容量を選択します。</block>
+  <block id="9714572d5c62ef898444053c725f14f4" category="list-text">クラスタで許可される最大ノード数を設定するか、クラスタで許容される最大ノード数を設定します。</block>
+  <block id="f4d94ebe0ea637c0b8c179c1988331f9" category="list-text">（Astraデータストアフルライセンスのみ）保護ドメインに使用するラベルのキーを入力します。</block>
+  <block id="d034acb092111ab4de2380986529c1f1" category="admonition">各ノードのキーに対して、少なくとも3つの一意のラベルを作成します。たとえば'キーがastra.datastore.protection.domain`の場合は'astra.datastore.protection.domain=domain1`,`astra.datastore.protection.domain=domain2`およびastra.datastore.protection.domain=domain3`というラベルを作成できます</block>
+  <block id="fe243dd2cb4abaca6857f186347c3955" category="list-text">管理ネットワークを設定します。</block>
+  <block id="c025a4dd2f98cc089b3e6d845d68c39f" category="list-text">Astraデータストアの内部管理用の管理IPアドレスを入力します。このIPアドレスは、ワーカーノードのIPアドレスと同じサブネットにあります。</block>
+  <block id="d9336e58192e96a8929b9eaa33ab10c0" category="list-text">管理ネットワークとデータネットワークで同じNICを使用するか、または個別に設定します。</block>
+  <block id="ee35715999671aa777fffb12e79bc3fa" category="list-text">データネットワークのIPアドレスプール、サブネットマスク、ストレージアクセス用のゲートウェイを入力してください。</block>
+  <block id="13907c40c50b60592dab5f935efefdfa" category="list-text">設定を確認し、「* Deploy *」を選択してインストールを開始します。</block>
+  <block id="956419482d3a1dd60147a8112ee9d44a" category="paragraph">インストールが正常に完了すると、バックエンドはアクティブなパフォーマンス情報とともにバックエンドリストに「Available」状態で表示されます。</block>
+  <block id="1367edd6c20df9b4f12b0a42dda9848f" category="section-title">既存のストレージバックエンドを使用する</block>
+  <block id="cc554fa05cd0e6f33901ad854991ed9b" category="paragraph">検出されたONTAP またはAstraデータストアのストレージバックエンドをAstra Control Center管理に組み込むことができます。</block>
+  <block id="697006fa33c54f166cb7f597861b31be" category="list-text">管理対象クラスタから検出されたバックエンドで* Manage *を選択するか、* Add *を選択して追加の既存バックエンドを管理します。</block>
+  <block id="95bb1f6fc6c0566a462d54ff7d82a31b" category="list-text">「* Astra Data Store *」を選択します。</block>
+  <block id="d3fff538538992ab275610d9ab9fc8fe" category="list-text">バックエンドの詳細を確認し、「Add storage backend *」を選択します。</block>
+  <block id="3a8637e581240d33340d3e6f8927a52d" category="list-text">「* ONTAP *」を選択します。</block>
+  <block id="1acdd4dfb3c47f47b9b3897e8d3325f4" category="inline-link-macro">Astraデータストアに関する注意事項</block>
+  <block id="fdb93feaa2c6123b98a32fa7804c91f8" category="list-text"><block ref="fdb93feaa2c6123b98a32fa7804c91f8" category="inline-link-macro-rx"></block></block>
+  <block id="35766360770e699f50fa8f51d1c6ff36" category="doc">Astra Controlの詳細をご確認ください</block>
+  <block id="a4680eb9fa1582cab96754589680065b" category="list-text">[*基本情報*]では、インストールされているライセンスのタイプを確認できます。</block>
+  <block id="da41fa69f81a24e015fab366b0caf0cf" category="list-text">[ライセンスの更新*]ページで、次のいずれかを実行します。</block>
+  <block id="5e33a12bc16d66724cc09b67c72dbf73" category="cell">ライセンスステータス</block>
+  <block id="004bf6c9a40003140292e97330236c53" category="cell">アクション</block>
+  <block id="0ebc865688ac84bd01bec7d7b4761f9a" category="cell">Astraデータストアに少なくとも1つのライセンスが追加されている。</block>
+  <block id="17ec870bf13b808b4960a96bb617abb9" category="paragraph">リストからライセンスを選択します。</block>
+  <block id="25c87085115cd9f361d6c891eea68f96" category="cell">Astraデータストアにライセンスが追加されていない。</block>
+  <block id="da1e98dc49123864bfa24e00c323c4de" category="list-text">[*追加（Add *）]ボタンを選択します。</block>
+  <block id="9ed83fc36c5339f8ef4956aebfa3e02e" category="list-text">アップロードするライセンスファイルを選択してください。</block>
+  <block id="fb32cd0ea7e3744a722a981f0618c8a8" category="list-text">「*追加」を選択して、ライセンスファイルをアップロードします。</block>
+  <block id="41c6b2124485566dfdffb7497c5c575c" category="summary">Astra Control Centerにパッケージをアップロードしてインストールできます。</block>
+  <block id="34995c0b7b3605616ca699a218578506" category="doc">リポジトリ接続を管理します</block>
+  <block id="917d0bb268e2c38e9d5edc010a23df45" category="paragraph">ソフトウェアパッケージのインストールイメージやアーティファクトの参照として使用するリポジトリをAstra Controlに接続できます。ソフトウェアパッケージをインポートすると、Astra Controlは、イメージリポジトリ内のインストールイメージと、アーティファクトリポジトリ内のバイナリおよびその他のアーティファクトを参照します。</block>
+  <block id="6995185986444f5433b5959c9571c405" category="list-text">アクセス可能な稼働中のDockerリポジトリ</block>
+  <block id="44e4bcec2ed6d13ac6ad2a367f2db51c" category="list-text">アクセス可能なアーティファクトリポジトリ（Artifactoryなど）が実行されている必要があります</block>
+  <block id="e7c0f6f6d040c5a03a881c2ca91f03f7" category="section-title">Dockerイメージリポジトリを接続する</block>
+  <block id="a1df89e0f4bd63fee4296afbb85b610d" category="paragraph">Dockerイメージリポジトリを接続して、Astraデータストアなどのパッケージインストールイメージを保持できます。パッケージをインストールすると、Astra Controlはイメージリポジトリからパッケージイメージファイルをインポートします。</block>
+  <block id="947b6aeb064e43a1220d233b58bd6019" category="list-text">[*接続*（Connections *）]タブを選択します。</block>
+  <block id="62f6dbc3561d757215911e5b66302815" category="list-text">「* Docker Image Repository *」セクションで、右上のメニューを選択します。</block>
+  <block id="3eacc67b9e94130b9c939109be6a82d5" category="list-text">リポジトリのURLとポートを追加します。</block>
+  <block id="2c90eeb5d4b8aedff1dbe87bf0178bb8" category="list-text">認証が必要な場合は、*認証を使用*チェックボックスを有効にして、リポジトリのクレデンシャルを入力します。</block>
+  <block id="9fd3141d50ea9c4a63199f4a30de4ae4" category="paragraph">リポジトリが接続されました。「* Docker Image Repository *」セクションに、リポジトリのステータスが「Connected」になっていることを確認します。</block>
+  <block id="46cded6b636ad30dd75c44dfd45f5cde" category="section-title">Dockerイメージリポジトリの接続を解除する</block>
+  <block id="96261d42d312a0d903df883ab5869abb" category="paragraph">不要になったDockerイメージリポジトリへの接続を削除できます。</block>
+  <block id="4230b528c751be001043bf90304b82d6" category="list-text">「*切断*」を選択します。</block>
+  <block id="2d2d24a8953783d150de3da549808807" category="list-text">「* Yes、disconnect Docker image repository *」を選択します。</block>
+  <block id="a290478b8ef175d2a130f208f09d5000" category="paragraph">リポジトリが切断されました。「* Docker Image Repository *」セクションには、リポジトリのステータスが「Disconnected」になっているはずです。</block>
+  <block id="d7351c5a932a1232bcdd2bbd88253bce" category="section-title">アーティファクトリポジトリを接続します</block>
+  <block id="d54de9ccfd0a2952012a22848e14b530" category="paragraph">アーティファクトリポジトリをソフトウェアパッケージのバイナリなどのホストアーティファクトに接続できます。パッケージをインストールすると、Astra Controlによって、ソフトウェアパッケージのアーティファクトがイメージリポジトリからインポートされます。</block>
+  <block id="5c360025d1b6d66c4f618b5ba99defd7" category="list-text">[アーティファクトリポジトリ*]セクションで'右上のメニューを選択します</block>
+  <block id="1db2048bfc2d747d8bc6cf146db2bbbe" category="paragraph">リポジトリが接続されました。[アーティファクトリポジトリ*]セクションで'リポジトリに[接続済み]ステータスが表示されるはずです</block>
+  <block id="0fed6f8450a54370757bce6f3d96128c" category="section-title">アーティファクトリポジトリの接続を解除します</block>
+  <block id="d5eb1d7f67e82cda0cfde787bd2e3d6c" category="paragraph">不要になったアーティファクトリポジトリへの接続を削除できます</block>
+  <block id="9d10bea41ced64f74831039bb561dfc7" category="list-text">[はい]を選択し'アーティファクト・リポジトリを切断します*</block>
+  <block id="e654dafeadeb54ed6762c77fe01aafe9" category="paragraph">リポジトリが切断されました。[アーティファクトリポジトリ*]セクションで'リポジトリに[接続済み]ステータスが表示されるはずです</block>
+  <block id="0487f0495bc8eb403584fca5cb73b48a" category="inline-link-macro">ソフトウェアパッケージを管理します</block>
+  <block id="681458536636d04eeb1a702aa3539f21" category="list-text"><block ref="681458536636d04eeb1a702aa3539f21" category="inline-link-macro-rx"></block></block>
+  <block id="26dae90e3a5699447c13a6b61982b521" category="paragraph">ネットアップでは、ネットアップサポートサイトからダウンロード可能なソフトウェアパッケージを使用して、Astra Control Center向けの機能を追加しています。Dockerとアーティファクトのリポジトリを接続したら、パッケージをアップロードしてインポートし、この機能をAstra Control Centerに追加できます。CLIまたはAstra Control CenterのWeb UIを使用して、ソフトウェアパッケージを管理できます。</block>
+  <block id="c236eea9ef9081e645ecb4497a3c05ce" category="list-text">ソフトウェアパッケージイメージを格納するために接続されたDockerイメージリポジトリ。詳細については、を参照してください <block ref="70e5c10b1699fd43bcc41dd27e493e57" category="inline-link-macro-rx"></block>。</block>
+  <block id="e403b6f2306f02333fd7ef7221f85040" category="list-text">ソフトウェアパッケージのバイナリやアーティファクトを保持するための、接続されたアーティファクトリポジトリ。詳細については、を参照してください <block ref="70e5c10b1699fd43bcc41dd27e493e57" category="inline-link-macro-rx"></block>。</block>
+  <block id="3aa4078371fb9b0c4a3e6c177942f01d" category="list-text">ネットアップサポートサイトから提供されるソフトウェアパッケージ</block>
+  <block id="821446301df86887f14a587de1046311" category="section-title">ソフトウェアパッケージをリポジトリにアップロードします</block>
+  <block id="1861208871c49f3fafbdd2b1baedad6a" category="paragraph">Astra Control Centerは、接続されたリポジトリ内のパッケージイメージとアーティファクトを参照します。CLIを使用して、リポジトリにイメージとアーティファクトをアップロードできます。</block>
+  <block id="8a0c00d15eb4f3a9a8a6c659a1d7c576" category="list-text">ネットアップサポートサイトからソフトウェアパッケージをダウンロードし、「kubectl」ユーティリティがインストールされているマシンに保存します。</block>
+  <block id="a5d15ab770cd44d363e7f95fd16d0a4b" category="list-text">圧縮されたパッケージファイルを展開し、ディレクトリをAstra Controlバンドルファイルの場所に変更します（例：「acc.manifest .bundle.yaml」）。</block>
+  <block id="af2248b7281e83a45508e2ec7c9356ea" category="list-text">パッケージイメージをDockerリポジトリにプッシュします。次の置換を行います。</block>
+  <block id="109f9842fb9259a1de20c1577339c28c" category="list-text">bundle_fileをAstra Controlバンドルファイルの名前に置き換えます。</block>
+  <block id="48c5334862569a4217279192a534b20a" category="list-text">my_registryをDockerリポジトリのURLに置き換えます。</block>
+  <block id="da5ff2a96a29f48c8c4ffcf756aada4e" category="list-text">my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます</block>
+  <block id="873e5b0189688b130064268c0c68de0b" category="list-text">パッケージアーティファクトをアーティファクトリポジトリにコピーしますbundle_fileをAstra Controlバンドルファイルの名前に置き換え'network_locationをネットワークロケーションに置き換えて'アーティファクトファイルを次の場所にコピーします</block>
+  <block id="82a16926420b6ee2d26a80442a3db7ae" category="section-title">ソフトウェアパッケージを追加します</block>
+  <block id="5801238264a16600dd0ab813e21d2cd9" category="paragraph">Astra Control Centerバンドルファイルを使用して、ソフトウェアパッケージをインポートできます。これにより、パッケージがインストールされ、Astra Control Centerで使用できるようになります。</block>
+  <block id="ab1a0888acffbae43d2539e8dbc89a9d" category="section-title">Astra Control Web UIを使用してソフトウェアパッケージを追加</block>
+  <block id="896776e8feb543ce7e9cbdcee7dd60a9" category="paragraph">Astra Control Center Web UIを使用して、接続されたリポジトリにアップロードされたソフトウェアパッケージを追加できます。</block>
+  <block id="f1be192bd49b3cbda9db469b861871fc" category="list-text">[*パッケージ*]タブを選択します。</block>
+  <block id="01dc3774aa73ad8d887097cb8219fd86" category="list-text">ファイル選択ダイアログで、アップロードアイコンを選択します。</block>
+  <block id="e0abb0e6602d13f1d5dab2daf459ce78" category="list-text">アップロードするAstra Controlバンドルファイルを「.yaml」形式で選択します。</block>
+  <block id="30731fce07bd1fc48191b64d59deac14" category="paragraph">バンドルファイルが有効で、パッケージイメージとアーティファクトが接続されているリポジトリにある場合、パッケージはAstra Control Centerに追加されます。[ステータス*]列のステータスが[使用可能*]に変わったら、パッケージを使用できます。パッケージのステータスにカーソルを合わせると、詳細を確認できます。</block>
+  <block id="f9ba0eda4f991c722f987cf4ea3a812e" category="admonition">リポジトリ内にパッケージのイメージまたはアーティファクトが1つでも見つからない場合は'そのパッケージのエラーメッセージが表示されます</block>
+  <block id="b4c542701e978aaad0f69de8fe42cb55" category="section-title">CLIを使用してソフトウェアパッケージを追加します</block>
+  <block id="6e44d06482be8e79ed142e445a15d4e6" category="paragraph">CLIを使用して、接続されたリポジトリにアップロードしたソフトウェアパッケージをインポートできます。そのためには、最初にAstra Control CenterのアカウントIDとAPIトークンを記録する必要があります。</block>
+  <block id="fa4b9acbac7c43e5402548abeb02f960" category="list-text">Webブラウザを使用して、Astra Control Center Web UIにログインします。</block>
+  <block id="4b37e02dfa574bb3e9129e38b3850393" category="list-text">ダッシュボードの右上にあるユーザアイコンを選択します。</block>
+  <block id="28478864077d4a55fa88e064f317cc13" category="list-text">[API access*]を選択します。</block>
+  <block id="0ece686d675a0e57009c57a97688af8b" category="list-text">画面上部のアカウントIDをメモします。</block>
+  <block id="a23600f50dab13161c6e99ea4d6488e7" category="list-text">[APIトークンの生成]を選択します。</block>
+  <block id="56a0897f95e899c3e49ee8e27649b365" category="list-text">表示されたダイアログで、* APIトークンの生成*を選択します。</block>
+  <block id="f89f3e07532867b8676ace707d29c174" category="list-text">生成されたトークンをメモし、*閉じる*を選択します。CLIで、展開されたパッケージの内容の中で、ディレクトリを「.yaml」バンドルファイルの場所に変更します。</block>
+  <block id="8a4e92913adf07f40baa051841e42594" category="list-text">バンドルファイルを使用してパッケージをインポートし、次のように置き換えます。</block>
+  <block id="13bdd52149987d6235f8110b85d10e90" category="list-text">serverをAstra ControlインスタンスのDNS名に置き換えます。</block>
+  <block id="55d3ede0ad36838477b18f3237142ff4" category="list-text">account_IDとtokenは、以前に記録したアカウントIDとAPIトークンに置き換えてください。</block>
+  <block id="236c70eff76d85ba5d492b545a1f4a40" category="paragraph">バンドルファイルが有効で、パッケージイメージとアーティファクトが接続されているリポジトリにある場合、パッケージはAstra Control Centerに追加されます。</block>
+  <block id="da0fadc656f4ccc74a03023158d6eed6" category="section-title">ソフトウェアパッケージを削除します</block>
+  <block id="6999d3f0aa7b059b10136d77fa64d5c9" category="paragraph">Astra Control Center Web UIを使用して、Astra Control Centerに以前にインポートしたソフトウェアパッケージを削除できます。</block>
+  <block id="4886c9d566b2f27922911fe0da4ffc73" category="paragraph">このページには、インストールされているパッケージとそのステータスのリストが表示されます。</block>
+  <block id="7d690a25043051913957548b66947103" category="list-text">パッケージの*アクション*列で、アクションメニューを開きます。</block>
+  <block id="5c1a90f55380a450fff0fdefedbdecc0" category="paragraph">パッケージはAstra Control Centerから削除されますが、パッケージのイメージとアーティファクトはリポジトリに残ります。</block>
+  <block id="70e5c10b1699fd43bcc41dd27e493e57" category="list-text"><block ref="70e5c10b1699fd43bcc41dd27e493e57" category="inline-link-macro-rx"></block></block>
+  <block id="cea7924acf8d3c8a75f4abdda00f5229" category="paragraph">バケットのクレデンシャルを削除するのは、新しいクレデンシャルがバケットに適用されている場合やバケットがアクティブに使用されなくなった場合だけにしてください。</block>
+  <block id="ddc02a40e74b8c01e69864a1bba6a3f7" category="inline-link-macro">Astra Data Store およびこの Astra Control Center リリースでの既知の問題</block>
+  <block id="149f42af15b65ad0999339db3936d2df" category="list-text"><block ref="149f42af15b65ad0999339db3936d2df" category="inline-link-macro-rx"></block></block>
+  <block id="484d77b3bea70db59bbc245217b42578" category="inline-link-macro">Astra Control CenterからAstra Storeを導入</block>
+  <block id="a62e8d130d7ff1f207f36203d80de75d" category="list-text"><block ref="a62e8d130d7ff1f207f36203d80de75d" category="inline-link-macro-rx"></block></block>
+  <block id="1394793485c038a7492d0d7a8dec3919" category="inline-link">これらの既知の問題を参照してください</block>
+  <block id="c39c062b458656cdf3c9c374e86f4fdd" category="paragraph"><block ref="8073f6655f8c45390fcb4595835fbf06" category="inline-link-rx"></block> これは、Astra Control Centerの最新リリースでAstraデータストアの管理に影響を与える可能性があります。</block>
+  <block id="042ad0dc0362e73320e5850115e17224" category="sidebar">Astra データストアを使用</block>
+  <block id="f0b65328b01ef9e6301a81ee7e9ed23f" category="sidebar">Astra データストアのクイックスタート</block>
 </blocks>

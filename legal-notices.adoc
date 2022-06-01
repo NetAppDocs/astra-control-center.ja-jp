@@ -48,7 +48,7 @@ https://www.netapp.com/us/legal/privacypolicy/index.aspx[]
 通知ファイルには、ネットアップソフトウェアで使用されるサードパーティの著作権およびライセンスに関する情報が記載されています。
 
 * link:NOTICE_AstraControlCenter_22.04.0.pdf["Astra Control Center へのお知らせ"^]
-* link:NOTICE_AstraDataStore_Preview_21.12.pdf["Astra データストアのプレビュー版に注目してください"]
+* link:NOTICE_AstraDataStore.pdf["Astraデータストアに関する注意事項"]
 
 
 

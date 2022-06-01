@@ -381,7 +381,6 @@ NOTE: サービスタイプ「 LoadBalancer 」および入力の詳細につい
 
 
 
-.. （ Astra データストアプレビューを使用する環境の場合）この問題 for を参照してください link:../release-notes/known-issues-ads.html#astra-data-store-cannot-be-used-as-a-storage-class-for-astra-control-center-due-to-mongodb-pod-liveness-probe-failure["その他の必要な変更"] YAML へ。
 
 
 +
