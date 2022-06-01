@@ -18,7 +18,7 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 == 2022 年 4 月 26 日（ 22.04.0 ）
 
 .新機能とサポート
-* link:../get-started/setup_overview.html#add-a-storage-backend["Astra Control CenterからAstra Storeを導入"]
+* link:../get-started/setup_overview.html#add-a-storage-backend["Astra Control CenterからAstraデータストアを導入"]
 * link:../concepts/user-roles-namespaces.html["ネームスペースのロールベースアクセス制御（ RBAC ）"]
 * link:../get-started/install_acc-cvo.html["Cloud Volumes ONTAP のサポート"]
 * link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center の一般的な入力イネーブルメント"]
