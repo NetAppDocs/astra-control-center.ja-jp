@@ -257,13 +257,13 @@ additionalValues:
 +
 [listing]
 ----
-ingressType:AccTraefik
+ingressType: AccTraefik
 ----
 .. デフォルトの Astra Control Center の一般的な入力配置に切り替える場合は、独自の IngressController/Ingress セットアップ（ TLS 終端など）を指定し、 Astra Control Center へのルートを開き、「 ingressType 」を「 Generic 」に設定します。
 +
 [listing]
 ----
-ingressType:Generic
+ingressType: Generic
 ----
 +
 
