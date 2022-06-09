@@ -64,10 +64,10 @@ TIP: 他のクラスタを Astra Control Center に追加して管理する前�
 
 [NOTE]
 ====
-Astra Control は、クラスタを管理するときに、クラスタのデフォルトのストレージクラスを追跡します。'kubectl' コマンドを使用して StorageClass を変更すると 'Astra Control は変更を元に戻しますAstra Control によって管理されるクラスタのデフォルトの StorageClass を変更するには、次のいずれかの方法を使用します。
+Astra Controlは、クラスタを管理する際に、クラスタのデフォルトストレージクラスを追跡します。'kubectl'コマンドを使用してストレージ・クラスを変更すると'Astra Controlは変更を元に戻しますAstra Controlで管理されるクラスタのデフォルトのストレージクラスを変更するには、次のいずれかの方法を使用します。
 
-* Astra Control API'put/managedClusters' エンドポイントを使用して 'DefaultStorageClass' パラメータを指定して ' 別のデフォルト StorageClass を割り当てます
-* Astra Control 管理からクラスタを削除し、別のデフォルトの StorageClass を選択して追加し直します
+* Astra Control APIのPut / managedClustersエンドポイントを使用し'DefaultStorageClass'パラメータを指定して'別のデフォルトストレージクラスを割り当てます
+* Astra Control Web UIを使用して、別のデフォルトストレージクラスを割り当てます。を参照してください <<Change the default storage class>>。
 
 
 ====
@@ -309,6 +309,21 @@ S3 アクセスクレデンシャルはいつでも追加できます。
 .. クリップボードからコンテンツを貼り付けて、アクセス ID とシークレットキーを入力します。
 
 
+
+
+
+
+== デフォルトのストレージクラスを変更する
+
+クラスタのデフォルトのストレージクラスは変更できます。
+
+.手順
+. Astra Control Center Web UIで、[* Clusters]を選択します。
+. [* Clusters]ページで、変更するクラスタを選択します。
+. [ * ストレージ * ] タブを選択します。
+. 「*ストレージクラス*」カテゴリを選択します。
+. デフォルトとして設定するストレージクラスの* Actions *メニューを選択します。
+. 「*デフォルトに設定*」を選択します。
 
 
 
