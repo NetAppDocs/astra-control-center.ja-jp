@@ -1665,7 +1665,6 @@
   <block id="49a5fe5a11a3f89e6ce2bdb0d993a92e" category="list-text">Loadbalancer から Traefik が clusterIP に変更されていることを確認します</block>
   <block id="3ef629e9d6f3a23bce33043010ba433a" category="list-text">Traefik でルートを確認します。</block>
   <block id="76b9a5e1321457e9d8940ea50879ff62" category="admonition">結果は空である必要があります。</block>
-  <block id="3fad3494aa5c58ccad4607e93c084418" category="list-text">リストアを続行する前に、アプリケーションのスナップショットを作成するか、バックアップを作成することを強く推奨します。リストアに失敗した場合に、 Snapshot またはバックアップからクローニングできます。</block>
   <block id="e1392cd5a84b9e2661cec2830d5c10bf" category="list-text">リストア元のスナップショットまたはバックアップの [* アクション * ] 列の [ オプション ] メニューから、 [ * アプリケーションのリストア * ] を選択します。</block>
   <block id="8f6edaa349d35c7c626f3add19e2eefd" category="list-text">無効にするフックの * アクション * 列のオプションメニューを選択します。</block>
   <block id="4e75c1131e25cc31233d420f5e02fca7" category="list-text">削除するフックの * アクション * 列のオプションメニューを選択します。</block>
@@ -2244,4 +2243,7 @@
   <block id="b4789b0ec041cd5e51f32c2f901a0951" category="list-text">「*デフォルトに設定*」を選択します。</block>
   <block id="6a76517aff3e7c512c0367b12342145c" category="section-title">ソフトウェアパッケージのイメージをリポジトリにアップロードします</block>
   <block id="e098894ec3d131e5a95bb73b789f7ab5" category="list-text">次のスクリプトを実行して、パッケージイメージをDockerリポジトリにプッシュします。「registry」変数の値を、独自のレジストリのURLに置き換えます。</block>
+  <block id="f667e2a184f6b549b4a1c647af94d494" category="list-text">アプリケーションをリストアする前に、アプリケーションのスナップショットを作成するか、バックアップすることを強くお勧めします。リストアに失敗した場合に、Snapshotまたはバックアップからクローニングできます。</block>
+  <block id="f2ab44c105acc97c54a227f6c52ad099" category="admonition">以前に削除したネームスペースにリストアすると、同じ名前の新しいネームスペースがリストアプロセスで作成されます。以前に削除したネームスペースでアプリケーションを管理する権限を持つユーザは、新しく作成したネームスペースに手動で権限を復元する必要があります。</block>
+  <block id="cc35f1f52bd3c3e89d57573e14a02129" category="admonition">データ保護処理（クローン、バックアップ、リストア）が完了して永続ボリュームのサイズが変更されたあと、Web UIに新しいボリュームサイズが表示されるまでに最大20分かかります。データ保護処理にかかる時間は数分です。また、ストレージバックエンドの管理ソフトウェアを使用してボリュームサイズの変更を確認できます。</block>
 </blocks>
