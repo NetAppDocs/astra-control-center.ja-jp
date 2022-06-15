@@ -2187,15 +2187,10 @@
   <block id="c236eea9ef9081e645ecb4497a3c05ce" category="list-text">ソフトウェアパッケージイメージを格納するために接続されたDockerイメージリポジトリ。詳細については、を参照してください <block ref="70e5c10b1699fd43bcc41dd27e493e57" category="inline-link-macro-rx"></block>。</block>
   <block id="e403b6f2306f02333fd7ef7221f85040" category="list-text">ソフトウェアパッケージのバイナリやアーティファクトを保持するための、接続されたアーティファクトリポジトリ。詳細については、を参照してください <block ref="70e5c10b1699fd43bcc41dd27e493e57" category="inline-link-macro-rx"></block>。</block>
   <block id="3aa4078371fb9b0c4a3e6c177942f01d" category="list-text">ネットアップサポートサイトから提供されるソフトウェアパッケージ</block>
-  <block id="821446301df86887f14a587de1046311" category="section-title">ソフトウェアパッケージをリポジトリにアップロードします</block>
   <block id="1861208871c49f3fafbdd2b1baedad6a" category="paragraph">Astra Control Centerは、接続されたリポジトリ内のパッケージイメージとアーティファクトを参照します。CLIを使用して、リポジトリにイメージとアーティファクトをアップロードできます。</block>
   <block id="8a0c00d15eb4f3a9a8a6c659a1d7c576" category="list-text">ネットアップサポートサイトからソフトウェアパッケージをダウンロードし、「kubectl」ユーティリティがインストールされているマシンに保存します。</block>
   <block id="a5d15ab770cd44d363e7f95fd16d0a4b" category="list-text">圧縮されたパッケージファイルを展開し、ディレクトリをAstra Controlバンドルファイルの場所に変更します（例：「acc.manifest .bundle.yaml」）。</block>
-  <block id="af2248b7281e83a45508e2ec7c9356ea" category="list-text">パッケージイメージをDockerリポジトリにプッシュします。次の置換を行います。</block>
   <block id="109f9842fb9259a1de20c1577339c28c" category="list-text">bundle_fileをAstra Controlバンドルファイルの名前に置き換えます。</block>
-  <block id="48c5334862569a4217279192a534b20a" category="list-text">my_registryをDockerリポジトリのURLに置き換えます。</block>
-  <block id="da5ff2a96a29f48c8c4ffcf756aada4e" category="list-text">my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます</block>
-  <block id="873e5b0189688b130064268c0c68de0b" category="list-text">パッケージアーティファクトをアーティファクトリポジトリにコピーしますbundle_fileをAstra Controlバンドルファイルの名前に置き換え'network_locationをネットワークロケーションに置き換えて'アーティファクトファイルを次の場所にコピーします</block>
   <block id="82a16926420b6ee2d26a80442a3db7ae" category="section-title">ソフトウェアパッケージを追加します</block>
   <block id="5801238264a16600dd0ab813e21d2cd9" category="paragraph">Astra Control Centerバンドルファイルを使用して、ソフトウェアパッケージをインポートできます。これにより、パッケージがインストールされ、Astra Control Centerで使用できるようになります。</block>
   <block id="ab1a0888acffbae43d2539e8dbc89a9d" category="section-title">Astra Control Web UIを使用してソフトウェアパッケージを追加</block>
@@ -2247,4 +2242,6 @@
   <block id="a57d95e33fbdffe3b4bd71d5b0be74cd" category="list-text">「*ストレージクラス*」カテゴリを選択します。</block>
   <block id="b76660fac98aeb4fc46b77e989e6d8b0" category="list-text">デフォルトとして設定するストレージクラスの* Actions *メニューを選択します。</block>
   <block id="b4789b0ec041cd5e51f32c2f901a0951" category="list-text">「*デフォルトに設定*」を選択します。</block>
+  <block id="6a76517aff3e7c512c0367b12342145c" category="section-title">ソフトウェアパッケージのイメージをリポジトリにアップロードします</block>
+  <block id="e098894ec3d131e5a95bb73b789f7ab5" category="list-text">次のスクリプトを実行して、パッケージイメージをDockerリポジトリにプッシュします。「registry」変数の値を、独自のレジストリのURLに置き換えます。</block>
 </blocks>
