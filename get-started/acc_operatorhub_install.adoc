@@ -34,8 +34,8 @@ oc get apiservices
 
 
 .手順
-* <<Download the Astra Control Center bundle>>
-* <<Unpack the bundle and change directory>>
+* <<Download and unpack the Astra Control Center bundle>>
+* <<Install the NetApp Astra kubectl plugin>>
 * <<Add the images to your local registry>>
 * <<Find the operator install page>>
 * <<Install the operator>>
@@ -44,7 +44,7 @@ oc get apiservices
 
 
 
-== Astra Control Center バンドルをダウンロードします
+== Astra Control Centerバンドルをダウンロードして開梱します
 
 . から Astra Control Center バンドル（「 Astra - control-ccenter-[version].tar.gz` ）をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
 . から Astra Control Center 証明書とキーの zip をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
@@ -54,23 +54,34 @@ oc get apiservices
 ----
 openssl dgst -sha256 -verify astra-control-center[version].pub -signature <astra-control-center[version].sig astra-control-center[version].tar.gz
 ----
-
-
-
-
-== バンドルを開梱し、ディレクトリを変更します
-
 . 画像を抽出します。
 +
 [listing]
 ----
 tar -vxzf astra-control-center-[version].tar.gz
 ----
-. Astra ディレクトリに移動します。
+
+
+
+
+== ネットアップAstra kubectlプラグインをインストール
+
+NetApp Astra 'kubectl'コマンド・ライン・プラグインは'Astra Control Centerの導入とアップグレードに関連する一般的なタスクを実行する際に時間を節約します
+
+ネットアップでは、プラグイン用のバイナリを提供しており、CPUアーキテクチャやオペレーティングシステムが異なる場合はそのプラグインをこのタスクを実行する前に、使用しているCPUとオペレーティングシステムを把握しておく必要があります。LinuxおよびMacオペレーティングシステムでは、「uname -a」コマンドを使用してこの情報を収集できます。
+
+.手順
+. 使用可能なNetApp Astra 'kubectl'プラグイン・バイナリを列挙し'オペレーティング・システムとCPUアーキテクチャに必要なファイル名を書き留めます
 +
 [listing]
 ----
-cd astra-control-center-[version]
+ls kubectl-astra/
+----
+. ファイルを標準のkubectl'ユーティリティと同じ場所にコピーしますこの例では'kubectl'ユーティリティは'/usr/local/bin'ディレクトリにあります「<binary-name>」を必要なファイル名に置き換えます。
++
+[listing]
+----
+cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 ----
 
 
@@ -78,6 +89,12 @@ cd astra-control-center-[version]
 
 == イメージをローカルレジストリに追加します
 
+. Astraディレクトリに移動します。
++
+[listing]
+----
+cd acc
+----
 . Astra Control Center イメージディレクトリ内のファイルをローカルレジストリに追加します。
 +
 
