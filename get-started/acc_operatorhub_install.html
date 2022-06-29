@@ -1057,7 +1057,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-13 06:45:11 +0000">04/13/2022</time>
+    <time datetime="2022-06-29 17:06:46 +0000">06/29/2022</time>
     
   
 
@@ -1106,10 +1106,10 @@
 <div class="title">手順</div>
 <ul>
 <li>
-<p><a href="#Download the Astra Control Center bundle">[Download the Astra Control Center bundle]</a></p>
+<p><a href="#Download and unpack the Astra Control Center bundle">[Download and unpack the Astra Control Center bundle]</a></p>
 </li>
 <li>
-<p><a href="#Unpack the bundle and change directory">[Unpack the bundle and change directory]</a></p>
+<p><a href="#Install the NetApp Astra kubectl plugin">[Install the NetApp Astra kubectl plugin]</a></p>
 </li>
 <li>
 <p><a href="#Add the images to your local registry">[Add the images to your local registry]</a></p>
@@ -1128,7 +1128,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-control-center-バンドルをダウンロードします">Astra Control Center バンドルをダウンロードします</h2>
+<h2 id="astra-control-centerバンドルをダウンロードして開梱します">Astra Control Centerバンドルをダウンロードして開梱します</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -1146,15 +1146,6 @@
 </div>
 </div>
 </li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="バンドルを開梱しディレクトリを変更します">バンドルを開梱し、ディレクトリを変更します</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
 <li>
 <p>画像を抽出します。</p>
 <div class="listingblock">
@@ -1163,11 +1154,35 @@
 </div>
 </div>
 </li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ネットアップastra-kubectlプラグインをインストール">ネットアップAstra kubectlプラグインをインストール</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetApp Astra 'kubectl&#8217;コマンド・ライン・プラグインは&#8217;Astra Control Centerの導入とアップグレードに関連する一般的なタスクを実行する際に時間を節約します</p>
+</div>
+<div class="paragraph">
+<p>ネットアップでは、プラグイン用のバイナリを提供しており、CPUアーキテクチャやオペレーティングシステムが異なる場合はそのプラグインをこのタスクを実行する前に、使用しているCPUとオペレーティングシステムを把握しておく必要があります。LinuxおよびMacオペレーティングシステムでは、「uname -a」コマンドを使用してこの情報を収集できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
 <li>
-<p>Astra ディレクトリに移動します。</p>
+<p>使用可能なNetApp Astra 'kubectl&#8217;プラグイン・バイナリを列挙し&#8217;オペレーティング・システムとCPUアーキテクチャに必要なファイル名を書き留めます</p>
 <div class="listingblock">
 <div class="content">
-<pre>cd astra-control-center-[version]</pre>
+<pre>ls kubectl-astra/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>ファイルを標準のkubectl&#8217;ユーティリティと同じ場所にコピーしますこの例では&#8217;kubectl&#8217;ユーティリティは'/usr/local/bin&#8217;ディレクトリにあります「&lt;binary-name&gt;」を必要なファイル名に置き換えます。</p>
+<div class="listingblock">
+<div class="content">
+<pre>cp kubectl-astra/&lt;binary-name&gt; /usr/local/bin/kubectl-astra</pre>
 </div>
 </div>
 </li>
@@ -1180,6 +1195,14 @@
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Astraディレクトリに移動します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>cd acc</pre>
+</div>
+</div>
+</li>
 <li>
 <p>Astra Control Center イメージディレクトリ内のファイルをローカルレジストリに追加します。</p>
 <div class="admonitionblock note">
