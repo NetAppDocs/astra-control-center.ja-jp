@@ -2255,4 +2255,5 @@
   <block id="48c5334862569a4217279192a534b20a" category="list-text">my_registryをDockerリポジトリのURLに置き換えます。</block>
   <block id="da5ff2a96a29f48c8c4ffcf756aada4e" category="list-text">my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます</block>
   <block id="25d79c61a8c2cf8672fbd0f32f9bfc13" category="list-text">パッケージにアーティファクトがある場合は'アーティファクトをアーティファクトリポジトリにコピーしますbundle_fileをAstra Controlバンドルファイルの名前に置き換え'network_locationをネットワークロケーションに置き換えて'アーティファクトファイルを次の場所にコピーします</block>
+  <block id="2707211a1bc867b58edced6b3def5b35" category="list-text">リポジトリのクレデンシャルを入力します。</block>
 </blocks>
