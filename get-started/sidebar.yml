@@ -11,6 +11,13 @@ entries:
   entries:
   - title: Astra Control Center をインストールします
     url: "/get-started/install_acc.html"
+    entries:
+    - title: Astra Control CenterクラスタのCRオプションを理解する
+      url: "/get-started/acc_cluster_cr_options.html"
+    - title: ポッドのセキュリティポリシーの制限事項を理解します
+      url: "/get-started/understand-psp-restrictions.html"
+    - title: 外部証明書マネージャを設定します
+      url: "/get-started/cert-manager-prereqs.html"
   - title: OpenShift OperatorHub を使用して Astra Control Center をインストールします
     url: "/get-started/acc_operatorhub_install.html"
   - title: Cloud Volumes ONTAP ストレージバックエンドに Astra Control Center をインストールします

@@ -20,9 +20,11 @@ Astra Control API を使用してストレージバックエンドを管理す�
 * link:../get-started/setup_overview.html#add-a-storage-backend["ストレージバックエンドを追加します"]
 * <<View storage backend details>>
 * <<Unmanage a storage backend>>
-* <<Update a storage backend license>>
-* <<Add nodes to a storage backend cluster>>
+* <<Update an Astra Data Store storage backend license>>
+* <<Upgrade an Astra Data Store storage backend>>
 * <<Remove a storage backend>>
+* <<Add nodes to a storage backend cluster>>
+* <<Remove nodes from a storage backend cluster>>
 
 
 
@@ -68,7 +70,7 @@ Storage Backend DetailsページにあるAstraデータストアの場合は、�
 
 バックエンドの健常性、容量、パフォーマンス（ IOPS スループット、レイテンシ）に関する情報を表示します。
 
-Cloud Insights に接続すると、 Kubernetes アプリケーションが使用しているボリュームが表示されます。このボリュームは、選択したストレージバックエンドに格納されます。
+Kubernetesアプリケーションが使用しているボリュームが表示され、選択したストレージバックエンドに格納されます。Cloud Insights を使用すると、追加情報 が表示されます。を参照してください https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"]。
 
 .手順
 . 左側のナビゲーション領域で、 * Backends * を選択します。
@@ -134,7 +136,7 @@ TIP: Astra データストアバックエンドを削除する場合、 vCenter 
 
 
 
-== ストレージバックエンドライセンスを更新する
+== Astra Data Storeストレージのバックエンドライセンスを更新
 
 より大規模な導入や拡張機能をサポートするために、 Astra データストアストレージバックエンドのライセンスを更新できます。
 
@@ -174,6 +176,31 @@ TIP: Astra データストアバックエンドを削除する場合、 vCenter 
 
 
 
+== Astraデータストアストレージバックエンドをアップグレードする
+
+Astra Data StoreバックエンドをAstra Control Centerからアップグレードできます。アップグレードするには、まずアップグレードパッケージをアップロードする必要があります。Astra Control Centerは、このアップグレードパッケージを使用してAstraデータストアをアップグレードします。
+
+.必要なもの
+* マネージドAstraデータストアストレージバックエンド
+* アップロード済みのAstraデータストアアップグレードパッケージ（を参照） link:manage-packages-acc.html["ソフトウェアパッケージを管理します"])
+
+
+.手順
+. [* Backends]を選択します。
+. リストからAstra Data Storeストレージバックエンドを選択し、「* Actions *」列で対応するメニューを選択します。
+. [* Upgrade]を選択します。
+. リストからアップグレードバージョンを選択します。
++
+リポジトリ内にバージョンが異なる複数のアップグレードパッケージがある場合は'ドロップダウンリストを開いて必要なバージョンを選択できます
+
+. 「 * 次へ * 」を選択します。
+. [アップグレードの開始]を選択します。
+
+
+アップグレードが完了するまで、[*Status*]列に[*Upgrading *](アップグレード中)ステータスが[*Status*](*ステータス)ページに表示されます。
+
+
+
 == ストレージバックエンドクラスタにノードを追加します
 
 Astra Data Store クラスタにノードを追加できます。このノードは、 Astra Data Store 用にインストールされたライセンスのタイプでサポートされるノード数まで追加できます。
@@ -209,6 +236,29 @@ Astra データストアで導入時に設定した IP アドレスを使用で�
 . 「 * 次へ * 」を選択します。
 . 新しいノードの設定を確認します。
 . [ ノードの追加 ] を選択します。
+
+
+
+
+== ストレージバックエンドクラスタからノードを削除します
+
+Astraデータストアクラスタからノードを削除できます。正常なノードと障害ノードがあります。
+
+Astraデータストアクラスタからノードを削除すると、そのノードのデータがクラスタ内の他のノードに移動し、Astraデータストアから削除される。
+
+このプロセスには、次の条件が必要です。
+
+* 他のノードにデータを受信するための十分な空きスペースが必要です。
+* クラスタにノードが4つ以上必要です。
+
+
+.手順
+. 左のナビゲーションから、 * Backends * を選択します。
+. ストレージバックエンドの名前を選択します。
+. [*ノード*（Nodes *）]タブを選択します。
+. アクションメニューから*削除*を選択します。
+. 「remove」と入力して削除を確認します。
+. 「*はい、ノードを削除します*」を選択します。
 
 
 

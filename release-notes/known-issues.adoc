@@ -21,6 +21,7 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 * <<App clones fail using a specific version of PostgreSQL>>
 * <<App clones fail when using Service Account level OCP Security Context Constraints (SCC)>>
 * <<App clones fail after an application is deployed with a set storage class>>
+* <<App backups and snapshots fail if the volumesnapshotclass is added after a cluster is managed>>
 
 
 .クラスタ
@@ -48,7 +49,13 @@ Bitnami PostgreSQL 11.5.0 チャートを使用すると、同じクラスタ内
 
 == サービスアカウントレベルの OCP セキュリティコンテキスト制約（ SCC ）を使用すると、アプリケーションのクローンが失敗する
 
-OpenShift Container Platform クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されていると、アプリケーションクローンが失敗する場合があります。アプリケーションのクローンが失敗すると、 Astra Control Center の管理対象アプリケーション領域にステータス「 Removed 」と表示されます。を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Application_clone_is_failing_for_an_application_in_Astra_Control_Center["技術情報アーティクル"] を参照してください。
+OpenShift Container Platform クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されていると、アプリケーションクローンが失敗する場合があります。アプリケーションのクローンが失敗すると、 Astra Control Center の管理対象アプリケーション領域にステータス「 Removed 」と表示されます。を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Application_clone_is_failing_for_an_application_in_Astra_Control_Center["技術情報アーティクル"^] を参照してください。
+
+
+
+== クラスタの管理後にボリュームnapshotclassを追加すると、アプリケーションのバックアップとSnapshotが失敗します
+
+このシナリオでは'バックアップとスナップショットがUI 500エラーで失敗します回避策 として、アプリリストを更新します。
 
 
 
@@ -60,7 +67,7 @@ OpenShift Container Platform クラスタのネームスペース内のサービ
 
 == デフォルトの kubeconfig ファイルに複数のコンテキストが含まれている場合、 Astra Control Center を使用したクラスタの管理が失敗します
 
-複数のクラスタおよびコンテキストで kubeconfig を使用することはできません。を参照してください link:https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Managing_cluster_with_Astra_Control_Center_may_fail_when_using_default_kubeconfig_file_contains_more_than_one_context["技術情報アーティクル"] を参照してください。
+複数のクラスタおよびコンテキストで kubeconfig を使用することはできません。を参照してください link:https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Managing_cluster_with_Astra_Control_Center_may_fail_when_using_default_kubeconfig_file_contains_more_than_one_context["技術情報アーティクル"^] を参照してください。
 
 
 
@@ -84,6 +91,6 @@ Kubernetes 1.20 または 1.21 で Kubernetes snapshot-controller （別名 exte
 
 == 詳細については、こちらをご覧ください
 
-* link:../release-notes/known-issues-ads.html["Astra Data Store の既知の問題と、この Astra Control Center リリース"]
+* link:../release-notes/known-issues-ads.html["Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題"]
 * link:../release-notes/known-limitations.html["既知の制限"]
 

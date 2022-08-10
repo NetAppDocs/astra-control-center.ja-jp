@@ -29,8 +29,9 @@ oc get clusteroperators
 ----
 oc get apiservices
 ----
-* データセンターに Astra Control Center の FQDN アドレスを作成しておきます。
-* 説明したインストール手順を実行するために必要な権限と Red Hat OpenShift Container Platform へのアクセスが必要です。
+* データセンターにAstra Control CenterのFQDNアドレスを作成します。
+* 説明したインストール手順を実行するために必要な権限を取得し、Red Hat OpenShift Container Platformにアクセスします。
+* クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"] そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。
 
 
 .手順
@@ -52,7 +53,7 @@ oc get apiservices
 +
 [listing]
 ----
-openssl dgst -sha256 -verify astra-control-center[version].pub -signature <astra-control-center[version].sig astra-control-center[version].tar.gz
+openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
 . 画像を抽出します。
 +
@@ -95,63 +96,15 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 ----
 cd acc
 ----
-. Astra Control Center イメージディレクトリ内のファイルをローカルレジストリに追加します。
+. Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。コマンドを実行する前に、次の置き換えを行ってください。
 +
-
-NOTE: 以下の画像の自動ロードについては、サンプルスクリプトを参照してください。
-
-+
-.. レジストリにログインします。
-+
-Docker ：
-
+** bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .bundle.yaml )
+** my_registryをDockerリポジトリのURLに置き換えます。
+** my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます
 +
 [listing]
 ----
-docker login [your_registry_path]
-----
-+
-Podman ：
-
-+
-[listing]
-----
-podman login [your_registry_path]
-----
-.. 適切なスクリプトを使用して、イメージのロード、イメージのタグ付け、 [[[[[</Z1>[</Z1>[</Z1>_image_local_registry_push]] ローカルレジストリにイメージをプッシュします。 </Z2>
-+
-Docker ：
-
-+
-[listing]
-----
-export REGISTRY=[Docker_registry_path]
-for astraImageFile in $(ls images/*.tar) ; do
-  # Load to local cache. And store the name of the loaded image trimming the 'Loaded images: '
-  astraImage=$(docker load --input ${astraImageFile} | sed 's/Loaded image: //')
-  astraImage=$(echo ${astraImage} | sed 's!localhost/!!')
-  # Tag with local image repo.
-  docker tag ${astraImage} ${REGISTRY}/${astraImage}
-  # Push to the local repo.
-  docker push ${REGISTRY}/${astraImage}
-done
-----
-+
-Podman ：
-
-+
-[listing]
-----
-export REGISTRY=[Registry_path]
-for astraImageFile in $(ls images/*.tar) ; do
-  # Load to local cache. And store the name of the loaded image trimming the 'Loaded images: '
-  astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image(s): //')
-  astraImage=$(echo ${astraImage} | sed 's!localhost/!!')
-  # Tag with local image repo.
-  podman tag ${astraImage} ${REGISTRY}/${astraImage}
-  # Push to the local repo.
-  podman push ${REGISTRY}/${astraImage}
-done
+kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_PASSWORD
 ----
 
 

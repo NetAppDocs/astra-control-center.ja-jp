@@ -21,6 +21,7 @@ summary: Astra Control Center で実行できる操作は、ライセンスの�
 * Snapshot またはバックアップのスケジュールを設定する保護ポリシーを設定する
 * Snapshot またはバックアップからのリストア
 * Snapshot または現在の状態からクローニングしています
+* リモートシステムへのアプリケーションのレプリケーション
 
 
 
@@ -32,7 +33,10 @@ NOTE: クラスタの追加、バケットの追加、 Astra Data Store スト�
 
 新しいクラスタを Astra Control Center に追加しても、クラスター上で実行されているアプリケーションの少なくとも 1 つが Astra Control Center によって管理されるまで、使用済みのライセンスにはカウントされません。また、 Astra Data Store ストレージバックエンドを Astra Control Center に追加しても、ライセンスの消費には影響しません。これにより、ライセンスのない Astra Control Center システムから Astra Data Store バックエンドを管理できます。
 
-クラスタ上でアプリケーションの管理を開始すると、クラスタの CPU ユニットが Astra Control Center ライセンス消費量の計算に含まれます。
+クラスタ上でアプリケーションの管理を開始すると、そのクラスタのすべてのCPUユニットがAstra Control Centerライセンス消費量に含まれます。クラスタにAstraデータストアのライセンスが設定されている場合、そのCPUユニットはAstra Control Centerのライセンス消費量の計算から除外されます。
+
+
+NOTE: Astraデータストアの評価導入からのCPUユニットは、Astra Control Centerのライセンス消費から除外されません。
 
 
 

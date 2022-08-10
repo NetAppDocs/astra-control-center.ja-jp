@@ -14,13 +14,18 @@ image:astra-ads-architecture-diagram-v3.png["Astra Control のアーキテクチ
 * * Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Trident を使用すると、 Docker と Kubernetes で管理するコンテナ化されたアプリケーション用のストレージボリュームを作成できます。Trident を Astra Control Center とともに導入すると、構成済みの ONTAP ストレージバックエンドが含まれ、ストレージバックエンドとして Astra データストアもサポートされます。
 * * ストレージバックエンド * ：
 +
-** Astra Control Service で使用される https://www.netapp.com/cloud-services/cloud-volumes-service-for-google-cloud/["NetApp Cloud Volumes Service for Google Cloud"^] GKE クラスタおよびのストレージバックエンドとして https://www.netapp.com/cloud-services/azure-netapp-files/["Azure NetApp Files の特長"^] AKS クラスタのストレージバックエンドとして。
-** Astra Control Service は、 Azure Managed Disks と Google Persistent Disk をバックエンドストレージオプションとしてサポートします。
+** Astra Control Serviceは、次のストレージバックエンドを使用します。
++
+*** https://www.netapp.com/cloud-services/cloud-volumes-service-for-google-cloud/["NetApp Cloud Volumes Service for Google Cloud"^] または、GKEクラスタのストレージバックエンドとしてGoogle Persistent Diskを使用します
+*** https://www.netapp.com/cloud-services/azure-netapp-files/["Azure NetApp Files の特長"^] またはAzure Managed DisksをAKSクラスタのストレージバックエンドとして使用します。
+*** https://docs.aws.amazon.com/ebs/["Amazon Elastic Block Store（EBS）"^] または https://docs.aws.amazon.com/fsx/["NetApp ONTAP 対応の Amazon FSX"^] EKSクラスタのバックエンドストレージオプションとして使用できます。
+
+
 ** Astra Control Center は、次のストレージバックエンドを使用します。
 +
-*** Astra データストアストレージバックエンド
-*** ONTAP AFF と FAS のストレージバックエンド。ONTAP は、ストレージソフトウェアおよびハードウェアプラットフォームとして、コアストレージサービス、複数のストレージアクセスプロトコルのサポート、 Snapshot やミラーリングなどのストレージ管理機能を提供します。
-*** Cloud Volumes ONTAP ストレージバックエンド
+*** Astra データストア
+*** ONTAP AFF およびFAS 。ONTAP は、ストレージソフトウェアおよびハードウェアプラットフォームとして、コアストレージサービス、複数のストレージアクセスプロトコルのサポート、 Snapshot やミラーリングなどのストレージ管理機能を提供します。
+*** Cloud Volumes ONTAP
 
 
 

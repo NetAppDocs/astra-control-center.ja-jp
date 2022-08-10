@@ -11,7 +11,7 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 :imagesdir: ../media/release-notes/
 
 
-この度、アストラコントロールセンターの 22.04.0 リリースが発表されました。
+最新リリースのAstra Control Centerを発表しました。
 
 * link:../release-notes/whats-new.html["このリリースの Astra Control Center の内容"]
 * link:../release-notes/known-issues.html["既知の問題"]

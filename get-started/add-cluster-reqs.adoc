@@ -17,21 +17,10 @@ summary: 評価可能性チェックを実行して、 Astra Control Center に�
 
 == クラスタを追加する前に必要な作業
 
-* 次のいずれかのタイプのクラスタ：
-+
-** OpenShift 4.4.8、4.7、4.8、または4.9を実行しているクラスタ
-** RKE1を使用してRancher 2.5.8、2.5.9、または2.6を実行しているクラスタ
-** Kubernetes 1.20 ~ 1.23を実行するクラスタ
-** VMware Tanzu Kubernetes Grid 1.4を実行しているクラスタ
-** VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2を実行するクラスタ
-+
-クラスタに 1 つ以上のワーカーノードがあり、テレメトリサービスの実行には 1GB 以上の RAM が使用されていることを確認します。
+クラスタがに記載された要件を満たしていることを確認します link:requirements.html#application-cluster-requirements["アプリケーションクラスタの要件"]。
 
-+
 
 NOTE: 管理対象のコンピューティングリソースとして 2 つ目の OpenShift 4.6 、 4.7 、または 4.8 クラスタを追加する場合は、 Astra Trident ボリュームスナップショット機能が有効になっていることを確認する必要があります。ネットアップの公式 Astra Trident をご覧ください https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["手順"^] Trident を使用して、ボリューム Snapshot を有効にしてテストしてください。
-
-
 
 * で構成されたAstra Trident StorageClasses link:requirements.html#supported-storage-backends["サポートされるストレージバックエンド"] （すべてのタイプのクラスタに必要）
 * Astra Control Center を使用してアプリケーションをバックアップおよび復元するためにバックアップ ONTAP システムで設定されたスーパーユーザーおよびユーザー ID 。ONTAP コマンドラインで次のコマンドを実行します。「 export-policy rule modify -vserver <storage virtual machine name> -policyname <policy name> -ruleindex 1 -superuser sysm -- anon 65534 」

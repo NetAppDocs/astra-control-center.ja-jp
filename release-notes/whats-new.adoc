@@ -11,19 +11,23 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 :imagesdir: ../media/release-notes/
 
 
-この度、最新の 22.04.0 リリースの Astra Control Center がリリースされました。
+最新リリースのAstra Control Centerを発表しました。
 
 
 
-== 2022 年 4 月 26 日（ 22.04.0 ）
+== 2022年8月10日（22.08.0）
 
 .新機能とサポート
-* link:../get-started/setup_overview.html#add-a-storage-backend["Astra Control CenterからAstraデータストアを導入"]
-* link:../concepts/user-roles-namespaces.html["ネームスペースのロールベースアクセス制御（ RBAC ）"]
-* link:../get-started/install_acc-cvo.html["Cloud Volumes ONTAP のサポート"]
-* link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center の一般的な入力イネーブルメント"]
-* link:../use/manage-buckets.html#remove-a-bucket["Astra Control からバケットを取り外す"]
-* link:../get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["VMware Tanzu ポートフォリオのサポート"]
+* link:../use/replication.html["NetApp SnapMirrorテクノロジを使用したアプリケーションのレプリケーション"]
+* link:../use/manage-apps.html#manage-apps["アプリ管理ワークフローの改善"]
+* link:../use/execution-hooks.html["拡張された独自の実行フック機能"]
++
+
+NOTE: ネットアップが提供している、特定のアプリケーションのデフォルトのPre-snapshot実行フックとPost-Snapshot実行フックは、このリリースでは削除されています。このリリースにアップグレードし、スナップショットの実行フックを独自に提供しない場合、Astra Controlはクラッシュコンシステントスナップショットのみを作成します。にアクセスします https://github.com/NetApp/Verda["ネットアップのVerda"] GitHubリポジトリ：サンプルの実行フックスクリプトを使用します。環境に合わせて変更できます。
+
+* link:../get-started/requirements.html["VMware Tanzu Kubernetes Grid Integrated Edition（TKGI）のサポート"]
+* link:../get-started/requirements.html#operational-environment-requirements["Google Anthosに対応しています"]
+* https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html["LDAP設定（Astra Control API経由）"^]
 
 
 .既知の問題および制限事項
@@ -34,8 +38,32 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 
 
 
+== 2022 年 4 月 26 日（ 22.04.0 ）
+
+.詳細
+====
+.新機能とサポート
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/setup_overview.html#add-a-storage-backend["Astra Control CenterからAstraデータストアを導入"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["ネームスペースのロールベースアクセス制御（ RBAC ）"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/install_acc-cvo.html["Cloud Volumes ONTAP のサポート"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center の一般的な入力イネーブルメント"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/use/manage-buckets.html#remove-a-bucket["Astra Control からバケットを取り外す"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["VMware Tanzu ポートフォリオのサポート"]
+
+
+.既知の問題および制限事項
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues.html["このリリースの既知の問題"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues-ads.html["Astra Data Store およびこの Astra Control Center リリースでの既知の問題"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
+
+
+====
+
+
 == 2021 年 12 月 14 日（ 21.12 ）
 
+.詳細
+====
 .新機能とサポート
 * https://docs.netapp.com/us-en/astra-control-center-2112/use/restore-apps.html["アプリケーションのリストア"^]
 * https://docs.netapp.com/us-en/astra-control-center-2112/use/execution-hooks.html["実行フック"^]
@@ -56,10 +84,13 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 * https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
 
 
+====
 
 
 == 2021 年 8 月 5 日（ 21.08 ）
 
+.詳細
+====
 Astra Control Center の初回リリース。
 
 * https://docs.netapp.com/us-en/astra-control-center-2108/concepts/intro.html["それは何であるか"^]
@@ -72,6 +103,7 @@ Astra Control Center の初回リリース。
 * https://docs.netapp.com/us-en/astra-control-center-2108/rest-api/api-intro.html["API による自動化"^]
 
 
+====
 
 
 == 詳細については、こちらをご覧ください

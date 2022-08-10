@@ -4,18 +4,22 @@ permalink: use/monitor-protect.html
 keywords: proxy, cloud insights, connections, fluent bit, accounts, protect, security 
 summary: 複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合は、 Astra Control Center でそのプロキシサーバーを設定します。NetApp Cloud Insights を使用して、インフラ全体を監視し、詳細を把握することができます。Fluent ビット接続を追加して、コンテナからデータとログを収集できます。 
 ---
-= インフラを監視、保護
+= Cloud Insights 接続とFluentd接続でインフラストラクチャを監視します
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 
 
-複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合（サポートバンドルをネットアップサポートサイトにアップロードする場合、または Cloud Insights への接続を確立する場合）は、 Astra Control Center でプロキシサーバを設定する必要があります。インフラ全体を監視して詳細を把握するには、 NetApp Cloud Insights への接続を確立します。Astra Control Center によって監視されているシステムから Kubernetes イベントを収集するには、 Fluentd 接続を追加します。
+複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。インフラ全体を監視して詳細を把握するには、 NetApp Cloud Insights への接続を確立します。Astra Control Center によって監視されているシステムから Kubernetes イベントを収集するには、 Fluentd 接続を追加します。
+
+Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合（サポートバンドルをネットアップサポートサイトにアップロードする場合、または Cloud Insights への接続を確立する場合）は、 Astra Control Center でプロキシサーバを設定する必要があります。
+
+Astra Data Storeストレージバックエンドのスループット、IOPS、容量をAstra Control Center Storage Backendページから監視することもできます。を参照してください link:../use/manage-backend.html["ストレージバックエンドを管理"]。
 
 
 
-== プロキシサーバを追加します
+== Cloud Insightまたはネットアップサポートサイトに接続するためのプロキシサーバを追加します
 
 Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合（サポートバンドルをネットアップサポートサイトにアップロードする場合、または Cloud Insights への接続を確立する場合）は、 Astra Control Center でプロキシサーバを設定する必要があります。
 
@@ -74,6 +78,8 @@ NetApp Cloud Insights を Astra Control Center インスタンスに接続する
 Cloud Insights には、 Astra Control Center が使用するネットワークから、またはプロキシサーバー経由で間接的にアクセスできる必要があります。
 
 Cloud Insights にアストラコントロールセンターを接続すると、 Acquisition Unit ポッドが作成されます。このポッドは、 Astra Control Center で管理されているストレージバックエンドからデータを収集し、 Cloud Insights にプッシュします。このポッドには、 8GB の RAM と 2 つの CPU コアが必要です。
+
+さらに、Cloud Insights に接続されたAstra ControlでAstraデータストアクラスタを管理している場合は、AstraデータストアクラスタごとにAstraデータストアにAcquisition Unitポッドが作成され、AstraデータストアからペアリングされたCloud Insights システムにデータストアが送信されます。各ポッドには、8GBのRAMと2つのCPUコアが必要です。
 
 
 NOTE: Cloud Insights 接続を有効にすると、スループット情報をバックエンド * ページで確認できるほか、ストレージバックエンドを選択したあとにここから Cloud Insights に接続できます。ダッシュボード * の情報はクラスタセクションでも確認できます。また、そこから Cloud Insights に接続できます。

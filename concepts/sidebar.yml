@@ -10,8 +10,8 @@ entries:
   url: "/concepts/data-protection.html"
 - title: ライセンス
   url: "/concepts/licensing.html"
-- title: 検証済みのアプリケーションと標準のアプリケーションの比較
-  url: "/concepts/validated-vs-standard.html"
+- title: アプリケーション管理について理解する
+  url: "/learn/app-management.html"
 - title: ストレージクラスと PV サイズ
   url: "/concepts/choose-class-and-size.html"
 - title: ユーザロールとネームスペース

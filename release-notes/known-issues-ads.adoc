@@ -13,8 +13,76 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 
 既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。
 
-https://docs.netapp.com/us-en/astra-data-store/release-notes/known-issues.html["これらの既知の問題を参照してください"] これは、Astra Control Centerの最新リリースでAstraデータストアの管理に影響を与える可能性があります。
+https://docs.netapp.com/us-en/astra-data-store/release-notes/known-issues.html["追加のAstraデータストアの既知の問題を確認してください"^] これは、Astra Control Centerの最新リリースでAstraデータストアの管理に影響を与える可能性があります。
 
+
+
+== Astraデータストアボリュームの詳細は、Astra Control Center UIのStorage Backendsページに表示されません
+
+容量やスループットなどの詳細はUIに表示されません。この問題 が発生した場合は、ストレージバックエンドの管理を解除してから再度追加してください。
+
+
+
+== Astraデータストアを使用してクラスタの管理を解除するには、最初に管理対象システムアプリケーションを削除する必要があります
+
+Astraデータストアを含むクラスタをAstra Control Centerクラスタに追加した場合、デフォルトではAstraデータストアシステムアプリケーションが非表示アプリケーションとして管理されます。クラスタの管理を解除するには、まず、astrs-systemアプリケーションの管理を解除する必要があります。Astra Control Center UIを使用してこのタイプのアプリケーションを管理解除することはできません。代わりに、Astra Control API要求を使用して手動でアプリケーションを削除します。
+
+.詳細
+====
+.手順
+. 次のAPIを使用して、管理対象クラスタのIDを取得します。
++
+[listing]
+----
+/accounts/{account_id}/topology/v1/managedClusters
+----
++
+対応：
+
++
+[listing, subs="+quotes"]
+----
+{
+"items": [
+{
+"type": "application/astra-managedCluster",
+"version": "1.1",
+*"id": "123ab987-0bc0-00d0-a00a-1234567abd8d",*
+"name": "astrads-cluster-1234567",
+...
+----
+. マネージド宇宙システムアプリIDを取得：
++
+[listing]
+----
+/accounts/{account_id}/topology/v2/managedClusters/{managedCluster_id}/apps
+----
++
+対応：
+
++
+[listing, subs="+quotes"]
+----
+{
+  "items": [
+    [
+      *"1b011d11-bb88-40c7-a1a1-ab1234c123d3",*
+      "astrads-system",
+      "ready"
+    ]
+  ],
+  "metadata": {}
+}
+----
+. 前の手順で取得したアプリケーションID（「1b011d11-bb88-40c7-a11-ab1234c123d3」）を使用して、astrs-systemアプリケーションを削除します。
++
+[listing]
+----
+/accounts/{account_id}/k8s/v2/apps/{astrads-system_app_id}
+----
+
+
+====
 
 
 == 詳細については、こちらをご覧ください

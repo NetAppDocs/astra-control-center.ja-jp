@@ -29,6 +29,10 @@ Astra Control Center は、ローカル認証と各環境に固有の URL を使
 
 URL には、ブラウザで、 Astra Control Center をインストールしたときに、 Astra_control_center_min YAML カスタムリソース定義（ CRD ）ファイルの spec.astraatAddress フィールドに設定した完全修飾ドメイン名（ FQDN ）を入力します。電子メールは、 Astra_control_center_min YAML CRD の spec.email フィールドで設定した値です。
 
+
+
+== ライセンス
+
 * 評価ライセンスを使用しています。フルライセンスに変更する方法を教えてください。 *
 
 ネットアップライセンスファイル（ NLF ）を取得することで、フルライセンスに簡単に変更できます。

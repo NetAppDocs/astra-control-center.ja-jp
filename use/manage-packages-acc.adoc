@@ -31,7 +31,7 @@ Astra Control Centerは、接続されたリポジトリ内のパッケージイ
 . 圧縮されたパッケージファイルを展開し、ディレクトリをAstra Controlバンドルファイルの場所に変更します（例：「acc.manifest .bundle.yaml」）。
 . パッケージイメージをDockerリポジトリにプッシュします。次の置換を行います。
 +
-** bundle_fileをAstra Controlバンドルファイルの名前に置き換えます。
+** bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .bundle.yaml )
 ** my_registryをDockerリポジトリのURLに置き換えます。
 ** my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます
 +

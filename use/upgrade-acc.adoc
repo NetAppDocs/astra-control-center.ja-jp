@@ -17,21 +17,15 @@ Astra Control Center をアップグレードするには、ネットアップ�
 * link:../get-started/requirements.html["アップグレードを開始する前に、環境が Astra Control Center 導入の最小要件を満たしていることを確認します"]。
 * すべてのクラスタオペレータが正常な状態であり、使用可能であることを確認します。
 +
-OpenShift の例：
-
-+
 [listing]
 ----
-oc get clusteroperators
+kubectl get clusteroperators
 ----
 * すべての API サービスが正常な状態であり、使用可能であることを確認します。
 +
-OpenShift の例：
-
-+
 [listing]
 ----
-oc get apiservices
+kubectl get apiservices
 ----
 * Astra Control Center からログアウトします。
 
@@ -61,12 +55,12 @@ NOTE: Docker Engine の代わりに Red Hat の Podman を使用している場�
 
 == Astra Control Center バンドルをダウンロードします
 
-. から Astra Control Center アップグレードバンドル (`Astra - control-ccenter-[version].tar.gz') をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
+. からAstra Control Centerアップグレードバンドル（「Astra - control-ccenter-[version].tar.gz`）をダウンロードします。https：mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab[NetApp Support Site^」
 . （任意）次のコマンドを使用して、バンドルのシグニチャを確認します。
 +
 [listing]
 ----
-openssl dgst -sha256 -verify astra-control-center[version].pub -signature <astra-control-center[version].sig astra-control-center[version].tar.gz
+openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
 
 
@@ -84,7 +78,7 @@ tar -vxzf astra-control-center-[version].tar.gz
 +
 [listing]
 ----
-cd astra-control-center-[version]
+cd acc
 ----
 
 
@@ -92,34 +86,15 @@ cd astra-control-center-[version]
 
 == イメージをローカルレジストリに追加します
 
-. Astra Control Center イメージディレクトリ内のファイルをローカルレジストリに追加します。
+. Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。コマンドを実行する前に、次の置き換えを行ってください。
 +
-
-NOTE: 以下の画像の自動ロードについては、サンプルスクリプトを参照してください。
-
-+
-.. Docker レジストリにログインします。
+** bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .bundle.yaml )
+** my_registryをDockerリポジトリのURLに置き換えます。
+** my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます
 +
 [listing]
 ----
-docker login [your_registry_path]
-----
-.. Docker にイメージをロードする。
-.. 画像にタグを付けます。
-.. [[[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1></Z1></Z1>_image_local_registry_push]]]]]]]]</Z2> ローカルレジストリにイメージをプッシュ
-+
-[listing]
-----
-export REGISTRY=[your_registry_path]
-for astraImageFile in $(ls images/*.tar)
-  # Load to local cache. And store the name of the loaded image trimming the 'Loaded images: '
-  do astraImage=$(docker load --input ${astraImageFile} | sed 's/Loaded image: //')
-  astraImage=$(echo ${astraImage} | sed 's!localhost/!!')
-  # Tag with local image repo.
-  docker tag ${astraImage} ${REGISTRY}/${astraImage}
-  # Push to the local repo.
-  docker push ${REGISTRY}/${astraImage}
-done
+kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_PASSWORD
 ----
 
 
@@ -320,7 +295,7 @@ conditions:
 
 次のいずれかの条件に該当する場合は、 Traefik がアップグレードされます。
 
-* externalTraefik ： false または
+* externalTraefik: false
 * externalTraefik: true と shouldUpgrade: true 。
 
 
@@ -376,7 +351,7 @@ NOTE: サービスタイプ「 LoadBalancer 」および入力の詳細につい
 ** 「 CRD.externalTraefik 」が「真」の場合、「 CRD.shoulldUpgrade 」も「真」でなければなりません。
 
 
-* が必要です https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/["入力コントローラ"] すでに導入されている必要があります。
+* が必要です https://kubernetes.io/docs/concepts/services-networking/ingress-controllers["入力コントローラ"] すでに導入されている必要があります。
 * 。 https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class["入力クラス"] 入力コントローラに対応するものがすでに作成されている必要があります。
 * V1.19 と v1.21 の間で Kubernetes のバージョンを使用している。
 

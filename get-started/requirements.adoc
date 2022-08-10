@@ -13,17 +13,35 @@ summary: Kubernetes クラスタ、アプリ、 Web ブラウザのサポート�
 
 運用環境、アプリケーションクラスタ、アプリケーション、ライセンス、 Web ブラウザの準備ができているかどうかを検証します。
 
+* <<Operational environment requirements>>
+* <<Supported storage backends>>
+* <<Application cluster requirements>>
+* <<Application management requirements>>
+* <<Replication prerequisites>>
+* <<Access to the internet>>
+* <<License>>
+* <<Ingress for on-premises Kubernetes clusters>>
+* <<Networking requirements>>
+* <<Supported web browsers>>
+
+
 
 
 == 運用環境の要件
 
-Astra Control Center には、次のいずれかのタイプの運用環境が必要です。
+Astra Control Centerは、次のタイプの運用環境で検証済みです。
 
-* Kubernetes 1.20 ～ 1.23
-* Rancher 2.5.8 、 2.5.9 、または 2.6 と RKE1
-* Red Hat OpenShift Container Platform 4.4.8 、 4.7 、 4.8 、または 4.9
-* VMware Tanzu Kubernetes Grid 1.4 の場合
-* VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2
+* Google Anthos 1.10または1.11
+* Kubernetes 1.22～1.24
+* Rancher Kubernetes Engine（RKE）：
++
+** Rancher 2.5.12およびRKE 1.3.3（2.6.3）付きRKE 1.2.16
+** Rancher 2.6.3を使用したRKE 2（v1.23.6 + rke2r2）
+
+
+* Red Hat OpenShift Container Platform 4.8、4.9、または4.10
+* VMware Tanzu Kubernetes Grid 1.4または1.5
+* VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2または1.13
 
 
 Astra Control Center をホストするオペレーティングシステムが、環境の公式ドキュメントに記載されている基本的なリソース要件を満たしていることを確認します。Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。
@@ -35,16 +53,14 @@ Astra Control Center をホストするオペレーティングシステムが�
 | ストレージバックエンドの容量 | 500GB以上の容量があります 
 
 
-| ワーカーノード | 少なくとも 3 つのワーカーノードがあり、それぞれ 4 つの CPU コアと 12GB の RAM が搭載されています 
+| ワーカーノード | 少なくとも3つのワーカーノードが必要です。それぞれ12個のCPUコアと16GBのRAMを搭載しています 
 
 
 | FQDN アドレス | Astra Control Center の FQDN アドレス 
 
 
 | Astra Trident  a| 
-* Astra Trident 21.04 以降がインストールおよび設定されている
-* Astra Trident 21.10.1以降がインストールされ、Astraデータストアがストレージバックエンドとして使用される場合に設定されます
-
+Trident 21.10.1以降をインストールし、SnapMirrorベースのアプリケーションレプリケーション用にAstra 22.04以降を設定している
 
 |===
 
@@ -80,18 +96,26 @@ NOTE: 管理対象のコンピューティングリソースとして 2 つ目�
 VMware Tanzu Kubernetes Grid （ TKG ）または Tanzu Kubernetes Grid Integrated Edition （ TKGi ）クラスタで Astra Control Center をホストする場合、次の点に注意してください。
 
 * TKG または TKGi のデフォルト・ストレージ・クラス・エンフォースメントは、 Astra Control によって管理されるすべてのアプリケーション・クラスタで無効にします。これを行うには、名前空間クラスタ上で「 TanzueutesCluster 」リソースを編集します。
-* Astra Control Center がクラスタ内にポッドを作成できるようにするセキュリティポリシーを作成する必要があります。これを行うには、次のコマンドを使用します。
+* Astra Control Centerのインストールの一部として、PoDセキュリティポリシー（PSP）の制限された環境で次のリソースが作成されます。
 +
-[listing]
-----
-kubectl config use-context <context-of-workload-cluster>
-kubectl create clusterrolebinding default-tkg-admin-privileged-binding --clusterrole=psp:vmware-system-privileged --group=system:authenticated
-----
+** ポッドセキュリティポリシー
+** RBACロール
+** RBACロールRBACロールとロールバインドリソースは'NetApp-acc'ネームスペース内に作成されます
+
+
+
+
 * TKG または TKGi 環境に Astra Control Center を導入する際には、 Astra Trident の特定の要件に注意してください。詳細については、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident のドキュメント"^]。
 
 
 
 NOTE: デフォルトの VMware TKG および TKGi 設定ファイルトークンの有効期限は、展開後 10 時間です。Tanzu ポートフォリオ製品を使用する場合は、 Astra Control Center と管理対象アプリケーションクラスタ間の接続の問題を回避するために、期限切れにならないトークンを含む Tanzu Kubernetes Cluster 構成ファイルを生成する必要があります。手順については、を参照してください https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX -T Data Center 製品ドキュメント"]
+
+
+
+=== Google Anthosクラスタの要件
+
+Google AnthosクラスタでAstra Control Centerをホストする場合、Google AnthosにはデフォルトでMetalLBロードバランサとIstio入力ゲートウェイサービスが含まれているため、インストール時にAstra Control Centerの一般的な入力機能を使用するだけで済みます。を参照してください link:install_acc.html#configure-astra-control-center["Astra Control Center を設定します"] を参照してください。
 
 
 
@@ -167,7 +191,28 @@ Astra Control には、次のアプリケーション管理要件があります
 
 
 
-=== サポートされているアプリケーションのインストール方法
+== レプリケーションの前提条件
+
+Astra Controlアプリケーションのレプリケーションを開始するには、次の前提条件を満たしている必要があります。
+
+* シームレスな災害復旧を実現するには、第3の障害ドメインまたはセカンダリサイトにAstra Control Centerを導入する必要があります。
+* アプリケーションのホストKubernetesクラスタとデスティネーションKubernetesクラスタが使用可能であり、2つのONTAP クラスタに接続されている必要があります。理想的には別々の障害ドメインまたはサイトに配置できます。
+* ONTAP クラスタとホストSVMをペアリングする必要があります。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["クラスタと SVM のピアリングの概要"^]。
+* ペアリングされているリモートSVMがデスティネーションクラスタのTridentで使用可能である必要があります。
+* ソースとデスティネーションの両方のONTAP クラスタにTridentバージョン22.04以降が存在する必要があります。
+* ソースとデスティネーションの両方のONTAP クラスタで、データ保護バンドルを使用したONTAP SnapMirror非同期ライセンスが有効になっている必要があります。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP のSnapMirrorライセンスの概要"^]。
+* ソースとデスティネーションの両方のKubernetesクラスタとONTAP クラスタをAstra Controlで管理する必要があります。
++
+
+NOTE: （別のクラスタまたはサイトで実行されている）別のアプリケーションを逆方向に同時にレプリケートできます。たとえば、アプリケーションA、B、Cはデータセンター1からデータセンター2にレプリケートでき、アプリケーションX、Y、Zはデータセンター2からデータセンター1にレプリケートできます。
+
+
+
+方法をご確認ください link:../use/replication.html["SnapMirrorテクノロジを使用してアプリケーションをリモートシステムにレプリケート"]。
+
+
+
+== サポートされているアプリケーションのインストール方法
 
 Astra Control は、次のアプリケーションインストール方法をサポートしています。
 
@@ -200,9 +245,9 @@ NOTE: インストールする演算子とアプリケーションは、同じ�
 
 == 使用許諾
 
-Astra Control Center の全機能を使用するには、 Astra Control Center ライセンスが必要です。評価用ライセンスまたはフルライセンスをネットアップから取得する。ライセンスがないと、次のことができません。
+Astra Control Center の全機能を使用するには、 Astra Control Center ライセンスが必要です。評価用ライセンスまたはフルライセンスをネットアップから取得する。ライセンスがないと、次の操作を実行できません。
 
-* カスタムアプリケーションを定義します
+* アプリケーションを定義します
 * 既存のアプリケーションのスナップショットまたはクローンを作成します
 * データ保護ポリシーを設定
 

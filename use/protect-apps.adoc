@@ -11,18 +11,25 @@ summary: 自動保護ポリシーまたはアドホックベースを使用し�
 :imagesdir: ../media/use/
 
 
-自動保護ポリシーまたはアドホックベースを使用してスナップショットやバックアップを作成することで、アプリケーションを保護します。Astra の UI またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] アプリを保護します。
+自動保護ポリシーまたはアドホックベースを使用して、スナップショットやバックアップを作成することで、すべてのアプリケーションを保護します。Astra の UI またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] アプリを保護します。
 
+Helm を使用してアプリケーションを展開する場合、 Astra Control Center には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用して展開されたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 で展開されたアプリケーションはサポートされていません。
 
-NOTE: Helm を使用してアプリケーションを展開する場合、 Astra Control Center には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用して展開されたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 で展開されたアプリケーションはサポートされていません。
-
-[NOTE]
-====
 OpenShift クラスタでアプリケーションをホストするプロジェクトを作成すると、プロジェクト（または Kubernetes ネームスペース）に SecurityContext UID が割り当てられます。Astra Control Center でアプリケーションを保護し、 OpenShift でそのアプリケーションを別のクラスタまたはプロジェクトに移動できるようにするには、アプリケーションを任意の UID として実行できるようにポリシーを追加する必要があります。たとえば、次の OpenShift CLI コマンドは、 WordPress アプリケーションに適切なポリシーを付与します。
 
 OC new-project ワードプレス ` OC adm policy add -scc to -group anyuid system: serviceaccounts:wordpress `OC adm policy add -scc to -user Privileged -z default-n wordpress
 
-====
+アプリケーションデータの保護に関連する次のタスクを実行できます。
+
+* <<Configure a protection policy>>
+* <<Create a snapshot>>
+* <<Create a backup>>
+* <<View snapshots and backups>>
+* <<Delete snapshots>>
+* <<Cancel backups>>
+* <<Delete backups>>
+
+
 
 
 == 保護ポリシーを設定します
@@ -115,6 +122,9 @@ NOTE: データ保護処理（クローン、バックアップ、リストア�
 
 不要になったスケジュール済みまたはオンデマンドの Snapshot を削除します。
 
+
+NOTE: レプリケート中のSnapshotコピーは削除できません。
+
 .手順
 . 「 * アプリケーション」を選択し、アプリケーションの名前を選択します。
 . [ * データ保護 * ] を選択します。
@@ -126,6 +136,23 @@ Astra Control Center がスナップショットを削除します。
 
 
 
+== バックアップをキャンセルします
+
+実行中のバックアップをキャンセルすることができます。
+
+
+TIP: バックアップをキャンセルするには、そのバックアップが実行中の状態である必要があります。Pending状態のバックアップはキャンセルできません。
+
+.手順
+. 「 * アプリケーション」を選択し、アプリケーションの名前を選択します。
+. [ * データ保護 * ] を選択します。
+. 「 * Backups * 」を選択します。
+. 目的のバックアップの[*アクション*（* Actions *）]列の[オプション（Options）]メニューから、[*キャンセル*（* Cancel *）]を選択します。
+. 削除を確認するために「CANCEL」と入力し、「* Yes、cancel backup *」を選択します。
+
+
+
+
 == バックアップを削除します
 
 不要になったスケジュール済みまたはオンデマンドのバックアップを削除します。
@@ -133,6 +160,7 @@ Astra Control Center がスナップショットを削除します。
 
 NOTE: 実行中のバックアップを停止する方法はありません。バックアップを削除する必要がある場合は、完了するまで待ってから、以下の手順を実行してください。失敗したバックアップを削除するには、 https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]。
 
+.手順
 . 「 * アプリケーション」を選択し、アプリケーションの名前を選択します。
 . [ * データ保護 * ] を選択します。
 . 「 * Backups * 」を選択します。

@@ -24,7 +24,6 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 
 
 .アプリケーション管理の制限
-* <<App backups that are in progress cannot be stopped>>
 * <<Clones of apps installed using pass-by-reference operators can fail>>
 * <<In-place restore operations of apps that use a certificate manager are not supported>>
 * <<OLM-enabled and cluster-scoped operator deployed apps not supported>>
@@ -96,13 +95,7 @@ current-context: kubernetes-admin@kubernetes
 
 == 名前空間の制約を持つメンバは、管理者が名前空間を制約に追加するまで、クローンまたは復元されたアプリケーションにアクセスできません
 
-名前空間の名前 /ID または名前空間ラベルによって RBAC の制約を受けているメンバーユーザーは ' 同じクラスタ上の新しい名前空間 ' または組織のアカウント内の他のクラスタにアプリケーションを複製またはリストアできますただし、同じユーザが、クローニングまたはリストアされたアプリケーションに新しいネームスペースからアクセスすることはできません。クローンまたはリストア操作によって新しい名前空間が作成されると ' アカウントの管理者 / 所有者は ' メンバーのユーザー・アカウントを編集し ' 影響を受けるユーザーの役割制約を更新して ' 新しい名前空間へのアクセスを許可できます
-
-
-
-== 実行中のアプリケーションのバックアップを停止することはできません
-
-実行中のバックアップを停止する方法はありません。バックアップを削除する必要がある場合は、完了するまで待ってから、の手順を実行してください link:../use/protect-apps.html#delete-backups["バックアップを削除します"]。失敗したバックアップを削除するには、を使用します link:https:/docs.netapp.com/us-en/astra-automation/index.html["Astra Control API の略"^]。
+ネームスペースの名前/IDによるRBACの制約を持つメンバーのユーザーは'同じクラスタ上の新しいネームスペース'または組織のアカウント内の他のクラスタに'アプリケーションのクローンを作成したり'リストアしたりできますただし、同じユーザが、クローニングまたはリストアされたアプリケーションに新しいネームスペースからアクセスすることはできません。クローンまたはリストア操作によって新しい名前空間が作成されると ' アカウントの管理者 / 所有者は ' メンバーのユーザー・アカウントを編集し ' 影響を受けるユーザーの役割制約を更新して ' 新しい名前空間へのアクセスを許可できます
 
 
 
@@ -119,7 +112,7 @@ NOTE: K8ssandra では、 In Place リストア処理がサポートされます
 * https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB クラスタ"^]
 
 
-Astra Control では、「パスバイリファレンス」アーキテクチャ（ CockroachDB オペレータなど）で設計されたオペレータをクローニングできない場合があります。クローニング処理では、クローニング処理の一環として独自の新しいシークレットが存在する場合でも、クローニングされたオペレータがソースオペレータから Kubernetes シークレットを参照しようとします。Astra Control がソースオペレータの Kubernetes シークレットを認識しないため、クローニング処理が失敗する場合があります。
+Astra Controlでは、「パスバイリファレンス」アーキテクチャ（CockroachDBオペレータなど）で設計されたオペレータをクローニングできない場合があります。クローニング処理では、クローニング処理の一環として独自の新しいシークレットが存在する場合でも、クローニングされたオペレータがソースオペレータから Kubernetes シークレットを参照しようとします。Astra Control がソースオペレータの Kubernetes シークレットを認識しないため、クローニング処理が失敗する場合があります。
 
 
 

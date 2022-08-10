@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: learn/app-management.html 
+keywords: app, labels, kubernetes labels, kubernetes resources, pods, define app 
+summary: Astra Controlのマネージアプリケーションの種類について説明します。 
+---
+= アプリケーション管理について理解する
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+[role="lead"]
+Astra Controlがクラスタを検出すると、それらのクラスタ上のアプリケーションは、管理方法を選択するまで管理されません。Astra Control のマネージドアプリケーションには、次のいずれかを使用できます。
+
+* ネームスペース。ネームスペース内のすべてのリソースを含みます
++
+image:diagram-managed-app1.png["この概念図は、 Astra がネームスペース内のすべてのリソースを管理する仕組みを示しています。"]
+
+* ネームスペース内に展開された個々のアプリケーション（この例では、helm3が使用されます）
++
+image:diagram-managed-app2.png["この概念図は、他のアプリケーションを含むネームスペースに配置された個々のアプリケーションを Astra が管理する様子を示しています。"]
+
+* ネームスペース内のKubernetesラベルで識別されるリソースのグループ
++
+image:diagram-managed-app3.png["Kubernetesラベルを基にアプリケーションを管理するAstraの概念図。"]
+
+

@@ -2,12 +2,8 @@
 section: use
 title: Astra を使用する
 entries:
-- title: アプリの管理
-  entries:
-  - title: アプリの管理を開始します
-    url: "/use/manage-apps.html"
-  - title: カスタムアプリケーションを定義します
-    url: "/use/define-custom-app.html"
+- title: アプリの管理を開始します
+  url: "/use/manage-apps.html"
 - title: アプリを保護します
   entries:
   - title: 保護の概要
@@ -16,6 +12,8 @@ entries:
     url: "/use/protect-apps.html"
   - title: アプリケーションのリストア
     url: "/use/restore-apps.html"
+  - title: アプリケーションをリモートシステムにレプリケートします
+    url: "/use/replication.html"
   - title: アプリケーションのクローン作成と移行
     url: "/use/clone-apps.html"
   - title: アプリケーション実行フックを管理します
@@ -23,7 +21,7 @@ entries:
     entries:
     - title: 実行フックの例
       url: "/use/execution-hook-examples.html"
-- title: アプリケーションとクラスタの健常性を表示します
+- title: アプリケーションとクラスタの健常性を監視
   entries:
   - title: ダッシュボードの概要
     url: "/use/view-dashboard.html"
@@ -53,7 +51,7 @@ entries:
   url: "/use/manage-buckets.html"
 - title: ストレージバックエンドを管理します
   url: "/use/manage-backend.html"
-- title: インフラを監視、保護
+- title: Cloud Insights とFluentdを使用してインフラを監視します
   url: "/use/monitor-protect.html"
 - title: アプリケーションとクラスタの管理を解除します
   url: "/use/unmanage.html"

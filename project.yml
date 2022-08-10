@@ -16,7 +16,6 @@ sidebar:
   - section: get-started
   - section: use
   - section: rest-api
-  - section: solutions
   - section: support
   - title: 以前のバージョン
     url: "/acc-earlier-versions.html"
@@ -46,6 +45,8 @@ homepage:
       url: "/use/protect-apps.html"
     - title: アプリケーションのクローン作成と移行
       url: "/use/clone-apps.html"
+    - title: アプリケーションをリモートシステムにレプリケートします
+      url: "/use/replication.html"
   - title: Astra Control API を使用
     links:
     - title: Astra Control API の使用を開始します
@@ -56,17 +57,17 @@ homepage:
       url: https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html
   - title: Astra Control Service を使用
     links:
-    - title: Astra Control Service の概要
+    - title: Astra Control Service の詳細をご確認ください
       url: https://docs.netapp.com/us-en/astra/get-started/intro.html
-    - title: 新機能
+    - title: Astra Control Serviceの新機能
       url: https://docs.netapp.com/us-en/astra/release-notes/whats-new.html
     - title: Astra Control Service のクイックスタート
       url: https://docs.netapp.com/us-en/astra/get-started/quick-start.html
   - title: Astra データストアを使用
     links:
-    - title: Astra データストアの概要
+    - title: Astra データストアの詳細
       url: https://docs.netapp.com/us-en/astra-data-store/concepts/intro.html
-    - title: 今回のリリースの Astra データストアの内容
+    - title: Astraデータストアの新機能
       url: https://docs.netapp.com/us-en/astra-data-store/release-notes/whats-new.html
     - title: Astra データストアのクイックスタート
       url: https://docs.netapp.com/us-en/astra-data-store/get-started/quick-start.html
@@ -78,16 +79,6 @@ homepage:
       url: https://cloud.netapp.com/hubfs/SB-4110-0221-MySQL-Astra%20(2).pdf
     - title: Jenkins のライフサイクル管理を簡易化
       url: https://cloud.netapp.com/hubfs/SB-4100-Jenkins%20(2).pdf
-  - title: デモチュートリアル
-    links:
-    - title: Jenkins をデプロイします
-      url: "/solutions/jenkins-deploy-from-helm-chart.html"
-    - title: MariaDB を導入します
-      url: "/solutions/mariadb-deploy-from-helm-chart.html"
-    - title: MySQL を導入
-      url: "/solutions/mysql-deploy-from-helm-chart.html"
-    - title: Postgres を導入する
-      url: "/solutions/postgres-deploy-from-helm-chart.html"
   - title: ブログコミュニティ
     links:
     - title: スラックチャンネル
