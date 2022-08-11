@@ -357,11 +357,7 @@
   <block id="32139554c6b5c9a48dcfdd0ff983a9eb" category="doc">アプリの管理を開始します</block>
   <block id="1cf97dd1e6f6c8888d8fa6dcede7fac9" category="inline-link-macro">Astra Control 管理にクラスタを追加</block>
   <block id="7b7f260c982647b3aee51c681be792ef" category="section-title">アプリケーション管理の要件</block>
-  <block id="07eb1eefb9996b52d1fdfe23101a2b03" category="paragraph">Astra Control には、次のアプリケーション管理要件があります。</block>
-  <block id="040814594415b3be75eca728578ba39d" category="list-text">* ライセンス * ： Astra Control Center を使用してアプリケーションを管理するには、 Astra Control Center ライセンスが必要です。</block>
   <block id="9ddfdbe42c83c42ff3e215c90be2d274" category="list-text">* 名前空間 * ： Astra Control では、アプリケーションが複数の名前空間にまたがることはありませんが、名前空間には複数のアプリケーションを含めることができます。</block>
-  <block id="a23e8e619b2ffd1ec1e37fd1f16eee74" category="list-text">* StorageClass* ： StorageClass が明示的に設定されたアプリケーションをインストールし、そのアプリケーションをクローニングする必要がある場合、クローン処理のターゲットクラスタに最初に指定された StorageClass が必要です。明示的に StorageClass を設定したアプリケーションを、同じストレージクラスを使用しないクラスタにクローニングすると、失敗します。</block>
-  <block id="7a9f49c6cd6dca3bc35b755523c76570" category="list-text">* Kubernetes リソース * ： Astra Control で収集されない Kubernetes リソースを使用するアプリケーションには、アプリケーションデータの完全な管理機能がない可能性があります。Astra Control では、次の Kubernetes リソースが収集されます。</block>
   <block id="d7d354d0f9d0780e168c895c92a32c24" category="list-text">クラスタロール</block>
   <block id="e866afd8290d5c73cda6260e04e6eef0" category="list-text">ClusterRoleBinding</block>
   <block id="a941f8adb5ae079ebc739cb59407fd30" category="list-text">ConfigMap</block>
@@ -2635,4 +2631,5 @@
   <block id="f37ba65ac5d8b8df530d2009f9539d5d" category="sidebar">Astraデータストアの新機能</block>
   <block id="9c55cf3bb8c415c1b4cf797d9fae1d67" category="sidebar">アプリケーションとクラスタの健常性を監視</block>
   <block id="0adc618a9ad28f57db9328d47cf45165" category="sidebar">Cloud Insights とFluentdを使用してインフラを監視します</block>
+  <block id="d1736d27c7efe09a7fdb5f5e3b18e8dc" category="paragraph">詳細については、を参照してください <block ref="f6d2e41142da7ccda158b71b34630966" category="inline-link-macro-rx"></block>。</block>
 </blocks>

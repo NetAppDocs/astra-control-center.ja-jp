@@ -13,48 +13,7 @@ summary: KubernetesクラスタをAstra Controlに追加したら、そのクラ
 
 お先にどうぞ link:../get-started/setup_overview.html#add-cluster["Astra Control 管理にクラスタを追加"]では、クラスターにアプリケーションをインストールし（Astra Controlの外部）、Astra Controlの[アプリケーション]ページに移動して、アプリケーションとそのリソースの管理を開始できます。
 
-
-
-== アプリケーション管理の要件
-
-Astra Control には、次のアプリケーション管理要件があります。
-
-* * ライセンス * ： Astra Control Center を使用してアプリケーションを管理するには、 Astra Control Center ライセンスが必要です。
-* * 名前空間 * ： Astra Control では、アプリケーションが複数の名前空間にまたがることはありませんが、名前空間には複数のアプリケーションを含めることができます。
-* * StorageClass* ： StorageClass が明示的に設定されたアプリケーションをインストールし、そのアプリケーションをクローニングする必要がある場合、クローン処理のターゲットクラスタに最初に指定された StorageClass が必要です。明示的に StorageClass を設定したアプリケーションを、同じストレージクラスを使用しないクラスタにクローニングすると、失敗します。
-* * Kubernetes リソース * ： Astra Control で収集されない Kubernetes リソースを使用するアプリケーションには、アプリケーションデータの完全な管理機能がない可能性があります。Astra Control では、次の Kubernetes リソースが収集されます。
-+
-[cols="1,1,1"]
-|===
-
-
-| クラスタロール | ClusterRoleBinding | ConfigMap 
-
-
-| CustomResourceDefinition の場合 | CustomResource の場合 | cronjob 
-
-
-| デモンセット（ DemonSet ） | HorizontalPodAutoscaler のように表示されます | 入力 
-
-
-| DeploymentConfig | MutingWebhook | PersistentVolumeClaim のように表示され 
-
-
-| ポッド | PodDisruptionBudget （予算の廃止） | PodTemplate 
-
-
-| ネットワークポリシー | ReplicaSet | ロール 
-
-
-| RoleBinding です | ルート | 秘密 
-
-
-| サービス | サービスアカウント | Stateful役立つ セット 
-
-
-| 検証 Webhook |  |  
-|===
-
+詳細については、を参照してください link:../get-started/requirements.html#application-management-requirements["アプリケーション管理の要件"]。
 
 
 
