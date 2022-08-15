@@ -201,16 +201,6 @@ Astra Controlアプリケーションのレプリケーションを開始する�
 * ペアリングされているリモートSVMがデスティネーションクラスタのTridentで使用可能である必要があります。
 * ソースとデスティネーションの両方のONTAP クラスタにTridentバージョン22.04以降が存在する必要があります。
 * ソースとデスティネーションの両方のONTAP クラスタで、データ保護バンドルを使用したONTAP SnapMirror非同期ライセンスが有効になっている必要があります。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP のSnapMirrorライセンスの概要"^]。
-* Astra Tridentバックエンド構成ファイルには、次の行が含まれている必要があります。
-+
-[listing]
-----
-"replicationPolicy": "MirrorAllSnapshots"
-----
-+
-を参照してください https://docs.netapp.com/us-en/trident/trident-use/backends.html["バックエンドを設定"^] を参照してください。
-
-* ONTAP ストレージバックエンドをAstra Control Centerに追加する場合、Astra Control Centerとストレージバックエンドの間の通信を有効にするために使用するクレデンシャルを持つユーザは、両方のONTAP クラスタのONTAP System Managerで「http」および「ontapi」を有効にしたユーザログインアクセス方法を使用する必要があります。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ユーザアカウントを管理する"^] を参照してください。
 * ソースとデスティネーションの両方のKubernetesクラスタとONTAP クラスタをAstra Controlで管理する必要があります。
 +
 
