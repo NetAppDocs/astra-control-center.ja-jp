@@ -12,7 +12,7 @@ summary: Astra Control Center で実行できる操作は、ライセンスの�
 
 
 [role="lead"]
-アプリケーションデータ管理機能を有効にするには、 Astra Control Center にライセンスがインストールされている必要があります。Astra Control Center をライセンスなしで導入すると、システム機能が制限されていることを示すバナーが Web UI に表示されます。
+Astra Control Centerを有効にするには、フルアプリケーションデータ管理機能を有効にするためのライセンスが必要です。Astra Control Center をライセンスなしで導入すると、システム機能が制限されていることを示すバナーが Web UI に表示されます。
 
 次の操作には有効なライセンスが必要です。
 
