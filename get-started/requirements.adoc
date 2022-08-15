@@ -164,19 +164,19 @@ Astra Control には、次のアプリケーション管理要件があります
 | クラスタロール | ClusterRoleBinding | ConfigMap 
 
 
-| CustomResourceDefinition の場合 | CustomResource の場合 | cronjob 
+| cronjob | CustomResourceDefinition の場合 | CustomResource の場合 
 
 
-| デモンセット（ DemonSet ） | HorizontalPodAutoscaler のように表示されます | 入力 
+| デモンセット（ DemonSet ） | DeploymentConfig | HorizontalPodAutoscaler のように表示されます 
 
 
-| DeploymentConfig | MutingWebhook | PersistentVolumeClaim のように表示され 
+| 入力 | MutingWebhook | ネットワークポリシー 
 
 
-| ポッド | PodDisruptionBudget （予算の廃止） | PodTemplate 
+| PersistentVolumeClaim のように表示され | ポッド | PodDisruptionBudget （予算の廃止） 
 
 
-| ネットワークポリシー | ReplicaSet | ロール 
+| PodTemplate | ReplicaSet | ロール 
 
 
 | RoleBinding です | ルート | 秘密 
