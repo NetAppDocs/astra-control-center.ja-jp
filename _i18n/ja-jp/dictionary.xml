@@ -2235,7 +2235,6 @@
   <block id="37accdd90658899d1dec0f0f1a91d1fe" category="list-text">Red Hat OpenShift Container Platform 4.8、4.9、または4.10</block>
   <block id="8c19cded473a1f250d655fce0b3d1417" category="list-text">VMware Tanzu Kubernetes Grid 1.4または1.5</block>
   <block id="392295e1bbc9dd503d6376cf6e270a01" category="list-text">VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2または1.13</block>
-  <block id="2571f75e7d242243ae1f0f65ed7f6278" category="cell">少なくとも3つのワーカーノードが必要です。それぞれ12個のCPUコアと16GBのRAMを搭載しています</block>
   <block id="022edc3637cfb3843cebdfdd464d0b9d" category="paragraph">Trident 21.10.1以降をインストールし、SnapMirrorベースのアプリケーションレプリケーション用にAstra 22.04以降を設定している</block>
   <block id="3e3162b6d17401fa39d86c5e6f2f8052" category="list-text">Astra Control Centerのインストールの一部として、PoDセキュリティポリシー（PSP）の制限された環境で次のリソースが作成されます。</block>
   <block id="2eec382fbdd640ff6611d08393c4826a" category="list-text">ポッドセキュリティポリシー</block>
@@ -2632,4 +2631,5 @@
   <block id="9c55cf3bb8c415c1b4cf797d9fae1d67" category="sidebar">アプリケーションとクラスタの健常性を監視</block>
   <block id="0adc618a9ad28f57db9328d47cf45165" category="sidebar">Cloud Insights とFluentdを使用してインフラを監視します</block>
   <block id="d1736d27c7efe09a7fdb5f5e3b18e8dc" category="paragraph">詳細については、を参照してください <block ref="f6d2e41142da7ccda158b71b34630966" category="inline-link-macro-rx"></block>。</block>
+  <block id="3dc2f4e20c545bc208864c2f1c9ce93c" category="cell">少なくとも 3 つのワーカーノードがあり、それぞれ 4 つの CPU コアと 12GB の RAM が搭載されています</block>
 </blocks>
