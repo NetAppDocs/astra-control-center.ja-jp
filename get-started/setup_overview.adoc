@@ -240,8 +240,13 @@ NOTE: バックエンドが表示されるようにページを更新する必�
 
 ** * ONTAP * ：
 +
-... 「* ONTAP *」を選択します。
-... ONTAP の管理者クレデンシャルを入力し、「 * Review * 」を選択します。
+... 「* ONTAP *」を選択し、「* Next *」を選択します。
+... ONTAP クラスタ管理IPアドレスと管理者クレデンシャルを入力します。
++
+
+NOTE: ここで入力するクレデンシャルを持つユーザは、ONTAP クラスタのONTAP System Manager内で、「ontapi」ユーザ・ログイン・アクセス方式を有効にする必要があります。SnapMirror複製を使用する場合は、両方のONTAP クラスタ上のユーザに対してアクセス方法「ontapi」および「http」を有効にします。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ユーザアカウントを管理する"^] を参照してください。
+
+... [* Review （レビュー） ] を選択します
 ... バックエンドの詳細を確認し、「Add storage backend *」を選択します。
 
 

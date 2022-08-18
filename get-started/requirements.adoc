@@ -201,6 +201,16 @@ Astra Controlアプリケーションのレプリケーションを開始する�
 * ペアリングされているリモートSVMがデスティネーションクラスタのTridentで使用可能である必要があります。
 * ソースとデスティネーションの両方のONTAP クラスタにTridentバージョン22.04以降が存在する必要があります。
 * ソースとデスティネーションの両方のONTAP クラスタで、データ保護バンドルを使用したONTAP SnapMirror非同期ライセンスが有効になっている必要があります。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP のSnapMirrorライセンスの概要"^]。
+* Astra Tridentバックエンド構成ファイルには、次の行が含まれている必要があります。
++
+[listing]
+----
+"replicationPolicy": "MirrorAllSnapshots"
+----
++
+を参照してください https://docs.netapp.com/us-en/trident/trident-use/backends.html["バックエンドを設定"^] を参照してください。
+
+* ONTAP ストレージバックエンドをAstra Control Centerに追加する場合、Astra Control Centerとストレージバックエンドの間の通信を有効にするために使用するクレデンシャルを持つユーザは、両方のONTAP クラスタのONTAP System Managerで「http」および「ontapi」を有効にしたユーザログインアクセス方法を使用する必要があります。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ユーザアカウントを管理する"^] を参照してください。
 * ソースとデスティネーションの両方のKubernetesクラスタとONTAP クラスタをAstra Controlで管理する必要があります。
 +
 
@@ -264,6 +274,8 @@ Astra Control Center をお試しになりたい場合は link:setup_overview.ht
 
 
 NOTE: Tanzu Kubernetes Grid クラスタで Astra Control Center をホストしている場合は、「 kubectl get nsxlbmonitors -a` コマンドを使用して、入力トラフィックを受け入れるように設定されたサービスモニタがすでにあるかどうかを確認します。MetalLB が存在する場合は、既存のサービスモニタが新しいロードバランサ設定を上書きするため、 MetalLB をインストールしないでください。
+
+詳細については、を参照してください link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["ロードバランシング用の入力を設定します"]。
 
 
 

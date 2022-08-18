@@ -2630,6 +2630,13 @@
   <block id="d1736d27c7efe09a7fdb5f5e3b18e8dc" category="paragraph">詳細については、を参照してください <block ref="f6d2e41142da7ccda158b71b34630966" category="inline-link-macro-rx"></block>。</block>
   <block id="3dc2f4e20c545bc208864c2f1c9ce93c" category="cell">少なくとも 3 つのワーカーノードがあり、それぞれ 4 つの CPU コアと 12GB の RAM が搭載されています</block>
   <block id="7710790456945bed9a23fff9f934b8fd" category="paragraph">Astra Control Centerを有効にするには、フルアプリケーションデータ管理機能を有効にするためのライセンスが必要です。Astra Control Center をライセンスなしで導入すると、システム機能が制限されていることを示すバナーが Web UI に表示されます。</block>
-  <block id="3a8637e581240d33340d3e6f8927a52d" category="list-text">「* ONTAP *」を選択します。</block>
-  <block id="bf2393bb3f17f3d2b4ff6979c3c20036" category="list-text">ONTAP の管理者クレデンシャルを入力し、「 * Review * 」を選択します。</block>
+  <block id="a698e4170358adf4ae12dde1db5e4df4" category="list-text">Astra Tridentバックエンド構成ファイルには、次の行が含まれている必要があります。</block>
+  <block id="87dc0337d3ded2211d9b01c32e22d90d" category="inline-link">バックエンドを設定</block>
+  <block id="10455fcfd55eff76710d4945e30e3c6f" category="paragraph">を参照してください<block ref="f296f2024998b4c76709035f49bba3d4" category="inline-link-rx"></block> を参照してください。</block>
+  <block id="8e9fceaaf84bd1591dc11726965a5b35" category="inline-link">ユーザアカウントを管理する</block>
+  <block id="57e07386eb22ab2bcc329ab181a33fdf" category="list-text">ONTAP ストレージバックエンドをAstra Control Centerに追加する場合、Astra Control Centerとストレージバックエンドの間の通信を有効にするために使用するクレデンシャルを持つユーザは、両方のONTAP クラスタのONTAP System Managerで「http」および「ontapi」を有効にしたユーザログインアクセス方法を使用する必要があります。を参照してください<block ref="f6ed2b7e6315ca84a258679db888068b" category="inline-link-rx"></block> を参照してください。</block>
+  <block id="558e41f71155360e3f8ee151e27ea06f" category="paragraph">詳細については、を参照してください <block ref="ad125f0a3036e9b5f57b3a7077f489d9" category="inline-link-macro-rx"></block>。</block>
+  <block id="eee7185d57747c6b57ad38a0e1864f92" category="list-text">「* ONTAP *」を選択し、「* Next *」を選択します。</block>
+  <block id="27fa550ebd74698993e3dcb9ba7e2945" category="list-text">ONTAP クラスタ管理IPアドレスと管理者クレデンシャルを入力します。</block>
+  <block id="b6b734f5600f81536bcbb3b4bbdc32bc" category="admonition">ここで入力するクレデンシャルを持つユーザは、ONTAP クラスタのONTAP System Manager内で、「ontapi」ユーザ・ログイン・アクセス方式を有効にする必要があります。SnapMirror複製を使用する場合は、両方のONTAP クラスタ上のユーザに対してアクセス方法「ontapi」および「http」を有効にします。を参照してください<block ref="f6ed2b7e6315ca84a258679db888068b" category="inline-link-rx"></block> を参照してください。</block>
 </blocks>
