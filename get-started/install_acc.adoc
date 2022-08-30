@@ -113,9 +113,16 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 
 == イメージをローカルレジストリに追加します
 
+. コンテナエンジンに応じた手順を実行します。
+
+
+[role="tabbed-block"]
+====
+.Docker です
+--
 . Astraディレクトリに移動します。
 +
-[listing]
+[source, sh]
 ----
 cd acc
 ----
@@ -125,7 +132,7 @@ cd acc
 ** my_registryをDockerリポジトリのURLに置き換えます。
 ** my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます
 +
-[listing]
+[source, sh]
 ----
 kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_PASSWORD
 ----
@@ -133,6 +140,47 @@ kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_
 
 
 
+--
+.ポドマン
+--
+. レジストリにログインします。
++
+[source, sh]
+----
+podman login [your_registry_path]
+----
+. 次のスクリプトを実行して、コメントに記載されているように<your _registry>を置き換えます。
++
+[source, sh]
+----
+# You need to be at the root of the tarball.
+# You should see these files to confirm correct location:
+#   acc.manifest.bundle.yaml
+#   acc/
+
+# Replace <YOUR_REGISTRY> with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
+export REGISTRY=<YOUR_REGISTRY>
+export PACKAGENAME=acc
+export PACKAGEVERSION=22.08.0-20
+export DIRECTORYNAME=acc
+for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
+  # Load to local cache
+  astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
+
+  # Remove path and keep imageName.
+  astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
+
+  # Tag with local image repo.
+  podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+
+  # Push to the local repo.
+  podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+done
+----
+
+
+--
+====
 
 
 == 認証要件を持つレジストリのネームスペースとシークレットを設定します
@@ -154,6 +202,10 @@ kubectl create ns netapp-acc-operator
 namespace/netapp-acc-operator created
 ----
 .. NetApp-acc-operator ネームスペースのシークレットを作成します。Docker 情報を追加して次のコマンドを実行します。
++
+
+NOTE: プレースホルダー「Your_registry_path」は、以前にアップロードしたイメージの場所と一致している必要があります（例：[Registry_url]/NetApp/Astra/astacc /22.08.0/20`）。
+
 +
 [listing]
 ----
