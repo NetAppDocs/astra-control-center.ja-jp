@@ -95,8 +95,8 @@ homepage:
       url: https://cloud.netapp.com/hubfs/SB-4100-Jenkins%20(2).pdf
   - title: ブログコミュニティ
     links:
-    - title: スラックチャンネル
-      url: https://netapppub.slack.com/#astra
+    - title: チャネルを外します
+      url: https://discord.gg/NetApp
     - title: Astra Control ブログ
       url: https://cloud.netapp.com/blog/topic/astra
     - title: ネットアップコミュニティ

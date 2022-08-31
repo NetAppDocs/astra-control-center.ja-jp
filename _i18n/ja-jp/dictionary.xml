@@ -97,7 +97,6 @@
   <block id="9318b0c96f2eb8cb846f9939d293ee5c" category="summary">Astra Control Center ソフトウェアは、オンプレミス環境で Kubernetes クラスタのアプリケーション対応データ管理を実現します。Kubernetes アプリケーションを簡単にバックアップし、データを別のクラスタに移行して、作業用アプリケーションのクローンを瞬時に作成できます。パブリッククラウドで実行されている Kubernetes アプリケーションを管理する必要がある場合は、 Astra Control Service のドキュメントを参照してください。</block>
   <block id="5bc8792f4d0618bc7421137123233c68" category="summary">ネットアップでは、 Astra Control をさまざまな方法でサポートしています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Control アカウントには、 Web チケット発行によるリモートテクニカルサポートが含まれています。</block>
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">ヘルプを表示します</block>
-  <block id="a6e1f493785653671f0660b3a3ccc2e2" category="admonition">Astra Control Center の評価用ライセンスをお持ちの場合は、テクニカルサポートを受けることができます。ただし、ネットアップサポートサイト（ NSS ）でケースを作成することはできません。フィードバックオプションを通じてサポートに連絡するか、 Slack チャンネルを利用してセルフサービスで連絡できます。</block>
   <block id="9f1a9252fa8e7cccfce329f81193d946" category="inline-link-macro">ネットアップのシリアル番号のサポートを有効にします</block>
   <block id="9580bedb9d61fe3a06c2c0a84428340b" category="paragraph">最初に実行する必要があります <block ref="0da2bd51927b2e0d6e9f34a462b8052f" category="inline-link-macro-rx"></block> これらの非セルフサービスサポートオプションを使用するには、次の手順に従います。チャットや Web でのチケット発行、ケース管理には、ネットアップサポートサイト（ NSS ）の SSO アカウントが必要です。</block>
   <block id="e9f9b053971e4cd8cce3a402331a125b" category="paragraph">メインメニューから * Support * タブを選択すると、 Astra Control Center UI からサポートオプションにアクセスできます。</block>
@@ -1059,7 +1058,6 @@
   <block id="b1cb177a36a717434db632021b6d91bc" category="sidebar">Astra Control を使用した MySQL DBaaS</block>
   <block id="332153f6f1b31602ac3418cdf4d18170" category="sidebar">Jenkins のライフサイクル管理を簡易化</block>
   <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">ブログコミュニティ</block>
-  <block id="0c2a2a6a4c35696b309713d6db0f8404" category="sidebar">スラックチャンネル</block>
   <block id="36910a95584c53fdc9ed97782ef3965c" category="sidebar">Astra Control ブログ</block>
   <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">ネットアップコミュニティ</block>
   <block id="874d8a5301794a9ca2aba132ac2460f3" category="sidebar">Kubernetes ハブ</block>
@@ -1752,8 +1750,6 @@
   <block id="68f269105158a82f8e06dd324631610e" category="inline-link">* ナレッジベース * （ログインが必要）</block>
   <block id="3ce7820e1a8dcaf1b20e89638e9eb65c" category="list-text"><block ref="c21c91b055ef6d38b9e7473e1602e44f" category="inline-link-rx"></block>： Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。</block>
   <block id="54fb836d65dfa963fa159aa13bf9fe60" category="list-text">* ドキュメントセンター * ：現在表示しているドキュメントサイトです。</block>
-  <block id="8fcc40b57fd2544f263ddca555e1a42f" category="inline-link">* Slack * でヘルプを入手してください</block>
-  <block id="f3bd3849c5621364cd7faf04bda271ca" category="list-text"><block ref="f235ba35538949dfe124c04907cdfa51" category="inline-link-rx"></block>： thePub ワークスペースのコンテナチャネルに移動して、ピアやエキスパートと交流しましょう。</block>
   <block id="2d1cdbb35250ece1f1e88fdafee9d683" category="list-text">* サポートケースの作成 * ：トラブルシューティングのためにネットアップサポートに提供するサポートバンドルを生成</block>
   <block id="5a7e155bd663e7d6145fbd05e0908d7e" category="list-text">* Astra Control についてのフィードバック * ： astra.feedback@netapp.com に電子メールを送信して、あなたの考え、アイデア、懸念を知らせてください。</block>
   <block id="8c32a73fa8e487b617354c9f67eced24" category="paragraph">NSS へのバンドルのアップロードにプロキシ接続が必要かどうかを確認します。プロキシ接続が必要な場合は、 Astra Control Center がプロキシサーバーを使用するように設定されていることを確認します。</block>
@@ -2645,4 +2641,9 @@
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">レジストリにログインします。</block>
   <block id="c330f6e98afeb2bb5f8da986c24088ee" category="list-text">次のスクリプトを実行して、コメントに記載されているように&lt;your _registry&gt;を置き換えます。</block>
   <block id="b5a8988ef4b9c7e25ec15b79d93a02d4" category="admonition">プレースホルダー「Your_registry_path」は、以前にアップロードしたイメージの場所と一致している必要があります（例：[Registry_url]/NetApp/Astra/astacc /22.08.0/20`）。</block>
+  <block id="1c90591655cdfe7d885b02ed72ae2509" category="summary">ネットアップでは、 Astra Control をさまざまな方法でサポートしています。ナレッジベース（KB）記事やDiscordチャネルなど、24時間365日利用可能な無料のセルフサポートオプションをご用意しています。Astra Control アカウントには、 Web チケット発行によるリモートテクニカルサポートが含まれています。</block>
+  <block id="e63bdfa6fe9dccaf39b5d028f12a4a15" category="admonition">Astra Control Center の評価用ライセンスをお持ちの場合は、テクニカルサポートを受けることができます。ただし、ネットアップサポートサイト（ NSS ）でケースを作成することはできません。フィードバック・オプションを使用してサポートに連絡するか、Discordチャネルを使用してセルフサービスで連絡できます。</block>
+  <block id="35cdc0acd4828a4d409d79a5f18ee353" category="inline-link">* Discord *で助けを得なさい</block>
+  <block id="5782a764d5148bc0a62fa0db213a073b" category="list-text"><block ref="f560054dea7b7d17ab98f97d9a55b6ac" category="inline-link-rx"></block>：thePubカテゴリのAstraに移動して、他のユーザやエキスパートと交流しましょう。</block>
+  <block id="a7cfd917113a9ee9c1e789887d1d809f" category="sidebar">チャネルを外します</block>
 </blocks>
