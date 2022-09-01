@@ -74,36 +74,91 @@ openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-cont
 ----
 tar -vxzf astra-control-center-[version].tar.gz
 ----
-. Astra ディレクトリに移動します。
-+
-[listing]
-----
-cd acc
-----
 
 
 
 
 == イメージをローカルレジストリに追加します
 
-. Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。コマンドを実行する前に、次の置き換えを行ってください。
+. コンテナエンジンに応じた手順を実行します。
+
+
+[role="tabbed-block"]
+====
+.Docker です
+--
+. Astraディレクトリに移動します。
 +
-** bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .bundle.yaml )
+[source, sh]
+----
+cd acc
+----
+. [[[[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1></Z1>_image_local_registry_push]]]]]]]]]]</Z2>アストラControl Centerイメージディレクトリ内のパッケージイメージをローカルレジストリにプッシュします。</Z3>コマンドを実行する前に、次の置き換えを行ってください。
++
+** bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .yaml ')
 ** my_registryをDockerリポジトリのURLに置き換えます。
-** my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます
+** my_registry_userをユーザー名に置き換えます。
+** my_registry_tokenをレジストリの認証済みトークンに置き換えます。
 +
-[listing]
+[source, sh]
 ----
-kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_PASSWORD
+kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_TOKEN
 ----
 
 
 
 
+--
+.ポドマン
+--
+. レジストリにログインします。
++
+[source, sh]
+----
+podman login [your_registry_path]
+----
+. 次のスクリプトを実行して、コメントに記載されているように<your _registry>を置き換えます。
++
+[source, sh]
+----
+# You need to be at the root of the tarball.
+# You should see these files to confirm correct location:
+#   acc.manifest.yaml
+#   acc/
+
+# Replace <YOUR_REGISTRY> with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
+export REGISTRY=<YOUR_REGISTRY>
+export PACKAGENAME=acc
+export PACKAGEVERSION=22.08.0-20
+export DIRECTORYNAME=acc
+for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
+  # Load to local cache
+  astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
+
+  # Remove path and keep imageName.
+  astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
+
+  # Tag with local image repo.
+  podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+
+  # Push to the local repo.
+  podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+done
+----
+
+
+--
+====
 
 
 == 更新された Astra Control Center オペレータをインストールします
 
+. ディレクトリを変更します。
++
+[listing]
+----
+cd manifests
+----
 . Astra Control Center オペレータの配備 YAML (`Astra_control_center_deployment.yaml ') を編集して、ローカルのレジストリと秘密を参照します。
 +
 [listing]
@@ -199,6 +254,12 @@ clusterrolebinding.rbac.authorization.k8s.io/acc-operator-proxy-rolebinding unch
 configmap/acc-operator-manager-config unchanged
 service/acc-operator-controller-manager-metrics-service unchanged
 deployment.apps/acc-operator-controller-manager configured
+----
+. ポッドが実行中であることを確認します
++
+[listing]
+----
+kubectl get pods -n netapp-acc-operator
 ----
 
 
@@ -365,7 +426,7 @@ NOTE: サービスタイプ「 LoadBalancer 」および入力の詳細につい
 [listing]
 ----
 apiVersion: extensions/v1beta1
-kind: Ingress
+kind: IngressClass
 metadata:
   name: ingress-acc
   namespace: [netapp-acc or custom namespace]

@@ -28,16 +28,17 @@ Astra Control Centerは、接続されたリポジトリ内のパッケージイ
 
 .手順
 . ネットアップサポートサイトからソフトウェアパッケージをダウンロードし、「kubectl」ユーティリティがインストールされているマシンに保存します。
-. 圧縮されたパッケージファイルを展開し、ディレクトリをAstra Controlバンドルファイルの場所に変更します（例：「acc.manifest .bundle.yaml」）。
+. 圧縮されたパッケージファイルを展開し、ディレクトリをAstra Controlバンドルファイルの場所に変更します（例：「acc.manifest .yaml」）。
 . パッケージイメージをDockerリポジトリにプッシュします。次の置換を行います。
 +
-** bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .bundle.yaml )
+** bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .yaml ')
 ** my_registryをDockerリポジトリのURLに置き換えます。
-** my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます
+** my_registry_userをユーザー名に置き換えます。
+** my_registry_tokenをレジストリの認証済みトークンに置き換えます。
 +
 [listing]
 ----
-kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_PASSWORD
+kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_TOKEN
 ----
 
 

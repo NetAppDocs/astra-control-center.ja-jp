@@ -611,7 +611,6 @@
   <block id="7ccab09493cf97c9665c6c2126741ee5" category="list-text">（任意）次のコマンドを使用して、バンドルのシグニチャを確認します。</block>
   <block id="55dd7c8d274890e1cb45bb29840ae107" category="section-title">バンドルを開梱し、ディレクトリを変更します</block>
   <block id="ae32a002cf3df8354380980ceb442a90" category="list-text">画像を抽出します。</block>
-  <block id="f649b0ca3deae5a7d2e60dabf74a0ab4" category="list-text">Astra ディレクトリに移動します。</block>
   <block id="22a59db7b4ba20ac09e829d51d726828" category="section-title">イメージをローカルレジストリに追加します</block>
   <block id="9d37e8b16bca7866e9db4f98f5080a5a" category="section-title">更新された Astra Control Center オペレータをインストールします</block>
   <block id="4dfe1039695653a07d27cb2151fbe633" category="list-text">Astra Control Center オペレータの配備 YAML (`Astra_control_center_deployment.yaml ') を編集して、ローカルのレジストリと秘密を参照します。</block>
@@ -1249,7 +1248,6 @@
   <block id="1cee46fe31fb6be4325d72afeb43c038" category="paragraph">CA によって署名された新しい TLS 証明書を追加します。</block>
   <block id="38073e52be4dfccbbd24b3272a244562" category="list-text">から Astra Control Center 証明書とキーの zip をダウンロードします<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>。</block>
   <block id="817e1aba6882bae4837bd1f640be671a" category="list-text">インターネットに接続されていないサイトの場合は AutoSupport の「 enrolled 」を「 false 」に変更し、接続されているサイトの場合は「 true 」を保持します。</block>
-  <block id="2a0a2b464d2715b6fb4ea6d68ae8f9c4" category="list-text">すべてのポッドが動作している場合は、 Astra Control Center Operator によってインストールされた「 Astrad ControlCenter 」インスタンスを取得して、インストールが正常に完了したことを確認します。</block>
   <block id="7267bf4022ef959138b9f6b053eb4b37" category="paragraph">運用環境、アプリケーションクラスタ、アプリケーション、ライセンス、 Web ブラウザの準備ができているかどうかを検証します。</block>
   <block id="14c3520c1ca6993e39c544e92a538f0b" category="section-title">運用環境の要件</block>
   <block id="540bf6f549a34a85e07e4a8510890f43" category="paragraph">Astra Control Center をホストするオペレーティングシステムが、環境の公式ドキュメントに記載されている基本的なリソース要件を満たしていることを確認します。Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。</block>
@@ -1668,9 +1666,6 @@
   <block id="77e0de8ecc5568c2d3a063c7dc7001ec" category="admonition">サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>。</block>
   <block id="ee0526590c13af447ef6f7015055f42a" category="inline-link-macro">UI で</block>
   <block id="7273584d0fdded6be7a9a6e1cc3f03b4" category="admonition">「 accHost 」クラスタの登録は最後の操作の 1 つであり、失敗した場合、原因 の配備に失敗することはありません。ログにクラスタ登録エラーが示された場合は、クラスタ追加ワークフローを通じて再度登録を試行できます <block ref="b470e1e769f57d21f243dd7007dff492" category="inline-link-macro-rx"></block> または API 。</block>
-  <block id="ac7bb8980fbb62357b278b4b6c7c9338" category="list-text">YAML で、「 Deployed 」値に対する応答の「 status.deploymentState` 」フィールドを確認します。導入に失敗した場合は、代わりにエラーメッセージが表示されます。</block>
-  <block id="28bbf0acdd3b39e5c8c561287bc93cb0" category="list-text">Astra Control Center にログインするときに使用するワンタイムパスワードを取得するには、「 status.uuid 」値をコピーします。パスワードは「 ACC-` 」の後に UUID 値（「 ACC-[UUID] 」）、またはこの例では「 ACC-9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f 」）です。</block>
-  <block id="9b1d9a579e35c7ae0c56196f2ec084e1" category="example-title">YAML の詳細のサンプル</block>
   <block id="d6cdb892fe9623e9782bae6db8d7dcd7" category="paragraph">Kubernetes 入力コントローラをセットアップして、クラスタのロードバランシングなどのサービスへの外部アクセスを管理できます。</block>
   <block id="0d1c106f5017462d9de6e4f8a82e074c" category="paragraph">この手順 では、入力コントローラ（「 ingressType: Generic 」）の設定方法について説明します。これは、 Astra Control Center でのデフォルトのアクションです。Astra Control Center を展開したら、 Astra Control Center を URL で公開するように入力コントローラを設定する必要があります。</block>
   <block id="4bed96e1b3536d83eb37a83daf2c99fe" category="admonition">入力コントローラを設定しない場合は、「 ingressType: AccTraefik 」を設定できます。Astra Control Center は、 Astra Control Center ネームスペースの "LoadBalancer (svc/traefik`) タイプのサービスを使用し、アクセス可能な外部 IP アドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、 MetalLB または別の外部サービスロードバランサを使用して、外部 IP アドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>。</block>
@@ -1896,7 +1891,6 @@
   <block id="3aa4078371fb9b0c4a3e6c177942f01d" category="list-text">ネットアップサポートサイトから提供されるソフトウェアパッケージ</block>
   <block id="1861208871c49f3fafbdd2b1baedad6a" category="paragraph">Astra Control Centerは、接続されたリポジトリ内のパッケージイメージとアーティファクトを参照します。CLIを使用して、リポジトリにイメージとアーティファクトをアップロードできます。</block>
   <block id="8a0c00d15eb4f3a9a8a6c659a1d7c576" category="list-text">ネットアップサポートサイトからソフトウェアパッケージをダウンロードし、「kubectl」ユーティリティがインストールされているマシンに保存します。</block>
-  <block id="a5d15ab770cd44d363e7f95fd16d0a4b" category="list-text">圧縮されたパッケージファイルを展開し、ディレクトリをAstra Controlバンドルファイルの場所に変更します（例：「acc.manifest .bundle.yaml」）。</block>
   <block id="109f9842fb9259a1de20c1577339c28c" category="list-text">bundle_fileをAstra Controlバンドルファイルの名前に置き換えます。</block>
   <block id="82a16926420b6ee2d26a80442a3db7ae" category="section-title">ソフトウェアパッケージを追加します</block>
   <block id="5801238264a16600dd0ab813e21d2cd9" category="paragraph">Astra Control Centerバンドルファイルを使用して、ソフトウェアパッケージをインポートできます。これにより、パッケージがインストールされ、Astra Control Centerで使用できるようになります。</block>
@@ -1958,7 +1952,6 @@
   <block id="0b85467ebafa7ca3c47e82dc38184484" category="list-text">スループット</block>
   <block id="af2248b7281e83a45508e2ec7c9356ea" category="list-text">パッケージイメージをDockerリポジトリにプッシュします。次の置換を行います。</block>
   <block id="48c5334862569a4217279192a534b20a" category="list-text">my_registryをDockerリポジトリのURLに置き換えます。</block>
-  <block id="da5ff2a96a29f48c8c4ffcf756aada4e" category="list-text">my_registry_userとmy_registry_passwordをリポジトリの資格情報に置き換えます</block>
   <block id="25d79c61a8c2cf8672fbd0f32f9bfc13" category="list-text">パッケージにアーティファクトがある場合は'アーティファクトをアーティファクトリポジトリにコピーしますbundle_fileをAstra Controlバンドルファイルの名前に置き換え'network_locationをネットワークロケーションに置き換えて'アーティファクトファイルを次の場所にコピーします</block>
   <block id="2707211a1bc867b58edced6b3def5b35" category="list-text">リポジトリのクレデンシャルを入力します。</block>
   <block id="4e7bc0f2f576e3a2e7b9bd624d2da7d3" category="list-text"><block ref="f9a9477fa54fe91dbfcc4b4adc8c5a84" category="inline-xref-macro-rx"></block></block>
@@ -2064,8 +2057,6 @@
   <block id="817ff31e06696b2ddfbd20628237efec" category="list-text">説明したインストール手順を実行するために必要な権限を取得し、Red Hat OpenShift Container Platformにアクセスします。</block>
   <block id="6b711ca63f3156860c2b2918a106b882" category="inline-link-macro">事前に必要な手順</block>
   <block id="6f3f4e3c6db4311eee9b8e4f3d7cf320" category="list-text">クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります <block ref="1787bdbf8a8938a728c4bed68c77105f" category="inline-link-macro-rx"></block> そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。</block>
-  <block id="c7556264a1988a2b92f66e12713a407c" category="list-text">Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。コマンドを実行する前に、次の置き換えを行ってください。</block>
-  <block id="b3b0a5bd71a112bf9bb26c32b1d97c02" category="list-text">bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .bundle.yaml )</block>
   <block id="ab25aff32a32d9ce9e224b3e4c8d5eaa" category="paragraph">Red Hat OpenShift環境では、を使用できます <block ref="3070b96c53dc6268c37367db253e962f" category="inline-link-macro-rx"></block> OpenShift OperatorHub を使用して Astra Control Center をインストールします。</block>
   <block id="e13d4a668fc56237f39878bf668e8d7b" category="inline-link-macro">ポッドのセキュリティポリシーの制限事項を理解します</block>
   <block id="edc827c257229b5297b0a885b6edd0a4" category="list-text">使用環境でポッドセキュリティポリシーを設定または設定したい場合は、ポッドセキュリティポリシーと、それらがAstra Control Centerのインストールに与える影響について理解しておいてください。を参照してください <block ref="90eb15ded1d67bf22279d5e261d434f2" category="inline-link-macro-rx"></block>。</block>
@@ -2646,4 +2637,14 @@
   <block id="35cdc0acd4828a4d409d79a5f18ee353" category="inline-link">* Discord *で助けを得なさい</block>
   <block id="5782a764d5148bc0a62fa0db213a073b" category="list-text"><block ref="f560054dea7b7d17ab98f97d9a55b6ac" category="inline-link-rx"></block>：thePubカテゴリのAstraに移動して、他のユーザやエキスパートと交流しましょう。</block>
   <block id="a7cfd917113a9ee9c1e789887d1d809f" category="sidebar">チャネルを外します</block>
+  <block id="90062dfdb5439267ea2ea3670efc5200" category="list-text">圧縮されたパッケージファイルを展開し、ディレクトリをAstra Controlバンドルファイルの場所に変更します（例：「acc.manifest .yaml」）。</block>
+  <block id="81730a436a6662ae645289e52e592f39" category="list-text">bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .yaml ')</block>
+  <block id="f7fd97c3e77b1bf62b2ea426c794d07a" category="list-text">my_registry_userをユーザー名に置き換えます。</block>
+  <block id="cfb00d559ebab724c9dc29059831ddb8" category="list-text">my_registry_tokenをレジストリの認証済みトークンに置き換えます。</block>
+  <block id="bb6d95ff16fd3c7abf9daa650b5357c5" category="list-text">ディレクトリを変更します。</block>
+  <block id="3287973c50b09462bde24fe82b06c59b" category="list-text">ポッドが実行中であることを確認します</block>
+  <block id="4350127c708b74b4f04ca10d2c10b10d" category="list-text">Astra Control Centerホストクラスタ用のKUBECONFIGをエクスポートします。</block>
+  <block id="ee757186f5199677f301e66433ce62a8" category="admonition">シークレットの生成後にネームスペースを削除する場合は、ネームスペースが再作成されたあとにネームスペースのシークレットを再生成する必要があります。</block>
+  <block id="706e80be7b24b81c7ab49d441d7d88f8" category="list-text">すべてのポッドが動作しているときは、インストールが成功したことを確認し（「ready」は「True」）、Astra Control Centerにログインするときに使用するワンタイムパスワードを取得します。</block>
+  <block id="85573d5352311b01ff7319a4b0e9bf34" category="admonition">UUIDの値をコピーします。パスワードは「 ACC-` 」の後に UUID 値（「 ACC-[UUID] 」）、またはこの例では「 ACC-9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f 」）です。</block>
 </blocks>
