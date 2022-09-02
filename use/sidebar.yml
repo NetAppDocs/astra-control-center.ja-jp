@@ -13,7 +13,7 @@ entries:
   - title: アプリケーションのリストア
     url: "/use/restore-apps.html"
   - title: アプリケーションをリモートシステムにレプリケートします
-    url: "/use/replication.html"
+    url: "/use/replicate_snapmirror.html"
   - title: アプリケーションのクローン作成と移行
     url: "/use/clone-apps.html"
   - title: アプリケーション実行フックを管理します

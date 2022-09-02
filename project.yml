@@ -60,7 +60,7 @@ homepage:
     - title: アプリケーションのクローン作成と移行
       url: "/use/clone-apps.html"
     - title: アプリケーションをリモートシステムにレプリケートします
-      url: "/use/replication.html"
+      url: "/use/replicate_snapmirror.html"
   - title: Astra Control API を使用
     links:
     - title: Astra Control API の使用を開始します

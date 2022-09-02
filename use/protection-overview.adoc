@@ -47,7 +47,7 @@ Astra Control Center を使用して、アプリケーションのバックア�
 === アプリケーションをリモートクラスタにレプリケートします
 
 [role="quick-margin-para"]
-link:replication.html["アプリケーションをレプリケートします"] NetApp SnapMirrorテクノロジを使用してリモートクラスタにバックアップする場合Astra Controlは、Snapshotをリモートクラスタにレプリケートし、非同期のディザスタリカバリ機能を提供します。
+link:replicate_snapmirror.html["アプリケーションをレプリケートします"] NetApp SnapMirrorテクノロジを使用してリモートクラスタにバックアップする場合Astra Controlは、Snapshotをリモートクラスタにレプリケートし、非同期のディザスタリカバリ機能を提供します。
 
 
 

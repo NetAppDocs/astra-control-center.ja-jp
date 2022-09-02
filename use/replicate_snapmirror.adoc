@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: use/replication.html 
+permalink: use/replicate_snapmirror.html 
 keywords: replicate, replication, disaster, recovery 
 summary: Astra では、スナップショットまたはバックアップからアプリケーション構成と永続的ストレージをリストアできます。オブジェクトストアから永続的ストレージのバックアップが転送されるため、既存のバックアップからのリストアが最も高速に完了します。 
 ---

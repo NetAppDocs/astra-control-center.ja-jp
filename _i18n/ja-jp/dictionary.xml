@@ -2000,7 +2000,6 @@
   <block id="d822994c8eeb864206aa022481872893" category="list-text">*アプリケーションレプリケーション*：Astra Controlでは、NetApp SnapMirrorを有効にするように構成されたそれぞれのONTAP ストレージバックエンドで、ソースとデスティネーションのKubernetesクラスタを使用および管理する必要があります。Astra Controlは、ポリシーベースのアプリケーションSnapshotを作成して、リモートクラスタにレプリケートします。永続ボリュームのデータのレプリケートには、NetApp SnapMirrorテクノロジを使用します。フェイルオーバーのために、デスティネーションONTAP クラスタ上のレプリケートされたボリュームを含むデスティネーションKubernetesクラスタにアプリケーションオブジェクトを再作成することで、レプリケーションされたアプリケーションをオンラインにすることができます。永続ボリュームのデータはデスティネーションONTAP クラスタにすでに存在するため、Astra Controlを使用すると、フェイルオーバーのためのリカバリ時間を短縮できます。</block>
   <block id="46f7c1ba8a4fd8b1f55723b061d38c1d" category="list-text">*アプリケーションのバックアップとリストア*：アプリケーションのバックアップ時に、Astra ControlはアプリケーションデータのSnapshotを作成し、オブジェクトストレージバケットに格納します。リストアが必要な場合は、バケット内のデータをONTAP クラスタ上の永続ボリュームにコピーする必要があります。バックアップ/リストア処理では、セカンダリKubernetes / ONTAPクラスタを使用可能にして管理する必要はありませんが、データコピーを追加するとリストア時間が長くなる可能性があります。</block>
   <block id="229c7c759f13c80c6aa16940d599fb67" category="inline-link-macro">SnapMirrorテクノロジを使用してアプリケーションをリモートシステムにレプリケート</block>
-  <block id="317260303a03ec46fcba8a310dc6a463" category="paragraph">アプリケーションをレプリケートする方法については、を参照してください <block ref="5b509d981d6206aae3d3ed45ff0fd262" category="inline-link-macro-rx"></block>。</block>
   <block id="2e67b4ffa9856ed714ace3c83ce69b11" category="paragraph">次の図は、スケジュールされたバックアップおよびリストアのプロセスをレプリケーションプロセスと比較したものです。</block>
   <block id="0684163543dd8c63ba059f860287849a" category="paragraph">バックアッププロセスでは、S3バケットにデータをコピーし、S3バケットからリストアします。</block>
   <block id="81cddeedfe823c0b5ecc3077e6dafc47" category="inline-image-macro">スケジュールされたバックアップとリストアのイメージ</block>
@@ -2031,7 +2030,6 @@
   <block id="d5aedbc082e54ed66f533aea75c374f6" category="paragraph">Astra Controlでは、「パスバイリファレンス」アーキテクチャ（CockroachDBオペレータなど）で設計されたオペレータをクローニングできない場合があります。クローニング処理では、クローニング処理の一環として独自の新しいシークレットが存在する場合でも、クローニングされたオペレータがソースオペレータから Kubernetes シークレットを参照しようとします。Astra Control がソースオペレータの Kubernetes シークレットを認識しないため、クローニング処理が失敗する場合があります。</block>
   <block id="8903edbd1d0463471f5590d10a85b600" category="section-title">2022年8月10日（22.08.0）</block>
   <block id="cf730d1df7f3b98c75cd949f7b3155ec" category="inline-link-macro">NetApp SnapMirrorテクノロジを使用したアプリケーションのレプリケーション</block>
-  <block id="72c6d36c2615563abe62774a0cc12db3" category="list-text"><block ref="72c6d36c2615563abe62774a0cc12db3" category="inline-link-macro-rx"></block></block>
   <block id="43a321aa397f8593d184ea33759d7e38" category="inline-link-macro">アプリ管理ワークフローの改善</block>
   <block id="698d9d3cfbd3ea1d9902191a82b88d3e" category="list-text"><block ref="698d9d3cfbd3ea1d9902191a82b88d3e" category="inline-link-macro-rx"></block></block>
   <block id="ced3580ec3e1b083304a574bccfdc820" category="inline-link-macro">拡張された独自の実行フック機能</block>
@@ -2239,7 +2237,6 @@
   <block id="665cb0fd449119a5f020701a7e4d37aa" category="list-text">ソースとデスティネーションの両方のKubernetesクラスタとONTAP クラスタをAstra Controlで管理する必要があります。</block>
   <block id="12656d1c4d74b517feee96e4c4eda095" category="admonition">（別のクラスタまたはサイトで実行されている）別のアプリケーションを逆方向に同時にレプリケートできます。たとえば、アプリケーションA、B、Cはデータセンター1からデータセンター2にレプリケートでき、アプリケーションX、Y、Zはデータセンター2からデータセンター1にレプリケートできます。</block>
   <block id="b74602b149e39af1209754432fd537e3" category="inline-link-macro">SnapMirrorテクノロジを使用してアプリケーションをリモートシステムにレプリケート</block>
-  <block id="66c524f14574de53906b92bf06297447" category="paragraph">方法をご確認ください <block ref="4661ce5eb4f3d4f6821de12edff361d7" category="inline-link-macro-rx"></block>。</block>
   <block id="dd065d032958db1fedcce03e51dcef9e" category="paragraph">Astra Control Center の全機能を使用するには、 Astra Control Center ライセンスが必要です。評価用ライセンスまたはフルライセンスをネットアップから取得する。ライセンスがないと、次の操作を実行できません。</block>
   <block id="4eba5ba43cc624385f276658a22c51a8" category="list-text">アプリケーションを定義します</block>
   <block id="ce54d221292e1505e5b1a6ed4c74dac7" category="summary">Astra Control Centerをインストールする前に、PODセキュリティポリシーがどのように機能するかを理解しておく必要があります。</block>
@@ -2361,7 +2358,6 @@
   <block id="44c76d6a0a4f1bde94eb2cd76b8d4eae" category="section-title">保護ポリシーを調整します</block>
   <block id="e0a9a1ca749b026f1191e8980cfd9475" category="section-title">アプリケーションをリモートクラスタにレプリケートします</block>
   <block id="87c77d08f8cc9ba015bc277bf63171ec" category="inline-link-macro">アプリケーションをレプリケートします</block>
-  <block id="02210d3f5ab3b22ced0c30fadc0b6c36" category="paragraph"><block ref="dc8666aecf0cf92219eb818c68a8e765" category="inline-link-macro-rx"></block> NetApp SnapMirrorテクノロジを使用してリモートクラスタにバックアップする場合Astra Controlは、Snapshotをリモートクラスタにレプリケートし、非同期のディザスタリカバリ機能を提供します。</block>
   <block id="c4491e86699f3e74488527dd9f36c879" category="section-title">災害が発生した場合は、最新のバックアップまたはレプリケーションを使用してアプリケーションをリモートシステムにリストアします</block>
   <block id="e11f531afbfddcb2e626779912560475" category="paragraph">データ損失が発生した場合は、を使用してリカバリできます <block ref="550aec8aa1d184571b143fbb368e4c54" category="inline-link-macro-rx"></block> まず、各アプリケーションについて説明します。その後、最新の Snapshot をリストアできます（使用可能な場合）。または、リモートシステムへのレプリケーションを使用することもできます。</block>
   <block id="d77a72056cdc02124a845066bec0d946" category="paragraph">実行フックは、管理対象アプリケーションのデータ保護操作と組み合わせて実行するように構成できるカスタムアクションです。たとえば、データベースアプリケーションがある場合、実行フックを使用して、スナップショットの前にすべてのデータベーストランザクションを一時停止し、スナップショットの完了後にトランザクションを再開できます。これにより、アプリケーションと整合性のある Snapshot を作成できます。</block>
@@ -2647,4 +2643,8 @@
   <block id="ee757186f5199677f301e66433ce62a8" category="admonition">シークレットの生成後にネームスペースを削除する場合は、ネームスペースが再作成されたあとにネームスペースのシークレットを再生成する必要があります。</block>
   <block id="706e80be7b24b81c7ab49d441d7d88f8" category="list-text">すべてのポッドが動作しているときは、インストールが成功したことを確認し（「ready」は「True」）、Astra Control Centerにログインするときに使用するワンタイムパスワードを取得します。</block>
   <block id="85573d5352311b01ff7319a4b0e9bf34" category="admonition">UUIDの値をコピーします。パスワードは「 ACC-` 」の後に UUID 値（「 ACC-[UUID] 」）、またはこの例では「 ACC-9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f 」）です。</block>
+  <block id="d212abf709fef8fefcdce84a69830236" category="paragraph">アプリケーションをレプリケートする方法については、を参照してください <block ref="f775ff169c13e4056fe6b95c5da23416" category="inline-link-macro-rx"></block>。</block>
+  <block id="4ac4f3b37f65d59e010bc2f6ddd50ea2" category="list-text"><block ref="4ac4f3b37f65d59e010bc2f6ddd50ea2" category="inline-link-macro-rx"></block></block>
+  <block id="ed78458df917d6da9f19cca23d8468cd" category="paragraph"><block ref="c229e392652cddf73148e5c65f706c6d" category="inline-link-macro-rx"></block> NetApp SnapMirrorテクノロジを使用してリモートクラスタにバックアップする場合Astra Controlは、Snapshotをリモートクラスタにレプリケートし、非同期のディザスタリカバリ機能を提供します。</block>
+  <block id="6ec03beb7c5c0fd46afad879591343a9" category="paragraph">方法をご確認ください <block ref="6f4a779492bc5e3eca7c765cfa3ccb84" category="inline-link-macro-rx"></block>。</block>
 </blocks>
