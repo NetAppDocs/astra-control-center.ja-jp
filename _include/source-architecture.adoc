@@ -4,7 +4,7 @@
 
 ここでは、 Astra Control 環境のさまざまなコンポーネントの概要を示します。
 
-image:astra-ads-architecture-diagram-v3.png["Astra Control のアーキテクチャ図とコンポーネント"]
+image:astra-ads-architecture-diagram-v4.png["Astra Control のアーキテクチャ図とコンポーネント"]
 
 
 

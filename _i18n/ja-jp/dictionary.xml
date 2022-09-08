@@ -1208,7 +1208,6 @@
   <block id="052766753c4902f7b4dda44f55923c85" category="list-text">GKE クラスタでは、 Astra Control Service はを使用します<block ref="33441d63a8e7ace6860eab2024320819" category="inline-link-rx"></block> または、永続ボリューム用のストレージバックエンドとして Google Persistent Disk を使用します。</block>
   <block id="e6b1925e4e775a70bcb5b95deee417b9" category="list-text">AKS クラスタの場合、 Astra Control Service はを使用します<block ref="16e1ab965c1d673c5cb3b5a28e77c1c1" category="inline-link-rx"></block> または、永続ボリューム用のストレージバックエンドとして Azure Disk Storage を選択します。</block>
   <block id="53a30ad173bc821551d7bc21cfd2f4c8" category="list-text">Azure NetApp Files または NetApp Cloud Volumes Service for Google Cloud をストレージバックエンドとして使用している場合、 Astra Control Service は Astra Trident を使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。</block>
-  <block id="28f3b0cd697bf5f33c7eab89e20baff4" category="paragraph"><block ref="28f3b0cd697bf5f33c7eab89e20baff4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="231cf4c70d866b616c21baddaeed0696" category="doc">トラブルシューティング</block>
   <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="paragraph">発生する可能性のある一般的な問題を回避する方法について説明します。</block>
   <block id="c24664a07eb6e40162f3e96c142b0bdc" category="summary">Astra Control アカウントのアクティビティの詳細を表示できます。たとえば、新しいユーザを招待したとき、クラスタが追加されたとき、 Snapshot が作成されたときなどです。アカウントアクティビティを CSV ファイルにエクスポートすることもできます。</block>
@@ -2602,7 +2601,6 @@
   <block id="6b01e4d97036360d209f5a9bacf98f31" category="admonition">バックアップをキャンセルするには、そのバックアップが実行中の状態である必要があります。Pending状態のバックアップはキャンセルできません。</block>
   <block id="5a74785c1f7b64991b4e6c1995f2e049" category="list-text">目的のバックアップの[*アクション*（* Actions *）]列の[オプション（Options）]メニューから、[*キャンセル*（* Cancel *）]を選択します。</block>
   <block id="b9f936afd1e658e03141a156ac26af63" category="list-text">削除を確認するために「CANCEL」と入力し、「* Yes、cancel backup *」を選択します。</block>
-  <block id="30d8cb6f04725be5c7ac4990581efaa9" category="list-text"><block ref="30d8cb6f04725be5c7ac4990581efaa9" category="inline-link-macro-rx"></block></block>
   <block id="cf449e1563eca443c9bf5d00151887e8" category="sidebar">アプリケーションをリモートシステムにレプリケートします</block>
   <block id="13c01a54604c3f7049eaa9f3390e1622" category="sidebar">Astra Control Service の詳細をご確認ください</block>
   <block id="3df43a986689c71190e7e91a132b254a" category="sidebar">Astra Control Serviceの新機能</block>
@@ -2627,7 +2625,6 @@
   <block id="455cbd59356abfa16dcf7666d4ae6c2b" category="open-title">ポドマン</block>
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">レジストリにログインします。</block>
   <block id="c330f6e98afeb2bb5f8da986c24088ee" category="list-text">次のスクリプトを実行して、コメントに記載されているように&lt;your _registry&gt;を置き換えます。</block>
-  <block id="b5a8988ef4b9c7e25ec15b79d93a02d4" category="admonition">プレースホルダー「Your_registry_path」は、以前にアップロードしたイメージの場所と一致している必要があります（例：[Registry_url]/NetApp/Astra/astacc /22.08.0/20`）。</block>
   <block id="1c90591655cdfe7d885b02ed72ae2509" category="summary">ネットアップでは、 Astra Control をさまざまな方法でサポートしています。ナレッジベース（KB）記事やDiscordチャネルなど、24時間365日利用可能な無料のセルフサポートオプションをご用意しています。Astra Control アカウントには、 Web チケット発行によるリモートテクニカルサポートが含まれています。</block>
   <block id="e63bdfa6fe9dccaf39b5d028f12a4a15" category="admonition">Astra Control Center の評価用ライセンスをお持ちの場合は、テクニカルサポートを受けることができます。ただし、ネットアップサポートサイト（ NSS ）でケースを作成することはできません。フィードバック・オプションを使用してサポートに連絡するか、Discordチャネルを使用してセルフサービスで連絡できます。</block>
   <block id="35cdc0acd4828a4d409d79a5f18ee353" category="inline-link">* Discord *で助けを得なさい</block>
@@ -2647,4 +2644,9 @@
   <block id="4ac4f3b37f65d59e010bc2f6ddd50ea2" category="list-text"><block ref="4ac4f3b37f65d59e010bc2f6ddd50ea2" category="inline-link-macro-rx"></block></block>
   <block id="ed78458df917d6da9f19cca23d8468cd" category="paragraph"><block ref="c229e392652cddf73148e5c65f706c6d" category="inline-link-macro-rx"></block> NetApp SnapMirrorテクノロジを使用してリモートクラスタにバックアップする場合Astra Controlは、Snapshotをリモートクラスタにレプリケートし、非同期のディザスタリカバリ機能を提供します。</block>
   <block id="6ec03beb7c5c0fd46afad879591343a9" category="paragraph">方法をご確認ください <block ref="6f4a779492bc5e3eca7c765cfa3ccb84" category="inline-link-macro-rx"></block>。</block>
+  <block id="98918f261da964e04189c67d73791199" category="paragraph"><block ref="98918f261da964e04189c67d73791199" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ca5eff8f4c2396bf09558b428d91e9f3" category="section-title">2022年9月8日（22.08.1）</block>
+  <block id="322f8233054cca6c9d6204f1aa1d1f7f" category="paragraph">このパッチリリース（22.08.1）for Astra Control Center（22.08.0）では、NetApp SnapMirrorを使用したアプリケーションレプリケーションの小さなバグが修正されています。</block>
+  <block id="a2fe57b8184603cedfc5695bc5afd246" category="list-text"><block ref="a2fe57b8184603cedfc5695bc5afd246" category="inline-link-macro-rx"></block></block>
+  <block id="29e1fc80b410102b7ef8f1c2808ca7c5" category="admonition">プレースホルダー「Your_registry_path」は、以前にアップロードしたイメージの場所と一致している必要があります（例：[Registry_url]/NetApp/Astra/astacc /22.08.1-26`）。</block>
 </blocks>
