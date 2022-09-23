@@ -19,12 +19,17 @@ summary: アプリケーションと永続的ストレージをバックアッ�
 
 * NetApp ONTAP S3
 * NetApp StorageGRID S3 の略
-* 汎用 S3
 * Microsoft Azure
+* 汎用 S3
++
 
+NOTE: Amazon Web Services（AWS）とGoogle Cloud Platform（GCP）では、汎用のS3バケットタイプを使用します。
 
++
 
 NOTE: Astra Control Center は Amazon S3 を汎用 S3 バケットプロバイダとしてサポートしていますが、 Astra Control Center は Amazon の S3 サポートを要求するすべてのオブジェクトストアベンダーをサポートしているわけではありません。
+
+
 
 バケットの状態は次のいずれかになります。
 

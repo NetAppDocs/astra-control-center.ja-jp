@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: get-started/install_acc-cvo.html 
-keywords: astra installation, install astra control center, cloud volumes ontap, amazon web services, aws, azure, how to install astra control, deploy, download from netapp support 
+keywords: astra installation, install astra control center, cloud volumes ontap, amazon web services, aws, azure, gcp, google cloud platform, how to install astra control, deploy, download from netapp support 
 summary: 環境に関するいくつかの前提条件に対処した後に Astra Control Center をインストールするには、バンドルをダウンロードして、説明されている手順に従ってインストールします。 
 ---
 = Cloud Volumes ONTAP ストレージバックエンドに Astra Control Center をインストールします
@@ -15,19 +15,20 @@ Astra Control Center を使用すると、 Kubernetes クラスタと Cloud Volu
 
 これらのいずれかの環境では、 Cloud Volumes ONTAP をストレージバックエンドとして使用して、アプリケーションデータの管理処理を実行できます。バックアップターゲットとして S3 バケットを設定することもできます。
 
-Amazon Web Services （ AWS ）および Cloud Volumes ONTAP ストレージバックエンドを使用する Microsoft Azure に Astra Control Center をインストールするには、クラウド環境に応じて次の手順を実行します。
+Amazon Web Services（AWS）、Google Cloud Platform（GCP）、およびCloud Volumes ONTAP ストレージバックエンドを使用するMicrosoft AzureにAstra Control Centerをインストールするには、クラウド環境に応じて次の手順を実行します。
 
 *  Astra Control Center in Amazon Web Services
+*  Astra Control Center in Google Cloud Platform
 *  Astra Control Center in Microsoft Azure
 
+
+OpenShift Container Platform（OCP）などの自己管理型Kubernetesクラスタを使用して、ディストリビューション内のアプリケーションを管理できます。Astra Control Centerを導入するために検証されるのは、自己管理型のOCPクラスタのみです。
 
 
 
 == Amazon Web Services に Astra Control Center を導入
 
 Amazon Web Services （ AWS ）パブリッククラウドでホストされる自己管理型の Kubernetes クラスタに Astra Control Center を導入できます。
-
-Astra Control Center の導入でサポートされるのは、自己管理 OpenShift Container Platform （ OCP ）クラスタのみです。
 
 
 
@@ -38,7 +39,7 @@ AWS に Astra Control Center を導入する前に、次のものが必要です
 * Astra Control Center ライセンス。を参照してください link:../get-started/requirements.html["Astra Control Center のライセンス要件"]。
 * link:../get-started/requirements.html["Astra Control Center の要件を満たす"]。
 * NetApp Cloud Central アカウント
-* Red Hat OpenShift Container Platform （ OCP ）権限（ポッドを作成するためのネームスペースレベル）
+* OCPを使用する場合は、Red Hat OpenShift Container Platform（OCP）権限（ポッドを作成するためのネームスペースレベル）
 * バケットとコネクタを作成するための権限を持つ AWS クレデンシャル、アクセス ID 、シークレットキー
 * AWS アカウント Elastic Container Registry （ ECR ）アクセスおよびログイン
 * AWS がホストするゾーンと Route 53 エントリは、 Astra Control UI にアクセスするために必要です
@@ -215,6 +216,249 @@ TIP: Cloud Volumes ONTAP は、シングルノードまたはハイアベイラ�
 標準に従ってください link:../get-started/install_acc.html["Astra Control Center のインストール手順"]。
 
 
+NOTE: AWSでは汎用のS3バケットタイプが使用されます。
+
+
+
+== Astra Control CenterをGoogle Cloud Platformに導入
+
+Astra Control Centerは、Google Cloud Platform（GCP）パブリッククラウドでホストされる自己管理型のKubernetesクラスタに導入できます。
+
+
+
+=== GCPに必要なもの
+
+GCPでAstra Control Centerを導入する前に、次の項目が必要です。
+
+* Astra Control Center ライセンス。を参照してください link:../get-started/requirements.html["Astra Control Center のライセンス要件"]。
+* link:../get-started/requirements.html["Astra Control Center の要件を満たす"]。
+* NetApp Cloud Central アカウント
+* OCPを使用している場合は、Red Hat OpenShift Container Platform（OCP）4.10
+* OCPを使用する場合は、Red Hat OpenShift Container Platform（OCP）権限（ポッドを作成するためのネームスペースレベル）
+* バケットとコネクタの作成を可能にする権限を持つGCPサービスアカウント
+
+
+
+
+=== GCPの運用環境の要件
+
+
+NOTE: Astra Control Center をホストするオペレーティングシステムが、環境の公式ドキュメントに記載されている基本的なリソース要件を満たしていることを確認します。
+
+Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。
+
+[cols="1h,2a"]
+|===
+| コンポーネント | 要件 
+
+
+| バックエンドの NetApp Cloud Volumes ONTAP ストレージ容量  a| 
+300GB 以上のデータがあります
+
+
+
+| ワーカーノード（GCPコンピューティング要件）  a| 
+少なくとも 3 つのワーカーノードが必要です。 vCPU コア 4 基、 RAM はそれぞれ 12GB です
+
+
+
+| ロードバランサ  a| 
+動作環境クラスタ内のサービスに送信される入力トラフィックに使用できるサービスタイプ「 LoadBalancer 」
+
+
+
+| FQDN（GCP DNSゾーン）  a| 
+Astra Control Center の FQDN をロードバランシング IP アドレスに指定する方法
+
+
+
+| Astra Trident （ NetApp Cloud Manager の Kubernetes クラスタ検出の一部としてインストール）  a| 
+Trident 21.04 以降がインストールおよび設定され、 NetApp ONTAP バージョン 9.5 以降がストレージバックエンドとしてインストールされている必要があります
+
+
+
+| イメージレジストリ  a| 
+Astra Control Centerビルドイメージをプッシュできる、Google Container Registryなどの既存のプライベートレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
+
+
+NOTE: バックアップ用にリストアイメージを取得するには、匿名アクセスを有効にする必要があります。
+
+
+
+| Astra Trident / ONTAP 構成  a| 
+Astra Control Center を使用するには、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center では、 Kubernetes クラスタを NetApp Cloud Manager にインポートする際に作成される次の ONTAP Kubernetes ストレージクラスがサポートされます。Astra Trident によって提供される機能は次のとおりです。
+
+* 「 vsaworkingenvironment 」 -<> -ha - NAS csi.trident.netapp.io`
+* 「 vsaworkingenvironment 」 -<> -ha -san csi.trident.netapp.io`
+* 「 vsaworkingenvironment 」 -<>-singsingle-nas csi.trident.netapp.io`
+* 「 vsaworkingenvironment 」 -<>-singsingle-san csi.trident.netapp.io`
+
+
+|===
+
+NOTE: これらの要件は、運用環境で実行されている唯一のアプリケーションが Astra Control Center であることを前提としています。環境で追加のアプリケーションを実行している場合は、それに応じてこれらの最小要件を調整します。
+
+
+
+=== GCPの導入の概要
+
+ここでは、Cloud Volumes ONTAP をストレージバックエンドとして使用して、GCP内の自己管理型OCPクラスタにAstra Control Centerをインストールするプロセスの概要を示します。
+
+これらの各手順については、以下で詳しく説明します。
+
+.  a RedHat OpenShift cluster on GCP。
+.  a GCP Project and Virtual Private Cloud。
+.  that you have sufficient IAM permissions。
+.  GCP。
+.  NetApp Cloud Manager。
+.  and configure Astra Control Center。
+
+
+
+
+=== GCPにRed Hat OpenShiftクラスタをインストールします
+
+まず、GCPにRedHat OpenShiftクラスタをインストールします。
+
+インストール手順については、次を参照してください。
+
+* https://access.redhat.com/documentation/en-us/openshift_container_platform/4.10/html-single/installing/index#installing-on-gcp["GCPにOpenShiftクラスタをインストールする"^]
+* https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["GCPサービスアカウントの作成"^]
+
+
+
+
+=== GCPプロジェクトとVirtual Private Cloudを作成します
+
+少なくとも1つのGCPプロジェクトとVirtual Private Cloud（VPC）を作成します。
+
+
+NOTE: OpenShift では、独自のリソースグループを作成できます。さらに、GCP VPCも定義する必要があります。OpenShift のドキュメントを参照してください。
+
+プラットフォームクラスタリソースグループおよびターゲットアプリケーション OpenShift クラスタリソースグループを作成できます。
+
+
+
+=== 十分な IAM 権限があることを確認します
+
+Red Hat OpenShiftクラスタとNetApp Cloud Manager Connectorをインストールできる十分な数のIAMロールと権限があることを確認します。
+
+を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#setting-up-permissions["GCPの初期資格情報と権限"^]。
+
+
+
+=== GCPを設定します
+
+次に、VPCの作成、コンピューティングインスタンスのセットアップ、Google Cloud Object Storageの作成、Astra Control CenterイメージのホストにGoogle Container Registerの作成、このレジストリへのイメージのプッシュを行うようにGCPを設定します。
+
+GCPのドキュメントに従って、次の手順を実行します。「GCPへのOpenShiftクラスタのインストール」を参照してください。
+
+. GCPでGCPプロジェクトとVPCを作成します。GCPでは、CVOバックエンドでOCPクラスタ用にを使用する予定です。
+. コンピューティングインスタンスを確認します。GCP内のベアメタルサーバまたはVMです。
+. インスタンスタイプが、マスターノードとワーカーノードのAstra最小リソース要件と一致していない場合は、GCPでインスタンスタイプを変更してAstraの要件を満たします。を参照してください link:../get-started/requirements.html["Astra Control Center の要件"]。
+. バックアップを保存するGCP Cloud Storageバケットを少なくとも1つ作成します。
+. バケットへのアクセスに必要なシークレットを作成します。
+. すべてのAstra Control CenterイメージをホストするGoogle Container Registryを作成します。
+. すべてのAstra Control Centerイメージに対して、Dockerプッシュ/プル用のGoogle Container Registryアクセスを設定します。
++
+例：次のスクリプトを入力すると、ACCイメージをこのレジストリにプッシュできます。
+
++
+[listing]
+----
+gcloud auth activate-service-account <service account email address>
+--key-file=<GCP Service Account JSON file>
+----
++
+このスクリプトには、Astra Control CenterマニフェストファイルとGoogle Image Registryの場所が必要です。
+
++
+例
+
++
+[listing]
+----
+manifestfile=astra-control-center-<version>.manifest
+GCP_CR_REGISTRY=<target image repository>
+ASTRA_REGISTRY=<source ACC image repository>
+
+while IFS= read -r image; do
+    echo "image: $ASTRA_REGISTRY/$image $GCP_CR_REGISTRY/$image"
+    root_image=${image%:*}
+    echo $root_image
+    docker pull $ASTRA_REGISTRY/$image
+    docker tag $ASTRA_REGISTRY/$image $GCP_CR_REGISTRY/$image
+    docker push $GCP_CR_REGISTRY/$image
+done < astra-control-center-22.04.41.manifest
+----
+. DNS ゾーンを設定します。
+
+
+
+
+=== NetApp Cloud Manager を設定します
+
+Cloud Managerを使用して、ワークスペースの作成、GCPへのコネクターの追加、作業環境の作成、クラスタのインポートを行います。
+
+Cloud Manager のドキュメントに従って、次の手順を実行します。を参照してください https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html["GCPでCloud Volumes ONTAP の使用を開始する"^]。
+
+.必要なもの
+* 必要なIAM権限と役割を持つGCPサービスアカウントにアクセスします
+
+
+.手順
+. Cloud Manager にクレデンシャルを追加します。を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-gcp-accounts.html["GCP アカウントの追加"^]。
+. GCPのコネクターを追加します。
++
+.. プロバイダーとして[GCP]を選択します。
+.. GCP資格情報を入力します。を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Cloud ManagerからGCPでコネクタを作成する"^]。
+.. コネクタが動作していることを確認し、コネクタに切り替えます。
+
+
+. クラウド環境の作業環境を構築
++
+.. 場所："GCP"
+.. 「 Cloud Volumes ONTAP HA 」と入力します。
+
+
+. OpenShift クラスタをインポートします。作成した作業環境にクラスタが接続されます。
++
+.. ネットアップクラスタの詳細を表示するには、 * K8s * > * Cluster list * > * Cluster Details * を選択します。
+.. 右上隅に Trident のバージョンが表示されていることを確認します。
+.. Cloud Volumes ONTAP クラスタのストレージクラスは、プロビジョニングツールとして「ネットアップ」を使用していることに注目してください。
++
+これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスに割り当てられます。ストレージクラスを選択します。Trident は、インポートと検出のプロセスの一環として自動的にインストールされます。
+
+
+
+. このCloud Volumes ONTAP 環境内のすべての永続ボリュームとボリュームをメモします。
+
+
+
+TIP: Cloud Volumes ONTAP は、シングルノードまたはハイアベイラビリティ（HA）で動作します。HAが有効になっている場合は、GCPで実行されているHAステータスとノード導入ステータスを確認します。
+
+
+
+=== Astra Control Center をインストールします
+
+標準に従ってください link:../get-started/install_acc.html["Astra Control Center のインストール手順"]。
+
+
+NOTE: GCPでは汎用S3バケットタイプが使用されます。
+
+. Astra Control Centerインストール用のイメージをプルするDocker Secretを生成します。
++
+[listing]
+----
+kubectl create secret docker-registry <secret name>
+--docker-server=<Registry location>
+--docker-username=_json_key
+--docker-password="$(cat <GCP Service Account JSON file>)"
+--namespace=pcloud
+----
+
+
+
 
 == Microsoft Azure に Astra Control Center を導入
 
@@ -229,8 +473,8 @@ Azure に Astra Control Center を導入する前に、次のものが必要で�
 * Astra Control Center ライセンス。を参照してください link:../get-started/requirements.html["Astra Control Center のライセンス要件"]。
 * link:../get-started/requirements.html["Astra Control Center の要件を満たす"]。
 * NetApp Cloud Central アカウント
-* Red Hat OpenShift Container Platform （ OCP ） 4.8 の場合
-* Red Hat OpenShift Container Platform （ OCP ）権限（ポッドを作成するためのネームスペースレベル）
+* OCPを使用する場合、Red Hat OpenShift Container Platform（OCP）4.8
+* OCPを使用する場合は、Red Hat OpenShift Container Platform（OCP）権限（ポッドを作成するためのネームスペースレベル）
 * バケットとコネクタの作成を可能にする権限を持つ Azure クレデンシャル
 
 

@@ -1486,12 +1486,10 @@
   <block id="4f8d010e860956031d20fa5be10bf6e6" category="doc">Cloud Volumes ONTAP ストレージバックエンドに Astra Control Center をインストールします</block>
   <block id="5393a81971c7f6d5a2fe5f5a8e4bdf5c" category="paragraph">Astra Control Center を使用すると、 Kubernetes クラスタと Cloud Volumes ONTAP インスタンスを自己管理することで、ハイブリッドクラウド環境でアプリケーションを管理できます。Astra Control Center は、オンプレミスの Kubernetes クラスタ、またはクラウド環境内の自己管理型 Kubernetes クラスタのいずれかに導入できます。</block>
   <block id="c04013afca22f8891a14626d97030a38" category="paragraph">これらのいずれかの環境では、 Cloud Volumes ONTAP をストレージバックエンドとして使用して、アプリケーションデータの管理処理を実行できます。バックアップターゲットとして S3 バケットを設定することもできます。</block>
-  <block id="e624ed574525585c685008c2f08743fe" category="paragraph">Amazon Web Services （ AWS ）および Cloud Volumes ONTAP ストレージバックエンドを使用する Microsoft Azure に Astra Control Center をインストールするには、クラウド環境に応じて次の手順を実行します。</block>
   <block id="63a3ec0e0f90aa951a9bab60ae25b8f5" category="list-text"><block ref="71cd372809cfada10662b9cfa5c56473" category="inline-xref-macro-rx"></block></block>
   <block id="e276a2ae0c328a61a235ae7ba15f71a3" category="list-text"><block ref="afa82c5fe7ac560615325c4fdfba4b92" category="inline-xref-macro-rx"></block></block>
   <block id="5f70f12e51733f39df8a8d8f2f0742da" category="section-title">Amazon Web Services に Astra Control Center を導入</block>
   <block id="b4504a5af800e56b2ac7bc310c520499" category="paragraph">Amazon Web Services （ AWS ）パブリッククラウドでホストされる自己管理型の Kubernetes クラスタに Astra Control Center を導入できます。</block>
-  <block id="09cd08225c53bd8f4ccf737618d3fd24" category="paragraph">Astra Control Center の導入でサポートされるのは、自己管理 OpenShift Container Platform （ OCP ）クラスタのみです。</block>
   <block id="4ad0f595b9dbd4c0336e372a8a1b2410" category="section-title">AWS に必要なもの</block>
   <block id="a5a36964a87d94d5ac0851af923c64fc" category="paragraph">AWS に Astra Control Center を導入する前に、次のものが必要です。</block>
   <block id="e7e1ddd48b888f0547b40d916ec5553d" category="inline-link-macro">Astra Control Center のライセンス要件</block>
@@ -1499,7 +1497,6 @@
   <block id="962a965cf88e3974508a49a177bfab16" category="inline-link-macro">Astra Control Center の要件を満たす</block>
   <block id="432bc10b47ea475ecbbc50fb50d0978a" category="list-text"><block ref="cdf0380926240bc589ee0ad782ff731a" category="inline-link-macro-rx"></block>。</block>
   <block id="3a6435e71d5b3aaba8dfb2b39bf255c9" category="list-text">NetApp Cloud Central アカウント</block>
-  <block id="3b6edb8eb729a7afdf6dfbd4642bf654" category="list-text">Red Hat OpenShift Container Platform （ OCP ）権限（ポッドを作成するためのネームスペースレベル）</block>
   <block id="21b6348603465642d3b74890973e2947" category="list-text">バケットとコネクタを作成するための権限を持つ AWS クレデンシャル、アクセス ID 、シークレットキー</block>
   <block id="b9724bca640bb00ddfd17050c789c0c6" category="list-text">AWS アカウント Elastic Container Registry （ ECR ）アクセスおよびログイン</block>
   <block id="9aed630e926461540134fd3b366acb60" category="list-text">AWS がホストするゾーンと Route 53 エントリは、 Astra Control UI にアクセスするために必要です</block>
@@ -1575,7 +1572,6 @@
   <block id="7f18f262f0f4112be8239133aa15cff4" category="paragraph">Microsoft Azure パブリッククラウドでホストされる自己管理型の Kubernetes クラスタに Astra Control Center を導入できます。</block>
   <block id="24fdd2eaa17fe7802a949abb767e47ff" category="section-title">Azure に必要なもの</block>
   <block id="0868fde25a786c798cfe63227a2e632c" category="paragraph">Azure に Astra Control Center を導入する前に、次のものが必要です。</block>
-  <block id="80495d67a6c40d68dcd4966f400a72b8" category="list-text">Red Hat OpenShift Container Platform （ OCP ） 4.8 の場合</block>
   <block id="067c001dbf7480cc26099ff0edfb8bda" category="list-text">バケットとコネクタの作成を可能にする権限を持つ Azure クレデンシャル</block>
   <block id="a7ab880bb218b2e0b517005f90e662c8" category="section-title">Azure の運用環境の要件</block>
   <block id="ac388b858e49b0566fa15ba968147e01" category="inline-link-macro">Astra Control Center の運用環境要件</block>
@@ -2648,4 +2644,64 @@
   <block id="baf63b9083c98bb375244f0d47ed5c13" category="list-text">ソースとデスティネーションの両方のONTAP クラスタにTridentバージョン22.07以降が存在する必要があります。</block>
   <block id="f7d920333cf612086b3bd66993ed20b5" category="list-text">ONTAP ストレージバックエンドをAstra Control Centerに追加する場合は、「admin」ロールでユーザクレデンシャルを適用します。このロールには、両方のONTAP クラスタで「http」と「ontapi」のアクセス方法が有効になっています。を参照してください<block ref="f6ed2b7e6315ca84a258679db888068b" category="inline-link-rx"></block> を参照してください。</block>
   <block id="f21f22dde0e0692333a7a28cce456b08" category="sidebar">すべてのAstraドキュメント</block>
+  <block id="cc76a05fe8cbb45b45b1139e841822bd" category="admonition">Amazon Web Services（AWS）とGoogle Cloud Platform（GCP）では、汎用のS3バケットタイプを使用します。</block>
+  <block id="49f02638b249b496152336fa67d7f9c5" category="paragraph">Amazon Web Services（AWS）、Google Cloud Platform（GCP）、およびCloud Volumes ONTAP ストレージバックエンドを使用するMicrosoft AzureにAstra Control Centerをインストールするには、クラウド環境に応じて次の手順を実行します。</block>
+  <block id="cf594d0bb41326e3db7d23f51499a433" category="list-text"><block ref="f25f9d6f8bbda4a323ee7521012b952a" category="inline-xref-macro-rx"></block></block>
+  <block id="7b07707c591c0c1d685106f821b042b1" category="paragraph">OpenShift Container Platform（OCP）などの自己管理型Kubernetesクラスタを使用して、ディストリビューション内のアプリケーションを管理できます。Astra Control Centerを導入するために検証されるのは、自己管理型のOCPクラスタのみです。</block>
+  <block id="fd591703833610f8e2a03221e8c218e2" category="list-text">OCPを使用する場合は、Red Hat OpenShift Container Platform（OCP）権限（ポッドを作成するためのネームスペースレベル）</block>
+  <block id="4fa3cb64c7a4d0ea493cd71172a39adf" category="admonition">AWSでは汎用のS3バケットタイプが使用されます。</block>
+  <block id="1e1383512a183b22a38cf414944a5e6f" category="section-title">Astra Control CenterをGoogle Cloud Platformに導入</block>
+  <block id="b22e8d7dd55c8decf5f9ba74419121b1" category="paragraph">Astra Control Centerは、Google Cloud Platform（GCP）パブリッククラウドでホストされる自己管理型のKubernetesクラスタに導入できます。</block>
+  <block id="03bf87a4447c098a7f465eb8095fc070" category="section-title">GCPに必要なもの</block>
+  <block id="643d752df6c3694f3ce7af63534415ce" category="paragraph">GCPでAstra Control Centerを導入する前に、次の項目が必要です。</block>
+  <block id="f5c6148230da18b53bb888b7c50f6394" category="list-text">OCPを使用している場合は、Red Hat OpenShift Container Platform（OCP）4.10</block>
+  <block id="053fe1b94d4c8c543d8ea27c9283521c" category="list-text">バケットとコネクタの作成を可能にする権限を持つGCPサービスアカウント</block>
+  <block id="b32083661594dec86f9945fb39f2b059" category="section-title">GCPの運用環境の要件</block>
+  <block id="b75c2ef9095a885dc0ef6fd7ca29fdcf" category="cell">ワーカーノード（GCPコンピューティング要件）</block>
+  <block id="03b9b349bfdd1ce91a22d139cbf004bc" category="cell">FQDN（GCP DNSゾーン）</block>
+  <block id="4e2bfc03b961741a1606bd501279f287" category="paragraph">Astra Control Centerビルドイメージをプッシュできる、Google Container Registryなどの既存のプライベートレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。</block>
+  <block id="baa0c7f7c93168cadeba3527548bd954" category="section-title">GCPの導入の概要</block>
+  <block id="2070102f40ff1d99329caf83f2507c4e" category="paragraph">ここでは、Cloud Volumes ONTAP をストレージバックエンドとして使用して、GCP内の自己管理型OCPクラスタにAstra Control Centerをインストールするプロセスの概要を示します。</block>
+  <block id="3b02e745516f5c71a77c246060a51e43" category="list-text"><block ref="d61d940c61a6a00e19275fbf437320a7" category="inline-xref-macro-rx"></block>。</block>
+  <block id="3bb6ea60376ef3bc68f6457f221e4b85" category="list-text"><block ref="c1579a3607e2fa78215b28fe342296c1" category="inline-xref-macro-rx"></block>。</block>
+  <block id="04c3b3e2f32165098d29e6b6881ec58e" category="list-text"><block ref="52e5d08098b2b607d9d2f97161a837df" category="inline-xref-macro-rx"></block>。</block>
+  <block id="12332c49e684e46b7ac699f207bf16a8" category="section-title">GCPにRed Hat OpenShiftクラスタをインストールします</block>
+  <block id="7c5a7b7621ba103d2f073201a81e462a" category="paragraph">まず、GCPにRedHat OpenShiftクラスタをインストールします。</block>
+  <block id="d1442006ea024cc45950b650da58fcb9" category="inline-link">GCPにOpenShiftクラスタをインストールする</block>
+  <block id="06ae5144a84de0bebf0efd5df7c00e06" category="list-text"><block ref="06ae5144a84de0bebf0efd5df7c00e06" category="inline-link-rx"></block></block>
+  <block id="cb61f975c18dbe1fc8e8d6c8d8486d7e" category="inline-link">GCPサービスアカウントの作成</block>
+  <block id="83e04df6a72ee17f24d691755368e8d5" category="list-text"><block ref="83e04df6a72ee17f24d691755368e8d5" category="inline-link-rx"></block></block>
+  <block id="87d185607b5b3fa9b106856512932ac9" category="section-title">GCPプロジェクトとVirtual Private Cloudを作成します</block>
+  <block id="35a21bb900244f6d422fa67e266605a6" category="paragraph">少なくとも1つのGCPプロジェクトとVirtual Private Cloud（VPC）を作成します。</block>
+  <block id="b852359c7698cdd2b9c1d8cea04079d3" category="admonition">OpenShift では、独自のリソースグループを作成できます。さらに、GCP VPCも定義する必要があります。OpenShift のドキュメントを参照してください。</block>
+  <block id="f278df8e4fae8c2d860bbf93ec87083a" category="inline-link">GCPの初期資格情報と権限</block>
+  <block id="a51774c7ee8c7a1917d32e07bbbdef38" category="paragraph">を参照してください<block ref="385e8d87b885c39cb24ca39a45247481" category="inline-link-rx"></block>。</block>
+  <block id="209192cc4a50f2aaec907833e188e01e" category="section-title">GCPを設定します</block>
+  <block id="fd44c34d860360718bf48fe6737d924e" category="paragraph">次に、VPCの作成、コンピューティングインスタンスのセットアップ、Google Cloud Object Storageの作成、Astra Control CenterイメージのホストにGoogle Container Registerの作成、このレジストリへのイメージのプッシュを行うようにGCPを設定します。</block>
+  <block id="c578b94b33bf07e688365d51671b2a15" category="paragraph">GCPのドキュメントに従って、次の手順を実行します。「GCPへのOpenShiftクラスタのインストール」を参照してください。</block>
+  <block id="70f9b4bc984c8a51ae2377e7357c3f9c" category="list-text">GCPでGCPプロジェクトとVPCを作成します。GCPでは、CVOバックエンドでOCPクラスタ用にを使用する予定です。</block>
+  <block id="79b77f6749b1fd6847f3c81051c1a461" category="list-text">コンピューティングインスタンスを確認します。GCP内のベアメタルサーバまたはVMです。</block>
+  <block id="80400c768a12e5693e6fb733e0ac97a6" category="list-text">インスタンスタイプが、マスターノードとワーカーノードのAstra最小リソース要件と一致していない場合は、GCPでインスタンスタイプを変更してAstraの要件を満たします。を参照してください <block ref="a41c664e3d2520e4c4deb907d0286272" category="inline-link-macro-rx"></block>。</block>
+  <block id="84e3433d1da2695e582ef2f2de7e3312" category="list-text">バックアップを保存するGCP Cloud Storageバケットを少なくとも1つ作成します。</block>
+  <block id="2dd9e1f422bf892345f5cec3f5b2b2c2" category="list-text">すべてのAstra Control CenterイメージをホストするGoogle Container Registryを作成します。</block>
+  <block id="033b1ecf3fb0416aaad3238723dff2c9" category="list-text">すべてのAstra Control Centerイメージに対して、Dockerプッシュ/プル用のGoogle Container Registryアクセスを設定します。</block>
+  <block id="81634e2d9f608a938249929e3c633af7" category="paragraph">例：次のスクリプトを入力すると、ACCイメージをこのレジストリにプッシュできます。</block>
+  <block id="2701c9c6d63abc5115841cd703843f03" category="paragraph">このスクリプトには、Astra Control CenterマニフェストファイルとGoogle Image Registryの場所が必要です。</block>
+  <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">例</block>
+  <block id="99b7bd23c05a93cee30a6e9c3c39b359" category="paragraph">Cloud Managerを使用して、ワークスペースの作成、GCPへのコネクターの追加、作業環境の作成、クラスタのインポートを行います。</block>
+  <block id="dfe1fba5955d5d74d058493ad8119d8b" category="inline-link">GCPでCloud Volumes ONTAP の使用を開始する</block>
+  <block id="86adc4e2944a2f460b95d8b533d526d2" category="paragraph">Cloud Manager のドキュメントに従って、次の手順を実行します。を参照してください<block ref="fd497c06a560f4076813894ede6ff8c5" category="inline-link-rx"></block>。</block>
+  <block id="7e34162efc1d04688ccb605f69cdce12" category="list-text">必要なIAM権限と役割を持つGCPサービスアカウントにアクセスします</block>
+  <block id="8ff27825088b9b7b70bee8f534efb213" category="inline-link">GCP アカウントの追加</block>
+  <block id="dbd985f7f9e9c9fe27d65d1a1a460501" category="list-text">Cloud Manager にクレデンシャルを追加します。を参照してください<block ref="00955d29011aa40dcc67c554f704112f" category="inline-link-rx"></block>。</block>
+  <block id="9e99d66a9c1ee7b17d8f38e885843926" category="list-text">GCPのコネクターを追加します。</block>
+  <block id="54b57b93ed657c0018a0bfc4f3eef4e3" category="list-text">プロバイダーとして[GCP]を選択します。</block>
+  <block id="fe73b668c1d463cc0715ccc5dfa7d57b" category="inline-link">Cloud ManagerからGCPでコネクタを作成する</block>
+  <block id="c066638d3945abed7b87ca51edd81621" category="list-text">GCP資格情報を入力します。を参照してください<block ref="6017f5fbe8f0ed9d4c85e07287920faa" category="inline-link-rx"></block>。</block>
+  <block id="0bc1b957173faff9c730b82ae202584f" category="list-text">場所："GCP"</block>
+  <block id="2f20898a4d0101de01d254a693ab94be" category="list-text">Cloud Volumes ONTAP クラスタのストレージクラスは、プロビジョニングツールとして「ネットアップ」を使用していることに注目してください。</block>
+  <block id="e5f70079847fbdf0dfed8524e002462a" category="admonition">Cloud Volumes ONTAP は、シングルノードまたはハイアベイラビリティ（HA）で動作します。HAが有効になっている場合は、GCPで実行されているHAステータスとノード導入ステータスを確認します。</block>
+  <block id="425fd91b4451257e5079173762463def" category="admonition">GCPでは汎用S3バケットタイプが使用されます。</block>
+  <block id="9e7e41f010f82585ef3b0ebd3f1de902" category="list-text">Astra Control Centerインストール用のイメージをプルするDocker Secretを生成します。</block>
+  <block id="06e1b0116459bf681b32b65360e38671" category="list-text">OCPを使用する場合、Red Hat OpenShift Container Platform（OCP）4.8</block>
 </blocks>
