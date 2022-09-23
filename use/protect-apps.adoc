@@ -21,13 +21,13 @@ OC new-project ワードプレス ` OC adm policy add -scc to -group anyuid syst
 
 アプリケーションデータの保護に関連する次のタスクを実行できます。
 
-* <<Configure a protection policy>>
-* <<Create a snapshot>>
-* <<Create a backup>>
-* <<View snapshots and backups>>
-* <<Delete snapshots>>
-* <<Cancel backups>>
-* <<Delete backups>>
+*  a protection policy
+*  a snapshot
+*  a backup
+*  snapshots and backups
+*  snapshots
+*  backups
+*  backups
 
 
 
@@ -96,7 +96,7 @@ Astra Control Center は、アプリケーションのバックアップを作�
 NOTE: ネットワークに障害が発生している場合や、処理速度が異常に遅い場合は、バックアップ処理がタイムアウトする可能性があります。その結果、バックアップは失敗します。
 
 
-NOTE: 実行中のバックアップを停止する方法はありません。バックアップを削除する必要がある場合は、完了するまで待ってから、の手順を実行してください <<Delete backups>>。失敗したバックアップを削除するには、 https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]。
+NOTE: 実行中のバックアップを停止する方法はありません。バックアップを削除する必要がある場合は、完了するまで待ってから、の手順を実行してください  backups。失敗したバックアップを削除するには、 https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]。
 
 
 NOTE: データ保護処理（クローン、バックアップ、リストア）が完了して永続ボリュームのサイズを変更したあと、新しいボリュームのサイズが UI に表示されるまでに最大 20 分かかります。データ保護処理にかかる時間は数分です。また、ストレージバックエンドの管理ソフトウェアを使用してボリュームサイズの変更を確認できます。

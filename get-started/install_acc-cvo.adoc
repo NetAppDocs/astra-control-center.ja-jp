@@ -17,8 +17,8 @@ Astra Control Center を使用すると、 Kubernetes クラスタと Cloud Volu
 
 Amazon Web Services （ AWS ）および Cloud Volumes ONTAP ストレージバックエンドを使用する Microsoft Azure に Astra Control Center をインストールするには、クラウド環境に応じて次の手順を実行します。
 
-* <<Deploy Astra Control Center in Amazon Web Services>>
-* <<Deploy Astra Control Center in Microsoft Azure>>
+*  Astra Control Center in Amazon Web Services
+*  Astra Control Center in Microsoft Azure
 
 
 
@@ -120,11 +120,11 @@ Cloud Volumes ONTAP をストレージバックエンドとして使用して As
 
 これらの各手順については、以下で詳しく説明します。
 
-. <<Ensure that you have sufficient IAM permissions>>。
-. <<Install a RedHat OpenShift cluster on AWS>>。
-. <<Configure AWS>>。
-. <<Configure NetApp Cloud Manager>>。
-. <<Install Astra Control Center>>。
+.  that you have sufficient IAM permissions。
+.  a RedHat OpenShift cluster on AWS。
+.  AWS。
+.  NetApp Cloud Manager。
+.  Astra Control Center。
 
 
 
@@ -303,12 +303,12 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 
 これらの各手順については、以下で詳しく説明します。
 
-. <<Install a RedHat OpenShift cluster on Azure>>。
-. <<Create Azure resource groups>>。
-. <<Ensure that you have sufficient IAM permissions>>。
-. <<Configure Azure>>。
-. <<Configure NetApp Cloud Manager>>。
-. <<Install and configure Astra Control Center>>。
+.  a RedHat OpenShift cluster on Azure。
+.  Azure resource groups。
+.  that you have sufficient IAM permissions。
+.  Azure。
+.  NetApp Cloud Manager。
+.  and configure Astra Control Center。
 
 
 

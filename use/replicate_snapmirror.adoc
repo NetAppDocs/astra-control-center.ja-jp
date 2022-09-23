@@ -31,12 +31,12 @@ NOTE: （別のクラスタまたはサイトで実行されている）別の�
 
 Astra Controlを使用すると、アプリケーションのレプリケーションに関連する次のタスクを実行できます。
 
-* <<Set up a replication relationship>>
-* <<Bring a replicated app online on the destination cluster (fail over)>>
-* <<Resync a failed over replication>>
-* <<Reverse application replication>>
-* <<Fail back applications to the original source cluster>>
-* <<Delete an application replication relationship>>
+*  up a replication relationship
+*  a replicated app online on the destination cluster (fail over)
+*  a failed over replication
+*  application replication
+*  back applications to the original source cluster
+*  an application replication relationship
 
 
 

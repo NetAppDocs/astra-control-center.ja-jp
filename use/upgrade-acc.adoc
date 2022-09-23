@@ -32,14 +32,14 @@ kubectl get apiservices
 
 Astra Control Center のアップグレードプロセスでは、次の手順を実行できます。
 
-* <<Download the Astra Control Center bundle>>
-* <<Unpack the bundle and change directory>>
-* <<Add the images to your local registry>>
-* <<Install the updated Astra Control Center operator>>
-* <<Upgrade Astra Control Center>>
-* <<Upgrade third-party services (Optional)>>
-* <<Verify system status>>
-* <<Set up ingress for load balancing>>
+*  the Astra Control Center bundle
+*  the bundle and change directory
+*  the images to your local registry
+*  the updated Astra Control Center operator
+*  Astra Control Center
+*  third-party services (Optional)
+*  system status
+*  up ingress for load balancing
 
 
 
@@ -173,8 +173,8 @@ vim astra_control_center_operator_deploy.yaml
 imagePullSecrets:
 - name: <name_of_secret_with_creds_to_local_registry>
 ----
-.. 「 kube-rbac プロキシ」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します <<substep_image_local_registry_push,前の手順>>。
-.. 「 acc-operator-controller-manager 」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します <<substep_image_local_registry_push,前の手順>>。
+.. 「 kube-rbac プロキシ」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します ,前の手順。
+.. 「 acc-operator-controller-manager 」イメージの「 [Your_registry_path] 」を、でイメージをプッシュしたレジストリパスに変更します ,前の手順。
 .. 「 env 」セクションに次の値を追加します。
 +
 [listing]
@@ -275,7 +275,7 @@ kubectl edit acc -n [netapp-acc or custom namespace]
 ----
 +
 
-NOTE: レジストリパスは、のイメージをプッシュしたレジストリパスと一致する必要があります <<substep_image_local_registry_push,前の手順>>。
+NOTE: レジストリパスは、のイメージをプッシュしたレジストリパスと一致する必要があります ,前の手順。
 
 . Astra Control Center CR の 'Spec' の中にある 'additionalValues' 内に次の行を追加します
 +

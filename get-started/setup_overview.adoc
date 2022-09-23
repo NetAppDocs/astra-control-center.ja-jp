@@ -14,10 +14,10 @@ summary: Astra Control Center をインストールして UI にログインし�
 Astra Control Center は、 ONTAP と Astra データストアをストレージバックエンドとしてサポートおよび監視します。Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。
 
 .タスク
-* <<Add a license for Astra Control Center>>
-* <<Add cluster>>
-* <<Add a storage backend>>
-* <<Add a bucket>>
+*  a license for Astra Control Center
+*  cluster
+*  a storage backend
+*  a bucket
 
 
 
@@ -67,7 +67,7 @@ TIP: 他のクラスタを Astra Control Center に追加して管理する前�
 Astra Controlは、クラスタを管理する際に、クラスタのデフォルトストレージクラスを追跡します。'kubectl'コマンドを使用してストレージ・クラスを変更すると'Astra Controlは変更を元に戻しますAstra Controlで管理されるクラスタのデフォルトのストレージクラスを変更するには、次のいずれかの方法を使用します。
 
 * Astra Control APIのPut / managedClustersエンドポイントを使用し'DefaultStorageClass'パラメータを指定して'別のデフォルトストレージクラスを割り当てます
-* Astra Control Web UIを使用して、別のデフォルトストレージクラスを割り当てます。を参照してください <<Change the default storage class>>。
+* Astra Control Web UIを使用して、別のデフォルトストレージクラスを割り当てます。を参照してください  the default storage class。
 
 
 ====
@@ -126,12 +126,12 @@ IMPORTANT: Astra Data Store用のKubernetesアプリケーションクラスタ�
 .新しいAstraデータストアの導入に必要なもの
 * これで完了です link:../use/manage-packages-acc.html["導入するインストールバンドルのバージョンをアップロードしました"] Astra Controlからアクセス可能な場所への移動。
 * 導入に使用するKubernetesクラスタを追加しておきます。
-* をアップロードしました <<Add a license for Astra Control Center,Astraデータストアライセンス>> Astra Controlからアクセス可能な場所への導入をサポートします。
+* をアップロードしました  a license for Astra Control Center,Astraデータストアライセンス Astra Controlからアクセス可能な場所への導入をサポートします。
 
 
 .オプション（ Options ）
-* <<Deploy storage resources>>
-* <<Use an existing storage backend>>
+*  storage resources
+*  an existing storage backend
 
 
 
@@ -302,7 +302,7 @@ TIP: バケット名と概要は、バックアップを作成するときに後
 
 NOTE: このオプションは、最初に作成したバケットに対しては表示されません。
 
-.. 追加して続行します <<Add S3 access credentials,クレデンシャル情報>>。
+.. 追加して続行します  S3 access credentials,クレデンシャル情報。
 
 
 

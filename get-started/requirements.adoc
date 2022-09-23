@@ -13,16 +13,16 @@ summary: Kubernetes クラスタ、アプリ、 Web ブラウザのサポート�
 
 運用環境、アプリケーションクラスタ、アプリケーション、ライセンス、 Web ブラウザの準備ができているかどうかを検証します。
 
-* <<Operational environment requirements>>
-* <<Supported storage backends>>
-* <<Application cluster requirements>>
-* <<Application management requirements>>
-* <<Replication prerequisites>>
-* <<Access to the internet>>
-* <<License>>
-* <<Ingress for on-premises Kubernetes clusters>>
-* <<Networking requirements>>
-* <<Supported web browsers>>
+*  environment requirements
+*  storage backends
+*  cluster requirements
+*  management requirements
+*  prerequisites
+*  to the internet
+* 
+*  for on-premises Kubernetes clusters
+*  requirements
+*  web browsers
 
 
 
@@ -60,7 +60,7 @@ Astra Control Center をホストするオペレーティングシステムが�
 
 
 | Astra Trident  a| 
-Trident 21.10.1以降をインストールし、SnapMirrorベースのアプリケーションレプリケーション用にAstra 22.04以降を設定している
+Trident 21.10.1以降がインストールされ、SnapMirrorベースのアプリケーションレプリケーション用にAstra 22.07以降がインストールされて設定されている必要があります
 
 |===
 
@@ -123,8 +123,8 @@ Google AnthosクラスタでAstra Control Centerをホストする場合、Googl
 
 Astra Control Center は、次のストレージバックエンドをサポートします。
 
-* Astra データストア
 * NetApp ONTAP 9.5 以降の AFF および FAS システム
+* NetApp ONTAP 9.8以降AFF およびFAS システム：SnapMirrorベースのアプリケーションレプリケーションに使用
 * NetApp Cloud Volumes ONTAP の略
 
 
@@ -195,22 +195,13 @@ Astra Control には、次のアプリケーション管理要件があります
 
 Astra Controlアプリケーションのレプリケーションを開始するには、次の前提条件を満たしている必要があります。
 
-* シームレスな災害復旧を実現するには、第3の障害ドメインまたはセカンダリサイトにAstra Control Centerを導入する必要があります。
+* シームレスな災害復旧を実現するために、第3の障害ドメインまたはセカンダリサイトにAstra Control Centerを導入することをお勧めします。
 * アプリケーションのホストKubernetesクラスタとデスティネーションKubernetesクラスタが使用可能であり、2つのONTAP クラスタに接続されている必要があります。理想的には別々の障害ドメインまたはサイトに配置できます。
 * ONTAP クラスタとホストSVMをペアリングする必要があります。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["クラスタと SVM のピアリングの概要"^]。
 * ペアリングされているリモートSVMがデスティネーションクラスタのTridentで使用可能である必要があります。
-* ソースとデスティネーションの両方のONTAP クラスタにTridentバージョン22.04以降が存在する必要があります。
+* ソースとデスティネーションの両方のONTAP クラスタにTridentバージョン22.07以降が存在する必要があります。
 * ソースとデスティネーションの両方のONTAP クラスタで、データ保護バンドルを使用したONTAP SnapMirror非同期ライセンスが有効になっている必要があります。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP のSnapMirrorライセンスの概要"^]。
-* Astra Tridentバックエンド構成ファイルには、次の行が含まれている必要があります。
-+
-[listing]
-----
-"replicationPolicy": "MirrorAllSnapshots"
-----
-+
-を参照してください https://docs.netapp.com/us-en/trident/trident-use/backends.html["バックエンドを設定"^] を参照してください。
-
-* ONTAP ストレージバックエンドをAstra Control Centerに追加する場合、Astra Control Centerとストレージバックエンドの間の通信を有効にするために使用するクレデンシャルを持つユーザは、両方のONTAP クラスタのONTAP System Managerで「http」および「ontapi」を有効にしたユーザログインアクセス方法を使用する必要があります。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ユーザアカウントを管理する"^] を参照してください。
+* ONTAP ストレージバックエンドをAstra Control Centerに追加する場合は、「admin」ロールでユーザクレデンシャルを適用します。このロールには、両方のONTAP クラスタで「http」と「ontapi」のアクセス方法が有効になっています。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ユーザアカウントを管理する"^] を参照してください。
 * ソースとデスティネーションの両方のKubernetesクラスタとONTAP クラスタをAstra Controlで管理する必要があります。
 +
 

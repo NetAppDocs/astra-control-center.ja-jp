@@ -13,7 +13,7 @@ summary: Astra Control Center と Astra Control Center Operator を削除する�
 
 試用版からフルバージョンの製品にアップグレードする場合は、 Astra Control Center コンポーネントの削除が必要になることがあります。Astra Control Center と Astra Control Center Operator を削除するには、この手順で説明されているコマンドを順に実行します。
 
-アンインストールに問題がある場合は、を参照してください <<Troubleshooting uninstall issues>>。
+アンインストールに問題がある場合は、を参照してください  uninstall issues。
 
 .必要なもの
 * Astra Control Center UI を使用して、すべての管理を解除します link:../use/unmanage.html#stop-managing-compute["クラスタ"]。

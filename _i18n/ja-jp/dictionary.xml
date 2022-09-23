@@ -2216,7 +2216,6 @@
   <block id="37accdd90658899d1dec0f0f1a91d1fe" category="list-text">Red Hat OpenShift Container Platform 4.8、4.9、または4.10</block>
   <block id="8c19cded473a1f250d655fce0b3d1417" category="list-text">VMware Tanzu Kubernetes Grid 1.4または1.5</block>
   <block id="392295e1bbc9dd503d6376cf6e270a01" category="list-text">VMware Tanzu Kubernetes Grid Integrated Edition 1.12.2または1.13</block>
-  <block id="022edc3637cfb3843cebdfdd464d0b9d" category="paragraph">Trident 21.10.1以降をインストールし、SnapMirrorベースのアプリケーションレプリケーション用にAstra 22.04以降を設定している</block>
   <block id="3e3162b6d17401fa39d86c5e6f2f8052" category="list-text">Astra Control Centerのインストールの一部として、PoDセキュリティポリシー（PSP）の制限された環境で次のリソースが作成されます。</block>
   <block id="2eec382fbdd640ff6611d08393c4826a" category="list-text">ポッドセキュリティポリシー</block>
   <block id="9de377bbeb1d616465bbc603de8c993f" category="list-text">RBACロール</block>
@@ -2225,12 +2224,10 @@
   <block id="3fd03b3fab32e6b61e1029eeb6c4ff3a" category="paragraph">Google AnthosクラスタでAstra Control Centerをホストする場合、Google AnthosにはデフォルトでMetalLBロードバランサとIstio入力ゲートウェイサービスが含まれているため、インストール時にAstra Control Centerの一般的な入力機能を使用するだけで済みます。を参照してください <block ref="f6a1cf5eec2ea81747b868c57cbc43b9" category="inline-link-macro-rx"></block> を参照してください。</block>
   <block id="d193cd9a2432eca22e5cf0d06dcee1e6" category="section-title">レプリケーションの前提条件</block>
   <block id="c44cedaf2d63c8d308691c23f6010413" category="paragraph">Astra Controlアプリケーションのレプリケーションを開始するには、次の前提条件を満たしている必要があります。</block>
-  <block id="1b672321e9664b2eb186d655ae44ed8c" category="list-text">シームレスな災害復旧を実現するには、第3の障害ドメインまたはセカンダリサイトにAstra Control Centerを導入する必要があります。</block>
   <block id="eed83efadf29183b5559e6ce1c465cfd" category="list-text">アプリケーションのホストKubernetesクラスタとデスティネーションKubernetesクラスタが使用可能であり、2つのONTAP クラスタに接続されている必要があります。理想的には別々の障害ドメインまたはサイトに配置できます。</block>
   <block id="9fecd08b776fdfca7b33426363edf913" category="inline-link">クラスタと SVM のピアリングの概要</block>
   <block id="a4a1e480aebfbd46d35f256b3df7247a" category="list-text">ONTAP クラスタとホストSVMをペアリングする必要があります。を参照してください<block ref="60333a598df416e49fbceb5a88dce370" category="inline-link-rx"></block>。</block>
   <block id="de6244dc540e17321cd688cd3fd68f12" category="list-text">ペアリングされているリモートSVMがデスティネーションクラスタのTridentで使用可能である必要があります。</block>
-  <block id="d10d4ace3ff0f3a59fecd7907a4f6cff" category="list-text">ソースとデスティネーションの両方のONTAP クラスタにTridentバージョン22.04以降が存在する必要があります。</block>
   <block id="ba84728ffba482ceb12371a53be2f636" category="inline-link">ONTAP のSnapMirrorライセンスの概要</block>
   <block id="e7b8e237f5a701af8dfc2c63bc4188df" category="list-text">ソースとデスティネーションの両方のONTAP クラスタで、データ保護バンドルを使用したONTAP SnapMirror非同期ライセンスが有効になっている必要があります。を参照してください<block ref="a7b9425cefc4a3715b38951f4b2b6b35" category="inline-link-rx"></block>。</block>
   <block id="665cb0fd449119a5f020701a7e4d37aa" category="list-text">ソースとデスティネーションの両方のKubernetesクラスタとONTAP クラスタをAstra Controlで管理する必要があります。</block>
@@ -2611,11 +2608,7 @@
   <block id="d1736d27c7efe09a7fdb5f5e3b18e8dc" category="paragraph">詳細については、を参照してください <block ref="f6d2e41142da7ccda158b71b34630966" category="inline-link-macro-rx"></block>。</block>
   <block id="3dc2f4e20c545bc208864c2f1c9ce93c" category="cell">少なくとも 3 つのワーカーノードがあり、それぞれ 4 つの CPU コアと 12GB の RAM が搭載されています</block>
   <block id="7710790456945bed9a23fff9f934b8fd" category="paragraph">Astra Control Centerを有効にするには、フルアプリケーションデータ管理機能を有効にするためのライセンスが必要です。Astra Control Center をライセンスなしで導入すると、システム機能が制限されていることを示すバナーが Web UI に表示されます。</block>
-  <block id="a698e4170358adf4ae12dde1db5e4df4" category="list-text">Astra Tridentバックエンド構成ファイルには、次の行が含まれている必要があります。</block>
-  <block id="87dc0337d3ded2211d9b01c32e22d90d" category="inline-link">バックエンドを設定</block>
-  <block id="10455fcfd55eff76710d4945e30e3c6f" category="paragraph">を参照してください<block ref="f296f2024998b4c76709035f49bba3d4" category="inline-link-rx"></block> を参照してください。</block>
   <block id="8e9fceaaf84bd1591dc11726965a5b35" category="inline-link">ユーザアカウントを管理する</block>
-  <block id="57e07386eb22ab2bcc329ab181a33fdf" category="list-text">ONTAP ストレージバックエンドをAstra Control Centerに追加する場合、Astra Control Centerとストレージバックエンドの間の通信を有効にするために使用するクレデンシャルを持つユーザは、両方のONTAP クラスタのONTAP System Managerで「http」および「ontapi」を有効にしたユーザログインアクセス方法を使用する必要があります。を参照してください<block ref="f6ed2b7e6315ca84a258679db888068b" category="inline-link-rx"></block> を参照してください。</block>
   <block id="558e41f71155360e3f8ee151e27ea06f" category="paragraph">詳細については、を参照してください <block ref="ad125f0a3036e9b5f57b3a7077f489d9" category="inline-link-macro-rx"></block>。</block>
   <block id="eee7185d57747c6b57ad38a0e1864f92" category="list-text">「* ONTAP *」を選択し、「* Next *」を選択します。</block>
   <block id="27fa550ebd74698993e3dcb9ba7e2945" category="list-text">ONTAP クラスタ管理IPアドレスと管理者クレデンシャルを入力します。</block>
@@ -2649,4 +2642,10 @@
   <block id="322f8233054cca6c9d6204f1aa1d1f7f" category="paragraph">このパッチリリース（22.08.1）for Astra Control Center（22.08.0）では、NetApp SnapMirrorを使用したアプリケーションレプリケーションの小さなバグが修正されています。</block>
   <block id="a2fe57b8184603cedfc5695bc5afd246" category="list-text"><block ref="a2fe57b8184603cedfc5695bc5afd246" category="inline-link-macro-rx"></block></block>
   <block id="29e1fc80b410102b7ef8f1c2808ca7c5" category="admonition">プレースホルダー「Your_registry_path」は、以前にアップロードしたイメージの場所と一致している必要があります（例：[Registry_url]/NetApp/Astra/astacc /22.08.1-26`）。</block>
+  <block id="5b2adf7b0ad2a0778dbb2eb934a1a4ff" category="paragraph">Trident 21.10.1以降がインストールされ、SnapMirrorベースのアプリケーションレプリケーション用にAstra 22.07以降がインストールされて設定されている必要があります</block>
+  <block id="419590ef59b29bd36215f285b4098a7c" category="list-text">NetApp ONTAP 9.8以降AFF およびFAS システム：SnapMirrorベースのアプリケーションレプリケーションに使用</block>
+  <block id="eb507cd0bc5d12259c54a50f248a2049" category="list-text">シームレスな災害復旧を実現するために、第3の障害ドメインまたはセカンダリサイトにAstra Control Centerを導入することをお勧めします。</block>
+  <block id="baf63b9083c98bb375244f0d47ed5c13" category="list-text">ソースとデスティネーションの両方のONTAP クラスタにTridentバージョン22.07以降が存在する必要があります。</block>
+  <block id="f7d920333cf612086b3bd66993ed20b5" category="list-text">ONTAP ストレージバックエンドをAstra Control Centerに追加する場合は、「admin」ロールでユーザクレデンシャルを適用します。このロールには、両方のONTAP クラスタで「http」と「ontapi」のアクセス方法が有効になっています。を参照してください<block ref="f6ed2b7e6315ca84a258679db888068b" category="inline-link-rx"></block> を参照してください。</block>
+  <block id="f21f22dde0e0692333a7a28cce456b08" category="sidebar">すべてのAstraドキュメント</block>
 </blocks>

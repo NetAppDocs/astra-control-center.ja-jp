@@ -41,13 +41,13 @@ summary: 導入時にカスタム構成を行うためのAstra Control Centerク
 | volumeReclaimPolicyのように指定します | 未定義です | 任意。 | 保持 | 永続ボリュームに設定する再利用ポリシー。 
 
 
-| astraitcesScaler | 文字列 | 必須 | デフォルト | AstraeControlCenterリソース制限のスケーリングオプションを参照してください <<Configuration combinations and incompatibilities,複雑さの設定>> この設定が他の設定にどのように影響するかを理解する。 
+| astraitcesScaler | 文字列 | 必須 | デフォルト | AstraeControlCenterリソース制限のスケーリングオプションを参照してください  combinations and incompatibilities,複雑さの設定 この設定が他の設定にどのように影響するかを理解する。 
 
 
 | astrauKubeConfigSecret | 文字列 | 必須 | acc-kubeconfig -cred | この値が存在し、シークレットが存在する場合、オペレータはそのKubeConfigを追加して最初の管理対象クラスタにしようとします。 
 
 
-| ingressType | 文字列 | 任意。 | 汎用（デフォルト値） | に対しては、入力アストラコントロールセンターのタイプを設定する必要があります。有効な値は「Generic」および「AccTraefik」です。を参照してください <<Configuration combinations and incompatibilities,複雑さの設定>> この設定が他の設定にどのように影響するかを理解する。 
+| ingressType | 文字列 | 任意。 | 汎用（デフォルト値） | に対しては、入力アストラコントロールセンターのタイプを設定する必要があります。有効な値は「Generic」および「AccTraefik」です。を参照してください  combinations and incompatibilities,複雑さの設定 この設定が他の設定にどのように影響するかを理解する。 
 
 
 | avpDeploy | ブール値 | 任意。 | True（デフォルト値） | Astra Plugin for VMware vSphereオペレータの導入を無効にするオプション。 
@@ -83,7 +83,7 @@ summary: 導入時にカスタム構成を行うためのAstra Control Centerク
 | CRDs .shouldUpgrade | ブール値 | 任意。 | 未定義です | Astra Control Centerのアップグレード時にCRDをアップグレードするかどうかを決定します。 
 
 
-| MTLS |  |  |  | Astra Control Centerが、クラスタ内のMTLSにサービスを提供する方法のオプション。を参照してください <<Configuration combinations and incompatibilities,複雑さの設定>> この設定が他の設定にどのように影響するかを理解する 
+| MTLS |  |  |  | Astra Control Centerが、クラスタ内のMTLSにサービスを提供する方法のオプション。を参照してください  combinations and incompatibilities,複雑さの設定 この設定が他の設定にどのように影響するかを理解する 
 
 
 | MTLS.ENABLED | ブール値 | 任意。 | true（デフォルト値） | デフォルトでは、Astra Control CenterはMTLSを使用してサービス間通信を行います。サービスメッシュを使用してサービス間通信を暗号化する場合は、このオプションを無効にする必要があります。 
