@@ -1159,7 +1159,6 @@
   <block id="8810f3085242ca927538791ec7fc8110" category="list-text"><block ref="8810f3085242ca927538791ec7fc8110" category="inline-link-macro-rx"></block></block>
   <block id="3366964e7a216dba2d0ba31b76ba649c" category="inline-link-macro">（ Red Hat OpenShift を使用する場合） OpenShift OperatorHub を使用して Astra Control Center をインストールします</block>
   <block id="dbcbff2a607cc46b36bf41219a49e1a4" category="list-text"><block ref="dbcbff2a607cc46b36bf41219a49e1a4" category="inline-link-macro-rx"></block></block>
-  <block id="b11f09eb1179914138fa8f5a15ba016a" category="list-text">* Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Trident を使用すると、 Docker と Kubernetes で管理するコンテナ化されたアプリケーション用のストレージボリュームを作成できます。Trident を Astra Control Center とともに導入すると、構成済みの ONTAP ストレージバックエンドが含まれ、ストレージバックエンドとして Astra データストアもサポートされます。</block>
   <block id="1598aaab2cb9865732925d064c6978c2" category="cell">ストレージバックエンドと外部サービスを除く両方のプラットフォームで同じ機能を利用できます</block>
   <block id="c1d5f7fc5daa2ea9189ee2df5ca15da2" category="cell">ストレージバックエンドでサポートされるもの</block>
   <block id="b5f2cd553d6a44d90b26f50dcb979f46" category="list-text">ストレージバックエンドとしての Astra データストア</block>
@@ -2633,7 +2632,6 @@
   <block id="4ac4f3b37f65d59e010bc2f6ddd50ea2" category="list-text"><block ref="4ac4f3b37f65d59e010bc2f6ddd50ea2" category="inline-link-macro-rx"></block></block>
   <block id="ed78458df917d6da9f19cca23d8468cd" category="paragraph"><block ref="c229e392652cddf73148e5c65f706c6d" category="inline-link-macro-rx"></block> NetApp SnapMirrorテクノロジを使用してリモートクラスタにバックアップする場合Astra Controlは、Snapshotをリモートクラスタにレプリケートし、非同期のディザスタリカバリ機能を提供します。</block>
   <block id="6ec03beb7c5c0fd46afad879591343a9" category="paragraph">方法をご確認ください <block ref="6f4a779492bc5e3eca7c765cfa3ccb84" category="inline-link-macro-rx"></block>。</block>
-  <block id="98918f261da964e04189c67d73791199" category="paragraph"><block ref="98918f261da964e04189c67d73791199" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ca5eff8f4c2396bf09558b428d91e9f3" category="section-title">2022年9月8日（22.08.1）</block>
   <block id="322f8233054cca6c9d6204f1aa1d1f7f" category="paragraph">このパッチリリース（22.08.1）for Astra Control Center（22.08.0）では、NetApp SnapMirrorを使用したアプリケーションレプリケーションの小さなバグが修正されています。</block>
   <block id="a2fe57b8184603cedfc5695bc5afd246" category="list-text"><block ref="a2fe57b8184603cedfc5695bc5afd246" category="inline-link-macro-rx"></block></block>
@@ -2704,4 +2702,6 @@
   <block id="425fd91b4451257e5079173762463def" category="admonition">GCPでは汎用S3バケットタイプが使用されます。</block>
   <block id="9e7e41f010f82585ef3b0ebd3f1de902" category="list-text">Astra Control Centerインストール用のイメージをプルするDocker Secretを生成します。</block>
   <block id="06e1b0116459bf681b32b65360e38671" category="list-text">OCPを使用する場合、Red Hat OpenShift Container Platform（OCP）4.8</block>
+  <block id="3b21110a90480d802de559fc751fede8" category="paragraph"><block ref="3b21110a90480d802de559fc751fede8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c2c28b59e21cbd4b3d6c78dbdf1db70f" category="list-text">* Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Trident を使用すると、 Docker と Kubernetes で管理するコンテナ化されたアプリケーション用のストレージボリュームを作成できます。Trident を Astra Control Center とともに導入すると、設定済みの ONTAP ストレージバックエンドが含まれます。</block>
 </blocks>

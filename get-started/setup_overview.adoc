@@ -274,16 +274,15 @@ NOTE: バックエンドが表示されるようにページを更新する必�
 * NetApp ONTAP S3
 * NetApp StorageGRID S3 の略
 * 汎用 S3
+* Microsoft Azure
 +
 
 NOTE: Amazon Web Services（AWS）とGoogle Cloud Platform（GCP）では、汎用のS3バケットタイプを使用します。
 
-* Microsoft Azure
 +
 
 NOTE: Astra Control Center は Amazon S3 を汎用 S3 バケットプロバイダとしてサポートしていますが、 Astra Control Center は Amazon の S3 サポートを要求するすべてのオブジェクトストアベンダーをサポートしているわけではありません。
 
-* Microsoft Azure
 
 
 Astra Control API を使用してバケットを追加する手順については、を参照してください link:https://docs.netapp.com/us-en/astra-automation/["Astra の自動化と API に関する情報"^]。
