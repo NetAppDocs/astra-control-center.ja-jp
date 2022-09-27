@@ -31,18 +31,21 @@ Astra Control Centerのインストール中に、Astra Control Centerオペレ�
 
 新しいポリシーとオブジェクトには次の属性があります。
 
-[source, sh]
+[listing]
 ----
-$ kubectl get psp
+kubectl get psp
+
 NAME                           PRIV    CAPS          SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
 avp-psp                        false                 RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
 netapp-astra-deployment-psp    false                 RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
 
-$ kubectl get role
+kubectl get role
+
 NAME                                     CREATED AT
 netapp-astra-deployment-role             2022-06-27T19:34:58Z
 
-$ kubectl get rolebinding
+kubectl get rolebinding
+
 NAME                                     ROLE                                          AGE
 netapp-astra-deployment-rb               Role/netapp-astra-deployment-role             32m
 ----
@@ -54,17 +57,20 @@ netapp-astra-deployment-rb               Role/netapp-astra-deployment-role      
 
 新しいポリシーとオブジェクトには次の属性があります。
 
-[source, sh]
+[listing]
 ----
-$ kubectl get psp
+kubectl get psp
+
 NAME                           PRIV    CAPS                            SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
 netapp-astra-backup            false   DAC_READ_SEARCH                 RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
 
-$ kubectl get role
+kubectl get role
+
 NAME                  CREATED AT
 netapp-astra-backup   2022-07-21T00:00:00Z
 
-$ kubectl get rolebinding
+kubectl get rolebinding
+
 NAME                  ROLE                       AGE
 netapp-astra-backup   Role/netapp-astra-backup   62s
 ----
@@ -76,17 +82,20 @@ netapp-astra-backup   Role/netapp-astra-backup   62s
 
 新しいポリシーとオブジェクトには次の属性があります。
 
-[source, sh]
+[listing]
 ----
-$ kubectl get psp
+kubectl get psp
+
 NAME                           PRIV    CAPS                            SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
 netapp-monitoring-psp-nkmo     true    AUDIT_WRITE,NET_ADMIN,NET_RAW   RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
 
-$ kubectl get role
+kubectl get role
+
 NAME                                           CREATED AT
 netapp-monitoring-role-privileged              2022-07-21T00:00:00Z
 
-$ kubectl get rolebinding
+kubectl get rolebinding
+
 NAME                                                  ROLE                                                AGE
 netapp-monitoring-role-binding-privileged             Role/netapp-monitoring-role-privileged              2m5s
 ----
@@ -101,13 +110,13 @@ netapp-monitoring-role-binding-privileged             Role/netapp-monitoring-rol
 +
 [source, sh]
 ----
-$kubectl get networkpolicy -n netapp-acc
+kubectl get networkpolicy -n netapp-acc
 ----
 . 前のコマンドで返された各NetworkPolicyオブジェクトについて、次のコマンドを使用して削除します。object_name >を、返されたオブジェクトの名前に置き換えます。
 +
 [source, sh]
 ----
-$kubectl delete networkpolicy <OBJECT_NAME> -n netapp-acc
+kubectl delete networkpolicy <OBJECT_NAME> -n netapp-acc
 ----
 . 次のリソースファイルを適用して、Astra Plugin for VMware vSphereサービスがAstra Control Centerサービスに要求を送信できるように、accネットワーキングポリシーオブジェクトを設定します。角かっこ内の情報を環境内の情報に置き換えます。
 +
@@ -162,8 +171,14 @@ spec:
 +
 [source, sh]
 ----
-$ kubectl get quota -n netapp-acc
+kubectl get quota -n netapp-acc
+----
++
+対応：
 
++
+[listing]
+----
 NAME          AGE   REQUEST                                        LIMIT
 pods-high     16s   requests.cpu: 0/20, requests.memory: 0/100Gi   limits.cpu: 0/200, limits.memory: 0/1000Gi
 pods-low      15s   requests.cpu: 0/1, requests.memory: 0/1Gi      limits.cpu: 0/2, limits.memory: 0/2Gi
@@ -171,23 +186,32 @@ pods-medium   16s   requests.cpu: 0/10, requests.memory: 0/20Gi    limits.cpu: 0
 ----
 . 名前別にすべてのリソースクォータを削除します。
 +
-[source, sh]
+[listing]
 ----
-$ kubectl delete resourcequota  pods-high -n netapp-acc
+kubectl delete resourcequota  pods-high -n netapp-acc
+
 resourcequota "pods-high" deleted
 
-$ kubectl delete resourcequota  pods-low -n netapp-acc
+kubectl delete resourcequota  pods-low -n netapp-acc
+
 resourcequota "pods-low" deleted
 
-$ kubectl delete resourcequota  pods-medium -n netapp-acc
+kubectl delete resourcequota  pods-medium -n netapp-acc
+
 resourcequota "pods-medium" deleted
 ----
 . NetApp-accネームスペース内の制限範囲を取得します。
 +
 [source, sh]
 ----
-$ kubectl get limits -n netapp-acc
+kubectl get limits -n netapp-acc
+----
++
+対応：
 
++
+[listing]
+----
 NAME              CREATED AT
 cpu-limit-range   2022-06-27T19:01:23Z
 ----
@@ -195,6 +219,6 @@ cpu-limit-range   2022-06-27T19:01:23Z
 +
 [source, sh]
 ----
-$kubectl delete limitrange cpu-limit-range -n netapp-acc
+kubectl delete limitrange cpu-limit-range -n netapp-acc
 ----
 

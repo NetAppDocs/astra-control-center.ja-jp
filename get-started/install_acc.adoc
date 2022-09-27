@@ -20,13 +20,13 @@ Red Hat OpenShift環境では、を使用できます link:../get-started/acc_op
 * 使用環境でポッドセキュリティポリシーを設定または設定したい場合は、ポッドセキュリティポリシーと、それらがAstra Control Centerのインストールに与える影響について理解しておいてください。を参照してください link:understand-psp-restrictions.html["ポッドのセキュリティポリシーの制限事項を理解します"]。
 * すべてのクラスタオペレータが正常な状態であり、使用可能であることを確認します。
 +
-[listing]
+[source, sh]
 ----
 kubectl get clusteroperators
 ----
 * すべての API サービスが正常な状態であり、使用可能であることを確認します。
 +
-[listing]
+[source, sh]
 ----
 kubectl get apiservices
 ----
@@ -74,13 +74,13 @@ Astra Control Center をインストールするには、次の手順に従い�
 . から Astra Control Center 証明書とキーの zip をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
 . （任意）次のコマンドを使用して、バンドルのシグニチャを確認します。
 +
-[listing]
+[source, sh]
 ----
 openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
 . 画像を抽出します。
 +
-[listing]
+[source, sh]
 ----
 tar -vxzf astra-control-center-[version].tar.gz
 ----
@@ -97,13 +97,13 @@ NetApp Astra 'kubectl'コマンド・ライン・プラグインは'Astra Contro
 .手順
 . 使用可能なNetApp Astra 'kubectl'プラグイン・バイナリを列挙し'オペレーティング・システムとCPUアーキテクチャに必要なファイル名を書き留めます
 +
-[listing]
+[source, sh]
 ----
 ls kubectl-astra/
 ----
 . ファイルを標準のkubectl'ユーティリティと同じ場所にコピーしますこの例では'kubectl'ユーティリティは'/usr/local/bin'ディレクトリにあります「<binary-name>」を必要なファイル名に置き換えます。
 +
-[listing]
+[source, sh]
 ----
 cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 ----
@@ -188,7 +188,7 @@ done
 
 . Astra Control Centerホストクラスタ用のKUBECONFIGをエクスポートします。
 +
-[listing]
+[source, sh]
 ----
 export KUBECONFIG=[file path]
 ----
@@ -196,7 +196,7 @@ export KUBECONFIG=[file path]
 +
 .. NetApp-acc-operator という名前空間を作成します。
 +
-[listing]
+[source, sh]
 ----
 kubectl create ns netapp-acc-operator
 ----
@@ -214,7 +214,7 @@ namespace/netapp-acc-operator created
 NOTE: プレースホルダー「Your_registry_path」は、以前にアップロードしたイメージの場所と一致している必要があります（例：[Registry_url]/NetApp/Astra/astacc /22.08.1-26`）。
 
 +
-[listing]
+[source, sh]
 ----
 kubectl create secret docker-registry astra-registry-cred -n netapp-acc-operator --docker-server=[your_registry_path] --docker-username=[username] --docker-password=[token]
 ----
@@ -232,7 +232,7 @@ NOTE: シークレットの生成後にネームスペースを削除する場�
 
 .. NetApp-acc` （またはカスタムの名前を付けた）ネームスペースを作成します。
 +
-[listing]
+[source, sh]
 ----
 kubectl create ns [netapp-acc or custom namespace]
 ----
@@ -246,7 +246,7 @@ namespace/netapp-acc created
 ----
 .. NetApp-acc` （またはカスタムの名前を付けた）ネームスペースのシークレットを作成します。Docker 情報を追加して次のコマンドを実行します。
 +
-[listing]
+[source, sh]
 ----
 kubectl create secret docker-registry astra-registry-cred -n [netapp-acc or custom namespace] --docker-server=[your_registry_path] --docker-username=[username] --docker-password=[token]
 ----
@@ -260,7 +260,7 @@ secret/astra-registry-cred created
 ----
 .. [[[[sup_kubeconfig _secret]] （オプション）インストール後に Astra Control Center でクラスタを自動的に管理する場合は、このコマンドを使用して展開する Astra Control Center ネームスペース内のシークレットとして kubeconfig を指定する必要があります。
 +
-[listing]
+[source, sh]
 ----
 kubectl create secret generic [acc-kubeconfig-cred or custom secret name] --from-file=<path-to-your-kubeconfig> -n [netapp-acc or custom namespace]
 ----
@@ -274,13 +274,13 @@ kubectl create secret generic [acc-kubeconfig-cred or custom secret name] --from
 
 . ディレクトリを変更します。
 +
-[listing]
+[source, sh]
 ----
 cd manifests
 ----
 . Astra Control Center オペレータの配備 YAML (`Astra_control_center_deployment.yaml ') を編集して、ローカルのレジストリと秘密を参照します。
 +
-[listing]
+[source, sh]
 ----
 vim astra_control_center_operator_deploy.yaml
 ----
@@ -291,7 +291,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 +
 .. 認証が必要なレジストリを使用する場合は、デフォルト行の「 imagePullSecret:[] 」を次のように置き換えます。
 +
-[listing]
+[source, sh]
 ----
 imagePullSecrets:
 - name: <astra-registry-cred>
@@ -347,7 +347,7 @@ spec:
 
 . Astra Control Center オペレータをインストールします。
 +
-[listing]
+[source, sh]
 ----
 kubectl apply -f astra_control_center_operator_deploy.yaml
 ----
@@ -372,7 +372,7 @@ deployment.apps/acc-operator-controller-manager created
 ----
 . ポッドが実行中であることを確認します
 +
-[listing]
+[source, sh]
 ----
 kubectl get pods -n netapp-acc-operator
 ----
@@ -388,7 +388,7 @@ kubectl get pods -n netapp-acc-operator
 NOTE: 「 Astra_control_center_min YAML 」はデフォルトの CR で、ほとんどのインストールに適しています。すべてのことをよく理解してください link:../get-started/acc_cluster_cr_options.html["CRオプションとその可能性のある値"] お客様の環境にAstra Control Centerを正しく導入できるようにするため。環境に追加のカスタマイズが必要な場合は 'Astra_control_center.yaml を代替 CR として使用できます
 
 +
-[listing]
+[source, sh]
 ----
 vim astra_control_center_min.yaml
 ----
@@ -404,7 +404,7 @@ IMPORTANT: 認証を必要としないレジストリを使用している場合
 .. インターネットに接続されていないサイトの場合は AutoSupport の「 enrolled 」を「 false 」に変更し、接続されているサイトの場合は「 true 」を保持します。
 .. 外部のcert-managerを使用する場合は'次の行を'spec'に追加します
 +
-[listing]
+[source, sh]
 ----
 spec:
   crds:
@@ -465,7 +465,7 @@ spec:
 
 . 前の手順で NetApp-acc` （またはカスタム）ネームスペースを作成していない場合は、次のようにします。
 +
-[listing]
+[source, sh]
 ----
 kubectl create ns [netapp-acc or custom namespace]
 ----
@@ -479,7 +479,7 @@ namespace/netapp-acc created
 ----
 . Astra Control Center を NetApp-acc' （またはカスタムの）名前空間にインストールします
 +
-[listing]
+[source, sh]
 ----
 kubectl apply -f astra_control_center_min.yaml -n [netapp-acc or custom namespace]
 ----
@@ -502,7 +502,7 @@ NOTE: OpenShift を使用する場合は、同等の OC コマンドを検証手
 
 . すべてのシステムコンポーネントが正常にインストールされたことを確認します。
 +
-[listing]
+[source, sh]
 ----
 kubectl get pods -n [netapp-acc or custom namespace]
 ----
@@ -585,7 +585,7 @@ vault-controller-6b954f9b76-gz9nm        1/1    Running  0        11m
 ====
 . （オプション）インストールが完了したことを確認するには、次のコマンドを使用して「 acc-operator' 」ログを監視します。
 +
-[listing]
+[source, sh]
 ----
 kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c manager -f
 ----
@@ -595,7 +595,7 @@ NOTE: 「 accHost 」クラスタの登録は最後の操作の 1 つであり�
 
 . すべてのポッドが動作しているときは、インストールが成功したことを確認し（「ready」は「True」）、Astra Control Centerにログインするときに使用するワンタイムパスワードを取得します。
 +
-[listing]
+[source, sh]
 ----
 kubectl get AstraControlCenter -n netapp-acc
 ----
@@ -652,7 +652,7 @@ CA署名証明書または自己署名証明書を使用できます。共通名
 コマンド例： 
 
 +
-[listing]
+[source, sh]
 ----
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 
 -keyout tls.key -out tls.crt
@@ -662,7 +662,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 
 コマンド例： 
 
 +
-[listing]
+[source, sh]
 ----
 kubectl create secret tls [tls secret name] 
 --key="tls.key"
@@ -711,7 +711,7 @@ spec:
 v1の新しいスキーマについては、次の例を参照してください。
 
 +
-[listing]
+[source, sh]
 ----
 kubectl apply -f istio-Ingress.yaml
 ----
@@ -754,9 +754,16 @@ spec:
 . 通常どおりAstra Control Centerを導入します。
 . 入力のステータスを確認します。
 +
+[source, sh]
+----
+kubectl get ingress -n netapp-acc
+----
++
+対応：
+
++
 [listing]
 ----
-kubectl get ingress -n netapp-acc 
 NAME    CLASS HOSTS             ADDRESS         PORTS   AGE 
 ingress istio astra.example.com 172.16.103.248  80, 443 1h 
 ----
@@ -826,7 +833,7 @@ spec:
 . 証明書を調達し、 OpenShift ルートで使用できるようにキー、証明書、および CA ファイルを取得します。
 . OpenShift ルートを作成します。
 +
-[listing]
+[source, sh]
 ----
 oc create route edge --service=traefik
 --port=web -n [netapp-acc or custom namespace]
@@ -871,9 +878,9 @@ NOTE: 初めてログインする際にパスワードを忘れた場合、他�
 .手順
 . Astra Control Center のオペレータログを調べるには、次のように入力します。
 +
-[listing]
+[source, sh]
 ----
-kubectl logs --follow -n netapp-acc-operator $(kubectl get pods -n netapp-acc-operator -o name)  -c manager
+kubectl logs --follow -n netapp-acc-operator $(kubectl get pods -n netapp-acc-operator -o name) -c manager
 ----
 
 
