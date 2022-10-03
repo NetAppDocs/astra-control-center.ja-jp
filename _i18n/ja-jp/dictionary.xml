@@ -922,7 +922,6 @@
   <block id="7b30cce2a5969e8fadcb1e4aa9106224" category="list-text">kubectl'V1.19 以降がインストールされています</block>
   <block id="ee6257954c2f973cd54453583dc792ca" category="list-text">アクティブなコンテキストのクラスタ管理者権限があるアクティブな kubeconfig です</block>
   <block id="5f85438ae0f2c9122a5cf54e8e098c98" category="list-text">次の手順でサービスアカウントを作成します。</block>
-  <block id="3dddc4b1e9542d891ece7f0755904e26" category="list-text">「 astracontrol-service-account.yaml 」という名前のサービスアカウントファイルを作成します。</block>
   <block id="210c5331ab46caa141e6ac9d5aeb1bee" category="paragraph">名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。</block>
   <block id="605443509a67749999ab3b0d3ba43e8b" category="list-text">サービスアカウントを適用します。</block>
   <block id="b01a13e2cbe1b4af2c39de81232bb23b" category="list-text">次のようにクラスタ管理者権限を付与します。</block>
@@ -2704,4 +2703,5 @@
   <block id="06e1b0116459bf681b32b65360e38671" category="list-text">OCPを使用する場合、Red Hat OpenShift Container Platform（OCP）4.8</block>
   <block id="3b21110a90480d802de559fc751fede8" category="paragraph"><block ref="3b21110a90480d802de559fc751fede8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c2c28b59e21cbd4b3d6c78dbdf1db70f" category="list-text">* Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Trident を使用すると、 Docker と Kubernetes で管理するコンテナ化されたアプリケーション用のストレージボリュームを作成できます。Trident を Astra Control Center とともに導入すると、設定済みの ONTAP ストレージバックエンドが含まれます。</block>
+  <block id="4ab759267d2877902a521921e10f5f5b" category="list-text">"astracontrol-service-account.yamml"という名前のサービスアカウントファイルを作成します。</block>
 </blocks>

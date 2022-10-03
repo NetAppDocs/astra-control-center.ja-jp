@@ -186,19 +186,19 @@ pods-medium   16s   requests.cpu: 0/10, requests.memory: 0/20Gi    limits.cpu: 0
 ----
 . 名前別にすべてのリソースクォータを削除します。
 +
-[listing]
+[source, sh]
 ----
 kubectl delete resourcequota  pods-high -n netapp-acc
-
-resourcequota "pods-high" deleted
-
+----
++
+[source, sh]
+----
 kubectl delete resourcequota  pods-low -n netapp-acc
-
-resourcequota "pods-low" deleted
-
+----
++
+[source, sh]
+----
 kubectl delete resourcequota  pods-medium -n netapp-acc
-
-resourcequota "pods-medium" deleted
 ----
 . NetApp-accネームスペース内の制限範囲を取得します。
 +
