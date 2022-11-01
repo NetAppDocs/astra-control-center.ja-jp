@@ -257,7 +257,7 @@ NOTE: インストールする演算子とアプリケーションは、同じ�
 
 Astra Control Center の全機能を使用するには、 Astra Control Center ライセンスが必要です。評価用ライセンスまたはフルライセンスをネットアップから取得する。アプリケーションとデータを保護するにはライセンスが必要です。を参照してください link:../concepts/intro.html["Astra Control Centerの機能"] を参照してください。
 
-また、 Astra Control Center に評価ライセンスをお試しいただくこともできます。このライセンスは、 Astra Control Center をダウンロードした日から 90 日間使用できます。登録すると、無償トライアルに登録できます link:https://cloud.netapp.com/astra-register["こちらをご覧ください"^]。
+Astra Control Centerには、評価用ライセンスをお試しいただけます。このライセンスは、Astra Control Centerをダウンロードした日から90日間使用できます。登録すると、無償トライアルに登録できます link:https://cloud.netapp.com/astra-register["こちらをご覧ください"^]。
 
 ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください link:../get-started/requirements.html["サポートされるストレージバックエンド"]。
 

@@ -16,7 +16,8 @@ Astra Control Centerを有効にするには、フルアプリケーションデ
 
 アプリケーションとデータを保護するにはライセンスが必要です。「Astra Control Center」を参照してください link:../concepts/intro.html["の機能"] を参照してください。
 
- After you purchase the product, you receive a serial number and license. You can generate the NetApp license file (NLF) from the https://mysupport.netapp.com[NetApp Support Site^].
+製品を購入すると、シリアル番号とライセンスが届きます。からネットアップライセンスファイル（NLF）を生成できます https://mysupport.netapp.com["ネットアップサポートサイト"^]。
+
 また、 Astra Control Center に評価ライセンスをお試しいただくこともできます。このライセンスは、 Astra Control Center をダウンロードした日から 90 日間使用できます。詳細については、を参照してください link:../get-started/requirements.html["要件"]。
 
 ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください link:../get-started/requirements.html["サポートされるストレージバックエンド"]。
