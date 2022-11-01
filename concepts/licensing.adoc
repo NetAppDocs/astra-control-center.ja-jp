@@ -14,29 +14,23 @@ summary: Astra Control Center で実行できる操作は、ライセンスの�
 [role="lead"]
 Astra Control Centerを有効にするには、フルアプリケーションデータ管理機能を有効にするためのライセンスが必要です。Astra Control Center をライセンスなしで導入すると、システム機能が制限されていることを示すバナーが Web UI に表示されます。
 
-次の操作には有効なライセンスが必要です。
+アプリケーションとデータを保護するにはライセンスが必要です。「Astra Control Center」を参照してください link:../concepts/intro.html["の機能"] を参照してください。
 
-* 新しいアプリケーションの管理
-* Snapshot またはバックアップを作成します
-* Snapshot またはバックアップのスケジュールを設定する保護ポリシーを設定する
-* Snapshot またはバックアップからのリストア
-* Snapshot または現在の状態からクローニングしています
-* リモートシステムへのアプリケーションのレプリケーション
+ After you purchase the product, you receive a serial number and license. You can generate the NetApp license file (NLF) from the https://mysupport.netapp.com[NetApp Support Site^].
+また、 Astra Control Center に評価ライセンスをお試しいただくこともできます。このライセンスは、 Astra Control Center をダウンロードした日から 90 日間使用できます。詳細については、を参照してください link:../get-started/requirements.html["要件"]。
+
+ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください link:../get-started/requirements.html["サポートされるストレージバックエンド"]。
 
 
-
-NOTE: クラスタの追加、バケットの追加、 Astra Data Store ストレージバックエンドの管理を、ライセンスなしで実行できます。ただし、 Astra Data Store をストレージバックエンドとして使用するアプリケーションを管理するには、有効な Astra Control Center ライセンスが必要です。
+NOTE: クラスタの追加、バケットの追加、ストレージバックエンドの管理をライセンスなしで実行できます。
 
 
 
 == ライセンス消費量の計算方法
 
-新しいクラスタを Astra Control Center に追加しても、クラスター上で実行されているアプリケーションの少なくとも 1 つが Astra Control Center によって管理されるまで、使用済みのライセンスにはカウントされません。また、 Astra Data Store ストレージバックエンドを Astra Control Center に追加しても、ライセンスの消費には影響しません。これにより、ライセンスのない Astra Control Center システムから Astra Data Store バックエンドを管理できます。
+新しいクラスタを Astra Control Center に追加しても、クラスター上で実行されているアプリケーションの少なくとも 1 つが Astra Control Center によって管理されるまで、使用済みのライセンスにはカウントされません。
 
-クラスタ上でアプリケーションの管理を開始すると、そのクラスタのすべてのCPUユニットがAstra Control Centerライセンス消費量に含まれます。クラスタにAstraデータストアのライセンスが設定されている場合、そのCPUユニットはAstra Control Centerのライセンス消費量の計算から除外されます。
-
-
-NOTE: Astraデータストアの評価導入からのCPUユニットは、Astra Control Centerのライセンス消費から除外されません。
+クラスタ上でアプリケーションの管理を開始すると、そのクラスタのすべてのCPUユニットがAstra Control Centerライセンス消費量に含まれます。
 
 
 

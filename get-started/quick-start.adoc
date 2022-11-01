@@ -22,7 +22,7 @@ summary: 数ステップで Astra Control を使い始めましょう。
 
 
 [role="quick-margin-para"]
-link:../get-started/requirements.html["Astra Control Center の要件の詳細をご覧ください"]。
+の詳細については、を参照してください link:../get-started/requirements.html["Astra Control Center の要件"]。
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt="2"></span> Astra Control Center をダウンロードしてインストールします
 * から Astra Control Center をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイトの「 Astra Control Center Downloads 」ページ"^]。
@@ -30,26 +30,31 @@ link:../get-started/requirements.html["Astra Control Center の要件の詳細�
 +
 必要に応じて、 Red Hat OperatorHub を使用して Astra Control Center をインストールします。
 
++
+必要に応じて、Cloud Volumes ONTAP ストレージバックエンドにAstra Control Centerをインストールします。
+
 
 
 [role="quick-margin-para"]
-link:../get-started/install_overview.html["Astra Control Center のインストールの詳細"]。
+の詳細を確認してください link:../get-started/install_overview.html["Astra Control Centerのインストール"]。
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] Alt="3"></span> 初期設定タスクをいくつか実行します
-* ライセンスを追加します
+* Astra ControlライセンスとサポートするONTAP ライセンスを追加
 * Kubernetes クラスタと Astra Control Center を追加すると、詳細が検出されます。
-* ONTAP またはを追加します https://docs.netapp.com/us-en/astra-data-store/index.html["Astra データストア"] ストレージバックエンド：
+* ONTAP ストレージバックエンドを追加します。
 * 必要に応じて、アプリケーションバックアップを格納するオブジェクトストアバケットを追加します。
 
 
 [role="quick-margin-para"]
-link:../get-started/setup_overview.html["初期セットアッププロセスの詳細については、こちらをご覧ください"]。
+の詳細については、を参照してください link:../get-started/setup_overview.html["初期セットアッププロセス"]。
 
 [role="quick-margin-list"]
 Astra Control Center のセットアップが完了したら、次の手順を実行します。
 
-* アプリを管理します。 link:../use/manage-apps.html["アプリの管理方法については、こちらをご覧ください"]。
-* 必要に応じて、 NetApp Cloud Insights に接続し、 Astra Control Center UI 内のシステム、容量、およびスループットの健全性に関する指標を表示します。 link:../use/monitor-protect.html["Cloud Insights への接続の詳細については、こちらをご覧ください"]。
+* アプリを管理します。方法の詳細については、こちらをご覧ください link:../use/manage-apps.html["アプリの管理"]。
+* アプリの保護ポリシーの設定、リモートシステムへのアプリのレプリケーション、アプリのクローニングと移行により、アプリを保護します。方法の詳細については、こちらをご覧ください link:../use/protection-overview.html["アプリを保護します"]。
+* アカウントの管理（ユーザ、ロール、ユーザ認証用のLDAP、クレデンシャル、リポジトリ接続など）方法の詳細については、こちらをご覧ください link:../use/manage-users.html["ユーザを管理します"]。
+* 必要に応じて、 NetApp Cloud Insights に接続し、 Astra Control Center UI 内のシステム、容量、およびスループットの健全性に関する指標を表示します。の詳細を確認してください link:../use/monitor-protect.html["Cloud Insights に接続しています"]。
 
 
 [role="quick-margin-para"]

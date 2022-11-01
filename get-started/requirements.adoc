@@ -128,6 +128,15 @@ Astra Control Center は、次のストレージバックエンドをサポー�
 * NetApp Cloud Volumes ONTAP の略
 
 
+Astra Control Centerを使用するには、必要な機能に応じて、次のONTAP ライセンスがあることを確認します。
+
+* FlexClone
+* SnapMirror：オプション。SnapMirrorテクノロジを使用してリモートシステムにレプリケートする場合にのみ必要です。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["SnapMirrorのライセンス情報"^]。
+* S3ライセンス：オプション。ONTAP S3バケットにのみ必要です
+
+
+ONTAP システムに必要なライセンスがあるかどうかを確認できます。を参照してください https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["ONTAP ライセンスを管理します"^]。
+
 
 
 == アプリケーションクラスタの要件
@@ -246,14 +255,11 @@ NOTE: インストールする演算子とアプリケーションは、同じ�
 
 == 使用許諾
 
-Astra Control Center の全機能を使用するには、 Astra Control Center ライセンスが必要です。評価用ライセンスまたはフルライセンスをネットアップから取得する。ライセンスがないと、次の操作を実行できません。
+Astra Control Center の全機能を使用するには、 Astra Control Center ライセンスが必要です。評価用ライセンスまたはフルライセンスをネットアップから取得する。アプリケーションとデータを保護するにはライセンスが必要です。を参照してください link:../concepts/intro.html["Astra Control Centerの機能"] を参照してください。
 
-* アプリケーションを定義します
-* 既存のアプリケーションのスナップショットまたはクローンを作成します
-* データ保護ポリシーを設定
+また、 Astra Control Center に評価ライセンスをお試しいただくこともできます。このライセンスは、 Astra Control Center をダウンロードした日から 90 日間使用できます。登録すると、無償トライアルに登録できます link:https://cloud.netapp.com/astra-register["こちらをご覧ください"^]。
 
-
-Astra Control Center をお試しになりたい場合は link:setup_overview.html#add-a-full-or-evaluation-license["90 日間の評価版ライセンスを使用する"]。
+ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください link:../get-started/requirements.html["サポートされるストレージバックエンド"]。
 
 ライセンスの機能の詳細については、を参照してください link:../concepts/licensing.html["ライセンス"]。
 

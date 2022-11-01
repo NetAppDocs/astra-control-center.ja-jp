@@ -418,7 +418,7 @@ NOTE: サービスタイプ「 LoadBalancer 」および入力の詳細につい
 
 
 .Nginx Ingress Controller の手順
-. 既存のシークレット「 secure-testing-cert 」を使用するか、タイプのシークレットを作成します http://kubernetes.io/tls["「 sKubernetes .io/tls 」と入力します"] に示すように 'NetApp-acc' （またはカスタム名前の）名前空間内の TLS 秘密鍵と証明書の場合 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS シークレット"]。
+. 既存のシークレット「 secure-testing-cert 」を使用するか、タイプのシークレットを作成します http://kubernetes.io/tls["8a637503539b25b68130b6e8003579d9"] に示すように 'NetApp-acc' （またはカスタム名前の）名前空間内の TLS 秘密鍵と証明書の場合 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS シークレット"]。
 . 非推奨または新しいスキーマのいずれかの入力リソースを NetApp-acc` （またはカスタム名前付き）ネームスペースに配置します。
 +
 .. 廃止されたスキーマについては、次の例を参照してください。

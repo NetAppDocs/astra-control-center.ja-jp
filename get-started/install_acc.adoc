@@ -770,7 +770,7 @@ ingress istio astra.example.com 172.16.103.248  80, 443 1h
 
 
 .Nginx Ingress Controller の手順
-. タイプのシークレットを作成します http://kubernetes.io/tls["「 sKubernetes .io/tls 」と入力します"] に示すように 'NetApp-acc' （またはカスタム名前の）名前空間内の TLS 秘密鍵と証明書の場合 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS シークレット"]。
+. タイプのシークレットを作成します http://kubernetes.io/tls["8a637503539b25b68130b6e8003579d9"] に示すように 'NetApp-acc' （またはカスタム名前の）名前空間内の TLS 秘密鍵と証明書の場合 https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS シークレット"]。
 . 非推奨または新しいスキーマのいずれかのv1beta1'（Kubernetesバージョン1.22で非推奨）またはv1'リソースタイプを使用して'NetApp-acc'（またはカスタムネームド）ネームスペースに入力リソースを導入します
 +
 .. v1beta' 非推奨スキーマについては ' 次の例を参照してください
