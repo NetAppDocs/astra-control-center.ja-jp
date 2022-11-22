@@ -11,6 +11,7 @@ summary: Astra Control Center と Astra Control Center Operator を削除する�
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 試用版からフルバージョンの製品にアップグレードする場合は、 Astra Control Center コンポーネントの削除が必要になることがあります。Astra Control Center と Astra Control Center Operator を削除するには、この手順で説明されているコマンドを順に実行します。
 
 アンインストールに問題がある場合は、を参照してください  uninstall issues。
@@ -24,7 +25,7 @@ summary: Astra Control Center と Astra Control Center Operator を削除する�
 +
 [listing]
 ----
-kubectl delete -f astra_control_center_min.yaml -n netapp-acc
+kubectl delete -f astra_control_center.yaml -n netapp-acc
 ----
 +
 結果

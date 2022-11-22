@@ -2,8 +2,6 @@
 section: concepts
 title: 概念
 entries:
-- title: Astra Controlの詳細をご確認ください
-  url: "/concepts/intro.html"
 - title: アーキテクチャとコンポーネント
   url: "/concepts/architecture.html"
 - title: データ保護
@@ -16,3 +14,5 @@ entries:
   url: "/concepts/choose-class-and-size.html"
 - title: ユーザロールとネームスペース
   url: "/concepts/user-roles-namespaces.html"
+- title: ポッドセキュリティ
+  url: "/concepts/understand-pod-security.html"

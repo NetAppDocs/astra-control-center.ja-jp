@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concepts/choose-class-and-size.html 
 keywords: service level, storage class, storage classes, pv size, persistent volume size, volume size, bandwidth, performance, persistent, volume, kubernetes, containers 
-summary: Astra Control Center は、 ONTAP ストレージクラスまたは Astra データストアストレージクラスを使用する Trident ストレージクラスをサポートしています。ストレージクラスと永続的ボリュームのサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。 
+summary: Astra Control Centerは、ONTAP ストレージをベースとするTridentストレージクラスをサポートしています。ストレージクラスと永続的ボリュームのサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。 
 ---
 = ストレージクラスと永続的ボリュームサイズ
 :hardbreaks:
@@ -12,17 +12,13 @@ summary: Astra Control Center は、 ONTAP ストレージクラスまたは Ast
 
 
 [role="lead"]
-Astra Control Center は、 ONTAP または Astra データストアをストレージバックエンドとしてサポートします。
+Astra Control Centerは、ONTAP をストレージバックエンドとしてサポートします。
 
 
 
 == 概要
 
 Astra Control Center は、次の機能をサポートします。
-
-* *Trident ストレージクラスは Astra Data Store ストレージ * をサポート： 1 つ以上の Astra データストアクラスタを手動でインストールした場合、 Astra Control Center では、これらをインポートしてトポロジ（ノード、ディスク）とさまざまなステータスを取得することができます。
-+
-Astra Control Center には、 Astra Data Store の構成、 Kubernetes クラスタが属するクラウド、 Astra Data Store でプロビジョニングされた永続ボリューム、対応する内部ボリュームの名前、永続ボリュームを使用するアプリケーション、およびアプリケーションを含むクラスタから、基盤となる Kubernetes クラスタが表示されます。
 
 * * ONTAP ストレージ * がサポートする Trident ストレージクラス： ONTAP バックエンドを使用している場合、 Astra Control Center では、 ONTAP バックエンドをインポートしてさまざまな監視情報をレポートすることができます。
 
@@ -34,9 +30,7 @@ NOTE: Trident のストレージクラスは、 Astra Control Center の外部�
 
 == ストレージクラス
 
-Astra Control Center にクラスタを追加すると、そのクラスタで以前に設定したストレージクラスをデフォルトのストレージクラスとして選択するように求められます。このストレージクラスは、永続ボリューム要求（ PVC ）でストレージクラスが指定されていない場合に使用されます。デフォルトのストレージクラスは、 Astra Control Center 内でいつでも変更できます。また、 PVC または Helm チャート内のストレージクラスの名前を指定することで、任意のストレージクラスをいつでも使用できます。Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。
-
-Astra Control Center を Astra データストアストレージバックエンドと統合して使用する場合、インストール後にストレージクラスは定義されません。Trident のデフォルトストレージクラスを作成し、ストレージバックエンドに適用する必要があります。を参照してください https://docs.netapp.com/us-en/astra-data-store/get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend["Astra データストア入門"] をクリックして、デフォルトの Astra データストアストレージクラスを作成します。
+Astra Control Centerにクラスタを追加する場合は、そのクラスタで以前に設定したストレージクラスをデフォルトのストレージクラスとして選択するように求められます。このストレージクラスは、永続ボリューム要求（ PVC ）でストレージクラスが指定されていない場合に使用されます。デフォルトのストレージクラスは、 Astra Control Center 内でいつでも変更できます。また、 PVC または Helm チャート内のストレージクラスの名前を指定することで、任意のストレージクラスをいつでも使用できます。Kubernetes クラスタにデフォルトのストレージクラスが 1 つだけ定義されていることを確認します。
 
 
 

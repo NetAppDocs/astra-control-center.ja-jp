@@ -11,9 +11,15 @@ summary: Astra Control Center のインストール方法を選択できます�
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 次の Astra Control Center のインストール手順のいずれかを選択して実行します。
 
 * link:../get-started/install_acc.html["標準の手順で Astra Control Center をインストールします"]
 * link:../get-started/acc_operatorhub_install.html["（ Red Hat OpenShift を使用する場合） OpenShift OperatorHub を使用して Astra Control Center をインストールします"]
 * link:../get-started/install_acc-cvo.html["Cloud Volumes ONTAP ストレージバックエンドに Astra Control Center をインストールします"]
+
+
+環境によっては、Astra Control Centerのインストール後に追加の設定が必要になる場合があります。
+
+* link:../get-started/configure-after-install.html["インストール後にAstra Control Centerを設定します"]
 

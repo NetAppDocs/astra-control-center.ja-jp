@@ -11,27 +11,28 @@ summary: Red Hat OpenShift を使用する場合は、オペレータを使用�
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 Red Hat OpenShift を使用する場合は、 Red Hat 認定オペレータを使用して Astra Control Center をインストールできます。この手順を使用して、から Astra Control Center をインストールします https://catalog.redhat.com/software/operators/explore["Red Hat エコシステムカタログ"^] または、 Red Hat OpenShift Container Platform を使用します。
 
 この手順を完了したら、インストール手順に戻ってを実行する必要があります link:../get-started/install_acc.html#verify-system-status["残りのステップ"] インストールが成功したかどうかを確認し、ログオンします。
 
 .必要なもの
 * link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"]。
-* OpenShift クラスタから、すべてのクラスタオペレータが正常な状態にあることを確認します（「 available 」は「 true 」）。
+* OpenShiftクラスタから、すべてのクラスタオペレータが正常な状態にあることを確認します。
 +
-[source, sh]
+[source, console]
 ----
 oc get clusteroperators
 ----
-* OpenShift クラスタから、すべての API サービスが正常な状態（「 available 」は「 true 」）になっていることを確認します。
+* OpenShiftクラスタから、すべてのAPIサービスが正常な状態であることを確認します。
 +
-[source, sh]
+[source, console]
 ----
 oc get apiservices
 ----
 * データセンターにAstra Control CenterのFQDNアドレスを作成します。
 * 説明したインストール手順を実行するために必要な権限を取得し、Red Hat OpenShift Container Platformにアクセスします。
-* クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"] そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。
+* クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"] そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
 
 
 .手順
@@ -49,15 +50,15 @@ oc get apiservices
 
 . から Astra Control Center バンドル（「 Astra - control-ccenter-[version].tar.gz` ）をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
 . から Astra Control Center 証明書とキーの zip をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイト"^]。
-. （任意）次のコマンドを使用して、バンドルのシグニチャを確認します。
+. （任意）バンドルのシグニチャを確認します。
 +
-[source, sh]
+[source, console]
 ----
 openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
 . 画像を抽出します。
 +
-[source, sh]
+[source, console]
 ----
 tar -vxzf astra-control-center-[version].tar.gz
 ----
@@ -67,20 +68,24 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 == ネットアップAstra kubectlプラグインをインストール
 
-NetApp Astra 'kubectl'コマンド・ライン・プラグインは'Astra Control Centerの導入とアップグレードに関連する一般的なタスクを実行する際に時間を節約します
+NetApp Astra kubectlコマンドラインプラグインは、Astra Control Centerの導入とアップグレードに関連する一般的なタスクを実行する際に時間を節約します。
 
-ネットアップでは、プラグイン用のバイナリを提供しており、CPUアーキテクチャやオペレーティングシステムが異なる場合はそのプラグインをこのタスクを実行する前に、使用しているCPUとオペレーティングシステムを把握しておく必要があります。LinuxおよびMacオペレーティングシステムでは、「uname -a」コマンドを使用してこの情報を収集できます。
+ネットアップでは、CPUアーキテクチャやオペレーティングシステム別にプラグインのバイナリを提供しています。このタスクを実行する前に、使用しているCPUとオペレーティングシステムを把握しておく必要があります。
 
 .手順
-. 使用可能なNetApp Astra 'kubectl'プラグイン・バイナリを列挙し'オペレーティング・システムとCPUアーキテクチャに必要なファイル名を書き留めます
+. 使用可能なNetApp Astra kubectlプラグインのバイナリを表示し、オペレーティングシステムとCPUアーキテクチャに必要なファイルの名前をメモします。
 +
-[source, sh]
+
+NOTE: kubectlプラグインライブラリはtarバンドルの一部であり、フォルダに解凍されます `kubectl-astra`。
+
++
+[source, console]
 ----
 ls kubectl-astra/
 ----
-. ファイルを標準のkubectl'ユーティリティと同じ場所にコピーしますこの例では'kubectl'ユーティリティは'/usr/local/bin'ディレクトリにあります「<binary-name>」を必要なファイル名に置き換えます。
+. 正しいバイナリを現在のパスに移動し、名前をに変更します `kubectl-astra`：
 +
-[source, sh]
+[source, console]
 ----
 cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 ----
@@ -97,22 +102,26 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 ====
 .Docker です
 --
-. Astraディレクトリに移動します。
+. をに変更します `acc` tarバンドルから抽出されたディレクトリ：
 +
-[source, sh]
+例
+
+
+
+[listing]
 ----
-cd acc
+cd ../acc
 ----
 . [[[[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1>[</Z1></Z1>_image_local_registry_push]]]]]]]]]]</Z2>アストラControl Centerイメージディレクトリ内のパッケージイメージをローカルレジストリにプッシュします。</Z3>コマンドを実行する前に、次の置き換えを行ってください。
 +
-** bundle_fileは'Astra Controlバンドルファイルの名前に置き換えます(例: acc.manifest .yaml ')
-** my_registryをDockerリポジトリのURLに置き換えます。
-** my_registry_userをユーザー名に置き換えます。
-** my_registry_tokenをレジストリの認証済みトークンに置き換えます。
+** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.yaml`）。
+** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 https://exampledownloads.jfrog.io/docker-astra-control/v1/[]。
+** <MY_REGISTRY_USER> をユーザ名に置き換えます。
+** <MY_REGISTRY_TOKEN> をレジストリの認証済みトークンに置き換えます。
 +
-[source, sh]
+[source, console]
 ----
-kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_USER -p MY_REGISTRY_TOKEN
+kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -u <MY_REGISTRY_USER> -p <MY_REGISTRY_TOKEN>
 ----
 
 
@@ -123,13 +132,13 @@ kubectl astra packages push-images -m BUNDLE_FILE -r MY_REGISTRY -u MY_REGISTRY_
 --
 . レジストリにログインします。
 +
-[source, sh]
+[source, console]
 ----
-podman login [your_registry_path]
+podman login <MY_FULL_REGISTRY_PATH>
 ----
 . 次のスクリプトを実行して、コメントに記載されているように<your _registry>を置き換えます。
 +
-[source, sh]
+[source, console]
 ----
 # You need to be at the root of the tarball.
 # You should see these files to confirm correct location:
@@ -139,7 +148,7 @@ podman login [your_registry_path]
 # Replace <YOUR_REGISTRY> with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
 export REGISTRY=<YOUR_REGISTRY>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.08.1-26
+export PACKAGEVERSION=22.11.0-82
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
   # Load to local cache

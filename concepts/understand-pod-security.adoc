@@ -1,0 +1,111 @@
+---
+sidebar: sidebar 
+permalink: concepts/understand-pod-security.html 
+keywords: login, Astra Control Center, web ui, tls, certificate 
+summary: Astra Control Centerをインストールする前に、PODセキュリティがどのように機能するかを理解しておく必要があります。 
+---
+= ポッドセキュリティ
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+[role="lead"]
+Astra Control Centerは、PoDセキュリティポリシー（PSP）およびPoDセキュリティアドミッション（PSA）による特権制限をサポートします。これらのフレームワークを使用すると、ユーザまたはグループがコンテナを実行できる対象や、コンテナに付与できる権限を制限できます。
+
+Kubernetesディストリビューションの中には、デフォルトのポッドセキュリティ構成が用意されているものがあり、制限が厳しく、Astra Control Centerのインストール時に問題が発生する場合があります。
+
+ここに記載されている情報と例を使用して、Astra Control Centerが行うポッドのセキュリティの変更を理解し、Astra Control Centerの機能を妨げずに必要な保護を提供するポッドのセキュリティアプローチを使用できます。
+
+
+
+== Astra Control Centerによって強制されるPSAS
+
+Astra Control Centerのインストール中に、次のラベルをに追加することで、ポッドのセキュリティアドミッションを強制できます `netapp-acc` またはカスタムネームスペース：
+
+[listing]
+----
+pod-security.kubernetes.io/enforce: privileged
+----
+
+
+== Astra Control CenterによってインストールされたPSP
+
+Kubernetes 1.23または1.24にAstra Control Centerをインストールすると、インストール時にいくつかのポッドセキュリティポリシーが作成されます。これらの中には永続的なものもあれば、一部のものは特定の処理中に作成され、処理が完了すると削除されます。ホストクラスタでKubernetes 1.25以降が実行されている場合、これらのバージョンではサポートされていないため、Astra Control CenterはPSPのインストールを試みません。
+
+
+
+=== インストール中に作成されたPSP
+
+Astra Control Centerのインストール中に、Astra Control Centerオペレータは、Astra Control CenterネームスペースへのAstra Control Centerサービスの展開をサポートするために、カスタムのPoDセキュリティポリシー、Roleオブジェクト、およびRoleBindingオブジェクトをインストールします。
+
+新しいポリシーとオブジェクトには次の属性があります。
+
+[listing]
+----
+kubectl get psp
+
+NAME                           PRIV    CAPS          SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
+netapp-astra-deployment-psp    false                 RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
+
+kubectl get role -n <namespace_name>
+
+NAME                                     CREATED AT
+netapp-astra-deployment-role             2022-06-27T19:34:58Z
+
+kubectl get rolebinding -n <namespace_name>
+
+NAME                                     ROLE                                          AGE
+netapp-astra-deployment-rb               Role/netapp-astra-deployment-role             32m
+----
+
+
+=== バックアップ処理中に作成されたPSP
+
+バックアップ処理中に、Astra Control Centerは、動的なPODセキュリティポリシー、ClusterRoleオブジェクト、およびRoleBindingオブジェクトを作成します。これらの機能により、別のネームスペースで実行されるバックアッププロセスがサポートされます。
+
+新しいポリシーとオブジェクトには次の属性があります。
+
+[listing]
+----
+kubectl get psp
+
+NAME                           PRIV    CAPS                            SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
+netapp-astra-backup            false   DAC_READ_SEARCH                 RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
+
+kubectl get role -n <namespace_name>
+
+NAME                  CREATED AT
+netapp-astra-backup   2022-07-21T00:00:00Z
+
+kubectl get rolebinding -n <namespace_name>
+
+NAME                  ROLE                       AGE
+netapp-astra-backup   Role/netapp-astra-backup   62s
+----
+
+
+=== クラスタ管理中に作成されたPSP
+
+クラスターを管理する場合、Astra Control Centerは管理対象クラスタにNetApp Monitoringオペレータをインストールします。この演算子は、PODセキュリティポリシー、ClusterRoleオブジェクト、およびRoleBindingオブジェクトを作成して、Astra Control Center名前空間にテレメトリサービスを展開します。
+
+新しいポリシーとオブジェクトには次の属性があります。
+
+[listing]
+----
+kubectl get psp
+
+NAME                           PRIV    CAPS                            SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
+netapp-monitoring-psp-nkmo     true    AUDIT_WRITE,NET_ADMIN,NET_RAW   RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
+
+kubectl get role -n <namespace_name>
+
+NAME                                           CREATED AT
+netapp-monitoring-role-privileged              2022-07-21T00:00:00Z
+
+kubectl get rolebinding -n <namespace_name>
+
+NAME                                                  ROLE                                                AGE
+netapp-monitoring-role-binding-privileged             Role/netapp-monitoring-role-privileged              2m5s
+----

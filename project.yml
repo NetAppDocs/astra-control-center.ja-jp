@@ -10,6 +10,9 @@ settings:
   versions:
   - name: Astra Control Center の略
     url: "/astra-control-center"
+    version-number: '22.11'
+  - name: Astra Control Center の略
+    url: "/astra-control-center-2208"
     version-number: '22.08'
   - name: Astra Control Center の略
     url: "/astra-control-center-2204"
@@ -17,17 +20,14 @@ settings:
   - name: Astra Control Center の略
     url: "/astra-control-center-2112"
     version-number: '21.12'
-  - name: Astra Control Center の略
-    url: "/astra-control-center-2108"
-    version-number: '21.08'
   langs: ja-jp,us-en,zh-cn,zh-tw,ko-kr,fr-fr,de-de
 sidebar:
   entries:
   - title: Astra Control Center のドキュメント
     url: "/index.html"
   - section: release-notes
-  - section: concepts
   - section: get-started
+  - section: concepts
   - section: use
   - section: rest-api
   - section: support
@@ -40,7 +40,7 @@ homepage:
   - title: Astra Control Center の利用を開始しましょう
     links:
     - title: Astra Control Center の詳細をご確認ください
-      url: "/concepts/intro.html"
+      url: "/get-started/intro.html"
     - title: Astra Control Center の新機能
       url: "/release-notes/whats-new.html"
     - title: リリースノート
@@ -52,7 +52,7 @@ homepage:
   - title: Astra Control Center を使用
     links:
     - title: アカウントを管理
-      url: "/use/manage-users.html"
+      url: "/use/manage-local-users-and-roles.html"
     - title: アプリの管理
       url: "/use/manage-apps.html"
     - title: アプリを保護します
@@ -61,7 +61,7 @@ homepage:
       url: "/use/clone-apps.html"
     - title: アプリケーションをリモートシステムにレプリケートします
       url: "/use/replicate_snapmirror.html"
-  - title: Astra Control API を使用
+  - title: Astra Control REST APIを使用
     links:
     - title: Astra Control API の使用を開始します
       url: https://docs.netapp.com/us-en/astra-automation/get-started/before_get_started.html
@@ -77,14 +77,6 @@ homepage:
       url: https://docs.netapp.com/us-en/astra/release-notes/whats-new.html
     - title: Astra Control Service のクイックスタート
       url: https://docs.netapp.com/us-en/astra/get-started/quick-start.html
-  - title: Astra データストアを使用
-    links:
-    - title: Astra データストアの詳細
-      url: https://docs.netapp.com/us-en/astra-data-store/concepts/intro.html
-    - title: Astraデータストアの新機能
-      url: https://docs.netapp.com/us-en/astra-data-store/release-notes/whats-new.html
-    - title: Astra データストアのクイックスタート
-      url: https://docs.netapp.com/us-en/astra-data-store/get-started/quick-start.html
   - title: 解決策概要
     links:
     - title: Astra Control を使用した PostgreSQL DBaaS

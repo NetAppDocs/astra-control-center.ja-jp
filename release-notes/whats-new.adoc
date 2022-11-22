@@ -11,7 +11,25 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 最新リリースのAstra Control Centerを発表しました。
+
+
+
+== 2022年11月22日（22.11.0）
+
+.新機能とサポート
+* link:../use/manage-apps.html#define-apps["複数のネームスペースにまたがるアプリケーションのサポート"]
+* link:../use/manage-apps.html#define-apps["アプリケーション定義にクラスタリソースを含めることができます"]
+* link:../use/manage-remote-authentication.html["ロールベースアクセス制御（RBAC）を統合してLDAP認証を強化"]
+* link:../get-started/requirements.html["Kubernetes 1.25およびポッドセキュリティアドミッション（PSA）のサポートを追加"]
+* link:../use/monitor-running-tasks.html["バックアップ、リストア、クローニングの各処理の進捗状況レポートが強化されました"]
+
+
+.既知の問題および制限事項
+* link:../release-notes/known-issues.html["このリリースの既知の問題"]
+* link:../release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
+
 
 
 
@@ -23,9 +41,11 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 
 == 2022年8月10日（22.08.0）
 
+.詳細
+====
 .新機能とサポート
 * link:../use/replicate_snapmirror.html["NetApp SnapMirrorテクノロジを使用したアプリケーションのレプリケーション"]
-* link:../use/manage-apps.html#manage-apps["アプリ管理ワークフローの改善"]
+* link:../use/manage-apps.html#define-apps["アプリ管理ワークフローの改善"]
 * link:../use/execution-hooks.html["拡張された独自の実行フック機能"]
 +
 
@@ -38,10 +58,10 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 
 .既知の問題および制限事項
 * link:../release-notes/known-issues.html["このリリースの既知の問題"]
-* link:../release-notes/known-issues-ads.html["Astra Data Store およびこの Astra Control Center リリースでの既知の問題"]
 * link:../release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
 
 
+====
 
 
 == 2022 年 4 月 26 日（ 22.04.0 ）
@@ -49,7 +69,6 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 .詳細
 ====
 .新機能とサポート
-* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/setup_overview.html#add-a-storage-backend["Astra Control CenterからAstraデータストアを導入"]
 * https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["ネームスペースのロールベースアクセス制御（ RBAC ）"]
 * https://docs.netapp.com/us-en/astra-control-center-2204/get-started/install_acc-cvo.html["Cloud Volumes ONTAP のサポート"]
 * https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center の一般的な入力イネーブルメント"]
@@ -59,7 +78,6 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 
 .既知の問題および制限事項
 * https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues.html["このリリースの既知の問題"]
-* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues-ads.html["Astra Data Store およびこの Astra Control Center リリースでの既知の問題"]
 * https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
 
 
@@ -75,7 +93,6 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 * https://docs.netapp.com/us-en/astra-control-center-2112/use/execution-hooks.html["実行フック"^]
 * https://docs.netapp.com/us-en/astra-control-center-2112/get-started/requirements.html#supported-app-installation-methods["ネームスペースを対象とした演算子を使用して展開されたアプリケーションのサポート"^]
 * https://docs.netapp.com/us-en/astra-control-center-2112/get-started/requirements.html["アップストリーム Kubernetes と Rancher もサポートしています"^]
-* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/setup_overview.html#add-a-storage-backend["Astra データストアプレビューバックエンドの管理と監視"^]
 * https://docs.netapp.com/us-en/astra-control-center-2112/use/upgrade-acc.html["Astra Control Center のアップグレード"^]
 * https://docs.netapp.com/us-en/astra-control-center-2112/get-started/acc_operatorhub_install.html["インストール用の Red Hat OperatorHub オプションです"^]
 
@@ -86,7 +103,6 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 
 .既知の問題および制限事項
 * https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-issues.html["このリリースの既知の問題"^]
-* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-issues-ads.html["Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題"^]
 * https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
 
 
@@ -116,6 +132,5 @@ Astra Control Center の初回リリース。
 
 * link:../release-notes/known-issues.html["このリリースの既知の問題"]
 * link:../release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"]
-* https://docs.netapp.com/us-en/astra-data-store/index.html["Astra データストアのドキュメント"]
 * link:../acc-earlier-versions.html["以前のバージョンの Astra Control Center ドキュメント"]
 

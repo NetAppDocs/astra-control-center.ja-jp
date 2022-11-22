@@ -2,9 +2,7 @@
 :allow-uri-read: 
 
 
-ここでは、 Astra Control 環境のさまざまなコンポーネントの概要を示します。
-
-image:astra-architecture-diagram-v4.png["Astra Control のアーキテクチャ図とコンポーネント"]
+image:astra-architecture-diagram-v5.png["Astra Control のアーキテクチャ図とコンポーネント"]
 
 
 

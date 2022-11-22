@@ -11,6 +11,7 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください
 
 .クラスタ管理の制限事項
@@ -24,6 +25,8 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 
 
 .アプリケーション管理の制限
+*  applications in a single namespace cannot be restored collectively to a different namespace
+*  Control does not automatically assign default buckets for cloud instances
 *  of apps installed using pass-by-reference operators can fail
 *  restore operations of apps that use a certificate manager are not supported
 *  and cluster-scoped operator deployed apps not supported
@@ -35,6 +38,7 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 *  Control Center does not validate the details you enter for your proxy server
 *  connections to a Postgres pod causes failures
 *  and snapshots might not be retained during removal of an Astra Control Center instance
+*  user and group limitations
 
 
 
@@ -99,6 +103,18 @@ current-context: kubernetes-admin@kubernetes
 
 
 
+== 1つのネームスペース内の複数のアプリケーションをまとめて別のネームスペースにリストアすることはできません
+
+複数のアプリケーションを1つのネームスペースで管理する場合（Astra Controlで複数のアプリケーション定義を作成する）、すべてのアプリケーションを別の1つのネームスペースにリストアすることはできません。各アプリケーションを専用のネームスペースにリストアする必要があります。
+
+
+
+== Astra Controlでは、クラウドインスタンスにデフォルトのバケットは自動的に割り当てられません
+
+Astra Controlでは、どのクラウドインスタンスに対してもデフォルトのバケットが自動的に割り当てられることはありません。クラウドインスタンスのデフォルトバケットは手動で設定する必要があります。デフォルトのバケットが設定されていないと、2つのクラスタ間でアプリケーションのクローニング処理を実行できません。
+
+
+
 == パスバイリファレンス演算子を使用してインストールされたアプリケーションのクローンが失敗することがあります
 
 Astra Control は、名前空間を対象とした演算子でインストールされたアプリケーションをサポートします。これらの演算子は、一般に「パスバイリファレンス」アーキテクチャではなく「パスバイ値」で設計されています。これらのパターンに続くいくつかのオペレータアプリを次に示します。
@@ -113,6 +129,9 @@ NOTE: K8ssandra では、 In Place リストア処理がサポートされます
 
 
 Astra Controlでは、「パスバイリファレンス」アーキテクチャ（CockroachDBオペレータなど）で設計されたオペレータをクローニングできない場合があります。クローニング処理では、クローニング処理の一環として独自の新しいシークレットが存在する場合でも、クローニングされたオペレータがソースオペレータから Kubernetes シークレットを参照しようとします。Astra Control がソースオペレータの Kubernetes シークレットを認識しないため、クローニング処理が失敗する場合があります。
+
+
+NOTE: クローン処理中に、IngressClassリソースまたはwebhookを必要とするアプリケーションが正常に機能するためには、これらのリソースがデスティネーションクラスタですでに定義されていない必要があります。
 
 
 
@@ -158,8 +177,13 @@ Postgres ポッドで操作を実行する場合は、 psql コマンドを使�
 
 
 
+== LDAPユーザおよびグループの制限事項
+
+Astra Control Centerは、最大5,000のリモートグループと10,000のリモートユーザをサポートします。
+
+
+
 == 詳細については、こちらをご覧ください
 
 * link:../release-notes/known-issues.html["既知の問題"]
-* link:../release-notes/known-issues-ads.html["Astra Data Store およびこの Astra Control Center リリースでの既知の問題"]
 

@@ -2,6 +2,8 @@
 section: get-started
 title: はじめに
 entries:
+- title: Astra Control Center の詳細をご確認ください
+  url: "/get-started/intro.html"
 - title: Astra Control Center の要件
   url: "/get-started/requirements.html"
 - title: Astra Control Center のクイックスタート
@@ -12,24 +14,17 @@ entries:
   - title: Astra Control Center をインストールします
     url: "/get-started/install_acc.html"
     entries:
-    - title: Astra Control CenterクラスタのCRオプションを理解する
+    - title: Astra Control Centerクラスタのカスタムリソースオプション
       url: "/get-started/acc_cluster_cr_options.html"
-    - title: ポッドのセキュリティポリシーの制限事項を理解します
-      url: "/get-started/understand-psp-restrictions.html"
     - title: 外部証明書マネージャを設定します
       url: "/get-started/cert-manager-prereqs.html"
   - title: OpenShift OperatorHub を使用して Astra Control Center をインストールします
     url: "/get-started/acc_operatorhub_install.html"
   - title: Cloud Volumes ONTAP ストレージバックエンドに Astra Control Center をインストールします
     url: "/get-started/install_acc-cvo.html"
+  - title: インストール後にAstra Control Centerを設定します
+    url: "/get-started/configure-after-install.html"
 - title: Astra Control Center をセットアップします
   url: "/get-started/setup_overview.html"
-  entries:
-  - title: クラスタを追加するための前提条件
-    url: "/get-started/add-cluster-reqs.html"
-  - title: カスタム TLS 証明書を追加します
-    url: "/get-started/add-custom-tls-certificate.html"
-  - title: カスタムのポッドセキュリティポリシーを作成します
-    url: "/get-started/acc-create-podsecuritypolicy.html"
 - title: よく寄せられる質問
   url: "/get-started/faq.html"

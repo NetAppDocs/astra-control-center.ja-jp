@@ -11,6 +11,7 @@ summary: ネットアップでは、 Astra Control をさまざまな方法で�
 :imagesdir: ../media/support/
 
 
+[role="lead"]
 ネットアップでは、 Astra Control をさまざまな方法でサポートしています。ナレッジベース（KB）記事やDiscordチャネルなど、24時間365日利用可能な無料のセルフサポートオプションをご用意しています。Astra Control アカウントには、 Web チケット発行によるリモートテクニカルサポートが含まれています。
 
 
@@ -37,7 +38,7 @@ IMPORTANT: Astra Control Center の評価用ライセンスをお持ちの場合
 
 == ネットアップサポートへのサポートバンドルの日次アップロードを有効にします
 
-Astra Control Center のインストール時に、 Astra Control Center Custom Resource Definition （ CRD ）ファイル（「 Astra_control_center_min.yaml 」）で「 AutoSupport 」に「 enroled:true 」を指定すると、毎日のサポートバンドルがに自動的にアップロードされます https://mysupport.netapp.com/site/["ネットアップサポートサイト"^]。
+Astra Control Centerのインストール中に、を指定した場合 `enrolled: true` の場合 `autoSupport` Astra Control Centerカスタムリソース（CR）ファイル (`astra_control_center.yaml`）を指定すると、日次サポートバンドルがに自動的にアップロードされます https://mysupport.netapp.com/site/["ネットアップサポートサイト"^]。
 
 
 

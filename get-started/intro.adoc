@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: concepts/intro.html 
-keywords: how astra control works, what is astra, kubernetes cluster, cloud volumes ontap, what is astra control 
-summary: Astra は、 Kubernetes アプリケーションデータライフサイクル管理サービスで、ステートフルアプリケーションの運用を簡易化します。Kubernetes ワークロードの保護、バックアップ、移行を簡易化し、作業用アプリケーションのクローンを瞬時に作成できます。 
+permalink: get-started/intro.html 
+keywords: how astra control works, what is astra, kubernetes cluster, what is astra control center 
+summary: Astra Controlは、Kubernetesアプリケーションデータのライフサイクル管理サービスで、ステートフルアプリケーションの運用を簡易化します。Kubernetes ワークロードの保護、バックアップ、移行を簡易化し、作業用アプリケーションのクローンを瞬時に作成できます。 
 ---
 = Astra Controlの詳細をご確認ください
 :hardbreaks:
@@ -11,6 +11,7 @@ summary: Astra は、 Kubernetes アプリケーションデータライフサ�
 :imagesdir: ../media/concepts/
 
 
+[role="lead"]
 Astra Control は、 Kubernetes アプリケーションデータライフサイクル管理解決策で、ステートフルアプリケーションの運用を簡易化します。Kubernetesワークロードの保護、バックアップ、複製、移行を簡易化し、作業アプリケーションのクローンを瞬時に作成できます。
 
 
@@ -35,7 +36,7 @@ Astra Control は、 Kubernetes アプリケーションデータのライフサ
 
 Astra Control には、次の 2 つの導入モデルがあります。
 
-* * Astra Control Service * ： Google Kubernetes Engine （ GKE ）および Azure Kubernetes Service （ AKS ）で Kubernetes クラスタのアプリケーション対応データ管理を提供する、ネットアップが管理するサービス。
+* * Astra Control Service *：複数のクラウドプロバイダ環境でKubernetesクラスタのデータをアプリケーション対応で管理するネットアップマネージドサービス。
 * * Astra Control Center * ：オンプレミス環境で実行される Kubernetes クラスタのアプリケーション対応データ管理を提供する、自己管理ソフトウェアです。
 
 
@@ -66,7 +67,6 @@ Astra Control には、次の 2 つの導入モデルがあります。
 
 | ストレージバックエンドでサポートされるもの | ネットアップのクラウドサービス  a| 
 * NetApp ONTAP AFF および FAS システム
-* ストレージバックエンドとしての Astra データストア
 * Cloud Volumes ONTAP ストレージバックエンド
 
 
@@ -82,7 +82,7 @@ Astra Control Service の概要は次のように機能します。
 * Astra Control Service の利用を開始するには、クラウドプロバイダをセットアップし、 Astra アカウントに登録します。
 +
 ** GKE クラスタでは、 Astra Control Service はを使用します https://cloud.netapp.com/cloud-volumes-service-for-gcp["NetApp Cloud Volumes Service for Google Cloud"^] または、永続ボリューム用のストレージバックエンドとして Google Persistent Disk を使用します。
-** AKS クラスタの場合、 Astra Control Service はを使用します https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files の特長"^] または、永続ボリューム用のストレージバックエンドとして Azure Disk Storage を選択します。
+** AKS クラスタの場合、 Astra Control Service はを使用します https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files の特長"^] または、永続ボリューム用のストレージバックエンドとしてAzureで管理されているディスクがあります。
 ** Amazon EKSクラスタの場合、Astra Control Serviceはを使用します https://docs.aws.amazon.com/ebs/["Amazon Elastic Block Store"^] または https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html["NetApp ONTAP 対応の Amazon FSX"^] 永続ボリュームのストレージバックエンドとして。
 
 
@@ -101,7 +101,7 @@ Azure では、 Astra Control Service によって、 BLOB コンテナ用のリ
 * 次に、 Astra Control Service を使用してこれらのアプリケーションを管理し、スナップショット、バックアップ、クローンの作成を開始します。
 
 
-Astra Control の無料プランを使用すると、最大 10 個のアプリをアカウントで管理できます。10 以上のアプリを管理する場合は、無料プランからプレミアムプランにアップグレードして請求を設定する必要があります。
+Astra Controlの無料プランを使用すると、最大10個のネームスペースをアカウントで管理できます。10以上を管理する場合は、無料プランからプレミアムプランにアップグレードして請求を設定する必要があります。
 
 
 
@@ -109,17 +109,13 @@ Astra Control の無料プランを使用すると、最大 10 個のアプリ�
 
 Astra Control Center は、お客様のプライベートクラウドでローカルに実行されます。
 
-Astra Control Centerは、次のものでKubernetesクラスタをサポートします。
-
-* Trident ストレージバックエンドは ONTAP 9.5 以降で構成されています
-* Astra データストアストレージバックエンド
-
+Astra Control Centerは、Tridentベースのストレージクラスを使用し、ONTAP 9.5以上のストレージバックエンドでKubernetesクラスタをサポートします。
 
 クラウド接続環境では、 Cloud Insights を使用して高度なモニタリングとテレメトリを提供します。Cloud Insights 接続がない場合、 Astra Control Center では、限定的な（ 7 日間の指標）監視と計測データを使用できます。また、オープン指標エンドポイントを介して Kubernetes の標準の監視ツール（ Prometheus や Grafana など）にエクスポートすることもできます。
 
 Astra Control Center は、 AutoSupport と Active IQ のエコシステムに完全に統合されており、ユーザとネットアップサポートにトラブルシューティングと使用に関する情報を提供します。
 
-Astra Control Center を試用するには、 90 日間の評価版ライセンスを使用します。評価版は、 E メールとコミュニティ（ Slack チャンネル）のオプションでサポートされています。また、製品内サポートダッシュボードから技術情報アーティクルやドキュメントにアクセスすることもできます。
+Astra Control Center を試用するには、 90 日間の評価版ライセンスを使用します。評価版は、Eメールとコミュニティオプションでサポートされています。また、製品内サポートダッシュボードから技術情報アーティクルやドキュメントにアクセスすることもできます。
 
 Astra Control Center をインストールして使用するには、一定の要件を満たす必要があります https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html["要件"]。
 
@@ -138,12 +134,6 @@ Astra Control Center の概要は次のように機能します。
 
 方法の詳細については、こちらをご覧ください https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html["Astra Control Center をセットアップします"]。
 
-Astra Control Center は、次のことを行います。
-
-* ネームスペースを含むクラスタの詳細を検出し、アプリケーションを定義して保護できます。
-* では、管理対象として選択したクラスタに Astra Trident または Astra データストア構成が検出され、ストレージバックエンドを監視できます。
-
-
 クラスタにアプリケーションを追加できます。また、管理対象のクラスタにすでにアプリケーションがある場合は、Astra Control Centerを使用してそれらを管理できます。次に、Astra Control Centerを使用して、スナップショット、バックアップ、クローン、およびレプリケーション関係を作成します。
 
 
@@ -152,7 +142,6 @@ Astra Control Center は、次のことを行います。
 
 * https://docs.netapp.com/us-en/astra/index.html["Astra Control Service のマニュアル"^]
 * https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center のドキュメント"^]
-* https://docs.netapp.com/us-en/astra-data-store/index.html["Astra データストアのドキュメント"]
 * https://docs.netapp.com/us-en/trident/index.html["Astra Trident のドキュメント"^]
 * https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
 * https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"^]

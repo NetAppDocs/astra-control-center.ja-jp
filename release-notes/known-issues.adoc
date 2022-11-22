@@ -12,6 +12,7 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。
 
 現在のリリースに影響する既知の問題は次のとおりです。
@@ -29,8 +30,8 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 
 
 .その他の問題
+*  clusters do not appear in NetApp Cloud Insights when connecting through a proxy
 *  data management operations fail with Internal Service Error (500) when Astra Trident is offline
-*  might fail with snapshot controller version 4.2.0
 
 
 
@@ -71,26 +72,31 @@ OpenShift Container Platform クラスタのネームスペース内のサービ
 
 
 
+== プロキシ経由で接続している場合、管理対象クラスタはNetApp Cloud Insights に表示されません
+
+アストラコントロールセンターがプロキシ経由でネットアップCloud Insights に接続している場合、管理対象クラスタがCloud Insights に表示されないことがあります。回避策 として、管理対象の各クラスタで次のコマンドを実行します。
+
+[source, console]
+----
+kubectl get cm telegraf-conf -o yaml -n netapp-monitoring | sed '/\[\[outputs.http\]\]/c\    [[outputs.http]]\n    use_system_proxy = true' | kubectl replace -f -
+----
+[source, console]
+----
+kubectl get cm telegraf-conf-rs -o yaml -n netapp-monitoring | sed '/\[\[outputs.http\]\]/c\    [[outputs.http]]\n    use_system_proxy = true' | kubectl replace -f -
+----
+[source, console]
+----
+kubectl get pods -n netapp-monitoring --no-headers=true | grep 'telegraf-ds\|telegraf-rs' | awk '{print $1}' | xargs kubectl delete -n netapp-monitoring pod
+----
+
+
 == Astra Trident がオフラインの場合、 Internal Service Error （ 500 ）によりアプリケーションデータ管理処理が失敗する
 
 アプリケーションクラスタの Astra Trident がオフラインになり（オンラインに戻った）、 500 件の内部サービスエラーが発生した場合に、アプリケーションデータ管理を試みると、アプリケーションクラスタ内のすべての Kubernetes ノードを再起動して機能を復旧します。
 
 
 
-== Snapshot コントローラバージョン 4.2.0 では、 Snapshot が失敗することがあります
-
-Kubernetes 1.20 または 1.21 で Kubernetes snapshot-controller （別名 external-snapshotter ）バージョン 4.2.0 を使用すると、 Snapshot が失敗することがあります。これを防ぐには、別のを使用してください https://kubernetes-csi.github.io/docs/snapshot-controller.html["サポートされているバージョン"^] バージョン 4.2.1 などの外部 Snapshot データ。 Kubernetes バージョン 1.20 または 1.21 で使用。
-
-. POST 呼び出しを実行して更新された kubeconfig ファイルを「 /credentials 」エンドポイントに追加し、応答本文から割り当てられた「 id 」を取得します。
-. 適切なクラスタ ID を使用して '/clusters' エンドポイントから PUT 呼び出しを実行し 'credentialId' を前の手順の id' 値に設定します
-
-
-これらの手順を完了すると、クラスタに関連付けられたクレデンシャルが更新され、クラスタは再接続して、その状態を「 available 」に更新する必要があります。
-
-
-
 == 詳細については、こちらをご覧ください
 
-* link:../release-notes/known-issues-ads.html["Astra データストアのプレビューおよびこの Astra Control Center リリースでの既知の問題"]
 * link:../release-notes/known-limitations.html["既知の制限"]
 

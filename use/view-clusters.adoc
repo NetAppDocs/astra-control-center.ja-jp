@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: use/view-clusters.html 
-keywords: view cluster, cluster storage, cluster overview 
-summary: Astra Control Center にクラスタを追加すると、クラスタの場所、ワーカーノード、永続ボリューム、ストレージクラスなど、クラスタに関する詳細を表示できます。 
+keywords: view cluster, edit storage class, storage class, cluster storage, cluster overview 
+summary: Astra Control Center にクラスタを追加すると、クラスタの場所、ワーカーノード、永続ボリューム、ストレージクラスなど、クラスタに関する詳細を表示できます。デフォルトのストレージクラスを変更することもできます。 
 ---
-= クラスタの健常性と詳細を表示します
+= クラスタの健全性を表示してストレージクラスを管理します
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,7 +12,13 @@ summary: Astra Control Center にクラスタを追加すると、クラスタ�
 
 
 [role="lead"]
-Astra Control Center で管理するクラスタを追加すると、その場所、ワーカーノード、永続ボリューム、ストレージクラスなど、クラスタに関する詳細を表示できます。
+Astra Control Center で管理するクラスタを追加すると、その場所、ワーカーノード、永続ボリューム、ストレージクラスなど、クラスタに関する詳細を表示できます。管理対象クラスタのデフォルトのストレージクラスを変更することもできます。
+
+
+
+== クラスタの健常性と詳細を表示します
+
+クラスタの場所、ワーカーノード、永続ボリューム、ストレージクラスなどの詳細を表示できます。
 
 .手順
 . Astra Control Center UI で、 [* Clusters] を選択します。
@@ -32,3 +38,21 @@ NOTE: クラスタが「 re moved 」状態であり、ネットワーク接続�
 
 
 NOTE: Astra Control Center * Dashboard * から始まるクラスタ情報を表示することもできます。[ * クラスタ * ] タブの [ * リソースサマリ * ] で、管理対象クラスタを選択して [ * クラスタ * ] ページに移動できます。[* Clusters] ページが表示されたら、上記の手順を実行します。
+
+
+
+== デフォルトのストレージクラスを変更する
+
+クラスタのデフォルトのストレージクラスは変更できます。Astra Controlは、クラスタを管理する際に、クラスタのデフォルトストレージクラスを追跡します。
+
+
+NOTE: kubectlコマンドを使用してストレージクラスを変更しないでください。代わりに、この手順 を使用してください。kubectlを使用して変更を行った場合、Astra Controlはその変更を元に戻します。
+
+.手順
+. Astra Control Center Web UIで、[* Clusters]を選択します。
+. [* Clusters]ページで、変更するクラスタを選択します。
+. [ * ストレージ * ] タブを選択します。
+. 「*ストレージクラス*」カテゴリを選択します。
+. デフォルトとして設定するストレージクラスの* Actions *メニューを選択します。
+. 「*デフォルトに設定*」を選択します。
+

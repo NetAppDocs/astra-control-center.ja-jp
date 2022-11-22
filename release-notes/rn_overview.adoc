@@ -11,11 +11,11 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 最新リリースのAstra Control Centerを発表しました。
 
 * link:../release-notes/whats-new.html["このリリースの Astra Control Center の内容"]
 * link:../release-notes/known-issues.html["既知の問題"]
-* link:../release-notes/known-issues-ads.html["Astra Data Store およびこの Astra Control Center リリースでの既知の問題"]
 * link:../release-notes/known-limitations.html["既知の制限"]
 
 

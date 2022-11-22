@@ -11,7 +11,8 @@ summary: 評価用ライセンスをフルライセンスに変換したり、�
 :imagesdir: ../media/get-started/
 
 
-評価用ライセンスをフルライセンスに変換したり、既存の評価用ライセンスまたはフルライセンスを新しいライセンスで更新したりできます。フルライセンスがない場合は、ネットアップの営業担当者に連絡して、ライセンスとシリアル番号の全文を入手してください。Astra の UI またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] 既存のライセンスを更新します。
+[role="lead"]
+評価用ライセンスをフルライセンスに変換したり、既存の評価用ライセンスまたはフルライセンスを新しいライセンスで更新したりできます。フルライセンスがない場合は、ネットアップの営業担当者に連絡して、ライセンスとシリアル番号の全文を入手してください。Astra Control Center UIまたはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] 既存のライセンスを更新します。
 
 .手順
 . にログインします https://mysupport.netapp.com/site/["ネットアップサポートサイト"^]。

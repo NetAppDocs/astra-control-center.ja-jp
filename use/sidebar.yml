@@ -1,6 +1,6 @@
 ---
 section: use
-title: Astra を使用する
+title: Astra Control Center を使用
 entries:
 - title: アプリの管理を開始します
   url: "/use/manage-apps.html"
@@ -31,10 +31,12 @@ entries:
     url: "/use/view-apps.html"
 - title: アカウントを管理します
   entries:
-  - title: ユーザを管理します
-    url: "/use/manage-users.html"
-  - title: ロールの管理
-    url: "/use/manage-roles.html"
+  - title: ローカルユーザとロールを管理します
+    url: "/use/manage-local-users-and-roles.html"
+  - title: リモート認証を管理する
+    url: "/use/manage-remote-authentication.html"
+  - title: リモートユーザとリモートグループを管理します
+    url: "/use/manage-remote-users-groups.html"
   - title: 通知を管理します
     url: "/use/manage-notifications.html"
   - title: クレデンシャルを管理する
@@ -43,14 +45,12 @@ entries:
     url: "/use/view-account-activity.html"
   - title: 既存のライセンスを更新する
     url: "/use/update-licenses.html"
-  - title: リポジトリ接続を管理します
-    url: "/use/manage-connections.html"
-  - title: ソフトウェアパッケージを管理します
-    url: "/use/manage-packages-acc.html"
 - title: バケットを管理する
   url: "/use/manage-buckets.html"
 - title: ストレージバックエンドを管理します
   url: "/use/manage-backend.html"
+- title: 実行中のタスクを監視します
+  url: "/use/monitor-running-tasks.html"
 - title: Cloud Insights とFluentdを使用してインフラを監視します
   url: "/use/monitor-protect.html"
 - title: アプリケーションとクラスタの管理を解除します

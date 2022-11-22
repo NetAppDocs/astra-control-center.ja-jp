@@ -11,6 +11,7 @@ summary: アプリケーションと永続的ストレージをバックアッ�
 :imagesdir: ../media/use/
 
 
+[role="lead"]
 アプリケーションや永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションをクローニングする場合は、オブジェクトストアバケットプロバイダが不可欠です。Astra Control Center を使用して、オフクラスタのバックアップ先として、アプリケーションのオブジェクトストアプロバイダを追加します。
 
 アプリケーション構成と永続的ストレージを同じクラスタにクローニングする場合、バケットは必要ありません。
@@ -27,7 +28,7 @@ NOTE: Amazon Web Services（AWS）とGoogle Cloud Platform（GCP）では、汎�
 
 +
 
-NOTE: Astra Control Center は Amazon S3 を汎用 S3 バケットプロバイダとしてサポートしていますが、 Astra Control Center は Amazon の S3 サポートを要求するすべてのオブジェクトストアベンダーをサポートしているわけではありません。
+NOTE: Astra Control CenterはAmazon S3を汎用のS3バケットプロバイダとしてサポートしていますが、Astra Control Centerは、AmazonのS3をサポートしていると主張するすべてのオブジェクトストアベンダーをサポートしているわけではありません。
 
 
 
@@ -44,6 +45,7 @@ Astra Control API を使用してバケットを管理する方法について�
 
 * link:../get-started/setup_overview.html#add-a-bucket["バケットを追加します"]
 *  a bucket
+*  the default bucket
 *  or remove bucket credentials
 *  a bucket
 
@@ -62,13 +64,27 @@ NOTE: バケットを追加するときは、正しいバケットプロバイ�
 
 .手順
 . 左側のナビゲーションから、*バケット*を選択します。
-. [ * アクション * （ * Actions * ） ] 列の [ オプション（ Options ） ] メニューから、 [ * 編集（ * Edit ） ] を選択する。
+. [*アクション*（* Actions *）]列のメニューから、[*編集（* Edit）]を選択します。
 . バケットタイプ以外の情報を変更します。
 +
 
 TIP: バケットタイプは変更できません。
 
 . 「 * Update * 」を選択します。
+
+
+
+
+== デフォルトバケットを設定する
+
+クラスタ間でクローニングを実行する場合、Astra Controlにはデフォルトバケットが必要です。すべてのクラスタにデフォルトバケットを設定するには、次の手順を実行します。
+
+.手順
+. 「* Cloud Instances *」に移動します。
+. リスト内のクラウドインスタンスの*アクション*列でメニューを選択します。
+. 「 * 編集 * 」を選択します。
+. [* Bucket*]リストで、デフォルトにするバケットを選択します。
+. [ 保存（ Save ） ] を選択します。
 
 
 

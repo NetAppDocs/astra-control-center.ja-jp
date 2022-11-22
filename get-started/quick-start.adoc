@@ -11,36 +11,31 @@ summary: 数ステップで Astra Control を使い始めましょう。
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 このページでは、 Astra Control Center の導入に必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。
 
 ぜひお試しください。Astra Control Center を試す場合は、 90 日間の評価ライセンスを使用できます。を参照してください link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["ライセンス情報"] を参照してください。
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> Kubernetes クラスタの要件を確認します
-* Astra は、 Trident が設定された ONTAP ストレージバックエンドまたは Astra データストアストレージバックエンドを使用して、 Kubernetes クラスタと連携します。
+* Astraは、TridentベースのストレージクラスとONTAP ストレージバックエンドを使用して、Kubernetesクラスタと連携します。
 * クラスタが正常な状態で稼働し、少なくとも 3 つのオンラインワーカーノードが必要です。
-* クラスタで Kubernetes が実行されている必要があります。
 
 
 [role="quick-margin-para"]
-の詳細については、を参照してください link:../get-started/requirements.html["Astra Control Center の要件"]。
+の詳細を確認してください link:../get-started/requirements.html["Astra Control Center の要件"]。
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt="2"></span> Astra Control Center をダウンロードしてインストールします
 * から Astra Control Center をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイトの「 Astra Control Center Downloads 」ページ"^]。
 * Astra Control Center をローカル環境にインストールします。
 +
-必要に応じて、 Red Hat OperatorHub を使用して Astra Control Center をインストールします。
+必要に応じて、 Red Hat OperatorHub を使用して Astra Control Center をインストールします。必要に応じて、Cloud Volumes ONTAP ストレージバックエンドなど、サポートされているパブリッククラウドプラットフォームにAstra Control Centerをインストールします。
 
-+
-必要に応じて、Cloud Volumes ONTAP ストレージバックエンドにAstra Control Centerをインストールします。
+* 必要に応じて、環境に応じて追加の作業を行います link:configure-after-install.html["設定手順"]。の詳細を確認してください link:../get-started/install_overview.html["Astra Control Centerのインストール"]。
 
-
-
-[role="quick-margin-para"]
-の詳細を確認してください link:../get-started/install_overview.html["Astra Control Centerのインストール"]。
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] Alt="3"></span> 初期設定タスクをいくつか実行します
 * Astra ControlライセンスとサポートするONTAP ライセンスを追加
-* Kubernetes クラスタと Astra Control Center を追加すると、詳細が検出されます。
+* Kubernetesクラスタを追加
 * ONTAP ストレージバックエンドを追加します。
 * 必要に応じて、アプリケーションバックアップを格納するオブジェクトストアバケットを追加します。
 
@@ -51,10 +46,10 @@ summary: 数ステップで Astra Control を使い始めましょう。
 [role="quick-margin-list"]
 Astra Control Center のセットアップが完了したら、次の手順を実行します。
 
-* アプリを管理します。方法の詳細については、こちらをご覧ください link:../use/manage-apps.html["アプリの管理"]。
-* アプリの保護ポリシーの設定、リモートシステムへのアプリのレプリケーション、アプリのクローニングと移行により、アプリを保護します。方法の詳細については、こちらをご覧ください link:../use/protection-overview.html["アプリを保護します"]。
-* アカウントの管理（ユーザ、ロール、ユーザ認証用のLDAP、クレデンシャル、リポジトリ接続など）方法の詳細については、こちらをご覧ください link:../use/manage-users.html["ユーザを管理します"]。
-* 必要に応じて、 NetApp Cloud Insights に接続し、 Astra Control Center UI 内のシステム、容量、およびスループットの健全性に関する指標を表示します。の詳細を確認してください link:../use/monitor-protect.html["Cloud Insights に接続しています"]。
+* アプリを管理します。の詳細を確認してください link:../use/manage-apps.html["アプリの管理方法"]。
+* アプリの保護ポリシーの設定、リモートシステムへのアプリのレプリケーション、アプリのクローニング、アプリの移行などにより、アプリを保護します。の詳細を確認してください link:../use/protection-overview.html["アプリを保護する方法"]。
+* アカウントの管理（ユーザ、ロール、ユーザ認証用のLDAP、クレデンシャルなど）の詳細を確認してください link:../use/manage-local-users-and-roles.html["ローカルユーザ、ロール、およびLDAPを管理する方法"]。
+* 必要に応じて、 NetApp Cloud Insights に接続し、 Astra Control Center UI 内のシステム、容量、およびスループットの健全性に関する指標を表示します。の詳細を確認してください link:../use/monitor-protect.html["Cloud Insights への接続方法"]。
 
 
 [role="quick-margin-para"]
