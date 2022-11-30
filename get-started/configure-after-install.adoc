@@ -18,12 +18,12 @@ summary: 環境によっては、Astra Control Centerのインストール後に
 
 == リソースの制限を解除します
 
-一部の環境では、ResourceQuotasオブジェクトとLimitRangesオブジェクトを使用して、ネームスペース内のリソースがクラスタ上の使用可能なCPUとメモリをすべて消費しないようにします。Astra Control Centerでは上限が設定されていないため、これらのリソースに準拠していません。Astra Control Centerをインストールするネームスペースから削除する必要があります。
+一部の環境では、ResourceQuotasオブジェクトとLimitRangesオブジェクトを使用して、ネームスペース内のリソースがクラスタ上の使用可能なCPUとメモリをすべて消費しないようにします。Astra Control Centerでは上限が設定されていないため、これらのリソースに準拠していません。この方法で環境を構成している場合は、Astra Control Centerをインストールするネームスペースからリソースを削除する必要があります。
 
 これらのクォータと制限を取得および削除するには、次の手順を実行します。これらの例では、コマンド出力はコマンド出力の直後に表示されます。
 
 .手順
-. NetApp-accネームスペース内のリソースクォータを取得します。
+. でリソースクォータを取得します `netapp-acc` ネームスペース：
 +
 [source, console]
 ----
@@ -98,7 +98,7 @@ kubectl get networkpolicy -n netapp-acc
 ----
 kubectl delete networkpolicy <OBJECT_NAME> -n netapp-acc
 ----
-. 次のリソースファイルを適用して、AstraプラグインサービスがAstra Control Centerサービスに要求を行うように、acc -ava-network-policyオブジェクトを設定します。角かっこ内の情報を環境内の情報に置き換えます。
+. 次のリソースファイルを適用してを設定します `acc-avp-network-policy` AstraプラグインサービスがAstra Control Centerサービスに要求を行うことを許可するオブジェクト。角かっこ内の情報を環境内の情報に置き換えます。
 +
 [source, yaml]
 ----
@@ -117,7 +117,7 @@ spec:
             matchLabels:
               kubernetes.io/metadata.name: <PLUGIN_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA PLUGIN NAMESPACE NAME
 ----
-. 次のリソースファイルを適用して、Astra Control CenterオペレータがAstra Control Centerサービスと通信できるように、acc-operator-network-policyオブジェクトを設定します。角かっこ内の情報を環境内の情報に置き換えます。
+. 次のリソースファイルを適用してを設定します `acc-operator-network-policy` Astra Control CenterオペレータがAstra Control Centerサービスと通信できるようにするためのオブジェクト。角かっこ内の情報を環境内の情報に置き換えます。
 +
 [source, yaml]
 ----

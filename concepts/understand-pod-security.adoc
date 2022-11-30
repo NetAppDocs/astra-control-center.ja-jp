@@ -38,7 +38,7 @@ Kubernetes 1.23または1.24にAstra Control Centerをインストールする�
 
 === インストール中に作成されたPSP
 
-Astra Control Centerのインストール中に、Astra Control Centerオペレータは、Astra Control CenterネームスペースへのAstra Control Centerサービスの展開をサポートするために、カスタムのPoDセキュリティポリシー、Roleオブジェクト、およびRoleBindingオブジェクトをインストールします。
+Astra Control Centerのインストール中、Astra Control CenterオペレータはカスタムポッドセキュリティポリシーAをインストールします `Role` オブジェクト、および `RoleBinding` Astra Control CenterネームスペースへのAstra Control Centerサービスの導入をサポートするオブジェクト。
 
 新しいポリシーとオブジェクトには次の属性があります。
 
@@ -63,7 +63,7 @@ netapp-astra-deployment-rb               Role/netapp-astra-deployment-role      
 
 === バックアップ処理中に作成されたPSP
 
-バックアップ処理中に、Astra Control Centerは、動的なPODセキュリティポリシー、ClusterRoleオブジェクト、およびRoleBindingオブジェクトを作成します。これらの機能により、別のネームスペースで実行されるバックアッププロセスがサポートされます。
+バックアップ操作中に、Astra Control Centerは動的なポッドセキュリティポリシーAを作成します `ClusterRole` オブジェクト、および `RoleBinding` オブジェクト。これらの機能により、別のネームスペースで実行されるバックアッププロセスがサポートされます。
 
 新しいポリシーとオブジェクトには次の属性があります。
 
@@ -88,7 +88,7 @@ netapp-astra-backup   Role/netapp-astra-backup   62s
 
 === クラスタ管理中に作成されたPSP
 
-クラスターを管理する場合、Astra Control Centerは管理対象クラスタにNetApp Monitoringオペレータをインストールします。この演算子は、PODセキュリティポリシー、ClusterRoleオブジェクト、およびRoleBindingオブジェクトを作成して、Astra Control Center名前空間にテレメトリサービスを展開します。
+クラスターを管理する場合、Astra Control Centerは管理対象クラスタにNetApp Monitoringオペレータをインストールします。この演算子は、ポッドセキュリティポリシーAを作成します `ClusterRole` オブジェクト、および `RoleBinding` テレメトリサービスをAstra Control Center名前空間に展開するオブジェクト。
 
 新しいポリシーとオブジェクトには次の属性があります。
 

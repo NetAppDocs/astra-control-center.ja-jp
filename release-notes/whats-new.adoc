@@ -42,6 +42,7 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 == 2022年8月10日（22.08.0）
 
 .詳細
+[%collapsible]
 ====
 .新機能とサポート
 * link:../use/replicate_snapmirror.html["NetApp SnapMirrorテクノロジを使用したアプリケーションのレプリケーション"]
@@ -67,6 +68,7 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 == 2022 年 4 月 26 日（ 22.04.0 ）
 
 .詳細
+[%collapsible]
 ====
 .新機能とサポート
 * https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["ネームスペースのロールベースアクセス制御（ RBAC ）"]
@@ -87,6 +89,7 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 == 2021 年 12 月 14 日（ 21.12 ）
 
 .詳細
+[%collapsible]
 ====
 .新機能とサポート
 * https://docs.netapp.com/us-en/astra-control-center-2112/use/restore-apps.html["アプリケーションのリストア"^]
@@ -112,6 +115,7 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 == 2021 年 8 月 5 日（ 21.08 ）
 
 .詳細
+[%collapsible]
 ====
 Astra Control Center の初回リリース。
 

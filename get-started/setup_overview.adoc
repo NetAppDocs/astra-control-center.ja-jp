@@ -163,6 +163,7 @@ NOTE: この手順 では、Astra Control Centerを実行しているクラス�
 
 
 .手順
+[%collapsible]
 ====
 . サービスアカウントを作成します。
 +
