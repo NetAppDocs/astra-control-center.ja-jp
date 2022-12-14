@@ -35,6 +35,7 @@ kubectl get apiservices
 * クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"] そのため、Astra Control Centerは独自のcert-managerをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
 
 
+.このタスクについて
 Astra Control Centerのインストールプロセスでは、次の作業を行うことができます。
 
 * にAstraコンポーネントを取り付けます `netapp-acc` （またはカスタム名）ネームスペース。
@@ -47,18 +48,19 @@ Astra Control Centerのインストールプロセスでは、次の作業を行
 
 IMPORTANT: Astra Control Centerオペレータ（たとえば、 `kubectl delete -f astra_control_center_operator_deploy.yaml`) Astra Control Centerのインストール中または操作中はいつでも、ポッドを削除しないようにします。
 
+.手順
 Astra Control Center をインストールするには、次の手順に従います。
 
-*  and unpack the Astra Control Center bundle
-*  the NetApp Astra kubectl plugin
-*  the images to your local registry
-*  up namespace and secret for registries with auth requirements
-*  the Astra Control Center operator
-*  Astra Control Center
-*  Astra Control Center and operator installation
-*  system status
-*  up ingress for load balancing
-*  in to the Astra Control Center UI
+* <<Astra Control Centerバンドルをダウンロードして開梱します>>
+* <<ネットアップAstra kubectlプラグインをインストール>>
+* <<イメージをローカルレジストリに追加します>>
+* <<認証要件を持つレジストリのネームスペースとシークレットを設定します>>
+* <<Astra Control Center オペレータを設置します>>
+* <<Astra Control Center を設定します>>
+* <<Astra Control Center とオペレータのインストールを完了します>>
+* <<システムステータスを確認します>>
+* <<ロードバランシング用の入力を設定します>>
+* <<Astra Control Center UI にログインします>>
 
 
 
@@ -87,6 +89,7 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 NetApp Astra kubectlコマンドラインプラグインは、Astra Control Centerの導入とアップグレードに関連する一般的なタスクを実行する際に時間を節約します。
 
+.必要なもの
 ネットアップでは、CPUアーキテクチャやオペレーティングシステム別にプラグインのバイナリを提供しています。このタスクを実行する前に、使用しているCPUとオペレーティングシステムを把握しておく必要があります。
 
 .手順
@@ -119,19 +122,14 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 ====
 .Docker です
 --
-. をに変更します `acc` tarバンドルから抽出されたディレクトリ：
+. tarballのルートディレクトリに移動します。次のファイルとディレクトリが表示されます。
 +
-例
+`acc.manifest.bundle.yaml`
+`acc/`
 
-
-
-[listing]
-----
-cd ../acc
-----
-. Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。コマンドを実行する前に、次の置き換えを行ってください。
+. Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。を実行する前に、次の置換を行ってください `push-images` コマンドを実行します
 +
-** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.yaml`）。
+** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.bundle.yaml`）。
 ** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 https://exampledownloads.jfrog.io/docker-astra-control/v1/[]。
 ** <MY_REGISTRY_USER> をユーザ名に置き換えます。
 ** <MY_REGISTRY_TOKEN> をレジストリの認証済みトークンに置き換えます。
@@ -147,6 +145,11 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 .ポドマン
 --
+. tarballのルートディレクトリに移動します。次のファイルとディレクトリが表示されます。
++
+`acc.manifest.bundle.yaml`
+`acc/`
+
 . レジストリにログインします。
 +
 [source, console]
@@ -157,12 +160,6 @@ podman login <MY_FULL_REGISTRY_PATH>
 +
 [source, console]
 ----
-# You need to be at the root of the tarball.
-# You should see these files to confirm correct location:
-#   acc.manifest.yaml
-#   acc/
-
-# Replace <YOUR_REGISTRY> with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
 export REGISTRY=<YOUR_REGISTRY>
 export PACKAGENAME=acc
 export PACKAGEVERSION=22.11.0-82
@@ -297,8 +294,8 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 imagePullSecrets:
 - name: astra-registry-cred
 ----
-.. 変更 `[your_registry_path]` をクリックします `kube-rbac-proxy` でイメージをプッシュしたレジストリパスへのイメージ  the images to your local registry,前の手順。
-.. 変更 `[your_registry_path]` をクリックします `acc-operator-controller-manager` でイメージをプッシュしたレジストリパスへのイメージ  the images to your local registry,前の手順。
+.. 変更 `[your_registry_path]` をクリックします `kube-rbac-proxy` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
+.. 変更 `[your_registry_path]` をクリックします `acc-operator-controller-manager` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
 +
 [source, subs="specialcharacters,quotes"]
 ----
@@ -433,12 +430,12 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 .. *astraatAddress*:を変更します `astraAddress` ブラウザで使用するFQDN（推奨）またはIPアドレスを指定して、Astra Control Centerにアクセスします。これは、完了時にロードバランサからプロビジョニングしたFQDNまたはIPアドレスと同じです link:requirements.html["Astra Control Center の要件"]。
 +
 
-NOTE: 使用しないでください `http://` または `https://` をクリックします。この FQDN をコピーしてで使用します  in to the Astra Control Center UI,後の手順。
+NOTE: 使用しないでください `http://` または `https://` をクリックします。この FQDN をコピーしてで使用します <<Astra Control Center UI にログインします,後の手順>>。
 
 .. * AutoSupport *：変更 `enrolled` を選択しますAutoSupport `false` インターネットに接続されていないか、または保持されているサイト `true` 接続されているサイト用。
-.. *電子メール*:を変更します `email` デフォルトの初期管理者アドレスを表す文字列。この E メールアドレスをコピーしてで使用します  in to the Astra Control Center UI,後の手順。
+.. *電子メール*:を変更します `email` デフォルトの初期管理者アドレスを表す文字列。この E メールアドレスをコピーしてで使用します <<Astra Control Center UI にログインします,後の手順>>。
 .. *（オプション）firstNameおよびLastName*：名を追加します `firstName` 姓を入力します `lastName` アカウントに関連付けられているユーザのこの手順は、 UI ですぐに実行することもあとで実行することもできます。
-.. * imageRegistry *:変更 `[your_registry_path]` でイメージをプッシュしたレジストリパスに移動します  the Astra Control Center operator,前の手順。
+.. * imageRegistry *:変更 `[your_registry_path]` でイメージをプッシュしたレジストリパスに移動します <<Astra Control Center オペレータを設置します,前の手順>>。
 +
 
 IMPORTANT: 許可が不要なレジストリを使用している場合は、を削除する必要があります `secret` ラインの内側 `imageRegistry` または、インストールが失敗します。
@@ -757,7 +754,7 @@ kubectl apply -f istio-Ingress.yaml
 +
 [source, console]
 ----
-kubectl get ingress -n netapp-acc
+kubectl get ingress -n [netapp-acc or custom namespace]
 ----
 +
 対応：
@@ -768,7 +765,7 @@ kubectl get ingress -n netapp-acc
 NAME    CLASS HOSTS             ADDRESS         PORTS   AGE
 ingress istio astra.example.com 172.16.103.248  80, 443 1h
 ----
-.  Astra Control Center,Astra Control Centerのインストールを完了します。
+. <<Astra Control Center を設定します,Astra Control Centerのインストールを完了します>>。
 
 
 .Nginx Ingress Controller の手順
@@ -828,13 +825,13 @@ oc create route edge --service=traefik --port=web -n [netapp-acc or custom names
 Astra Control Center をインストールした後、デフォルトの管理者のパスワードを変更し、 Astra Control Center UI ダッシュボードにログインします。
 
 .手順
-. ブラウザでFQDNを入力します (`https://<FQDN>`）で使用しました `astraAddress` を参照してください `astra_control_center.yaml` CR When（時間）  Astra Control Center,Astra Control Center をインストールした。
+. ブラウザでFQDNを入力します (`https://<FQDN>`）で使用しました `astraAddress` を参照してください `astra_control_center.yaml` CR When（時間） <<Astra Control Center を設定します,Astra Control Center をインストールした>>。
 . プロンプトが表示されたら、自己署名証明書を承認します。
 +
 
 NOTE: カスタム証明書はログイン後に作成できます。
 
-. Astra Control Centerのログインページで、に使用した値を入力します `email` インチ `astra_control_center.yaml` CR When（時間）  Astra Control Center,Astra Control Center をインストールしたをクリックし、次に初期セットアップパスワードを入力します (`ACC-[UUID]`）。
+. Astra Control Centerのログインページで、に使用した値を入力します `email` インチ `astra_control_center.yaml` CR When（時間） <<Astra Control Center を設定します,Astra Control Center をインストールした>>をクリックし、次に初期セットアップパスワードを入力します (`ACC-[UUID]`）。
 +
 
 NOTE: 誤ったパスワードを 3 回入力すると、管理者アカウントは 15 分間ロックされます。
@@ -865,7 +862,7 @@ kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c ma
 
 
 
-== 次の手順
+== 次のステップ
 
 * （オプション）お使いの環境に応じて、インストール後に実行します link:configure-after-install.html["設定手順"]。
 * を実行して導入を完了します link:setup_overview.html["セットアップのタスク"]。

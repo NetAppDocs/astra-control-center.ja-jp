@@ -256,7 +256,6 @@
   <block id="0fb7074531c86f45c757cf5f6e05e6f9" category="list-text">* プロファイル * を選択します。</block>
   <block id="a11ca2c2dd5144bf630dd5eb29b7cc67" category="list-text">パスワードの要件に準拠するパスワードを入力します。</block>
   <block id="57d4c802b66507e7e8b66d11f3a59a6f" category="list-text">確認のためパスワードをもう一度入力します。</block>
-  <block id="90f1c6fc655d106b5040673f4fce5f99" category="section-title">別のユーザーのパスワードをリセットします</block>
   <block id="777944860c5bbcdb1b4a4a0a593efb52" category="paragraph">アカウントに Admin ロールまたは Owner ロールの権限がある場合は、自分だけでなく他のユーザアカウントのパスワードもリセットできます。パスワードをリセットする場合は、ログイン時にユーザが変更しなければならない一時パスワードを割り当てます。</block>
   <block id="df429da64d721747277606b598df29c4" category="list-text">「 * パスワードのリセット * 」を選択します。</block>
   <block id="67873c21262ba112b2e21148d43428f5" category="list-text">パスワードの要件に適合する一時パスワードを入力します。</block>
@@ -389,7 +388,6 @@
   <block id="4fcadb7486e94ea263fbd41f7e86efa9" category="paragraph">NetApp Cloud Insights を Astra Control Center インスタンスに接続すると、インフラ全体を監視して詳細に把握できます。Cloud Insights は、 Astra Control Center ライセンスに含まれています。</block>
   <block id="13942213628d31e7e797ba5c8a75f709" category="admonition">Cloud Insights には、 Astra Control Center が使用するネットワークから、またはプロキシサーバー経由で間接的にアクセスできる必要があります。</block>
   <block id="0fc8c757a5249e23e83500c6fad518c4" category="admonition">Cloud Insights にアストラコントロールセンターを接続すると、 Acquisition Unit ポッドが作成されます。このポッドは、 Astra Control Center で管理されているストレージバックエンドからデータを収集し、 Cloud Insights にプッシュします。このポッドには、 8GB の RAM と 2 つの CPU コアが必要です。</block>
-  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">必要なもの</block>
   <block id="7688359a08db3c6dee99e77dacd333c0" category="list-text">admin * / * owner * 権限を持つ Astra Control Center アカウント。</block>
   <block id="4d2b5cb03567061103a730b4f25b2c61" category="list-text">有効な Astra Control Center ライセンス。</block>
   <block id="1bdb819abf27f345e251d7d74bd13432" category="list-text">Astra Control Center を実行しているネットワークで、インターネットに接続するためにプロキシが必要な場合は、プロキシサーバーです。</block>
@@ -457,7 +455,6 @@
   <block id="4a921c3efaab8bbadecfb6a807d12e69" category="list-text">[ 実行フック * ] タブを選択します。</block>
   <block id="c45dea86b5befe190795d48755984936" category="section-title">カスタム実行フックを作成します</block>
   <block id="f1ec6389b6d19d3be02f29f4a7d29051" category="inline-link-macro">実行フックの例</block>
-  <block id="accd1f6705376b7c94fe544977e50545" category="paragraph">アプリケーションのカスタム実行フックを作成できます。を参照してください <block ref="6d8239255f3b956e54f6aae8a56a0ae9" category="inline-link-macro-rx"></block> フックの例を参照してください。実行フックを作成するには、 Owner 、 Admin 、または Member のいずれかの権限が必要です。</block>
   <block id="8418a36d2778041af8e3f737ec1644a7" category="list-text">「 * アプリケーション」を選択し、管理アプリの名前を選択します。</block>
   <block id="4069b8bd7c11bc17efc85c9bb6d794c1" category="list-text">フックの一意の名前を入力します。</block>
   <block id="cc56ac336e2ae46c348055eabdb31910" category="list-text">（オプション）実行中にフックに渡す引数を入力し、各引数を入力した後で Enter キーを押して、それぞれを記録します。</block>
@@ -484,26 +481,6 @@
   <block id="0de4b069ef42dc2162b352a8d0c79120" category="paragraph">ラベルは、 Kubernetes オブジェクトに割り当てて識別できるキーと値のペアです。ラベルを使用すると、 Kubernetes オブジェクトのソート、整理、検索が簡単になります。Kubernetes のラベルの詳細については、<block ref="52425cbbdd8e653f3efe28de3861375f" category="inline-link-rx"></block>。</block>
   <block id="d5b295762bafa1224bb85530c38c11b0" category="paragraph">DevOps チームの Kubernetes 管理者は、安定したリリースポッドに「展開 = 安定」というラベルを追加します。チームは、カナリアリリースポッドに「展開 = カナリア」というラベルを追加します。</block>
   <block id="9dc58f6d84e6af04a28d5b06dc921ce1" category="paragraph">チームの安定版リリースには、 1 時間ごとの Snapshot と日次バックアップの要件が含まれています。カナリアリリースは、より一時的なものです。したがって、「配置」 = 「カナリア」というラベルの付いたすべてのものに対して、より積極的で短期的な保護ポリシーを作成したいと考えています。</block>
-  <block id="a77683ae8edcb3cd1537700411834ab9" category="summary">次の例を使用して、実行フックの構造を確認してください。</block>
-  <block id="3a93b0a9cf88ddc06d563489a2895c27" category="paragraph">次の例を使用して、実行フックの構造を確認してください。これらのフックは、テンプレートまたはテストスクリプトとして使用できます。</block>
-  <block id="4080d94759fa38e6a6b1dba142b2c090" category="section-title">シンプルな成功例</block>
-  <block id="0633de588be1b9b7ef2ce544cc43b805" category="paragraph">次に、成功し、標準出力および標準エラーにメッセージを書き込む単純フックの例を示します。</block>
-  <block id="2140ca0b50b65cc33e13b1693e8f7d29" category="section-title">シンプルな成功の例（ bash バージョン）</block>
-  <block id="ef53d64aad9e1800233c6ff7ad7659a6" category="paragraph">次に、 bash 用に書かれた標準出力と標準エラーにメッセージを書き込む単純なフックの例を示します。</block>
-  <block id="d803bd21292822cc57f6cea1b26277a6" category="section-title">単純な成功例（ zsh バージョン）</block>
-  <block id="66b0025d5aab9045e3b45a4d66a48753" category="paragraph">これは、成功した単純なフックの例であり、標準出力と標準エラーに Z シェル用に記述されたメッセージを書き込みます。</block>
-  <block id="404a19c311e695f744083ec2c8a6a1aa" category="section-title">引数を指定した成功の例</block>
-  <block id="824760aa066fdf7d7264404530eab6de" category="paragraph">次の例は、フックで args を使用する方法を示しています。</block>
-  <block id="82319328d67378fb8ea8de76b217a7b1" category="section-title">スナップショット前 / スナップショット後のフックの例</block>
-  <block id="98fa2db3a9b66ee5684a718840275afc" category="paragraph">次の例は、 Snapshot 前フックと Snapshot 後フックの両方に同じスクリプトを使用する方法を示しています。</block>
-  <block id="07feeb75b51e9098527fcce368e18ba4" category="section-title">失敗の例</block>
-  <block id="76214508e53f6a5210da5d087deabd64" category="paragraph">次の例は、フックで障害を処理する方法を示しています。</block>
-  <block id="3619ce0a3177781c10d45dcef727f469" category="section-title">詳細なエラーの例</block>
-  <block id="e29a5c052b79db2027518d6f91a1bf51" category="paragraph">次の例では ' フックの失敗をより詳細なロギングで処理する方法を示します</block>
-  <block id="b1eef973caa0256ee30c734876bbea52" category="section-title">終了コード例を使用した失敗</block>
-  <block id="72a1fa5b5d8898a40469febc542a9fb1" category="paragraph">次の例は、終了コードを使用したフックの失敗を示しています。</block>
-  <block id="19913f9a3a2b84a8e9235b0b3b542efb" category="section-title">失敗後の成功の例</block>
-  <block id="bb2f4bbf1bdeef5e734446fc84fd577d" category="paragraph">次の例では、最初の実行時にフックが失敗していますが、 2 回目の実行後に成功しています。</block>
   <block id="e0d6be7dcacd9bf8c69bf3d81aa96e33" category="list-text">Astra Control Center UI で、 [* Clusters] を選択します。</block>
   <block id="97e3f2b867ad826bf01d83ab47d874c5" category="list-text">[* Clusters] ページで、詳細を表示するクラスタを選択します。</block>
   <block id="2d3a33198a03ea06faef99430efd1075" category="list-text">[Overview （概要） ] 、 [* Storage （ * ストレージ） ] 、 [* Activity * （アクティビティ * ） ] タブの情報を表示して、必要な情報を検索します。</block>
@@ -728,7 +705,6 @@
   <block id="38f629170ac3ab74b9d6d2cc411c2f3c" category="cell">9090</block>
   <block id="f370975993dbb1e7c1e24af01ed7986c" category="section-title">サポートされている Web ブラウザ</block>
   <block id="5ee52824555f7e54b800612663b9f098" category="paragraph">Astra Control Center は、最新バージョンの Firefox 、 Safari 、 Chrome をサポートし、解像度は 1280 x 720 以上です。</block>
-  <block id="0a20c90d5270bed19fcaf851778c663b" category="section-title">次の手順</block>
   <block id="159b2efa467f3d1f53e7c16668353bf5" category="inline-link-macro">クイックスタート</block>
   <block id="254a18b3f13c4603a1e896ef9d067cab" category="summary">環境に関するいくつかの前提条件に対処した後に Astra Control Center をインストールするには、バンドルをダウンロードして、説明されている手順に従ってインストールします。</block>
   <block id="8c7c70cb991e0295e289054b79308c5d" category="doc">Astra Control Center をインストールします</block>
@@ -783,19 +759,15 @@
   <block id="65c0a05d8c47a658174fbed46d46f8e7" category="paragraph">'ecsレット ' 配列内の各要素のインデックスは 0 から始まります上記の例では、「 astracontrol-service-account-dockercfg-vhz87 」のインデックスは 0 になり、「 astracontrol-service-account-token-r59kr 」のインデックスは 1 になります。出力で、 "token" という単語が含まれるサービスアカウント名のインデックスをメモしてください。</block>
   <block id="d3727d544efa902d0381ec79cec3d488" category="list-text">次のように kubeconfig を生成します。</block>
   <block id="7d164f3971b504d6203cf274cc77dd35" category="list-text">コマンドをソースにし、 Kubernetes クラスタに適用します。</block>
-  <block id="3f297ef15cde0668e93b35f2752fd4fd" category="section-title">次の手順</block>
   <block id="fc114aea788191ed2996fd8985c43178" category="inline-link-macro">クラスタを追加</block>
   <block id="d61a39ecf1d91497b3661f1969243d18" category="summary">数ステップで Astra Control を使い始めましょう。</block>
   <block id="a87da1b8e8afc29470ac85cf788e125c" category="doc">Astra Control Center のクイックスタート</block>
   <block id="15dd8f83e9a999edc6eae56c5aec726e" category="paragraph">このページでは、 Astra Control Center の導入に必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。</block>
   <block id="b777e6ba4555d404b00c2436d03ae649" category="inline-link-macro">ライセンス情報</block>
-  <block id="4854d4c0301c6f34c76f1cb78057e09e" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> Alt="One"&gt;&lt;/span&gt; Kubernetes クラスタの要件を確認します</block>
   <block id="0deb5023224ed4d71135e9bae6dff9d4" category="list-text">クラスタが正常な状態で稼働し、少なくとも 3 つのオンラインワーカーノードが必要です。</block>
-  <block id="9384595b10ef347b2da67882c7b37bd7" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="c9bdd0fd7d7224adcf67691b15f15281" category="inline-link-rx"></block> Alt="2"&gt;&lt;/span&gt; Astra Control Center をダウンロードしてインストールします</block>
   <block id="afdff0e68ce5b4b3109d398df16872f7" category="inline-link">ネットアップサポートサイトの「 Astra Control Center Downloads 」ページ</block>
   <block id="b6511e86f155fe09cdd3bb8e739ea6b5" category="list-text">から Astra Control Center をダウンロードします<block ref="287561c5277beeaf3b39a65b237114c8" category="inline-link-rx"></block>。</block>
   <block id="276a11727deff1a1f5ebf349b23835fc" category="list-text">Astra Control Center をローカル環境にインストールします。</block>
-  <block id="80de081c75779cda8e2db1de0f292684" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="ddd753dc2858fe3a5582f20b300a0541" category="inline-link-rx"></block> Alt="3"&gt;&lt;/span&gt; 初期設定タスクをいくつか実行します</block>
   <block id="aacfab881a9e939b2424f0e0b25eb558" category="list-text">必要に応じて、アプリケーションバックアップを格納するオブジェクトストアバケットを追加します。</block>
   <block id="154eb8ea764a5b550f71c94b510f7a75" category="paragraph">Astra Control Center のセットアップが完了したら、次の手順を実行します。</block>
   <block id="efb8331a92b47dc173e5cbcd8ae1a87b" category="summary">Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。</block>
@@ -889,22 +861,17 @@
   <block id="cd165c3825c1608d9ab0d7fb7273e21a" category="inline-link">Red Hat エコシステムカタログ</block>
   <block id="73c219a393057feacc35c345709d0eff" category="paragraph">Red Hat OpenShift を使用する場合は、 Red Hat 認定オペレータを使用して Astra Control Center をインストールできます。この手順を使用して、から Astra Control Center をインストールします<block ref="a0bebb9db4c42678b95afc86229a893d" category="inline-link-rx"></block> または、 Red Hat OpenShift Container Platform を使用します。</block>
   <block id="07d25e4715e49135a64667c0c238798e" category="inline-link-macro">残りのステップ</block>
-  <block id="b34733c94c2ec2f94f6765fc88c9f8db" category="paragraph">この手順を完了したら、インストール手順に戻ってを実行する必要があります <block ref="3a285f0bf32f130cd082e260eb98d4dd" category="inline-link-macro-rx"></block> インストールが成功したかどうかを確認し、ログオンします。</block>
   <block id="9b7b5553b7f9a88388ff63538315f288" category="list-text"><block ref="d671e7cdeaa98f3485173f8d5a620d81" category="inline-xref-macro-rx"></block></block>
   <block id="bcd2064257ec8fce1f11d1eab34e50a1" category="list-text"><block ref="d1f909bce77ae129ee64cf4c211e47c3" category="inline-xref-macro-rx"></block></block>
   <block id="3cc546d35377f25093968cba1e8c0fc6" category="list-text"><block ref="27fe6aaf425c0f95213ec6c507a97d2d" category="inline-xref-macro-rx"></block></block>
   <block id="55c6b9fd6efcd18e0f53c34459084a3f" category="section-title">オペレータインストールページを検索します</block>
   <block id="396cd1df886b31da3577b40fa6f7cf0f" category="list-text">次のいずれかの手順を実行して、オペレータインストールページにアクセスします。</block>
   <block id="fd8cbefedde3fbeeb2817b2484ff0e38" category="inline-image-macro">Astra Control Center のインストールページ</block>
-  <block id="e6864876ae5824d03aa7240670e5a79c" category="list-text">Red Hat OpenShift の Web コンソールから：<block ref="aa29e3cb75d2e7e5a7c9020ff806205e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1b37bd82bf53c89bcedcfc65519416b2" category="list-text">OpenShift Container Platform UI にログインします。</block>
   <block id="d23202f3a841766e7b5d6b37777fc6c3" category="list-text">サイドメニューから、 * 演算子 &gt; OperatorHub * を選択します。</block>
-  <block id="7bd157f1c5eb232cab6fc80166141018" category="list-text">NetApp Astra Control Center オペレータを選択します。</block>
   <block id="6d20ba1f906a03b7657514dee48eb121" category="list-text">「 * Install * 」を選択します。</block>
   <block id="89bb9ef577ff373ba97cf5d87b3cbfa2" category="inline-image-macro">Astra Control Center の概要ページ</block>
-  <block id="12127d8c57ab445f63f35cb27db68dfa" category="list-text">Red Hat エコシステムカタログから：<block ref="5698ddd18c8f6cab72a468c7cfa4eeec" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4b583376b2767b923c3e1da60d10de59" category="inline-link">演算子</block>
-  <block id="c0c6f0344d291d5ee9dd15a613c81a83" category="list-text">NetApp Astra Control Center を選択します<block ref="f328fcf88c0a47197ef258962206eb83" category="inline-link-rx"></block>。</block>
   <block id="13191ff715c85f59fd2da330d31c4e9f" category="list-text">[Deploy and Use] を選択します。</block>
   <block id="a961f7d3b56fe3f9b072af70813d6f82" category="section-title">オペレータをインストールします</block>
   <block id="80c07a74abae733a8881dd926a32ef70" category="list-text">「 * インストールオペレータ * 」ページに必要事項を入力し、オペレータをインストールします。</block>
@@ -914,21 +881,13 @@
   <block id="fc99f53ee127b4cd13ec3e5986cf0b4e" category="admonition">手動による承認が推奨されます。1 つのクラスタで実行する演算子インスタンスは 1 つだけです。</block>
   <block id="05bdebf9e792d9368547ebb8d5f2c878" category="admonition">手動承認方式を選択した場合は、このオペレータの手動インストール計画を承認するように求められます。</block>
   <block id="aaa3b697f556836b1ccf6d4b524be91f" category="list-text">コンソールで、 OperatorHub メニューに移動して、オペレータが正常にインストールされたことを確認します。</block>
-  <block id="0e31ab41ac11f3ddd6ff1a1b66bac23e" category="list-text">Astra Control Center オペレータの詳細ビュー内のコンソールから、 [Provided API] セクションの [Create instance] を選択します。</block>
   <block id="004e45eb65515df1dc4c779bfd994156" category="list-text">Create AstraControlCenter フォーム・フィールドに次のように入力します</block>
   <block id="333a60821968ef136fc241c723e560c7" category="list-text">Astra Control Center の名前を保持または調整します。</block>
-  <block id="d428c16854f07cbfe28afb7b35e4ec7f" category="list-text">（オプション） AutoSupport を有効または無効にします。Auto Support 機能の保持を推奨します。</block>
-  <block id="7b625446126311f8289b99965f874567" category="list-text">Astra Control Center のアドレスを入力します。アドレスには 'http://' または https:// を入力しないでください</block>
   <block id="bb78a9da438c9bc3d6927b7e4cc397cd" category="list-text">アカウント名、 E メールアドレス、および管理者の姓を入力します。</block>
-  <block id="7113a598ff918e14e69611190b04f917" category="list-text">デフォルトのボリューム再利用ポリシーをそのまま使用します。</block>
-  <block id="1e4ea0b6d22039e7284329548ea3fb51" category="list-text">* Image Registry * に、ローカルコンテナイメージのレジストリパスを入力します。アドレスには 'http://' または https:// を入力しないでください</block>
-  <block id="6881173b182cc92c2e8408f79678be22" category="list-text">認証が必要なレジストリを使用する場合は、シークレットを入力します。</block>
   <block id="118e41df0294e779966ab834d310bc09" category="list-text">管理者の名を入力します。</block>
   <block id="4b8b88591e5702615cf22b5d36197d60" category="list-text">リソースの拡張を構成する。</block>
-  <block id="1d57e0a24077636df90da71912e901ba" category="list-text">デフォルトのストレージクラスは保持します。</block>
   <block id="6b9265a82fa5bd326052ec55e040a54a" category="list-text">CRD 処理の環境設定を定義します。</block>
   <block id="752136dc4b557a30d80aab0135d2d8d0" category="list-text">「 Create 」を選択します。</block>
-  <block id="25bd4bfe1fe1f3d4f00d0a880c5c7b69" category="paragraph">Astra Control Center が正しくインストールされたことを確認し、を完了します <block ref="3a285f0bf32f130cd082e260eb98d4dd" category="inline-link-macro-rx"></block> ログインしてください。さらに、の導入も完了します <block ref="c74ac040317626af0342a18a145cdbb7" category="inline-link-macro-rx"></block>。</block>
   <block id="6ffac32d322f5864924327003ba10101" category="doc">標準の手順で Astra Control Center をインストールします</block>
   <block id="851d9a49d7101a2aa57ff83ec3919ddf" category="inline-link-macro">代替手順</block>
   <block id="d0cc7cda1d4465f85d79e82f2658bcbd" category="list-text"><block ref="40f1117f0e32d897ff425a931dd88437" category="inline-xref-macro-rx"></block></block>
@@ -944,7 +903,6 @@
   <block id="6adefb23833ae29ed830d55a8a9ae713" category="list-text">クラスタを追加したときに検出されたストレージバックエンドを追加します。</block>
   <block id="df819717a2baf5b48925d2b4cdaf4745" category="list-text">* Astra Trident / ONTAP 構成 * ： Astra Control Center では、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。</block>
   <block id="ed6be01d66e94b422222a328f085d0bc" category="list-text">「 create-kubeconfig .sh` ファイル」を作成します。次のスクリプトの先頭にある「 token_index 」を正しい値に置き換えます。</block>
-  <block id="8ba4664b08ecc7bbd36d1c4a65dfb521" category="list-text">Astra Control Center のバージョンを入力します。たとえば、 21.12.60 と入力します。</block>
   <block id="242b16009698fe8de90e3b0966885de7" category="summary">Astra Control Center で使用可能なデータ保護の種類と、それらを使用してアプリケーションを保護する最適な方法について説明します。</block>
   <block id="4af39b8c609e94299d6c11ef13a2428c" category="doc">保護の概要</block>
   <block id="4f8289d2ea64efb565cdd08c451ac322" category="inline-link-macro">Astra Control Center で使用可能なデータ保護の種類と、それらを使用するタイミングについて説明します</block>
@@ -953,7 +911,6 @@
   <block id="9e3e52a15539d6b76c9af7b7c901f2dc" category="paragraph">次のワークフロー例を使用して、アプリケーションの保護を開始できます。</block>
   <block id="cdb972c8ec0f0d2d064eee29da832b09" category="inline-link-macro">すべてのアプリケーションの手動バックアップを作成する</block>
   <block id="bb9745866a03e99751c67559a4b5bbfc" category="paragraph">アプリケーションをすぐに保護するには、次の手順を実行します。 <block ref="153c1de46633dd7b9ee4197b0f57d4e6" category="inline-link-macro-rx"></block>。</block>
-  <block id="fc728311492264f387b6d56bf7f401d9" category="section-title">各アプリケーションの保護ポリシーを設定します</block>
   <block id="67d8aac0ef877e89b323dda77c01cdc7" category="inline-link-macro">各アプリケーションの保護ポリシーを設定します</block>
   <block id="a6f3f1cac5047bfc8c8a549d7555afb4" category="paragraph">将来のバックアップとスナップショットを自動化するには、 <block ref="be33481d5db8c6459d2a9f9986e47ba8" category="inline-link-macro-rx"></block>。たとえば、週単位のバックアップと日単位の Snapshot をそれぞれ 1 カ月ずつ保持して開始できます。手動バックアップやスナップショットよりも、保護ポリシーを使用してバックアップとスナップショットを自動化することを強く推奨します。</block>
   <block id="2afcb2016ee556b04a072d6535bbab55" category="paragraph">アプリとその使用パターンが変化したら、必要に応じて保護ポリシーを調整して、最適な保護を実現します。</block>
@@ -1152,7 +1109,6 @@
   <block id="e276a2ae0c328a61a235ae7ba15f71a3" category="list-text"><block ref="afa82c5fe7ac560615325c4fdfba4b92" category="inline-xref-macro-rx"></block></block>
   <block id="5f70f12e51733f39df8a8d8f2f0742da" category="section-title">Amazon Web Services に Astra Control Center を導入</block>
   <block id="b4504a5af800e56b2ac7bc310c520499" category="paragraph">Amazon Web Services （ AWS ）パブリッククラウドでホストされる自己管理型の Kubernetes クラスタに Astra Control Center を導入できます。</block>
-  <block id="4ad0f595b9dbd4c0336e372a8a1b2410" category="section-title">AWS に必要なもの</block>
   <block id="a5a36964a87d94d5ac0851af923c64fc" category="paragraph">AWS に Astra Control Center を導入する前に、次のものが必要です。</block>
   <block id="e7e1ddd48b888f0547b40d916ec5553d" category="inline-link-macro">Astra Control Center のライセンス要件</block>
   <block id="b488bebfd7a3a01cdcc54ea5856291cb" category="list-text">Astra Control Center ライセンス。を参照してください <block ref="fc4957629b78fc8c58b84966810cc78b" category="inline-link-macro-rx"></block>。</block>
@@ -1220,7 +1176,6 @@
   <block id="1cb58fa5a8f36029f128e85d88276810" category="paragraph">標準に従ってください <block ref="ef8e47848fa28ef11d8d85ade3f221ee" category="inline-link-macro-rx"></block>。</block>
   <block id="4d9093ca668edda8a4b7f1d5efe8d4bd" category="section-title">Microsoft Azure に Astra Control Center を導入</block>
   <block id="7f18f262f0f4112be8239133aa15cff4" category="paragraph">Microsoft Azure パブリッククラウドでホストされる自己管理型の Kubernetes クラスタに Astra Control Center を導入できます。</block>
-  <block id="24fdd2eaa17fe7802a949abb767e47ff" category="section-title">Azure に必要なもの</block>
   <block id="0868fde25a786c798cfe63227a2e632c" category="paragraph">Azure に Astra Control Center を導入する前に、次のものが必要です。</block>
   <block id="067c001dbf7480cc26099ff0edfb8bda" category="list-text">バケットとコネクタの作成を可能にする権限を持つ Azure クレデンシャル</block>
   <block id="a7ab880bb218b2e0b517005f90e662c8" category="section-title">Azure の運用環境の要件</block>
@@ -1465,12 +1420,9 @@
   <block id="208a8fcce82374d11a0e33365f59b4db" category="list-text"><block ref="208a8fcce82374d11a0e33365f59b4db" category="inline-link-rx"></block></block>
   <block id="9f5cf907f6695509d2835e8159f5934f" category="list-text"><block ref="9f5cf907f6695509d2835e8159f5934f" category="inline-link-rx"></block></block>
   <block id="fadd2411de2f2a9467c52f3c55c606d9" category="list-text"><block ref="fadd2411de2f2a9467c52f3c55c606d9" category="inline-link-rx"></block></block>
-  <block id="8a39c4d5e84433849a18a3a9c5be0506" category="list-text">データセンターにAstra Control CenterのFQDNアドレスを作成します。</block>
-  <block id="817ff31e06696b2ddfbd20628237efec" category="list-text">説明したインストール手順を実行するために必要な権限を取得し、Red Hat OpenShift Container Platformにアクセスします。</block>
   <block id="6b711ca63f3156860c2b2918a106b882" category="inline-link-macro">事前に必要な手順</block>
   <block id="e13d4a668fc56237f39878bf668e8d7b" category="inline-link-macro">ポッドのセキュリティポリシーの制限事項を理解します</block>
   <block id="008c400b59b77d7bf927c2a682a431e6" category="list-text">使用するネットアップFQDNがこのクラスタにルーティング可能であることを確認します。つまり、内部 DNS サーバに DNS エントリがあるか、すでに登録されているコア URL ルートを使用しています。</block>
-  <block id="26880dd653283f928ad27ce40e390c9e" category="list-text">[[[[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;&lt;/Z1&gt;_image_local_registry_push]]]]]]]]]]&lt;/Z2&gt;アストラControl Centerイメージディレクトリ内のパッケージイメージをローカルレジストリにプッシュします。&lt;/Z3&gt;コマンドを実行する前に、次の置き換えを行ってください。</block>
   <block id="33af5b5ab1531482f9e1f1b5a5685f71" category="admonition">注釈付きサンプルYAMLは以下の手順に従います。</block>
   <block id="a8038a5cd908114c889c5235c5c0c805" category="inline-link-macro">CRオプションとその可能性のある値</block>
   <block id="12f475c06a815cdd9492e49594e2118b" category="example-title">回答例</block>
@@ -1649,11 +1601,7 @@
   <block id="161af20176424e6ca79f6a083a2fb582" category="paragraph">データの競合を回避するために、管理者は「カナリア」リリース用と「stable」リリース用の2つのアプリケーションを作成します。これにより、 Kubernetes オブジェクトの 2 つのグループに対して、バックアップ、 Snapshot 、およびクローニングの処理が分離されます。</block>
   <block id="c302001a5142f4a16d0d5b3033542d62" category="admonition">KubernetesクラスタをAstra Controlから管理し、Astra ControlをCloud Insights に接続した場合、Astra ControlはCloud Insights にイベントログを送信する。ポッドの導入やPVCの添付ファイルに関する情報などのログ情報が、Astra Control Activityログに記録されます。この情報を使用して、管理しているKubernetesクラスタの問題を特定します。</block>
   <block id="78ce739c69215b7a8b54179394eea168" category="paragraph">また、ディザスタリカバリに備えてアプリケーションをリモートクラスタにレプリケートすることもできます。</block>
-  <block id="22d2c2bc5f801a701ddbdef1d19abcb3" category="section-title">すべてのアプリケーションを保護</block>
-  <block id="44c76d6a0a4f1bde94eb2cd76b8d4eae" category="section-title">保護ポリシーを調整します</block>
-  <block id="e0a9a1ca749b026f1191e8980cfd9475" category="section-title">アプリケーションをリモートクラスタにレプリケートします</block>
   <block id="87c77d08f8cc9ba015bc277bf63171ec" category="inline-link-macro">アプリケーションをレプリケートします</block>
-  <block id="c4491e86699f3e74488527dd9f36c879" category="section-title">災害が発生した場合は、最新のバックアップまたはレプリケーションを使用してアプリケーションをリモートシステムにリストアします</block>
   <block id="e11f531afbfddcb2e626779912560475" category="paragraph">データ損失が発生した場合は、を使用してリカバリできます <block ref="550aec8aa1d184571b143fbb368e4c54" category="inline-link-macro-rx"></block> まず、各アプリケーションについて説明します。その後、最新の Snapshot をリストアできます（使用可能な場合）。または、リモートシステムへのレプリケーションを使用することもできます。</block>
   <block id="d77a72056cdc02124a845066bec0d946" category="paragraph">実行フックは、管理対象アプリケーションのデータ保護操作と組み合わせて実行するように構成できるカスタムアクションです。たとえば、データベースアプリケーションがある場合、実行フックを使用して、スナップショットの前にすべてのデータベーストランザクションを一時停止し、スナップショットの完了後にトランザクションを再開できます。これにより、アプリケーションと整合性のある Snapshot を作成できます。</block>
   <block id="83fbf1604bedff410ea11872b40ab9f0" category="section-title">実行フックのタイプ</block>
@@ -1918,7 +1866,6 @@
   <block id="4fa3cb64c7a4d0ea493cd71172a39adf" category="admonition">AWSでは汎用のS3バケットタイプが使用されます。</block>
   <block id="1e1383512a183b22a38cf414944a5e6f" category="section-title">Astra Control CenterをGoogle Cloud Platformに導入</block>
   <block id="b22e8d7dd55c8decf5f9ba74419121b1" category="paragraph">Astra Control Centerは、Google Cloud Platform（GCP）パブリッククラウドでホストされる自己管理型のKubernetesクラスタに導入できます。</block>
-  <block id="03bf87a4447c098a7f465eb8095fc070" category="section-title">GCPに必要なもの</block>
   <block id="643d752df6c3694f3ce7af63534415ce" category="paragraph">GCPでAstra Control Centerを導入する前に、次の項目が必要です。</block>
   <block id="f5c6148230da18b53bb888b7c50f6394" category="list-text">OCPを使用している場合は、Red Hat OpenShift Container Platform（OCP）4.10</block>
   <block id="053fe1b94d4c8c543d8ea27c9283521c" category="list-text">バケットとコネクタの作成を可能にする権限を持つGCPサービスアカウント</block>
@@ -2053,9 +2000,6 @@
   <block id="18f40e403e21c47db1d640c681eb60c1" category="list-text">使用可能なNetApp Astra kubectlプラグインのバイナリを表示し、オペレーティングシステムとCPUアーキテクチャに必要なファイルの名前をメモします。</block>
   <block id="04663e125a4b7af87fb04b1c90f3981c" category="admonition">kubectlプラグインライブラリはtarバンドルの一部であり、フォルダに解凍されます<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>。</block>
   <block id="70c1282aae344c7012022e40f12892d7" category="list-text">正しいバイナリを現在のパスに移動し、名前をに変更します<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>：</block>
-  <block id="526e16124c7eb6f5947cd1751f820311" category="list-text">をに変更します<block ref="1673448ee7064c989d02579c534f6b66" prefix=" " category="inline-code"></block> tarバンドルから抽出されたディレクトリ：</block>
-  <block id="c7556264a1988a2b92f66e12713a407c" category="list-text">Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。コマンドを実行する前に、次の置き換えを行ってください。</block>
-  <block id="e9484fc1507ea77c3a2885da70f0b7aa" category="list-text">&lt;BUNDLE_FILE&gt; をAstra Controlバンドルファイルの名前に置き換えます <block ref="04ac7257261c11a0d93b808ddb77d9a4" prefix="(" category="inline-code"></block>）。</block>
   <block id="1fc880ef4f8b3cc45475542399bd1928" category="list-text">&lt;MY_FULL_REGISTRY_PATH&gt; をDockerリポジトリのURLに置き換えます。次に例を示します。<block ref="2f83a38130745792f380ff2448ba7723" category="inline-link-rx"></block>。</block>
   <block id="f65f53e091cb29cf07faf1ce22c7b7af" category="list-text">&lt;MY_REGISTRY_USER&gt; をユーザ名に置き換えます。</block>
   <block id="942beacf5a707600cdbf9c51118da46f" category="list-text">&lt;MY_REGISTRY_TOKEN&gt; をレジストリの認証済みトークンに置き換えます。</block>
@@ -2266,7 +2210,6 @@
   <block id="b24ff57a65ef73f0fc117dd330a967f3" category="section-title">Azure向けAstra Control Centerのインストールと設定</block>
   <block id="7a06675f408aed2dabe52a3645059966" category="list-text">OpenShiftクラスタから、すべてのクラスタオペレータが正常な状態にあることを確認します。</block>
   <block id="845e2368c3a6b9728a9fa15096c62bd0" category="list-text">OpenShiftクラスタから、すべてのAPIサービスが正常な状態であることを確認します。</block>
-  <block id="60bf0b4c923a3385d93eb4121816891d" category="list-text">クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります <block ref="1787bdbf8a8938a728c4bed68c77105f" category="inline-link-macro-rx"></block> そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。</block>
   <block id="36c884b69a5d1e5a404eca027f6ca471" category="paragraph">環境によっては、Astra Control Centerのインストール後に追加の設定が必要になる場合があります。</block>
   <block id="747bf8100668838f9a411ea795df98d2" category="list-text"><block ref="747bf8100668838f9a411ea795df98d2" category="inline-link-macro-rx"></block></block>
   <block id="d0eb4126e7ac0ad8eceb118a01c4eb97" category="summary">導入時のカスタム構成については、「Astra Control CenterクラスタCRオプション」を参照してください。</block>
@@ -2342,7 +2285,6 @@
   <block id="bc73322c3d32428ecdf621fe0171026e" category="section-title">バンドルを開梱します</block>
   <block id="4fa6fdd44c10c16a714b8f15d294dafa" category="section-title">NetApp Astra kubectlプラグインがインストールされていることを確認します</block>
   <block id="22752d0c5fc41c072184ec1bf10292a7" category="list-text">次のコマンドを使用して、プラグインがインストールされているかどうかを確認します。</block>
-  <block id="c67373faa5639b4ca6e32589cf11cd56" category="paragraph">このコマンドはkubectlプラグインのヘルプを提供する必要があります。コマンドからエラーが返された場合は、次のコマンドを使用してプラグインをインストールします <block ref="90fc243007038370eb8af0bc519f22fe" category="inline-link-macro-rx"></block>。</block>
   <block id="9cdaf3a6ae59eb2faabcb002cfc1bd4b" category="list-text">認証が必要なレジストリを使用する場合は、のデフォルト行を置換または編集します<block ref="e90e0b4a41dde5f038023d33ee45ad34" prefix=" " category="inline-code"></block> 次の条件を満たす場合：</block>
   <block id="ddfa64b94159cbde6c02f2aa3ae5598c" category="list-text">変更<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> をクリックします<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> でイメージをプッシュしたレジストリパスへのイメージ <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>。</block>
   <block id="49442a4bf304a6a24081fc054a06ba5e" category="list-text">Astra Control Centerカスタムリソース（CR）を編集します。</block>
@@ -2598,4 +2540,81 @@
   <block id="b8d4d634b190031290c70773522846be" category="paragraph">Astra Control Centerのインストール中、Astra Control CenterオペレータはカスタムポッドセキュリティポリシーAをインストールします<block ref="bbbabdbe1b262f75d99d62880b953be1" prefix=" " category="inline-code"></block> オブジェクト、および<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> Astra Control CenterネームスペースへのAstra Control Centerサービスの導入をサポートするオブジェクト。</block>
   <block id="8513cb080cab78ccf96de84f5f78e0bb" category="paragraph">バックアップ操作中に、Astra Control Centerは動的なポッドセキュリティポリシーAを作成します<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> オブジェクト、および<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> オブジェクト。これらの機能により、別のネームスペースで実行されるバックアッププロセスがサポートされます。</block>
   <block id="be8388c8f6217d1c42721f925d1fd7a9" category="paragraph">クラスターを管理する場合、Astra Control Centerは管理対象クラスタにNetApp Monitoringオペレータをインストールします。この演算子は、ポッドセキュリティポリシーAを作成します<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> オブジェクト、および<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> テレメトリサービスをAstra Control Center名前空間に展開するオブジェクト。</block>
+  <block id="01e12de62fa77fda2815719aed8ff892" category="section-title">次のステップ</block>
+  <block id="d59db7846bd10b6d60d21543df9faa9e" category="list-title">必要なもの</block>
+  <block id="a4da44ef0ecd9d3734b7e2c7ba1db457" category="list-text">tarballのルートディレクトリに移動します。次のファイルとディレクトリが表示されます。</block>
+  <block id="d5096c7b79dfe1069ab6cc6deca5f992" category="paragraph"><block ref="1c505200729f6188430504adf03e42f9" prefix="" category="inline-code"></block><block ref="c7dd43fbfc8e7f6b24b6d78aa8c0d7f1" prefix=" " category="inline-code"></block></block>
+  <block id="a5099f5631b11f07c52cbab5ff1c62db" category="list-text">Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。を実行する前に、次の置換を行ってください<block ref="2957bfd514a0f16d8946142cd37400fd" prefix=" " category="inline-code"></block> コマンドを実行します</block>
+  <block id="75097903812737c4d2a13cc9b473b6f8" category="list-text">&lt;BUNDLE_FILE&gt; をAstra Controlバンドルファイルの名前に置き換えます <block ref="1c505200729f6188430504adf03e42f9" prefix="(" category="inline-code"></block>）。</block>
+  <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">1つ</block>
+  <block id="13a0d74de4f994f2861da351c22e5549" category="list-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Kubernetes クラスタの要件を確認</block>
+  <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">2 つ</block>
+  <block id="6e6d8bfff1b16149f8c62cfee0d2f62e" category="list-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Astra Control Centerをダウンロードしてインストールします</block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">3つ</block>
+  <block id="ba9e9d1eb144bbf0eb66ffe3fb01e03a" category="list-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> いくつかの初期セットアップ作業を完了します</block>
+  <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">4.</block>
+  <block id="9824425bd5418e5e140ee6b8561b8914" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Astra Control Center を使用</block>
+  <block id="e5d9de39f7ca1ba2637e5640af3ae8aa" category="inline-image-macro">5 つ</block>
+  <block id="4e661ed0899ae91f577701320636fabf" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> このクイックスタートから続行します</block>
+  <block id="58eaebf972358f1cf03d386a4ade1a0f" category="section-title">次の手順</block>
+  <block id="9905787058ed1f891f5110340336c6f4" category="section-title">AWSに必要なもの</block>
+  <block id="60f26f17249a512292a5fb57e3431dea" category="section-title">GCPに必要なもの</block>
+  <block id="e4f3253ab12e0c60faa03ce6ef1c9784" category="section-title">Azureに必要なもの</block>
+  <block id="541f75b678c457ef572002d605bf4537" category="paragraph">この手順を完了したら、インストール手順に戻ってを実行する必要があります <block ref="9908a5e65371462fab8de29e0e8be055" category="inline-link-macro-rx"></block> インストールが成功したかどうかを確認し、ログオンします。</block>
+  <block id="805e6402de9821da73582c66cb02ba50" category="list-text">*環境前提条件を満たしている*： <block ref="5a52cbd8843223f6ce9ceecb81c75e6c" category="inline-link-macro-rx"></block>。</block>
+  <block id="138ea3764228f5e7341fdfd2ab86eb9c" category="list-text">*健全なクラスタオペレータとAPIサービス*：</block>
+  <block id="b898f98923f32bea4889471220e01aba" category="list-text">* FQDN address *：データセンターのAstra Control CenterのFQDNアドレスを取得します。</block>
+  <block id="7a49e1a0bc84ad5cadf3b7fad78e680c" category="list-text">* OpenShift Permissions *：説明されているインストール手順を実行するために必要な権限を取得し、Red Hat OpenShift Container Platformにアクセスします。</block>
+  <block id="4c71df267c87cd2b3b5085729a31c399" category="list-text">*cert-manager configure済み*:クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります <block ref="7f9e8cec8531f8660dfaaf382da03535" category="inline-link-macro-rx"></block> そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。</block>
+  <block id="dc7c0458c369052b702ad6db4e0f5569" category="list-text">* Kubernetes入力コントローラ*：クラスター内のロードバランシングなどのサービスへの外部アクセスを管理するKubernetes入力コントローラがある場合は、Astra Control Centerで使用するようにセットアップする必要があります。</block>
+  <block id="060534066f9a22cabf451772f0daf58b" category="list-text">operatorネームスペースを作成します。</block>
+  <block id="8f70adb2eebdea2e00d5d57216cd59b5" category="inline-link-macro">セットアップを完了</block>
+  <block id="83a21b4b84bec79fb67f25c973cb89d3" category="list-text"><block ref="485506977df8782eb9acff027cc95cf9" category="inline-link-macro-rx"></block> 入力コントローラのタイプ。</block>
+  <block id="e10b9da8362fecb065da69f3ade6cf7c" category="list-text">[[[[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;&lt;/Z1&gt;_image_local_registry_push]]]]]]]]]]&lt;/Z2&gt;アストラControl Centerイメージディレクトリ内のパッケージイメージをローカルレジストリにプッシュします。&lt;/Z3&gt;を実行する前に、次の置換を行ってください<block ref="2957bfd514a0f16d8946142cd37400fd" prefix=" " category="inline-code"></block> コマンドを実行します</block>
+  <block id="70f82fe210d70d79ae84c8e57b5baf7f" category="list-text">Red Hat OpenShift の Web コンソールから：</block>
+  <block id="eb5ffd4ef5a8aa98e9c36b2c79cea4ed" category="list-text">NetApp Astra Control Centerオペレータを検索して選択します。</block>
+  <block id="aa29e3cb75d2e7e5a7c9020ff806205e" category="paragraph"><block ref="aa29e3cb75d2e7e5a7c9020ff806205e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6f711eb57d6111094b5030c8f526d269" category="list-text">Red Hat エコシステムカタログから：</block>
+  <block id="91ec9a89e3a33fa6bc118cf53ef60c2e" category="list-text">NetApp Astra Control Center を選択します<block ref="e9d5520af4877fc40e9611f3ebf55be3" category="inline-link-rx"></block>。</block>
+  <block id="5698ddd18c8f6cab72a468c7cfa4eeec" category="paragraph"><block ref="5698ddd18c8f6cab72a468c7cfa4eeec" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ebba57f57d5e5b122328701846bed429" category="inline-image-macro">Astra Control Centerオペレータページ</block>
+  <block id="c8d7734b1f32bc2769d028defe4768af" category="list-text">Astra Control Centerオペレータの[*Astra Control Center*]タブ内のコンソールから'[*Create AstraControlCenter *]を選択します<block ref="4b62ec811b7f534bf6133b7281cc1006" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="20133d30eea258b6c1550d612eb75dfc" category="list-text">Astra Control Centerのラベルを追加します。</block>
+  <block id="a90dd656b7a6b8d695097aab7d876d0e" category="list-text">AutoSupportを有効または無効にします。Auto Support 機能の保持を推奨します。</block>
+  <block id="4039227203056b7dfe2f76bcb9aedef4" category="list-text">Astra Control CenterのFQDNまたはIPアドレスを入力します。入らないでください<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> または<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> をクリックします。</block>
+  <block id="54fb7a05fbdd98f00caaf5eaa1a5becc" category="list-text">Astra Control Centerのバージョンを入力します（例：22.04.1）。</block>
+  <block id="dcfdd5754023d297c0d864d5eb1bf301" category="list-text">ボリューム再利用ポリシーを選択してください<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block>、<block ref="6b2724e1fdbbcc2065b002943d831972" prefix=" " category="inline-code"></block>または<block ref="f2a6c498fb90ee345d997f888fce3b18" prefix=" " category="inline-code"></block>。デフォルト値はです<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block>。</block>
+  <block id="a650850a843a62d902c5720a572d392d" category="list-text">入力タイプを選択します。</block>
+  <block id="c122f0572e72207cecd5efd0f12fdf10" category="paragraph">このオプションは、別の入力コントローラを使用している場合、または独自の入力コントローラを使用する場合に使用します。Astra Control Centerを導入したら、を設定する必要があります <block ref="7d074c32e6c49929382498ad8c5637bd" category="inline-link-macro-rx"></block> URLを使用してAstra Control Centerを公開します。</block>
+  <block id="48ef1dd5f5bfc32677c3fc047fb19110" category="admonition">サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください <block ref="f326683052260ae8ea69adae62a4336c" category="inline-link-macro-rx"></block>。</block>
+  <block id="a890b0561a490db953d8aa934f2612a2" category="list-text">* Image Registry * に、ローカルコンテナイメージのレジストリパスを入力します。入らないでください<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> または<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> をクリックします。</block>
+  <block id="a652de3539170389d449c2c9109f940b" category="list-text">認証が必要なイメージレジストリを使用する場合は、イメージシークレットを入力します。</block>
+  <block id="412c5c06cc42607623120ae8f6ce48f9" category="inline-xref">クラスタでシークレットを作成します</block>
+  <block id="24ac124fff17ff1632cecc7d31aacda4" category="admonition">認証が必要なレジストリを使用する場合は、 <block ref="fe63e1bce5791215a30c45526a4b8597" category="inline-xref-macro-rx"></block>。</block>
+  <block id="8d8abe07e5ed4b0dca006fa753e019b1" category="list-text">デフォルトのストレージクラスを指定します。</block>
+  <block id="11325c490cd13a98d700159b54be4801" category="admonition">デフォルトのストレージクラスが設定されている場合は、そのストレージクラスがデフォルトのアノテーションを持つ唯一のストレージクラスであることを確認します。</block>
+  <block id="dc06cbbd59f888e4642096721734051c" category="inline-link">このセクションでは</block>
+  <block id="a3b6ac753c3ae677811e6300b886ca8a" category="admonition">CRDオプションの詳細については、を参照してください<block ref="16b9f9e9fbef5f13b27c8fa04d072d4c" category="inline-link-rx"></block>。</block>
+  <block id="c655ba9297ca1a15861d81d9de3419a2" category="list-text">YAMLビューを選択して、選択した設定を確認します。</block>
+  <block id="4377bff523574a6a6552343a5585386b" category="section-title">レジストリシークレットを作成します</block>
+  <block id="d963245b5fa2d61154278c1b2b8686a8" category="paragraph">認証が必要なレジストリを使用する場合は、OpenShiftクラスタでシークレットを作成し、にシークレット名を入力します<block ref="9eca463036a902158489237df8eb93bf" prefix=" " category="inline-code"></block> フォームフィールド。</block>
+  <block id="7ed5f25dbea8cfe8420af3c2205034ba" category="list-text">Astra Control Centerオペレータの名前空間を作成します。</block>
+  <block id="8d7dade639b832993874b6e94e53560a" category="list-text">この名前空間にシークレットを作成します。</block>
+  <block id="247048b761f645c17b335e075ed2882c" category="admonition">Astra Controlは、Dockerレジストリシークレットのみをサポートします。</block>
+  <block id="99453eb5ea67532cb71dffba08d350b6" category="inline-xref">Create AstraControlCenterフォーム・フィールド</block>
+  <block id="afb684d3bd4af4da101b5e78eb0b47c6" category="list-text">の残りのフィールドに値を入力します <block ref="243363764a8adb65b934b31027e60498" category="inline-xref-macro-rx"></block>。</block>
+  <block id="e20f9875b736f5d534a7c14be355eb06" category="paragraph">を実行します <block ref="9908a5e65371462fab8de29e0e8be055" category="inline-link-macro-rx"></block> Astra Control Centerが正常にインストールされたことを確認するには、入力コントローラ（オプション）をセットアップし、UIにログインします。また、を実行する必要があります <block ref="76156c33c6c1487a578aad8446a04b02" category="inline-link-macro-rx"></block> インストールが完了したら、</block>
+  <block id="cfe9e43a4e29105f9f24bd0ed639721b" category="paragraph-title">汎用（デフォルト）</block>
+  <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">作業を開始する前に</block>
+  <block id="52c456ead6bc96bfe1643dfd233cbf2c" category="paragraph">このコマンドはkubectlプラグインのヘルプを提供する必要があります。コマンドからエラーが返された場合は、次のコマンドを使用してプラグインをインストールします <block ref="fbbc714d1fb27025d6c64aea6ddcaf11" category="inline-link-macro-rx"></block>。</block>
+  <block id="d94e29dda4626ec2be6ac4f06224f6cf" category="section-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> すべてのアプリケーションを保護</block>
+  <block id="596a8ca466f62d03c2dfc376a65cac71" category="section-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 各アプリケーションの保護ポリシーを設定します</block>
+  <block id="db0ae7eb707500904a523f5186eb92f0" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> 保護ポリシーを調整します</block>
+  <block id="e954bf1cb1b54437e70f5d5704a01657" category="section-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> アプリケーションをリモートクラスタにレプリケートします</block>
+  <block id="8ab08c3e81a1ee43c6b03a22403291db" category="section-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> 災害が発生した場合は、最新のバックアップまたはレプリケーションを使用してアプリケーションをリモートシステムにリストアします</block>
+  <block id="0370124d48bfc5af2def19c48f433283" category="inline-link">NetApp Verda GitHubプロジェクト</block>
+  <block id="a59e4fa5cc01a3a4bdebbff4cec60b47" category="paragraph">にアクセスします<block ref="84d9961ef5a89731849bc2055780d0b6" category="inline-link-rx"></block> Apache CassandraやElasticsearchなどの一般的なアプリケーションの実行フックをダウンロードします。また、独自のカスタム実行フックを構築するための例やアイデアを得ることもできます。</block>
+  <block id="1e24416e12dc76c10b1a5d91e4001b23" category="paragraph">アプリケーションのカスタム実行フックを作成できます。を参照してください <block ref="17e166b6ef6242446312ff693caa559b" category="inline-xref-macro-rx"></block> フックの例を参照してください。実行フックを作成するには、 Owner 、 Admin 、または Member のいずれかの権限が必要です。</block>
+  <block id="9ad3989601b59e755170866a5329554c" category="list-text"><block ref="9ad3989601b59e755170866a5329554c" category="inline-link-rx"></block></block>
+  <block id="53c5fac0ba78b08ca3f0a270b746c5d2" category="section-title">別のユーザのパスワードをリセットします</block>
 </blocks>

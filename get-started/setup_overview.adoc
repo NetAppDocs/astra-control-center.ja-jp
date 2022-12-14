@@ -15,11 +15,11 @@ summary: Astra Control Center をインストールして UI にログインし�
 Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。
 
 .タスク
-*  a license for Astra Control Center
-*  your environment for cluster management using Astra Control
-*  cluster
-*  a storage backend
-*  a bucket
+* <<Astra Control Center のライセンスを追加します>>
+* <<Astra Controlを使用して、クラスタ管理のための環境を準備する>>
+* <<クラスタを追加>>
+* <<ストレージバックエンドを追加します>>
+* <<バケットを追加します>>
 
 
 
@@ -151,6 +151,7 @@ ontap-gold (default)  csi.trident.netapp.io  Delete         Immediate          t
 
 必要に応じて、Astra Control Centerの限定管理者ロールを作成できます。これは、Astra Control Centerのセットアップに必要な手順 ではありません。この手順 を使用すると、管理対象のクラスタのAstra Control権限を制限する別のkubeconfigを作成できます。
 
+.必要なもの
 手順 の手順を実行する前に、管理するクラスタに次の情報があることを確認してください。
 
 * kubectl v1.23以降がインストールされている
@@ -460,7 +461,7 @@ mv kubeconfig-sa YOUR_CLUSTER_NAME_kubeconfig
 
 === 次の手順
 
-前提条件が満たされていることを確認したら、次は準備ができています  cluster,クラスタを追加。
+前提条件が満たされていることを確認したら、次は準備ができています <<クラスタを追加,クラスタを追加>>。
 
 
 
@@ -472,7 +473,7 @@ mv kubeconfig-sa YOUR_CLUSTER_NAME_kubeconfig
 TIP: 他のクラスタを Astra Control Center に追加して管理する前に、 Astra Control Center が最初に導入したクラスタを管理することをお勧めします。指標およびトラブルシューティング用の Kubemetrics データとクラスタ関連データを送信するには、最初のクラスタを管理下に配置する必要があります。
 
 .必要なもの
-* クラスタを追加する前に、必要なを確認し、実行しておきます  your environment for cluster management using Astra Control,前提条件となるタスク。
+* クラスタを追加する前に、必要なを確認し、実行しておきます <<Astra Controlを使用して、クラスタ管理のための環境を準備する,前提条件となるタスク>>。
 
 
 .手順
@@ -489,7 +490,7 @@ NOTE: 「 kubeconfig .yaml 」ファイルには、 1 つのクラスタのク�
 
 +
 
-IMPORTANT: 自分で作成する場合は `kubeconfig` ファイルには、* 1つの*コンテキストエレメントのみを定義する必要があります。を参照してください https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes のドキュメント"^] を参照してください `kubeconfig` ファイル。を使用して、制限されたクラスタロールのkubeconfigを作成した場合  a limited cluster role kubeconfig,上記のプロセスこの手順では、kubeconfigをアップロードまたは貼り付けてください。
+IMPORTANT: 自分で作成する場合は `kubeconfig` ファイルには、* 1つの*コンテキストエレメントのみを定義する必要があります。を参照してください https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes のドキュメント"^] を参照してください `kubeconfig` ファイル。を使用して、制限されたクラスタロールのkubeconfigを作成した場合 <<制限されたクラスタロールkubeconfigを作成します,上記のプロセス>>この手順では、kubeconfigをアップロードまたは貼り付けてください。
 
 . クレデンシャル名を指定します。デフォルトでは、クレデンシャル名がクラスタの名前として自動的に入力されます。
 . 「 * 次へ * 」を選択します。
@@ -501,6 +502,7 @@ NOTE: ONTAP ストレージをベースとする Trident ストレージクラ�
 . 情報を確認し、すべてが良好な場合は、「*追加」を選択します。
 
 
+.結果
 クラスタが「* discovering *」状態になり、「Healthy *」に変わります。これで、Astra Control Centerを使用してクラスタを管理できるようになりました。
 
 
@@ -531,6 +533,7 @@ NOTE: ここで入力するクレデンシャルのユーザは、を持って�
 . バックエンドの詳細を確認し、 * Manage * を選択します。
 
 
+.結果
 バックエンドがに表示されます `Healthy` リストに概要情報を表示します。
 
 

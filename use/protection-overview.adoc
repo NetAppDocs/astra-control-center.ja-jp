@@ -24,35 +24,35 @@ Astra Control Center を使用して、アプリケーションのバックア�
 
 
 
-=== すべてのアプリケーションを保護
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"] すべてのアプリケーションを保護
 
 [role="quick-margin-para"]
 アプリケーションをすぐに保護するには、次の手順を実行します。 link:protect-apps.html#create-a-backup["すべてのアプリケーションの手動バックアップを作成する"]。
 
 
 
-=== 各アプリケーションの保護ポリシーを設定します
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2 つ"] 各アプリケーションの保護ポリシーを設定します
 
 [role="quick-margin-para"]
 将来のバックアップとスナップショットを自動化するには、 link:protect-apps.html#configure-a-protection-policy["各アプリケーションの保護ポリシーを設定します"]。たとえば、週単位のバックアップと日単位の Snapshot をそれぞれ 1 カ月ずつ保持して開始できます。手動バックアップやスナップショットよりも、保護ポリシーを使用してバックアップとスナップショットを自動化することを強く推奨します。
 
 
 
-=== 保護ポリシーを調整します
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"] 保護ポリシーを調整します
 
 [role="quick-margin-para"]
 アプリとその使用パターンが変化したら、必要に応じて保護ポリシーを調整して、最適な保護を実現します。
 
 
 
-=== アプリケーションをリモートクラスタにレプリケートします
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4."] アプリケーションをリモートクラスタにレプリケートします
 
 [role="quick-margin-para"]
 link:replicate_snapmirror.html["アプリケーションをレプリケートします"] NetApp SnapMirrorテクノロジを使用してリモートクラスタにバックアップする場合Astra Controlは、Snapshotをリモートクラスタにレプリケートし、非同期のディザスタリカバリ機能を提供します。
 
 
 
-=== 災害が発生した場合は、最新のバックアップまたはレプリケーションを使用してアプリケーションをリモートシステムにリストアします
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["5 つ"] 災害が発生した場合は、最新のバックアップまたはレプリケーションを使用してアプリケーションをリモートシステムにリストアします
 
 [role="quick-margin-para"]
 データ損失が発生した場合は、を使用してリカバリできます link:restore-apps.html["最新のバックアップをリストアしています"] まず、各アプリケーションについて説明します。その後、最新の Snapshot をリストアできます（使用可能な場合）。または、リモートシステムへのレプリケーションを使用することもできます。

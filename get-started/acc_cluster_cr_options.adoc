@@ -27,7 +27,7 @@ summary: 導入時のカスタム構成については、「Astra Control Center
 | astrauKubeConfigSecret | 文字列 | 必須 | acc-kubeconfig -cred | この値が存在し、シークレットが存在する場合、オペレータはそのKubeConfigを追加して最初の管理対象クラスタにしようとします。 
 
 
-| astraitcesScaler | 文字列 | 必須 | デフォルト | AstraeControlCenterリソース制限のスケーリングオプションを参照してください  combinations and incompatibilities,複雑さの設定 この設定が他の設定にどのように影響するかを理解する。 
+| astraitcesScaler | 文字列 | 必須 | デフォルト | AstraeControlCenterリソース制限のスケーリングオプションを参照してください <<構成の組み合わせと非互換性,複雑さの設定>> この設定が他の設定にどのように影響するかを理解する。 
 
 
 | astraVersion | 文字列 | 必須 | 1.5.2 | 導入するAstraControlCenterのバージョン対応するバージョンのHelmリポジトリが提供されます。 
@@ -72,7 +72,7 @@ summary: 導入時のカスタム構成については、「Astra Control Center
 | imageRegistry.secret | 文字列 | シークレットを必要とするimageRegistryを使用している場合は必須です | Astra - registry-cred | イメージレジストリでの認証に使用するKubernetesシークレットの名前。 
 
 
-| ingressType | 文字列 | 任意。 | 汎用（デフォルト値） | に対しては、入力アストラコントロールセンターのタイプを設定する必要があります。有効な値は「Generic」および「AccTraefik」です。を参照してください  combinations and incompatibilities,複雑さの設定 この設定が他の設定にどのように影響するかを理解する。 
+| ingressType | 文字列 | 任意。 | 汎用（デフォルト値） | に対しては、入力アストラコントロールセンターのタイプを設定する必要があります。有効な値は「Generic」および「AccTraefik」です。を参照してください <<構成の組み合わせと非互換性,複雑さの設定>> この設定が他の設定にどのように影響するかを理解する。 
 
 
 | 姓 | 文字列 | 必須 | 管理 | Astraをサポートしている管理者の姓。 
@@ -107,6 +107,7 @@ ingressTypeには、次の2つの有効な値があります。
 * AccTraefik社
 
 
+.汎用（デフォルト）
 「ingressType」が「Generic」に設定されている場合、Astra Controlは入力リソースをインストールしません。ユーザは、ネットワーク経由でトラフィックを保護し、Kubernetesクラスタで実行されているアプリケーションにルーティングする共通の方法を持っており、ここでも同じメカニズムを使用することを前提としています。ユーザがトラフィックをAstra Controlにルーティングするために入力を作成した場合、入力はポート80の内部traefikサービスを指す必要があります。ここでは、Generic ingressType設定で動作するNginx入力リソースの例を示します。
 
 [listing]
@@ -134,4 +135,5 @@ spec:
                 number: 80
           pathType: ImplementationSpecific
 ----
+.AccTraefik社
 「ingressType」が「AccTraefik」に設定されている場合、Astra Control Centerは、Kubernetes LoadBalancerタイプのサービスとしてTraefikゲートウェイを展開します。ユーザーは、Astra Control Centerで外部IPを取得するために、外部ロードバランサ(MetalLBなど)を提供する必要があります。

@@ -14,16 +14,16 @@ summary: Kubernetes クラスタ、アプリ、 Web ブラウザのサポート�
 [role="lead"]
 運用環境、アプリケーションクラスタ、アプリケーション、ライセンス、 Web ブラウザの準備ができているかどうかを検証します。
 
-*  environment requirements
-*  storage backends
-*  to the internet
-* 
-*  for on-premises Kubernetes clusters
-*  requirements
-*  web browsers
-*  requirements for application clusters
-*  Anthos cluster requirements
-*  Tanzu Kubernetes Grid cluster requirements
+* <<運用環境の要件>>
+* <<サポートされるストレージバックエンド>>
+* <<インターネットにアクセスできます>>
+* <<使用許諾>>
+* <<オンプレミス Kubernetes クラスタへの入力>>
+* <<ネットワーク要件>>
+* <<サポートされている Web ブラウザ>>
+* <<アプリケーションクラスタのその他の要件>>
+* <<Google Anthosクラスタの要件>>
+* <<VMware Tanzu Kubernetes Grid クラスタの要件>>
 
 
 
@@ -33,7 +33,7 @@ summary: Kubernetes クラスタ、アプリ、 Web ブラウザのサポート�
 Astra Control Centerは、次のタイプの運用環境で検証済みです。
 
 * Kubernetes 1.22を搭載したCisco IKS
-* Google Anthos 1.11または1.12（を参照  Anthos cluster requirements)
+* Google Anthos 1.11または1.12（を参照 <<Google Anthosクラスタの要件>>)
 * Rancher Kubernetes Engine（RKE）：
 +
 ** Rancher 2.6.5および2.6.6を備えたRKE 1.3.12
@@ -44,7 +44,7 @@ Astra Control Centerは、次のタイプの運用環境で検証済みです。
 
 * Red Hat OpenShift Container Platform 4.8~4.11
 * アップストリームKubernetes 1.23から1.25（Kubernetes 1.25にAstra Trident 22.10以降が必要）
-* VMware Tanzu Kubernetes Grid：（を参照してください  Tanzu Kubernetes Grid cluster requirements)
+* VMware Tanzu Kubernetes Grid：（を参照してください <<VMware Tanzu Kubernetes Grid クラスタの要件>>)
 +
 ** VMware Tanzu Kubernetes Grid 1.5
 ** VMware Tanzu Kubernetes Grid Integrated Edition 1.13および1.14
@@ -212,6 +212,6 @@ NOTE: デフォルトの VMware TKG および TKGi 設定ファイルトーク�
 
 
 
-== 次の手順
+== 次のステップ
 
 を表示します link:quick-start.html["クイックスタート"^] 概要（ Overview ）：

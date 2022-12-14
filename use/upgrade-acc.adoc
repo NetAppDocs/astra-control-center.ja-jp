@@ -51,14 +51,15 @@ kubectl get apiservices
 * アップグレードを開始する前に、Astra Control Center UIからログアウトします。
 
 
+.このタスクについて
 Astra Control Center のアップグレードプロセスでは、次の手順を実行できます。
 
-*  the Astra Control Center bundle
-*  the bundle
-*  the images to your local registry
-*  the updated Astra Control Center operator
-*  Astra Control Center
-*  system status
+* <<Astra Control Center バンドルをダウンロードします>>
+* <<バンドルを開梱します>>
+* <<イメージをローカルレジストリに追加します>>
+* <<更新された Astra Control Center オペレータをインストールします>>
+* <<Astra Control Center をアップグレードします>>
+* <<システムステータスを確認します>>
 
 
 
@@ -106,7 +107,7 @@ kubectl astra
 ----
 
 
-このコマンドはkubectlプラグインのヘルプを提供する必要があります。コマンドからエラーが返された場合は、次のコマンドを使用してプラグインをインストールします link:../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin["手順"]。
+このコマンドはkubectlプラグインのヘルプを提供する必要があります。コマンドからエラーが返された場合は、次のコマンドを使用してプラグインをインストールします link:../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin["手順"^]。
 
 
 
@@ -119,19 +120,14 @@ kubectl astra
 ====
 .Docker です
 --
-. をに変更します `acc` tarバンドルから抽出されたディレクトリ：
+. tarballのルートディレクトリに移動します。次のファイルとディレクトリが表示されます。
 +
-例
+`acc.manifest.bundle.yaml`
+`acc/`
 
-
-
-[listing]
-----
-cd ../acc
-----
-. Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。コマンドを実行する前に、次の置き換えを行ってください。
+. Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。を実行する前に、次の置換を行ってください `push-images` コマンドを実行します
 +
-** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.yaml`）。
+** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.bundle.yaml`）。
 ** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 https://exampledownloads.jfrog.io/docker-astra-control/v1/[]。
 ** <MY_REGISTRY_USER> をユーザ名に置き換えます。
 ** <MY_REGISTRY_TOKEN> をレジストリの認証済みトークンに置き換えます。
@@ -147,6 +143,11 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 .ポドマン
 --
+. tarballのルートディレクトリに移動します。次のファイルとディレクトリが表示されます。
++
+`acc.manifest.bundle.yaml`
+`acc/`
+
 . レジストリにログインします。
 +
 [source, console]
@@ -157,12 +158,6 @@ podman login <MY_FULL_REGISTRY_PATH>
 +
 [source, console]
 ----
-# You need to be at the root of the tarball.
-# You should see these files to confirm correct location:
-#   acc.manifest.yaml
-#   acc/
-
-# Replace <YOUR_REGISTRY> with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
 export REGISTRY=<YOUR_REGISTRY>
 export PACKAGENAME=acc
 export PACKAGEVERSION=22.11.0-82
@@ -209,8 +204,8 @@ vim astra_control_center_operator_deploy.yaml
 imagePullSecrets:
 - name: <astra-registry-cred_or_custom_name_of_secret>
 ----
-.. 変更 `[your_registry_path]` をクリックします `kube-rbac-proxy` でイメージをプッシュしたレジストリパスへのイメージ  the images to your local registry,前の手順。
-.. 変更 `[your_registry_path]` をクリックします `acc-operator` でイメージをプッシュしたレジストリパスへのイメージ  the images to your local registry,前の手順。
+.. 変更 `[your_registry_path]` をクリックします `kube-rbac-proxy` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
+.. 変更 `[your_registry_path]` をクリックします `acc-operator` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
 .. 「 env 」セクションに次の値を追加します。
 +
 [listing]
@@ -342,7 +337,7 @@ spec:
   accountName: "Example"
   *astraVersion: "[Version number]"*
 ----
-. イメージレジストリパスが、イメージをでプッシュしたレジストリパスと一致することを確認します  the images to your local registry,前の手順。更新 `imageRegistry` の内部 `Spec` 前回のインストール以降にレジストリが変更されている場合。
+. イメージレジストリパスが、イメージをでプッシュしたレジストリパスと一致することを確認します <<イメージをローカルレジストリに追加します,前の手順>>。更新 `imageRegistry` の内部 `Spec` 前回のインストール以降にレジストリが変更されている場合。
 +
 [listing]
 ----
