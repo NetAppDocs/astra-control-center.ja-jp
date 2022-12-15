@@ -960,7 +960,6 @@
   <block id="c9bcb1e1ffd0a3c4060e93553536017d" category="admonition">Cloud Insights を初めて使用する場合は、の機能について理解しておいてください。を参照してください <block ref="c0165bf1c80302323bce293718326d03" category="inline-link-macro-rx"></block>。</block>
   <block id="0f21509577569fcfd44247652db09da1" category="list-text">Cloud Insights で、 * Admin*&gt;* API Access* をクリックして、 * Read/Write * と * Read Only* API Access トークンの両方を生成します。</block>
   <block id="7a3ef7b3d20368f22318e140ed0c8bf5" category="list-text">「 * Read Only * 」キーをコピーします。Cloud Insights 接続を有効にするには、 [Astra Control Center] ウィンドウに貼り付ける必要があります。Read API Access Token Key 権限で、 Assets 、 Alerts 、 Acquisition Unit 、 and Data Collection を選択します。</block>
-  <block id="3471dafa540ad99cab68490eddb48830" category="list-text">「 * Read/Write 」キーをコピーします。Astra Control Center * Connect Cloud Insights * ウィンドウに貼り付ける必要があります。Read/Write API Access Token キー権限で、 Assets 、 Data Ingestion 、 Log Ingestion 、 Acquisition Unit を選択します。 および Data Collection 。</block>
   <block id="a514c0ae3c82c51ee5b4cd862c3c6ae5" category="paragraph">Traefik CRD を手動で削除できます。CRD はグローバルリソースであり、削除するとクラスタ上の他のアプリケーションに影響を与える可能性があります。</block>
   <block id="30e9f9c381fe23f7ce3650c2587f95e5" category="list-text">クラスタにインストールされている Traefik CRD を表示します。</block>
   <block id="61f5bc231326b2369e71b3e4d9f8c986" category="paragraph">既存の自己署名 TLS 証明書を削除します。</block>
@@ -2619,4 +2618,5 @@
   <block id="d1141e4fbef627d770ba551621d0f9ba" category="list-text">Istioサービスメッシュに参加するアプリケーションの実行フックを作成する場合は、フックがサービスメッシュコンテナではなく、元のアプリケーションコンテナに対して実行されていることを確認します。Istioサービスメッシュを使用するアプリケーションに対して実行されるすべての実行フックにフィルターregexを適用することで、Istioサービスメッシュコンテナを除外できます。</block>
   <block id="6f0d5941d5a6edfad3a1597fae5c8340" category="list-text">実行フックは、実行中のアプリケーションの機能を低下させるか、完全に無効にすることが多いため、カスタム実行フックの実行時間を最小限に抑えるようにしてください。</block>
   <block id="678c0d401fe58fc5c33f7d717ff8c970" category="list-text">実行フックが関連付けられている状態でバックアップまたはスナップショット操作を開始した後'キャンセルした場合でも'バックアップまたはスナップショット操作がすでに開始されていればフックは実行できますつまり、バックアップ後の実行フックでは、バックアップが完了したとは判断できません。</block>
+  <block id="f83cc958d14f90620b7ffdf9923fe440" category="list-text">「 * Read/Write 」キーをコピーします。Astra Control Center * Connect Cloud Insights * ウィンドウに貼り付ける必要があります。Read/Write API Access Tokenキーの権限で、Data Ingestion、Log Ingestion、Acquisition Unit、およびData Collectionを選択します。</block>
 </blocks>
