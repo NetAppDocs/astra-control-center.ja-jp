@@ -14,56 +14,64 @@ summary: 数ステップで Astra Control を使い始めましょう。
 [role="lead"]
 このページでは、 Astra Control Center の導入に必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。
 
-ぜひお試しください。Astra Control Center を試す場合は、 90 日間の評価ライセンスを使用できます。を参照してください link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["ライセンス情報"] を参照してください。
+ぜひお試しください。Astra Control Center を試す場合は、 90 日間の評価ライセンスを使用できます。を参照してください link:../concepts/licensing.html["ライセンス情報"^] を参照してください。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"] Kubernetes クラスタの要件を確認
-[role="quick-margin-list"]
-* Astraは、TridentベースのストレージクラスとONTAP ストレージバックエンドを使用して、Kubernetesクラスタと連携します。
-* クラスタが正常な状態で稼働し、少なくとも 3 つのオンラインワーカーノードが必要です。
+環境がこれらの要件を満たしていることを確認します。
+
+* Kubernetesクラスタ*
+
+* link:../get-started/requirements.html#operational-environment-requirements["環境が運用環境の要件を満たしていることを確認"^]
+* link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["オンプレミスKubernetesクラスタでロードバランシングを行うための入力を設定する"^]
 
 
-[role="quick-margin-para"]
-の詳細を確認してください link:../get-started/requirements.html["Astra Control Center の要件"]。
+*ストレージ統合*
+
+* link:../get-started/requirements.html#operational-environment-requirements["サポートされているAstra Tridentバージョンが環境に含まれていることを確認します"^]
+* https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["Astra Tridentストレージバックエンドを設定"^]
+* https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Astra Tridentストレージクラスを設定する"^]
+* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Astra Tridentボリュームのスナップショットコントローラとスナップショットクラスをインストール"^]
+* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["TridentストレージボリュームのSnapshotコントローラとSnapshotクラスを設定"^]
+
+
+* ONTAP クレデンシャル*
+
+* link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["ONTAP クレデンシャルを設定する"^]
+
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2 つ"] Astra Control Centerをダウンロードしてインストールします
-[role="quick-margin-list"]
-* から Astra Control Center をダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["ネットアップサポートサイトの「 Astra Control Center Downloads 」ページ"^]。
-* Astra Control Center をローカル環境にインストールします。
-+
-必要に応じて、 Red Hat OperatorHub を使用して Astra Control Center をインストールします。必要に応じて、Cloud Volumes ONTAP ストレージバックエンドなど、サポートされているパブリッククラウドプラットフォームにAstra Control Centerをインストールします。
+次のインストールタスクを実行します。
 
-* 必要に応じて、環境に応じて追加の作業を行います link:configure-after-install.html["設定手順"]。の詳細を確認してください link:../get-started/install_overview.html["Astra Control Centerのインストール"]。
+* https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support Site ダウンロードページからAstraコントロールセンターをダウンロードします"^]
+* link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Centerを評価している場合は、評価用ライセンスファイルをダウンロードします"^]
+* link:../concepts/licensing.html["Astra Control Centerをすでに購入している場合は、ライセンスファイルを生成します"^]
+* link:../get-started/install_overview.html["Astra Control Center をインストールします"^]
+* link:../get-started/configure-after-install.html["追加のオプション設定手順を実行します"^]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"] いくつかの初期セットアップ作業を完了します
-[role="quick-margin-list"]
-* Astra ControlライセンスとサポートするONTAP ライセンスを追加
-* Kubernetesクラスタを追加
-* ONTAP ストレージバックエンドを追加します。
-* 必要に応じて、アプリケーションバックアップを格納するオブジェクトストアバケットを追加します。
+いくつかの基本的な作業を完了して開始します。
 
+* link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["ライセンスを追加します"^]
+* link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["クラスタ管理のための環境を準備します"^]
+* link:../get-started/setup_overview.html#add-cluster["クラスタを追加"^]
+* link:../get-started/setup_overview.html#add-a-storage-backend["ストレージバックエンドを追加します"^]
+* link:../get-started/setup_overview.html#add-a-bucket["バケットを追加します"^]
 
-[role="quick-margin-para"]
-の詳細については、を参照してください link:../get-started/setup_overview.html["初期セットアッププロセス"]。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4."] Astra Control Center を使用
-[role="quick-margin-list"]
-Astra Control Center のセットアップが完了したら、次の手順を実行します。
+Astra Control Centerのセットアップが完了したら、次の手順を実行します。Astra Controlのユーザインターフェイス（UI）またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API の略"^]。
 
-[role="quick-margin-list"]
-* アプリを管理します。の詳細を確認してください link:../use/manage-apps.html["アプリの管理方法"]。
-* アプリの保護ポリシーの設定、リモートシステムへのアプリのレプリケーション、アプリのクローニング、アプリの移行などにより、アプリを保護します。の詳細を確認してください link:../use/protection-overview.html["アプリを保護する方法"]。
-* アカウントの管理（ユーザ、ロール、ユーザ認証用のLDAP、クレデンシャルなど）の詳細を確認してください link:../use/manage-local-users-and-roles.html["ローカルユーザ、ロール、およびLDAPを管理する方法"]。
-* 必要に応じて、 NetApp Cloud Insights に接続し、 Astra Control Center UI 内のシステム、容量、およびスループットの健全性に関する指標を表示します。の詳細を確認してください link:../use/monitor-protect.html["Cloud Insights への接続方法"]。
-
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["5 つ"] このクイックスタートから続行します
-[role="quick-margin-para"]
-link:../get-started/install_overview.html["Astra Control Center をインストールします"]。
+* link:../use/manage-apps.html["アプリの管理"^]
+* link:../use/protection-overview.html["アプリを保護します"^]：保護ポリシーを構成し、アプリケーションのレプリケーション、クローニング、移行を行います。
+* link:../use/manage-local-users-and-roles.html["アカウントを管理"^]ユーザ、ロール、LDAP、クレデンシャルなど
+* link:../use/monitor-protect.html#connect-to-cloud-insights["必要に応じて、Cloud Insights に接続します"^]：システムの健全性に関する指標を表示します。
 
 
 
-== 詳細については、こちらをご覧ください
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API の略"^]
+* https://review.docs.netapp.com/us-en/astra-control-center_acc-pi7-review/use/upgrade-acc.html["Astra Control Center をアップグレードします"^]
 

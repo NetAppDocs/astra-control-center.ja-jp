@@ -764,12 +764,6 @@
   <block id="a87da1b8e8afc29470ac85cf788e125c" category="doc">Astra Control Center のクイックスタート</block>
   <block id="15dd8f83e9a999edc6eae56c5aec726e" category="paragraph">このページでは、 Astra Control Center の導入に必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。</block>
   <block id="b777e6ba4555d404b00c2436d03ae649" category="inline-link-macro">ライセンス情報</block>
-  <block id="0deb5023224ed4d71135e9bae6dff9d4" category="list-text">クラスタが正常な状態で稼働し、少なくとも 3 つのオンラインワーカーノードが必要です。</block>
-  <block id="afdff0e68ce5b4b3109d398df16872f7" category="inline-link">ネットアップサポートサイトの「 Astra Control Center Downloads 」ページ</block>
-  <block id="b6511e86f155fe09cdd3bb8e739ea6b5" category="list-text">から Astra Control Center をダウンロードします<block ref="287561c5277beeaf3b39a65b237114c8" category="inline-link-rx"></block>。</block>
-  <block id="276a11727deff1a1f5ebf349b23835fc" category="list-text">Astra Control Center をローカル環境にインストールします。</block>
-  <block id="aacfab881a9e939b2424f0e0b25eb558" category="list-text">必要に応じて、アプリケーションバックアップを格納するオブジェクトストアバケットを追加します。</block>
-  <block id="154eb8ea764a5b550f71c94b510f7a75" category="paragraph">Astra Control Center のセットアップが完了したら、次の手順を実行します。</block>
   <block id="efb8331a92b47dc173e5cbcd8ae1a87b" category="summary">Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。</block>
   <block id="d507eb4e66b24d44edccbe2de081c8ee" category="doc">Astra Control Center をセットアップします</block>
   <block id="ef615563c8e8ea902c7fcac3cd2c4246" category="list-title">タスク</block>
@@ -1228,7 +1222,6 @@
   <block id="77e0de8ecc5568c2d3a063c7dc7001ec" category="admonition">サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>。</block>
   <block id="db199481bf6cf2d5e29909b07d83a660" category="summary">Astra Control Center のインストール方法を選択できます。</block>
   <block id="29a22a050bd07366c87409e65a0fd0cd" category="list-text"><block ref="29a22a050bd07366c87409e65a0fd0cd" category="inline-link-macro-rx"></block></block>
-  <block id="5c3ecd2a6e7743910c01e8a3ede5d0e2" category="paragraph"><block ref="4f53ab095a585e280035de1f6822ef65" category="inline-link-macro-rx"></block>。</block>
   <block id="1db3861c7c604e022707e65328ef7cc2" category="cell">FQDN アドレス</block>
   <block id="b3071c30261a1e065c64f3de227b01ff" category="cell">Astra Control Center の FQDN アドレス</block>
   <block id="6e8275b6ade503dd8103605c96de24f1" category="section-title">VMware Tanzu Kubernetes Grid クラスタの要件</block>
@@ -1930,11 +1923,6 @@
   <block id="f79830bec9b778f1cf3c950471bafb95" category="inline-link-macro">Astra Control Centerの機能</block>
   <block id="ae49257ca8c170cdd9b892d435d60a14" category="paragraph">Astra Control Center の全機能を使用するには、 Astra Control Center ライセンスが必要です。評価用ライセンスまたはフルライセンスをネットアップから取得する。アプリケーションとデータを保護するにはライセンスが必要です。を参照してください <block ref="7fcc59b1843f920708fc18c7727f8745" category="inline-link-macro-rx"></block> を参照してください。</block>
   <block id="32c2e315eb3384a5835e26a647684aec" category="paragraph">ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください <block ref="8e7dadcc6edcd7a6649fd7bd3abadd5f" category="inline-link-macro-rx"></block>。</block>
-  <block id="d0945e630f33dd0475cc6b38cb528ffb" category="inline-link-macro">Astra Control Centerのインストール</block>
-  <block id="99bebad9572c9b2d89ca66465539d959" category="list-text">Astra ControlライセンスとサポートするONTAP ライセンスを追加</block>
-  <block id="87d2ee45afe04a74320927b3cc97c4ef" category="list-text">ONTAP ストレージバックエンドを追加します。</block>
-  <block id="696638e6fb97f6a54feea5bca820df2e" category="inline-link-macro">初期セットアッププロセス</block>
-  <block id="e103cc9d2252c32b1965c1a4aef6e3de" category="paragraph">の詳細については、を参照してください <block ref="726a2b46b7700f295515291efa038ba2" category="inline-link-macro-rx"></block>。</block>
   <block id="f06853bf12dc9a7737fb9921535d6e83" category="paragraph">製品を購入すると、シリアル番号とライセンスが届きます。からネットアップライセンスファイル（NLF）を生成できます<block ref="fcc52edac3ce57829c48ee35d97a295d" category="inline-link-rx"></block>。</block>
   <block id="34c08446234edc37b22fa4ed2230f6fe" category="paragraph">Astra Control Centerには、評価用ライセンスをお試しいただけます。このライセンスは、Astra Control Centerをダウンロードした日から90日間使用できます。登録すると、無償トライアルに登録できます <block ref="94c4952ff767dc7f2318bf778dfb79d4" category="inline-link-macro-rx"></block>。</block>
   <block id="6db4db93a9c2608b2abfc46bb675e283" category="paragraph">Kubernetesアプリケーションをセットアップおよび管理するには、Astra Control Center UIまたはAstra Control APIのいずれかを使用できます。</block>
@@ -2060,20 +2048,6 @@
   <block id="adf00e9796352a26290557ccd6ac392f" category="list-text">入力コントローラトラフィック（がの場合のみ）<block ref="4388d54e87947748fc2ff08932daa51e" prefix=" " category="inline-code"></block> プロパティはで設定されました<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> Astra Control Centerのインストール中にファイルを作成）</block>
   <block id="34c3595304dbc599de36bbc658dd1b51" category="paragraph">これらの接続の認証に使用される証明書は、デフォルトのTLS証明書に置き換えられます。</block>
   <block id="7153c603856f5a59f075bee1f8b0ddb7" category="section-title">コマンドラインを使用して新しい証明書を追加します</block>
-  <block id="ce557d427587f90d2feae33dbc9f8dd0" category="paragraph">ぜひお試しください。Astra Control Center を試す場合は、 90 日間の評価ライセンスを使用できます。を参照してください <block ref="3d35b4f40b39e7d8200f90f9d624f8f4" category="inline-link-macro-rx"></block> を参照してください。</block>
-  <block id="7935f1ae6d317830070743debdbb6734" category="list-text">Astraは、TridentベースのストレージクラスとONTAP ストレージバックエンドを使用して、Kubernetesクラスタと連携します。</block>
-  <block id="c3f5e0972aa7ce15473e0d3c0d717de9" category="paragraph">の詳細を確認してください <block ref="a41c664e3d2520e4c4deb907d0286272" category="inline-link-macro-rx"></block>。</block>
-  <block id="ada44e3a0bcc72656920268c7fa27139" category="paragraph">必要に応じて、 Red Hat OperatorHub を使用して Astra Control Center をインストールします。必要に応じて、Cloud Volumes ONTAP ストレージバックエンドなど、サポートされているパブリッククラウドプラットフォームにAstra Control Centerをインストールします。</block>
-  <block id="62a320f0d86064504c0f9157677d278d" category="list-text">必要に応じて、環境に応じて追加の作業を行います <block ref="c806b8b1d125a0b458ba20e4c35a2d45" category="inline-link-macro-rx"></block>。の詳細を確認してください <block ref="a4c65d6b325e0b0dbae534b5bb678d6c" category="inline-link-macro-rx"></block>。</block>
-  <block id="0a50cc01179d09fc40c479ef784b30b1" category="list-text">Kubernetesクラスタを追加</block>
-  <block id="32c381bffe8fae6425ab0bf2a3a65cad" category="inline-link-macro">アプリの管理方法</block>
-  <block id="4291c8fae6c61e973849b9056a57678a" category="list-text">アプリを管理します。の詳細を確認してください <block ref="f3313db5111fb1737b87fa3ac4f45bf4" category="inline-link-macro-rx"></block>。</block>
-  <block id="b3846323af04cbbd4ee0706ff4153759" category="inline-link-macro">アプリを保護する方法</block>
-  <block id="56b30876565cc7138620d2f615392d26" category="list-text">アプリの保護ポリシーの設定、リモートシステムへのアプリのレプリケーション、アプリのクローニング、アプリの移行などにより、アプリを保護します。の詳細を確認してください <block ref="5bab860454cd2b2aa82f1064f0ed1477" category="inline-link-macro-rx"></block>。</block>
-  <block id="a0158312c63069a86bf2f03a67162bca" category="inline-link-macro">ローカルユーザ、ロール、およびLDAPを管理する方法</block>
-  <block id="b6d99f223dc3cc8d1ec1e14a71d168f9" category="list-text">アカウントの管理（ユーザ、ロール、ユーザ認証用のLDAP、クレデンシャルなど）の詳細を確認してください <block ref="cb179cb12d5c5c90a785401835b9f451" category="inline-link-macro-rx"></block>。</block>
-  <block id="30fcebd038ce405084d3b0982ab5c014" category="inline-link-macro">Cloud Insights への接続方法</block>
-  <block id="f91df3b82a6ea2a6d8ddc88580cde9a1" category="list-text">必要に応じて、 NetApp Cloud Insights に接続し、 Astra Control Center UI 内のシステム、容量、およびスループットの健全性に関する指標を表示します。の詳細を確認してください <block ref="bdebcd33f929c85c525f459c7348ef61" category="inline-link-macro-rx"></block>。</block>
   <block id="3b42d66041607d1a56d962e70158ea6c" category="list-text"><block ref="cf5204afdf6b61205c06db64ae1497b5" category="inline-xref-macro-rx"></block></block>
   <block id="4388f70019f1cba1ecdff6645a60df61" category="paragraph">新しいライセンスは、Astra Control UIまたはを使用して追加できます<block ref="3f4eec2c2c841509295f8beef0b157bb" category="inline-link-rx"></block> Astra Control Center の全機能を利用できます。ライセンスがないと、 Astra Control Center の使用は、ユーザの管理と新しいクラスタの追加に限定されます。</block>
   <block id="cba301059d075e3de72580da249d7de2" category="paragraph">Astra Control Centerライセンスは、Kubernetes CPUユニットを使用してCPUリソースを測定し、すべての管理対象Kubernetesクラスタのワーカーノードに割り当てられたCPUリソースを考慮します。ライセンスはvCPUの使用量に基づいています。ライセンスの計算方法の詳細については、を参照してください <block ref="33517e0e170e068dfb6f5617810a0372" category="inline-link-macro-rx"></block>。</block>
@@ -2553,7 +2527,6 @@
   <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">4.</block>
   <block id="9824425bd5418e5e140ee6b8561b8914" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Astra Control Center を使用</block>
   <block id="e5d9de39f7ca1ba2637e5640af3ae8aa" category="inline-image-macro">5 つ</block>
-  <block id="4e661ed0899ae91f577701320636fabf" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> このクイックスタートから続行します</block>
   <block id="58eaebf972358f1cf03d386a4ade1a0f" category="section-title">次の手順</block>
   <block id="9905787058ed1f891f5110340336c6f4" category="section-title">AWSに必要なもの</block>
   <block id="60f26f17249a512292a5fb57e3431dea" category="section-title">GCPに必要なもの</block>
@@ -2619,4 +2592,52 @@
   <block id="6f0d5941d5a6edfad3a1597fae5c8340" category="list-text">実行フックは、実行中のアプリケーションの機能を低下させるか、完全に無効にすることが多いため、カスタム実行フックの実行時間を最小限に抑えるようにしてください。</block>
   <block id="678c0d401fe58fc5c33f7d717ff8c970" category="list-text">実行フックが関連付けられている状態でバックアップまたはスナップショット操作を開始した後'キャンセルした場合でも'バックアップまたはスナップショット操作がすでに開始されていればフックは実行できますつまり、バックアップ後の実行フックでは、バックアップが完了したとは判断できません。</block>
   <block id="f83cc958d14f90620b7ffdf9923fe440" category="list-text">「 * Read/Write 」キーをコピーします。Astra Control Center * Connect Cloud Insights * ウィンドウに貼り付ける必要があります。Read/Write API Access Tokenキーの権限で、Data Ingestion、Log Ingestion、Acquisition Unit、およびData Collectionを選択します。</block>
+  <block id="50eac7a8226d30ab336bd2f68c81d5d7" category="paragraph">ぜひお試しください。Astra Control Center を試す場合は、 90 日間の評価ライセンスを使用できます。を参照してください <block ref="63bc3e673bda1b27140b6b5b88199732" category="inline-link-macro-rx"></block> を参照してください。</block>
+  <block id="a8a5da0c5d62ec5f7225e0ce27261da7" category="paragraph">環境がこれらの要件を満たしていることを確認します。</block>
+  <block id="b5233b1e8c04e10566734b9cecfc92b1" category="paragraph">* Kubernetesクラスタ*</block>
+  <block id="b3617c5929e3cf6406a5cdcd1eea0a9c" category="inline-link-macro">環境が運用環境の要件を満たしていることを確認</block>
+  <block id="bfecfe81e9be380f98a1b727eff91614" category="list-text"><block ref="bfecfe81e9be380f98a1b727eff91614" category="inline-link-macro-rx"></block></block>
+  <block id="9075e632fc6c099653c3c60ce5f635c5" category="inline-link-macro">オンプレミスKubernetesクラスタでロードバランシングを行うための入力を設定する</block>
+  <block id="737d5c48f1830eb81614b8f6e0e6b6cc" category="list-text"><block ref="737d5c48f1830eb81614b8f6e0e6b6cc" category="inline-link-macro-rx"></block></block>
+  <block id="929a65ed5e1201f9d151e32a0971553d" category="paragraph">*ストレージ統合*</block>
+  <block id="8ae57878720ba2997fde06ff1c140fe6" category="inline-link-macro">サポートされているAstra Tridentバージョンが環境に含まれていることを確認します</block>
+  <block id="d7c5adf06c7ad44232a4d1546865825c" category="list-text"><block ref="d7c5adf06c7ad44232a4d1546865825c" category="inline-link-macro-rx"></block></block>
+  <block id="dd678a0b3a73cdc79d52e5a75a29712a" category="inline-link">Astra Tridentストレージバックエンドを設定</block>
+  <block id="6b836f0beaae8e5e5b3ee7da02492481" category="list-text"><block ref="6b836f0beaae8e5e5b3ee7da02492481" category="inline-link-rx"></block></block>
+  <block id="8fa7c146eed93f49403e27757627c1de" category="inline-link">Astra Tridentストレージクラスを設定する</block>
+  <block id="8f233a56a0bbc57a073461b666b439e1" category="list-text"><block ref="8f233a56a0bbc57a073461b666b439e1" category="inline-link-rx"></block></block>
+  <block id="2d2c9a29bb271a0bf15559829b91147a" category="inline-link">Astra Tridentボリュームのスナップショットコントローラとスナップショットクラスをインストール</block>
+  <block id="6c4528e739169720eefd2bff769e1da1" category="list-text"><block ref="6c4528e739169720eefd2bff769e1da1" category="inline-link-rx"></block></block>
+  <block id="527fdd132db746b3b10c377fcc937a6b" category="inline-link">TridentストレージボリュームのSnapshotコントローラとSnapshotクラスを設定</block>
+  <block id="d0b095d6aa400765f2fd9213267791a8" category="list-text"><block ref="d0b095d6aa400765f2fd9213267791a8" category="inline-link-rx"></block></block>
+  <block id="ae0a6f81e3ab19bb5bb4cc16ba804b6d" category="paragraph">* ONTAP クレデンシャル*</block>
+  <block id="cff9e873ecc35abb358c9f43ad1d3dcf" category="inline-link-macro">ONTAP クレデンシャルを設定する</block>
+  <block id="27912e4366edb4ee86aa373395b590f5" category="list-text"><block ref="27912e4366edb4ee86aa373395b590f5" category="inline-link-macro-rx"></block></block>
+  <block id="7ae94f3e29fb1789e466d68ff3b7719d" category="paragraph">次のインストールタスクを実行します。</block>
+  <block id="be63ab5309fd82ceb3e549496baad39a" category="inline-link">NetApp Support Site ダウンロードページからAstraコントロールセンターをダウンロードします</block>
+  <block id="5aa98cd838ea9dade91877a36ab694a8" category="list-text"><block ref="5aa98cd838ea9dade91877a36ab694a8" category="inline-link-rx"></block></block>
+  <block id="81d47d4dec7b1222070eae27bb4310ee" category="inline-link-macro">Astra Control Centerを評価している場合は、評価用ライセンスファイルをダウンロードします</block>
+  <block id="1ac362ab549aa84c347d7d5271314ad6" category="list-text"><block ref="1ac362ab549aa84c347d7d5271314ad6" category="inline-link-macro-rx"></block></block>
+  <block id="fbc059a4c4dca73352b8c2d2b522c031" category="inline-link-macro">Astra Control Centerをすでに購入している場合は、ライセンスファイルを生成します</block>
+  <block id="d3e8fd495d55bcc11d404a5401147b55" category="list-text"><block ref="d3e8fd495d55bcc11d404a5401147b55" category="inline-link-macro-rx"></block></block>
+  <block id="28d87c90870047c51935e011ce5611a2" category="list-text"><block ref="28d87c90870047c51935e011ce5611a2" category="inline-link-macro-rx"></block></block>
+  <block id="50fd68f173baa5875cfb4c4f956ed966" category="inline-link-macro">追加のオプション設定手順を実行します</block>
+  <block id="8a2d0b5d3ae0c64a9bbd6f907fdd49a9" category="list-text"><block ref="8a2d0b5d3ae0c64a9bbd6f907fdd49a9" category="inline-link-macro-rx"></block></block>
+  <block id="fc902c0e2ec2761be704bc86d6da6195" category="paragraph">いくつかの基本的な作業を完了して開始します。</block>
+  <block id="ec01ce5d7a75843507cddc0f1e980f6a" category="inline-link-macro">ライセンスを追加します</block>
+  <block id="9cd5bd1af078069458de7df94bbb3c5a" category="list-text"><block ref="9cd5bd1af078069458de7df94bbb3c5a" category="inline-link-macro-rx"></block></block>
+  <block id="e615e4db7ab4de24645d9fa039b73e02" category="inline-link-macro">クラスタ管理のための環境を準備します</block>
+  <block id="4733f826edfe75fc0c82d0c803bd1e86" category="list-text"><block ref="4733f826edfe75fc0c82d0c803bd1e86" category="inline-link-macro-rx"></block></block>
+  <block id="013a127f643228c21ab6c9baf558cef5" category="inline-link-macro">クラスタを追加</block>
+  <block id="3020dd08728680c8a3e10602b33cd923" category="list-text"><block ref="3020dd08728680c8a3e10602b33cd923" category="inline-link-macro-rx"></block></block>
+  <block id="8316c4ee552ed64f43cc8c5453b6dc90" category="list-text"><block ref="8316c4ee552ed64f43cc8c5453b6dc90" category="inline-link-macro-rx"></block></block>
+  <block id="9e263ce7e6d16d802d4f5fdb961973cb" category="list-text"><block ref="9e263ce7e6d16d802d4f5fdb961973cb" category="inline-link-macro-rx"></block></block>
+  <block id="a06e11c328de2e8797a5126bacc41f4a" category="paragraph">Astra Control Centerのセットアップが完了したら、次の手順を実行します。Astra Controlのユーザインターフェイス（UI）またはを使用できます<block ref="c076c843349c85837d82b7f2e26fe2bf" category="inline-link-rx"></block>。</block>
+  <block id="6fe79d58f8a8b720433194a3efe0f398" category="list-text"><block ref="6fe79d58f8a8b720433194a3efe0f398" category="inline-link-macro-rx"></block></block>
+  <block id="ea0df431e9a218f5a0629b3821a462af" category="list-text"><block ref="a31feca3886e9400a923ff8b2642373f" category="inline-link-macro-rx"></block>：保護ポリシーを構成し、アプリケーションのレプリケーション、クローニング、移行を行います。</block>
+  <block id="a17247e8a3b531331724f69e1e71949a" category="list-text"><block ref="442a8ba322bd53d625de068878060461" category="inline-link-macro-rx"></block>ユーザ、ロール、LDAP、クレデンシャルなど</block>
+  <block id="d9379e355ade43c04f76c0b075ef6732" category="inline-link-macro">必要に応じて、Cloud Insights に接続します</block>
+  <block id="cd0049b5789664729fdfe7d5fc0b4f40" category="list-text"><block ref="bf4c77b3020a0bd5cc9fb63a5d3fb351" category="inline-link-macro-rx"></block>：システムの健全性に関する指標を表示します。</block>
+  <block id="e84bb7e947a5b25481546110f575734a" category="list-text"><block ref="e84bb7e947a5b25481546110f575734a" category="inline-link-rx"></block></block>
+  <block id="5cfc5eef68c2a0f98ee2f703248801de" category="list-text"><block ref="5cfc5eef68c2a0f98ee2f703248801de" category="inline-link-rx"></block></block>
 </blocks>
