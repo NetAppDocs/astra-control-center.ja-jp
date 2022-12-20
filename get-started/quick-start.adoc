@@ -12,9 +12,7 @@ summary: 数ステップで Astra Control を使い始めましょう。
 
 
 [role="lead"]
-このページでは、 Astra Control Center の導入に必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。
-
-ぜひお試しください。Astra Control Center を試す場合は、 90 日間の評価ライセンスを使用できます。を参照してください link:../concepts/licensing.html["ライセンス情報"^] を参照してください。
+ここでは、Astra Control Centerの導入に必要な手順の概要を示します。各ステップ内のリンクから、詳細が記載されたページに移動できます。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"] Kubernetes クラスタの要件を確認
 環境がこれらの要件を満たしていることを確認します。
@@ -31,7 +29,7 @@ summary: 数ステップで Astra Control を使い始めましょう。
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["Astra Tridentストレージバックエンドを設定"^]
 * https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Astra Tridentストレージクラスを設定する"^]
 * https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Astra Tridentボリュームのスナップショットコントローラとスナップショットクラスをインストール"^]
-* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["TridentストレージボリュームのSnapshotコントローラとSnapshotクラスを設定"^]
+* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["ボリュームSnapshotクラスを作成します"^]
 
 
 * ONTAP クレデンシャル*
@@ -43,8 +41,12 @@ summary: 数ステップで Astra Control を使い始めましょう。
 次のインストールタスクを実行します。
 
 * https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support Site ダウンロードページからAstraコントロールセンターをダウンロードします"^]
-* link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Centerを評価している場合は、評価用ライセンスファイルをダウンロードします"^]
-* link:../concepts/licensing.html["Astra Control Centerをすでに購入している場合は、ライセンスファイルを生成します"^]
+* ネットアップライセンスファイルを入手します。
++
+** link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Centerを評価している場合は、評価用ライセンスファイルをダウンロードします"^]
+** link:../concepts/licensing.html["Astra Control Centerをすでに購入している場合は、ライセンスファイルを生成します"^]
+
+
 * link:../get-started/install_overview.html["Astra Control Center をインストールします"^]
 * link:../get-started/configure-after-install.html["追加のオプション設定手順を実行します"^]
 

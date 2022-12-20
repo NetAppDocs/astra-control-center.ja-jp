@@ -46,7 +46,7 @@ homepage:
     - title: リリースノート
       url: "/release-notes/rn_overview.html"
     - title: ぜひお試しください
-      url: "/get-started/setup_overview.html#add-a-license-for-astra-control-center"
+      url: "/get-started/quick-start.html"
     - title: Astra Control Center をインストールします
       url: "/get-started/install_acc.html"
   - title: Astra Control Center を使用

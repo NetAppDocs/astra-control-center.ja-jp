@@ -14,11 +14,11 @@ summary: Astra Control Center で実行できる操作は、ライセンスの�
 [role="lead"]
 Astra Control Centerを有効にするには、フルアプリケーションデータ管理機能を有効にするためのライセンスが必要です。Astra Control Center をライセンスなしで導入すると、システム機能が制限されていることを示すバナーが Web UI に表示されます。
 
-アプリケーションとデータを保護するにはライセンスが必要です。「Astra Control Center」を参照してください link:../concepts/intro.html["の機能"] を参照してください。
+次のいずれかの方法でライセンスを取得します。
 
-製品を購入すると、シリアル番号とライセンスが届きます。からネットアップライセンスファイル（NLF）を生成できます https://mysupport.netapp.com["ネットアップサポートサイト"^]。
+* link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Centerを評価している場合は、評価用ライセンスファイルをダウンロードします"^]。評価用ライセンスでは、ライセンスをダウンロードした日から90日間、Astra Control Centerを使用できます。
+* link:../concepts/licensing.html["Astra Control Centerを購入済みの場合は、ネットアップライセンスファイル（NLF）を生成する"^] NetApp Support Site から。製品を購入すると、サポートサイトで使用するシリアル番号とライセンスが提供されます。
 
-また、 Astra Control Center に評価ライセンスをお試しいただくこともできます。このライセンスは、 Astra Control Center をダウンロードした日から 90 日間使用できます。詳細については、を参照してください link:../get-started/requirements.html["要件"]。
 
 ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください link:../get-started/requirements.html["サポートされるストレージバックエンド"]。
 
@@ -37,5 +37,6 @@ NOTE: クラスタの追加、バケットの追加、ストレージバック�
 
 == 詳細については、こちらをご覧ください
 
+* link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["Astra Control Centerの初回セットアップ時にライセンスを追加します"]
 * link:../use/update-licenses.html["既存のライセンスを更新する"]
 
