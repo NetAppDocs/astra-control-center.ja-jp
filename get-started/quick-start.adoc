@@ -40,7 +40,7 @@ summary: 数ステップで Astra Control を使い始めましょう。
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2 つ"] Astra Control Centerをダウンロードしてインストールします
 次のインストールタスクを実行します。
 
-* https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support Site ダウンロードページからAstraコントロールセンターをダウンロードします"^]
+* https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["NetApp Support Site 評価ダウンロードページからAstraコントロールセンターをダウンロードします"^]
 * ネットアップライセンスファイルを入手します。
 +
 ** link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Centerを評価している場合は、評価用ライセンスファイルをダウンロードします"^]
