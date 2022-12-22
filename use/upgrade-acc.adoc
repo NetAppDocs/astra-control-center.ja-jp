@@ -55,6 +55,7 @@ kubectl get apiservices
 Astra Control Center のアップグレードプロセスでは、次の手順を実行できます。
 
 * <<Astra Control Centerをダウンロードして展開します>>
+* <<NetApp Astra kubectlプラグインを削除して、再度インストールします>>
 * <<イメージをローカルレジストリに追加します>>
 * <<更新された Astra Control Center オペレータをインストールします>>
 * <<Astra Control Center をアップグレードします>>
@@ -97,19 +98,43 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 
 
-== NetApp Astra kubectlプラグインがインストールされていることを確認します
+== NetApp Astra kubectlプラグインを削除して、再度インストールします
 
 NetApp Astra kubectlコマンドラインプラグインは、Astra Control Centerの導入とアップグレードに関連する一般的なタスクを実行する際に時間を節約します。
 
-. 次のコマンドを使用して、プラグインがインストールされているかどうかを確認します。
+. プラグインがインストールされているかどうかを確認します。
 +
 [listing]
 ----
 kubectl astra
 ----
+. 次のいずれかを実行します。
++
+** プラグインがインストールされている場合、コマンドはkubectlプラグインのヘルプを返す必要があります。既存のバージョンのkubectl-mstraを削除するには、次のコマンドを実行します。 `delete /usr/local/bin/kubectl-astra`。
+** コマンドからエラーが返された場合は、プラグインがインストールされていません。次の手順に進んでインストールしてください。
 
 
-このコマンドはkubectlプラグインのヘルプを提供する必要があります。コマンドからエラーが返された場合は、次のコマンドを使用してプラグインをインストールします link:../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin["手順"^]。
+. プラグインをインストールします。
++
+.. 使用可能なNetApp Astra kubectlプラグインのバイナリを表示し、オペレーティングシステムとCPUアーキテクチャに必要なファイルの名前をメモします。
++
+
+NOTE: kubectlプラグインライブラリはtarバンドルの一部であり、フォルダに解凍されます `kubectl-astra`。
+
++
+[source, console]
+----
+ls kubectl-astra/
+----
+.. 正しいバイナリを現在のパスに移動し、名前をに変更します `kubectl-astra`：
++
+[source, console]
+----
+cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
+----
+
+
+
 
 
 
@@ -130,7 +155,7 @@ kubectl astra
 . Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。を実行する前に、次の置換を行ってください `push-images` コマンドを実行します
 +
 ** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.bundle.yaml`）。
-** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 https://exampledownloads.jfrog.io/docker-astra-control/v1/[]。
+** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 "https://<docker-registry>"[]。
 ** <MY_REGISTRY_USER> をユーザ名に置き換えます。
 ** <MY_REGISTRY_TOKEN> をレジストリの認証済みトークンに置き換えます。
 +
@@ -154,30 +179,51 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 +
 [source, console]
 ----
-podman login <MY_FULL_REGISTRY_PATH>
+podman login <YOUR_REGISTRY>
 ----
-. 次のスクリプトを実行して、コメントに記載されているように<your _registry>を置き換えます。
+. 使用するPodmanのバージョンに合わせてカスタマイズされた次のいずれかのスクリプトを準備して実行します。<MY_FULL_REGISTRY_PATH> を'サブディレクトリを含むリポジトリのURLに置き換えます
++
+[source, subs="specialcharacters,quotes"]
+----
+*Podman 4*
+----
 +
 [source, console]
 ----
-export REGISTRY=<YOUR_REGISTRY>
+export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
 export PACKAGEVERSION=22.11.0-82
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
-  # Load to local cache
-  astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image(s): //')
-
-  # Remove path and keep imageName.
-  astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
-
-  # Tag with local image repo.
-  podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
-
-  # Push to the local repo.
-  podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
+astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
+podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
 done
 ----
++
+[source, subs="specialcharacters,quotes"]
+----
+*Podman 3*
+----
++
+[source, console]
+----
+export REGISTRY=<MY_FULL_REGISTRY_PATH>
+export PACKAGENAME=acc
+export PACKAGEVERSION=22.11.0-82
+export DIRECTORYNAME=acc
+for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
+astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image(s): //')
+astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
+podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+done
+----
++
+
+NOTE: レジストリ設定に応じて、スクリプトが作成するイメージパスは次のようになります。 `https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/22.11.0-82/image:version`
+
 
 
 --

@@ -1,0 +1,96 @@
+= イメージをローカルレジストリに追加します
+:allow-uri-read: 
+
+
+
+
+== イメージをローカルレジストリに追加します
+
+. コンテナエンジンに応じた手順を実行します。
+
+
+[role="tabbed-block"]
+====
+.Docker です
+--
+. tarballのルートディレクトリに移動します。次のファイルとディレクトリが表示されます。
++
+`acc.manifest.bundle.yaml`
+`acc/`
+
+. Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。を実行する前に、次の置換を行ってください `push-images` コマンドを実行します
++
+** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.bundle.yaml`）。
+** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 "https://<docker-registry>"[]。
+** <MY_REGISTRY_USER> をユーザ名に置き換えます。
+** <MY_REGISTRY_TOKEN> をレジストリの認証済みトークンに置き換えます。
++
+[source, console]
+----
+kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -u <MY_REGISTRY_USER> -p <MY_REGISTRY_TOKEN>
+----
+
+
+
+
+--
+.ポドマン
+--
+. tarballのルートディレクトリに移動します。次のファイルとディレクトリが表示されます。
++
+`acc.manifest.bundle.yaml`
+`acc/`
+
+. レジストリにログインします。
++
+[source, console]
+----
+podman login <YOUR_REGISTRY>
+----
+. 使用するPodmanのバージョンに合わせてカスタマイズされた次のいずれかのスクリプトを準備して実行します。<MY_FULL_REGISTRY_PATH> を'サブディレクトリを含むリポジトリのURLに置き換えます
++
+[source, subs="specialcharacters,quotes"]
+----
+*Podman 4*
+----
++
+[source, console]
+----
+export REGISTRY=<MY_FULL_REGISTRY_PATH>
+export PACKAGENAME=acc
+export PACKAGEVERSION=22.11.0-82
+export DIRECTORYNAME=acc
+for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
+astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
+astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
+podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+done
+----
++
+[source, subs="specialcharacters,quotes"]
+----
+*Podman 3*
+----
++
+[source, console]
+----
+export REGISTRY=<MY_FULL_REGISTRY_PATH>
+export PACKAGENAME=acc
+export PACKAGEVERSION=22.11.0-82
+export DIRECTORYNAME=acc
+for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
+astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image(s): //')
+astraImageNoPath=$(echo ${astraImage} | sed 's:.*/::')
+podman tag ${astraImage} ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+podman push ${REGISTRY}/netapp/astra/${PACKAGENAME}/${PACKAGEVERSION}/${astraImageNoPath}
+done
+----
++
+
+NOTE: レジストリ設定に応じて、スクリプトが作成するイメージパスは次のようになります。 `https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/22.11.0-82/image:version`
+
+
+
+--
+====

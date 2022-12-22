@@ -689,7 +689,6 @@
   <block id="8321592ce24c8a122ecf26a63cfca407" category="list-text">ONTAP - NAS</block>
   <block id="844e84da8e822b4a33c4d8188da97937" category="list-text">ONTAP-NAS-flexgroup</block>
   <block id="73a3350a1b91aeb6e2836fdf5975672c" category="list-text">ONTAP - SAN</block>
-  <block id="cbde2df6a7c89370edc449dc5705d30c" category="inline-link">手順</block>
   <block id="c62e13b3973df086f7d17eeaf006b535" category="section-title">インターネットにアクセスできます</block>
   <block id="46cce64fca5b60351328e94ed2b72255" category="paragraph">インターネットに外部からアクセスできるかどうかを確認する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block>。</block>
   <block id="794df3791a8c800841516007427a2aa3" category="section-title">使用許諾</block>
@@ -1822,7 +1821,6 @@
   <block id="c5fd214cdd0d2b3b4272e73b022ba5c2" category="open-title">Docker です</block>
   <block id="455cbd59356abfa16dcf7666d4ae6c2b" category="open-title">ポドマン</block>
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">レジストリにログインします。</block>
-  <block id="c330f6e98afeb2bb5f8da986c24088ee" category="list-text">次のスクリプトを実行して、コメントに記載されているように&lt;your _registry&gt;を置き換えます。</block>
   <block id="1c90591655cdfe7d885b02ed72ae2509" category="summary">ネットアップでは、 Astra Control をさまざまな方法でサポートしています。ナレッジベース（KB）記事やDiscordチャネルなど、24時間365日利用可能な無料のセルフサポートオプションをご用意しています。Astra Control アカウントには、 Web チケット発行によるリモートテクニカルサポートが含まれています。</block>
   <block id="e63bdfa6fe9dccaf39b5d028f12a4a15" category="admonition">Astra Control Center の評価用ライセンスをお持ちの場合は、テクニカルサポートを受けることができます。ただし、ネットアップサポートサイト（ NSS ）でケースを作成することはできません。フィードバック・オプションを使用してサポートに連絡するか、Discordチャネルを使用してセルフサービスで連絡できます。</block>
   <block id="35cdc0acd4828a4d409d79a5f18ee353" category="inline-link">* Discord *で助けを得なさい</block>
@@ -1972,7 +1970,6 @@
   <block id="18f40e403e21c47db1d640c681eb60c1" category="list-text">使用可能なNetApp Astra kubectlプラグインのバイナリを表示し、オペレーティングシステムとCPUアーキテクチャに必要なファイルの名前をメモします。</block>
   <block id="04663e125a4b7af87fb04b1c90f3981c" category="admonition">kubectlプラグインライブラリはtarバンドルの一部であり、フォルダに解凍されます<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>。</block>
   <block id="70c1282aae344c7012022e40f12892d7" category="list-text">正しいバイナリを現在のパスに移動し、名前をに変更します<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>：</block>
-  <block id="1fc880ef4f8b3cc45475542399bd1928" category="list-text">&lt;MY_FULL_REGISTRY_PATH&gt; をDockerリポジトリのURLに置き換えます。次に例を示します。<block ref="2f83a38130745792f380ff2448ba7723" category="inline-link-rx"></block>。</block>
   <block id="f65f53e091cb29cf07faf1ce22c7b7af" category="list-text">&lt;MY_REGISTRY_USER&gt; をユーザ名に置き換えます。</block>
   <block id="942beacf5a707600cdbf9c51118da46f" category="list-text">&lt;MY_REGISTRY_TOKEN&gt; をレジストリの認証済みトークンに置き換えます。</block>
   <block id="739ad756d2571ec4c01ae0e2a5a259ff" category="admonition">インストールを完了する前に、KUBECONFIGがAstra Control Centerをインストールするクラスタを指していることを確認してください。KUBECONFIGには、1つのコンテキストのみを含めることができます。</block>
@@ -2238,8 +2235,6 @@
   <block id="f84aae8dfc7421a333e4e7e836c130c7" category="list-text">（OpenShiftのみ）すべてのクラスタオペレータが正常な状態であり、使用可能であることを確認します。</block>
   <block id="825d372ea32aac53c3ee57e9a6a5bbc6" category="list-text">アップグレードを開始する前に、Astra Control Center UIからログアウトします。</block>
   <block id="a7cd7e89d9e646b3bc6c32ee6ac752b0" category="admonition">Astra Control Centerオペレータ（たとえば、<block ref="dfe54be7b1dbab0ff279802517dca055" prefix=" " category="inline-code"></block>) Astra Control Centerのアップグレードまたは操作中はいつでもポッドを削除しないようにします。</block>
-  <block id="4fa6fdd44c10c16a714b8f15d294dafa" category="section-title">NetApp Astra kubectlプラグインがインストールされていることを確認します</block>
-  <block id="22752d0c5fc41c072184ec1bf10292a7" category="list-text">次のコマンドを使用して、プラグインがインストールされているかどうかを確認します。</block>
   <block id="9cdaf3a6ae59eb2faabcb002cfc1bd4b" category="list-text">認証が必要なレジストリを使用する場合は、のデフォルト行を置換または編集します<block ref="e90e0b4a41dde5f038023d33ee45ad34" prefix=" " category="inline-code"></block> 次の条件を満たす場合：</block>
   <block id="ddfa64b94159cbde6c02f2aa3ae5598c" category="list-text">変更<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> をクリックします<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> でイメージをプッシュしたレジストリパスへのイメージ <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>。</block>
   <block id="49442a4bf304a6a24081fc054a06ba5e" category="list-text">Astra Control Centerカスタムリソース（CR）を編集します。</block>
@@ -2523,7 +2518,6 @@
   <block id="060534066f9a22cabf451772f0daf58b" category="list-text">operatorネームスペースを作成します。</block>
   <block id="8f70adb2eebdea2e00d5d57216cd59b5" category="inline-link-macro">セットアップを完了</block>
   <block id="83a21b4b84bec79fb67f25c973cb89d3" category="list-text"><block ref="485506977df8782eb9acff027cc95cf9" category="inline-link-macro-rx"></block> 入力コントローラのタイプ。</block>
-  <block id="e10b9da8362fecb065da69f3ade6cf7c" category="list-text">[[[[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;&lt;/Z1&gt;_image_local_registry_push]]]]]]]]]]&lt;/Z2&gt;アストラControl Centerイメージディレクトリ内のパッケージイメージをローカルレジストリにプッシュします。&lt;/Z3&gt;を実行する前に、次の置換を行ってください<block ref="2957bfd514a0f16d8946142cd37400fd" prefix=" " category="inline-code"></block> コマンドを実行します</block>
   <block id="70f82fe210d70d79ae84c8e57b5baf7f" category="list-text">Red Hat OpenShift の Web コンソールから：</block>
   <block id="eb5ffd4ef5a8aa98e9c36b2c79cea4ed" category="list-text">NetApp Astra Control Centerオペレータを検索して選択します。</block>
   <block id="aa29e3cb75d2e7e5a7c9020ff806205e" category="paragraph"><block ref="aa29e3cb75d2e7e5a7c9020ff806205e" category="inline-image-macro-rx" type="image"></block></block>
@@ -2559,7 +2553,6 @@
   <block id="e20f9875b736f5d534a7c14be355eb06" category="paragraph">を実行します <block ref="9908a5e65371462fab8de29e0e8be055" category="inline-link-macro-rx"></block> Astra Control Centerが正常にインストールされたことを確認するには、入力コントローラ（オプション）をセットアップし、UIにログインします。また、を実行する必要があります <block ref="76156c33c6c1487a578aad8446a04b02" category="inline-link-macro-rx"></block> インストールが完了したら、</block>
   <block id="cfe9e43a4e29105f9f24bd0ed639721b" category="paragraph-title">汎用（デフォルト）</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">作業を開始する前に</block>
-  <block id="52c456ead6bc96bfe1643dfd233cbf2c" category="paragraph">このコマンドはkubectlプラグインのヘルプを提供する必要があります。コマンドからエラーが返された場合は、次のコマンドを使用してプラグインをインストールします <block ref="fbbc714d1fb27025d6c64aea6ddcaf11" category="inline-link-macro-rx"></block>。</block>
   <block id="d94e29dda4626ec2be6ac4f06224f6cf" category="section-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> すべてのアプリケーションを保護</block>
   <block id="596a8ca466f62d03c2dfc376a65cac71" category="section-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 各アプリケーションの保護ポリシーを設定します</block>
   <block id="db0ae7eb707500904a523f5186eb92f0" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> 保護ポリシーを調整します</block>
@@ -2647,4 +2640,14 @@
   <block id="779308b02cace7345409bae24871be63" category="list-text">にアクセスします<block ref="463a64da5039ffbaa330e14a245ba287" category="inline-link-rx"></block> をクリックしますNetApp Support Site 。ドロップダウンメニューから最新バージョンまたは別のバージョンを選択できます。</block>
   <block id="e4a1005c9b913ef4e65af805a3797f79" category="inline-link">Astra Tridentボリュームスナップショットコントローラをインストール</block>
   <block id="93dcbf6be32efef5eec53e28c4ff8075" category="list-text"><block ref="93dcbf6be32efef5eec53e28c4ff8075" category="inline-link-rx"></block></block>
+  <block id="93ad66a46b85e39a2b044839f8f2aa91" category="list-text">&lt;MY_FULL_REGISTRY_PATH&gt; をDockerリポジトリのURLに置き換えます。次に例を示します。 <block ref="d7fe5bd4ab1ec72dd633a9f2fec43513" category="inline-link-rx"></block>。</block>
+  <block id="cf2e3395153844dc4e8c51bf180f6521" category="list-text">使用するPodmanのバージョンに合わせてカスタマイズされた次のいずれかのスクリプトを準備して実行します。&lt;MY_FULL_REGISTRY_PATH&gt; を'サブディレクトリを含むリポジトリのURLに置き換えます</block>
+  <block id="1c1c5c039da9639f08735d40aaf63a64" category="admonition">レジストリ設定に応じて、スクリプトが作成するイメージパスは次のようになります。<block ref="8929bffa043dcda91696884d35eb8d51" prefix=" " category="inline-code"></block></block>
+  <block id="638283958f0ae559c161db72d114108e" category="list-text"><block ref="2a51122d7bd0346abfa8c6be52c45cf7" category="inline-xref-macro-rx"></block></block>
+  <block id="aedff9adaa71ff103bfa455b6a0fe7f0" category="section-title">NetApp Astra kubectlプラグインを削除して、再度インストールします</block>
+  <block id="cc1f46f2f9e4a1afbedacc4d8ce3c2e3" category="list-text">プラグインがインストールされているかどうかを確認します。</block>
+  <block id="c8395a903c51ee6b771d7f06ac987978" category="list-text">次のいずれかを実行します。</block>
+  <block id="d0ff3cbf62dac1b7f8447b852cfe9c4c" category="list-text">プラグインがインストールされている場合、コマンドはkubectlプラグインのヘルプを返す必要があります。既存のバージョンのkubectl-mstraを削除するには、次のコマンドを実行します。<block ref="53504093e13f5f1ec1d1d91d3e1dd05b" prefix=" " category="inline-code"></block>。</block>
+  <block id="1b6605c6bf28deef0dc2970f3179c395" category="list-text">コマンドからエラーが返された場合は、プラグインがインストールされていません。次の手順に進んでインストールしてください。</block>
+  <block id="dab1a9c7ecb95d287fc412736d955975" category="list-text">プラグインをインストールします。</block>
 </blocks>
