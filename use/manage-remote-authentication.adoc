@@ -17,6 +17,9 @@ LDAPは、分散ディレクトリ情報にアクセスするための業界標�
 大まかには、AstraとLDAPを統合し、Astra ControlユーザおよびLDAP定義に対応するグループを定義することです。Astra Control APIまたはWeb UIを使用して、LDAP認証とLDAPユーザおよびグループを設定できます。
 
 
+IMPORTANT: Astra Control Centerは、LDAPの「メール」属性でメールアドレスを使用して、リモートユーザーを検索し、追跡します。この属性は、ディレクトリ内のオプションのフィールドまたは空のフィールドです。Astra Control Centerに表示するリモートユーザの場合は、このフィールドにEメールアドレスが存在している必要があります。この電子メールアドレスは、Astra Control Centerのユーザー名として認証に使用されます。
+
+
 
 == LDAPS認証用の証明書を追加します
 
