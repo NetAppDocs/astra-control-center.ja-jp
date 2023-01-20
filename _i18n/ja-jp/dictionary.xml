@@ -888,7 +888,6 @@
   <block id="1598aaab2cb9865732925d064c6978c2" category="cell">ストレージバックエンドと外部サービスを除く両方のプラットフォームで同じ機能を利用できます</block>
   <block id="c1d5f7fc5daa2ea9189ee2df5ca15da2" category="cell">ストレージバックエンドでサポートされるもの</block>
   <block id="6adefb23833ae29ed830d55a8a9ae713" category="list-text">クラスタを追加したときに検出されたストレージバックエンドを追加します。</block>
-  <block id="df819717a2baf5b48925d2b4cdaf4745" category="list-text">* Astra Trident / ONTAP 構成 * ： Astra Control Center では、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。</block>
   <block id="ed6be01d66e94b422222a328f085d0bc" category="list-text">「 create-kubeconfig .sh` ファイル」を作成します。次のスクリプトの先頭にある「 token_index 」を正しい値に置き換えます。</block>
   <block id="242b16009698fe8de90e3b0966885de7" category="summary">Astra Control Center で使用可能なデータ保護の種類と、それらを使用してアプリケーションを保護する最適な方法について説明します。</block>
   <block id="4af39b8c609e94299d6c11ef13a2428c" category="doc">保護の概要</block>
@@ -2651,4 +2650,9 @@
   <block id="dab1a9c7ecb95d287fc412736d955975" category="list-text">プラグインをインストールします。</block>
   <block id="51867b2a71ff7c3e5393cf8bb442defc" category="admonition">同じEメールアドレスのローカルユーザがシステムにすでに存在する場合は、リモートユーザを追加できません。ユーザをリモートユーザとして追加するには、最初にローカルユーザをシステムから削除してください。</block>
   <block id="e6bc00cd8c52affb4292616facc440da" category="admonition">Astra Control Centerは、LDAPの「メール」属性でメールアドレスを使用して、リモートユーザーを検索し、追跡します。この属性は、ディレクトリ内のオプションのフィールドまたは空のフィールドです。Astra Control Centerに表示するリモートユーザの場合は、このフィールドにEメールアドレスが存在している必要があります。この電子メールアドレスは、Astra Control Centerのユーザー名として認証に使用されます。</block>
+  <block id="a2c7a68a6d213a38c0c96fe34df9fe2e" category="list-text">* Astra Trident / ONTAP 構成*：</block>
+  <block id="abcbb80528af555f9a3f5981771386f8" category="list-text">Astra Control Center を使用するには、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。</block>
+  <block id="2a09fd1da71158929da8e53a8b3b41b7" category="list-text">クラスタ内のワーカーノードで適切なストレージドライバが設定されていることを確認します。これにより、ポッドがバックエンドストレージと通信できるようになります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。</block>
+  <block id="d7dde07915bbe8056e6854c2b5e50480" category="inline-link">ワーカーノードを準備します</block>
+  <block id="2facff43cb177de168322dab6df7d48c" category="list-text"><block ref="2facff43cb177de168322dab6df7d48c" category="inline-link-rx"></block></block>
 </blocks>

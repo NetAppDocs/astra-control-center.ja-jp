@@ -26,6 +26,7 @@ summary: 数ステップで Astra Control を使い始めましょう。
 *ストレージ統合*
 
 * link:../get-started/requirements.html#operational-environment-requirements["サポートされているAstra Tridentバージョンが環境に含まれていることを確認します"^]
+* https://docs.netapp.com/us-en/trident/trident-use/worker-node-prep.html["ワーカーノードを準備します"^]
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["Astra Tridentストレージバックエンドを設定"^]
 * https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Astra Tridentストレージクラスを設定する"^]
 * https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Astra Tridentボリュームスナップショットコントローラをインストール"^]

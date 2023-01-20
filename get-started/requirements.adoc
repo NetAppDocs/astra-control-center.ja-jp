@@ -80,12 +80,17 @@ Kubernetes 1.25クラスタ用にSnapMirrorベースのアプリケーション�
 NOTE: これらの要件は、運用環境で実行されている唯一のアプリケーションが Astra Control Center であることを前提としています。環境で追加のアプリケーションを実行している場合は、それに応じてこれらの最小要件を調整します。
 
 * * イメージレジストリ * ： Astra Control Center ビルドイメージをプッシュできる、既存のプライベート Docker イメージレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
-* * Astra Trident / ONTAP 構成 * ： Astra Control Center では、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。
+* * Astra Trident / ONTAP 構成*：
 +
-** ONTAP - NAS
-** ONTAP-NAS-flexgroup
-** ONTAP - SAN
-** ONTAP-SANエコノミー（アプリケーションレプリケーションではサポートされていません）
+** Astra Control Center を使用するには、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。
+** クラスタ内のワーカーノードで適切なストレージドライバが設定されていることを確認します。これにより、ポッドがバックエンドストレージと通信できるようになります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。
++
+*** ONTAP - NAS
+*** ONTAP-NAS-flexgroup
+*** ONTAP - SAN
+*** ONTAP-SANエコノミー（アプリケーションレプリケーションではサポートされていません）
+
+
 
 
 
