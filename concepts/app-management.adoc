@@ -16,14 +16,14 @@ Astra Controlがクラスタを検出すると、それらのクラスタ上の�
 
 * ネームスペース。ネームスペース内のすべてのリソースを含みます
 +
-image:diagram-managed-app1.png["この概念図は、 Astra がネームスペース内のすべてのリソースを管理する仕組みを示しています。"]
+image:diagram-managed-app1.png["この概念図は、Astra Controlがネームスペース内のすべてのリソースを管理する様子を示しています。"]
 
 * 1つ以上のネームスペース内に導入された個 々 のアプリケーション（この例では、helm3を使用）
 +
-image:diagram-managed-app2.png["この概念図は、他のアプリケーションを含むネームスペースに配置された個々のアプリケーションを Astra が管理する様子を示しています。"]
+image:diagram-managed-app2.png["他のアプリケーションを含むネームスペースに配置された個 々 のアプリケーションをAstra Controlで管理する概念図。"]
 
 * 1つ以上のネームスペース内のKubernetesラベルで識別されるリソースのグループ
 +
-image:diagram-managed-app3.png["Kubernetesラベルを基にアプリケーションを管理するAstraの概念図。"]
+image:diagram-managed-app3.png["Kubernetesラベルを基にしたAstra Controlによるアプリケーションの管理を示す概念図。"]
 
 

@@ -30,7 +30,7 @@ IMPORTANT: Astra Control Center は、プロキシサーバー用に入力した
 . [*Account*>*Connections*] を選択します。
 . ドロップダウンリストから [*Connect*] を選択して、プロキシサーバを追加します。
 +
-image:proxy-connect.png["は、プロキシ接続を有効にする接続オプションを示しています。"]
+image:proxy-connect.png["この画像は、プロキシ接続を有効にする接続オプションを示しています。"]
 
 . プロキシサーバの名前または IP アドレスとプロキシポート番号を入力します。
 . プロキシサーバで認証が必要な場合は、このチェックボックスをオンにしてユーザ名とパスワードを入力します。
@@ -40,7 +40,7 @@ image:proxy-connect.png["は、プロキシ接続を有効にする接続オプ�
 .結果
 入力したプロキシ情報が保存されている場合は、 *Account*>*Connections* ページの *HTTP Proxy* セクションに、接続されていることが示され、サーバー名が表示されます。
 
-image:proxy-new.png["プロキシサーバが正常に接続されたことを示します。"]
+image:proxy-new.png["この画像は、プロキシサーバーが正常に接続されたことを示しています。"]
 
 
 
@@ -96,7 +96,7 @@ TIP: Cloud Insights を初めて使用する場合は、の機能について理
 . [*Account*>*Connections*] を選択します。
 . 接続を追加するには、ドロップダウンリストで * 切断されている * と表示されている * 接続 * を選択します。
 +
-image:ci-connect.png["に、ドロップダウンリストから [ 接続（ Connect ） ] オプションを表示して、 Cloud Insights 接続を有効にします。"]
+image:ci-connect.png["この図は、ドロップダウンリストから[接続（Connect）]オプションを表示して、Cloud Insights 接続を有効にします。"]
 
 . Cloud Insights API トークンとテナント URL を入力します。テナント URL の形式は次のようになります。
 +
@@ -111,7 +111,7 @@ https://<environment-name>.c01.cloudinsights.netapp.com/
 .. をダウンロードしてください link:https://docs.netapp.com/us-en/cloudinsights/API_Overview.html#api-access-tokens["API トークン"^]をクリックし、 Cloud Insights テナントの URL にログインします。
 .. Cloud Insights で、 * Admin*>* API Access* をクリックして、 * Read/Write * と * Read Only* API Access トークンの両方を生成します。
 +
-image:cloud-insights-api.png["に、 Cloud Insights API トークン生成ページを示します。"]
+image:cloud-insights-api.png["この図は、Cloud Insights APIトークン生成ページを示しています。"]
 
 .. 「 * Read Only * 」キーをコピーします。Cloud Insights 接続を有効にするには、 [Astra Control Center] ウィンドウに貼り付ける必要があります。Read API Access Token Key 権限で、 Assets 、 Alerts 、 Acquisition Unit 、 and Data Collection を選択します。
 .. 「 * Read/Write 」キーをコピーします。Astra Control Center * Connect Cloud Insights * ウィンドウに貼り付ける必要があります。Read/Write API Access Tokenキーの権限で、Data Ingestion、Log Ingestion、Acquisition Unit、およびData Collectionを選択します。
@@ -137,21 +137,21 @@ NOTE: Astra Control Center と Cloud Insights UI の間を簡単に行き来す�
 
 接続に成功した場合は、「 * アカウント * > * 接続 * 」ページの「 * Cloud Insights * 」セクションに接続されていることが示され、テナントの URL が表示されます。Cloud Insights にアクセスして、データが正常に受信されて表示されることを確認できます。
 
-image:cloud-insights.png["に、アストラコントロールセンターの UI で有効になっている Cloud Insights 接続を示します。"]
+image:cloud-insights.png["この図は、Cloud Insights 接続がアストラコントロールセンターUIで有効になっていることを示しています。"]
 
 何らかの理由で接続に失敗した場合、ステータスは「 * 失敗 * 」と表示されます。失敗の理由は、 UI の右上にある * Notifications * で確認できます。
 
-image:cloud-insights-notifications.png["は、 Cloud Insights 接続が失敗した場合のエラーメッセージを示しています。"]
+image:cloud-insights-notifications.png["この図は、Cloud Insights 接続が失敗したときのエラーメッセージを示しています。"]
 
 同じ情報は、「 * アカウント * > * 通知 * 」にも記載されています。
 
-Astra Control Center では、スループット情報をバックエンド * ページで表示したり、ストレージバックエンドを選択した後にここから Cloud Insights に接続したりできます。image:throughput.png["は、 Astra Control Center のバックエンドページのスループット情報を示しています。"]
+Astra Control Center では、スループット情報をバックエンド * ページで表示したり、ストレージバックエンドを選択した後にここから Cloud Insights に接続したりできます。image:throughput.png["この図は、Astra Control Centerのバックエンドページのスループット情報を示しています。"]
 
 Cloud Insights に直接移動するには、指標画像の横にある * Cloud Insights * アイコンを選択します。
 
 また、情報は * ダッシュボード * でも確認できます。
 
-image:dashboard-ci.png["は、ダッシュボードに Cloud Insights アイコンを示しています。"]
+image:dashboard-ci.png["この図は、ダッシュボードのCloud Insights アイコンを示しています。"]
 
 
 IMPORTANT: Cloud Insights 接続を有効にした後、 Astra Control Center に追加したバックエンドを削除すると、バックエンドは Cloud Insights へのレポートを停止します。
@@ -192,7 +192,7 @@ Cloud Insights 接続は、 Astra Control Center で管理されている Kubern
 
 Astra Control Center から Fluentd エンドポイントにログ（ Kubernetes イベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。
 
-image:fluentbit.png["に、 Astra から Fluentd までのイベントログの概念図を示します。"]
+image:fluentbit.png["ここでは、AstraからFluentdまでのイベントログの概念図を示します。"]
 
 
 NOTE: 管理対象クラスタのイベントログのみが Fluentd に転送されます。
@@ -210,7 +210,7 @@ IMPORTANT: Astra Control Center では、 Fluentd サーバーに入力した詳
 . [*Account*>*Connections*] を選択します。
 . 接続を追加するには、ドロップダウンリストから [* 接続（ * Connect * ） ] を選択します。
 +
-image:connect-fluentd.png["に、 Fluentd への接続を有効にするための UI 画面を示します。"]
+image:connect-fluentd.png["この画像は、Fluentdへの接続を有効にするためのUI画面を示しています。"]
 
 . Fluentd サーバーのホスト IP アドレス、ポート番号、および共有キーを入力します。
 . 「 * 接続」を選択します。

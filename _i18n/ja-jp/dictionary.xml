@@ -5,7 +5,6 @@
   <block id="2078e9477d0ff8458806513c3f7ae341" category="inline-link">Astra Control Center 21.08 ドキュメント</block>
   <block id="51d249216b03414f10b242b851af7951" category="doc">Astra Control コンポーネント</block>
   <block id="60f694f21643599c137f6c610e48124e" category="paragraph">ここでは、 Astra Control 環境のさまざまなコンポーネントの概要を示します。</block>
-  <block id="2325c645f4d2112a8e96b127fbad7bf2" category="inline-image-macro">Astra Control のアーキテクチャ図とコンポーネント</block>
   <block id="a8d77bbb11d2e1a349811767d194e9ba" category="list-text">* Kubernetes クラスタ * ： Kubernetes は、コンテナ化されたワークロードとサービスを管理するための、ポータブルで拡張性に優れたオープンソースプラットフォームであり、宣言型の設定と自動化の両方を促進します。Astra は、 Kubernetes クラスタでホストされているアプリケーションに管理サービスを提供します。</block>
   <block id="951fe18cc6e59e05fca3c0ca7de399fa" category="list-text">* ストレージバックエンド * ：</block>
   <block id="a3b5183ae6f5c3f1d6644448f795b5cb" category="inline-link">NetApp Cloud Volumes Service for Google Cloud</block>
@@ -368,13 +367,9 @@
   <block id="33e25013c351d84e30f58671009577d3" category="list-text">* admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。</block>
   <block id="bc19da5189cc32f27d8b9761272305cd" category="list-text">[*Account*&gt;*Connections*] を選択します。</block>
   <block id="61ba00adf80e33f4a06350b8ca656cc4" category="list-text">ドロップダウンリストから [*Connect*] を選択して、プロキシサーバを追加します。</block>
-  <block id="2179b7b2a88ef2e506e76d57c25fa237" category="inline-image-macro">は、プロキシ接続を有効にする接続オプションを示しています。</block>
-  <block id="7ff85d76f103065032d94a8c68974092" category="paragraph"><block ref="7ff85d76f103065032d94a8c68974092" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ea0e7e79990da962999dce45447bba55" category="list-text">プロキシサーバの名前または IP アドレスとプロキシポート番号を入力します。</block>
   <block id="0f265823a78c858e83b858d5e6089fce" category="list-text">「 * 接続」を選択します。</block>
   <block id="867f3b9a2a85b4e5b34de33b997d7b7c" category="paragraph">入力したプロキシ情報が保存されている場合は、 *Account*&gt;*Connections* ページの *HTTP Proxy* セクションに、接続されていることが示され、サーバー名が表示されます。</block>
-  <block id="42b67f9f298a9aeaa29b219aa2f29a90" category="inline-image-macro">プロキシサーバが正常に接続されたことを示します。</block>
-  <block id="f0f7f1a8be3a2342c23b9810a3769c99" category="paragraph"><block ref="f0f7f1a8be3a2342c23b9810a3769c99" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1c209e4bb243a7664e81ccb259e9703e" category="section-title">プロキシサーバの設定を編集します</block>
   <block id="cc559a612d121e504b6603fdf97805d6" category="paragraph">プロキシサーバの設定を編集できます。</block>
   <block id="d5ba2be736cb80743973a43318142edb" category="list-text">ドロップダウンリストから * Edit * を選択して、接続を編集します。</block>
@@ -393,32 +388,20 @@
   <block id="1bdb819abf27f345e251d7d74bd13432" category="list-text">Astra Control Center を実行しているネットワークで、インターネットに接続するためにプロキシが必要な場合は、プロキシサーバーです。</block>
   <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link-macro">こちらをご覧ください</block>
   <block id="c83c4a85c1f411531560f13476d42d8a" category="list-text">接続を追加するには、ドロップダウンリストで * 切断されている * と表示されている * 接続 * を選択します。</block>
-  <block id="c588327a11cf77e3d35f9fea2f6da70f" category="inline-image-macro">に、ドロップダウンリストから [ 接続（ Connect ） ] オプションを表示して、 Cloud Insights 接続を有効にします。</block>
-  <block id="f2045802e1db2626118073af019ba192" category="paragraph"><block ref="f2045802e1db2626118073af019ba192" category="inline-image-macro-rx" type="image"></block></block>
   <block id="daf520ac523717e78fa182acb623be60" category="list-text">Cloud Insights API トークンとテナント URL を入力します。テナント URL の形式は次のようになります。</block>
   <block id="3897b2a4ac4a4ef4f11715fcf865f739" category="paragraph">テナント URL は、 Cloud Insights ライセンスを取得すると取得されます。テナント URL がない場合は、を参照してください <block ref="2afd17eb985e67d361b768309fdff3cf" category="inline-link-macro-rx"></block>。</block>
   <block id="51408f1c75ab7bcc90f67b3ab1801733" category="inline-link-macro">API トークン</block>
   <block id="434bddda84600d6af976eacbebbfcf8d" category="list-text">をダウンロードしてください <block ref="466720263e1cfd612e0752298c39ffb4" category="inline-link-macro-rx"></block>をクリックし、 Cloud Insights テナントの URL にログインします。</block>
-  <block id="1510025929fc977562c0c445934e3ab5" category="inline-image-macro">に、 Cloud Insights API トークン生成ページを示します。</block>
-  <block id="0297da739425ffb4582516e5cde91975" category="paragraph"><block ref="0297da739425ffb4582516e5cde91975" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5d81b6bdee197be668fe2348e55a8d14" category="admonition">* 読み取り専用 * キーと * 読み取り / 書き込み * キーを生成することを推奨します。両方の目的で同じキーを使用することは推奨しません。デフォルトでは、トークンの有効期限は 1 年に設定されています。トークンが期限切れになるまでの最大期間を指定するために、デフォルトの選択を維持することをお勧めします。トークンの有効期限が切れると、テレメトリが停止します。</block>
   <block id="a086aaec8aa524f4ce0a74b48df64bcd" category="list-text">Cloud Insights からコピーしたキーを Astra コントロールセンターに貼り付けます。</block>
   <block id="eaae7a4b072e6c1469d18740d72675ab" category="admonition">[ * 接続 ] を選択すると、 [ * アカウント * &gt; * 接続 * ] ページの [ * Cloud Insights * ] セクションで、接続の状態が [ * 保留中 ] に変わります。接続が有効になり、ステータスが * 接続済み * に変わるまで数分かかることがあります。</block>
   <block id="43de6aafea6c660a2d69482b910c0bfb" category="admonition">Astra Control Center と Cloud Insights UI の間を簡単に行き来するには、両方にログインしていることを確認します。</block>
   <block id="46ded58f5fa86b93f6fed80f7597e45e" category="section-title">Cloud Insights でデータを表示します</block>
   <block id="aa7711aa5ef4fc913e7d4849d49004a8" category="paragraph">接続に成功した場合は、「 * アカウント * &gt; * 接続 * 」ページの「 * Cloud Insights * 」セクションに接続されていることが示され、テナントの URL が表示されます。Cloud Insights にアクセスして、データが正常に受信されて表示されることを確認できます。</block>
-  <block id="d0715a0b071062148d1884938ffc1939" category="inline-image-macro">に、アストラコントロールセンターの UI で有効になっている Cloud Insights 接続を示します。</block>
-  <block id="f7f944dc9f63ad54dbe734477503a6cb" category="paragraph"><block ref="f7f944dc9f63ad54dbe734477503a6cb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d2ec190866f031171cf0a69e5c077394" category="paragraph">何らかの理由で接続に失敗した場合、ステータスは「 * 失敗 * 」と表示されます。失敗の理由は、 UI の右上にある * Notifications * で確認できます。</block>
-  <block id="e0c60e2b8f76562add536b99661d2b67" category="inline-image-macro">は、 Cloud Insights 接続が失敗した場合のエラーメッセージを示しています。</block>
-  <block id="dd27247602177d32f792cd643a225a07" category="paragraph"><block ref="dd27247602177d32f792cd643a225a07" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7da64ad5299c8b00ca21c382463c9f63" category="paragraph">同じ情報は、「 * アカウント * &gt; * 通知 * 」にも記載されています。</block>
-  <block id="454f31294c9715a898c98f2afa2685ad" category="inline-image-macro">は、 Astra Control Center のバックエンドページのスループット情報を示しています。</block>
-  <block id="84472b02df9ecb9ff5c688b0c08245ca" category="paragraph">Astra Control Center では、スループット情報をバックエンド * ページで表示したり、ストレージバックエンドを選択した後にここから Cloud Insights に接続したりできます。<block ref="9afc157986307cd94450fd30a9b1855a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3374692e1399d9e6be7479a27b1dc3f3" category="paragraph">Cloud Insights に直接移動するには、指標画像の横にある * Cloud Insights * アイコンを選択します。</block>
   <block id="7927c7f1a09ecdcf3826102214946bf9" category="paragraph">また、情報は * ダッシュボード * でも確認できます。</block>
-  <block id="5572d82343396e3131940f274197b002" category="inline-image-macro">は、ダッシュボードに Cloud Insights アイコンを示しています。</block>
-  <block id="ba1adb88cab95f0607254af7e647a803" category="paragraph"><block ref="ba1adb88cab95f0607254af7e647a803" category="inline-image-macro-rx" type="image"></block></block>
   <block id="23d51d0a843cd66f535de41fac2eb934" category="admonition">Cloud Insights 接続を有効にした後、 Astra Control Center に追加したバックエンドを削除すると、バックエンドは Cloud Insights へのレポートを停止します。</block>
   <block id="1e76c10ef43f6d891a3204c61a8642d3" category="section-title">Cloud Insights 接続を編集します</block>
   <block id="25dcc2e3891265564a74533dbe1910b5" category="paragraph">Cloud Insights 接続を編集できます。</block>
@@ -429,14 +412,10 @@
   <block id="7b47e5cca580c15b73298814e6dc3043" category="list-text">表示されたダイアログボックスで、処理を確認します。操作を確定すると、 [*Account*&gt;*Connections*] ページで、 Cloud Insights のステータスが [*Pending （保留中） ] に変わります。ステータスが * 切断された * に変わるまで数分かかります。</block>
   <block id="e3ef410032c04be22479d1f57535cd7c" category="section-title">Fluentd に接続します</block>
   <block id="53aa734867da8d80d801799743769150" category="paragraph">Astra Control Center から Fluentd エンドポイントにログ（ Kubernetes イベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。</block>
-  <block id="50ae7b2f449579ca9d0620c3718a2419" category="inline-image-macro">に、 Astra から Fluentd までのイベントログの概念図を示します。</block>
-  <block id="92dbde6bbc73c8dacd1545fffe889415" category="paragraph"><block ref="92dbde6bbc73c8dacd1545fffe889415" category="inline-image-macro-rx" type="image"></block></block>
   <block id="78f449881ce819a79127ab380ec8f5f0" category="admonition">管理対象クラスタのイベントログのみが Fluentd に転送されます。</block>
   <block id="f49f4c26cb983eb5089296d1c29bd573" category="list-text">Kubernetes クラスタに Astra Control Center をインストールして実行</block>
   <block id="d3ebfa34d5e7c2c879271b1ab8424d9e" category="admonition">Astra Control Center では、 Fluentd サーバーに入力した詳細は検証されません。必ず正しい値を入力してください。</block>
   <block id="f1514cb8570b20e845f548246b841eb3" category="list-text">接続を追加するには、ドロップダウンリストから [* 接続（ * Connect * ） ] を選択します。</block>
-  <block id="9222f03acbb41c941f4e1c0737a40a85" category="inline-image-macro">に、 Fluentd への接続を有効にするための UI 画面を示します。</block>
-  <block id="6dc61e2a65c7005e4eae3e77aba8d8fb" category="paragraph"><block ref="6dc61e2a65c7005e4eae3e77aba8d8fb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8ab642391b4550bdfa0f2fe5a9dab2b5" category="list-text">Fluentd サーバーのホスト IP アドレス、ポート番号、および共有キーを入力します。</block>
   <block id="96e5a93d89478d68d86d192ede312f4c" category="paragraph">Fluentd サーバーに入力した詳細が保存されている場合は、 * アカウント * &gt; * 接続 * ページの * Fluentd * セクションに接続されていることが示されます。これで、接続した Fluentd サーバーにアクセスし、イベントログを表示できます。</block>
   <block id="d95b383228097cdda62fce9da86acceb" category="admonition">ログ収集に問題がある場合は ' ワーカー・ノードにログインし ' ログが /var/log/container/ で使用可能であることを確認してください</block>
@@ -853,11 +832,9 @@
   <block id="3cc546d35377f25093968cba1e8c0fc6" category="list-text"><block ref="27fe6aaf425c0f95213ec6c507a97d2d" category="inline-xref-macro-rx"></block></block>
   <block id="55c6b9fd6efcd18e0f53c34459084a3f" category="section-title">オペレータインストールページを検索します</block>
   <block id="396cd1df886b31da3577b40fa6f7cf0f" category="list-text">次のいずれかの手順を実行して、オペレータインストールページにアクセスします。</block>
-  <block id="fd8cbefedde3fbeeb2817b2484ff0e38" category="inline-image-macro">Astra Control Center のインストールページ</block>
   <block id="1b37bd82bf53c89bcedcfc65519416b2" category="list-text">OpenShift Container Platform UI にログインします。</block>
   <block id="d23202f3a841766e7b5d6b37777fc6c3" category="list-text">サイドメニューから、 * 演算子 &gt; OperatorHub * を選択します。</block>
   <block id="6d20ba1f906a03b7657514dee48eb121" category="list-text">「 * Install * 」を選択します。</block>
-  <block id="89bb9ef577ff373ba97cf5d87b3cbfa2" category="inline-image-macro">Astra Control Center の概要ページ</block>
   <block id="4b583376b2767b923c3e1da60d10de59" category="inline-link">演算子</block>
   <block id="13191ff715c85f59fd2da330d31c4e9f" category="list-text">[Deploy and Use] を選択します。</block>
   <block id="a961f7d3b56fe3f9b072af70813d6f82" category="section-title">オペレータをインストールします</block>
@@ -1141,8 +1118,6 @@
   <block id="e5c5351f3ea6206a7f110205b4155acc" category="list-text">すべての ACC イメージをホストする AWS Elastic Container Registry （ ECR ）を作成します。</block>
   <block id="6da6782dc02c8e2ffb3f2eeb0c8f4f10" category="list-text">ACC イメージを定義済みのレジストリにプッシュします。</block>
   <block id="d0d3a0a6bbae566c1e61c2fc0d0377ad" category="paragraph">AWS 環境の例を次に示します。</block>
-  <block id="00e2fab6bb1c1ddf5a08853aa2b05595" category="inline-image-macro">Cloud Volumes ONTAP を使用した Astra Control Center の導入例</block>
-  <block id="a5f9219af3aa469c4909489aee2c2362" category="paragraph"><block ref="a5f9219af3aa469c4909489aee2c2362" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f7bba7b010fcf309ed99329ba3de1d34" category="inline-link">AWS で Cloud Volumes ONTAP を使用するための準備</block>
   <block id="875986068fd60999889e672086c4a739" category="list-text"><block ref="c7ce1d84b369179362f6c701fb404ff4" category="inline-link-rx"></block>。</block>
   <block id="050e0fc66b4a702f2c0bcd4593f2022d" category="list-text">ワークスペースを作成します。</block>
@@ -1352,12 +1327,6 @@
   <block id="a7da53d86332105dcae80a12f3e8b7a5" category="summary">Astra Controlのマネージアプリケーションの種類について説明します。</block>
   <block id="848f207b3c4594754aa82fd21b5fc5e0" category="paragraph">Astra Controlがクラスタを検出すると、それらのクラスタ上のアプリケーションは、管理方法を選択するまで管理されません。Astra Control のマネージドアプリケーションには、次のいずれかを使用できます。</block>
   <block id="3757d3597962f660c54cb3f9ed5ba251" category="list-text">ネームスペース。ネームスペース内のすべてのリソースを含みます</block>
-  <block id="99185f9c0e1b271b9c7c1684898a4b91" category="inline-image-macro">この概念図は、 Astra がネームスペース内のすべてのリソースを管理する仕組みを示しています。</block>
-  <block id="5f5e029c480c6d454f7077a350ea7051" category="paragraph"><block ref="5f5e029c480c6d454f7077a350ea7051" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="bc02e113923823bd80cf4509ac5dd0ea" category="inline-image-macro">この概念図は、他のアプリケーションを含むネームスペースに配置された個々のアプリケーションを Astra が管理する様子を示しています。</block>
-  <block id="aaa30264edbceaac1a9c4ae46e684508" category="paragraph"><block ref="aaa30264edbceaac1a9c4ae46e684508" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e79c66d32821cf7f9dadf70f95c95f46" category="inline-image-macro">Kubernetesラベルを基にアプリケーションを管理するAstraの概念図。</block>
-  <block id="42e713fefe57640d4cb0e9c071431be5" category="paragraph"><block ref="42e713fefe57640d4cb0e9c071431be5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7bae362ecd78982068db2938cc07dff6" category="section-title">リモートクラスタへのレプリケーション</block>
   <block id="db36c1f6d107c3e886b3f731d4f40400" category="paragraph">Astra Controlを使用すると、NetApp SnapMirrorテクノロジの非同期レプリケーション機能を使用して、RPO（目標復旧時点）とRTO（目標復旧時間）の低いアプリケーションのビジネス継続性を構築できます。設定が完了すると、アプリケーションはデータやアプリケーションの変更をクラスタ間でレプリケートできるようになります。</block>
   <block id="fdd9ffdc3a0486a64b5e96644b02f7c8" category="paragraph">Astra Controlは、アプリケーションのSnapshotコピーをリモートクラスタに非同期でレプリケートします。レプリケーションプロセスには、SnapMirrorでレプリケートされた永続ボリュームのデータと、Astra Controlで保護されたアプリケーションメタデータが含まれます。</block>
@@ -1367,9 +1336,7 @@
   <block id="229c7c759f13c80c6aa16940d599fb67" category="inline-link-macro">SnapMirrorテクノロジを使用してアプリケーションをリモートシステムにレプリケート</block>
   <block id="2e67b4ffa9856ed714ace3c83ce69b11" category="paragraph">次の図は、スケジュールされたバックアップおよびリストアのプロセスをレプリケーションプロセスと比較したものです。</block>
   <block id="0684163543dd8c63ba059f860287849a" category="paragraph">バックアッププロセスでは、S3バケットにデータをコピーし、S3バケットからリストアします。</block>
-  <block id="81cddeedfe823c0b5ecc3077e6dafc47" category="inline-image-macro">スケジュールされたバックアップとリストアのイメージ</block>
   <block id="af71b68b2a3d17f7141855dcd02a56ca" category="paragraph">一方、レプリケーションはONTAP にレプリケートされ、その後フェイルオーバーによってKubernetesリソースが作成されます。</block>
-  <block id="a5f8603aae16ddbbbcfc6f63de01008d" category="inline-image-macro">レプリケーションとフェイルオーバーイメージ</block>
   <block id="74456513b7ca75af96c4b1316688791f" category="inline-link">Astra Control Center 22.04 のドキュメント</block>
   <block id="d67f74fb6e72ced888adb1c93e92fead" category="list-text"><block ref="d67f74fb6e72ced888adb1c93e92fead" category="inline-link-rx"></block></block>
   <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">詳細</block>
@@ -1893,8 +1860,6 @@
   <block id="06e1b0116459bf681b32b65360e38671" category="list-text">OCPを使用する場合、Red Hat OpenShift Container Platform（OCP）4.8</block>
   <block id="c2c28b59e21cbd4b3d6c78dbdf1db70f" category="list-text">* Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Trident を使用すると、 Docker と Kubernetes で管理するコンテナ化されたアプリケーション用のストレージボリュームを作成できます。Trident を Astra Control Center とともに導入すると、設定済みの ONTAP ストレージバックエンドが含まれます。</block>
   <block id="4ab759267d2877902a521921e10f5f5b" category="list-text">"astracontrol-service-account.yamml"という名前のサービスアカウントファイルを作成します。</block>
-  <block id="85d4813220dc61b1558025981ecb0a0c" category="paragraph"><block ref="85d4813220dc61b1558025981ecb0a0c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="de57d5c9dad5ff2e5621f7541a798fe9" category="paragraph"><block ref="de57d5c9dad5ff2e5621f7541a798fe9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="40c5eb63f5dc254aeb1e6c3a7b34d15d" category="inline-link-macro">サポートされるストレージバックエンド</block>
   <block id="3e55b813dfc77f5a692ec8411b86bba6" category="paragraph">ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください <block ref="dff615b80497dbcbaf9794a9900b6f10" category="inline-link-macro-rx"></block>。</block>
   <block id="a26876e2ece0b6007cf03e315d57d9d2" category="admonition">クラスタの追加、バケットの追加、ストレージバックエンドの管理をライセンスなしで実行できます。</block>
@@ -2155,12 +2120,6 @@
   <block id="53e06493a0f9e186146ff53d8404521e" category="list-text">Azure 用のコネクタを追加します。を参照してください<block ref="6d10c0b16ff75eab2b0592f6238ce259" category="inline-link-rx"></block>。</block>
   <block id="7009f92960c4bd616ffd0e2e8bbaa4cf" category="inline-link">BlueXPrからAzureでコネクタを作成しています</block>
   <block id="e8ff9cc14c42d1ea2de410aca63bd5b7" category="paragraph">を参照してください<block ref="aaf2ee578bc85f6c53b28aac20a7756c" category="inline-link-rx"></block>。</block>
-  <block id="40cad368ca5806ced7d6878e36d39351" category="inline-image-macro">BlueXPでコネクタを切り替えています</block>
-  <block id="65bd02c333199872cc44e0f11c0de104" category="paragraph"><block ref="65bd02c333199872cc44e0f11c0de104" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a551c3cf4219da80f9670f43e5d9d268" category="inline-image-macro">BlueXPでの作業環境の作成</block>
-  <block id="b71e231cf400059d004baed1644d0ece" category="paragraph"><block ref="b71e231cf400059d004baed1644d0ece" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="24a2b49332b20b6b4dba60ffd761ddb5" category="inline-image-macro">BlueXPにクラスタをインポート</block>
-  <block id="641d2e351c547ec3f919c306b63afc6c" category="paragraph"><block ref="641d2e351c547ec3f919c306b63afc6c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b24ff57a65ef73f0fc117dd330a967f3" category="section-title">Azure向けAstra Control Centerのインストールと設定</block>
   <block id="7a06675f408aed2dabe52a3645059966" category="list-text">OpenShiftクラスタから、すべてのクラスタオペレータが正常な状態にあることを確認します。</block>
   <block id="845e2368c3a6b9728a9fa15096c62bd0" category="list-text">OpenShiftクラスタから、すべてのAPIサービスが正常な状態であることを確認します。</block>
@@ -2179,7 +2138,6 @@
   <block id="9fec972e16132554b3f6d7a367b20c12" category="paragraph">Astra Control Centerは、Tridentベースのストレージクラスを使用し、ONTAP 9.5以上のストレージバックエンドでKubernetesクラスタをサポートします。</block>
   <block id="46d0a394f0b8bd48b4ad9f07551cc671" category="paragraph">Astra Control Center を試用するには、 90 日間の評価版ライセンスを使用します。評価版は、Eメールとコミュニティオプションでサポートされています。また、製品内サポートダッシュボードから技術情報アーティクルやドキュメントにアクセスすることもできます。</block>
   <block id="624cfce99f1f72da4d8c5d67b46d357b" category="paragraph">Astra Control Centerのインストール中に、を指定した場合<block ref="5ef3c13da1e4fcb9a76fc8f568eee144" prefix=" " category="inline-code"></block> の場合<block ref="5398d7dab242bfea13c044912cacfd10" prefix=" " category="inline-code"></block> Astra Control Centerカスタムリソース（CR）ファイル <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>）を指定すると、日次サポートバンドルがに自動的にアップロードされます<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block>。</block>
-  <block id="6ef5565e71b748d07e8a7b0699a73b5a" category="paragraph"><block ref="6ef5565e71b748d07e8a7b0699a73b5a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a62af64f81e65194efb6011308308c81" category="list-text">1つ以上のネームスペース内に導入された個 々 のアプリケーション（この例では、helm3を使用）</block>
   <block id="5200a678b94ac14cf371f3073027246a" category="list-text">1つ以上のネームスペース内のKubernetesラベルで識別されるリソースのグループ</block>
   <block id="a2bbd5d6b932fb5a7f8ebfec6951f1f2" category="summary">Astra Control Centerは、ONTAP ストレージをベースとするTridentストレージクラスをサポートしています。ストレージクラスと永続的ボリュームのサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。</block>
@@ -2518,12 +2476,8 @@
   <block id="83a21b4b84bec79fb67f25c973cb89d3" category="list-text"><block ref="485506977df8782eb9acff027cc95cf9" category="inline-link-macro-rx"></block> 入力コントローラのタイプ。</block>
   <block id="70f82fe210d70d79ae84c8e57b5baf7f" category="list-text">Red Hat OpenShift の Web コンソールから：</block>
   <block id="eb5ffd4ef5a8aa98e9c36b2c79cea4ed" category="list-text">NetApp Astra Control Centerオペレータを検索して選択します。</block>
-  <block id="aa29e3cb75d2e7e5a7c9020ff806205e" category="paragraph"><block ref="aa29e3cb75d2e7e5a7c9020ff806205e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6f711eb57d6111094b5030c8f526d269" category="list-text">Red Hat エコシステムカタログから：</block>
   <block id="91ec9a89e3a33fa6bc118cf53ef60c2e" category="list-text">NetApp Astra Control Center を選択します<block ref="e9d5520af4877fc40e9611f3ebf55be3" category="inline-link-rx"></block>。</block>
-  <block id="5698ddd18c8f6cab72a468c7cfa4eeec" category="paragraph"><block ref="5698ddd18c8f6cab72a468c7cfa4eeec" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ebba57f57d5e5b122328701846bed429" category="inline-image-macro">Astra Control Centerオペレータページ</block>
-  <block id="c8d7734b1f32bc2769d028defe4768af" category="list-text">Astra Control Centerオペレータの[*Astra Control Center*]タブ内のコンソールから'[*Create AstraControlCenter *]を選択します<block ref="4b62ec811b7f534bf6133b7281cc1006" category="inline-image-macro-rx" type="image"></block></block>
   <block id="20133d30eea258b6c1550d612eb75dfc" category="list-text">Astra Control Centerのラベルを追加します。</block>
   <block id="a90dd656b7a6b8d695097aab7d876d0e" category="list-text">AutoSupportを有効または無効にします。Auto Support 機能の保持を推奨します。</block>
   <block id="4039227203056b7dfe2f76bcb9aedef4" category="list-text">Astra Control CenterのFQDNまたはIPアドレスを入力します。入らないでください<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> または<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> をクリックします。</block>
@@ -2655,4 +2609,50 @@
   <block id="2a09fd1da71158929da8e53a8b3b41b7" category="list-text">クラスタ内のワーカーノードで適切なストレージドライバが設定されていることを確認します。これにより、ポッドがバックエンドストレージと通信できるようになります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。</block>
   <block id="d7dde07915bbe8056e6854c2b5e50480" category="inline-link">ワーカーノードを準備します</block>
   <block id="2facff43cb177de168322dab6df7d48c" category="list-text"><block ref="2facff43cb177de168322dab6df7d48c" category="inline-link-rx"></block></block>
+  <block id="8dcf3121a9c80a937dfc06bc5fd4e5e3" category="inline-image-macro">この画像は、プロキシ接続を有効にする接続オプションを示しています。</block>
+  <block id="3e659c38f14d2c0b95bd77bdd854bd85" category="paragraph"><block ref="3e659c38f14d2c0b95bd77bdd854bd85" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fd180d52d96c0ebe62f487b84c2d789f" category="inline-image-macro">この画像は、プロキシサーバーが正常に接続されたことを示しています。</block>
+  <block id="689a14f9780ff330d7c3aedf834175d5" category="paragraph"><block ref="689a14f9780ff330d7c3aedf834175d5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2df1a0b35f35656f62b5546dd35d1fc5" category="inline-image-macro">この図は、ドロップダウンリストから[接続（Connect）]オプションを表示して、Cloud Insights 接続を有効にします。</block>
+  <block id="c85206515206584aaee44979bb1c41dc" category="paragraph"><block ref="c85206515206584aaee44979bb1c41dc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="578a387f1f8e86b4cd4668959ab7287b" category="inline-image-macro">この図は、Cloud Insights APIトークン生成ページを示しています。</block>
+  <block id="4b1189d2248f8a4f61e3601f01c69998" category="paragraph"><block ref="4b1189d2248f8a4f61e3601f01c69998" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ff78c299289641ea8c98a5bd3d1d9f14" category="inline-image-macro">この図は、Cloud Insights 接続がアストラコントロールセンターUIで有効になっていることを示しています。</block>
+  <block id="863e5d03d8276e6ec0e91d90362ba6fc" category="paragraph"><block ref="863e5d03d8276e6ec0e91d90362ba6fc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="61beccf9a144fb9a169b932ec10e00da" category="inline-image-macro">この図は、Cloud Insights 接続が失敗したときのエラーメッセージを示しています。</block>
+  <block id="89f4116267c0b38a50714fb79e4dc52b" category="paragraph"><block ref="89f4116267c0b38a50714fb79e4dc52b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0693a381c51a4d797366db02bab07c85" category="inline-image-macro">この図は、Astra Control Centerのバックエンドページのスループット情報を示しています。</block>
+  <block id="8546879ad37538b080bb2017fb6a59b2" category="paragraph">Astra Control Center では、スループット情報をバックエンド * ページで表示したり、ストレージバックエンドを選択した後にここから Cloud Insights に接続したりできます。<block ref="d70136cc2e2ff773a9985b636fa21877" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a3a7dcfbde4fa6707602db24edc4decc" category="inline-image-macro">この図は、ダッシュボードのCloud Insights アイコンを示しています。</block>
+  <block id="282be9d39c31d0227d619a8545c323cf" category="paragraph"><block ref="282be9d39c31d0227d619a8545c323cf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d9f3a4876cc5135e711d40d1ce9d90e0" category="inline-image-macro">ここでは、AstraからFluentdまでのイベントログの概念図を示します。</block>
+  <block id="690dfd75b6f39f7266559fe8a0bf7e59" category="paragraph"><block ref="690dfd75b6f39f7266559fe8a0bf7e59" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e09e6628893acd91e43aa689b73d666e" category="inline-image-macro">この画像は、Fluentdへの接続を有効にするためのUI画面を示しています。</block>
+  <block id="983ce575b1bbce4c353117acb64736a9" category="paragraph"><block ref="983ce575b1bbce4c353117acb64736a9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="89f828fc0373897c24df33390dd05a71" category="inline-image-macro">次の図は、Cloud Volumes ONTAP 導入のAstra Control Centerの例を示しています</block>
+  <block id="a022db6a8f02885ee71752a15ca989d2" category="paragraph"><block ref="a022db6a8f02885ee71752a15ca989d2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a887a250e32580febb9e88a148e98b6d" category="inline-image-macro">この図は、BlueXPのコネクタを示しています</block>
+  <block id="2e8c307a4769b3012d46947b310e8933" category="paragraph"><block ref="2e8c307a4769b3012d46947b310e8933" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2692c49aedcd034aebf5aada7fd9ddea" category="inline-image-macro">この図は、BlueXPの作業環境の場所を示しています</block>
+  <block id="2f3dcbcb13f9b55a6871541e299ab5dd" category="paragraph"><block ref="2f3dcbcb13f9b55a6871541e299ab5dd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="64ab5ed989081d11abcb25c80eef9d3e" category="inline-image-macro">この図は、BlueXPでインポートされたクラスタを示しています</block>
+  <block id="433f94af9370edd5cebefd49c137cde8" category="paragraph"><block ref="433f94af9370edd5cebefd49c137cde8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ad33954d9b6a97c5e3d83a747222ea5c" category="inline-image-macro">この画像は、OpenShift Container Platform UIからのAstra Control Centerインストールページを示しています</block>
+  <block id="c1461863db43079243c4c84fb794292c" category="paragraph"><block ref="c1461863db43079243c4c84fb794292c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ae94e6397160111c3d2cf22d9a8ca3ec" category="inline-image-macro">この画像は、RedHatエコシステムカタログから入手できるAstra Control Centerの概要ページを示しています</block>
+  <block id="a4503954adc0dc79a485e6b85ec3e042" category="paragraph"><block ref="a4503954adc0dc79a485e6b85ec3e042" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f70a3f4d7ff63162b39fd497d3ca41a2" category="inline-image-macro">この画像は、Astra Control Centerタブが選択されているAstra Control Centerオペレータページを示しています</block>
+  <block id="9fc00961e95dc124bf940a69051c6811" category="list-text">Astra Control Centerオペレータの[*Astra Control Center*]タブ内のコンソールから'[*Create AstraControlCenter *]を選択します<block ref="17c57d9e244946cd3aa5005781885a19" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5ddd50ee81b614308861ff77d7830f09" category="inline-image-macro">Astra Controlアーキテクチャとそのコンポーネントを説明する概念図</block>
+  <block id="9a5af8d21a89c12b2cbe1b8eef81601d" category="paragraph"><block ref="9a5af8d21a89c12b2cbe1b8eef81601d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0f46081f2feaf078f0f3439194dbfeaa" category="inline-image-macro">この概念図は、Astra Controlがネームスペース内のすべてのリソースを管理する様子を示しています。</block>
+  <block id="96cda0463e67936e4be90b32cd9b2037" category="paragraph"><block ref="96cda0463e67936e4be90b32cd9b2037" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9ac437c5476362c9f204a18336bd8521" category="inline-image-macro">他のアプリケーションを含むネームスペースに配置された個 々 のアプリケーションをAstra Controlで管理する概念図。</block>
+  <block id="8febc48974d939835115b3cec245a741" category="paragraph"><block ref="8febc48974d939835115b3cec245a741" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="878f8e36f6cbd825352ce35e02170a9e" category="inline-image-macro">Kubernetesラベルを基にしたAstra Controlによるアプリケーションの管理を示す概念図。</block>
+  <block id="959c3f7b4bbcebb70e2a9561abf23064" category="paragraph"><block ref="959c3f7b4bbcebb70e2a9561abf23064" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c006b18484871e444511008d4048c4e5" category="inline-image-macro">この図は、S3バケットを使用する2つのKubernetesクラスタ間でのスケジュールされたバックアップとリストアを示しています</block>
+  <block id="6b5e0e55ce84f7fa138aa402d59fb2ad" category="paragraph"><block ref="6b5e0e55ce84f7fa138aa402d59fb2ad" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4501b2d5d28c830c20c2907834215405" category="inline-image-macro">この図は、2つのKubernetesクラスタと2つのONTAP クラスタ間のレプリケーションとフェイルオーバーを示しています</block>
+  <block id="620eb6fdfd4e651d0246b5b8f2fb119e" category="paragraph"><block ref="620eb6fdfd4e651d0246b5b8f2fb119e" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

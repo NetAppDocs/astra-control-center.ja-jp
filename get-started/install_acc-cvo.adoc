@@ -170,7 +170,7 @@ NOTE: AWS Elastic Container Registry （ ECR ）トークンの有効期限は 1
 
 AWS 環境の例を次に示します。
 
-image:acc-cvo-aws2.png["Cloud Volumes ONTAP を使用した Astra Control Center の導入例"]
+image:acc-cvo-aws2.png["次の図は、Cloud Volumes ONTAP 導入のAstra Control Centerの例を示しています"]
 
 
 
@@ -652,7 +652,7 @@ BlueXPのマニュアルに従って'次の手順を実行しますを参照し�
 
 . コネクタが動作していることを確認し、コネクタに切り替えます。
 +
-image:acc-cvo-azure-connectors.png["BlueXPでコネクタを切り替えています"]
+image:acc-cvo-azure-connectors.png["この図は、BlueXPのコネクタを示しています"]
 
 . クラウド環境の作業環境を構築
 +
@@ -661,13 +661,13 @@ image:acc-cvo-azure-connectors.png["BlueXPでコネクタを切り替えてい�
 
 
 +
-image:acc-cvo-azure-working-environment.png["BlueXPでの作業環境の作成"]
+image:acc-cvo-azure-working-environment.png["この図は、BlueXPの作業環境の場所を示しています"]
 
 . OpenShift クラスタをインポートします。作成した作業環境にクラスタが接続されます。
 +
 .. ネットアップクラスタの詳細を表示するには、 * K8s * > * Cluster list * > * Cluster Details * を選択します。
 +
-image:acc-cvo-azure-connected.png["BlueXPにクラスタをインポート"]
+image:acc-cvo-azure-connected.png["この図は、BlueXPでインポートされたクラスタを示しています"]
 
 .. 右上隅に Trident のバージョンが表示されていることを確認します。
 .. Cloud Volumes ONTAP クラスタのストレージクラスは、プロビジョニングツールとしてネットアップを使用していることに注目してください。

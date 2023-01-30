@@ -53,8 +53,8 @@ Astra Controlは、アプリケーションのSnapshotコピーをリモート�
 
 バックアッププロセスでは、S3バケットにデータをコピーし、S3バケットからリストアします。
 
-image:acc-backup_4in.png["スケジュールされたバックアップとリストアのイメージ"]
+image:acc-backup_4in.png["この図は、S3バケットを使用する2つのKubernetesクラスタ間でのスケジュールされたバックアップとリストアを示しています"]
 
 一方、レプリケーションはONTAP にレプリケートされ、その後フェイルオーバーによってKubernetesリソースが作成されます。
 
-image:acc-replication_4in.png["レプリケーションとフェイルオーバーイメージ"]
+image:acc-replication_4in.png["この図は、2つのKubernetesクラスタと2つのONTAP クラスタ間のレプリケーションとフェイルオーバーを示しています"]
