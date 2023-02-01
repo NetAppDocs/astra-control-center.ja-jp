@@ -13,9 +13,9 @@ Astra Control は、 Kubernetes アプリケーションデータのライフサ
 * ポリシーベースのスナップショットおよびバックアップ操作を自動化します
 * NetApp SnapMirrorテクノロジを使用して、アプリケーションをリモートシステムにレプリケートします
 * Kubernetes クラスタ間でアプリケーションとデータを移行
-* 本番環境からステージング環境にアプリケーションを簡単にクローニングできます
+* ステージングから本番環境へのアプリケーションのクローン作成が容易
 * アプリケーションの稼働状態と保護状態を視覚化します
-* バックアップと移行のワークフローを実装するには、ユーザインターフェイスまたは API を使用してください
+* Web UIまたはAPIを使用して、バックアップと移行のワークフローを実装します
 
 
 
@@ -24,8 +24,8 @@ Astra Control は、 Kubernetes アプリケーションデータのライフサ
 
 Astra Control には、次の 2 つの導入モデルがあります。
 
-* * Astra Control Service *：複数のクラウドプロバイダ環境でKubernetesクラスタのデータをアプリケーション対応で管理するネットアップマネージドサービス。
-* * Astra Control Center * ：オンプレミス環境で実行される Kubernetes クラスタのアプリケーション対応データ管理を提供する、自己管理ソフトウェアです。
+* * Astra Control Service *：ネットアップが管理するサービス。複数のクラウドプロバイダ環境や自己管理型のKubernetesクラスタで、アプリケーションに対応したデータ管理を提供します。
+* * Astra Control Center * ：オンプレミス環境で実行される Kubernetes クラスタのアプリケーション対応データ管理を提供する、自己管理ソフトウェアです。NetApp Cloud Volumes ONTAP ストレージバックエンドを使用して、複数のクラウドプロバイダ環境にAstra Control Centerをインストールすることもできます。
 
 
 [cols="1h,2d,2a"]
@@ -34,12 +34,12 @@ Astra Control には、次の 2 つの導入モデルがあります。
 
 
 | どのような方法で提供されますか？ | ネットアップのフルマネージドクラウドサービス  a| 
-ソフトウェアとしてダウンロード、インストール、および管理します
+ソフトウェアとしてダウンロード、インストール、および管理できます
 
 
 
 | ホストされているのはどこですか？ | ネットアップが選択したパブリッククラウドで実現  a| 
-指定した Kubernetes クラスタで実行します
+自社所有のKubernetesクラスタ
 
 
 
@@ -48,14 +48,37 @@ Astra Control には、次の 2 つの導入モデルがあります。
 
 
 
-| アプリケーションデータ管理機能とは何ですか？ | ストレージバックエンドと外部サービスを除く両方のプラットフォームで同じ機能を利用できます  a| 
-ストレージバックエンドと外部サービスを除く両方のプラットフォームで同じ機能を利用できます
+| サポートされているストレージバックエンドは何ですか。  a| 
+* Amazon Web Servicesの特長
++
+** Amazon EBSのことです
+** NetApp ONTAP 対応の Amazon FSX
+
+
+* Google Cloud
++
+** Google Persistent Disk のことです
+** NetApp Cloud Volumes Service の略
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP"^]
+
+
+* Microsoft Azure
++
+** Azure Managed Disksの略
+** Azure NetApp Files の特長
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Cloud Volumes ONTAP"^]
+
+
+* 自己管理クラスタ：
++
+** NetApp ONTAP AFF および FAS システム
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
 
-| ストレージバックエンドでサポートされるもの | ネットアップのクラウドサービス  a| 
+ a| 
 * NetApp ONTAP AFF および FAS システム
-* Cloud Volumes ONTAP ストレージバックエンド
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
 |===
@@ -82,7 +105,7 @@ Azure では、 Astra Control Service によって、 BLOB コンテナ用のリ
 
 ** クラスタに新しい admin ロールと Kubernetes サービスアカウントを作成します。
 ** 新しい admin ロールを使用してインストールします https://docs.netapp.com/us-en/trident/index.html["Astra Trident"^] をクリックして、 1 つ以上のストレージクラスを作成します。
-** Azure NetApp Files または NetApp Cloud Volumes Service for Google Cloud をストレージバックエンドとして使用している場合、 Astra Control Service は Astra Trident を使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。
+** ネットアップのクラウドサービスストレージサービスをストレージバックエンドとして使用している場合、Astra Control ServiceはAstra Tridentを使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。Amazon EBSまたはAzureで管理されているディスクをストレージバックエンドとして使用している場合は、プロバイダ固有のCSIドライバをインストールする必要があります。インストール手順については、を参照してください link:set-up-amazon-web-services.html["Amazon Web Servicesをセットアップする"^] および link:set-up-microsoft-azure-with-amd.html["Azure で管理されているディスクを使用して Microsoft Azure をセットアップする"^]。
 
 
 * この時点で、アプリケーションをクラスタに追加できます。永続ボリュームは、新しいデフォルトのストレージクラスでプロビジョニングされます。
