@@ -32,7 +32,7 @@ Astra Control Centerをインストールするには、NetApp Support Site か�
 kubectl get apiservices
 ----
 * 使用するネットアップFQDNがこのクラスタにルーティング可能であることを確認します。つまり、内部 DNS サーバに DNS エントリがあるか、すでに登録されているコア URL ルートを使用しています。
-* クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"] そのため、Astra Control Centerは独自のcert-managerをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
+* クラスタに証明書マネージャがすでに存在する場合は、いくつかの手順を実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"] そのため、Astra Control Centerは独自の証明書マネージャのインストールを試みません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
 
 
 .このタスクについて
@@ -440,7 +440,7 @@ kubectl get pods -n netapp-acc-operator
 
 == Astra Control Center を設定します
 
-. Astra Control Centerカスタムリソース（CR）ファイルを編集します (`astra_control_center.yaml`)アカウント、AutoSupport 、レジストリ、およびその他の必要な設定を行うには、次の手順を実行します。
+. Astra Control Centerカスタムリソース（CR）ファイルを編集します (`astra_control_center.yaml`)アカウント、サポート、レジストリ、およびその他の必要な設定を行うには、次の手順を実行します。
 +
 [source, console]
 ----
@@ -452,40 +452,40 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 
 . 次の設定を変更または確認します。
 +
-.アカウント名
+.<code> アカウント名</code>
 [%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| アカウント名 | を変更します `accountName` stringには、Astra Control Centerアカウントに関連付ける名前を指定します。アカウント名は1つだけです。 | 文字列 | 例 
+| `accountName` | を変更します `accountName` stringには、Astra Control Centerアカウントに関連付ける名前を指定します。アカウント名は1つだけです。 | 文字列 | `Example` 
 |===
 ====
 +
-.astraVersion
+.<code> astraバージョン</code>
 [%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| astraVersion | 導入するAstra Control Centerのバージョン。この設定には値があらかじめ入力されているため、対処は不要です。 | 文字列 | 22.11.1-82 
+| `astraVersion` | 導入するAstra Control Centerのバージョン。この設定には値があらかじめ入力されているため、対処は不要です。 | 文字列 | `22.11.0-82` 
 |===
 ====
 +
-.astraitAddress
+.<code> astraitAddress </code> の略
 [%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| astraitAddress | を変更します `astraAddress` ブラウザで使用するFQDN（推奨）またはIPアドレスを指定して、Astra Control Centerにアクセスします。このアドレスは、データセンターでAstra Control Centerがどのように検出されるかを定義します。このアドレスは、完了時にロードバランサからプロビジョニングしたFQDNまたはIPアドレスと同じです link:requirements.html["Astra Control Center の要件"^]。注：は使用しないでください `http://` または `https://` をクリックします。この FQDN をコピーしてで使用します <<Astra Control Center UI にログインします,後の手順>>。 | 文字列 | astra.example.com 
+| `astraAddress` | を変更します `astraAddress` ブラウザで使用するFQDN（推奨）またはIPアドレスを指定して、Astra Control Centerにアクセスします。このアドレスは、データセンターでAstra Control Centerがどのように検出されるかを定義します。このアドレスは、完了時にロードバランサからプロビジョニングしたFQDNまたはIPアドレスと同じです link:requirements.html["Astra Control Center の要件"^]。注：は使用しないでください `http://` または `https://` をクリックします。この FQDN をコピーしてで使用します <<Astra Control Center UI にログインします,後の手順>>。 | 文字列 | `astra.example.com` 
 |===
 ====
 +
-.AutoSupport
+.<code> AutoSupport </code> の略
 [%collapsible]
 ====
 このセクションで選択することで、ネットアップのプロアクティブサポートアプリケーション、NetApp Active IQ 、およびデータの送信先のどちらに参加するかが決まります。インターネット接続が必要です（ポート442）。サポートデータはすべて匿名化されます。
@@ -494,39 +494,47 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 | 設定 | 使用 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| AutoSupportに登録しました | または `enrolled` または `url` フィールドを選択する必要があります | 変更 `enrolled` を選択しますAutoSupport `false` インターネットに接続されていないか、または保持されているサイト `true` 接続されているサイト用。の設定 `true` 匿名データをネットアップに送信し、サポートを目的として使用できるようにします。デフォルトの選択はです `false` およびは、サポートデータがネットアップに送信されないことを示します。 | ブール値 | false（デフォルト値） 
+| `autoSupport.enrolled` | または `enrolled` または `url` フィールドを選択する必要があります | 変更 `enrolled` を選択しますAutoSupport `false` インターネットに接続されていないか、または保持されているサイト `true` 接続されているサイト用。の設定 `true` 匿名データをネットアップに送信し、サポートを目的として使用できるようにします。デフォルトの選択はです `false` およびは、サポートデータがネットアップに送信されないことを示します。 | ブール値 | `false` （デフォルト値） 
 
 
-| autosupport.urlに設定しました | または `enrolled` または `url` フィールドを選択する必要があります | このURLは匿名データの送信先を決定します。 | 文字列 | https://support.netapp.com/asupprod/post/1.0/postAsup[] 
+| `autoSupport.url` | または `enrolled` または `url` フィールドを選択する必要があります | このURLは匿名データの送信先を決定します。 | 文字列 | `https://support.netapp.com/asupprod/post/1.0/postAsup` 
 |===
 ====
 +
-.E メール
+.<code> Eメール</code>
 [%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| E メール | を変更します `email` デフォルトの初期管理者アドレスを表す文字列。この E メールアドレスをコピーしてで使用します <<Astra Control Center UI にログインします,後の手順>>。このEメールアドレスは、最初のアカウントがUIにログインする際のユーザ名として使用され、Astra Controlのイベントが通知されます。 | 文字列 | admin@example.com 
+| `email` | を変更します `email` デフォルトの初期管理者アドレスを表す文字列。この E メールアドレスをコピーしてで使用します <<Astra Control Center UI にログインします,後の手順>>。このEメールアドレスは、最初のアカウントがUIにログインする際のユーザ名として使用され、Astra Controlのイベントが通知されます。 | 文字列 | `admin@example.com` 
 |===
 ====
 +
-.FirstNameとLastName
+.<code> firstName </code> の略
 [%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| FirstName | アストラアカウントに関連付けられている初期管理者の名前。ここで使用した名前は、初回ログイン後にUIの見出しに表示されます。 | 文字列 | SRE 
-
-
-| 姓 | アストラアカウントに関連付けられている初期管理者の姓です。ここで使用した名前は、初回ログイン後にUIの見出しに表示されます。 | 文字列 | 管理 
+| `firstName` | アストラアカウントに関連付けられている初期管理者の名前。ここで使用した名前は、初回ログイン後にUIの見出しに表示されます。 | 文字列 | `SRE` 
 |===
 ====
 +
-.imageRegistryのこと
+.<code> のLastName </code>
+[%collapsible]
+====
+|===
+| 設定 | ガイダンス（Guidance） | を入力します | 例 
+
+
+| `lastName` | アストラアカウントに関連付けられている初期管理者の姓です。ここで使用した名前は、初回ログイン後にUIの見出しに表示されます。 | 文字列 | `Admin` 
+|===
+====
++
+.<code> imageRegistry </code> です
 [%collapsible]
 ====
 このセクションで選択すると、Astraアプリケーションイメージ、Astra Control Center Operator、Astra Control Center Helmリポジトリをホストするコンテナイメージレジストリが定義されます。
@@ -535,70 +543,72 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 | 設定 | 使用 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| imageRegistry.name | 必須 | でイメージをプッシュしたイメージレジストリの名前 <<Astra Control Center オペレータを設置します,前の手順>>。使用しないでください `http://` または `https://` をレジストリ名に追加します。 | 文字列 | example.registry.com/astra 
+| `imageRegistry.name` | 必須 | でイメージをプッシュしたイメージレジストリの名前 <<Astra Control Center オペレータを設置します,前の手順>>。使用しないでください `http://` または `https://` をレジストリ名に追加します。 | 文字列 | `example.registry.com/astra` 
 
 
-| imageRegistry.secret | シークレットを必要とするimageRegistryを使用している場合は必須です。重要：認証を必要としないレジストリを使用している場合は、削除する必要があります `secret` ラインの内側 `imageRegistry` または、インストールが失敗します。 | イメージレジストリでの認証に使用するKubernetesシークレットの名前。 | 文字列 | Astra - registry-cred 
+| `imageRegistry.secret` | に入力した文字列の場合は必須です `imageRegistry.name' requires a secret.
+
+IMPORTANT: If you are using a registry that does not require authorization, you must delete this `secret` ラインの内側 `imageRegistry` または、インストールが失敗します。 | イメージレジストリでの認証に使用するKubernetesシークレットの名前。 | 文字列 | `astra-registry-cred` 
 |===
 ====
 +
-.ストレージクラス
+.<code> ストレージクラス</code>
 [%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| ストレージクラス | を変更します `storageClass` からの値 `ontap-gold` インストールに必要な別のTridentストレージクラスのリソースに移動します。コマンドを実行します `kubectl get sc` をクリックして、設定済みの既存のストレージクラスを確認します。Tridentベースのストレージクラスの1つをマニフェストファイル（Astra <version> マニフェスト）に入力する必要があり、Astra PVSに使用されます。設定されていない場合は、デフォルトのストレージクラスが使用されます。メモ：デフォルトのストレージクラスが設定されている場合は、デフォルトのアノテーションが設定されている唯一のストレージクラスであることを確認してください。 | 文字列 | ontap - goldの部分があります 
+| `storageClass` | を変更します `storageClass` からの値 `ontap-gold` インストールに必要な別のTridentストレージクラスのリソースに移動します。コマンドを実行します `kubectl get sc` をクリックして、設定済みの既存のストレージクラスを確認します。Tridentベースのストレージクラスの1つをマニフェストファイルに入力する必要があります (`astra-control-center-<version>.manifest`）とをAstra PVSに使用します。設定されていない場合は、デフォルトのストレージクラスが使用されます。メモ：デフォルトのストレージクラスが設定されている場合は、デフォルトのアノテーションが設定されている唯一のストレージクラスであることを確認してください。 | 文字列 | `ontap-gold` 
 |===
 ====
 +
-.volumeReclaimPolicyのように指定します
+.<code> volumeReclaimPolicy </code> の略
 [%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | オプション（ Options ） 
 
 
-| volumeReclaimPolicyのように指定します | これにより、AstraのPVSの再利用ポリシーが設定されます。このポリシーをに設定しています `Retain` Astraが削除されたあとに永続的なボリュームを保持このポリシーをに設定しています `Delete` Astraが削除されたあとに永続的ボリュームを削除する。この値が設定されていない場合、PVSは保持されます。 | 文字列  a| 
-** 保持（デフォルト値）
-** 削除
+| `volumeReclaimPolicy` | これにより、AstraのPVSの再利用ポリシーが設定されます。このポリシーをに設定しています `Retain` Astraが削除されたあとに永続的なボリュームを保持このポリシーをに設定しています `Delete` Astraが削除されたあとに永続的ボリュームを削除する。この値が設定されていない場合、PVSは保持されます。 | 文字列  a| 
+** `Retain` （デフォルト値）
+** `Delete`
 
 
 |===
 ====
 +
-.ingressType
+.<code> ingressType </code> の略
 [%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | オプション（ Options ） 
 
 
-| ingressType | 次の入力タイプのいずれかを使用します。* Generic * (`ingressType: "Generic"`）（デフォルト）別の入力コントローラを使用している場合、または独自の入力コントローラを使用する場合は、このオプションを使用します。Astra Control Centerを導入したら、を設定する必要があります link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["入力コントローラ"^] URLを使用してAstra Control Centerを公開します。* AccTraefik * (`ingressType: "AccTraefik"`）入力コントローラを設定しない場合は、このオプションを使用します。これにより、Astra Control Centerが導入されます `traefik` Gateway as a Kubernetes LoadBalancer type serviceの略。Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用します。 (`svc/traefik` Astra Control Centerの名前空間）で、アクセス可能な外部IPアドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、MetalLBまたは別の外部サービスロードバランサを使用して外部IPアドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。注：サービスタイプ「LoadBalancer」および入力の詳細については、を参照してください link:../get-started/requirements.html["要件"^]。 | 文字列  a| 
-** 汎用（デフォルト値）
-** AccTraefik社
+| `ingressType` | 次の入力タイプのいずれかを使用します。*`Generic`* (`ingressType: "Generic"`）（デフォルト）別の入力コントローラを使用している場合、または独自の入力コントローラを使用する場合は、このオプションを使用します。Astra Control Centerを導入したら、を設定する必要があります link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["入力コントローラ"^] URLを使用してAstra Control Centerを公開します。*`AccTraefik`* (`ingressType: "AccTraefik"`）入力コントローラを設定しない場合は、このオプションを使用します。これにより、Astra Control Centerが導入されます `traefik` Gateway as a Kubernetes LoadBalancer type serviceの略。Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用します。 (`svc/traefik` Astra Control Centerの名前空間）で、アクセス可能な外部IPアドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、MetalLBまたは別の外部サービスロードバランサを使用して外部IPアドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。注：サービスタイプ「LoadBalancer」および入力の詳細については、を参照してください link:../get-started/requirements.html["要件"^]。 | 文字列  a| 
+** `Generic` （デフォルト値）
+** `AccTraefik`
 
 
 |===
 ====
 +
-.astraitcesScaler
+.<code> astraalResourcesScaler </code>
 [%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | オプション（ Options ） 
 
 
-| astraitcesScaler | AstraeControlCenterリソース制限のスケーリングオプションデフォルトでは、Astra Control CenterはAstra内のほとんどのコンポーネントに対してリソース要求を設定して展開します。この構成により、アプリケーションの負荷と拡張性が高い環境では、Astra Control Centerソフトウェアスタックのパフォーマンスが向上します。ただし、小規模な開発またはテストクラスタを使用するシナリオでは、CRフィールドを使用します `astraResourcesScalar` に設定できます `Off`。これにより、リソース要求が無効になり、小規模なクラスタへの導入が可能になります。 | 文字列  a| 
-** デフォルト（デフォルト値）
-** オフ
+| `astraResourcesScaler` | AstraeControlCenterリソース制限のスケーリングオプションデフォルトでは、Astra Control CenterはAstra内のほとんどのコンポーネントに対してリソース要求を設定して展開します。この構成により、アプリケーションの負荷と拡張性が高い環境では、Astra Control Centerソフトウェアスタックのパフォーマンスが向上します。ただし、小規模な開発またはテストクラスタを使用するシナリオでは、CRフィールドを使用します `astraResourcesScalar` に設定できます `Off`。これにより、リソース要求が無効になり、小規模なクラスタへの導入が可能になります。 | 文字列  a| 
+** `Default` （デフォルト値）
+** `Off`
 
 
 |===
 ====
 +
-.CRD
+.<code> CRD </code> の略
 [%collapsible]
 ====
 このセクションで選択した内容によって、Astra Control CenterでのCRDの処理方法が決まります。
@@ -607,10 +617,10 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| CRD.externalCertManagerの略 | 外部のcert-managerを使用する場合は、を変更します `externalCertManager` 終了： `true`。デフォルト `false` Astra Control Centerが、インストール時に独自の証明書マネージャCRDをインストールするようにします。SSDはクラスタ全体のオブジェクトであり、クラスタの他の部分に影響を及ぼす可能性があります。このフラグを使用すると、これらのCRDがAstra Control Centerの外部にあるクラスタ管理者によってインストールおよび管理されることをAstra Control Centerに伝えることができます。 | ブール値 | false（デフォルト値） 
+| `crds.externalCertManager` | 外部証明書マネージャを使用する場合は、変更します `externalCertManager` 終了： `true`。デフォルト `false` Astra Control Centerが、インストール時に独自の証明書マネージャCRDをインストールするようにします。SSDはクラスタ全体のオブジェクトであり、クラスタの他の部分に影響を及ぼす可能性があります。このフラグを使用すると、これらのCRDがAstra Control Centerの外部にあるクラスタ管理者によってインストールおよび管理されることをAstra Control Centerに伝えることができます。 | ブール値 | `False` （デフォルト値） 
 
 
-| CRDs .externalTraefik | デフォルトでは、Astra Control Centerは必要なTraefik CRDをインストールします。SSDはクラスタ全体のオブジェクトであり、クラスタの他の部分に影響を及ぼす可能性があります。このフラグを使用すると、これらのCRDがAstra Control Centerの外部にあるクラスタ管理者によってインストールおよび管理されることをAstra Control Centerに伝えることができます。 | ブール値 | false（デフォルト値） 
+| `crds.externalTraefik` | デフォルトでは、Astra Control Centerは必要なTraefik CRDをインストールします。SSDはクラスタ全体のオブジェクトであり、クラスタの他の部分に影響を及ぼす可能性があります。このフラグを使用すると、これらのCRDがAstra Control Centerの外部にあるクラスタ管理者によってインストールおよび管理されることをAstra Control Centerに伝えることができます。 | ブール値 | `False` （デフォルト値） 
 |===
 ====
 
@@ -956,7 +966,7 @@ kubectl apply -f nginx-Ingress.yaml
 
 
 
-WARNING: nginxコントローラはデモセットではなく導入環境としてインストールすることを推奨します。
+WARNING: ネットアップでは、nginxコントローラをではなく導入環境としてインストールすることを推奨します `daemonSet`。
 
 .OpenShift 入力コントローラの手順
 . 証明書を調達し、 OpenShift ルートで使用できるようにキー、証明書、および CA ファイルを取得します。

@@ -878,7 +878,6 @@
   <block id="3e92f2df0bda8968dc6665778c2f9b99" category="paragraph">a_clone_は 、アプリケーション、その構成、永続的ストレージの完全な複製です。クローンは、同じ Kubernetes クラスタまたは別のクラスタに手動で作成できます。アプリケーションとストレージを Kubernetes クラスタ間で移動する必要がある場合は、アプリケーションをクローニングすると便利です。</block>
   <block id="bd48cb856a5ec10f9c3c2bf8d62fc86c" category="paragraph">Astra Control を使用すると、スナップショットまたはバックアップからアプリケーションをリストアできます。同じクラスタにアプリケーションをリストアする場合、既存の Snapshot からのリストアは高速です。Astra Control UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> アプリを復元するには、</block>
   <block id="22ec3951623db87fb800ca769fec5e8f" category="paragraph">回避策として、次の手順を実行します。</block>
-  <block id="b6dcf530db55b7783db7f050410455e4" category="list-text">kubeadm -config 構成マップを編集します。</block>
   <block id="33fe94a78e4fc743a279dacacc468c5d" category="list-text">「 clusterName 」フィールドの値を「 Kubernetes 」（ Kubernetes のデフォルト名）から一意のカスタム名に変更します。</block>
   <block id="890a77a8c921a60204701adfa2f5c160" category="list-text">kubeconfig (`.kube/config`) を編集します。</block>
   <block id="6c97574dc1b4c1296eabcd490b901dbf" category="list-text">クラスタ名を「 Kubernetes 」から一意のカスタム名に更新します（以下の例では「 xyz-cluster 」を使用します）。次の例に示すように 'clusters' および contexts の両方のセクションで更新を行います</block>
@@ -1367,55 +1366,18 @@
   <block id="d7a2df4296f778ff9dae7d8197e49f88" category="list-text">入力ゲートウェイに必要な証明書と秘密鍵ファイルを収集または作成します。</block>
   <block id="5f6df49e621317e5089b66dba695a9ca" category="admonition">シークレットの名前は、「istio-ingress.yaml」ファイルで指定されている「spec.tls.secretName`」と一致している必要があります。</block>
   <block id="509ae1887052bee235ca9fa72cd737f5" category="list-text">入力のステータスを確認します。</block>
-  <block id="163d94b9255ea61fa90b17e63847f07e" category="summary">クラスタにcert-managerがすでに存在する場合は、前提条件となるいくつかの手順を実行して、Astra Control Centerが独自のcert-managerをインストールしないようにする必要があります。</block>
   <block id="6bdc7c13872089b240b2d2e134bf8244" category="doc">外部証明書マネージャを設定します</block>
-  <block id="c5899da221d3a7388cf14e6ab2e7892a" category="paragraph">Kubernetesクラスタにcert-managerがすでに存在する場合は、事前にいくつかの手順を実行して、Astra Control Centerが独自のcert-managerをインストールしないようにする必要があります。</block>
-  <block id="c3cd50c648d9ae22cac1ef213536259d" category="list-text">cert-managerがインストールされていることを確認します。</block>
-  <block id="0aff594cf0d6a1a66b4d828529f2c61b" category="list-text">astraitAddress FQDNの証明書とキーのペアを作成します。</block>
   <block id="26a6f964cf8ef3c290d7ddadde2a8b67" category="list-text">以前に生成したファイルを使用してシークレットを作成します。</block>
-  <block id="226acb89f6dfd0da6e82058180b0c67b" category="list-text">ClusterIssuerファイルを作成します。このファイルは正確に*されます。ただし、cert-managerポッドがインストールされているネームスペースの場所が含まれます。</block>
-  <block id="083b1525b28795e829240c41c804453f" category="list-text">ClusterIssuerが正しく起動したことを確認します。続行するには'Ready"をTrueにする必要があります</block>
   <block id="e81390ac7a4e5ed54e210e59e5b5f694" category="inline-link-macro">Astra Control Center のインストールプロセス</block>
   <block id="3f7b63d8e11face0275b65afb3a7cad9" category="inline-link-macro">Astra Control CenterクラスタYAMLの必須の設定手順</block>
-  <block id="fd8714003157cf4b1ef399e5ff36c828" category="list-text">を実行します <block ref="4f6226316b347cad073b05d4198e6b67" category="inline-link-macro-rx"></block>。があります <block ref="b10b5b361802ada39ab534d37e156fb1" category="inline-link-macro-rx"></block> CRD値を変更して、cert-managerが外部にインストールされていることを示します。Astra Control Centerが外部証明書マネージャを認識できるように、インストール時にこの手順を完了する必要があります。</block>
   <block id="51ac4bf63a0c6a9cefa7ba69b4154ef1" category="cell">設定</block>
   <block id="a1fa27779242b4902f7ae3bdd5c6d508" category="cell">を入力します</block>
   <block id="ad8783089f828b927473fb61d51940ec" category="cell">使用</block>
-  <block id="bbdbf70444e48a34a4a7e7d708d85eec" category="cell">astraVersion</block>
   <block id="b45cffe084dd3d20d928bee85e7b0f21" category="cell">文字列</block>
   <block id="b651efdb98a5d6bd2b3935d0c3f4a5e2" category="cell">必須</block>
-  <block id="d27903c79b643b2f565c31e894abb568" category="cell">astraitAddress</block>
-  <block id="51c3153f8b9ad8f3a27b28d6c8f95aab" category="cell">astra.example.com</block>
-  <block id="cd7a180ee2029176203abb971a5e5ed9" category="cell">アカウント名</block>
   <block id="0a52730597fb4ffa01fc117d9e71e3a9" category="cell">例</block>
-  <block id="0c83f57c786a0b4a39efab23731c7ebc" category="cell">E メール</block>
-  <block id="e64c7d89f26bd1972efa854d13d7dd61" category="cell">admin@example.com</block>
-  <block id="ed89387bcd11937a7a92a99a2cbfb5d7" category="cell">FirstName</block>
-  <block id="b972b330bcbcd220003258f963c87063" category="cell">SRE</block>
-  <block id="ef21925fada6dfb684b5d8ec72114bb1" category="cell">姓</block>
-  <block id="e3afed0047b08059d0fada10f400c1e5" category="cell">管理</block>
-  <block id="78ec9b60245b46a4f05158076962ace9" category="cell">ストレージクラス</block>
-  <block id="e3bccceaf53ea80a4685ac9b974016f3" category="cell">ontap - goldの部分があります</block>
-  <block id="c3c263fe360a73d45c030a672e1ad0c4" category="cell">volumeReclaimPolicyのように指定します</block>
-  <block id="7ebc1f67b2eb5a818a1c50174696304a" category="cell">astraitcesScaler</block>
-  <block id="64c885ad8d34e07c7de4b0ba1410c410" category="cell">ingressType</block>
-  <block id="753832af32ffcc2d2e18e7628774d7cf" category="cell">汎用（デフォルト値）</block>
   <block id="27226c864bac7454a8504f8edb15d95b" category="cell">ブール値</block>
-  <block id="990dc1a09e10c7b5378e6bc8a1956cb8" category="cell">imageRegistryのこと</block>
-  <block id="f141c732c6aae0fddd2afdfac3f75f3f" category="cell">imageRegistry.name</block>
-  <block id="e77678b9947da8914bb67ef57aa6bb3d" category="cell">example.registry.com/astra</block>
-  <block id="c6fe3b36a104e3ea913f9a6b82389050" category="cell">imageRegistry.secret</block>
-  <block id="d2522c50d2a3c9af9481f3e38f4f0822" category="cell">Astra - registry-cred</block>
   <block id="a4eae2eb04aaa73a5aa84743236715c2" category="cell">イメージレジストリでの認証に使用するKubernetesシークレットの名前。</block>
-  <block id="5398d7dab242bfea13c044912cacfd10" category="cell">AutoSupport</block>
-  <block id="774a4ec4adf9dd65264c77b3b87833b7" category="cell">AutoSupportに登録しました</block>
-  <block id="e6e84f5b60d543e4f60284bb0d8839ec" category="cell">false（デフォルト値）</block>
-  <block id="ca77df23f9eeb9f068b3474e5065bc35" category="cell">autosupport.urlに設定しました</block>
-  <block id="89f1dc01ab80754de6eb13d2752e24d4" category="cell"><block ref="89f1dc01ab80754de6eb13d2752e24d4" category="inline-link-rx"></block></block>
-  <block id="c16ae51f09d668b952e5ab23072ad64e" category="cell">CRD</block>
-  <block id="665b3f371a91222c9cb860633e329f92" category="cell">CRDs .externalTraefik</block>
-  <block id="15c17271ca03b109604346103f40edce" category="cell">CRD.externalCertManagerの略</block>
-  <block id="0a3e1793e4eaf6bd67bdf43d1bca1c74" category="list-text">AccTraefik社</block>
   <block id="b8b135c22936352c3cfdc9f8e3fd023b" category="list-text"><block ref="fb50e5d2336668b8d0662f52bcf85cbd" category="inline-xref-macro-rx"></block></block>
   <block id="ba2f1a8ca4d338f475c569aac706f70d" category="list-text"><block ref="1e68754240d611736f4d693962b83649" category="inline-xref-macro-rx"></block></block>
   <block id="fccc6a2f80c99556fc0a67d0bb45eed2" category="list-text"><block ref="4c1da4dfad9caa1797b7b20ff62bf3da" category="inline-xref-macro-rx"></block></block>
@@ -1446,7 +1408,6 @@
   <block id="e562349c27811f1520b3c670e513cda3" category="section-title">リソースの制限を解除します</block>
   <block id="66abbc76b1b539a19eab77ac5f290859" category="paragraph">これらのクォータと制限を取得および削除するには、次の手順を実行します。これらの例では、コマンド出力はコマンド出力の直後に表示されます。</block>
   <block id="6c999f1f4bd422b4305a76a527b7e862" category="list-text">名前別にすべてのリソースクォータを削除します。</block>
-  <block id="e67c35f02c9b82908b17e97b897aefe7" category="list-text">NetApp-accネームスペース内の制限範囲を取得します。</block>
   <block id="091880150353e9b5462ebfe9e5007deb" category="list-text">制限範囲を名前で削除します。</block>
   <block id="5fed03116ab579cfabba1dfd68c70bab" category="inline-link">ネットアップナレッジベースfor Astra』を参照してください</block>
   <block id="62b48e6002e259d6c98b0960c375f121" category="paragraph"><block ref="62b48e6002e259d6c98b0960c375f121" category="inline-link-rx"></block></block>
@@ -1864,7 +1825,6 @@
   <block id="7c90d436f62a080a98e02874957865e0" category="inline-link-macro">これらの手順に従います</block>
   <block id="41bdd90cead20f2dddf0647e2f48fc13" category="list-text">* Cloud Volumes ONTAP バックエンドを使用してパブリッククラウドにインストール*：ユース <block ref="cdbba4f6294205e74dc04d0ee99d1d1f" category="inline-link-macro-rx"></block> Amazon Web Services（AWS）、Google Cloud Platform（GCP）、またはCloud Volumes ONTAP ストレージバックエンドを使用するMicrosoft AzureにAstra Control Centerをインストールするには、次の手順を実行します。</block>
   <block id="5a53c718e9d33a9f0110cd7ae90b34e1" category="list-text">使用環境でポッドセキュリティポリシーを設定または設定したい場合は、ポッドセキュリティポリシーと、それらがAstra Control Centerのインストールに与える影響について理解しておいてください。を参照してください <block ref="2fd5062be02d918e79a909cf2044d6fc" category="inline-link-macro-rx"></block>。</block>
-  <block id="ead570b5ab403d179d75ab4eab4446c4" category="list-text">クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります <block ref="1787bdbf8a8938a728c4bed68c77105f" category="inline-link-macro-rx"></block> そのため、Astra Control Centerは独自のcert-managerをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。</block>
   <block id="3795639eaa5204f6fa15e47a15bca2f1" category="paragraph">Astra Control Centerのインストールプロセスでは、次の作業を行うことができます。</block>
   <block id="590bbfe0321f70c378c20713e420c00e" category="list-text">にAstraコンポーネントを取り付けます<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> （またはカスタム名）ネームスペース。</block>
   <block id="3f1d8d05f833ab76251fa849e383328e" category="list-text">デフォルトのAstra Control Owner管理者アカウントを作成します。</block>
@@ -1886,10 +1846,6 @@
   <block id="e8ef4881e3a5b5ed524203e110c2189c" category="list-text">のシークレットを作成します<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> （またはカスタム名）ネームスペース。Docker 情報を追加して次のコマンドを実行します。</block>
   <block id="3d59a0091a9b90694e09ed10fd28e891" category="list-text">変更<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> をクリックします<block ref="4a3ecd51c30dc55cebd7ed9babbb7931" prefix=" " category="inline-code"></block> でイメージをプッシュしたレジストリパスへのイメージ <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>。</block>
   <block id="26fcd88032025b1fd17ddffb0ce0a06a" category="list-text">変更<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> をクリックします<block ref="83f93b05da174976bd534cc67ad9f7b4" prefix=" " category="inline-code"></block> でイメージをプッシュしたレジストリパスへのイメージ <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>。</block>
-  <block id="f82d1fb90ccb7f8e12e9df6b41fdd685" category="list-text">Astra Control Centerカスタムリソース（CR）ファイルを編集します <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>)アカウント、AutoSupport 、レジストリ、およびその他の必要な設定を行うには、次の手順を実行します。</block>
-  <block id="a56226948269f21e33c8cedc94f81f6e" category="list-text">*汎用* <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>）（デフォルト）</block>
-  <block id="ad8b71ed326ec5e4a369cd1389b21bfd" category="list-text">* AccTraefik * <block ref="4388d54e87947748fc2ff08932daa51e" prefix="(" category="inline-code"></block>)</block>
-  <block id="083c57a62ef114dab22127329138d5f4" category="paragraph">入力コントローラを設定しない場合は、このオプションを使用します。これにより、Astra Control Centerが導入されます<block ref="3f624a80eb2012ebf5d970cedbdce2bc" prefix=" " category="inline-code"></block> Gateway as a Kubernetes LoadBalancer type serviceの略。</block>
   <block id="b50b94a0232dbff69a41914d331d9609" category="paragraph">Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用します。 <block ref="24ace688122fb01922cde69e1e3df1d5" prefix="(" category="inline-code"></block> Astra Control Centerの名前空間）で、アクセス可能な外部IPアドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、MetalLBまたは別の外部サービスロードバランサを使用して外部IPアドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。</block>
   <block id="24f8b619456c925b397f91e62d1630d3" category="paragraph">kubectlコマンドを使用すると、システムステータスを確認できます。OpenShift を使用する場合は、同等の OC コマンドを検証手順に使用できます。</block>
   <block id="3228f21b07b2db77590b591150d404ae" category="inline-link-macro">UIでクラスタワークフローを追加します</block>
@@ -1908,7 +1864,6 @@
   <block id="f1d8de1af98697110fc280803f968a81" category="list-text"><block ref="fca54ef221c67b1dc086293500962588" category="inline-xref-macro-rx"></block>。</block>
   <block id="df364d2a468a2c97c5bfa73300766e67" category="list-text">タイプのシークレットを作成します<block ref="2da1614efdcbaec4b6f030dd317ee661" prefix=" " category="inline-code"></block> でTLSの秘密鍵と証明書を使用する場合<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> （またはカスタム名前付き）ネームスペース。を参照してください<block ref="749b9942574f6d94028c602d678053d4" category="inline-link-rx"></block>。</block>
   <block id="6d7d0892732ecd9e5bacdd8842fe70fc" category="list-text">入力リソースをに配置します<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> （またはカスタムネームスペース）。スキーマにはv1リソースタイプを使用します <block ref="5984150d3c30e721ef3f19fa2ed70f4f" prefix="(" category="inline-code"></block> は次の例で使用されています）。</block>
-  <block id="a6b840ca5553035786ec02bc3272bb2d" category="admonition">nginxコントローラはデモセットではなく導入環境としてインストールすることを推奨します。</block>
   <block id="cbdedb43947b6893f6e1a54b24275380" category="list-text">ブラウザでFQDNを入力します <block ref="12b964ea9d29f94a9a648290b3478496" prefix="(" category="inline-code"></block>）で使用しました<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> を参照してください<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> CR When（時間） <block ref="356be5820e2645bace29d82a8018f43d" category="inline-xref-macro-rx"></block>。</block>
   <block id="03b98f7c63a68fc1cc96f11c76b0fd3e" category="list-text">プロンプトが表示されたら、自己署名証明書を承認します。</block>
   <block id="1aa265f0c5e811fa01e074ce543d9b8f" category="list-text">Astra Control Centerのログインページで、に使用した値を入力します<block ref="0c83f57c786a0b4a39efab23731c7ebc" prefix=" " category="inline-code"></block> インチ<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> CR When（時間） <block ref="356be5820e2645bace29d82a8018f43d" category="inline-xref-macro-rx"></block>をクリックし、次に初期セットアップパスワードを入力します <block ref="b32e4f4e6435d1ee35c95efbd194cabb" prefix="(" category="inline-code"></block>）。</block>
@@ -2122,7 +2077,6 @@
   <block id="1dae7d05f28065a32f7e96ff1e757def" category="list-text">イメージレジストリパスが、イメージをでプッシュしたレジストリパスと一致することを確認します <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>。更新<block ref="990dc1a09e10c7b5378e6bc8a1956cb8" prefix=" " category="inline-code"></block> の内部<block ref="85a2ca75f68bc7e596655dc20f3244a8" prefix=" " category="inline-code"></block> 前回のインストール以降にレジストリが変更されている場合。</block>
   <block id="5a1b903858303085c8688af0ffb4bcc6" category="list-text">に次の項目を追加します<block ref="9f9c14504350d9d92656623f108b5716" prefix=" " category="inline-code"></block> の内部の設定<block ref="85a2ca75f68bc7e596655dc20f3244a8" prefix=" " category="inline-code"></block>：</block>
   <block id="75561cbd602b21f2fb8f22fad1d60be4" category="paragraph">ファイルエディタを保存して終了すると、変更が適用され、アップグレードが開始されます。</block>
-  <block id="dded6b7ada0537e0bb5cb1e6bcef3b94" category="list-text">アップグレードが完了して準備完了になったことを示すために、Astraのステータス状態がになるまで待ちます <block ref="f827cf462f62848df37c5e1e94a4da74" prefix="(" category="inline-code"></block>）：</block>
   <block id="d554ef962e222f8e0b4c6f040c05abcc" category="admonition">処理中のアップグレードステータスを監視するには、次のコマンドを実行します。<block ref="5d533fda3d139dde32dc8b7d35483556" prefix=" " category="inline-code"></block></block>
   <block id="7b4c545e2ed086853dde2f7117a39ead" category="admonition">Astra Control Centerのオペレータログを調べるには、次のコマンドを実行します。<block ref="dcbcfcb7193f45190ecbecbfdaca7662" prefix=" " category="inline-code"></block></block>
   <block id="e26a24f7c06add21717e1b7beaee23c6" category="list-text">バージョンがアップグレードされたことを確認します。UIの* Support *ページを参照してください。</block>
@@ -2392,7 +2346,6 @@
   <block id="138ea3764228f5e7341fdfd2ab86eb9c" category="list-text">*健全なクラスタオペレータとAPIサービス*：</block>
   <block id="b898f98923f32bea4889471220e01aba" category="list-text">* FQDN address *：データセンターのAstra Control CenterのFQDNアドレスを取得します。</block>
   <block id="7a49e1a0bc84ad5cadf3b7fad78e680c" category="list-text">* OpenShift Permissions *：説明されているインストール手順を実行するために必要な権限を取得し、Red Hat OpenShift Container Platformにアクセスします。</block>
-  <block id="4c71df267c87cd2b3b5085729a31c399" category="list-text">*cert-manager configure済み*:クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります <block ref="7f9e8cec8531f8660dfaaf382da03535" category="inline-link-macro-rx"></block> そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。</block>
   <block id="dc7c0458c369052b702ad6db4e0f5569" category="list-text">* Kubernetes入力コントローラ*：クラスター内のロードバランシングなどのサービスへの外部アクセスを管理するKubernetes入力コントローラがある場合は、Astra Control Centerで使用するようにセットアップする必要があります。</block>
   <block id="060534066f9a22cabf451772f0daf58b" category="list-text">operatorネームスペースを作成します。</block>
   <block id="8f70adb2eebdea2e00d5d57216cd59b5" category="inline-link-macro">セットアップを完了</block>
@@ -2579,31 +2532,19 @@
   <block id="746b231b966af15f3cff713ca45075eb" category="cell">ガイダンス（Guidance）</block>
   <block id="d1d1376da08ba5481c947bc402f43936" category="cell">を変更します<block ref="cd7a180ee2029176203abb971a5e5ed9" prefix=" " category="inline-code"></block> stringには、Astra Control Centerアカウントに関連付ける名前を指定します。アカウント名は1つだけです。</block>
   <block id="5699a5d0302dbbb9ebafb81191b2cf4e" category="cell">導入するAstra Control Centerのバージョン。この設定には値があらかじめ入力されているため、対処は不要です。</block>
-  <block id="3208af68c7dea8493fa4cee605a96daf" category="cell">22.11.1-82</block>
   <block id="785f296ad865d8dc71d68583795bf3f6" category="cell">を変更します<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> ブラウザで使用するFQDN（推奨）またはIPアドレスを指定して、Astra Control Centerにアクセスします。このアドレスは、データセンターでAstra Control Centerがどのように検出されるかを定義します。このアドレスは、完了時にロードバランサからプロビジョニングしたFQDNまたはIPアドレスと同じです <block ref="bdee52dd8f294f9d4eddadcb8b16676c" category="inline-link-macro-rx"></block>。注：は使用しないでください<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> または<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> をクリックします。この FQDN をコピーしてで使用します <block ref="39c8566ec35b62823c898c5e38a4b78c" category="inline-xref-macro-rx"></block>。</block>
   <block id="7548d8cfdbba865da930704f30a7542f" category="paragraph">このセクションで選択することで、ネットアップのプロアクティブサポートアプリケーション、NetApp Active IQ 、およびデータの送信先のどちらに参加するかが決まります。インターネット接続が必要です（ポート442）。サポートデータはすべて匿名化されます。</block>
   <block id="24b6133a8f6f0866838539b9ca41cfa7" category="cell">または<block ref="ff7af27948b380bff5d583359796d3c8" prefix=" " category="inline-code"></block> または<block ref="572d4e421e5e6b9bc11d815e8a027112" prefix=" " category="inline-code"></block> フィールドを選択する必要があります</block>
   <block id="032fdfe4dd533e2a1da94f746be2861f" category="cell">変更<block ref="ff7af27948b380bff5d583359796d3c8" prefix=" " category="inline-code"></block> を選択しますAutoSupport<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> インターネットに接続されていないか、または保持されているサイト<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 接続されているサイト用。の設定<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 匿名データをネットアップに送信し、サポートを目的として使用できるようにします。デフォルトの選択はです<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> およびは、サポートデータがネットアップに送信されないことを示します。</block>
   <block id="dabad3695b4ab8ff22572403a96c3ee7" category="cell">このURLは匿名データの送信先を決定します。</block>
   <block id="2567e3deee28c432016a674291f588ad" category="cell">を変更します<block ref="0c83f57c786a0b4a39efab23731c7ebc" prefix=" " category="inline-code"></block> デフォルトの初期管理者アドレスを表す文字列。この E メールアドレスをコピーしてで使用します <block ref="39c8566ec35b62823c898c5e38a4b78c" category="inline-xref-macro-rx"></block>。このEメールアドレスは、最初のアカウントがUIにログインする際のユーザ名として使用され、Astra Controlのイベントが通知されます。</block>
-  <block id="138936eb3d75a3b6dbc65ae59d3c4ac0" category="example-title">FirstNameとLastName</block>
   <block id="9172a6784d35efa48d62caa85fe965f6" category="cell">アストラアカウントに関連付けられている初期管理者の名前。ここで使用した名前は、初回ログイン後にUIの見出しに表示されます。</block>
   <block id="8208a49adafaea9376c9f0c952b3ca91" category="cell">アストラアカウントに関連付けられている初期管理者の姓です。ここで使用した名前は、初回ログイン後にUIの見出しに表示されます。</block>
-  <block id="52b0f21cd86a6767c9ecef91bdbc1464" category="paragraph">このセクションで選択すると、Astraアプリケーションイメージ、Astra Control Center Operator、Astra Control Center Helmリポジトリをホストするコンテナイメージレジストリが定義されます。</block>
   <block id="df9d5b947e23d15efab408cf1c25c756" category="cell">でイメージをプッシュしたイメージレジストリの名前 <block ref="305dd956c1213ef7c4d1a1587874974e" category="inline-xref-macro-rx"></block>。使用しないでください<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> または<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> をレジストリ名に追加します。</block>
-  <block id="c0d136fdeb6a7cc5b96028c4f77ad160" category="cell">シークレットを必要とするimageRegistryを使用している場合は必須です。重要：認証を必要としないレジストリを使用している場合は、削除する必要があります<block ref="5ebe2294ecd0e0f08eab7690d2a6ee69" prefix=" " category="inline-code"></block> ラインの内側<block ref="990dc1a09e10c7b5378e6bc8a1956cb8" prefix=" " category="inline-code"></block> または、インストールが失敗します。</block>
-  <block id="f50614b0fb6512ea307cfd956d0f1578" category="cell">を変更します<block ref="78ec9b60245b46a4f05158076962ace9" prefix=" " category="inline-code"></block> からの値<block ref="e3bccceaf53ea80a4685ac9b974016f3" prefix=" " category="inline-code"></block> インストールに必要な別のTridentストレージクラスのリソースに移動します。コマンドを実行します<block ref="f7a6266d561ed7e94ff1f45bb43a2f5d" prefix=" " category="inline-code"></block> をクリックして、設定済みの既存のストレージクラスを確認します。Tridentベースのストレージクラスの1つをマニフェストファイル（Astra &lt;version&gt; マニフェスト）に入力する必要があり、Astra PVSに使用されます。設定されていない場合は、デフォルトのストレージクラスが使用されます。メモ：デフォルトのストレージクラスが設定されている場合は、デフォルトのアノテーションが設定されている唯一のストレージクラスであることを確認してください。</block>
   <block id="dae8ace18bdcbcc6ae5aece263e14fe8" category="cell">オプション（ Options ）</block>
   <block id="44b62ef68933aca85562e3bdab109c11" category="cell">これにより、AstraのPVSの再利用ポリシーが設定されます。このポリシーをに設定しています<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block> Astraが削除されたあとに永続的なボリュームを保持このポリシーをに設定しています<block ref="f2a6c498fb90ee345d997f888fce3b18" prefix=" " category="inline-code"></block> Astraが削除されたあとに永続的ボリュームを削除する。この値が設定されていない場合、PVSは保持されます。</block>
-  <block id="b573e661240a59fb2f0b6d4d1e09f0d9" category="list-text">保持（デフォルト値）</block>
-  <block id="f2a6c498fb90ee345d997f888fce3b18" category="list-text">削除</block>
-  <block id="3cb9755788612780ac6974af675b8875" category="cell">次の入力タイプのいずれかを使用します。* Generic * <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>）（デフォルト）別の入力コントローラを使用している場合、または独自の入力コントローラを使用する場合は、このオプションを使用します。Astra Control Centerを導入したら、を設定する必要があります <block ref="7d074c32e6c49929382498ad8c5637bd" category="inline-link-macro-rx"></block> URLを使用してAstra Control Centerを公開します。* AccTraefik * <block ref="4388d54e87947748fc2ff08932daa51e" prefix="(" category="inline-code"></block>）入力コントローラを設定しない場合は、このオプションを使用します。これにより、Astra Control Centerが導入されます<block ref="3f624a80eb2012ebf5d970cedbdce2bc" prefix=" " category="inline-code"></block> Gateway as a Kubernetes LoadBalancer type serviceの略。Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用します。 <block ref="24ace688122fb01922cde69e1e3df1d5" prefix="(" category="inline-code"></block> Astra Control Centerの名前空間）で、アクセス可能な外部IPアドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、MetalLBまたは別の外部サービスロードバランサを使用して外部IPアドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。注：サービスタイプ「LoadBalancer」および入力の詳細については、を参照してください <block ref="f326683052260ae8ea69adae62a4336c" category="inline-link-macro-rx"></block>。</block>
   <block id="734224e6b4ec285b77e7b79b03d94b02" category="cell">AstraeControlCenterリソース制限のスケーリングオプションデフォルトでは、Astra Control CenterはAstra内のほとんどのコンポーネントに対してリソース要求を設定して展開します。この構成により、アプリケーションの負荷と拡張性が高い環境では、Astra Control Centerソフトウェアスタックのパフォーマンスが向上します。ただし、小規模な開発またはテストクラスタを使用するシナリオでは、CRフィールドを使用します<block ref="58109f8b5a58dff610844c779b6c42ad" prefix=" " category="inline-code"></block> に設定できます<block ref="d15305d7a4e34e02489c74a5ef542f36" prefix=" " category="inline-code"></block>。これにより、リソース要求が無効になり、小規模なクラスタへの導入が可能になります。</block>
-  <block id="877188653340f757943c83f0bc15f1be" category="list-text">デフォルト（デフォルト値）</block>
-  <block id="d15305d7a4e34e02489c74a5ef542f36" category="list-text">オフ</block>
   <block id="a5a239f5a107b63b3aa6d192c95bb6d1" category="paragraph">このセクションで選択した内容によって、Astra Control CenterでのCRDの処理方法が決まります。</block>
-  <block id="15158f2541ef87a6d0bffe5a0141e4ca" category="cell">外部のcert-managerを使用する場合は、を変更します<block ref="277c0561d457e7aad53dcd2e4ba8051d" prefix=" " category="inline-code"></block> 終了：<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>。デフォルト<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> Astra Control Centerが、インストール時に独自の証明書マネージャCRDをインストールするようにします。SSDはクラスタ全体のオブジェクトであり、クラスタの他の部分に影響を及ぼす可能性があります。このフラグを使用すると、これらのCRDがAstra Control Centerの外部にあるクラスタ管理者によってインストールおよび管理されることをAstra Control Centerに伝えることができます。</block>
-  <block id="241f958366d57581f03932e9f7c77a76" category="cell">false（デフォルト値）</block>
   <block id="c227fa0621e3f1f87571da78dd03ca6f" category="cell">デフォルトでは、Astra Control Centerは必要なTraefik CRDをインストールします。SSDはクラスタ全体のオブジェクトであり、クラスタの他の部分に影響を及ぼす可能性があります。このフラグを使用すると、これらのCRDがAstra Control Centerの外部にあるクラスタ管理者によってインストールおよび管理されることをAstra Control Centerに伝えることができます。</block>
   <block id="4f508b1a632fa280de99843b2fe48176" category="list-text">ステージングから本番環境へのアプリケーションのクローン作成が容易</block>
   <block id="6c4ff7542dcef16bc12bbbab0c160e9a" category="list-text">Web UIまたはAPIを使用して、バックアップと移行のワークフローを実装します</block>
@@ -2626,4 +2567,74 @@
   <block id="d55b05877d0dd6743f47d3442323323e" category="inline-link-macro">Amazon Web Servicesをセットアップする</block>
   <block id="87716101cfca255da11056a624dbce47" category="inline-link-macro">Azure で管理されているディスクを使用して Microsoft Azure をセットアップする</block>
   <block id="55a5776613a7a49b0fb7fc4800c3065f" category="list-text">ネットアップのクラウドサービスストレージサービスをストレージバックエンドとして使用している場合、Astra Control ServiceはAstra Tridentを使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。Amazon EBSまたはAzureで管理されているディスクをストレージバックエンドとして使用している場合は、プロバイダ固有のCSIドライバをインストールする必要があります。インストール手順については、を参照してください <block ref="ebf2a7f1b6295b0b8e4d97b888cb809e" category="inline-link-macro-rx"></block> および <block ref="1938f6af50a8259a0bb98bac4f34eeeb" category="inline-link-macro-rx"></block>。</block>
+  <block id="18af682d6124dcb139b603177dd087c4" category="list-text">アップグレードが完了して準備ができたことを示すため、Astra Controlのステータス状態が表示されるまで待ちます <block ref="f827cf462f62848df37c5e1e94a4da74" prefix="(" category="inline-code"></block>）：</block>
+  <block id="208783ce2eb5f03baf3ca821608eaf65" category="list-text">で制限範囲を取得します<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> ネームスペース：</block>
+  <block id="e755142aeb1d3a2c6fcfa09fb3f80fb3" category="list-text">*cert manager configure済み*:クラスタにcertマネージャがすでに存在する場合は'いくつかを実行する必要があります <block ref="7f9e8cec8531f8660dfaaf382da03535" category="inline-link-macro-rx"></block> そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。</block>
+  <block id="6721c17f49a21ba95875cebca5d8a841" category="list-text"><block ref="8045a0a6c688b0635e3caccc408a1446" prefix="*" category="inline-code"></block>* <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>）（デフォルト）</block>
+  <block id="bdf886544ef77311b7710f6d172f214f" category="list-text"><block ref="0a3e1793e4eaf6bd67bdf43d1bca1c74" prefix="*" category="inline-code"></block>* <block ref="4388d54e87947748fc2ff08932daa51e" prefix="(" category="inline-code"></block>)</block>
+  <block id="110cc2f84b6e1647c3e08763a1a566c3" category="paragraph">入力コントローラを設定しない場合は、このオプションを使用します。これにより、Astra Control Centerが導入されます<block ref="3f624a80eb2012ebf5d970cedbdce2bc" prefix=" " category="inline-code"></block> ゲートウェイをKubernetesの「LoadBalancer」タイプのサービスとして使用します。</block>
+  <block id="16430518131c6e0ae6967a69fa9cd07b" category="list-text">クラスタに証明書マネージャがすでに存在する場合は、いくつかの手順を実行する必要があります <block ref="1787bdbf8a8938a728c4bed68c77105f" category="inline-link-macro-rx"></block> そのため、Astra Control Centerは独自の証明書マネージャのインストールを試みません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。</block>
+  <block id="c365634fe298a182f5c686c7300f9bec" category="list-text">Astra Control Centerカスタムリソース（CR）ファイルを編集します <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>)アカウント、サポート、レジストリ、およびその他の必要な設定を行うには、次の手順を実行します。</block>
+  <block id="eb5abbcca70bc9da2ade170860ad8909" category="example-title">&lt;code&gt; アカウント名&lt;/code&gt;</block>
+  <block id="560411eea158be604867f1a41fa7c367" category="cell"><block ref="cd7a180ee2029176203abb971a5e5ed9" prefix="" category="inline-code"></block></block>
+  <block id="7d84a3a65fb0587782566e6bb943a482" category="cell"><block ref="0a52730597fb4ffa01fc117d9e71e3a9" prefix="" category="inline-code"></block></block>
+  <block id="0e55b95a4c5cb92e244e3bd0a238beb9" category="example-title">&lt;code&gt; astraバージョン&lt;/code&gt;</block>
+  <block id="d13a274d958af22bed6e8d41f55d8555" category="cell"><block ref="bbdbf70444e48a34a4a7e7d708d85eec" prefix="" category="inline-code"></block></block>
+  <block id="a5aebaf297cd651e4a79e4cd380cb403" category="cell"><block ref="3208af68c7dea8493fa4cee605a96daf" prefix="" category="inline-code"></block></block>
+  <block id="c7cf7bc0197d55fb58a764f376cee071" category="example-title">&lt;code&gt; astraitAddress &lt;/code&gt; の略</block>
+  <block id="2768247a17baf82ba937b52168928c48" category="cell"><block ref="d27903c79b643b2f565c31e894abb568" prefix="" category="inline-code"></block></block>
+  <block id="a35d697fca562fcd8adcc6a07880b3d5" category="cell"><block ref="51c3153f8b9ad8f3a27b28d6c8f95aab" prefix="" category="inline-code"></block></block>
+  <block id="16655bd6caa78814980ce90854a07356" category="example-title">&lt;code&gt; AutoSupport &lt;/code&gt; の略</block>
+  <block id="60d9e21a93c21f0d9ec8e72e12270054" category="cell"><block ref="774a4ec4adf9dd65264c77b3b87833b7" prefix="" category="inline-code"></block></block>
+  <block id="3f58660bc0c5272b10e985ce01bd4c2f" category="cell"><block ref="68934a3e9455fa72420237eb05902327" prefix="" category="inline-code"></block> （デフォルト値）</block>
+  <block id="f997a687e1840d5f81f62259e164e2bc" category="cell"><block ref="ca77df23f9eeb9f068b3474e5065bc35" prefix="" category="inline-code"></block></block>
+  <block id="7e1e7a54dd5b9e9adae8b66b705ed9ad" category="cell"><block ref="89f1dc01ab80754de6eb13d2752e24d4" prefix="" category="inline-code"></block></block>
+  <block id="86c4d410952583621f133c07f46e78b6" category="example-title">&lt;code&gt; Eメール&lt;/code&gt;</block>
+  <block id="ae1bde34794270bb273f407db5974619" category="cell"><block ref="0c83f57c786a0b4a39efab23731c7ebc" prefix="" category="inline-code"></block></block>
+  <block id="9e9ec1c2ec655a3f0977f0b59b35141c" category="cell"><block ref="e64c7d89f26bd1972efa854d13d7dd61" prefix="" category="inline-code"></block></block>
+  <block id="ff08f78d74ec9c316683e9cb5e48a417" category="example-title">&lt;code&gt; firstName &lt;/code&gt; の略</block>
+  <block id="3d0f0a15c72e6f093532fb2fa0eb84c8" category="cell"><block ref="ed89387bcd11937a7a92a99a2cbfb5d7" prefix="" category="inline-code"></block></block>
+  <block id="51f98f3c2de70ec52c350aaddbce0726" category="cell"><block ref="b972b330bcbcd220003258f963c87063" prefix="" category="inline-code"></block></block>
+  <block id="2cfc9b755eb7443584d596eeccc03179" category="example-title">&lt;code&gt; のLastName &lt;/code&gt;</block>
+  <block id="6cc41479a4d4be8bdaa1ed12d52e0a96" category="cell"><block ref="ef21925fada6dfb684b5d8ec72114bb1" prefix="" category="inline-code"></block></block>
+  <block id="758c6c06a272b9b6d50653ed1516e845" category="cell"><block ref="e3afed0047b08059d0fada10f400c1e5" prefix="" category="inline-code"></block></block>
+  <block id="8f269b87c3a29d9885c16c34ecbde6a9" category="example-title">&lt;code&gt; imageRegistry &lt;/code&gt; です</block>
+  <block id="40805597a70eb3b16b5d8677eb707b2e" category="paragraph">このセクションで選択すると、Astraアプリケーションイメージ、Astra Control Center Operator、Astra Control Center Helmリポジトリをホストするコンテナイメージレジストリが定義されます。</block>
+  <block id="de0aa77e112a4ce851a90e3753feb60c" category="cell"><block ref="f141c732c6aae0fddd2afdfac3f75f3f" prefix="" category="inline-code"></block></block>
+  <block id="f30fb2263e42a74c71ac1e8965c9581b" category="cell"><block ref="e77678b9947da8914bb67ef57aa6bb3d" prefix="" category="inline-code"></block></block>
+  <block id="92ef70acc4ea712d223b98819c5d586e" category="cell"><block ref="c6fe3b36a104e3ea913f9a6b82389050" prefix="" category="inline-code"></block></block>
+  <block id="03d6657e34554d6beac757e76f1bc824" category="cell">に入力した文字列の場合は必須です<block ref="3ee7cb6810b98126417904e0d4bbb361" prefix=" " category="inline-code"></block> ラインの内側<block ref="990dc1a09e10c7b5378e6bc8a1956cb8" prefix=" " category="inline-code"></block> または、インストールが失敗します。</block>
+  <block id="50232323f80e15a533d4f46ddce8e33c" category="cell"><block ref="d2522c50d2a3c9af9481f3e38f4f0822" prefix="" category="inline-code"></block></block>
+  <block id="53f885f16119beba48214c8a333dcd30" category="example-title">&lt;code&gt; ストレージクラス&lt;/code&gt;</block>
+  <block id="6eb82a822b962404b9694b93f2967679" category="cell"><block ref="78ec9b60245b46a4f05158076962ace9" prefix="" category="inline-code"></block></block>
+  <block id="500afee2ed201fc94dcacb20ac62d718" category="cell">を変更します<block ref="78ec9b60245b46a4f05158076962ace9" prefix=" " category="inline-code"></block> からの値<block ref="e3bccceaf53ea80a4685ac9b974016f3" prefix=" " category="inline-code"></block> インストールに必要な別のTridentストレージクラスのリソースに移動します。コマンドを実行します<block ref="f7a6266d561ed7e94ff1f45bb43a2f5d" prefix=" " category="inline-code"></block> をクリックして、設定済みの既存のストレージクラスを確認します。Tridentベースのストレージクラスの1つをマニフェストファイルに入力する必要があります <block ref="a18a8eda5e9ff8aa5e2094148dafbb33" prefix="(" category="inline-code"></block>）とをAstra PVSに使用します。設定されていない場合は、デフォルトのストレージクラスが使用されます。メモ：デフォルトのストレージクラスが設定されている場合は、デフォルトのアノテーションが設定されている唯一のストレージクラスであることを確認してください。</block>
+  <block id="c60d9629b4df7e299152970fb66ff161" category="cell"><block ref="e3bccceaf53ea80a4685ac9b974016f3" prefix="" category="inline-code"></block></block>
+  <block id="8bdca8e2a506e9e7c3ee3adce5f4affe" category="example-title">&lt;code&gt; volumeReclaimPolicy &lt;/code&gt; の略</block>
+  <block id="ae16b8609a16806d7003f724f38de023" category="cell"><block ref="c3c263fe360a73d45c030a672e1ad0c4" prefix="" category="inline-code"></block></block>
+  <block id="accb259164503c6409c6c8dc0aa30ff2" category="list-text"><block ref="afece4245269582cb2f1009d4fb52047" prefix="" category="inline-code"></block> （デフォルト値）</block>
+  <block id="c009f85498c5a7a2db78e1874e6dd4b1" category="list-text"><block ref="f2a6c498fb90ee345d997f888fce3b18" prefix="" category="inline-code"></block></block>
+  <block id="877908cd3e772fc4a29e88d93c30aa0b" category="example-title">&lt;code&gt; ingressType &lt;/code&gt; の略</block>
+  <block id="0e74116a552b8536c9cafd9c8099375c" category="cell"><block ref="64c885ad8d34e07c7de4b0ba1410c410" prefix="" category="inline-code"></block></block>
+  <block id="55624a06587ae2a751647d0642593fa5" category="cell">次の入力タイプのいずれかを使用します。<block ref="8045a0a6c688b0635e3caccc408a1446" prefix="*" category="inline-code"></block>* <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>）（デフォルト）別の入力コントローラを使用している場合、または独自の入力コントローラを使用する場合は、このオプションを使用します。Astra Control Centerを導入したら、を設定する必要があります <block ref="7d074c32e6c49929382498ad8c5637bd" category="inline-link-macro-rx"></block> URLを使用してAstra Control Centerを公開します。<block ref="0a3e1793e4eaf6bd67bdf43d1bca1c74" prefix="*" category="inline-code"></block>* <block ref="4388d54e87947748fc2ff08932daa51e" prefix="(" category="inline-code"></block>）入力コントローラを設定しない場合は、このオプションを使用します。これにより、Astra Control Centerが導入されます<block ref="3f624a80eb2012ebf5d970cedbdce2bc" prefix=" " category="inline-code"></block> Gateway as a Kubernetes LoadBalancer type serviceの略。Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用します。 <block ref="24ace688122fb01922cde69e1e3df1d5" prefix="(" category="inline-code"></block> Astra Control Centerの名前空間）で、アクセス可能な外部IPアドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、MetalLBまたは別の外部サービスロードバランサを使用して外部IPアドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。注：サービスタイプ「LoadBalancer」および入力の詳細については、を参照してください <block ref="f326683052260ae8ea69adae62a4336c" category="inline-link-macro-rx"></block>。</block>
+  <block id="33f74fc9cd2ed729c919edee9f215850" category="list-text"><block ref="8045a0a6c688b0635e3caccc408a1446" prefix="" category="inline-code"></block> （デフォルト値）</block>
+  <block id="3e0fd8a5c1c91df5087c5d974f73427b" category="list-text"><block ref="0a3e1793e4eaf6bd67bdf43d1bca1c74" prefix="" category="inline-code"></block></block>
+  <block id="3c0bacd3ec2804fd868eb274d0915fbf" category="example-title">&lt;code&gt; astraalResourcesScaler &lt;/code&gt;</block>
+  <block id="1beb5725a4e77d48e361447bade6dbd6" category="cell"><block ref="7ebc1f67b2eb5a818a1c50174696304a" prefix="" category="inline-code"></block></block>
+  <block id="5f63f7f7219d9084b3eefdf63a5c8ed4" category="list-text"><block ref="7a1920d61156abc05a60135aefe8bc67" prefix="" category="inline-code"></block> （デフォルト値）</block>
+  <block id="e5d818c93457d13a2ed03b27285ceb61" category="list-text"><block ref="d15305d7a4e34e02489c74a5ef542f36" prefix="" category="inline-code"></block></block>
+  <block id="3243c3956ad9a257aac421c5c5a8d8f9" category="example-title">&lt;code&gt; CRD &lt;/code&gt; の略</block>
+  <block id="df41b6d560aaea4f2486c6b78ef15ed7" category="cell"><block ref="15c17271ca03b109604346103f40edce" prefix="" category="inline-code"></block></block>
+  <block id="18985ff96f96aec9c5183204b7cd5126" category="cell">外部証明書マネージャを使用する場合は、変更します<block ref="277c0561d457e7aad53dcd2e4ba8051d" prefix=" " category="inline-code"></block> 終了：<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>。デフォルト<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> Astra Control Centerが、インストール時に独自の証明書マネージャCRDをインストールするようにします。SSDはクラスタ全体のオブジェクトであり、クラスタの他の部分に影響を及ぼす可能性があります。このフラグを使用すると、これらのCRDがAstra Control Centerの外部にあるクラスタ管理者によってインストールおよび管理されることをAstra Control Centerに伝えることができます。</block>
+  <block id="b7b6ed59352359d5fd8a21ed3d3bc13d" category="cell"><block ref="f8320b26d30ab433c5a54546d21f414c" prefix="" category="inline-code"></block> （デフォルト値）</block>
+  <block id="f77d6c1b695b1e8803f59034b631d046" category="cell"><block ref="665b3f371a91222c9cb860633e329f92" prefix="" category="inline-code"></block></block>
+  <block id="2e5560abf13bdb9b2887b685bdc776ef" category="admonition">ネットアップでは、nginxコントローラをではなく導入環境としてインストールすることを推奨します<block ref="1d65fd65d23d06adc2fde7343cdde026" prefix=" " category="inline-code"></block>。</block>
+  <block id="9087c55ebeb87c277bb7dce3c3d2d251" category="summary">クラスタに証明書管理ツールがすでに存在する場合は、前提条件となるいくつかの手順を実行して、Astra Control Centerが独自の証明書管理ツールをインストールしないようにする必要があります。</block>
+  <block id="c9ee559042b789dacf6ca93aaa219fca" category="doc">外部証明書マネージャを設定します</block>
+  <block id="035708270f70c1afa4b0971007b0b68c" category="paragraph">Kubernetesクラスタに証明書マネージャがすでに存在する場合は、Astra Control Centerで独自の証明書マネージャがインストールされないように、いくつかの前提条件となる手順を実行する必要があります。</block>
+  <block id="1c20bff9d8b8a9b77ac17d01dd43a086" category="list-text">証明書マネージャがインストールされていることを確認します。</block>
+  <block id="e9fc735838a0194f24b1d1466b6a1377" category="list-text">の証明書とキーのペアを作成します<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> FQDN：</block>
+  <block id="10f990fa470837234c728715ae222a8e" category="list-text">を作成します<block ref="9811be5c3399611059862e90521bc73f" prefix=" " category="inline-code"></block> *とまったく同じ*のファイル。ただし、の名前空間の場所が含まれます<block ref="92f03fb7268f40326282c8c80490a62a" prefix=" " category="inline-code"></block> ポッドがインストールされます。</block>
+  <block id="09930d02b4263b689db66fae209a4662" category="list-text">を確認します<block ref="9811be5c3399611059862e90521bc73f" prefix=" " category="inline-code"></block> が正常に起動しました。<block ref="e7d31fc0602fb2ede144d18cdffd816b" prefix=" " category="inline-code"></block> はである必要があります<block ref="f827cf462f62848df37c5e1e94a4da74" prefix=" " category="inline-code"></block> 次の手順に進む前に、次の手順</block>
+  <block id="7c6e61d3114053fdcbb584a6afb80f0b" category="list-text">を実行します <block ref="4f6226316b347cad073b05d4198e6b67" category="inline-link-macro-rx"></block>。があります <block ref="b10b5b361802ada39ab534d37e156fb1" category="inline-link-macro-rx"></block> CRD値を変更して、証明書マネージャが外部にインストールされていることを示します。Astra Control Centerが外部証明書マネージャを認識するように、インストール時にこの手順を完了する必要があります。</block>
+  <block id="9b180301de1547cfb79fd365792a5407" category="list-text">を編集します<block ref="b9d73b065c599559f2852e4f2e265934" prefix=" " category="inline-code"></block> 構成マップ：</block>
 </blocks>

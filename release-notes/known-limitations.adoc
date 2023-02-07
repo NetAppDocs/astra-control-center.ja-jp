@@ -61,7 +61,7 @@ oc get pods n -netapp-monitoring
 
 回避策として、次の手順を実行します。
 
-. kubeadm -config 構成マップを編集します。
+. を編集します `kubeadm-config` 構成マップ：
 +
 [listing]
 ----

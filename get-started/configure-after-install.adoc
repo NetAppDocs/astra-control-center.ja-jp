@@ -56,7 +56,7 @@ kubectl delete resourcequota  pods-low -n netapp-acc
 ----
 kubectl delete resourcequota  pods-medium -n netapp-acc
 ----
-. NetApp-accネームスペース内の制限範囲を取得します。
+. で制限範囲を取得します `netapp-acc` ネームスペース：
 +
 [source, console]
 ----

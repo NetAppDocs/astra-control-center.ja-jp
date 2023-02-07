@@ -418,7 +418,7 @@ additionalValues:
 ----
 watch kubectl get pods -n [netapp-acc or custom namespace]
 ----
-. アップグレードが完了して準備完了になったことを示すために、Astraのステータス状態がになるまで待ちます (`True`）：
+. アップグレードが完了して準備ができたことを示すため、Astra Controlのステータス状態が表示されるまで待ちます (`True`）：
 +
 [listing]
 ----

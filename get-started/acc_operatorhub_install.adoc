@@ -36,7 +36,7 @@ oc get apiservices
 
 * * FQDN address *：データセンターのAstra Control CenterのFQDNアドレスを取得します。
 * * OpenShift Permissions *：説明されているインストール手順を実行するために必要な権限を取得し、Red Hat OpenShift Container Platformにアクセスします。
-* *cert-manager configure済み*:クラスタにcert-managerがすでに存在する場合は、いくつかを実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"^] そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
+* *cert manager configure済み*:クラスタにcertマネージャがすでに存在する場合は'いくつかを実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"^] そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
 * * Kubernetes入力コントローラ*：クラスター内のロードバランシングなどのサービスへの外部アクセスを管理するKubernetes入力コントローラがある場合は、Astra Control Centerで使用するようにセットアップする必要があります。
 +
 .. operatorネームスペースを作成します。
@@ -278,13 +278,13 @@ NOTE: 手動承認方式を選択した場合は、このオペレータの手�
 .. ボリューム再利用ポリシーを選択してください `Retain`、 `Recycle`または `Delete`。デフォルト値はです `Retain`。
 .. 入力タイプを選択します。
 +
-*** *汎用* (`ingressType: "Generic"`）（デフォルト）
+*** *`Generic`* (`ingressType: "Generic"`）（デフォルト）
 +
 このオプションは、別の入力コントローラを使用している場合、または独自の入力コントローラを使用する場合に使用します。Astra Control Centerを導入したら、を設定する必要があります link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["入力コントローラ"^] URLを使用してAstra Control Centerを公開します。
 
-*** * AccTraefik * (`ingressType: "AccTraefik"`)
+*** *`AccTraefik`* (`ingressType: "AccTraefik"`)
 +
-入力コントローラを設定しない場合は、このオプションを使用します。これにより、Astra Control Centerが導入されます `traefik` Gateway as a Kubernetes LoadBalancer type serviceの略。
+入力コントローラを設定しない場合は、このオプションを使用します。これにより、Astra Control Centerが導入されます `traefik` ゲートウェイをKubernetesの「LoadBalancer」タイプのサービスとして使用します。
 
 +
 Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用します。 (`svc/traefik` Astra Control Centerの名前空間）で、アクセス可能な外部IPアドレスが割り当てられている必要があります。お使いの環境でロードバランサが許可されていて、設定されていない場合は、MetalLBまたは別の外部サービスロードバランサを使用して外部IPアドレスをサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。
