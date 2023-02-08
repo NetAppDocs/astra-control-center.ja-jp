@@ -62,6 +62,7 @@ NOTE: 評価用ライセンスをお持ちで、AutoSupport にデータを送�
 クラスタを追加する前に、次の前提条件を満たしていることを確認する必要があります。また、資格チェックを実行して、クラスタをAstra Control Centerに追加し、クラスタ管理の役割を作成する準備ができていることを確認する必要もあります。
 
 .必要なもの
+* クラスタ内のワーカーノードで適切なストレージドライバが設定されていることを確認します。これにより、ポッドがバックエンドストレージと通信できるようになります。
 * が環境に合っている link:../get-started/requirements.html#operational-environment-requirements["運用環境の要件"^] Astra TridentとAstra Control Centerに最適。
 * Astra Tridentの一バージョン link:../get-started/requirements.html#operational-environment-requirements["Astra Control Centerによってサポートされます"^] がインストールされている：
 +
