@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: use/monitor-protect.html 
 keywords: proxy, cloud insights, connections, fluent bit, accounts, protect, security 
-summary: 複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合は、 Astra Control Center でそのプロキシサーバーを設定します。NetApp Cloud Insights を使用して、インフラ全体を監視し、詳細を把握することができます。Fluent ビット接続を追加して、コンテナからデータとログを収集できます。 
+summary: 複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合は、 Astra Control Center でそのプロキシサーバーを設定します。NetApp Cloud Insights を使用して、インフラ全体を監視し、詳細を把握することができます。複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。インフラ全体を監視して詳細を把握するには、NetApp Cloud Insights への接続を作成し、Prometheusを設定するか、Fluentd接続を追加します。 
 ---
-= Cloud Insights 接続とFluentd接続でインフラストラクチャを監視します
+= Cloud Insights 、Prometheus、Fluentd接続でインフラを監視します
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,9 +12,14 @@ summary: 複数のオプション設定を構成して、 Astra Control Center �
 
 
 [role="lead"]
-複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。インフラ全体を監視して詳細を把握するには、 NetApp Cloud Insights への接続を確立します。Astra Control Center によって監視されているシステムから Kubernetes イベントを収集するには、 Fluentd 接続を追加します。
+複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。インフラ全体を監視して詳細を把握するには、NetApp Cloud Insights への接続を作成し、Prometheusを設定するか、Fluentd接続を追加します。
 
 Astra Control Centerを実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合（サポートバンドルをNetApp Support Site にアップロードする場合、またはCloud Insights への接続を確立する場合）は、Astra Control Centerでプロキシサーバを設定する必要があります。
+
+* <<Cloud Insights に接続します>>
+* <<Prometheusに接続>>
+* <<Fluentd に接続します>>
+
 
 
 
@@ -23,7 +28,7 @@ Astra Control Centerを実行しているネットワークで、インターネ
 Astra Control Centerを実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合（サポートバンドルをNetApp Support Site にアップロードする場合、またはCloud Insights への接続を確立する場合）は、Astra Control Centerでプロキシサーバを設定する必要があります。
 
 
-IMPORTANT: Astra Control Center は、プロキシサーバー用に入力した詳細を検証しません。必ず正しい値を入力してください。
+IMPORTANT: Astra Control Center は、プロキシサーバー用に入力した詳細を検証しません。正しい値を入力してください。
 
 .手順
 . * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
@@ -188,9 +193,86 @@ Cloud Insights 接続は、 Astra Control Center で管理されている Kubern
 
 
 
+== Prometheusに接続
+
+Prometheusを使用して、Astra Control Centerのデータを監視できます。Kubernetesクラスタの指標エンドポイントから指標を収集するようにPrometheusを設定したり、Prometheusを使用して指標データを表示したりすることもできます。
+
+Prometheusの使用の詳細については、でそれぞれのドキュメントを参照してください https://prometheus.io/docs/prometheus/latest/getting_started/["Prometheusでの作業の開始"]。
+
+.必要なもの
+PrometheusパッケージがAstra Control Centerクラスタ、またはAstra Control Centerクラスタと通信可能な別のクラスタにダウンロードしてインストールされていることを確認します。
+
+の公式ドキュメントに記載されている手順に従ってください https://prometheus.io/docs/prometheus/latest/installation/["Prometheus をインストールする"]。
+
+Prometheusは、Astra Control Center Kubernetesクラスタと通信できる必要があります。PrometheusがAstra Control Centerクラスタにインストールされていない場合は、Astra Control Centerクラスタで実行されている指標サービスと通信できることを確認する必要があります。
+
+
+
+=== Prometheus を設定する
+
+Astra Control Centerは、KubernetesクラスタのTCPポート9090で指標サービスを公開します。このサービスから指標を収集するには、 Prometheus を設定する必要があります。
+
+.手順
+. Prometheusサーバにログインします。
+. にクラスタエントリを追加します `prometheus.yml` ファイル。を参照してください `yml` ファイルで、クラスタに関する次のようなエントリをに追加します `scrape_configs section`：
++
+[listing]
+----
+job_name: '<Add your cluster name here. You can abbreviate. It just needs to be a unique name>'
+  metrics_path: /accounts/<replace with your account ID>/metrics
+  authorization:
+     credentials: <replace with your API token>
+  tls_config:
+     insecure_skip_verify: true
+  static_configs:
+    - targets: ['<replace with your astraAddress. If using FQDN, the prometheus server has to be able to resolve it>']
+----
++
+
+NOTE: を設定した場合は `tls_config insecure_skip_verify` 終了： `true`では、TLS暗号化プロトコルは必要ありません。
+
+. Prometheusサービスを再起動します。
++
+[listing]
+----
+sudo systemctl restart prometheus
+----
+
+
+
+
+=== Prometheusにアクセスする
+
+PrometheusのURLにアクセスします。
+
+.手順
+. ブラウザで、Prometheus URLをポート9090と入力します。
+. * Status *>* Targets *を選択して、接続を確認します。
+
+
+
+
+=== Prometheusでデータを表示する
+
+Prometheusを使用してAstra Control Centerのデータを表示できます。
+
+.手順
+. ブラウザで、PrometheusのURLを入力します。
+. Prometheusメニューで* Graph *を選択します。
+. メトリクスエクスプローラを使用するには、[*Execute*]の横にあるアイコンを選択します。
+. 選択するオプション `scrape_samples_scraped` をクリックし、* Execute *を選択します。
+. 時間の経過に伴うサンプルのスクレイピングを確認するには、* Graph *を選択します。
++
+
+NOTE: 複数のクラスタデータが収集された場合、各クラスタの指標は異なる色で表示されます。
+
+
+
+
+
 == Fluentd に接続します
 
-Astra Control Center から Fluentd エンドポイントにログ（ Kubernetes イベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。
+Astra Control Centerによって監視されているシステムからFluentdエンドポイントにログ（Kubernetesイベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。
 
 image:fluentbit.png["ここでは、AstraからFluentdまでのイベントログの概念図を示します。"]
 

@@ -335,8 +335,6 @@
   <block id="697939ddfd81addf109205a77b1bddc2" category="list-text">［ * アカウント ］ &gt; ［ 請求 ］ &gt; ［ 支払方法 * ］ の順に選択します。</block>
   <block id="3d54d6e461f70e81b32546067d159bfd" category="list-text">「アカウントを閉じる」を選択します。</block>
   <block id="5149827aee9a1b3679a5a603cac08040" category="list-text">アカウント名を入力して確定し、アカウントを閉じます。</block>
-  <block id="d3780315ac76826db7abed6c6e026316" category="summary">複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合は、 Astra Control Center でそのプロキシサーバーを設定します。NetApp Cloud Insights を使用して、インフラ全体を監視し、詳細を把握することができます。Fluent ビット接続を追加して、コンテナからデータとログを収集できます。</block>
-  <block id="83f8bdf396bfe8f43a87afcaeaf47a89" category="admonition">Astra Control Center は、プロキシサーバー用に入力した詳細を検証しません。必ず正しい値を入力してください。</block>
   <block id="33e25013c351d84e30f58671009577d3" category="list-text">* admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。</block>
   <block id="bc19da5189cc32f27d8b9761272305cd" category="list-text">[*Account*&gt;*Connections*] を選択します。</block>
   <block id="61ba00adf80e33f4a06350b8ca656cc4" category="list-text">ドロップダウンリストから [*Connect*] を選択して、プロキシサーバを追加します。</block>
@@ -384,7 +382,6 @@
   <block id="6ae19832a4f5fa2ceafdf59e7566f008" category="paragraph">Cloud Insights 接続は、 Astra Control Center で管理されている Kubernetes クラスタに対して無効にすることができます。Cloud Insights 接続を無効にしても、すでに Cloud Insights にアップロードされている計測データは削除されません。</block>
   <block id="7b47e5cca580c15b73298814e6dc3043" category="list-text">表示されたダイアログボックスで、処理を確認します。操作を確定すると、 [*Account*&gt;*Connections*] ページで、 Cloud Insights のステータスが [*Pending （保留中） ] に変わります。ステータスが * 切断された * に変わるまで数分かかります。</block>
   <block id="e3ef410032c04be22479d1f57535cd7c" category="section-title">Fluentd に接続します</block>
-  <block id="53aa734867da8d80d801799743769150" category="paragraph">Astra Control Center から Fluentd エンドポイントにログ（ Kubernetes イベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。</block>
   <block id="78f449881ce819a79127ab380ec8f5f0" category="admonition">管理対象クラスタのイベントログのみが Fluentd に転送されます。</block>
   <block id="f49f4c26cb983eb5089296d1c29bd573" category="list-text">Kubernetes クラスタに Astra Control Center をインストールして実行</block>
   <block id="d3ebfa34d5e7c2c879271b1ab8424d9e" category="admonition">Astra Control Center では、 Fluentd サーバーに入力した詳細は検証されません。必ず正しい値を入力してください。</block>
@@ -1639,8 +1636,6 @@
   <block id="366c043ac239af39c01a69c524d5c4d8" category="list-text">*削除中*：</block>
   <block id="4877dec902ca3a40e2a3f5deb4d738cb" category="list-text">レプリケーション関係が確立されたものの、まだフェイルオーバーされていない場合は、レプリケーション中に作成されたPVCがAstra Controlによって削除され、デスティネーションの管理対象アプリケーションが削除されます。</block>
   <block id="3a6ead109505f7ea2878ab424cbe2da1" category="list-text">レプリケーションがすでにフェイルオーバーされている場合、Astra ControlはPVCと宛先アプリケーションを保持します。</block>
-  <block id="c41ee5732016154bb6c4940488b2e433" category="doc">Cloud Insights 接続とFluentd接続でインフラストラクチャを監視します</block>
-  <block id="17751e1c130aa7f1a02d1ece443950ff" category="paragraph">複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。インフラ全体を監視して詳細を把握するには、 NetApp Cloud Insights への接続を確立します。Astra Control Center によって監視されているシステムから Kubernetes イベントを収集するには、 Fluentd 接続を追加します。</block>
   <block id="671cce49cb9437c45402bf5665738f0e" category="paragraph">LDAPを使用して、選択したユーザの認証を実行することもできます。</block>
   <block id="b56135ea0b546a1652b8e3d7c5b18c4c" category="section-title">LDAP を使用する</block>
   <block id="4ce624958058f79de8c325a46a6e3efd" category="paragraph">アプリケーションデータの保護に関連する次のタスクを実行できます。</block>
@@ -2634,4 +2629,39 @@
   <block id="e69175cacbe45336f1df22a8b3b32254" category="cell"><block ref="91e292ade0a336af19f1ac0977215b91" prefix="" category="inline-code"></block></block>
   <block id="9497a649f72a465537e088cd33f63b26" category="paragraph">ネームスペースリソースに関連付けられているクラスタリソースを、自動的に含まれるアストラコントロールに加えてインポートできます。特定のグループ、種類、バージョンのリソースを含むルールを追加し、必要に応じてラベルを付けることができます。この処理は、Astra Controlに自動的に含まれないリソースがある場合などに実行します。</block>
   <block id="0da4d61a77014ac62ef250a406e5dbce" category="list-text">*明示的なストレージクラス*：ストレージクラスを明示的に設定したアプリケーションを導入し、そのアプリケーションのクローンを作成する必要がある場合、ターゲットクラスタには元 々 指定されたストレージクラスが必要です。ストレージクラスを明示的に設定したアプリケーションを、同じストレージクラスを含まないクラスタにクローニングすると、失敗します。</block>
+  <block id="b6da6003a2f52469c14c0c6729f67039" category="summary">複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。Astra Control Center を実行しているネットワークで、インターネットに接続するためのプロキシが必要な場合は、 Astra Control Center でそのプロキシサーバーを設定します。NetApp Cloud Insights を使用して、インフラ全体を監視し、詳細を把握することができます。複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。インフラ全体を監視して詳細を把握するには、NetApp Cloud Insights への接続を作成し、Prometheusを設定するか、Fluentd接続を追加します。</block>
+  <block id="91ff640cb1ad20709065c64e736f5d0b" category="doc">Cloud Insights 、Prometheus、Fluentd接続でインフラを監視します</block>
+  <block id="545e4a96701514d3d62f7ae1778a7858" category="paragraph">複数のオプション設定を構成して、 Astra Control Center の操作性を高めることができます。インフラ全体を監視して詳細を把握するには、NetApp Cloud Insights への接続を作成し、Prometheusを設定するか、Fluentd接続を追加します。</block>
+  <block id="45e983a2837dea8ff67d8523d723f5d7" category="list-text"><block ref="6c8f350d87572b93a1638cc8c8c03f45" category="inline-xref-macro-rx"></block></block>
+  <block id="2040e11ba656a4dcf1b54098e187f0c6" category="list-text"><block ref="d116edfca4274564eb0914ae2c5f865a" category="inline-xref-macro-rx"></block></block>
+  <block id="72a11e0ef9a893dc22f4644541c45e5f" category="list-text"><block ref="c015896365f2d64fe1c60d6363c5dd6f" category="inline-xref-macro-rx"></block></block>
+  <block id="a4b6c4ceaf7f07f688975add1e51d3bb" category="admonition">Astra Control Center は、プロキシサーバー用に入力した詳細を検証しません。正しい値を入力してください。</block>
+  <block id="5ab6ff9afa33fb591b346058c1dc1f6a" category="section-title">Prometheusに接続</block>
+  <block id="2ae88408008bbb2152e31e0d54fb16f7" category="paragraph">Prometheusを使用して、Astra Control Centerのデータを監視できます。Kubernetesクラスタの指標エンドポイントから指標を収集するようにPrometheusを設定したり、Prometheusを使用して指標データを表示したりすることもできます。</block>
+  <block id="ab3cc7884a2a586e737ccb176552b3b5" category="inline-link">Prometheusでの作業の開始</block>
+  <block id="7ae1262308bfda5eda5f20a58c209052" category="paragraph">Prometheusの使用の詳細については、でそれぞれのドキュメントを参照してください<block ref="6ad3149d8ef2efb7cc0b4f11257b9f54" category="inline-link-rx"></block>。</block>
+  <block id="eed5ddc8f738970611f01ee16f2a17e5" category="paragraph-title">必要なもの</block>
+  <block id="411ee6dde1e5ad68cfbff923bf03b28c" category="paragraph">PrometheusパッケージがAstra Control Centerクラスタ、またはAstra Control Centerクラスタと通信可能な別のクラスタにダウンロードしてインストールされていることを確認します。</block>
+  <block id="88b8613d339947a37e41b1f514dcc42c" category="inline-link">Prometheus をインストールする</block>
+  <block id="e4c7f77e7b92bcbfbb43c2080cfe6f9f" category="paragraph">の公式ドキュメントに記載されている手順に従ってください<block ref="dd427b070bec20dc10247d034a173c9b" category="inline-link-rx"></block>。</block>
+  <block id="e6b1b32c0689034c5d0a1f7b37c4ba63" category="paragraph">Prometheusは、Astra Control Center Kubernetesクラスタと通信できる必要があります。PrometheusがAstra Control Centerクラスタにインストールされていない場合は、Astra Control Centerクラスタで実行されている指標サービスと通信できることを確認する必要があります。</block>
+  <block id="7119175e2ec3286002664b430cbc1c19" category="section-title">Prometheus を設定する</block>
+  <block id="77c978de1adca49564de70adfdc7e3d6" category="paragraph">Astra Control Centerは、KubernetesクラスタのTCPポート9090で指標サービスを公開します。このサービスから指標を収集するには、 Prometheus を設定する必要があります。</block>
+  <block id="092b3cbe70aca2ba293640b66a219310" category="list-text">Prometheusサーバにログインします。</block>
+  <block id="2bb8bbb2cbbc15facee963ead9e8869c" category="list-text">にクラスタエントリを追加します<block ref="c3d29ac8b40407b824f83a7f7db6e6bb" prefix=" " category="inline-code"></block> ファイル。を参照してください<block ref="176a3b23c5e392bb5c047d481938bd7b" prefix=" " category="inline-code"></block> ファイルで、クラスタに関する次のようなエントリをに追加します<block ref="da024a87d68fe879a5e8dc9164e2062a" prefix=" " category="inline-code"></block>：</block>
+  <block id="7f50ef17b5ea722d72b7bc10c790fc2a" category="admonition">を設定した場合は<block ref="20a9b86c9419c9e9adee226db98768f3" prefix=" " category="inline-code"></block> 終了：<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>では、TLS暗号化プロトコルは必要ありません。</block>
+  <block id="35ca8de5ad09d8f379dc9403dc3c2c96" category="list-text">Prometheusサービスを再起動します。</block>
+  <block id="77810c2dad8e6b7da8d8ace54e386d72" category="section-title">Prometheusにアクセスする</block>
+  <block id="84176d4e9721735f127e8995de1208a0" category="paragraph">PrometheusのURLにアクセスします。</block>
+  <block id="7bfee81d0d958666514f0f51e8b93133" category="list-text">ブラウザで、Prometheus URLをポート9090と入力します。</block>
+  <block id="c4dc7227e2d90e92b53dc61bd8875717" category="list-text">* Status *&gt;* Targets *を選択して、接続を確認します。</block>
+  <block id="8a06a9070abbb95f9a44a7aa40f3fff9" category="section-title">Prometheusでデータを表示する</block>
+  <block id="e0f1970f397ef82d992fd6ecec86ab09" category="paragraph">Prometheusを使用してAstra Control Centerのデータを表示できます。</block>
+  <block id="ab2e086f7848d83e402e340872aa7859" category="list-text">ブラウザで、PrometheusのURLを入力します。</block>
+  <block id="b0e1e6b4923d3123191b308adffda5a8" category="list-text">Prometheusメニューで* Graph *を選択します。</block>
+  <block id="92c6bfdd233a450efe090dfd2aeb1857" category="list-text">メトリクスエクスプローラを使用するには、[*Execute*]の横にあるアイコンを選択します。</block>
+  <block id="6682f04aa7c63c9ce70d8bee0705612d" category="list-text">選択するオプション<block ref="13584fd5e974d4024107644d67fe0a1f" prefix=" " category="inline-code"></block> をクリックし、* Execute *を選択します。</block>
+  <block id="4409c1c59948e2b1fc006b492343b77d" category="list-text">時間の経過に伴うサンプルのスクレイピングを確認するには、* Graph *を選択します。</block>
+  <block id="4e86b3f4151280eb07fe543c3b9974f2" category="admonition">複数のクラスタデータが収集された場合、各クラスタの指標は異なる色で表示されます。</block>
+  <block id="039788d35f35e7e6b801a37b1b602f56" category="paragraph">Astra Control Centerによって監視されているシステムからFluentdエンドポイントにログ（Kubernetesイベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。</block>
 </blocks>
