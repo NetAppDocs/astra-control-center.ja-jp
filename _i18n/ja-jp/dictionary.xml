@@ -2664,4 +2664,5 @@
   <block id="4409c1c59948e2b1fc006b492343b77d" category="list-text">時間の経過に伴うサンプルのスクレイピングを確認するには、* Graph *を選択します。</block>
   <block id="4e86b3f4151280eb07fe543c3b9974f2" category="admonition">複数のクラスタデータが収集された場合、各クラスタの指標は異なる色で表示されます。</block>
   <block id="039788d35f35e7e6b801a37b1b602f56" category="paragraph">Astra Control Centerによって監視されているシステムからFluentdエンドポイントにログ（Kubernetesイベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。</block>
+  <block id="2fae9bf7af2c006788415b299aad1207" category="admonition">NetApp ONTAP ストレージを使用するアプリケーションのIn Placeリストアを実行すると、リストアしたアプリケーションで使用するスペースは2倍になります。In Placeリストアを実行したあとに、リストアしたアプリケーションから不要なSnapshotを削除して、ストレージスペースを解放します。</block>
 </blocks>
