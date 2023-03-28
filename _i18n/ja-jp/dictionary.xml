@@ -847,12 +847,8 @@
   <block id="2afcb2016ee556b04a072d6535bbab55" category="paragraph">アプリとその使用パターンが変化したら、必要に応じて保護ポリシーを調整して、最適な保護を実現します。</block>
   <block id="7ce9ebbb5de6892ca270cea878bd99d1" category="inline-link-macro">最新のバックアップをリストアしています</block>
   <block id="646e605e86066bd9485e0c23704757f2" category="section-title">Snapshot 、バックアップ、保護のポリシー</block>
-  <block id="0ff3a63f501bdc56779548c1895a7830" category="paragraph">a_snapshot_は 、アプリケーションと同じプロビジョニングボリュームに格納されるアプリケーションのポイントインタイムコピーです。通常は高速です。ローカル Snapshot を使用して、アプリケーションを以前の時点にリストアできます。スナップショットは高速クローンに便利です。スナップショットには、構成ファイルを含む、アプリケーションのすべての Kubernetes オブジェクトが含まれます。</block>
-  <block id="8088bcbdd6f32dd97af613eaa18dbfc9" category="paragraph">a_backup_ は外部のオブジェクトストアに格納されます。ローカル Snapshot と比較すると時間がかかることがあります。アプリケーションのバックアップを同じクラスタにリストアすることも、バックアップを別のクラスタにリストアして移行することもできます。バックアップの保持期間を延長することもできます。バックアップは外部のオブジェクトストアに格納されるため、サーバで障害が発生したりデータが失われたりした場合に備えて、 Snapshot よりも優れた保護機能を提供できます。</block>
-  <block id="1cf677982e8ac99f55d7314cb3a51d20" category="paragraph">a_protection policy__ は、アプリケーション用に定義したスケジュールに従って、スナップショット、バックアップ、またはその両方を自動的に作成することで、アプリケーションを保護する方法です。保護ポリシーでは、スケジュールで保持する Snapshot とバックアップの数も選択できます。バックアップとスナップショットを保護ポリシーを使用して自動化することは、組織のニーズに応じて各アプリケーションを確実に保護する最善の方法です。</block>
   <block id="33bb9df0e608c1dab17890f54a41a8db" category="admonition">_ 最新のバックアップがあるまで、完全に保護することはできません _ 。これは、永続ボリュームから離れたオブジェクトストアにバックアップが格納されるために重要です。障害または事故によってクラスタとその永続的ストレージが消去された場合は、バックアップをリカバリする必要があります。Snapshot を使用してリカバリすることはできません。</block>
   <block id="999cc42b236c7aee1157ff02d6f1bcd5" category="section-title">クローン</block>
-  <block id="3e92f2df0bda8968dc6665778c2f9b99" category="paragraph">a_clone_は 、アプリケーション、その構成、永続的ストレージの完全な複製です。クローンは、同じ Kubernetes クラスタまたは別のクラスタに手動で作成できます。アプリケーションとストレージを Kubernetes クラスタ間で移動する必要がある場合は、アプリケーションをクローニングすると便利です。</block>
   <block id="bd48cb856a5ec10f9c3c2bf8d62fc86c" category="paragraph">Astra Control を使用すると、スナップショットまたはバックアップからアプリケーションをリストアできます。同じクラスタにアプリケーションをリストアする場合、既存の Snapshot からのリストアは高速です。Astra Control UI またはを使用できます<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> アプリを復元するには、</block>
   <block id="22ec3951623db87fb800ca769fec5e8f" category="paragraph">回避策として、次の手順を実行します。</block>
   <block id="33fe94a78e4fc743a279dacacc468c5d" category="list-text">「 clusterName 」フィールドの値を「 Kubernetes 」（ Kubernetes のデフォルト名）から一意のカスタム名に変更します。</block>
@@ -2665,4 +2661,12 @@
   <block id="4e86b3f4151280eb07fe543c3b9974f2" category="admonition">複数のクラスタデータが収集された場合、各クラスタの指標は異なる色で表示されます。</block>
   <block id="039788d35f35e7e6b801a37b1b602f56" category="paragraph">Astra Control Centerによって監視されているシステムからFluentdエンドポイントにログ（Kubernetesイベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。</block>
   <block id="2fae9bf7af2c006788415b299aad1207" category="admonition">NetApp ONTAP ストレージを使用するアプリケーションのIn Placeリストアを実行すると、リストアしたアプリケーションで使用するスペースは2倍になります。In Placeリストアを実行したあとに、リストアしたアプリケーションから不要なSnapshotを削除して、ストレージスペースを解放します。</block>
+  <block id="cca8aaa6dccaa81bdbc26387b1f1bc63" category="paragraph">Snapshotとバックアップのどちらも、次のタイプのデータを保護します。</block>
+  <block id="adac08ac006f9d65c559347c106461c7" category="list-text">アプリケーション自体</block>
+  <block id="6c94a6e4d564092b6e6d44dbc8e77b07" category="list-text">アプリケーションに関連付けられている永続的データボリューム</block>
+  <block id="7dfd52c396a70e3d3406a3363ed74be4" category="list-text">アプリケーションに属するリソースアーティファクト</block>
+  <block id="8d2f06a986c63f2706decd28b4e24967" category="paragraph">a_snapshot_は 、アプリケーションと同じプロビジョニングボリュームに格納されるアプリケーションのポイントインタイムコピーです。通常は高速です。ローカル Snapshot を使用して、アプリケーションを以前の時点にリストアできます。スナップショットは高速クローンに便利です。スナップショットには、構成ファイルを含む、アプリケーションのすべての Kubernetes オブジェクトが含まれます。スナップショットは、同じクラスタ内でアプリケーションをクローニングまたはリストアする場合に便利です。</block>
+  <block id="d3472e0a53fc9484c0dd7ec15e76da1d" category="paragraph">_backup_はSnapshotに基づいています。外部のオブジェクトストアに格納されるため、ローカルSnapshotに比べて取得に時間がかかることがあります。アプリケーションのバックアップを同じクラスタにリストアすることも、バックアップを別のクラスタにリストアして移行することもできます。バックアップの保持期間を延長することもできます。バックアップは外部のオブジェクトストアに格納されるため、サーバで障害が発生したりデータが失われたりした場合に備えて、 Snapshot よりも優れた保護機能を提供できます。</block>
+  <block id="5becefddd70e438fb63cc4c816b5f6cc" category="paragraph">a_protection policy__ は、アプリケーション用に定義したスケジュールに従って、スナップショット、バックアップ、またはその両方を自動的に作成することで、アプリケーションを保護する方法です。また、保護ポリシーでは、スケジュールで保持するSnapshotとバックアップの数を選択したり、さまざまなスケジュールレベルを設定したりすることもできます。保護ポリシーを使用してバックアップとスナップショットを自動化することは、組織のニーズやSLA（Service Level Agreement）の要件に応じて各アプリケーションを確実に保護するための最良の方法です。</block>
+  <block id="5d18a3d426ac931bca06d705d79d80cf" category="paragraph">a_clone_は、アプリケーション、その設定、および永続データボリュームの完全な複製です。クローンは、同じ Kubernetes クラスタまたは別のクラスタに手動で作成できます。アプリケーションとストレージを Kubernetes クラスタ間で移動する必要がある場合は、アプリケーションをクローニングすると便利です。</block>
 </blocks>
