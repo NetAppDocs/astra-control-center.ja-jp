@@ -100,9 +100,11 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 
 Astra Control Center は、次のストレージバックエンドをサポートします。
 
-* NetApp ONTAP 9.5 以降の AFF および FAS システム
-* NetApp ONTAP 9.8以降AFF およびFAS システム：SnapMirrorベースのアプリケーションレプリケーションに使用
-* NetApp Cloud Volumes ONTAP の略
+* NetApp ONTAP 9.5以降のAFF 、FAS 、ASA システム
+* NetApp ONTAP 9.8以降のAFF 、FAS 、ASA システム（SnapMirrorベースのアプリケーションレプリケーション用
+* NetApp ONTAP Select 9.5以降
+* NetApp ONTAP Select 9.8以降（SnapMirrorベースのアプリケーションレプリケーション用
+* NetApp Cloud Volumes ONTAP 9.5以降
 
 
 Astra Control Centerを使用するには、必要な機能に応じて、次のONTAP ライセンスがあることを確認します。
