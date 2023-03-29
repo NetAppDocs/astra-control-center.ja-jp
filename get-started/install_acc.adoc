@@ -22,6 +22,8 @@ Astra Control Centerをインストールするには、NetApp Support Site か�
 
 
 ====
+Astra Control Centerのインストールプロセスのデモについては、を参照してください https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["このビデオでは"^]。
+
 .必要なもの
 * link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"]。
 * 使用環境でポッドセキュリティポリシーを設定または設定したい場合は、ポッドセキュリティポリシーと、それらがAstra Control Centerのインストールに与える影響について理解しておいてください。を参照してください link:../concepts/understand-pod-security.html["ポッドのセキュリティポリシーの制限事項を理解します"]。
