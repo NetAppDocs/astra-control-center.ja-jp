@@ -50,19 +50,19 @@ Bitnami PostgreSQL 11.5.0 チャートを使用すると、同じクラスタ内
 
 == サービスアカウントレベルの OCP セキュリティコンテキスト制約（ SCC ）を使用すると、アプリケーションのクローンが失敗する
 
-OpenShift Container Platform クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されていると、アプリケーションクローンが失敗する場合があります。アプリケーションのクローンが失敗すると、 Astra Control Center の管理対象アプリケーション領域にステータス「 Removed 」と表示されます。を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Application_clone_is_failing_for_an_application_in_Astra_Control_Center["技術情報アーティクル"^] を参照してください。
+OpenShift Container Platform クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されていると、アプリケーションクローンが失敗する場合があります。アプリケーションクローンが失敗すると、Astra Control Centerの管理対象アプリケーション領域にステータスとともに表示されます `Removed`。を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Application_clone_is_failing_for_an_application_in_Astra_Control_Center["技術情報アーティクル"^] を参照してください。
 
 
 
 == クラスタの管理後にボリュームnapshotclassを追加すると、アプリケーションのバックアップとSnapshotが失敗します
 
-このシナリオでは'バックアップとスナップショットがUI 500エラーで失敗します回避策 として、アプリリストを更新します。
+でバックアップとSnapshotの作成が失敗する `UI 500 error` このシナリオでは、回避策 として、アプリリストを更新します。
 
 
 
 == ストレージクラスを設定してアプリケーションを導入すると、アプリケーションのクローンが失敗する
 
-ストレージクラスを明示的に設定してアプリケーションをデプロイした後 ( たとえば、「 helm install...-set global.storageClass=NetApp-cvs-perf-extreme 」 ) 、アプリケーションのクローンを作成しようとすると、ターゲットクラスタに最初に指定されたストレージクラスが必要になります。ストレージクラスを明示的に設定したアプリケーションを、同じストレージクラスを含まないクラスタにクローニングすると、失敗します。このシナリオではリカバリ手順はありません。
+ストレージクラスを明示的に設定してアプリケーションを導入したあと（例： `helm install ...-set global.storageClass=netapp-cvs-perf-extreme`その後、アプリケーションのクローニングを実行するには、ターゲットクラスタに元のストレージクラスが指定されている必要があります。ストレージクラスを明示的に設定したアプリケーションを、同じストレージクラスを含まないクラスタにクローニングすると、失敗します。このシナリオではリカバリ手順はありません。
 
 
 

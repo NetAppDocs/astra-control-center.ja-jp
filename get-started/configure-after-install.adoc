@@ -157,7 +157,7 @@ Astra Control Centerは、入力コントローラトラフィック（一部の
 ====
 .必要なもの
 * Astra Control Center をインストールした Kubernetes クラスタ
-* クラスタ上のコマンド・シェルに管理アクセスして 'kubectl' コマンドを実行します
+* 実行するクラスタ上のコマンドシェルへの管理アクセス `kubectl` コマンド
 * CA の秘密鍵ファイルと証明書ファイル
 
 
@@ -168,7 +168,7 @@ Astra Control Centerは、入力コントローラトラフィック（一部の
 既存の自己署名 TLS 証明書を削除します。
 
 . SSH を使用して、 Astra Control Center をホストする Kubernetes クラスタに管理ユーザとしてログインします。
-. 次のコマンドを使用して、現在の証明書に関連付けられている TLS シークレットを検索します。「 <ACC-deployment-namespace> 」は、 Astra Control Center 配置名前空間に置き換えてください。
+. 次のコマンドを使用して、現在の証明書に関連付けられているTLSシークレットを検索します `<ACC-deployment-namespace>` Astra Control Center導入ネームスペースを使用して、次の作業を行います。
 +
 [source, console]
 ----
@@ -195,7 +195,7 @@ CA によって署名された新しい TLS 証明書を追加します。
 ----
 kubectl create secret tls <secret-name> --key <private-key-filename> --cert <certificate-filename> -n <ACC-deployment-namespace>
 ----
-. 次のコマンドと例を使用して、クラスタカスタムリソース定義（ CRD ）ファイルを編集し、「 pec.selfSigned` 」の値を「 pec.ca.secretName` 」に変更して、前の手順で作成した TLS シークレットを参照します。
+. 次のコマンドと例を使用して、クラスタカスタムリソース定義（CRD）ファイルを編集し、を変更します `spec.selfSigned` の値 `spec.ca.secretName` 以前に作成したTLSシークレットを参照するには、次の手順を実行します
 +
 [listing]
 ----
@@ -209,7 +209,7 @@ spec:
   ca:
     secretName: <secret-name>
 ----
-. 次のコマンドと出力例を使用して、変更が正しく、クラスタが証明書を検証できる状態にあることを確認します。「 <ACC-deployment-namespace> 」は Astra Control Center 配置名前空間に置き換えてください。
+. 次のコマンドと出力例を使用して、変更が正しいこと、および交換する証明書をクラスタで検証する準備ができていることを確認します `<ACC-deployment-namespace>` Astra Control Center導入ネームスペースを使用して、次の作業を行います。
 +
 [listing]
 ----
@@ -226,7 +226,7 @@ Status:
 Events:                    <none>
 
 ----
-. 次の例を使用して 'certificate.yaml ファイルを作成します括弧 <> のプレースホルダ値を適切な情報に置き換えます
+. を作成します `certificate.yaml` 次の例を使用してファイルを作成し、括弧<>のプレースホルダ値を適切な情報に置き換えます。
 +
 [source, yaml]
 ----

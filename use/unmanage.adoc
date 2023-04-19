@@ -64,4 +64,4 @@ NOTE: クラスタの管理を解除する前に、クラスタに関連付け�
 クラスタのステータスが「Removing *」に変わります。その後、クラスタが「*クラスタ」ページから削除され、Astra Control Centerによって管理されなくなります。
 
 
-IMPORTANT: * Astra Control Center と Cloud Insights が接続されていない場合 * 、クラスタの管理を解除すると、テレメトリ・データの送信用にインストールされたすべてのリソースが削除されます。*Astra Control Center と Cloud Insights が接続されている場合 * ' クラスタの管理を解除すると 'fluentbit' および 'event-exporter ポッドのみが削除されます
+IMPORTANT: * Astra Control Center と Cloud Insights が接続されていない場合 * 、クラスタの管理を解除すると、テレメトリ・データの送信用にインストールされたすべてのリソースが削除されます。* Astra Control CenterとCloud Insights が接続されている場合*、クラスタの管理を解除すると、のみが削除されます `fluentbit` および `event-exporter` ポッド

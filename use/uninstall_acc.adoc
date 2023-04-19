@@ -35,7 +35,7 @@ kubectl delete -f astra_control_center.yaml -n netapp-acc
 ----
 astracontrolcenter.astra.netapp.io "astra" deleted
 ----
-. 次のコマンドを使用して 'NetApp-acc' ネームスペースを削除します
+. を削除するには、次のコマンドを使用します `netapp-acc` ネームスペース：
 +
 [listing]
 ----
@@ -89,7 +89,7 @@ Astra Control Center のアンインストールで発生した問題に対処�
 Astra Control Center をアンインストールする前にクラスタの管理を解除していない場合は、次のコマンドを使用して、ネットアップ監視ネームスペースとネームスペース内のポッドを手動で削除できます。
 
 .手順
-. 「 acc-monitoring 」エージェントを削除します。
+. 削除 `acc-monitoring` エージェント：
 +
 [listing]
 ----

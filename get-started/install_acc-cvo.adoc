@@ -101,10 +101,10 @@ NOTE: Restic ベースのイメージを使用してアプリケーションを�
 | Astra Trident / ONTAP 構成  a| 
 Astra Control Center を使用するには、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Centerは、KubernetesクラスタをNetApp BlueXP（旧Cloud Manager）にインポートするときに作成される次のONTAP Kubernetesストレージクラスをサポートします。Astra Trident によって提供される機能は次のとおりです。
 
-* 「 vsaworkingenvironment 」 -<> -ha - NAS csi.trident.netapp.io`
-* 「 vsaworkingenvironment 」 -<> -ha -san csi.trident.netapp.io`
-* 「 vsaworkingenvironment 」 -<>-singsingle-nas csi.trident.netapp.io`
-* 「 vsaworkingenvironment 」 -<>-singsingle-san csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-ha-nas               csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-ha-san               csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-single-nas           csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-single-san           csi.trident.netapp.io`
 
 
 |===
@@ -289,10 +289,10 @@ NOTE: バックアップ用にリストアイメージを取得するには、�
 | Astra Trident / ONTAP 構成  a| 
 Astra Control Center を使用するには、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Centerは、KubernetesクラスタをNetApp BlueXPにインポートするときに作成される次のONTAP Kubernetesストレージクラスをサポートします。Astra Trident によって提供される機能は次のとおりです。
 
-* 「 vsaworkingenvironment 」 -<> -ha - NAS csi.trident.netapp.io`
-* 「 vsaworkingenvironment 」 -<> -ha -san csi.trident.netapp.io`
-* 「 vsaworkingenvironment 」 -<>-singsingle-nas csi.trident.netapp.io`
-* 「 vsaworkingenvironment 」 -<>-singsingle-san csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-ha-nas               csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-ha-san               csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-single-nas           csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-single-san           csi.trident.netapp.io`
 
 
 |===
@@ -526,10 +526,10 @@ NOTE: バックアップ用にリストアイメージを取得するには、�
 | Astra Trident / ONTAP 構成  a| 
 Astra Control Center を使用するには、ストレージクラスを作成してデフォルトのストレージクラスとして設定する必要があります。Astra Control Centerは、KubernetesクラスタをNetApp BlueXPにインポートするときに作成される次のONTAP Kubernetesストレージクラスをサポートします。Astra Trident によって提供される機能は次のとおりです。
 
-* 「 vsaworkingenvironment 」 -<> -ha - NAS csi.trident.netapp.io`
-* 「 vsaworkingenvironment 」 -<> -ha -san csi.trident.netapp.io`
-* 「 vsaworkingenvironment 」 -<>-singsingle-nas csi.trident.netapp.io`
-* 「 vsaworkingenvironment 」 -<>-singsingle-san csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-ha-nas               csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-ha-san               csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-single-nas           csi.trident.netapp.io`
+* `vsaworkingenvironment-<>-single-san           csi.trident.netapp.io`
 
 
 |===

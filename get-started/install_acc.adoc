@@ -229,7 +229,7 @@ NOTE: インストールを完了する前に、KUBECONFIGがAstra Control Cente
 
 . 認証が必要なレジストリを使用する場合は、次の手順を実行する必要があります。
 +
-.. NetApp-acc-operator という名前空間を作成します。
+.. を作成します `netapp-acc-operator` ネームスペース：
 +
 [source, console]
 ----
@@ -243,7 +243,7 @@ kubectl create ns netapp-acc-operator
 ----
 namespace/netapp-acc-operator created
 ----
-.. NetApp-acc-operator ネームスペースのシークレットを作成します。Docker 情報を追加して次のコマンドを実行します。
+.. のシークレットを作成します `netapp-acc-operator` ネームスペース：Docker 情報を追加して次のコマンドを実行します。
 +
 
 NOTE: プレースホルダ `your_registry_path` 以前にアップロードした画像の場所と一致する必要があります（例： `[Registry_URL]/netapp/astra/astracc/22.11.0-82`）。
@@ -307,7 +307,7 @@ secret/astra-registry-cred created
 ----
 cd manifests
 ----
-. Astra Control Center オペレータの配備 YAML (`Astra_control_center_deployment.yaml ') を編集して、ローカルのレジストリと秘密を参照します。
+. Astra Control Centerオペレータ配置YAMLを編集します (`astra_control_center_operator_deploy.yaml`)を参照して、ローカルレジストリとシークレットを参照してください。
 +
 [source, console]
 ----
@@ -318,7 +318,7 @@ vim astra_control_center_operator_deploy.yaml
 NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 
 +
-.. 認証が必要なレジストリを使用する場合は、デフォルト行の「 imagePullSecret:[] 」を次のように置き換えます。
+.. 認証が必要なレジストリを使用する場合は、のデフォルト行を置き換えます `imagePullSecrets: []` 次の条件を満たす場合：
 +
 [source, console]
 ----
@@ -454,7 +454,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 
 . 次の設定を変更または確認します。
 +
-.<code> アカウント名</code>
+.<code>accountName</code>
 [%collapsible]
 ====
 |===
@@ -465,7 +465,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 |===
 ====
 +
-.<code> astraバージョン</code>
+.<code>astraVersion</code>
 [%collapsible]
 ====
 |===
@@ -476,7 +476,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 |===
 ====
 +
-.<code> astraitAddress </code> の略
+.<code>astraAddress</code>
 [%collapsible]
 ====
 |===
@@ -487,7 +487,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 |===
 ====
 +
-.<code> AutoSupport </code> の略
+.<code>autoSupport</code>
 [%collapsible]
 ====
 このセクションで選択することで、ネットアップのプロアクティブサポートアプリケーション、NetApp Active IQ 、およびデータの送信先のどちらに参加するかが決まります。インターネット接続が必要です（ポート442）。サポートデータはすべて匿名化されます。
@@ -503,7 +503,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 |===
 ====
 +
-.<code> Eメール</code>
+.<code>email</code>
 [%collapsible]
 ====
 |===
@@ -514,7 +514,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 |===
 ====
 +
-.<code> firstName </code> の略
+.<code>firstName</code>
 [%collapsible]
 ====
 |===
@@ -525,7 +525,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 |===
 ====
 +
-.<code> のLastName </code>
+.<code>LastName</code>
 [%collapsible]
 ====
 |===
@@ -536,7 +536,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 |===
 ====
 +
-.<code> imageRegistry </code> です
+.<code>imageRegistry</code>
 [%collapsible]
 ====
 このセクションで選択すると、Astraアプリケーションイメージ、Astra Control Center Operator、Astra Control Center Helmリポジトリをホストするコンテナイメージレジストリが定義されます。
@@ -554,7 +554,7 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 |===
 ====
 +
-.<code> ストレージクラス</code>
+.<code>storageClass</code>
 [%collapsible]
 ====
 |===
@@ -565,7 +565,7 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 |===
 ====
 +
-.<code> volumeReclaimPolicy </code> の略
+.<code>volumeReclaimPolicy</code>
 [%collapsible]
 ====
 |===
@@ -580,7 +580,7 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 |===
 ====
 +
-.<code> ingressType </code> の略
+.<code>ingressType</code>
 [%collapsible]
 ====
 |===
@@ -595,7 +595,7 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 |===
 ====
 +
-.<code> astraalResourcesScaler </code>
+.<code>astraResourcesScaler</code>
 [%collapsible]
 ====
 |===
@@ -610,7 +610,7 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 |===
 ====
 +
-.<code> CRD </code> の略
+.<code>crds</code>
 [%collapsible]
 ====
 このセクションで選択した内容によって、Astra Control CenterでのCRDの処理方法が決まります。
@@ -662,7 +662,7 @@ spec:
 
 == Astra Control Center とオペレータのインストールを完了します
 
-. 前の手順で NetApp-acc` （またはカスタム）ネームスペースを作成していない場合は、次のようにします。
+. 前の手順でまだ行っていない場合は、を作成します `netapp-acc` （またはカスタム）ネームスペース：
 +
 [source, console]
 ----
@@ -676,7 +676,7 @@ kubectl create ns [netapp-acc or custom namespace]
 ----
 namespace/netapp-acc created
 ----
-. Astra Control Center を NetApp-acc' （またはカスタムの）名前空間にインストールします
+. にAstra Control Centerをインストールします `netapp-acc` （またはカスタムの）ネームスペース：
 +
 [source, console]
 ----
@@ -706,7 +706,7 @@ kubectlコマンドを使用すると、システムステータスを確認で�
 kubectl get pods -n [netapp-acc or custom namespace]
 ----
 +
-各ポッドのステータスは「 Running 」になります。システムポッドが展開されるまでに数分かかることがあります。
+各ポッドのステータスがになっている必要があります `Running`。システムポッドが展開されるまでに数分かかることがあります。
 
 +
 .回答例
@@ -790,7 +790,7 @@ vault-controller-55bbc96668-lq9n9          1/1     Running   0               11m
 vault-controller-55bbc96668-rfkgg          1/1     Running   0               11m
 ----
 ====
-. （オプション）インストールが完了したことを確認するには、次のコマンドを使用して「 acc-operator' 」ログを監視します。
+. （オプション）インストールが完了したことを確認するには、を参照してください `acc-operator` 次のコマンドを使用してログを作成します。
 +
 [source, console]
 ----
@@ -817,7 +817,7 @@ astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  22.11.0-82  10.111.111.111  True
 ----
 +
 
-IMPORTANT: UUIDの値をコピーします。パスワードは「 ACC-` 」の後に UUID 値（「 ACC-[UUID] 」）、またはこの例では「 ACC-9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f 」）です。
+IMPORTANT: UUIDの値をコピーします。パスワードはです `ACC-` 続けてUUIDの値を指定します (`ACC-[UUID]` または、この例では、 `ACC-9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f`）。
 
 
 
@@ -870,7 +870,7 @@ kubectl create secret tls [tls secret name] --key="tls.key" --cert="tls.crt" -n 
 ----
 +
 
-TIP: シークレットの名前は、「istio-ingress.yaml」ファイルで指定されている「spec.tls.secretName`」と一致している必要があります。
+TIP: シークレットの名前はと一致する必要があります `spec.tls.secretName` で提供されます `istio-ingress.yaml` ファイル。
 
 . に入力リソースを配置します `netapp-acc` （またはカスタムネームスペース）。スキーマにはv1リソースタイプを使用します (`istio-Ingress.yaml` は次の例で使用されています）。
 +
@@ -1011,7 +1011,7 @@ NOTE: 初めてログインしたときにパスワードを忘れ、他の管�
 
 == インストールのトラブルシューティングを行います
 
-いずれかのサービスのステータスが「 Error 」の場合は、ログを確認できます。400 ~ 500 の範囲の API 応答コードを検索します。これらは障害が発生した場所を示します。
+いずれかのサービスがにある場合 `Error` ステータスを確認すると、ログを調べることができます。400 ~ 500 の範囲の API 応答コードを検索します。これらは障害が発生した場所を示します。
 
 .手順
 . Astra Control Center のオペレータログを調べるには、次のように入力します。

@@ -169,7 +169,7 @@ NOTE: この手順 では、Astra Control Centerを実行しているクラス�
 ====
 . サービスアカウントを作成します。
 +
-.. "astracontrol-service-account.yamml"という名前のサービスアカウントファイルを作成します。
+.. という名前のサービスアカウントファイルを作成します `astracontrol-service-account.yaml`。
 +
 名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。
 
@@ -317,7 +317,7 @@ kubectl apply -f astra-admin-account.yaml
 
 . サービスアカウントへのクラスタロールバインド用に、クラスタロールを作成します。
 +
-.. 「 astracontrol-clusterrolbinding.yaml 」という名前の「 ClusterRoleBinding 」ファイルを作成します。
+.. を作成します `ClusterRoleBinding` という名前のファイルです `astracontrol-clusterrolebinding.yaml`。
 +
 必要に応じて、サービスアカウントの作成時に変更した名前と名前空間を調整します。
 
@@ -350,7 +350,7 @@ kubectl apply -f astracontrol-clusterrolebinding.yaml
 ----
 
 
-. 「 <context> 」をインストールの正しいコンテキストに置き換えて、サービスアカウントのシークレットをリストします。
+. サービスアカウントのシークレットを一覧表示します（置き換えます） `<context>` インストールに適したコンテキストを使用して、次の操作を行います。
 +
 [source, console]
 ----
@@ -368,11 +368,11 @@ kubectl get serviceaccount astracontrol-service-account --context <context> --na
 ]
 ----
 +
-'ecsレット ' 配列内の各要素のインデックスは 0 から始まります上記の例では、「 astracontrol-service-account-dockercfg-vhz87 」のインデックスは 0 になり、「 astracontrol-service-account-token-r59kr 」のインデックスは 1 になります。出力で、 "token" という単語が含まれるサービスアカウント名のインデックスをメモしてください。
+内の各要素のインデックス `secrets` アレイは0から始まります。上記の例では、のインデックスです `astracontrol-service-account-dockercfg-vhz87` は0、のインデックスです `astracontrol-service-account-token-r59kr` は1です。出力で、 "token" という単語が含まれるサービスアカウント名のインデックスをメモしてください。
 
 . 次のように kubeconfig を生成します。
 +
-.. 「 create-kubeconfig .sh` ファイル」を作成します。次のスクリプトの先頭にある「 token_index 」を正しい値に置き換えます。
+.. を作成します `create-kubeconfig.sh` ファイル。交換してください `TOKEN_INDEX` 次のスクリプトの先頭に正しい値を入力します。
 +
 [source, subs="specialcharacters,quotes"]
 ----
@@ -484,10 +484,10 @@ TIP: 他のクラスタを Astra Control Center に追加して管理する前�
 ** 左側のナビゲーション領域で、*クラスタ*を選択し、クラスタページから*クラスタの追加*を選択します。
 
 
-. 表示された「クラスタを追加」ウィンドウで、「 kubeconfig .yaml 」ファイルをアップロードするか、「 kubeconfig .yaml 」ファイルの内容を貼り付けます。
+. 表示された*クラスタの追加*ウィンドウで、をアップロードします `kubeconfig.yaml` の内容をファイルまたは貼り付けます `kubeconfig.yaml` ファイル。
 +
 
-NOTE: 「 kubeconfig .yaml 」ファイルには、 1 つのクラスタのクラスタ・クレデンシャルのみを含める必要があります。
+NOTE: 。 `kubeconfig.yaml` ファイルには、1つのクラスタのクラスタクレデンシャルのみを含める必要があります*。
 
 +
 
@@ -507,7 +507,7 @@ NOTE: ONTAP ストレージをベースとする Trident ストレージクラ�
 クラスタが「* discovering *」状態になり、「Healthy *」に変わります。これで、Astra Control Centerを使用してクラスタを管理できるようになりました。
 
 
-IMPORTANT: Astra Control Center で管理するクラスタを追加したあと、監視オペレータの配置に数分かかる場合があります。それまでは、通知アイコンが赤に変わり、 * モニタリングエージェントステータスチェック失敗 * イベントが記録されます。この問題は無視してかまいません。問題は、 Astra Control Center が正しいステータスを取得したときに解決します。数分で問題が解決しない場合は、クラスタに移動し、「 OC get pod -n NetApp-monitoring 」を開始点として実行します。問題をデバッグするには、監視オペレータのログを調べる必要があります。
+IMPORTANT: Astra Control Center で管理するクラスタを追加したあと、監視オペレータの配置に数分かかる場合があります。それまでは、通知アイコンが赤に変わり、 * モニタリングエージェントステータスチェック失敗 * イベントが記録されます。この問題は無視してかまいません。問題は、 Astra Control Center が正しいステータスを取得したときに解決します。数分経っても問題 が解決しない場合は、クラスタに移動してを実行します `oc get pods -n netapp-monitoring` を開始点として指定します。問題をデバッグするには、監視オペレータのログを調べる必要があります。
 
 
 

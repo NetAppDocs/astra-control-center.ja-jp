@@ -22,7 +22,9 @@ NOTE: NetApp ONTAP ストレージを使用するアプリケーションのIn P
 * *デスティネーションボリュームを確認*：別のクラスタにリストアする場合は、同じ永続的ボリュームアクセスモード（ReadWriteManyなど）をクラスタが使用していることを確認してください。デスティネーションの永続ボリュームアクセスモードが異なると、リストア処理は失敗します。
 * *（OpenShiftクラスタのみ）ポリシーの追加*：OpenShiftクラスタでアプリをホストするためのプロジェクトを作成すると、プロジェクト（またはKubernetesネームスペース）にSecurityContext UIDが割り当てられます。Astra Control Center でアプリケーションを保護し、 OpenShift でそのアプリケーションを別のクラスタまたはプロジェクトに移動できるようにするには、アプリケーションを任意の UID として実行できるようにポリシーを追加する必要があります。たとえば、次の OpenShift CLI コマンドは、 WordPress アプリケーションに適切なポリシーを付与します。
 +
-OC new-project ワードプレス ` OC adm policy add -scc to -group anyuid system: serviceaccounts:wordpress `OC adm policy add -scc to -user Privileged -z default-n wordpress
+`oc new-project wordpress`
+`oc adm policy add-scc-to-group anyuid system:serviceaccounts:wordpress`
+`oc adm policy add-scc-to-user privileged -z default -n wordpress`
 
 * * Helmはアプリケーションを展開しました*：Helm 3を使用して展開されたアプリケーションのクローン作成（またはHelm 2からHelm 3にアップグレード）は完全にサポートされています。Helm 2 で展開されたアプリケーションはサポートされていません。
 

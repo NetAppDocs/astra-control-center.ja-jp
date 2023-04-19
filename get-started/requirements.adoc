@@ -120,7 +120,7 @@ ONTAP システムに必要なライセンスがあるかどうかを確認す�
 
 == インターネットにアクセスできます
 
-インターネットに外部からアクセスできるかどうかを確認する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります https://mysupport.netapp.com/site/["ネットアップサポートサイト"^]。
+インターネットに外部からアクセスできるかどうかを確認する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります https://mysupport.netapp.com/site/["NetApp Support Site"^]。
 
 
 
@@ -146,7 +146,7 @@ ONTAP ストレージバックエンドに必要なライセンスの詳細に�
 NOTE: ロードバランサは、Astra Control CenterワーカーノードのIPアドレスと同じサブネットにあるIPアドレスを使用する必要があります。
 
 
-NOTE: Tanzu Kubernetes Grid クラスタで Astra Control Center をホストしている場合は、「 kubectl get nsxlbmonitors -a` コマンドを使用して、入力トラフィックを受け入れるように設定されたサービスモニタがすでにあるかどうかを確認します。MetalLB が存在する場合は、既存のサービスモニタが新しいロードバランサ設定を上書きするため、 MetalLB をインストールしないでください。
+NOTE: Tanzu Kubernetes GridクラスタでAstra Control Centerをホストしている場合は、を使用します `kubectl get nsxlbmonitors -A` 入力トラフィックを受け入れるように設定されたサービスモニタがすでにあるかどうかを確認するコマンド。MetalLB が存在する場合は、既存のサービスモニタが新しいロードバランサ設定を上書きするため、 MetalLB をインストールしないでください。
 
 詳細については、を参照してください link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["ロードバランシング用の入力を設定します"^]。
 
@@ -209,7 +209,7 @@ Google AnthosクラスタでAstra Control Centerをホストする場合、Googl
 
 VMware Tanzu Kubernetes Grid （ TKG ）または Tanzu Kubernetes Grid Integrated Edition （ TKGi ）クラスタで Astra Control Center をホストする場合、次の点に注意してください。
 
-* TKG または TKGi のデフォルト・ストレージ・クラス・エンフォースメントは、 Astra Control によって管理されるすべてのアプリケーション・クラスタで無効にします。これを行うには、名前空間クラスタ上で「 TanzueutesCluster 」リソースを編集します。
+* TKG または TKGi のデフォルト・ストレージ・クラス・エンフォースメントは、 Astra Control によって管理されるすべてのアプリケーション・クラスタで無効にします。これを行うには、を編集します `TanzuKubernetesCluster` ネームスペースクラスタ上のリソース。
 * TKG または TKGi 環境に Astra Control Center を導入する際には、 Astra Trident の特定の要件に注意してください。詳細については、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident のドキュメント"^]。
 
 

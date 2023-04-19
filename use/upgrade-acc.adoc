@@ -238,7 +238,7 @@ NOTE: レジストリ設定に応じて、スクリプトが作成するイメ�
 ----
 cd manifests
 ----
-. Astra Control Center オペレータの配備 YAML (`Astra_control_center_deployment.yaml ') を編集して、ローカルのレジストリと秘密を参照します。
+. Astra Control Centerオペレータ配置YAMLを編集します (`astra_control_center_operator_deploy.yaml`)を参照して、ローカルレジストリとシークレットを参照してください。
 +
 [listing]
 ----
@@ -254,7 +254,7 @@ imagePullSecrets:
 ----
 .. 変更 `[your_registry_path]` をクリックします `kube-rbac-proxy` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
 .. 変更 `[your_registry_path]` をクリックします `acc-operator` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
-.. 「 env 」セクションに次の値を追加します。
+.. に次の値を追加します `env` セクション。
 +
 [listing]
 ----
@@ -399,7 +399,7 @@ spec:
 crds:
   shouldUpgrade: true
 ----
-. Astra Control Center CR の 'Spec' の中にある 'additionalValues' 内に次の行を追加します
+. 内に次の行を追加します `additionalValues` の内部 `Spec` Astra Control Center CRで、次の手順を実行します。
 +
 [listing]
 ----

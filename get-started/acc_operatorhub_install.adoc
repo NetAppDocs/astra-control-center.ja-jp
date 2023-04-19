@@ -246,7 +246,7 @@ image:red_hat_catalog.png["この画像は、RedHatエコシステムカタロ�
 NOTE: オペレータはすべてのクラスタネームスペースで使用できます。
 
 +
-.. operator 名前空間または NetApp-acc-operator' 名前空間を選択すると、オペレータのインストール時に自動的に作成されます。
+.. operator名前空間またはを選択します `netapp-acc-operator` オペレータのインストールの一環として、名前空間が自動的に作成されます。
 .. 手動または自動の承認方法を選択します。
 +
 
@@ -267,7 +267,7 @@ NOTE: 手動承認方式を選択した場合は、このオペレータの手�
 == Astra Control Center をインストールします
 
 . Astra Control Centerオペレータの[*Astra Control Center*]タブ内のコンソールから'[*Create AstraControlCenter *]を選択しますimage:openshift_acc-operator_details.png["この画像は、Astra Control Centerタブが選択されているAstra Control Centerオペレータページを示しています"]
-. Create AstraControlCenter フォーム・フィールドに次のように入力します
+. を実行します `Create AstraControlCenter` フォームフィールド：
 +
 .. Astra Control Center の名前を保持または調整します。
 .. Astra Control Centerのラベルを追加します。
@@ -312,7 +312,7 @@ NOTE: デフォルトのストレージクラスが設定されている場合�
 
 
 . YAMLビューを選択して、選択した設定を確認します。
-. 「 Create 」を選択します。
+. 選択するオプション `Create`。
 
 
 
