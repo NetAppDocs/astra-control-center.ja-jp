@@ -2386,7 +2386,6 @@
   <block id="e1d57bb99f6ac53ae4d1e4ead1d86a3c" category="paragraph">次のいずれかの方法でライセンスを取得します。</block>
   <block id="6004daa4ba0df7760d75bccaccd9cdeb" category="list-text"><block ref="1ac362ab549aa84c347d7d5271314ad6" category="inline-link-macro-rx"></block>。評価用ライセンスでは、ライセンスをダウンロードした日から90日間、Astra Control Centerを使用できます。</block>
   <block id="b5172acff46c1ccd4ef355f7c403ba48" category="inline-link-macro">Astra Control Centerを購入済みの場合は、ネットアップライセンスファイル（NLF）を生成する</block>
-  <block id="5e83d0e22710b5fb10a24a55f0464eab" category="list-text"><block ref="be01b2f45d5e5a31b2acb026a0c1fc3d" category="inline-link-macro-rx"></block> NetApp Support Site から。製品を購入すると、サポートサイトで使用するシリアル番号とライセンスが提供されます。</block>
   <block id="89eae3d9e27253b30e1b76d62008b32d" category="inline-link-macro">Astra Control Centerの初回セットアップ時にライセンスを追加します</block>
   <block id="117e62f8841c871dc009220d6b7e5401" category="list-text"><block ref="117e62f8841c871dc009220d6b7e5401" category="inline-link-macro-rx"></block></block>
   <block id="2f8cadf95c6d0e5ffc19921fb6fd5cca" category="doc">Astra Control Centerをダウンロードして展開します</block>
@@ -2677,4 +2676,5 @@
   <block id="631928ccc601c8e49976a8d73af28304" category="list-text">ステージング環境から本番環境へのアプリケーションのクローニング</block>
   <block id="469a0111714c5c9a6b3b013ec5fb5b82" category="paragraph">Astra Control Centerは、ONTAP 9.5以降のストレージバックエンドを使用するTridentベースのストレージクラスを使用するKubernetesクラスタをサポートします。</block>
   <block id="55315f5951ded0d790960290885139fe" category="list-text">ブラウザでFQDNを入力します <block ref="dc9578bcbcc5cd41a7cdbcff047d86d3" prefix="(" category="inline-code"></block>）で使用しました<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> を参照してください<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> CR When（時間） <block ref="356be5820e2645bace29d82a8018f43d" category="inline-xref-macro-rx"></block>。</block>
+  <block id="71bf3827c9b969b454eaf3d5987aad95" category="list-text"><block ref="097c36d7e339c9c56e3325b9bd9b1890" category="inline-link-macro-rx"></block> NetApp Support Site から。製品を購入すると、サポートサイトで使用するシリアル番号とライセンスが提供されます。</block>
 </blocks>
