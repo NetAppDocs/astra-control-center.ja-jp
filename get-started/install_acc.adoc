@@ -987,7 +987,7 @@ oc create route edge --service=traefik --port=web -n [netapp-acc or custom names
 Astra Control Center をインストールした後、デフォルトの管理者のパスワードを変更し、 Astra Control Center UI ダッシュボードにログインします。
 
 .手順
-. ブラウザでFQDNを入力します (`https://[FQDN]`）で使用しました `astraAddress` を参照してください `astra_control_center.yaml` CR When（時間） <<Astra Control Center を設定します,Astra Control Center をインストールした>>。
+. ブラウザで、（を含む）FQDNを入力します `https://` プレフィックス）を使用します `astraAddress` を参照してください `astra_control_center.yaml` CR When（時間） <<Astra Control Center を設定します,Astra Control Center をインストールした>>。
 . プロンプトが表示されたら、自己署名証明書を承認します。
 +
 
