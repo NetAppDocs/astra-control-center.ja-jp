@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/manage-backend.html 
 keywords: how to use astra control, what is astra storage, how to set up astra storage backend, ontap storage in astra, backend storage in astra 
-summary: オンプレミスの Kubernetes アプリケーション用のストレージを追加Astra Control は、 Trident 、 ONTAP 、関連ストレージクラスなど、導入済みのリソースを検出して使用します。 
+summary: ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。ストレージ容量と健全性の詳細を監視できます。 Astra Control Center が Cloud Insights に接続されている場合のパフォーマンスも監視できます。 
 ---
 = ストレージバックエンドを管理します
 :hardbreaks:
@@ -20,6 +20,8 @@ Astra Control API を使用してストレージバックエンドを管理す�
 
 * link:../get-started/setup_overview.html#add-a-storage-backend["ストレージバックエンドを追加します"]
 * <<ストレージバックエンドの詳細を表示します>>
+* <<ストレージバックエンド認証の詳細を編集します>>
+* <<検出されたストレージバックエンドを管理します>>
 * <<ストレージバックエンドの管理を解除します>>
 * <<ストレージバックエンドを削除します>>
 
@@ -51,7 +53,7 @@ Astra Control API を使用してストレージバックエンドを管理す�
 
 バックエンドの健常性、容量、パフォーマンス（ IOPS スループット、レイテンシ）に関する情報を表示します。
 
-Kubernetesアプリケーションが使用しているボリュームが表示され、選択したストレージバックエンドに格納されます。Cloud Insights を使用すると、追加情報 が表示されます。を参照してください https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"]。
+Kubernetesアプリケーションが使用しているボリュームが表示され、選択したストレージバックエンドに格納されます。Cloud Insights を使用すると、追加情報 が表示されます。を参照してください https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"^]。
 
 .手順
 . 左側のナビゲーション領域で、 * Backends * を選択します。
@@ -64,6 +66,52 @@ TIP: NetApp Cloud Insights に接続した場合、 Cloud Insights からの抜�
 image:../use/acc_backends_ci_connection2.png["バックエンドページのスクリーンショット"]
 
 . Cloud Insights に直接移動するには、指標画像の横にある * Cloud Insights * アイコンを選択します。
+
+
+
+
+== ストレージバックエンド認証の詳細を編集します
+
+Astra Control Centerには、ONTAP バックエンドの認証に2つのモードがあります。
+
+* *クレデンシャルベースの認証*：必要な権限を持つONTAP ユーザのユーザ名とパスワード。ONTAP のバージョンとの互換性を最大限に高めるには、adminなどの事前定義されたセキュリティログインロールを使用する必要があります。
+* *証明書ベースの認証*：Astra Control Centerは、バックエンドにインストールされている証明書を使用してONTAP クラスタと通信することもできます。クライアント証明書、キー、および信頼されたCA証明書を使用する（推奨）。
+
+
+既存のバックエンドを更新して、あるタイプの認証から別の方法に移行できます。一度にサポートされる認証方式は1つだけです。
+
+証明書ベースの認証の有効化の詳細については、を参照してください link:../get-started/setup_overview.html#enable-authentication-on-the-ontap-storage-backend["ONTAP ストレージバックエンドで認証を有効にします"]。
+
+.手順
+. 左のナビゲーションから、 * Backends * を選択します。
+. ストレージバックエンドを選択します。
+. [Credentials]フィールドで、*[Edit]*アイコンを選択します。
+. [Edit]ページで、次のいずれかを選択します。
++
+** *管理者のクレデンシャルを使用*：ONTAP クラスタ管理IPアドレスと管理者のクレデンシャルを入力します。クレデンシャルはクラスタ全体のクレデンシャルである必要があります。
++
+
+NOTE: ここで入力するクレデンシャルのユーザは、を持っている必要があります `ontapi` ONTAP クラスタのONTAP System Managerで有効になっているユーザログインアクセス方法。SnapMirrorレプリケーションを使用する場合は、アクセス方法が指定された「admin」ロールのユーザクレデンシャルを適用します `ontapi` および `http`、ソースとデスティネーションの両方のONTAP クラスタ。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
+
+** *証明書を使用*：証明書をアップロードします `.pem` ファイル、証明書キー `.key` ファイルを指定し、必要に応じて認証局ファイルを指定します。
+
+
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+== 検出されたストレージバックエンドを管理します
+
+管理対象外で検出されたストレージバックエンドを管理するように選択できます。ストレージバックエンドを管理する際に、Astra Controlに認証用の証明書の有効期限が切れているかどうかが表示されます。
+
+.手順
+. 左のナビゲーションから、 * Backends * を選択します。
+. [Discovered]*オプションを選択します。
+. ストレージバックエンドを選択します。
+. [オプション]メニューの*[アクション]*列から、*[管理]*を選択します。
+. 変更を行います。
+. [ 保存（ Save ） ] を選択します。
 
 
 
@@ -86,7 +134,7 @@ image:../use/acc_backends_ci_connection2.png["バックエンドページのス�
 
 使用されなくなったストレージバックエンドを削除できます。これは、設定をシンプルかつ最新の状態に保つために役立ちます。
 
-.必要なもの
+.作業を開始する前に
 * ストレージバックエンドが管理対象外であることを確認します。
 * ストレージバックエンドにクラスタに関連付けられたボリュームがないことを確認します。
 

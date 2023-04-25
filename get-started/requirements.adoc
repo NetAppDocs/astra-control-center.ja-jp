@@ -12,82 +12,93 @@ summary: Kubernetes クラスタ、アプリ、 Web ブラウザのサポート�
 
 
 [role="lead"]
-運用環境、アプリケーションクラスタ、アプリケーション、ライセンス、 Web ブラウザの準備ができているかどうかを検証します。
+運用環境、アプリケーションクラスタ、アプリケーション、ライセンス、 Web ブラウザの準備ができているかどうかを検証します。Astra Control Centerを導入して運用するために、お客様の環境が上記の要件を満たしていることを確認してください。
 
-* <<運用環境の要件>>
-* <<サポートされるストレージバックエンド>>
-* <<インターネットにアクセスできます>>
-* <<使用許諾>>
-* <<オンプレミス Kubernetes クラスタへの入力>>
+* <<サポート対象のホストクラスタKubernetes環境>>
+* <<ホストクラスタリソースの要件>>
+* <<Astra Trident の要件>>
+* <<ストレージバックエンド>>
+* <<イメージレジストリ>>
+* <<Astra Control Centerのライセンス>>
+* <<ONTAP ライセンス>>
 * <<ネットワーク要件>>
+* <<オンプレミス Kubernetes クラスタへの入力>>
 * <<サポートされている Web ブラウザ>>
 * <<アプリケーションクラスタのその他の要件>>
-* <<Google Anthosクラスタの要件>>
-* <<VMware Tanzu Kubernetes Grid クラスタの要件>>
 
 
 
 
-== 運用環境の要件
+== サポート対象のホストクラスタKubernetes環境
 
-Astra Control Centerは、次のタイプの運用環境で検証済みです。
-
-* Kubernetes 1.22を搭載したCisco IKS
-* Google Anthos 1.11または1.12（を参照 <<Google Anthosクラスタの要件>>)
-* Rancher Kubernetes Engine（RKE）：
-+
-** Rancher 2.6.5および2.6.6を備えたRKE 1.3.12
-** Rancher 2.6.8を備えたRKE 1.3.13
-** Rancher 2.6.5および2.6.6を搭載したRKE 2（v1.3.6 + rke2r1）
-** Rancher 2.6.8を搭載したRKE 2（v1.24.x）
+Astra Control Centerは、次のKubernetesホスト環境で検証済みです。
 
 
-* Red Hat OpenShift Container Platform 4.8~4.11
-* アップストリームKubernetes 1.23から1.25（Kubernetes 1.25にAstra Trident 22.10以降が必要）
-* VMware Tanzu Kubernetes Grid：（を参照してください <<VMware Tanzu Kubernetes Grid クラスタの要件>>)
-+
-** VMware Tanzu Kubernetes Grid 1.5
-** VMware Tanzu Kubernetes Grid Integrated Edition 1.13および1.14
-
-
-
-
-Astra Control Center をホストするオペレーティングシステムが、環境の公式ドキュメントに記載されている基本的なリソース要件を満たしていることを確認します。Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。
+NOTE: Astra Control CenterをホストするKubernetes環境が、環境の公式ドキュメントに記載されている基本的なリソース要件を満たしていることを確認します。
 
 |===
-| コンポーネント | 要件 
+| ホストクラスタ上のKubernetesディストリビューション | サポートされるバージョン 
 
 
-| CPU拡張 | ホスティング環境のすべてのノードのCPUでAVX拡張機能を有効にする必要があります。 
+| Azure Stack HCIで実行されるAzure Kubernetes Service | Azure Stack HCI 21H2および22H2（AKS 1.23および1.24を使用 
 
 
-| ストレージバックエンドの容量 | 500GB以上の容量があります 
+| Google Anthos | 1.12～1.14（を参照してください <<Google Anthos Ingressの要件>>) 
 
 
-| ワーカーノード  a| 
-少なくとも 3 つのワーカーノードがあり、それぞれ 4 つの CPU コアと 12GB の RAM が搭載されています
+| Kubernetes（アップストリーム） | 1.24~1.26（Kubernetes 1.25以降にはAstra Trident 22.10以降が必要） 
 
 
+| Rancher Kubernetes Engine （ RKE ） | RKE 1.3とRancher 2.6 RKE 1.4とRancher 2.7 RKE 2（v1.23.x）とRancher 2.6 RKE 2（v1.24.x）とRancher 2.7 
 
-| FQDN アドレス | Astra Control Center の FQDN アドレス 
+
+| Red Hat OpenShift Container Platform | 4.10から4.12まで 
 
 
-| Astra Trident  a| 
-Kubernetes 1.25クラスタ用にSnapMirrorベースのアプリケーションレプリケーションAstra 22.07以降がインストールされているAstra Trident 22.01以降がインストールされ、Astra Trident 22.10以降がインストールされている（Kubernetes 1.25にアップグレードする前にAstra Trident 22.10にアップグレードする必要がある）
+| VMware Tanzu Kubernetesグリッド | 1.6（を参照してください <<ホストクラスタリソースの要件>>) 
 
+
+| VMware Tanzu Kubernetes Grid統合エディション | 1.14および1.15（を参照してください <<ホストクラスタリソースの要件>>) 
 |===
+
+
+== ホストクラスタリソースの要件
+
+Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。
+
 
 NOTE: これらの要件は、運用環境で実行されている唯一のアプリケーションが Astra Control Center であることを前提としています。環境で追加のアプリケーションを実行している場合は、それに応じてこれらの最小要件を調整します。
 
-* * イメージレジストリ * ： Astra Control Center ビルドイメージをプッシュできる、既存のプライベート Docker イメージレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
-* * Astra Trident / ONTAP 構成*：
+* * CPU拡張機能*：ホスティング環境のすべてのノードのCPUでAVX拡張機能が有効になっている必要があります。
+* *ワーカーノード*:少なくとも3つのワーカーノードで、それぞれ4つのCPUコアと12GBのRAMを備えています
+* * VMware Tanzu Kubernetes Gridクラスタの要件*：VMware Tanzu Kubernetes Grid（TKG）またはTanzu Kubernetes Grid Integrated Edition（TKGi）クラスタでAstra Control Centerをホストする場合は、次の考慮事項に注意してください。
 +
-** クラスタにTridentストレージクラスを1つ以上設定する必要があります。デフォルトのストレージクラスが設定されている場合は、そのストレージクラスがデフォルトで指定された唯一のストレージクラスであることを確認します。
-** クラスタ内のワーカーノードで適切なストレージドライバが設定されていることを確認します。これにより、ポッドがバックエンドストレージと通信できるようになります。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。
+** デフォルトの VMware TKG および TKGi 設定ファイルトークンの有効期限は、展開後 10 時間です。Tanzu ポートフォリオ製品を使用する場合は、 Astra Control Center と管理対象アプリケーションクラスタ間の接続の問題を回避するために、期限切れにならないトークンを含む Tanzu Kubernetes Cluster 構成ファイルを生成する必要があります。手順については、を参照してください https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX -T Data Center 製品ドキュメント"^]
+** を使用します `kubectl get nsxlbmonitors -A` 入力トラフィックを受け入れるように設定されたサービスモニタがすでにあるかどうかを確認するコマンド。MetalLB が存在する場合は、既存のサービスモニタが新しいロードバランサ設定を上書きするため、 MetalLB をインストールしないでください。
+** TKG または TKGi のデフォルト・ストレージ・クラス・エンフォースメントは、 Astra Control によって管理されるすべてのアプリケーション・クラスタで無効にします。これを行うには、を編集します `TanzuKubernetesCluster` ネームスペースクラスタ上のリソース。
+** TKG または TKGi 環境に Astra Control Center を導入する際には、 Astra Trident の特定の要件に注意してください。詳細については、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident のドキュメント"^]。
+
+
+
+
+
+
+== Astra Trident の要件
+
+お客様の環境のニーズに固有のAstra Tridentの次の要件を満たしていることを確認します。
+
+* * Astra Control Centerで使用する最小バージョン*：Astra Trident 22.04以降のインストールと設定。
+* * SnapMirrorレプリケーション*：SnapMirrorベースのアプリケーションレプリケーション用にAstra Trident 22.07以降がインストールされています。
+* * Kubernetes 1.25以降のサポート*：Kubernetes 1.25以降のクラスタ用にインストールされたAstra Trident 22.10以降（Kubernetes 1.25以降にアップグレードする前にAstra Trident 22.10にアップグレードする必要があります）
+* * Astra Tridentを使用したONTAP 構成*：
 +
-*** ONTAP - NAS
-*** ONTAP - SAN
-*** ONTAP-SANエコノミー（アプリケーションレプリケーションではサポートされていません）
+** *ストレージクラス*：クラスタに少なくとも1つのAstra Tridentストレージクラスを設定します。デフォルトのストレージクラスが設定されている場合は、そのストレージクラスがデフォルトで指定された唯一のストレージクラスであることを確認します。
+** *ストレージドライバとワーカーノード*:ポッドがバックエンドストレージと対話できるように、クラスタ内のワーカーノードに適切なストレージドライバが設定されていることを確認します。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。
++
+*** `ontap-nas`
+*** `ontap-san`
+*** `ontap-san-economy` （このストレージクラスタイプではアプリケーションレプリケーションは使用できません）
+*** `ontap-nas-economy` （Snapshot、レプリケーションポリシー、保護ポリシーは、このストレージクラスタイプでは使用できません）。
 
 
 
@@ -96,16 +107,23 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 
 
 
-== サポートされるストレージバックエンド
+== ストレージバックエンド
 
-Astra Control Center は、次のストレージバックエンドをサポートします。
+十分な容量を備えたサポート対象のバックエンドがあることを確認してください。
 
-* NetApp ONTAP 9.5以降のAFF 、FAS 、ASA システム
-* NetApp ONTAP 9.8以降のAFF 、FAS 、ASA システム（SnapMirrorベースのアプリケーションレプリケーション用
-* NetApp ONTAP Select 9.5以降
-* NetApp ONTAP Select 9.8以降（SnapMirrorベースのアプリケーションレプリケーション用
-* NetApp Cloud Volumes ONTAP 9.5以降
+* *サポートされるバックエンド*：Astra Control Centerは次のストレージバックエンドをサポートします。
++
+** NetApp ONTAP 9.8以降のAFF 、FAS 、ASA システム
+** NetApp ONTAP Select 9.8以降
+** NetApp Cloud Volumes ONTAP 9.8以降
 
+
+* *必要なストレージバックエンド容量*：500GB以上の空き容量
+
+
+
+
+=== ONTAP ライセンス
 
 Astra Control Centerを使用するには、必要な機能に応じて、次のONTAP ライセンスがあることを確認します。
 
@@ -118,43 +136,32 @@ ONTAP システムに必要なライセンスがあるかどうかを確認す�
 
 
 
-== インターネットにアクセスできます
+== イメージレジストリ
 
-インターネットに外部からアクセスできるかどうかを確認する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります https://mysupport.netapp.com/site/["NetApp Support Site"^]。
+Astra Control Centerのビルドイメージをプッシュできる既存のプライベートDockerイメージレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
 
 
 
-== 使用許諾
+== Astra Control Centerのライセンス
 
-Astra Control Center の全機能を使用するには、 Astra Control Center ライセンスが必要です。評価用ライセンスまたはフルライセンスをネットアップから取得する。アプリケーションとデータを保護するにはライセンスが必要です。を参照してください link:../concepts/intro.html["Astra Control Centerの機能"] を参照してください。
+Astra Control CenterにはAstra Control Centerライセンスが必要です。Astra Control Centerをインストールすると、4、800 CPUユニットの90日間の評価用ライセンスがすでにアクティブ化されています。容量の追加や評価期間の変更が必要な場合や、フルライセンスにアップグレードする場合は、ネットアップから別の評価用ライセンスまたはフルライセンスを取得できます。アプリケーションとデータを保護するにはライセンスが必要です。を参照してください link:../concepts/intro.html["Astra Control Centerの機能"] を参照してください。
 
-Astra Control Centerには、評価用ライセンスをお試しいただけます。このライセンスは、Astra Control Centerをダウンロードした日から90日間使用できます。登録すると、無償トライアルに登録できます link:https://cloud.netapp.com/astra-register["こちらをご覧ください"^]。
+Astra Control Centerは無償トライアルにサインアップして試すことができます。登録することでサインアップできます link:https://bluexp.netapp.com/astra-register["こちらをご覧ください"^]。
 
 ライセンスをセットアップするには、を参照してください link:setup_overview.html["90 日間の評価版ライセンスを使用する"^]。
 
 ライセンスの機能の詳細については、を参照してください link:../concepts/licensing.html["ライセンス"^]。
 
-ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください link:../get-started/requirements.html["サポートされるストレージバックエンド"]。
-
-
-
-== オンプレミス Kubernetes クラスタへの入力
-
-ネットワーク入力アストラコントロールセンターで使用するタイプを選択できます。デフォルトでは、 Astra Control Center は Astra Control Center ゲートウェイ（サービス / traefik ）をクラスタ全体のリソースとして展開します。また、お客様の環境でサービスロードバランサが許可されている場合は、 Astra Control Center でサービスロードバランサの使用もサポートされます。サービスロードバランサを使用する必要があり、設定していない場合は、MetalLBロードバランサを使用して外部IPアドレスを自動的にサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。
-
-
-NOTE: ロードバランサは、Astra Control CenterワーカーノードのIPアドレスと同じサブネットにあるIPアドレスを使用する必要があります。
-
-
-NOTE: Tanzu Kubernetes GridクラスタでAstra Control Centerをホストしている場合は、を使用します `kubectl get nsxlbmonitors -A` 入力トラフィックを受け入れるように設定されたサービスモニタがすでにあるかどうかを確認するコマンド。MetalLB が存在する場合は、既存のサービスモニタが新しいロードバランサ設定を上書きするため、 MetalLB をインストールしないでください。
-
-詳細については、を参照してください link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["ロードバランシング用の入力を設定します"^]。
-
 
 
 == ネットワーク要件
 
-Astra Control Center をホストする運用環境は、次の TCP ポートを使用して通信します。これらのポートがファイアウォールを通過できることを確認し、 Astra ネットワークからの HTTPS 出力トラフィックを許可するようにファイアウォールを設定する必要があります。一部のポートでは、 Astra Control Center をホストする環境と各管理対象クラスタ（該当する場合はメモ）の両方の接続方法が必要です。
+Astra Control Centerが適切に通信できるように運用環境を設定します。次のネットワーク設定が必要です。
+
+* * FQDNアドレス*：Astra Control CenterのFQDNアドレスが必要です。
+* *インターネットへのアクセス*：インターネットに外部からアクセスできるかどうかを判断する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります https://mysupport.netapp.com/site/["NetApp Support Site"^]。
+* *ポートアクセス*：Astra Control Centerをホストする運用環境は、次のTCPポートを使用して通信します。これらのポートがファイアウォールを通過できることを確認し、 Astra ネットワークからの HTTPS 出力トラフィックを許可するようにファイアウォールを設定する必要があります。一部のポートでは、 Astra Control Center をホストする環境と各管理対象クラスタ（該当する場合はメモ）の両方の接続方法が必要です。
+
 
 
 NOTE: Astra Control Center はデュアルスタック Kubernetes クラスタに導入でき、 Astra Control Center はデュアルスタック操作用に構成されたアプリケーションとストレージバックエンドを管理できます。デュアルスタッククラスタの要件の詳細については、を参照してください https://kubernetes.io/docs/concepts/services-networking/dual-stack/["Kubernetes のドキュメント"^]。
@@ -179,6 +186,23 @@ NOTE: Astra Control Center はデュアルスタック Kubernetes クラスタ�
 |===
 
 
+== オンプレミス Kubernetes クラスタへの入力
+
+ネットワーク入力アストラコントロールセンターで使用するタイプを選択できます。デフォルトでは、 Astra Control Center は Astra Control Center ゲートウェイ（サービス / traefik ）をクラスタ全体のリソースとして展開します。また、お客様の環境でサービスロードバランサが許可されている場合は、 Astra Control Center でサービスロードバランサの使用もサポートされます。サービスロードバランサを使用する必要があり、設定していない場合は、MetalLBロードバランサを使用して外部IPアドレスを自動的にサービスに割り当てることができます。内部 DNS サーバ構成では、 Astra Control Center に選択した DNS 名を、負荷分散 IP アドレスに指定する必要があります。
+
+
+NOTE: ロードバランサは、Astra Control CenterワーカーノードのIPアドレスと同じサブネットにあるIPアドレスを使用する必要があります。
+
+詳細については、を参照してください link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["ロードバランシング用の入力を設定します"^]。
+
+
+
+=== Google Anthos Ingressの要件
+
+Google AnthosクラスタでAstra Control Centerをホストする場合、Google AnthosにはMetalLBロードバランサとIstio Ingressサービスがデフォルトで含まれているため、インストール時にAstra Control Centerの一般的な入力機能を簡単に使用できます。を参照してください link:install_acc.html#configure-astra-control-center["Astra Control Center を設定します"^] を参照してください。
+
+
+
 == サポートされている Web ブラウザ
 
 Astra Control Center は、最新バージョンの Firefox 、 Safari 、 Chrome をサポートし、解像度は 1280 x 720 以上です。
@@ -196,25 +220,6 @@ Astra Control Center は、最新バージョンの Firefox 、 Safari 、 Chrom
 
 
 
-
-
-
-== Google Anthosクラスタの要件
-
-Google AnthosクラスタでAstra Control Centerをホストする場合、Google AnthosにはデフォルトでMetalLBロードバランサとIstio入力ゲートウェイサービスが含まれているため、インストール時にAstra Control Centerの一般的な入力機能を使用するだけで済みます。を参照してください link:install_acc.html#configure-astra-control-center["Astra Control Center を設定します"^] を参照してください。
-
-
-
-== VMware Tanzu Kubernetes Grid クラスタの要件
-
-VMware Tanzu Kubernetes Grid （ TKG ）または Tanzu Kubernetes Grid Integrated Edition （ TKGi ）クラスタで Astra Control Center をホストする場合、次の点に注意してください。
-
-* TKG または TKGi のデフォルト・ストレージ・クラス・エンフォースメントは、 Astra Control によって管理されるすべてのアプリケーション・クラスタで無効にします。これを行うには、を編集します `TanzuKubernetesCluster` ネームスペースクラスタ上のリソース。
-* TKG または TKGi 環境に Astra Control Center を導入する際には、 Astra Trident の特定の要件に注意してください。詳細については、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident のドキュメント"^]。
-
-
-
-NOTE: デフォルトの VMware TKG および TKGi 設定ファイルトークンの有効期限は、展開後 10 時間です。Tanzu ポートフォリオ製品を使用する場合は、 Astra Control Center と管理対象アプリケーションクラスタ間の接続の問題を回避するために、期限切れにならないトークンを含む Tanzu Kubernetes Cluster 構成ファイルを生成する必要があります。手順については、を参照してください https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX -T Data Center 製品ドキュメント"^]
 
 
 

@@ -20,11 +20,11 @@ Astra Control Centerは、ONTAP をストレージバックエンドとしてサ
 
 Astra Control Center は、次の機能をサポートします。
 
-* * ONTAP ストレージ * がサポートする Trident ストレージクラス： ONTAP バックエンドを使用している場合、 Astra Control Center では、 ONTAP バックエンドをインポートしてさまざまな監視情報をレポートすることができます。
+* * ONTAP ストレージを基盤とするAstra Tridentストレージクラス*：ONTAP バックエンドを使用している場合、Astra Control CenterでONTAP バックエンドをインポートしてさまざまな監視情報をレポートすることができます。
 
 
 
-NOTE: Trident のストレージクラスは、 Astra Control Center の外部で事前に設定しておく必要があります。
+NOTE: Astra Tridentのストレージクラスは、Astra Control Center以外で事前に設定する必要があります。
 
 
 

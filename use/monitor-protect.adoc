@@ -85,9 +85,12 @@ Cloud Insights には、 Astra Control Center が使用するネットワーク�
 Cloud Insights にアストラコントロールセンターを接続すると、 Acquisition Unit ポッドが作成されます。このポッドは、 Astra Control Center で管理されているストレージバックエンドからデータを収集し、 Cloud Insights にプッシュします。このポッドには、 8GB の RAM と 2 つの CPU コアが必要です。
 
 
-NOTE: Cloud Insights 接続を有効にすると、スループット情報をバックエンド * ページで確認できるほか、ストレージバックエンドを選択したあとにここから Cloud Insights に接続できます。ダッシュボード * の情報はクラスタセクションでも確認できます。また、そこから Cloud Insights に接続できます。
+NOTE: Astra Control CenterをCloud Insights とペアリングしている場合は、Cloud Insights の*[Modify Deployment]*オプションは使用しないでください。 
 
-.必要なもの
+
+NOTE: Cloud Insights 接続を有効にすると、* backends *ページでスループット情報を確認できるようになります。また、ストレージバックエンドを選択したあとにCloud Insights に接続することもできます。[クラスタ]セクションの*[ダッシュボード]*で情報を確認し、そこからCloud Insights に接続することもできます。
+
+.作業を開始する前に
 * admin * / * owner * 権限を持つ Astra Control Center アカウント。
 * 有効な Astra Control Center ライセンス。
 * Astra Control Center を実行しているネットワークで、インターネットに接続するためにプロキシが必要な場合は、プロキシサーバーです。
@@ -272,14 +275,14 @@ NOTE: 複数のクラスタデータが収集された場合、各クラスタ�
 
 == Fluentd に接続します
 
-Astra Control Centerによって監視されているシステムからFluentdエンドポイントにログ（Kubernetesイベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。
+Astra Control Centerで監視されているシステムからFluentdエンドポイントにログ（Kubernetesイベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。
 
 image:fluentbit.png["ここでは、AstraからFluentdまでのイベントログの概念図を示します。"]
 
 
 NOTE: 管理対象クラスタのイベントログのみが Fluentd に転送されます。
 
-.必要なもの
+.作業を開始する前に
 * admin * / * owner * 権限を持つ Astra Control Center アカウント。
 * Kubernetes クラスタに Astra Control Center をインストールして実行
 

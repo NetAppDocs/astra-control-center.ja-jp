@@ -19,13 +19,13 @@ summary: 数ステップで Astra Control を使い始めましょう。
 
 * Kubernetesクラスタ*
 
-* link:../get-started/requirements.html#operational-environment-requirements["環境が運用環境の要件を満たしていることを確認"^]
+* link:../get-started/requirements.html#host-cluster-resource-requirements["ホストクラスタが運用環境の要件を満たしていることを確認します"^]
 * link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["オンプレミスKubernetesクラスタでロードバランシングを行うための入力を設定する"^]
 
 
 *ストレージ統合*
 
-* link:../get-started/requirements.html#operational-environment-requirements["サポートされているAstra Tridentバージョンが環境に含まれていることを確認します"^]
+* link:../get-started/requirements.html#astra-trident-requirements["サポートされているAstra Tridentバージョンが環境に含まれていることを確認します"^]
 * https://docs.netapp.com/us-en/trident/trident-use/worker-node-prep.html["ワーカーノードを準備します"^]
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["Astra Tridentストレージバックエンドを設定"^]
 * https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Astra Tridentストレージクラスを設定する"^]
@@ -41,10 +41,10 @@ summary: 数ステップで Astra Control を使い始めましょう。
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2 つ"] Astra Control Centerをダウンロードしてインストールします
 次のインストールタスクを実行します。
 
-* https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["NetApp Support Site 評価ダウンロードページからAstraコントロールセンターをダウンロードします"^]
+* https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support Site のダウンロードページからAstra Control Centerをダウンロードします"^]
 * ネットアップライセンスファイルを入手します。
 +
-** link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Centerを評価している場合は、評価用ライセンスファイルをダウンロードします"^]
+** Astra Control Centerを評価する場合は、組み込みの評価用ライセンスがすでに付属しています。
 ** link:../concepts/licensing.html["Astra Control Centerをすでに購入している場合は、ライセンスファイルを生成します"^]
 
 

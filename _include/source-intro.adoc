@@ -108,7 +108,7 @@ Azure では、 Astra Control Service によって、 BLOB コンテナ用のリ
 
 ** クラスタに新しい admin ロールと Kubernetes サービスアカウントを作成します。
 ** 新しい admin ロールを使用してインストールします https://docs.netapp.com/us-en/trident/index.html["Astra Trident"^] をクリックして、 1 つ以上のストレージクラスを作成します。
-** ネットアップのクラウドサービスストレージサービスをストレージバックエンドとして使用している場合、Astra Control ServiceはAstra Tridentを使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。Amazon EBSまたはAzureで管理されているディスクをストレージバックエンドとして使用している場合は、プロバイダ固有のCSIドライバをインストールする必要があります。インストール手順については、を参照してください link:set-up-amazon-web-services.html["Amazon Web Servicesをセットアップする"^] および link:set-up-microsoft-azure-with-amd.html["Azure で管理されているディスクを使用して Microsoft Azure をセットアップする"^]。
+** ネットアップのクラウドサービスストレージサービスをストレージバックエンドとして使用している場合、Astra Control ServiceはAstra Tridentを使用して、アプリケーション用の永続的ボリュームをプロビジョニングします。Amazon EBSまたはAzureで管理されているディスクをストレージバックエンドとして使用している場合は、プロバイダ固有のCSIドライバをインストールする必要があります。インストール手順については、を参照してください https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-amazon-web-services.html["Amazon Web Servicesをセットアップする"^] および https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-amd.html["Azure で管理されているディスクを使用して Microsoft Azure をセットアップする"^]。
 
 
 * この時点で、アプリケーションをクラスタに追加できます。永続ボリュームは、新しいデフォルトのストレージクラスでプロビジョニングされます。
@@ -123,19 +123,19 @@ Astra Controlの無料プランを使用すると、最大10個のネームス�
 
 Astra Control Center は、お客様のプライベートクラウドでローカルに実行されます。
 
-Astra Control Centerは、ONTAP 9.5以降のストレージバックエンドを使用するTridentベースのストレージクラスを使用するKubernetesクラスタをサポートします。
+Astra Control Centerは、ONTAP 9.5以上のストレージバックエンドを備えたAstra TridentベースのストレージクラスでKubernetesクラスタをサポートします。
 
 クラウド接続環境では、 Cloud Insights を使用して高度なモニタリングとテレメトリを提供します。Cloud Insights 接続がない場合、 Astra Control Center では、限定的な（ 7 日間の指標）監視と計測データを使用できます。また、オープン指標エンドポイントを介して Kubernetes の標準の監視ツール（ Prometheus や Grafana など）にエクスポートすることもできます。
 
 Astra Control Center は、 AutoSupport と Active IQ のエコシステムに完全に統合されており、ユーザとネットアップサポートにトラブルシューティングと使用に関する情報を提供します。
 
-Astra Control Center を試用するには、 90 日間の評価版ライセンスを使用します。評価版は、Eメールとコミュニティオプションでサポートされています。また、製品内サポートダッシュボードから技術情報アーティクルやドキュメントにアクセスすることもできます。
+90日間の組み込み評価用ライセンスを使用して、Astra Control Centerを試用できます。Astra Control Centerの評価中は、Eメールとコミュニティのオプションでサポートを受けることができます。また、製品内サポートダッシュボードから技術情報アーティクルやドキュメントにアクセスすることもできます。
 
-Astra Control Center をインストールして使用するには、一定の要件を満たす必要があります https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html["要件"]。
+Astra Control Center をインストールして使用するには、一定の要件を満たす必要があります https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html["要件"^]。
 
 Astra Control Center の概要は次のように機能します。
 
-* Astra Control Center は、ローカル環境にインストールします。方法の詳細については、こちらをご覧ください https://docs.netapp.com/us-en/astra-control-center/get-started/install_acc.html["Astra Control Center をインストールします"]。
+* Astra Control Center は、ローカル環境にインストールします。方法の詳細については、こちらをご覧ください https://docs.netapp.com/us-en/astra-control-center/get-started/install_acc.html["Astra Control Center をインストールします"^]。
 * 次のようなセットアップタスクを実行したとします。
 +
 ** ライセンスをセットアップする
@@ -146,7 +146,7 @@ Astra Control Center の概要は次のように機能します。
 
 
 
-方法の詳細については、こちらをご覧ください https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html["Astra Control Center をセットアップします"]。
+方法の詳細については、こちらをご覧ください https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html["Astra Control Center をセットアップします"^]。
 
 クラスタにアプリケーションを追加できます。また、管理対象のクラスタにすでにアプリケーションがある場合は、Astra Control Centerを使用してそれらを管理できます。次に、Astra Control Centerを使用して、スナップショット、バックアップ、クローン、およびレプリケーション関係を作成します。
 

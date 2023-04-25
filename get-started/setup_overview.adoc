@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: get-started/setup_overview.html 
 keywords: set up astra control, astra control license, add cluster, add storage backend, import storage, add bucket 
-summary: Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。 
+summary: Astra Control Centerをインストールし、UIにログインしてパスワードを変更したら、ライセンスのセットアップ、クラスタの追加、認証の有効化、ストレージの管理、バケットの追加を行うことができます。 
 ---
 = Astra Control Center をセットアップします
 :hardbreaks:
@@ -12,12 +12,13 @@ summary: Astra Control Center をインストールして UI にログインし�
 
 
 [role="lead"]
-Astra Control Center をインストールして UI にログインし、パスワードを変更したら、ライセンスの設定、クラスタの追加、ストレージの管理、バケットの追加を行います。
+Astra Control Centerをインストールし、UIにログインしてパスワードを変更したら、ライセンスのセットアップ、クラスタの追加、認証の有効化、ストレージの管理、バケットの追加を行うことができます。
 
 .タスク
 * <<Astra Control Center のライセンスを追加します>>
 * <<Astra Controlを使用して、クラスタ管理のための環境を準備する>>
 * <<クラスタを追加>>
+* <<ONTAP ストレージバックエンドで認証を有効にします>>
 * <<ストレージバックエンドを追加します>>
 * <<バケットを追加します>>
 
@@ -26,7 +27,9 @@ Astra Control Center をインストールして UI にログインし、パス�
 
 == Astra Control Center のライセンスを追加します
 
-新しいライセンスは、Astra Control UIまたはを使用して追加できます https://docs.netapp.com/us-en/astra-automation/index.html["API"^] Astra Control Center の全機能を利用できます。ライセンスがないと、 Astra Control Center の使用は、ユーザの管理と新しいクラスタの追加に限定されます。
+Astra Control Centerをインストールすると、組み込みの評価用ライセンスがすでにインストールされています。Astra Control Centerを評価する場合は、この手順を省略できます。
+
+新しいライセンスは、Astra Control UIまたはを使用して追加できます https://docs.netapp.com/us-en/astra-automation/index.html["API"^]。
 
 Astra Control Centerライセンスは、Kubernetes CPUユニットを使用してCPUリソースを測定し、すべての管理対象Kubernetesクラスタのワーカーノードに割り当てられたCPUリソースを考慮します。ライセンスはvCPUの使用量に基づいています。ライセンスの計算方法の詳細については、を参照してください link:../concepts/licensing.html["ライセンス"^]。
 
@@ -36,7 +39,7 @@ NOTE: インストールがライセンス数を超えると、 Astra Control Ce
 
 NOTE: 既存の評価版またはフルライセンスを更新するには、を参照してください link:../use/update-licenses.html["既存のライセンスを更新する"^]。
 
-.必要なもの
+.作業を開始する前に
 * 新しくインストールしたAstra Control Centerインスタンスへのアクセス。
 * 管理者ロールの権限。
 * A link:../concepts/licensing.html["ネットアップライセンスファイル"^] （NLF）。
@@ -61,17 +64,17 @@ NOTE: 評価用ライセンスをお持ちで、AutoSupport にデータを送�
 
 クラスタを追加する前に、次の前提条件を満たしていることを確認する必要があります。また、資格チェックを実行して、クラスタをAstra Control Centerに追加し、クラスタ管理の役割を作成する準備ができていることを確認する必要もあります。
 
-.必要なもの
+.作業を開始する前に
 * クラスタ内のワーカーノードで適切なストレージドライバが設定されていることを確認します。これにより、ポッドがバックエンドストレージと通信できるようになります。
-* が環境に合っている link:../get-started/requirements.html#operational-environment-requirements["運用環境の要件"^] Astra TridentとAstra Control Centerに最適。
-* Astra Tridentの一バージョン link:../get-started/requirements.html#operational-environment-requirements["Astra Control Centerによってサポートされます"^] がインストールされている：
+* が環境に合っている link:../get-started/requirements.html["運用環境の要件"^] Astra TridentとAstra Control Centerに最適。
+* Astra Tridentの一バージョン link:../get-started/requirements.html#astra-trident-requirements["Astra Control Centerによってサポートされます"^] がインストールされている：
 +
 
-NOTE: 可能です https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method["Astra Tridentを導入"^] Tridentオペレータ（手動またはHelmチャートを使用）またはを使用します `tridentctl`。Astra Tridentのインストールまたはアップグレードを行う前に、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html["サポートされるフロントエンド、バックエンド、およびホスト構成"^]。
+NOTE: 可能です https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method["Astra Tridentを導入"^] Astra Tridentオペレータ（手動またはHelmチャートを使用）またはを使用 `tridentctl`。Astra Tridentのインストールまたはアップグレードを行う前に、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html["サポートされるフロントエンド、バックエンド、およびホスト構成"^]。
 
 +
-** * Tridentストレージバックエンドが設定されています*：少なくとも1つのAstra Tridentストレージバックエンドが必要です https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["を設定します"^] クラスタのポリシーを確認してください。
-** * Tridentストレージクラスを設定*：少なくとも1つのAstra Tridentストレージクラスが必要です https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["を設定します"^] クラスタのポリシーを確認してください。デフォルトのストレージクラスが設定されている場合は、そのストレージクラスがデフォルトのアノテーションを持つ唯一のストレージクラスであることを確認します。
+** * Astra Tridentストレージバックエンドの設定*：Astra Tridentストレージバックエンドが少なくとも1つ必要です https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["を設定します"^] クラスタのポリシーを確認してください。
+** * Astra Tridentストレージクラスを設定*：Astra Tridentストレージクラスを少なくとも1つ設定する必要があります https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["を設定します"^] クラスタのポリシーを確認してください。デフォルトのストレージクラスが設定されている場合は、そのストレージクラスがデフォルトのアノテーションを持つ唯一のストレージクラスであることを確認します。
 ** * Astra Tridentボリュームスナップショットコントローラとボリュームスナップショットクラスがインストールおよび設定されている*：ボリュームスナップショットコントローラがである必要があります https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["インストール済み"^] Astra Controlでスナップショットを作成できるようにします。Astra Tridentが少なくとも1つ `VolumeSnapshotClass` はい https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["セットアップ"^] 管理者による。
 
 
@@ -96,14 +99,14 @@ export-policy rule modify -vserver <storage virtual machine name> -policyname <p
 次の資格チェックを実行して、 Astra Control Center にクラスタを追加する準備ができていることを確認します。
 
 .手順
-. Trident のバージョンを確認
+. Astra Tridentのバージョンを確認
 +
 [source, console]
 ----
 kubectl get tridentversions -n trident
 ----
 +
-Trident が存在する場合は、次のような出力が表示されます。
+Astra Tridentが存在する場合は、次のような出力が表示されます。
 
 +
 [listing]
@@ -112,7 +115,7 @@ NAME      VERSION
 trident   22.10.0
 ----
 +
-Trident が存在しない場合は、次のような出力が表示されます。
+Astra Tridentが存在しない場合は、次のような出力が表示されます。
 
 +
 [listing]
@@ -121,7 +124,7 @@ error: the server doesn't have a resource type "tridentversions"
 ----
 +
 
-NOTE: Trident がインストールされていない場合や、インストールされているバージョンが最新でない場合は、次に進む前に最新バージョンの Trident をインストールする必要があります。を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Trident のドキュメント"^] 手順については、を参照し
+NOTE: Astra Tridentがインストールされていない場合やインストールされているバージョンが最新でない場合は、続行する前に最新バージョンのAstra Tridentをインストールする必要があります。を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident のドキュメント"^] 手順については、を参照し
 
 . ポッドが実行されていることを確認します。
 +
@@ -129,7 +132,7 @@ NOTE: Trident がインストールされていない場合や、インストー
 ----
 kubectl get pods -n trident
 ----
-. サポートされているTridentドライバをストレージクラスが使用しているかどうかを確認します。プロビジョニング担当者の名前はとします `csi.trident.netapp.io`。次の例を参照してください。
+. サポートされているAstra Tridentドライバをストレージクラスで使用しているかどうかを確認プロビジョニング担当者の名前はとします `csi.trident.netapp.io`。次の例を参照してください。
 +
 [source, console]
 ----
@@ -152,7 +155,7 @@ ontap-gold (default)  csi.trident.netapp.io  Delete         Immediate          t
 
 必要に応じて、Astra Control Centerの限定管理者ロールを作成できます。これは、Astra Control Centerのセットアップに必要な手順 ではありません。この手順 を使用すると、管理対象のクラスタのAstra Control権限を制限する別のkubeconfigを作成できます。
 
-.必要なもの
+.作業を開始する前に
 手順 の手順を実行する前に、管理するクラスタに次の情報があることを確認してください。
 
 * kubectl v1.23以降がインストールされている
@@ -473,7 +476,7 @@ mv kubeconfig-sa YOUR_CLUSTER_NAME_kubeconfig
 
 TIP: 他のクラスタを Astra Control Center に追加して管理する前に、 Astra Control Center が最初に導入したクラスタを管理することをお勧めします。指標およびトラブルシューティング用の Kubemetrics データとクラスタ関連データを送信するには、最初のクラスタを管理下に配置する必要があります。
 
-.必要なもの
+.作業を開始する前に
 * クラスタを追加する前に、必要なを確認し、実行しておきます <<Astra Controlを使用して、クラスタ管理のための環境を準備する,前提条件となるタスク>>。
 
 
@@ -498,7 +501,7 @@ IMPORTANT: 自分で作成する場合は `kubeconfig` ファイルには、* 1�
 . このKubernetesクラスタに使用するデフォルトのストレージクラスを選択し、* Next *を選択します。
 +
 
-NOTE: ONTAP ストレージをベースとする Trident ストレージクラスを選択する必要があります。
+NOTE: ONTAP ストレージをベースとするAstra Tridentストレージクラスを選択する必要があります。
 
 . 情報を確認し、すべてが良好な場合は、「*追加」を選択します。
 
@@ -511,31 +514,322 @@ IMPORTANT: Astra Control Center で管理するクラスタを追加したあと
 
 
 
+== ONTAP ストレージバックエンドで認証を有効にします
+
+Astra Control Centerには、ONTAP バックエンドの認証に次の2つのモードがあります。
+
+* *クレデンシャルベースの認証*：必要な権限を持つONTAP ユーザのユーザ名とパスワード。ONTAP のバージョンとの互換性を最大限に高めるには、adminやvsadminなどの事前定義されたセキュリティログインロールを使用する必要があります。
+* *証明書ベースの認証*：Astra Control Centerは、バックエンドにインストールされている証明書を使用してONTAP クラスタと通信することもできます。クライアント証明書、キー、および信頼されたCA証明書を使用する（推奨）。
+
+
+後で既存のバックエンドを更新して、あるタイプの認証から別の方法に移行することができます。一度にサポートされる認証方式は1つだけです。
+
+
+
+=== クレデンシャルベースの認証を有効にします
+
+Astra Control Centerには、クラスタを対象としたクレデンシャルが必要です `admin` ONTAP バックエンドと通信するため。事前定義された標準のロール（など）を使用する必要があります `admin`。これにより、Astra Control Centerの今後のリリースで使用する機能APIが公開される可能性がある、将来のONTAP リリースとの前方互換性が確保されます。
+
+
+NOTE: カスタムのセキュリティログインロールはAstra Control Centerで作成して使用できますが、推奨されません。
+
+バックエンド定義の例を次に示します。
+
+[listing]
+----
+{
+  "version": 1,
+  "backendName": "ExampleBackend",
+  "storageDriverName": "ontap-nas",
+  "managementLIF": "10.0.0.1",
+  "dataLIF": "10.0.0.2",
+  "svm": "svm_nfs",
+  "username": "admin",
+  "password": "secret"
+}
+----
+クレデンシャルがプレーンテキストで保存されるのは、バックエンド定義のみです。クレデンシャルの知識が必要なのは、バックエンドの作成または更新だけです。そのため、Kubernetes管理者またはストレージ管理者が実行するのは管理者専用の操作です。
+
+
+
+=== 証明書ベースの認証を有効にします
+
+Astra Control Centerでは、証明書を使用して新規および既存のONTAP バックエンドと通信できます。バックエンド定義には、次の情報を入力する必要があります。
+
+* `clientCertificate`:クライアント証明書。
+* `clientPrivateKey`:関連付けられた秘密鍵。
+* `trustedCACertificate`:信頼されたCA証明書。信頼された CA を使用する場合は、このパラメータを指定する必要があります。信頼された CA が使用されていない場合は無視してかまいません。
+
+
+次のいずれかのタイプの証明書を使用できます。
+
+* 自己署名証明書
+* サードパーティの証明書
+
+
+
+
+==== 自己署名証明書による認証を有効にします
+
+一般的なワークフローは次の手順で構成されます。
+
+.手順
+. クライアント証明書とキーを生成します。生成時に、認証に使用するONTAP ユーザに共通名（CN）を設定します。
++
+[source, Console]
+----
+openssl req -x509 -nodes -days 1095 -newkey rsa:2048 -keyout k8senv.key -out k8senv.pem -subj "/C=US/ST=NC/L=RTP/O=NetApp/CN=<common-name>"
+----
+. タイプがのクライアント証明書をインストールします `client-ca` とキーをONTAP 入力します。
++
+[source, Console]
+----
+security certificate install -type client-ca -cert-name <certificate-name> -vserver <vserver-name>
+security ssl modify -vserver <vserver-name> -client-enabled true
+----
+. ONTAP のセキュリティログインロールが証明書認証方式をサポートしていることを確認します。
++
+[source, Console]
+----
+security login create -user-or-group-name vsadmin -application ontapi -authentication-method cert -vserver <vserver-name>
+security login create -user-or-group-name vsadmin -application http -authentication-method cert -vserver <vserver-name>
+----
+. 生成した証明書を使用して認証をテストします。ONTAP 管理LIF>と<vserver name> を管理のIPと名前に置き換えてください。LIFのサービスポリシーがに設定されていることを確認する必要があります `default-data-management`。
++
+[source, Curl]
+----
+curl -X POST -Lk https://<ONTAP-Management-LIF>/servlets/netapp.servlets.admin.XMLrequest_filer --key k8senv.key --cert ~/k8senv.pem -d '<?xml version="1.0" encoding="UTF-8"?><netapp xmlns=http://www.netapp.com/filer/admin version="1.21" vfiler="<vserver-name>"><vserver-get></vserver-get></netapp>
+----
+. 前の手順で得た値を使用して、Astra Control CenterのUIでストレージバックエンドを追加します。
+
+
+
+
+==== サードパーティの証明書による認証を有効にします
+
+サードパーティの証明書がある場合は、次の手順で証明書ベースの認証を設定できます。
+
+.手順
+. 秘密鍵とCSRを生成します。
++
+[source, Console]
+----
+openssl req -new -newkey rsa:4096 -nodes -sha256 -subj "/" -outform pem -out ontap_cert_request.csr -keyout ontap_cert_request.key -addext "subjectAltName = DNS:<ONTAP_CLUSTER_FQDN_NAME>,IP:<ONTAP_MGMT_IP>”
+----
+. CSRをWindows CA（サードパーティCA）に渡し、署名済み証明書を問題 します。
+. 署名済み証明書をダウンロードし、「ontap_signed_cert.crt」という名前を付けます。
+. Windows CA（サードパーティCA）からルート証明書をエクスポートします。
+. このファイルに名前を付けます `ca_root.crt`
++
+これで、次の3つのファイルが作成されました。
+
++
+** *秘密鍵*： `ontap_signed_request.key` （これは、ONTAP のサーバ証明書に対応するキーです。サーバ証明書のインストール時に必要です）。
+** *署名済み証明書*： `ontap_signed_cert.crt` （これは、ONTAP の_server certificate_inとも呼ばれます）。
+** *ルートCA証明書*： `ca_root.crt` （これは、ONTAP の_server-ca certificate_inとも呼ばれます）。
+
+
+. これらの証明書をONTAP にインストールします。生成してインストールします `server` および `server-ca` ONTAP の証明書。
++
+詳細はsample.yamlを参照してください
+
++
+[%collapsible]
+====
+[listing]
+----
+# Copy the contents of ca_root.crt and use it here.
+
+security certificate install -type server-ca
+
+Please enter Certificate: Press <Enter> when done
+
+-----BEGIN CERTIFICATE-----
+<certificate details>
+-----END CERTIFICATE-----
+
+
+You should keep a copy of the CA-signed digital certificate for future reference.
+
+The installed certificate's CA and serial number for reference:
+
+CA:
+serial:
+
+The certificate's generated name for reference:
+
+
+===
+
+# Copy the contents of ontap_signed_cert.crt and use it here. For key, use the contents of ontap_cert_request.key file.
+security certificate install -type server
+Please enter Certificate: Press <Enter> when done
+
+-----BEGIN CERTIFICATE-----
+<certificate details>
+-----END CERTIFICATE-----
+
+Please enter Private Key: Press <Enter> when done
+
+-----BEGIN PRIVATE KEY-----
+<private key details>
+-----END PRIVATE KEY-----
+
+Enter certificates of certification authorities (CA) which form the certificate chain of the server certificate. This starts with the issuing CA certificate of the server certificate and can range up to the root CA certificate.
+Do you want to continue entering root and/or intermediate certificates {y|n}: n
+
+The provided certificate does not have a common name in the subject field.
+Enter a valid common name to continue installation of the certificate: <ONTAP_CLUSTER_FQDN_NAME>
+
+You should keep a copy of the private key and the CA-signed digital certificate for future reference.
+The installed certificate's CA and serial number for reference:
+CA:
+serial:
+The certificate's generated name for reference:
+
+
+==
+# Modify the vserver settings to enable SSL for the installed certificate
+
+ssl modify -vserver <vserver_name> -ca <CA>  -server-enabled true -serial <serial number>       (security ssl modify)
+
+==
+# Verify if the certificate works fine:
+
+openssl s_client -CAfile ca_root.crt -showcerts -servername server -connect <ONTAP_CLUSTER_FQDN_NAME>:443
+CONNECTED(00000005)
+depth=1 DC = local, DC = umca, CN = <CA>
+verify return:1
+depth=0
+verify return:1
+write W BLOCK
+---
+Certificate chain
+0 s:
+   i:/DC=local/DC=umca/<CA>
+
+-----BEGIN CERTIFICATE-----
+<Certificate details>
+
+----
+====
+. パスワードを使用しない通信用に同じホストのクライアント証明書を作成します。Astra Control Centerは、このプロセスを使用してONTAP と通信します。
+. クライアント証明書を生成してONTAP にインストールします。
++
+詳細はsample.yamlを参照してください
+
++
+[%collapsible]
+====
+[listing]
+----
+# Use /CN=admin or use some other account which has privileges.
+openssl req -x509 -nodes -days 1095 -newkey rsa:2048 -keyout ontap_test_client.key -out ontap_test_client.pem -subj "/CN=admin"
+
+Copy the content of ontap_test_client.pem file and use it in the below command:
+security certificate install -type client-ca -vserver <vserver_name>
+
+Please enter Certificate: Press <Enter> when done
+
+-----BEGIN CERTIFICATE-----
+<Certificate details>
+-----END CERTIFICATE-----
+
+You should keep a copy of the CA-signed digital certificate for future reference.
+The installed certificate’s CA and serial number for reference:
+
+CA:
+serial:
+The certificate’s generated name for reference:
+
+
+==
+
+ssl modify -vserver <vserver_name> -client-enabled true
+(security ssl modify)
+
+# Setting permissions for certificates
+security login create -user-or-group-name admin -application ontapi -authentication-method cert -role admin -vserver <vserver_name>
+
+security login create -user-or-group-name admin -application http -authentication-method cert -role admin -vserver <vserver_name>
+
+==
+
+#Verify passwordless communication works fine with the use of only certificates:
+
+curl --cacert ontap_signed_cert.crt  --key ontap_test_client.key --cert ontap_test_client.pem https://<ONTAP_CLUSTER_FQDN_NAME>/api/storage/aggregates
+{
+"records": [
+{
+"uuid": "f84e0a9b-e72f-4431-88c4-4bf5378b41bd",
+"name": "<aggr_name>",
+"node": {
+"uuid": "7835876c-3484-11ed-97bb-d039ea50375c",
+"name": "<node_name>",
+"_links": {
+"self": {
+"href": "/api/cluster/nodes/7835876c-3484-11ed-97bb-d039ea50375c"
+}
+}
+},
+"_links": {
+"self": {
+"href": "/api/storage/aggregates/f84e0a9b-e72f-4431-88c4-4bf5378b41bd"
+}
+}
+}
+],
+"num_records": 1,
+"_links": {
+"self": {
+"href": "/api/storage/aggregates"
+}
+}
+}%
+
+
+
+----
+====
+. Astra Control CenterのUIでストレージバックエンドを追加し、次の値を指定します。
++
+** *クライアント証明書*：ontap_test_client.pem
+** *秘密鍵*：ontap_test_client.key
+** *信頼されたCA証明書*：ontap_signed_cert.crt
+
+
+
+
+
+
 == ストレージバックエンドを追加します
 
 既存のONTAP ストレージバックエンドをAstra Control Centerに追加して、そのリソースを管理できます。
 
 ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。
 
+クレデンシャルまたは証明書認証情報を設定したら、Astra Control Centerに既存のONTAP ストレージバックエンドを追加してリソースを管理できます。
+
 .手順
 . 左側のナビゲーション領域のダッシュボードで、* Backends *を選択します。
-. 次のいずれかを実行します。
+. 「 * 追加」を選択します。
+. [Add storage backend]ページの[Use existing]セクションで、* ONTAP *を選択します。
+. 次のいずれかを選択します。
 +
-** *新しいバックエンド*：「*追加」を選択して既存のバックエンドを管理し、「* ONTAP *」を選択して、「*次へ*」を選択します。
-** *検出されたバックエンド*：Actionsメニューから、管理対象クラスタから検出されたバックエンドで* Manage *を選択します。
-
-
-. ONTAP クラスタ管理IPアドレスと管理者クレデンシャルを入力します。クレデンシャルはクラスタ全体のクレデンシャルである必要があります。
+** *管理者のクレデンシャルを使用*：ONTAP クラスタ管理IPアドレスと管理者のクレデンシャルを入力します。クレデンシャルはクラスタ全体のクレデンシャルである必要があります。
 +
 
 NOTE: ここで入力するクレデンシャルのユーザは、を持っている必要があります `ontapi` ONTAP クラスタのONTAP System Managerで有効になっているユーザログインアクセス方法。SnapMirrorレプリケーションを使用する場合は、アクセス方法が指定された「admin」ロールのユーザクレデンシャルを適用します `ontapi` および `http`、ソースとデスティネーションの両方のONTAP クラスタ。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
+
+** *証明書を使用*：証明書をアップロードします `.pem` ファイル、証明書キー `.key` ファイルを指定し、必要に応じて認証局ファイルを指定します。
+
 
 . 「 * 次へ * 」を選択します。
 . バックエンドの詳細を確認し、 * Manage * を選択します。
 
 
 .結果
-バックエンドがに表示されます `Healthy` リストに概要情報を表示します。
+バックエンドがに表示されます `online` リストに概要情報を表示します。
 
 
 NOTE: バックエンドが表示されるようにページを更新する必要がある場合があります。
@@ -548,7 +842,7 @@ NOTE: バックエンドが表示されるようにページを更新する必�
 
 アプリケーション構成と永続的ストレージを同じクラスタにクローニングする場合、Astra Controlにバケットを作成する必要はありません。アプリケーションのSnapshot機能にはバケットは必要ありません。
 
-.必要なもの
+.作業を開始する前に
 * Astra Control Centerで管理しているクラスタから到達できるバケット。
 * バケットのクレデンシャル。
 * 次のタイプのバケット
@@ -614,7 +908,7 @@ Astra Control Centerにログインしてクラスタを追加したので、Ast
 * link:../use/protection-overview.html["アプリを保護します"]
 * link:../use/manage-notifications.html["通知を管理します"]
 * link:../use/monitor-protect.html#connect-to-cloud-insights["Cloud Insights に接続します"]
-* link:../get-started/add-custom-tls-certificate.html["カスタム TLS 証明書を追加します"]
+* link:../get-started/configure-after-install.html#add-a-custom-tls-certificate["カスタム TLS 証明書を追加します"]
 * link:../use/view-clusters.html#change-the-default-storage-class["デフォルトのストレージクラスを変更する"]
 
 

@@ -16,19 +16,32 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 
 
 
+== 2023年4月25日（23.04.0）
+
+.新機能とサポート
+* link:../concepts/licensing.html["Astra Control Centerの新規インストールでは、90日間の評価用ライセンスがデフォルトで有効になります"^]
+* link:../use/execution-hooks.html["強化された実行フック機能と追加のフィルタオプション"^]
+* link:../use/execution-hooks.html["Astra Control Centerでレプリケーションのフェイルオーバー後に実行フックを実行できるようになりました"^]
+* link:../get-started/requirements.html["ストレージクラスタイプとしてのNASエコノミーのサポート"^]
+* link:../use/restore-apps.html#filter-resources-during-an-application-restore["リストア処理中のアプリケーションリソースの追加または除外がサポートされます"^]
+* link:../use/manage-apps.html["データ専用アプリケーションの管理がサポートされます"]
+
+
+
+
 == 2022年11月22日（22.11.0）
 
 .新機能とサポート
-* link:../use/manage-apps.html#define-apps["複数のネームスペースにまたがるアプリケーションのサポート"^]
-* link:../use/manage-apps.html#define-apps["アプリケーション定義にクラスタリソースを含めることができます"^]
-* link:../use/manage-remote-authentication.html["ロールベースアクセス制御（RBAC）を統合してLDAP認証を強化"^]
-* link:../get-started/requirements.html["Kubernetes 1.25およびポッドセキュリティアドミッション（PSA）のサポートを追加"^]
-* link:../use/monitor-running-tasks.html["バックアップ、リストア、クローニングの各処理の進捗状況レポートが強化されました"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["複数のネームスペースにまたがるアプリケーションのサポート"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["アプリケーション定義にクラスタリソースを含めることができます"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-remote-authentication.html["ロールベースアクセス制御（RBAC）を統合してLDAP認証を強化"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/get-started/requirements.html["Kubernetes 1.25およびポッドセキュリティアドミッション（PSA）のサポートを追加"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/monitor-running-tasks.html["バックアップ、リストア、クローニングの各処理の進捗状況レポートが強化されました"^]
 
 
 .既知の問題および制限事項
-* link:../release-notes/known-issues.html["このリリースの既知の問題"^]
-* link:../release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-issues.html["このリリースの既知の問題"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
 
 
 
@@ -54,7 +67,7 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 
 * https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html["VMware Tanzu Kubernetes Grid Integrated Edition（TKGI）のサポート"^]
 * https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html#operational-environment-requirements["Google Anthosに対応しています"^]
-* https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html["LDAP設定（Astra Control API経由）"^]
+* https://docs.netapp.com/us-en/astra-automation-2208/workflows_infra/ldap_prepare.html["LDAP設定（Astra Control API経由）"^]
 
 
 .既知の問題および制限事項

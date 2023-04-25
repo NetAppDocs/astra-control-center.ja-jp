@@ -16,7 +16,7 @@ Red Hat OpenShift を使用する場合は、 Red Hat 認定オペレータを�
 
 この手順を完了したら、インストール手順に戻ってを実行する必要があります link:../get-started/install_acc.html#verify-system-status["残りのステップ"^] インストールが成功したかどうかを確認し、ログオンします。
 
-.必要なもの
+.作業を開始する前に
 * *環境前提条件を満たしている*： link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"^]。
 * *健全なクラスタオペレータとAPIサービス*：
 +
@@ -63,7 +63,7 @@ oc create namespace netapp-acc-operator
 
 == Astra Control Centerをダウンロードして展開します
 
-. にアクセスします https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Center評価ダウンロードページ"^] をクリックしますNetApp Support Site 。
+. にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerのダウンロードページ"^] をクリックしますNetApp Support Site 。
 . Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）。
 . （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）バンドルの署名を確認するには、次の手順を実行します。
 +
@@ -91,9 +91,9 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 == ネットアップAstra kubectlプラグインをインストール
 
-NetApp Astra kubectlコマンドラインプラグインは、Astra Control Centerの導入とアップグレードに関連する一般的なタスクを実行する際に時間を節約します。
+NetApp Astra kubectlコマンドラインプラグインを使用して、ローカルのDockerリポジトリにイメージをプッシュできます。
 
-.必要なもの
+.作業を開始する前に
 ネットアップでは、CPUアーキテクチャやオペレーティングシステム別にプラグインのバイナリを提供しています。このタスクを実行する前に、使用しているCPUとオペレーティングシステムを把握しておく必要があります。
 
 .手順
@@ -171,7 +171,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -190,7 +190,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -201,8 +201,13 @@ done
 ----
 +
 
-NOTE: レジストリ設定に応じて、スクリプトが作成するイメージパスは次のようになります。 `https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/22.11.0-82/image:version`
+NOTE: レジストリ設定に応じて、スクリプトが作成するイメージパスは次のようになります。
 
++
+[listing]
+----
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.0-22/image:version
+----
 
 
 --

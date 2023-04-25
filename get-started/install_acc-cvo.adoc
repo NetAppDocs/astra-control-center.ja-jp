@@ -197,10 +197,10 @@ BlueXPのマニュアルに従って'次の手順を実行します以下を参�
 . OpenShift クラスタをインポートします。作成した作業環境にクラスタが接続されます。
 +
 .. ネットアップクラスタの詳細を表示するには、 * K8s * > * Cluster list * > * Cluster Details * を選択します。
-.. 右上隅に Trident のバージョンが表示されていることを確認します。
+.. 右上にあるAstra Tridentのバージョンを確認します。
 .. Cloud Volumes ONTAP クラスタのストレージクラスは、プロビジョニングツールとしてネットアップを使用していることに注目してください。
 +
-これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスに割り当てられます。ストレージクラスを選択します。Trident は、インポートと検出のプロセスの一環として自動的にインストールされます。
+これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスに割り当てられます。ストレージクラスを選択します。Astra Tridentは、インポートと検出のプロセスで自動的にインストールされます。
 
 
 
@@ -403,7 +403,7 @@ NetApp BlueXP（旧Cloud Manager）を使用して、ワークスペースの作
 
 BlueXPのマニュアルに従って'次の手順を実行しますを参照してください https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html["GCPでCloud Volumes ONTAP の使用を開始する"^]。
 
-.必要なもの
+.作業を開始する前に
 * 必要なIAM権限と役割を持つGCPサービスアカウントにアクセスします
 
 
@@ -428,7 +428,7 @@ BlueXPのマニュアルに従って'次の手順を実行しますを参照し�
 .. 右上隅に Trident のバージョンが表示されていることを確認します。
 .. Cloud Volumes ONTAP クラスタのストレージクラスは、プロビジョニングツールとして「ネットアップ」を使用していることに注目してください。
 +
-これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスに割り当てられます。ストレージクラスを選択します。Trident は、インポートと検出のプロセスの一環として自動的にインストールされます。
+これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスに割り当てられます。ストレージクラスを選択します。Astra Tridentは、インポートと検出のプロセスで自動的にインストールされます。
 
 
 
@@ -483,7 +483,7 @@ Astra Control Center をホストするオペレーティングシステムが�
 
 Astra Control Center では、環境のリソース要件に加え、次のリソースが必要です。
 
-を参照してください link:../get-started/requirements.html#operational-environment-requirements["Astra Control Center の運用環境要件"]。
+を参照してください link:../get-started/requirements.html["Astra Control Center の運用環境要件"]。
 
 [cols="1h,2a"]
 |===
@@ -636,7 +636,7 @@ BlueXP（旧Cloud Manager）を使用して、ワークスペースの作成、A
 
 BlueXPのマニュアルに従って'次の手順を実行しますを参照してください https://docs.netapp.com/us-en/occm/task_getting_started_azure.html["BlueXPの使用を開始しました"^]。
 
-.必要なもの
+.作業を開始する前に
 必要な IAM 権限とロールを持つ Azure アカウントにアクセスします
 
 .手順
@@ -669,12 +669,12 @@ image:acc-cvo-azure-working-environment.png["この図は、BlueXPの作業環�
 +
 image:acc-cvo-azure-connected.png["この図は、BlueXPでインポートされたクラスタを示しています"]
 
-.. 右上隅に Trident のバージョンが表示されていることを確認します。
+.. 右上にあるAstra Tridentのバージョンを確認します。
 .. Cloud Volumes ONTAP クラスタのストレージクラスは、プロビジョニングツールとしてネットアップを使用していることに注目してください。
 
 
 +
-これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスが割り当てられます。ストレージクラスを選択します。Trident は、インポートと検出のプロセスの一環として自動的にインストールされます。
+これにより、 Red Hat OpenShift クラスタがインポートされ、デフォルトのストレージクラスが割り当てられます。ストレージクラスを選択します。Astra Tridentは、インポートと検出のプロセスで自動的にインストールされます。
 
 . このCloud Volumes ONTAP 環境内のすべての永続ボリュームとボリュームをメモします。
 . Cloud Volumes ONTAP は、シングルノードまたはハイアベイラビリティとして動作できます。HA が有効になっている場合は、 Azure で実行されている HA ステータスとノード導入ステータスを確認します。

@@ -23,11 +23,11 @@ summary: 環境によっては、Astra Control Centerのインストール後に
 これらのクォータと制限を取得および削除するには、次の手順を実行します。これらの例では、コマンド出力はコマンド出力の直後に表示されます。
 
 .手順
-. でリソースクォータを取得します `netapp-acc` ネームスペース：
+. でリソースクォータを取得します `netapp-acc` （またはカスタム名）ネームスペース：
 +
 [source, console]
 ----
-kubectl get quota -n netapp-acc
+kubectl get quota -n [netapp-acc or custom namespace]
 ----
 +
 対応：
@@ -44,23 +44,23 @@ pods-medium   16s   requests.cpu: 0/10, requests.memory: 0/20Gi    limits.cpu: 0
 +
 [source, console]
 ----
-kubectl delete resourcequota  pods-high -n netapp-acc
+kubectl delete resourcequota pods-high -n [netapp-acc or custom namespace]
 ----
 +
 [source, console]
 ----
-kubectl delete resourcequota  pods-low -n netapp-acc
+kubectl delete resourcequota pods-low -n [netapp-acc or custom namespace]
 ----
 +
 [source, console]
 ----
-kubectl delete resourcequota  pods-medium -n netapp-acc
+kubectl delete resourcequota pods-medium -n [netapp-acc or custom namespace]
 ----
-. で制限範囲を取得します `netapp-acc` ネームスペース：
+. で制限範囲を取得します `netapp-acc` （またはカスタム名）ネームスペース：
 +
 [source, console]
 ----
-kubectl get limits -n netapp-acc
+kubectl get limits -n [netapp-acc or custom namespace]
 ----
 +
 対応：
@@ -75,7 +75,7 @@ cpu-limit-range   2022-06-27T19:01:23Z
 +
 [source, console]
 ----
-kubectl delete limitrange cpu-limit-range -n netapp-acc
+kubectl delete limitrange cpu-limit-range -n [netapp-acc or custom namespace]
 ----
 
 
@@ -90,13 +90,13 @@ kubectl delete limitrange cpu-limit-range -n netapp-acc
 +
 [source, console]
 ----
-kubectl get networkpolicy -n netapp-acc
+kubectl get networkpolicy -n [netapp-acc or custom namespace]
 ----
-. 前のコマンドで返された各NetworkPolicyオブジェクトについて、次のコマンドを使用して削除します。object_name >を、返されたオブジェクトの名前に置き換えます。
+. 前のコマンドで返された各NetworkPolicyオブジェクトについて、次のコマンドを使用して削除します。[object_name]を、返されたオブジェクトの名前に置き換えます。
 +
 [source, console]
 ----
-kubectl delete networkpolicy <OBJECT_NAME> -n netapp-acc
+kubectl delete networkpolicy [OBJECT_NAME] -n [netapp-acc or custom namespace]
 ----
 . 次のリソースファイルを適用してを設定します `acc-avp-network-policy` AstraプラグインサービスがAstra Control Centerサービスに要求を行うことを許可するオブジェクト。角かっこ内の情報を環境内の情報に置き換えます。
 +
@@ -155,7 +155,7 @@ Astra Control Centerは、入力コントローラトラフィック（一部の
 これらの接続の認証に使用される証明書は、デフォルトのTLS証明書に置き換えられます。
 
 ====
-.必要なもの
+.作業を開始する前に
 * Astra Control Center をインストールした Kubernetes クラスタ
 * 実行するクラスタ上のコマンドシェルへの管理アクセス `kubectl` コマンド
 * CA の秘密鍵ファイルと証明書ファイル

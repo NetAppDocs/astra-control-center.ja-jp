@@ -24,9 +24,9 @@ Astra Control Centerをインストールするには、NetApp Support Site か�
 ====
 Astra Control Centerのインストールプロセスのデモについては、を参照してください https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["このビデオでは"^]。
 
-.必要なもの
+.作業を開始する前に
 * link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"]。
-* 使用環境でポッドセキュリティポリシーを設定または設定したい場合は、ポッドセキュリティポリシーと、それらがAstra Control Centerのインストールに与える影響について理解しておいてください。を参照してください link:../concepts/understand-pod-security.html["ポッドのセキュリティポリシーの制限事項を理解します"]。
+* 使用環境でポッドセキュリティポリシーを設定または設定したい場合は、ポッドセキュリティポリシーと、それらがAstra Control Centerのインストールに与える影響について理解しておいてください。を参照してください link:../concepts/understand-pod-security.html["ポッドのセキュリティポリシーの制限事項を理解します"^]。
 * すべての API サービスが正常な状態であり、使用可能であることを確認します。
 +
 [source, console]
@@ -34,7 +34,7 @@ Astra Control Centerのインストールプロセスのデモについては、
 kubectl get apiservices
 ----
 * 使用するネットアップFQDNがこのクラスタにルーティング可能であることを確認します。つまり、内部 DNS サーバに DNS エントリがあるか、すでに登録されているコア URL ルートを使用しています。
-* クラスタに証明書マネージャがすでに存在する場合は、いくつかの手順を実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"] そのため、Astra Control Centerは独自の証明書マネージャのインストールを試みません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
+* クラスタに証明書マネージャがすでに存在する場合は、いくつかの手順を実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"^] そのため、Astra Control Centerは独自の証明書マネージャのインストールを試みません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
 
 
 .このタスクについて
@@ -69,7 +69,7 @@ Astra Control Center をインストールするには、次の手順に従い�
 
 == Astra Control Centerをダウンロードして展開します
 
-. にアクセスします https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Center評価ダウンロードページ"^] をクリックしますNetApp Support Site 。
+. にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerのダウンロードページ"^] をクリックしますNetApp Support Site 。
 . Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）。
 . （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）バンドルの署名を確認するには、次の手順を実行します。
 +
@@ -97,10 +97,12 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 == ネットアップAstra kubectlプラグインをインストール
 
-NetApp Astra kubectlコマンドラインプラグインは、Astra Control Centerの導入とアップグレードに関連する一般的なタスクを実行する際に時間を節約します。
+NetApp Astra kubectlコマンドラインプラグインを使用して、ローカルのDockerリポジトリにイメージをプッシュできます。
 
-.必要なもの
+.作業を開始する前に
 ネットアップでは、CPUアーキテクチャやオペレーティングシステム別にプラグインのバイナリを提供しています。このタスクを実行する前に、使用しているCPUとオペレーティングシステムを把握しておく必要があります。
+
+以前のインストールからプラグインがインストールされている場合は、 link:../use/upgrade-acc.html#remove-the-netapp-astra-kubectl-plugin-and-install-it-again["最新バージョンがインストールされていることを確認してください"^] これらの手順を実行する前に。
 
 .手順
 . 使用可能なNetApp Astra kubectlプラグインのバイナリを表示し、オペレーティングシステムとCPUアーキテクチャに必要なファイルの名前をメモします。
@@ -177,7 +179,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -196,7 +198,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -207,8 +209,13 @@ done
 ----
 +
 
-NOTE: レジストリ設定に応じて、スクリプトが作成するイメージパスは次のようになります。 `https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/22.11.0-82/image:version`
+NOTE: レジストリ設定に応じて、スクリプトが作成するイメージパスは次のようになります。
 
++
+[listing]
+----
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.0-22/image:version
+----
 
 
 --
@@ -246,7 +253,7 @@ namespace/netapp-acc-operator created
 .. のシークレットを作成します `netapp-acc-operator` ネームスペース：Docker 情報を追加して次のコマンドを実行します。
 +
 
-NOTE: プレースホルダ `your_registry_path` 以前にアップロードした画像の場所と一致する必要があります（例： `[Registry_URL]/netapp/astra/astracc/22.11.0-82`）。
+NOTE: プレースホルダ `your_registry_path` 以前にアップロードした画像の場所と一致する必要があります（例： `[Registry_URL]/netapp/astra/astracc/23.04.0-22`）。
 
 +
 [source, console]
@@ -322,8 +329,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 +
 [source, console]
 ----
-imagePullSecrets:
-- name: astra-registry-cred
+imagePullSecrets: [{name: astra-registry-cred}]
 ----
 .. 変更 `[your_registry_path]` をクリックします `kube-rbac-proxy` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
 .. 変更 `[your_registry_path]` をクリックします `acc-operator-controller-manager` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
@@ -374,7 +380,7 @@ spec:
           value: "2"
         - name: ACCOP_HELM_INSTALLTIMEOUT
           value: 5m
-        *image: [your_registry_path]/acc-operator:[version x.y.z]*
+        *image: [your_registry_path]/acc-operator:23.04.21*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -472,7 +478,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| `astraVersion` | 導入するAstra Control Centerのバージョン。この設定には値があらかじめ入力されているため、対処は不要です。 | 文字列 | `22.11.0-82` 
+| `astraVersion` | 導入するAstra Control Centerのバージョン。この設定には値があらかじめ入力されているため、対処は不要です。 | 文字列 | `23.04.0-22` 
 |===
 ====
 +
@@ -561,7 +567,7 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| `storageClass` | を変更します `storageClass` からの値 `ontap-gold` インストールに必要な別のTridentストレージクラスのリソースに移動します。コマンドを実行します `kubectl get sc` をクリックして、設定済みの既存のストレージクラスを確認します。Tridentベースのストレージクラスの1つをマニフェストファイルに入力する必要があります (`astra-control-center-<version>.manifest`）とをAstra PVSに使用します。設定されていない場合は、デフォルトのストレージクラスが使用されます。メモ：デフォルトのストレージクラスが設定されている場合は、デフォルトのアノテーションが設定されている唯一のストレージクラスであることを確認してください。 | 文字列 | `ontap-gold` 
+| `storageClass` | を変更します `storageClass` からの値 `ontap-gold` インストール環境で必要な別のAstra Trident storageClassリソースに移動します。コマンドを実行します `kubectl get sc` をクリックして、設定済みの既存のストレージクラスを確認します。Astra Tridentベースのストレージクラスのいずれかをマニフェストファイルに入力する必要があります (`astra-control-center-<version>.manifest`）とをAstra PVSに使用します。設定されていない場合は、デフォルトのストレージクラスが使用されます。メモ：デフォルトのストレージクラスが設定されている場合は、デフォルトのアノテーションが設定されている唯一のストレージクラスであることを確認してください。 | 文字列 | `ontap-gold` 
 |===
 ====
 +
@@ -595,6 +601,21 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 |===
 ====
 +
+.<code>scaleSize</code>
+[%collapsible]
+====
+|===
+| 設定 | ガイダンス（Guidance） | を入力します | オプション（ Options ） 
+
+
+| `scaleSize` | デフォルトでは、Astraで高可用性（HA）が使用されます。 `scaleSize` の `Medium`ほとんどのサービスをHAに導入し、冗長性を確保するために複数のレプリカを導入します。を使用 `scaleSize` として `Small`Astraは、消費量を削減するための必須サービスを除き、すべてのサービスのレプリカ数を削減します。ヒント： `Medium` 環境は約100個のポッドで構成されています（一時的なワークロードは含まれません）。100個のポッドは、3つのマスターノードと3つのワーカーノード構成に基づいています）。特にディザスタリカバリのシナリオを検討する場合は、環境で問題 となる可能性があるポッド単位のネットワーク制限に注意してください。 | 文字列  a| 
+** `Small`
+** `Medium` （デフォルト値）
+
+
+|===
+====
++
 .<code>astraResourcesScaler</code>
 [%collapsible]
 ====
@@ -608,6 +629,27 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 
 
 |===
+====
++
+.<code>additionalValues</code>
+[%collapsible]
+====
+** アストラルコントロールセンターおよびCloud Insights 通信では、TLS証明書の検証はデフォルトで無効になっています。の次のセクションを追加して、Cloud Insights とAstra Control Centerのホストクラスタと管理対象クラスタの両方の間の通信に対してTLS証明書の検証を有効にすることができます `additionalValues`。
+
+
+[listing]
+----
+  additionalValues:
+    netapp-monitoring-operator:
+      config:
+        ciSkipTlsVerify: false
+    cloud-insights-service:
+      config:
+        ciSkipTlsVerify: false
+    telemetry-service:
+      config:
+        ciSkipTlsVerify: false
+----
 ====
 +
 .<code>crds</code>
@@ -626,6 +668,9 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 |===
 ====
 
+
+
+IMPORTANT: インストールを完了する前に、構成に適したストレージクラスと入力タイプを選択していることを確認してください。
 
 [source, subs="specialcharacters,quotes"]
 ----
@@ -652,6 +697,7 @@ spec:
   storageClass: "ontap-gold"
   volumeReclaimPolicy: "Retain"
   ingressType: "Generic"
+  scaleSize: "Medium"
   astraResourcesScaler: "Default"
   additionalValues: {}
   crds:
@@ -693,12 +739,30 @@ astracontrolcenter.astra.netapp.io/astra created
 
 
 
+IMPORTANT: Astra Control Centerのオペレータが環境要件の自動チェックを実行ありません link:../get-started/requirements.html["要件"^] 原因 でインストールが失敗するか、Astra Control Centerが正常に動作しない可能性があります。を参照してください <<システムステータスを確認します,次のセクション>> 自動システムチェックに関連する警告メッセージをチェックします。
+
+
 
 == システムステータスを確認します
 
 kubectlコマンドを使用すると、システムステータスを確認できます。OpenShift を使用する場合は、同等の OC コマンドを検証手順に使用できます。
 
 .手順
+. インストールプロセスで検証チェックに関連する警告メッセージが生成されなかったことを確認します。
++
+[source, console]
+----
+kubectl get acc [astra or custom Astra Control Center CR name] -n [netapp-acc or custom namespace] -o yaml
+----
++
+
+NOTE: その他の警告メッセージは、Astra Control Centerのオペレータログでも報告されます。
+
+. 自動化された要件チェックによって報告された環境の問題を修正します。
++
+
+NOTE: 問題を解決するには、環境がを満たしていることを確認します link:../get-started/requirements.html["要件"^] （Astra Control Center向け）。
+
 . すべてのシステムコンポーネントが正常にインストールされたことを確認します。
 +
 [source, console]
@@ -714,80 +778,96 @@ kubectl get pods -n [netapp-acc or custom namespace]
 ====
 [listing, subs="+quotes"]
 ----
-NAME                                       READY   STATUS    RESTARTS        AGE
-acc-helm-repo-76d8d845c9-ggds2             1/1     Running   0               14m
-activity-6cc67ff9f4-z48mr                  1/1     Running   2 (8m32s ago)   9m
-api-token-authentication-7s67v             1/1     Running   0               8m56s
-api-token-authentication-bplb4             1/1     Running   0               8m56s
-api-token-authentication-p2c9z             1/1     Running   0               8m56s
-asup-6cdfbc6795-md8vn                      1/1     Running   0               9m14s
-authentication-9477567db-8hnc9             1/1     Running   0               7m4s
-bucketservice-f4dbdfcd6-wqzkw              1/1     Running   0               8m48s
-cert-manager-bb756c7c4-wm2cv               1/1     Running   0               14m
-cert-manager-cainjector-c9bb86786-8wrf5    1/1     Running   0               14m
-cert-manager-webhook-dd465db99-j2w4x       1/1     Running   0               14m
-certificates-68dff9cdd6-kcvml              1/1     Running   2 (8m43s ago)   9m2s
-certificates-68dff9cdd6-rsnsb              1/1     Running   0               9m2s
-cloud-extension-69d48c956c-2s8dt           1/1     Running   3 (8m43s ago)   9m24s
-cloud-insights-service-7c4f48b978-7gvlh    1/1     Running   3 (8m50s ago)   9m28s
-composite-compute-7d9ff5f68-nxbhl          1/1     Running   0               8m51s
-composite-volume-57b4756d64-nl66d          1/1     Running   0               9m13s
-credentials-6dbc55f89f-qpzff               1/1     Running   0               11m
-entitlement-67bfb6d7-gl6kp                 1/1     Running   4 (8m33s ago)   9m38s
-features-856cc4dccc-mxbdb                  1/1     Running   0               9m20s
-fluent-bit-ds-4rtsp                        1/1     Running   0               6m54s
-fluent-bit-ds-9rqll                        1/1     Running   0               6m54s
-fluent-bit-ds-w5mp7                        1/1     Running   0               6m54s
-graphql-server-7c7cc49776-jz2kn            1/1     Running   0               2m29s
-identity-87c59c975-9jpnf                   1/1     Running   0               9m6s
-influxdb2-0                                1/1     Running   0               13m
-keycloak-operator-84ff6d59d4-qcnmc         1/1     Running   0               7m1s
-krakend-cbf6c7df9-mdtzv                    1/1     Running   0               2m30s
-license-5b888b78bf-plj6j                   1/1     Running   0               9m32s
-login-ui-846b4664dd-fz8hv                  1/1     Running   0               2m24s
-loki-0                                     1/1     Running   0               13m
-metrics-facade-779cc9774-n26rw             1/1     Running   0               9m18s
-monitoring-operator-974db78f-pkspq         2/2     Running   0               6m58s
-nats-0                                     1/1     Running   0               13m
-nats-1                                     1/1     Running   0               13m
-nats-2                                     1/1     Running   0               13m
-nautilus-7bdc7ddc54-49tfn                  1/1     Running   0               7m50s
-nautilus-7bdc7ddc54-cwc79                  1/1     Running   0               9m36s
-openapi-5584ff9f46-gbrdj                   1/1     Running   0               9m17s
-openapi-5584ff9f46-z9mzk                   1/1     Running   0               9m17s
-packages-bfc58cc98-lpxq9                   1/1     Running   0               8m58s
-polaris-consul-consul-server-0             1/1     Running   0               13m
-polaris-consul-consul-server-1             1/1     Running   0               13m
-polaris-consul-consul-server-2             1/1     Running   0               13m
-polaris-keycloak-0                         1/1     Running   3 (6m15s ago)   6m56s
-polaris-keycloak-1                         1/1     Running   0               4m22s
-polaris-keycloak-2                         1/1     Running   0               3m41s
-polaris-keycloak-db-0                      1/1     Running   0               6m56s
-polaris-keycloak-db-1                      1/1     Running   0               4m23s
-polaris-keycloak-db-2                      1/1     Running   0               3m36s
-polaris-mongodb-0                          2/2     Running   0               13m
-polaris-mongodb-1                          2/2     Running   0               13m
-polaris-mongodb-2                          2/2     Running   0               12m
-polaris-ui-5ccff47897-8rzgh                1/1     Running   0               2m33s
-polaris-vault-0                            1/1     Running   0               13m
-polaris-vault-1                            1/1     Running   0               13m
-polaris-vault-2                            1/1     Running   0               13m
-public-metrics-6cb7bfc49b-p54xm            1/1     Running   1 (8m29s ago)   9m31s
-storage-backend-metrics-5c77994586-kjn48   1/1     Running   0               8m52s
-storage-provider-769fdc858c-62w54          1/1     Running   0               8m54s
-task-service-9ffc484c5-kx9f4               1/1     Running   3 (8m44s ago)   9m34s
-telegraf-ds-bphb9                          1/1     Running   0               6m54s
-telegraf-ds-rtsm2                          1/1     Running   0               6m54s
-telegraf-ds-s9h5h                          1/1     Running   0               6m54s
-telegraf-rs-lbpv7                          1/1     Running   0               6m54s
-telemetry-service-57cfb998db-zjx78         1/1     Running   1 (8m40s ago)   9m26s
-tenancy-5d5dfbcf9f-vmbxh                   1/1     Running   0               9m5s
-traefik-7b87c4c474-jmgp2                   1/1     Running   0               2m24s
-traefik-7b87c4c474-t9k8x                   1/1     Running   0               2m24s
-trident-svc-c78f5b6bd-nwdsq                1/1     Running   0               9m22s
-vault-controller-55bbc96668-c6425          1/1     Running   0               11m
-vault-controller-55bbc96668-lq9n9          1/1     Running   0               11m
-vault-controller-55bbc96668-rfkgg          1/1     Running   0               11m
+NAME                                          READY   STATUS      RESTARTS     AGE
+acc-helm-repo-6cc7696d8f-pmhm8                1/1     Running     0            9h
+activity-597fb656dc-5rd4l                     1/1     Running     0            9h
+activity-597fb656dc-mqmcw                     1/1     Running     0            9h
+api-token-authentication-62f84                1/1     Running     0            9h
+api-token-authentication-68nlf                1/1     Running     0            9h
+api-token-authentication-ztgrm                1/1     Running     0            9h
+asup-669d4ddbc4-fnmwp                         1/1     Running     1 (9h ago)   9h
+authentication-78789d7549-lk686               1/1     Running     0            9h
+bucketservice-65c7d95496-24x7l                1/1     Running     3 (9h ago)   9h
+cert-manager-c9f9fbf9f-k8zq2                  1/1     Running     0            9h
+cert-manager-c9f9fbf9f-qjlzm                  1/1     Running     0            9h
+cert-manager-cainjector-dbbbd8447-b5qll       1/1     Running     0            9h
+cert-manager-cainjector-dbbbd8447-p5whs       1/1     Running     0            9h
+cert-manager-webhook-6f97bb7d84-4722b         1/1     Running     0            9h
+cert-manager-webhook-6f97bb7d84-86kv5         1/1     Running     0            9h
+certificates-59d9f6f4bd-2j899                 1/1     Running     0            9h
+certificates-59d9f6f4bd-9d9k6                 1/1     Running     0            9h
+certificates-expiry-check-28011180--1-8lkxz   0/1     Completed   0            9h
+cloud-extension-5c9c9958f8-jdhrp              1/1     Running     0            9h
+cloud-insights-service-5cdd5f7f-pp8r5         1/1     Running     0            9h
+composite-compute-66585789f4-hxn5w            1/1     Running     0            9h
+composite-volume-68649f68fd-tb7p4             1/1     Running     0            9h
+credentials-dfc844c57-jsx92                   1/1     Running     0            9h
+credentials-dfc844c57-xw26s                   1/1     Running     0            9h
+entitlement-7b47769b87-4jb6c                  1/1     Running     0            9h
+features-854d8444cc-c24b7                     1/1     Running     0            9h
+features-854d8444cc-dv6sm                     1/1     Running     0            9h
+fluent-bit-ds-9tlv4                           1/1     Running     0            9h
+fluent-bit-ds-bpkcb                           1/1     Running     0            9h
+fluent-bit-ds-cxmwx                           1/1     Running     0            9h
+fluent-bit-ds-jgnhc                           1/1     Running     0            9h
+fluent-bit-ds-vtr6k                           1/1     Running     0            9h
+fluent-bit-ds-vxqd5                           1/1     Running     0            9h
+graphql-server-7d4b9d44d5-zdbf5               1/1     Running     0            9h
+identity-6655c48769-4pwk8                     1/1     Running     0            9h
+influxdb2-0                                   1/1     Running     0            9h
+keycloak-operator-55479d6fc6-slvmt            1/1     Running     0            9h
+krakend-f487cb465-78679                       1/1     Running     0            9h
+krakend-f487cb465-rjsxx                       1/1     Running     0            9h
+license-64cbc7cd9c-qxsr8                      1/1     Running     0            9h
+login-ui-5db89b5589-ndb96                     1/1     Running     0            9h
+loki-0                                        1/1     Running     0            9h
+metrics-facade-8446f64c94-x8h7b               1/1     Running     0            9h
+monitoring-operator-6b44586965-pvcl4          2/2     Running     0            9h
+nats-0                                        1/1     Running     0            9h
+nats-1                                        1/1     Running     0            9h
+nats-2                                        1/1     Running     0            9h
+nautilus-85754d87d7-756qb                     1/1     Running     0            9h
+nautilus-85754d87d7-q8j7d                     1/1     Running     0            9h
+openapi-5f9cc76544-7fnjm                      1/1     Running     0            9h
+openapi-5f9cc76544-vzr7b                      1/1     Running     0            9h
+packages-5db49f8b5-lrzhd                      1/1     Running     0            9h
+polaris-consul-consul-server-0                1/1     Running     0            9h
+polaris-consul-consul-server-1                1/1     Running     0            9h
+polaris-consul-consul-server-2                1/1     Running     0            9h
+polaris-keycloak-0                            1/1     Running     2 (9h ago)   9h
+polaris-keycloak-1                            1/1     Running     0            9h
+polaris-keycloak-2                            1/1     Running     0            9h
+polaris-keycloak-db-0                         1/1     Running     0            9h
+polaris-keycloak-db-1                         1/1     Running     0            9h
+polaris-keycloak-db-2                         1/1     Running     0            9h
+polaris-mongodb-0                             1/1     Running     0            9h
+polaris-mongodb-1                             1/1     Running     0            9h
+polaris-mongodb-2                             1/1     Running     0            9h
+polaris-ui-66fb99479-qp9gq                    1/1     Running     0            9h
+polaris-vault-0                               1/1     Running     0            9h
+polaris-vault-1                               1/1     Running     0            9h
+polaris-vault-2                               1/1     Running     0            9h
+public-metrics-76fbf9594d-zmxzw               1/1     Running     0            9h
+storage-backend-metrics-7d7fbc9cb9-lmd25      1/1     Running     0            9h
+storage-provider-5bdd456c4b-2fftc             1/1     Running     0            9h
+task-service-87575df85-dnn2q                  1/1     Running     3 (9h ago)   9h
+task-service-task-purge-28011720--1-q6w4r     0/1     Completed   0            28m
+task-service-task-purge-28011735--1-vk6pd     1/1     Running     0            13m
+telegraf-ds-2r2kw                             1/1     Running     0            9h
+telegraf-ds-6s9d5                             1/1     Running     0            9h
+telegraf-ds-96jl7                             1/1     Running     0            9h
+telegraf-ds-hbp84                             1/1     Running     0            9h
+telegraf-ds-plwzv                             1/1     Running     0            9h
+telegraf-ds-sr22c                             1/1     Running     0            9h
+telegraf-rs-4sbg8                             1/1     Running     0            9h
+telemetry-service-fb9559f7b-mk9l7             1/1     Running     3 (9h ago)   9h
+tenancy-559bbc6b48-5msgg                      1/1     Running     0            9h
+traefik-d997b8877-7xpf4                       1/1     Running     0            9h
+traefik-d997b8877-9xv96                       1/1     Running     0            9h
+trident-svc-585c97548c-d25z5                  1/1     Running     0            9h
+vault-controller-88484b454-2d6sr              1/1     Running     0            9h
+vault-controller-88484b454-fc5cz              1/1     Running     0            9h
+vault-controller-88484b454-jktld              1/1     Running     0            9h
 ----
 ====
 . （オプション）インストールが完了したことを確認するには、を参照してください `acc-operator` 次のコマンドを使用してログを作成します。
@@ -798,7 +878,7 @@ kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c ma
 ----
 +
 
-NOTE: `accHost` クラスタの登録は最後の処理の1つです。登録に失敗しても原因 の導入は失敗しません。ログにクラスタ登録エラーが記録されている場合は、を使用して再度登録を試行できます link:../get-started/setup_overview.html#add-cluster["UIでクラスタワークフローを追加します"] または API 。
+NOTE: `accHost` クラスタの登録は最後の処理の1つです。登録に失敗しても原因 の導入は失敗しません。ログにクラスタ登録エラーが記録されている場合は、を使用して再度登録を試行できます link:../get-started/setup_overview.html#add-cluster["UIでクラスタワークフローを追加します"^] または API 。
 
 . すべてのポッドが実行中の場合は、インストールが正常に完了したことを確認します (`READY` はです `True`）を使用して、Astra Control Centerにログインするときに使用する初期セットアップパスワードを取得します。
 +
@@ -813,7 +893,7 @@ kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 [listing]
 ----
 NAME    UUID                                  VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  22.11.0-82  10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  23.04.0-22  10.111.111.111  True
 ----
 +
 
@@ -836,7 +916,7 @@ Astra Control Center を展開したら、 Astra Control Center を URL で公�
 * OpenShift 入力コントローラ
 
 
-.必要なもの
+.作業を開始する前に
 * が必要です https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/["入力コントローラ"] すでに導入されている必要があります。
 * 。 https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class["入力クラス"] 入力コントローラに対応するものがすでに作成されている必要があります。
 
@@ -1004,7 +1084,7 @@ NOTE: 誤ったパスワードを 3 回入力すると、管理者アカウン�
 
 NOTE: 初めてログインしたときにパスワードを忘れ、他の管理ユーザアカウントがまだ作成されていない場合は、にお問い合わせください https://mysupport.netapp.com/site/["ネットアップサポート"] パスワード回復のサポートを受けるには、
 
-. （オプション）既存の自己署名 TLS 証明書を削除して、に置き換えます link:../get-started/add-custom-tls-certificate.html["認証局（ CA ）が署名したカスタム TLS 証明書"]。
+. （オプション）既存の自己署名 TLS 証明書を削除して、に置き換えます link:../get-started/configure-after-install.html#add-a-custom-tls-certificate["認証局（ CA ）が署名したカスタム TLS 証明書"^]。
 
 
 
@@ -1013,12 +1093,18 @@ NOTE: 初めてログインしたときにパスワードを忘れ、他の管�
 
 いずれかのサービスがにある場合 `Error` ステータスを確認すると、ログを調べることができます。400 ~ 500 の範囲の API 応答コードを検索します。これらは障害が発生した場所を示します。
 
-.手順
-. Astra Control Center のオペレータログを調べるには、次のように入力します。
+.オプション（ Options ）
+* Astra Control Center のオペレータログを調べるには、次のように入力します。
 +
 [source, console]
 ----
 kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c manager -f
+----
+* Astra Control Center CRの出力を確認するには、次の手順を実行します。
++
+[listing]
+----
+kubectl get acc -n [netapp-acc or custom namespace] -o yaml
 ----
 
 

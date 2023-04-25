@@ -14,8 +14,8 @@ summary: Astra Control Center をアップグレードするには、バンド�
 [role="lead"]
 Astra Control Centerをアップグレードするには、NetApp Support Site からインストールバンドルをダウンロードし、以下の手順を実行します。この手順を使用して、インターネット接続環境またはエアギャップ環境の Astra コントロールセンターをアップグレードできます。
 
-.必要なもの
-* アップグレードする前に、を参照してください link:../get-started/requirements.html#operational-environment-requirements["運用環境の要件"^] 環境がAstra Control Center導入の最小要件を満たしていることを確認する。環境に次の要素が必要です。
+.作業を開始する前に
+* アップグレードする前に、を参照してください link:../get-started/requirements.html["運用環境の要件"^] 環境がAstra Control Center導入の最小要件を満たしていることを確認する。環境に次の要素が必要です。
 +
 ** サポートされているAstra Tridentバージョンで、実行しているバージョンを確認するには、既存のAstra Control Centerに対して次のコマンドを実行します。
 +
@@ -100,7 +100,7 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 == NetApp Astra kubectlプラグインを削除して、再度インストールします
 
-NetApp Astra kubectlコマンドラインプラグインは、Astra Control Centerの導入とアップグレードに関連する一般的なタスクを実行する際に時間を節約します。
+NetApp Astra kubectlコマンドラインプラグインを使用して、ローカルのDockerリポジトリにイメージをプッシュできます。
 
 . プラグインがインストールされているかどうかを確認します。
 +
@@ -192,7 +192,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -211,7 +211,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -222,8 +222,13 @@ done
 ----
 +
 
-NOTE: レジストリ設定に応じて、スクリプトが作成するイメージパスは次のようになります。 `https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/22.11.0-82/image:version`
+NOTE: レジストリ設定に応じて、スクリプトが作成するイメージパスは次のようになります。
 
++
+[listing]
+----
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.0-22/image:version
+----
 
 
 --
@@ -249,8 +254,7 @@ vim astra_control_center_operator_deploy.yaml
 +
 [listing]
 ----
-imagePullSecrets:
-- name: <astra-registry-cred_or_custom_name_of_secret>
+imagePullSecrets: [{name: astra-registry-cred}]
 ----
 .. 変更 `[your_registry_path]` をクリックします `kube-rbac-proxy` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
 .. 変更 `[your_registry_path]` をクリックします `acc-operator` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
@@ -303,7 +307,7 @@ spec:
           value: "2"
         *- name: ACCOP_HELM_UPGRADETIMEOUT*
           *value: 300m*
-        *image: [your_registry_path]/acc-operator:[version x.y.z]*
+        *image: [your_registry_path]/acc-operator:23.04.21*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -377,7 +381,7 @@ kubectl get pods -n netapp-acc-operator
 ----
 kubectl edit AstraControlCenter -n [netapp-acc or custom namespace]
 ----
-. Astraのバージョン番号を変更します (`astraVersion` の内部 `Spec`）をアップグレードするバージョンにアップグレードします。
+. Astraのバージョン番号を変更します (`astraVersion` の内部 `spec`）をアップグレードするバージョンにアップグレードします。
 +
 [listing, subs="+quotes"]
 ----
@@ -385,21 +389,21 @@ spec:
   accountName: "Example"
   *astraVersion: "[Version number]"*
 ----
-. イメージレジストリパスが、イメージをでプッシュしたレジストリパスと一致することを確認します <<イメージをローカルレジストリに追加します,前の手順>>。更新 `imageRegistry` の内部 `Spec` 前回のインストール以降にレジストリが変更されている場合。
+. イメージレジストリパスが、イメージをでプッシュしたレジストリパスと一致することを確認します <<イメージをローカルレジストリに追加します,前の手順>>。更新 `imageRegistry` の内部 `spec` 前回のインストール以降にレジストリが変更されている場合。
 +
 [listing]
 ----
   imageRegistry:
     name: "[your_registry_path]"
 ----
-. に次の項目を追加します `CRDs` の内部の設定 `Spec`：
+. に次の項目を追加します `crds` の内部の設定 `spec`：
 +
 [listing]
 ----
 crds:
   shouldUpgrade: true
 ----
-. 内に次の行を追加します `additionalValues` の内部 `Spec` Astra Control Center CRで、次の手順を実行します。
+. 内に次の行を追加します `additionalValues` の内部 `spec` Astra Control Center CRで、次の手順を実行します。
 +
 [listing]
 ----
@@ -409,9 +413,7 @@ additionalValues:
         periodSeconds: 30
         failureThreshold: 600
 ----
-+
-ファイルエディタを保存して終了すると、変更が適用され、アップグレードが開始されます。
-
+. ファイルエディタを保存して終了します。変更が適用され、アップグレードが開始されます。
 . （オプション）ポッドが終了し、再び使用可能になったことを確認します。
 +
 [listing]
@@ -431,7 +433,7 @@ kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 [listing]
 ----
 NAME    UUID                                      VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      22.11.0-82  10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      23.04.0-22  10.111.111.111  True
 ----
 +
 

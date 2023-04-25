@@ -40,7 +40,7 @@ LDAPサーバのプライベートTLS証明書を追加して、LDAPS接続を�
 
 LDAP認証を有効にして、Astra ControlとリモートLDAPサーバ間の接続を設定できます。
 
-.必要なもの
+.作業を開始する前に
 LDAPSを使用する場合は、Astra Control CenterがLDAPサーバに対して認証できるように、Astra Control CenterにLDAPサーバのプライベートTLS証明書がインストールされていることを確認してください。を参照してください <<LDAPS認証用の証明書を追加します>> 手順については、を参照し
 
 .手順
