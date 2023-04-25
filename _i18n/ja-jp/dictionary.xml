@@ -2458,7 +2458,6 @@
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">オープンソース</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知ファイルには、ネットアップソフトウェアで使用されるサードパーティの著作権およびライセンスに関する情報が記載されています。</block>
   <block id="cae4ab898e0de6e692eb3d10b6a95dbf" category="inline-link-macro">Astra Control Center へのお知らせ</block>
-  <block id="c39526014b70f5854cf3c59ceb0b89d3" category="list-text"><block ref="c39526014b70f5854cf3c59ceb0b89d3" category="inline-link-macro-rx"></block></block>
   <block id="e81b0f8fae224ca0c3d3258b75a989dd" category="section-title">Astra Control API ライセンス</block>
   <block id="f7c79ca7f13fd9da78390d5a97db7042" category="paragraph"><block ref="f7c79ca7f13fd9da78390d5a97db7042" category="inline-link-rx"></block></block>
   <block id="0a560904c58e3cede88c521d796e1617" category="sidebar">Astra Control Center のドキュメント</block>
@@ -2870,4 +2869,7 @@
   <block id="4b81f371a950b4164e976fd95ff29363" category="admonition">アプリケーションがでサポートされるストレージクラスを使用している場合<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> ドライバ、保護ポリシーは使用できません。保護ポリシーが必要な場合は代替のストレージクラスを使用してください。</block>
   <block id="c1a51552670bd89a555dfc498d58f040" category="admonition">アプリケーションがでサポートされるストレージクラスを使用している場合<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> ドライバ、スナップショットは使用できません。スナップショットには代替のストレージクラスを使用します。</block>
   <block id="d340b669a21181fdcdf79c308ba61ea9" category="admonition">アプリケーションがでサポートされるストレージクラスを使用している場合<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> ドライバ、バックアップは中断を伴い、バックアップ処理が完了するまでアプリケーションを使用できなくなります。</block>
+  <block id="070b3d3a153094a5ee57ed5e75530780" category="inline-link">Astra Control Center 22.11ドキュメント</block>
+  <block id="58f23be5f86622d0993f8478be889f05" category="list-text"><block ref="58f23be5f86622d0993f8478be889f05" category="inline-link-rx"></block></block>
+  <block id="f4431fb507c16341e3a99f8f031779bc" category="list-text"><block ref="f4431fb507c16341e3a99f8f031779bc" category="inline-link-macro-rx"></block></block>
 </blocks>
