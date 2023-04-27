@@ -278,9 +278,14 @@ NOTE: 手動承認方式を選択した場合は、このオペレータの手�
 .. Astra Control Centerのラベルを追加します。
 .. AutoSupportを有効または無効にします。Auto Support 機能の保持を推奨します。
 .. Astra Control CenterのFQDNまたはIPアドレスを入力します。入らないでください `http://` または `https://` をクリックします。
-.. Astra Control Centerのバージョンを入力します（例：22.04.1）。
+.. Astra Control Centerのバージョンを入力します（例：23.04.0-22）。
 .. アカウント名、 E メールアドレス、および管理者の姓を入力します。
 .. ボリューム再利用ポリシーを選択してください `Retain`、 `Recycle`または `Delete`。デフォルト値はです `Retain`。
+.. インストールのscaleSizeを選択します。
++
+
+NOTE: デフォルトでは、Astraで高可用性（HA）が使用されます。 `scaleSize` の `Medium`ほとんどのサービスをHAに導入し、冗長性を確保するために複数のレプリカを導入します。を使用 `scaleSize` として `Small`Astraは、消費量を削減するための必須サービスを除き、すべてのサービスのレプリカ数を削減します。
+
 .. 入力タイプを選択します。
 +
 *** *`Generic`* (`ingressType: "Generic"`）（デフォルト）

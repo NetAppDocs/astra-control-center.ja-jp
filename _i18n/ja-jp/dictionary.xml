@@ -898,7 +898,6 @@
   <block id="20133d30eea258b6c1550d612eb75dfc" category="list-text">Astra Control Centerのラベルを追加します。</block>
   <block id="a90dd656b7a6b8d695097aab7d876d0e" category="list-text">AutoSupportを有効または無効にします。Auto Support 機能の保持を推奨します。</block>
   <block id="4039227203056b7dfe2f76bcb9aedef4" category="list-text">Astra Control CenterのFQDNまたはIPアドレスを入力します。入らないでください<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> または<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> をクリックします。</block>
-  <block id="54fb7a05fbdd98f00caaf5eaa1a5becc" category="list-text">Astra Control Centerのバージョンを入力します（例：22.04.1）。</block>
   <block id="bb78a9da438c9bc3d6927b7e4cc397cd" category="list-text">アカウント名、 E メールアドレス、および管理者の姓を入力します。</block>
   <block id="dcfdd5754023d297c0d864d5eb1bf301" category="list-text">ボリューム再利用ポリシーを選択してください<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block>、<block ref="6b2724e1fdbbcc2065b002943d831972" prefix=" " category="inline-code"></block>または<block ref="f2a6c498fb90ee345d997f888fce3b18" prefix=" " category="inline-code"></block>。デフォルト値はです<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block>。</block>
   <block id="a650850a843a62d902c5720a572d392d" category="list-text">入力タイプを選択します。</block>
@@ -2872,4 +2871,7 @@
   <block id="070b3d3a153094a5ee57ed5e75530780" category="inline-link">Astra Control Center 22.11ドキュメント</block>
   <block id="58f23be5f86622d0993f8478be889f05" category="list-text"><block ref="58f23be5f86622d0993f8478be889f05" category="inline-link-rx"></block></block>
   <block id="f4431fb507c16341e3a99f8f031779bc" category="list-text"><block ref="f4431fb507c16341e3a99f8f031779bc" category="inline-link-macro-rx"></block></block>
+  <block id="8275cc29d67faf18fe540b46358fde84" category="list-text">Astra Control Centerのバージョンを入力します（例：23.04.0-22）。</block>
+  <block id="9c71eb65f92b7f4fbb85f88f644c6613" category="list-text">インストールのscaleSizeを選択します。</block>
+  <block id="f8ac7e69f7496989a600589a0a35ce94" category="admonition">デフォルトでは、Astraで高可用性（HA）が使用されます。<block ref="dc2f257f4eea1d3b6b3a1d35e1719508" prefix=" " category="inline-code"></block> の<block ref="87f8a6ab85c9ced3702b4ea641ad4bb5" prefix=" " category="inline-code"></block>ほとんどのサービスをHAに導入し、冗長性を確保するために複数のレプリカを導入します。を使用<block ref="dc2f257f4eea1d3b6b3a1d35e1719508" prefix=" " category="inline-code"></block> として<block ref="2660064e68655415da2628c2ae2f7592" prefix=" " category="inline-code"></block>Astraは、消費量を削減するための必須サービスを除き、すべてのサービスのレプリカ数を削減します。</block>
 </blocks>
