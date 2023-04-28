@@ -17,7 +17,7 @@ Astra Control Centerを導入すると、4、800 CPUユニットの90日間の�
 次のいずれかの方法でライセンスを取得します。
 
 * Astra Control Centerを評価する際に、組み込みの評価用ライセンスと異なる評価条件が必要な場合は、ネットアップに連絡して別の評価用ライセンスファイルをリクエストしてください。
-* link:https://mysupport.netapp.com/site/["Astra Control Centerを購入済みの場合は、ネットアップライセンスファイル（NLF）を生成する"^] NetApp Support Site から。製品を購入すると、サポートサイトで使用するシリアル番号とライセンスが提供されます。
+* link:https://mysupport.netapp.com/site/["Astra Control Centerを購入済みの場合は、ネットアップライセンスファイル（NLF）を生成する"^] NetApp Support Site にログインし、[Systems]メニューからソフトウェアライセンスに移動します。
 
 
 ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください link:../get-started/requirements.html["サポートされるストレージバックエンド"]。

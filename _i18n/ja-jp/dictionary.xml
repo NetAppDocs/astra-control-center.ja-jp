@@ -207,7 +207,6 @@
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="doc">ライセンス</block>
   <block id="e1d57bb99f6ac53ae4d1e4ead1d86a3c" category="paragraph">次のいずれかの方法でライセンスを取得します。</block>
   <block id="b5172acff46c1ccd4ef355f7c403ba48" category="inline-link-macro">Astra Control Centerを購入済みの場合は、ネットアップライセンスファイル（NLF）を生成する</block>
-  <block id="71bf3827c9b969b454eaf3d5987aad95" category="list-text"><block ref="097c36d7e339c9c56e3325b9bd9b1890" category="inline-link-macro-rx"></block> NetApp Support Site から。製品を購入すると、サポートサイトで使用するシリアル番号とライセンスが提供されます。</block>
   <block id="40c5eb63f5dc254aeb1e6c3a7b34d15d" category="inline-link-macro">サポートされるストレージバックエンド</block>
   <block id="3e55b813dfc77f5a692ec8411b86bba6" category="paragraph">ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください <block ref="dff615b80497dbcbaf9794a9900b6f10" category="inline-link-macro-rx"></block>。</block>
   <block id="b2492fb1fd7556ab678e6f20a0553c6b" category="section-title">ライセンス消費量の計算方法</block>
@@ -2874,4 +2873,5 @@
   <block id="8275cc29d67faf18fe540b46358fde84" category="list-text">Astra Control Centerのバージョンを入力します（例：23.04.0-22）。</block>
   <block id="9c71eb65f92b7f4fbb85f88f644c6613" category="list-text">インストールのscaleSizeを選択します。</block>
   <block id="f8ac7e69f7496989a600589a0a35ce94" category="admonition">デフォルトでは、Astraで高可用性（HA）が使用されます。<block ref="dc2f257f4eea1d3b6b3a1d35e1719508" prefix=" " category="inline-code"></block> の<block ref="87f8a6ab85c9ced3702b4ea641ad4bb5" prefix=" " category="inline-code"></block>ほとんどのサービスをHAに導入し、冗長性を確保するために複数のレプリカを導入します。を使用<block ref="dc2f257f4eea1d3b6b3a1d35e1719508" prefix=" " category="inline-code"></block> として<block ref="2660064e68655415da2628c2ae2f7592" prefix=" " category="inline-code"></block>Astraは、消費量を削減するための必須サービスを除き、すべてのサービスのレプリカ数を削減します。</block>
+  <block id="9b846b7f30a8509224caa21eb61515be" category="list-text"><block ref="097c36d7e339c9c56e3325b9bd9b1890" category="inline-link-macro-rx"></block> NetApp Support Site にログインし、[Systems]メニューからソフトウェアライセンスに移動します。</block>
 </blocks>
