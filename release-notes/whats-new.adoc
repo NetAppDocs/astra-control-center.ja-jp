@@ -22,7 +22,7 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 * link:../concepts/licensing.html["Astra Control Centerの新規インストールでは、90日間の評価用ライセンスがデフォルトで有効になります"^]
 * link:../use/execution-hooks.html["強化された実行フック機能と追加のフィルタオプション"^]
 * link:../use/execution-hooks.html["Astra Control Centerでレプリケーションのフェイルオーバー後に実行フックを実行できるようになりました"^]
-* link:../get-started/requirements.html["ストレージクラスタイプとしてのNASエコノミーのサポート"^]
+* 
 * link:../use/restore-apps.html#filter-resources-during-an-application-restore["リストア処理中のアプリケーションリソースの追加または除外がサポートされます"^]
 * link:../use/manage-apps.html["データ専用アプリケーションの管理がサポートされます"]
 
