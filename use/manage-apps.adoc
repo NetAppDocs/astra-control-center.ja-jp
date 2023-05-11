@@ -75,13 +75,13 @@ kubectl apply -f myapp.yaml
 これらのパターンに続くいくつかのオペレータアプリを次に示します。
 
 +
-** https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
+** https://["Apache K8ssandra"^]
 +
 
 NOTE: K8ssandra では、 In Place リストア処理がサポートされます。新しいネームスペースまたはクラスタにリストアするには、アプリケーションの元のインスタンスを停止する必要があります。これは、ピアグループ情報がインスタンス間通信を行わないようにするためです。アプリケーションのクローニングはサポートされていません。
 
-** https://github.com/jenkinsci/kubernetes-operator["Jenkins CI"^]
-** https://github.com/percona/percona-xtradb-cluster-operator["Percona XtraDB クラスタ"^]
+** https://["Jenkins CI"^]
+** https://["Percona XtraDB クラスタ"^]
 
 
 +
@@ -113,7 +113,7 @@ TIP: たとえば、「Maria」に対して、毎週同じ頻度でバックア�
 * （オプション）すべてのにKubernetesラベルを付けます link:../use/manage-apps.html#app-management-requirements["サポートされるKubernetesリソース"]。
 +
 
-TIP: ラベルは、 Kubernetes オブジェクトに割り当てて識別できるキーと値のペアです。ラベルを使用すると、 Kubernetes オブジェクトのソート、整理、検索が簡単になります。Kubernetes のラベルの詳細については、 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/["Kubernetes の公式ドキュメントを参照してください"^]。
+TIP: ラベルは、 Kubernetes オブジェクトに割り当てて識別できるキーと値のペアです。ラベルを使用すると、 Kubernetes オブジェクトのソート、整理、検索が簡単になります。Kubernetes のラベルの詳細については、 https://["Kubernetes の公式ドキュメントを参照してください"^]。
 
 
 
@@ -183,7 +183,7 @@ NOTE: アプリケーションは、Astra Controlを使用して、単一クラ�
 . （オプション）各ネームスペースにKubernetesリソースのラベルを入力します。ラベルまたはラベルの選択基準（クエリー）を1つ指定できます。
 +
 
-TIP: Kubernetes のラベルの詳細については、 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/["Kubernetes の公式ドキュメントを参照してください"^]。
+TIP: Kubernetes のラベルの詳細については、 https://["Kubernetes の公式ドキュメントを参照してください"^]。
 
 . （オプション）「*名前空間の追加*」を選択し、ドロップダウンリストから名前空間を選択して、アプリケーションの名前空間を追加します。
 . （オプション）追加するネームスペースのラベルまたはラベルの選択基準を1つ入力します。
@@ -267,6 +267,6 @@ DevOpsチームのKubernetes管理者がラベルを追加します `deployment=
 
 == 詳細については、こちらをご覧ください
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+* https://["Astra Control API を使用"^]
 * link:../use/unmanage.html["アプリの管理を解除します"]
 

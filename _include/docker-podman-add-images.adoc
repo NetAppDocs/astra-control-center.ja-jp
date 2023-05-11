@@ -21,7 +21,7 @@
 . Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。を実行する前に、次の置換を行ってください `push-images` コマンドを実行します
 +
 ** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.bundle.yaml`）。
-** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 "https://<docker-registry>"[]。
+** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 "https://[]。
 ** <MY_REGISTRY_USER> をユーザ名に置き換えます。
 ** <MY_REGISTRY_TOKEN> をレジストリの認証済みトークンに置き換えます。
 +

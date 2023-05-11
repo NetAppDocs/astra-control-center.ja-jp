@@ -47,11 +47,11 @@ Astra Controlアプリケーションのレプリケーションを開始する�
 
 * シームレスな災害復旧を実現するために、第3の障害ドメインまたはセカンダリサイトにAstra Control Centerを導入することをお勧めします。
 * アプリケーションのホストKubernetesクラスタとデスティネーションKubernetesクラスタは、理想的には異なる障害ドメインまたはサイトで、ONTAP クラスタと一緒に管理する必要があります。
-* ONTAP クラスタとホストSVMをペアリングする必要があります。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["クラスタと SVM のピアリングの概要"^]。
+* ONTAP クラスタとホストSVMをペアリングする必要があります。を参照してください https://["クラスタと SVM のピアリングの概要"^]。
 * ペアリングしたリモートSVMがデスティネーションクラスタからAstra Tridentに接続されている必要があります。
 * ソースとデスティネーションの両方のONTAP クラスタにAstra Tridentバージョン22.07以降が存在する必要があります。
-* ソースとデスティネーションの両方のONTAP クラスタで、データ保護バンドルを使用したONTAP SnapMirror非同期ライセンスが有効になっている必要があります。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP のSnapMirrorライセンスの概要"^]。
-* ONTAP ストレージバックエンドをAstra Control Centerに追加する場合は、「admin」ロールでユーザクレデンシャルを適用します。このロールにはアクセス方法があります `http` および `ontapi` ONTAP ソースとデスティネーションの両方のクラスタで有効にします。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
+* ソースとデスティネーションの両方のONTAP クラスタで、データ保護バンドルを使用したONTAP SnapMirror非同期ライセンスが有効になっている必要があります。を参照してください https://["ONTAP のSnapMirrorライセンスの概要"^]。
+* ONTAP ストレージバックエンドをAstra Control Centerに追加する場合は、「admin」ロールでユーザクレデンシャルを適用します。このロールにはアクセス方法があります `http` および `ontapi` ONTAP ソースとデスティネーションの両方のクラスタで有効にします。を参照してください https://["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
 * ソースとデスティネーションの両方のKubernetesクラスタとONTAP クラスタをAstra Controlで管理する必要があります。
 +
 

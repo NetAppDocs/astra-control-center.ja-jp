@@ -12,7 +12,7 @@ summary: Astra Control Centerシステムでユーザーと役割を管理しま
 
 
 [role="lead"]
-Astra Control UIを使用して、Astra Control Centerインストールのユーザーを追加、削除、および編集できます。Astra Control UI またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] ユーザを管理するには、を実行
+Astra Control UIを使用して、Astra Control Centerインストールのユーザーを追加、削除、および編集できます。Astra Control UI またはを使用できます https://["Astra Control API"^] ユーザを管理するには、を実行
 
 LDAPを使用して、選択したユーザの認証を実行することもできます。
 
@@ -22,7 +22,7 @@ LDAPを使用して、選択したユーザの認証を実行することもで�
 
 LDAPは、分散ディレクトリ情報にアクセスするための業界標準プロトコルであり、エンタープライズ認証に広く使用されています。Astra Control CenterをLDAPサーバーに接続して、選択したAstra Controlユーザーの認証を実行できます。大まかには、AstraとLDAPを統合し、Astra ControlユーザおよびLDAP定義に対応するグループを定義することです。Astra Control APIまたはWeb UIを使用して、LDAP認証とLDAPユーザおよびグループを設定できます。詳細については、次のドキュメントを参照してください。
 
-* https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html["リモート認証とユーザーの管理には、Astra Control APIを使用します"^]
+* https://["リモート認証とユーザーの管理には、Astra Control APIを使用します"^]
 * link:manage-remote-users-groups.html["リモートユーザとリモートグループの管理には、Astra Control UIを使用します"]
 * link:manage-remote-authentication.html["リモート認証を管理するには、Astra Control UIを使用します"]
 
@@ -119,7 +119,7 @@ Astra Control Center は、アカウントからユーザーを削除します�
 
 == ロールの管理
 
-ロールを管理するには、ネームスペースの制約を追加し、ユーザロールをその制約に制限します。これにより、組織内のリソースへのアクセスを制御できます。Astra Control UI またはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] をクリックしてください。
+ロールを管理するには、ネームスペースの制約を追加し、ユーザロールをその制約に制限します。これにより、組織内のリソースへのアクセスを制御できます。Astra Control UI またはを使用できます https://["Astra Control API"^] をクリックしてください。
 
 
 

@@ -36,5 +36,5 @@ Astra Control Centerにクラスタを追加する場合は、そのクラスタ
 
 == を参照してください。
 
-* https://docs.netapp.com/us-en/trident/index.html["Astra Trident のドキュメント"^]
+* https://["Astra Trident のドキュメント"^]
 

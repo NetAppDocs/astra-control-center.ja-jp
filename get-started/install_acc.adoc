@@ -22,7 +22,7 @@ Astra Control Centerをインストールするには、NetApp Support Site か�
 
 
 ====
-Astra Control Centerのインストールプロセスのデモについては、を参照してください https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["このビデオでは"^]。
+Astra Control Centerのインストールプロセスのデモについては、を参照してください https://["このビデオでは"^]。
 
 .作業を開始する前に
 * link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"]。
@@ -69,7 +69,7 @@ Astra Control Center をインストールするには、次の手順に従い�
 
 == Astra Control Centerをダウンロードして展開します
 
-. にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerのダウンロードページ"^] をクリックしますNetApp Support Site 。
+. にアクセスします https://["Astra Control Centerのダウンロードページ"^] をクリックしますNetApp Support Site 。
 . Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）。
 . （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）バンドルの署名を確認するには、次の手順を実行します。
 +
@@ -142,7 +142,7 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 . Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。を実行する前に、次の置換を行ってください `push-images` コマンドを実行します
 +
 ** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.bundle.yaml`）。
-** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 "https://<docker-registry>"[]。
+** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 "https://[]。
 ** <MY_REGISTRY_USER> をユーザ名に置き換えます。
 ** <MY_REGISTRY_TOKEN> をレジストリの認証済みトークンに置き換えます。
 +
@@ -917,8 +917,8 @@ Astra Control Center を展開したら、 Astra Control Center を URL で公�
 
 
 .作業を開始する前に
-* が必要です https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/["入力コントローラ"] すでに導入されている必要があります。
-* 。 https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class["入力クラス"] 入力コントローラに対応するものがすでに作成されている必要があります。
+* が必要です https://["入力コントローラ"] すでに導入されている必要があります。
+* 。 https://["入力クラス"] 入力コントローラに対応するものがすでに作成されている必要があります。
 
 
 .Istio Ingressの手順
@@ -1011,7 +1011,7 @@ ingress istio astra.example.com 172.16.103.248  80, 443 1h
 
 
 .Nginx Ingress Controller の手順
-. タイプのシークレットを作成します `kubernetes.io/tls` でTLSの秘密鍵と証明書を使用する場合 `netapp-acc` （またはカスタム名前付き）ネームスペース。を参照してください https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS シークレット"]。
+. タイプのシークレットを作成します `kubernetes.io/tls` でTLSの秘密鍵と証明書を使用する場合 `netapp-acc` （またはカスタム名前付き）ネームスペース。を参照してください https://["TLS シークレット"]。
 . 入力リソースをに配置します `netapp-acc` （またはカスタムネームスペース）。スキーマにはv1リソースタイプを使用します (`nginx-Ingress.yaml` は次の例で使用されています）。
 +
 [source, yaml]
@@ -1082,7 +1082,7 @@ NOTE: 誤ったパスワードを 3 回入力すると、管理者アカウン�
 . プロンプトが表示されたら、パスワードを変更します。
 +
 
-NOTE: 初めてログインしたときにパスワードを忘れ、他の管理ユーザアカウントがまだ作成されていない場合は、にお問い合わせください https://mysupport.netapp.com/site/["ネットアップサポート"] パスワード回復のサポートを受けるには、
+NOTE: 初めてログインしたときにパスワードを忘れ、他の管理ユーザアカウントがまだ作成されていない場合は、にお問い合わせください https://["ネットアップサポート"] パスワード回復のサポートを受けるには、
 
 . （オプション）既存の自己署名 TLS 証明書を削除して、に置き換えます link:../get-started/configure-after-install.html#add-a-custom-tls-certificate["認証局（ CA ）が署名したカスタム TLS 証明書"^]。
 

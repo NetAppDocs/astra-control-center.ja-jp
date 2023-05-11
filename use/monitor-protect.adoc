@@ -200,12 +200,12 @@ Cloud Insights 接続は、 Astra Control Center で管理されている Kubern
 
 Prometheusを使用して、Astra Control Centerのデータを監視できます。Kubernetesクラスタの指標エンドポイントから指標を収集するようにPrometheusを設定したり、Prometheusを使用して指標データを表示したりすることもできます。
 
-Prometheusの使用の詳細については、でそれぞれのドキュメントを参照してください https://prometheus.io/docs/prometheus/latest/getting_started/["Prometheusでの作業の開始"]。
+Prometheusの使用の詳細については、でそれぞれのドキュメントを参照してください https://["Prometheusでの作業の開始"]。
 
 .必要なもの
 PrometheusパッケージがAstra Control Centerクラスタ、またはAstra Control Centerクラスタと通信可能な別のクラスタにダウンロードしてインストールされていることを確認します。
 
-の公式ドキュメントに記載されている手順に従ってください https://prometheus.io/docs/prometheus/latest/installation/["Prometheus をインストールする"]。
+の公式ドキュメントに記載されている手順に従ってください https://["Prometheus をインストールする"]。
 
 Prometheusは、Astra Control Center Kubernetesクラスタと通信できる必要があります。PrometheusがAstra Control Centerクラスタにインストールされていない場合は、Astra Control Centerクラスタで実行されている指標サービスと通信できることを確認する必要があります。
 

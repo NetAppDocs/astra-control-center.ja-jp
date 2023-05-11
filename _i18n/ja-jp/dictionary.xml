@@ -15,7 +15,6 @@
   <block id="e9f9b053971e4cd8cce3a402331a125b" category="paragraph">メインメニューから * Support * タブを選択すると、 Astra Control Center UI からサポートオプションにアクセスできます。</block>
   <block id="9d795eb350d2c42a03b181a4bc513987" category="paragraph">次のオプションは、 24 時間 365 日無料で利用できます。</block>
   <block id="68f269105158a82f8e06dd324631610e" category="inline-link">* ナレッジベース * （ログインが必要）</block>
-  <block id="3ce7820e1a8dcaf1b20e89638e9eb65c" category="list-text"><block ref="c21c91b055ef6d38b9e7473e1602e44f" category="inline-link-rx"></block>： Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。</block>
   <block id="54fb836d65dfa963fa159aa13bf9fe60" category="list-text">* ドキュメントセンター * ：現在表示しているドキュメントサイトです。</block>
   <block id="35cdc0acd4828a4d409d79a5f18ee353" category="inline-link">* Discord *で助けを得なさい</block>
   <block id="5782a764d5148bc0a62fa0db213a073b" category="list-text"><block ref="f560054dea7b7d17ab98f97d9a55b6ac" category="inline-link-rx"></block>：thePubカテゴリのAstraに移動して、他のユーザやエキスパートと交流しましょう。</block>
@@ -62,7 +61,6 @@
   <block id="231cf4c70d866b616c21baddaeed0696" category="doc">トラブルシューティング</block>
   <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="paragraph">発生する可能性のある一般的な問題を回避する方法について説明します。</block>
   <block id="5fed03116ab579cfabba1dfd68c70bab" category="inline-link">NetApp Knowledge Base for Astra</block>
-  <block id="62b48e6002e259d6c98b0960c375f121" category="paragraph"><block ref="62b48e6002e259d6c98b0960c375f121" category="inline-link-rx"></block></block>
   <block id="51d249216b03414f10b242b851af7951" category="doc">Astra Control コンポーネント</block>
   <block id="5ddd50ee81b614308861ff77d7830f09" category="inline-image-macro">Astra Controlアーキテクチャとそのコンポーネントを説明する概念図</block>
   <block id="9a5af8d21a89c12b2cbe1b8eef81601d" category="paragraph"><block ref="9a5af8d21a89c12b2cbe1b8eef81601d" category="inline-image-macro-rx" type="image"></block></block>
@@ -1195,13 +1193,11 @@
   <block id="70fc1bae36d48b09899dc323f7fbc3b4" category="paragraph">Bitnami PostgreSQL 11.5.0 チャートを使用すると、同じクラスタ内のアプリケーションクローンは一貫して失敗します。正常にクローニングするには、以前のバージョンのグラフを使用してください。</block>
   <block id="9a9f5df9245945e0d6fd7c59478636f9" category="section-title">サービスアカウントレベルの OCP セキュリティコンテキスト制約（ SCC ）を使用すると、アプリケーションのクローンが失敗する</block>
   <block id="d3436d442a8980f0fa5c7451b72dc851" category="inline-link">技術情報アーティクル</block>
-  <block id="e6accc2a7c1df4a7d754d698ff720755" category="paragraph">OpenShift Container Platform クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されていると、アプリケーションクローンが失敗する場合があります。アプリケーションクローンが失敗すると、Astra Control Centerの管理対象アプリケーション領域にステータスとともに表示されます<block ref="93f07b720ebf7d1246512569761a5804" prefix=" " category="inline-code"></block>。を参照してください<block ref="9fa49b796d4996efbeb6cfe9ed39c95e" category="inline-link-rx"></block> を参照してください。</block>
   <block id="3460be97ad18de8f927ac029b73aea1e" category="section-title">クラスタの管理後にボリュームnapshotclassを追加すると、アプリケーションのバックアップとSnapshotが失敗します</block>
   <block id="4640bdf0aa8bd9424ced0104155962b8" category="paragraph">でバックアップとSnapshotの作成が失敗する<block ref="ac08e080769a07edb99e40a7cec2c15e" prefix=" " category="inline-code"></block> このシナリオでは、回避策 として、アプリリストを更新します。</block>
   <block id="1af0576f77189b1c71e1d3a9eade995a" category="section-title">ストレージクラスを設定してアプリケーションを導入すると、アプリケーションのクローンが失敗する</block>
   <block id="99dd9758763fdd9d63c8172bb77a83e6" category="paragraph">ストレージクラスを明示的に設定してアプリケーションを導入したあと（例：<block ref="f0318d56e2bef7e2cc1e885347ef6b43" prefix=" " category="inline-code"></block>その後、アプリケーションのクローニングを実行するには、ターゲットクラスタに元のストレージクラスが指定されている必要があります。ストレージクラスを明示的に設定したアプリケーションを、同じストレージクラスを含まないクラスタにクローニングすると、失敗します。このシナリオではリカバリ手順はありません。</block>
   <block id="36b09903bc03f599758bd10a012681dc" category="section-title">デフォルトの kubeconfig ファイルに複数のコンテキストが含まれている場合、 Astra Control Center を使用したクラスタの管理が失敗します</block>
-  <block id="520978df3f125bf15af9a3b4c1e17a9e" category="paragraph">複数のクラスタおよびコンテキストで kubeconfig を使用することはできません。を参照してください <block ref="f42e06683377be6f7c68a4e8b05a16c0" category="inline-link-macro-rx"></block> を参照してください。</block>
   <block id="82471e9f643dacab1a6103e19aa281a3" category="section-title">プロキシ経由で接続している場合、管理対象クラスタはNetApp Cloud Insights に表示されません</block>
   <block id="96f49a6fadb537fbf8c6f3a4a4564854" category="paragraph">アストラコントロールセンターがプロキシ経由でネットアップCloud Insights に接続している場合、管理対象クラスタがCloud Insights に表示されないことがあります。回避策 として、管理対象の各クラスタで次のコマンドを実行します。</block>
   <block id="f64cab133147d09d35d2708459ada555" category="section-title">Astra Trident がオフラインの場合、 Internal Service Error （ 500 ）によりアプリケーションデータ管理処理が失敗する</block>
@@ -2083,7 +2079,6 @@
   <block id="9814d372a97a81b36a132ad2cacfdff7" category="paragraph">バケットの状態は次のいずれかになります。</block>
   <block id="42a0d288cadd6192424c03a28590c9fd" category="list-text">Pending ：バケットの検出がスケジュールされています。</block>
   <block id="fac51c0a7c720a76e584ea5b21dc752a" category="list-text">Available ：バケットは使用可能です。</block>
-  <block id="7f5b082de7160fe4d88fcb73b137ef12" category="list-text">Removed ：バケットには現在アクセスできません。</block>
   <block id="2670ea2abab7233a3fe9b29dabc0e86c" category="paragraph">Astra Control API を使用してバケットを管理する方法については、を参照してください <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>。</block>
   <block id="39ee41fd712c4d72dd841699443ac03f" category="paragraph">バケットの管理に関連して次のタスクを実行できます。</block>
   <block id="aaeab87cf32cd2289539c7af6e475ce1" category="list-text"><block ref="aaeab87cf32cd2289539c7af6e475ce1" category="inline-link-macro-rx"></block></block>
@@ -2117,7 +2112,6 @@
   <block id="cea7924acf8d3c8a75f4abdda00f5229" category="paragraph">バケットのクレデンシャルを削除するのは、新しいクレデンシャルがバケットに適用されている場合やバケットがアクティブに使用されなくなった場合だけにしてください。</block>
   <block id="a31d0ea55a51bfbd5a603a8f5fa7a37a" category="admonition">Astra Control に追加する最初のクレデンシャルセットは、 Astra Control がバックアップバケットの認証にクレデンシャルを使用するため、常に使用されています。バケットがアクティブな状態で使用されている場合は、これらのクレデンシャルを削除しないでください。削除すると、バックアップが失敗してバックアップが使用できなくなります。</block>
   <block id="b2b8741126a8674edc86e6286a85c804" category="inline-link">バケットのクレデンシャル削除のトラブルシューティング</block>
-  <block id="983be0b26fa308ee99003c55cac37fb5" category="admonition">アクティブなバケットクレデンシャルを削除する場合は、を参照してください<block ref="939cc867881057c221247142d6425e0a" category="inline-link-rx"></block>。</block>
   <block id="576924ceb67cb5e87c15acdcb112c47d" category="paragraph">Astra Control APIを使用してS3クレデンシャルを削除する方法については、を参照してください <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>。</block>
   <block id="52eddccfd67295f46df3a2a0dcec5e44" category="section-title">バケットを削除する</block>
   <block id="f53ffd7307293ef8f5f91ade211805ee" category="paragraph">使用されなくなったバケットや正常でないバケットを削除することができます。これは、オブジェクトストアの設定をシンプルかつ最新の状態に保つために役立ちます。</block>
@@ -2874,4 +2868,10 @@
   <block id="9b846b7f30a8509224caa21eb61515be" category="list-text"><block ref="097c36d7e339c9c56e3325b9bd9b1890" category="inline-link-macro-rx"></block> NetApp Support Site にログインし、[Systems]メニューからソフトウェアライセンスに移動します。</block>
   <block id="385a524cc6007fc04ac1f61b90b72fa0" category="inline-link-macro">&lt;block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category='inline-code'/&gt; ストレージクラスから「ONTAP-NAS」ストレージクラスへのボリュームの移行がサポートされます</block>
   <block id="30070e59814ec1fda4c30c1c31eefb74" category="list-text"><block ref="8b33402cf5fbcddbe249556483cf0cc5" category="inline-link-macro-rx"></block></block>
+  <block id="8dd1f225c8914473641273beab27cfb5" category="list-text"><block ref="48b751d095184607defa7b45448cfbd4" category="inline-link-rx"></block>： Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。</block>
+  <block id="a1e431f4eeaf20669c6a323a70204f3b" category="paragraph"><block ref="a1e431f4eeaf20669c6a323a70204f3b" category="inline-link-rx"></block></block>
+  <block id="192aebb6811705e0e43946e8f3c7ee31" category="paragraph">OpenShift Container Platform クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されていると、アプリケーションクローンが失敗する場合があります。アプリケーションクローンが失敗すると、Astra Control Centerの管理対象アプリケーション領域にステータスとともに表示されます<block ref="93f07b720ebf7d1246512569761a5804" prefix=" " category="inline-code"></block>。を参照してください<block ref="664cdc6e32eb2b8d6157f7f7774ed5d3" category="inline-link-rx"></block> を参照してください。</block>
+  <block id="150c473dfbcbc21128b1b0163082e277" category="paragraph">複数のクラスタおよびコンテキストで kubeconfig を使用することはできません。を参照してください <block ref="a221b9db35a895d6b52e9dd52f69851e" category="inline-link-macro-rx"></block> を参照してください。</block>
+  <block id="17aaff3db5ad600ae90d1c45f82a9ce8" category="list-text">Removed：バケットには現在アクセスできません。</block>
+  <block id="a5e4709506a688389ca2ed37bb81ac98" category="admonition">アクティブなバケットクレデンシャルを削除する場合は、を参照してください<block ref="8270c6fae649ca696475ea8dc76c4710" category="inline-link-rx"></block>。</block>
 </blocks>

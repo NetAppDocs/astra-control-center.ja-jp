@@ -135,7 +135,7 @@ Cloud Volumes ONTAP をストレージバックエンドとして使用して As
 
 Red Hat OpenShiftクラスタとNetApp BlueXP（旧Cloud Manager）コネクタをインストールできる十分なIAMロールと権限があることを確認します。
 
-を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html#initial-aws-credentials["AWS の初期クレデンシャル"^]。
+を参照してください https://["AWS の初期クレデンシャル"^]。
 
 
 
@@ -143,7 +143,7 @@ Red Hat OpenShiftクラスタとNetApp BlueXP（旧Cloud Manager）コネクタ�
 
 AWS に Red Hat OpenShift Container Platform クラスタをインストールします。
 
-インストール手順については、を参照してください https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["AWS で OpenShift Container Platform にクラスタをインストールします"^]。
+インストール手順については、を参照してください https://["AWS で OpenShift Container Platform にクラスタをインストールします"^]。
 
 
 
@@ -151,7 +151,7 @@ AWS に Red Hat OpenShift Container Platform クラスタをインストール�
 
 次に、仮想ネットワークの作成、EC2コンピューティングインスタンスのセットアップ、AWS S3バケットの作成、Astra Control CenterイメージをホストするElastic Container Register（ECR）の作成、このレジストリへのイメージのプッシュを行うようにAWSを設定します。
 
-AWS のドキュメントに従って次の手順を実行します。を参照してください https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["AWS インストールドキュメント"^]。
+AWS のドキュメントに従って次の手順を実行します。を参照してください https://["AWS インストールドキュメント"^]。
 
 . AWS仮想ネットワークを作成します。
 . EC2 コンピューティングインスタンスを確認します。AWS ではベアメタルサーバまたは VM を使用できます。
@@ -180,8 +180,8 @@ NetApp BlueXP（旧Cloud Manager）を使用して、ワークスペースの作
 
 BlueXPのマニュアルに従って'次の手順を実行します以下を参照してください。
 
-* https://docs.netapp.com/us-en/occm/task_getting_started_aws.html["AWS で Cloud Volumes ONTAP を使用するための準備"^]。
-* https://docs.netapp.com/us-en/occm/task_creating_connectors_aws.html#create-a-connector["BlueXPを使用してAWSでコネクタを作成します"^]
+* https://["AWS で Cloud Volumes ONTAP を使用するための準備"^]。
+* https://["BlueXPを使用してAWSでコネクタを作成します"^]
 
 
 .手順
@@ -323,8 +323,8 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 
 インストール手順については、次を参照してください。
 
-* https://access.redhat.com/documentation/en-us/openshift_container_platform/4.10/html-single/installing/index#installing-on-gcp["GCPにOpenShiftクラスタをインストールする"^]
-* https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["GCPサービスアカウントの作成"^]
+* https://["GCPにOpenShiftクラスタをインストールする"^]
+* https://["GCPサービスアカウントの作成"^]
 
 
 
@@ -344,7 +344,7 @@ NOTE: OpenShift では、独自のリソースグループを作成できます�
 
 Red Hat OpenShiftクラスタとNetApp BlueXP（旧Cloud Manager）コネクタをインストールできる十分なIAMロールと権限があることを確認します。
 
-を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#setting-up-permissions["GCPの初期資格情報と権限"^]。
+を参照してください https://["GCPの初期資格情報と権限"^]。
 
 
 
@@ -401,18 +401,18 @@ done < astra-control-center-22.04.41.manifest
 
 NetApp BlueXP（旧Cloud Manager）を使用して、ワークスペースの作成、GCPへのコネクタの追加、作業環境の作成、クラスタのインポートを行います。
 
-BlueXPのマニュアルに従って'次の手順を実行しますを参照してください https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html["GCPでCloud Volumes ONTAP の使用を開始する"^]。
+BlueXPのマニュアルに従って'次の手順を実行しますを参照してください https://["GCPでCloud Volumes ONTAP の使用を開始する"^]。
 
 .作業を開始する前に
 * 必要なIAM権限と役割を持つGCPサービスアカウントにアクセスします
 
 
 .手順
-. 資格情報をBlueXPに追加します。を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-gcp-accounts.html["GCP アカウントの追加"^]。
+. 資格情報をBlueXPに追加します。を参照してください https://["GCP アカウントの追加"^]。
 . GCPのコネクターを追加します。
 +
 .. プロバイダーとして[GCP]を選択します。
-.. GCP資格情報を入力します。を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["BlueXPからGCPでコネクタを作成する"^]。
+.. GCP資格情報を入力します。を参照してください https://["BlueXPからGCPでコネクタを作成する"^]。
 .. コネクタが動作していることを確認し、コネクタに切り替えます。
 
 
@@ -560,8 +560,8 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 
 インストール手順については、次を参照してください。
 
-* https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html["Azure への OpenShift クラスタのインストール"^]。
-* https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-account.html#installing-azure-account["Azure アカウントをインストールする"^]。
+* https://["Azure への OpenShift クラスタのインストール"^]。
+* https://["Azure アカウントをインストールする"^]。
 
 
 
@@ -581,7 +581,7 @@ NOTE: OpenShift では、独自のリソースグループを作成できます�
 
 Red Hat OpenShiftクラスタとNetApp BlueXP Connectorをインストールできる十分なIAMロールと権限があることを確認します。
 
-を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure のクレデンシャルと権限"^]。
+を参照してください https://["Azure のクレデンシャルと権限"^]。
 
 
 
@@ -589,7 +589,7 @@ Red Hat OpenShiftクラスタとNetApp BlueXP Connectorをインストールで�
 
 次に、仮想ネットワークの作成、コンピューティングインスタンスのセットアップ、Azure Blobコンテナの作成、Astra Control CenterイメージをホストするAzure Container Register（ACR）の作成、このレジストリへのイメージのプッシュを行うようにAzureを設定します。
 
-Azure のドキュメントに従って、次の手順を実行します。を参照してください https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html["Azure への OpenShift クラスタのインストール"^]。
+Azure のドキュメントに従って、次の手順を実行します。を参照してください https://["Azure への OpenShift クラスタのインストール"^]。
 
 . Azure Virtual Networkの作成
 . コンピューティングインスタンスを確認します。Azure の場合、ベアメタルサーバまたは VM を使用できます。
@@ -634,19 +634,19 @@ done < astra-control-center-22.04.41.manifest
 
 BlueXP（旧Cloud Manager）を使用して、ワークスペースの作成、Azureへのコネクタの追加、作業環境の作成、クラスタのインポートを行います。
 
-BlueXPのマニュアルに従って'次の手順を実行しますを参照してください https://docs.netapp.com/us-en/occm/task_getting_started_azure.html["BlueXPの使用を開始しました"^]。
+BlueXPのマニュアルに従って'次の手順を実行しますを参照してください https://["BlueXPの使用を開始しました"^]。
 
 .作業を開始する前に
 必要な IAM 権限とロールを持つ Azure アカウントにアクセスします
 
 .手順
 . 資格情報をBlueXPに追加します。
-. Azure 用のコネクタを追加します。を参照してください https://mysupport.netapp.com/site/info/cloud-manager-policies["BlueXPポリシー"^]。
+. Azure 用のコネクタを追加します。を参照してください https://["BlueXPポリシー"^]。
 +
 .. プロバイダとして「 * Azure * 」を選択します。
 .. アプリケーション ID 、クライアントシークレット、ディレクトリ（テナント） ID など、 Azure クレデンシャルを入力します。
 +
-を参照してください https://docs.netapp.com/us-en/occm/task_creating_connectors_azure.html["BlueXPrからAzureでコネクタを作成しています"^]。
+を参照してください https://["BlueXPrからAzureでコネクタを作成しています"^]。
 
 
 
