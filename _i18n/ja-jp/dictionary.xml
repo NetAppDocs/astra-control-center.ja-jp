@@ -2858,7 +2858,6 @@
   <block id="99ba824432d96de1a57be0f8b681d518" category="list-text">変更を行います。</block>
   <block id="4b81f371a950b4164e976fd95ff29363" category="admonition">アプリケーションがでサポートされるストレージクラスを使用している場合<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> ドライバ、保護ポリシーは使用できません。保護ポリシーが必要な場合は代替のストレージクラスを使用してください。</block>
   <block id="c1a51552670bd89a555dfc498d58f040" category="admonition">アプリケーションがでサポートされるストレージクラスを使用している場合<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> ドライバ、スナップショットは使用できません。スナップショットには代替のストレージクラスを使用します。</block>
-  <block id="d340b669a21181fdcdf79c308ba61ea9" category="admonition">アプリケーションがでサポートされるストレージクラスを使用している場合<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> ドライバ、バックアップは中断を伴い、バックアップ処理が完了するまでアプリケーションを使用できなくなります。</block>
   <block id="070b3d3a153094a5ee57ed5e75530780" category="inline-link">Astra Control Center 22.11ドキュメント</block>
   <block id="58f23be5f86622d0993f8478be889f05" category="list-text"><block ref="58f23be5f86622d0993f8478be889f05" category="inline-link-rx"></block></block>
   <block id="f4431fb507c16341e3a99f8f031779bc" category="list-text"><block ref="f4431fb507c16341e3a99f8f031779bc" category="inline-link-macro-rx"></block></block>
@@ -2874,4 +2873,6 @@
   <block id="150c473dfbcbc21128b1b0163082e277" category="paragraph">複数のクラスタおよびコンテキストで kubeconfig を使用することはできません。を参照してください <block ref="a221b9db35a895d6b52e9dd52f69851e" category="inline-link-macro-rx"></block> を参照してください。</block>
   <block id="17aaff3db5ad600ae90d1c45f82a9ce8" category="list-text">Removed：バケットには現在アクセスできません。</block>
   <block id="a5e4709506a688389ca2ed37bb81ac98" category="admonition">アクティブなバケットクレデンシャルを削除する場合は、を参照してください<block ref="8270c6fae649ca696475ea8dc76c4710" category="inline-link-rx"></block>。</block>
+  <block id="c90437e103f3b6c1db9096cab99fff62" category="inline-link">Kubernetesストレージオブジェクト</block>
+  <block id="299a4cd5c8c701fdb940ed995eb4a9c9" category="admonition">アプリケーションがでサポートされるストレージクラスを使用している場合<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> ドライバ。を定義していることを確認してください<block ref="55b56fb238360663afa6230ad82e74a0" prefix=" " category="inline-code"></block> のパラメータ<block ref="b0adeee9b2f75fa024a8a1ac8b9bfc07" category="inline-link-rx"></block> を使用します<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> 保護処理を実行する前にによってバックアップされたアプリケーションのバックアップ<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> システムの停止を伴うため、バックアップ処理が完了するまでアプリケーションを使用できなくなります。</block>
 </blocks>
