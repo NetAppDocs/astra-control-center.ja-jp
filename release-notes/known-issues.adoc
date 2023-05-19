@@ -28,6 +28,7 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 .クラスタ
 * <<デフォルトの kubeconfig ファイルに複数のコンテキストが含まれている場合、 Astra Control Center を使用したクラスタの管理が失敗します>>
 * <<Astra Control Center 23.04へのアップグレード後に一部のポッドが起動しない>>
+* <<Istio環境で監視ポッドがクラッシュする可能性があります>>
 
 
 .その他の問題
@@ -96,6 +97,58 @@ pcloud-astra-control-center-au-pod-0 0/1 CreateContainerConfigError 0 13s
 [listing]
 ----
 kubectl delete pod pcloud-astra-control-center-au-pod-0 -n <namespace>
+----
+
+
+
+
+== Istio環境で監視ポッドがクラッシュする可能性があります
+
+Istio環境でAstra Control CenterをCloud Insights とペアリングする場合は `telegraf-rs` ポッドがクラッシュすることがあります。回避策として、次の手順を実行します。
+
+. クラッシュしたポッドを検索します。
++
+[listing]
+----
+kubectl -n netapp-monitoring get pod | grep Error
+----
++
+次のような出力が表示されます。
+
++
+[listing]
+----
+NAME READY STATUS RESTARTS AGE
+telegraf-rs-fhhrh 1/2 Error 2 (26s ago) 32s
+----
+. クラッシュしたポッドを再起動し、交換します `<pod_name_from_output>` 影響を受けるポッドの名前を入力します。
++
+[listing]
+----
+kubectl -n netapp-monitoring delete pod <pod_name_from_output>
+----
++
+次のような出力が表示されます。
+
++
+[listing]
+----
+pod "telegraf-rs-fhhrh" deleted
+----
+. PODが再起動し、Error状態でないことを確認します。
++
+[listing]
+----
+kubectl -n netapp-monitoring get pod
+----
++
+次のような出力が表示されます。
+
++
+[listing]
+----
+NAME READY STATUS RESTARTS AGE
+telegraf-rs-rrnsb 2/2 Running 0 11s
 ----
 
 
