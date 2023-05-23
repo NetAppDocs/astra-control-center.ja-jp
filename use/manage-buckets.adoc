@@ -116,7 +116,7 @@ Astra Controlは、バケットのクレデンシャルを使用してS3バケ�
 TIP: Astra Control に追加する最初のクレデンシャルセットは、 Astra Control がバックアップバケットの認証にクレデンシャルを使用するため、常に使用されています。バケットがアクティブな状態で使用されている場合は、これらのクレデンシャルを削除しないでください。削除すると、バックアップが失敗してバックアップが使用できなくなります。
 
 
-NOTE: アクティブなバケットクレデンシャルを削除する場合は、を参照してください https://["バケットのクレデンシャル削除のトラブルシューティング"]。
+NOTE: アクティブなバケットクレデンシャルを削除する場合は、を参照してください https://kb.netapp.com/Cloud/Astra/Control/Deleting_active_S3_bucket_credentials_leads_to_spurious_500_errors_reported_in_the_UI["バケットのクレデンシャル削除のトラブルシューティング"]。
 
 Astra Control APIを使用してS3クレデンシャルを削除する方法については、を参照してください link:https://docs.netapp.com/us-en/astra-automation/["Astra の自動化と API に関する情報"^]。
 
@@ -151,5 +151,5 @@ NOTE: Astra Control を使用すると、最初にバケットを使用してバ
 
 == 詳細については、こちらをご覧ください
 
-* https://["Astra Control API を使用"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
 

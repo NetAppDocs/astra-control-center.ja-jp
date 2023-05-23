@@ -53,7 +53,7 @@ Astra Control API を使用してストレージバックエンドを管理す�
 
 バックエンドの健常性、容量、パフォーマンス（ IOPS スループット、レイテンシ）に関する情報を表示します。
 
-Kubernetesアプリケーションが使用しているボリュームが表示され、選択したストレージバックエンドに格納されます。Cloud Insights を使用すると、追加情報 が表示されます。を参照してください https://["Cloud Insights のドキュメント"^]。
+Kubernetesアプリケーションが使用しているボリュームが表示され、選択したストレージバックエンドに格納されます。Cloud Insights を使用すると、追加情報 が表示されます。を参照してください https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"^]。
 
 .手順
 . 左側のナビゲーション領域で、 * Backends * を選択します。
@@ -91,7 +91,7 @@ Astra Control Centerには、ONTAP バックエンドの認証に2つのモー�
 ** *管理者のクレデンシャルを使用*：ONTAP クラスタ管理IPアドレスと管理者のクレデンシャルを入力します。クレデンシャルはクラスタ全体のクレデンシャルである必要があります。
 +
 
-NOTE: ここで入力するクレデンシャルのユーザは、を持っている必要があります `ontapi` ONTAP クラスタのONTAP System Managerで有効になっているユーザログインアクセス方法。SnapMirrorレプリケーションを使用する場合は、アクセス方法が指定された「admin」ロールのユーザクレデンシャルを適用します `ontapi` および `http`、ソースとデスティネーションの両方のONTAP クラスタ。を参照してください https://["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
+NOTE: ここで入力するクレデンシャルのユーザは、を持っている必要があります `ontapi` ONTAP クラスタのONTAP System Managerで有効になっているユーザログインアクセス方法。SnapMirrorレプリケーションを使用する場合は、アクセス方法が指定された「admin」ロールのユーザクレデンシャルを適用します `ontapi` および `http`、ソースとデスティネーションの両方のONTAP クラスタ。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
 
 ** *証明書を使用*：証明書をアップロードします `.pem` ファイル、証明書キー `.key` ファイルを指定し、必要に応じて認証局ファイルを指定します。
 
@@ -164,5 +164,5 @@ NOTE: ここで入力するクレデンシャルのユーザは、を持って�
 
 == 詳細については、こちらをご覧ください
 
-* https://["Astra Control API を使用"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
 

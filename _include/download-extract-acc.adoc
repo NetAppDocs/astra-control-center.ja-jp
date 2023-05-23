@@ -6,7 +6,7 @@
 
 == Astra Control Centerをダウンロードして展開します
 
-. にアクセスします https://["Astra Control Centerのダウンロードページ"^] をクリックしますNetApp Support Site 。
+. にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerのダウンロードページ"^] をクリックしますNetApp Support Site 。
 . Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）。
 . （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）バンドルの署名を確認するには、次の手順を実行します。
 +

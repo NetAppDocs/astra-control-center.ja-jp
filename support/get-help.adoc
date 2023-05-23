@@ -27,9 +27,9 @@ IMPORTANT: Astra Control Center の評価用ライセンスをお持ちの場合
 
 次のオプションは、 24 時間 365 日無料で利用できます。
 
-* https://["* ナレッジベース * （ログインが必要）"^]： Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。
+* https://kb.netapp.com/Cloud/Astra/Control["* ナレッジベース * （ログインが必要）"^]： Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。
 * * ドキュメントセンター * ：現在表示しているドキュメントサイトです。
-* https://["* Discord *で助けを得なさい"^]：thePubカテゴリのAstraに移動して、他のユーザやエキスパートと交流しましょう。
+* https://discord.gg/NetApp["* Discord *で助けを得なさい"^]：thePubカテゴリのAstraに移動して、他のユーザやエキスパートと交流しましょう。
 * * サポートケースの作成 * ：トラブルシューティングのためにネットアップサポートに提供するサポートバンドルを生成
 * * Astra Control についてのフィードバック * ： astra.feedback@netapp.com に電子メールを送信して、あなたの考え、アイデア、懸念を知らせてください。
 
@@ -38,7 +38,7 @@ IMPORTANT: Astra Control Center の評価用ライセンスをお持ちの場合
 
 == ネットアップサポートへのサポートバンドルの日次アップロードを有効にします
 
-Astra Control Centerのインストール中に、を指定した場合 `enrolled: true` の場合 `autoSupport` Astra Control Centerカスタムリソース（CR）ファイル (`astra_control_center.yaml`）を指定すると、日次サポートバンドルがに自動的にアップロードされます https://["NetApp Support Site"^]。
+Astra Control Centerのインストール中に、を指定した場合 `enrolled: true` の場合 `autoSupport` Astra Control Centerカスタムリソース（CR）ファイル (`astra_control_center.yaml`）を指定すると、日次サポートバンドルがに自動的にアップロードされます https://mysupport.netapp.com/site/["NetApp Support Site"^]。
 
 
 
@@ -98,7 +98,7 @@ TIP: UI の右上にある通知アイコンには、バンドルの作成に成
 これを行うには、次のいずれかの方法を使用します。
 
 +
-** 使用 https://["NetApp Authenticated File Upload （ログインが必要）"^]。
+** 使用 https://upload.netapp.com/sg["NetApp Authenticated File Upload （ログインが必要）"^]。
 ** NSS でケースにバンドルを直接添付します。
 ** NetApp Active IQ を使用する。
 
@@ -108,6 +108,6 @@ TIP: UI の右上にある通知アイコンには、バンドルの作成に成
 [discrete]
 == 詳細については、こちらをご覧ください
 
-* https://["ネットアップにファイルをアップロードする方法（ログインが必要）"^]
-* https://["ネットアップにファイルを手動でアップロードする方法（ログインが必要）"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["ネットアップにファイルをアップロードする方法（ログインが必要）"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9["ネットアップにファイルを手動でアップロードする方法（ログインが必要）"^]
 

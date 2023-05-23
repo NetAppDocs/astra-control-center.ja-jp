@@ -73,10 +73,10 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 * *ワーカーノード*:少なくとも3つのワーカーノードで、それぞれ4つのCPUコアと12GBのRAMを備えています
 * * VMware Tanzu Kubernetes Gridクラスタの要件*：VMware Tanzu Kubernetes Grid（TKG）またはTanzu Kubernetes Grid Integrated Edition（TKGi）クラスタでAstra Control Centerをホストする場合は、次の考慮事項に注意してください。
 +
-** デフォルトの VMware TKG および TKGi 設定ファイルトークンの有効期限は、展開後 10 時間です。Tanzu ポートフォリオ製品を使用する場合は、 Astra Control Center と管理対象アプリケーションクラスタ間の接続の問題を回避するために、期限切れにならないトークンを含む Tanzu Kubernetes Cluster 構成ファイルを生成する必要があります。手順については、を参照してください https://["VMware NSX -T Data Center 製品ドキュメント"^]
+** デフォルトの VMware TKG および TKGi 設定ファイルトークンの有効期限は、展開後 10 時間です。Tanzu ポートフォリオ製品を使用する場合は、 Astra Control Center と管理対象アプリケーションクラスタ間の接続の問題を回避するために、期限切れにならないトークンを含む Tanzu Kubernetes Cluster 構成ファイルを生成する必要があります。手順については、を参照してください https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX -T Data Center 製品ドキュメント"^]
 ** を使用します `kubectl get nsxlbmonitors -A` 入力トラフィックを受け入れるように設定されたサービスモニタがすでにあるかどうかを確認するコマンド。MetalLB が存在する場合は、既存のサービスモニタが新しいロードバランサ設定を上書きするため、 MetalLB をインストールしないでください。
 ** TKG または TKGi のデフォルト・ストレージ・クラス・エンフォースメントは、 Astra Control によって管理されるすべてのアプリケーション・クラスタで無効にします。これを行うには、を編集します `TanzuKubernetesCluster` ネームスペースクラスタ上のリソース。
-** TKG または TKGi 環境に Astra Control Center を導入する際には、 Astra Trident の特定の要件に注意してください。詳細については、を参照してください https://["Astra Trident のドキュメント"^]。
+** TKG または TKGi 環境に Astra Control Center を導入する際には、 Astra Trident の特定の要件に注意してください。詳細については、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident のドキュメント"^]。
 
 
 
@@ -128,11 +128,11 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 Astra Control Centerを使用するには、必要な機能に応じて、次のONTAP ライセンスがあることを確認します。
 
 * FlexClone
-* SnapMirror：オプション。SnapMirrorテクノロジを使用してリモートシステムにレプリケートする場合にのみ必要です。を参照してください https://["SnapMirrorのライセンス情報"^]。
+* SnapMirror：オプション。SnapMirrorテクノロジを使用してリモートシステムにレプリケートする場合にのみ必要です。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["SnapMirrorのライセンス情報"^]。
 * S3ライセンス：オプション。ONTAP S3バケットにのみ必要です
 
 
-ONTAP システムに必要なライセンスがあるかどうかを確認するには、を参照してください https://["ONTAP ライセンスを管理します"^]。
+ONTAP システムに必要なライセンスがあるかどうかを確認するには、を参照してください https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["ONTAP ライセンスを管理します"^]。
 
 
 
@@ -159,12 +159,12 @@ Astra Control Centerは無償トライアルにサインアップして試すこ
 Astra Control Centerが適切に通信できるように運用環境を設定します。次のネットワーク設定が必要です。
 
 * * FQDNアドレス*：Astra Control CenterのFQDNアドレスが必要です。
-* *インターネットへのアクセス*：インターネットに外部からアクセスできるかどうかを判断する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります https://["NetApp Support Site"^]。
+* *インターネットへのアクセス*：インターネットに外部からアクセスできるかどうかを判断する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります https://mysupport.netapp.com/site/["NetApp Support Site"^]。
 * *ポートアクセス*：Astra Control Centerをホストする運用環境は、次のTCPポートを使用して通信します。これらのポートがファイアウォールを通過できることを確認し、 Astra ネットワークからの HTTPS 出力トラフィックを許可するようにファイアウォールを設定する必要があります。一部のポートでは、 Astra Control Center をホストする環境と各管理対象クラスタ（該当する場合はメモ）の両方の接続方法が必要です。
 
 
 
-NOTE: Astra Control Center はデュアルスタック Kubernetes クラスタに導入でき、 Astra Control Center はデュアルスタック操作用に構成されたアプリケーションとストレージバックエンドを管理できます。デュアルスタッククラスタの要件の詳細については、を参照してください https://["Kubernetes のドキュメント"^]。
+NOTE: Astra Control Center はデュアルスタック Kubernetes クラスタに導入でき、 Astra Control Center はデュアルスタック操作用に構成されたアプリケーションとストレージバックエンドを管理できます。デュアルスタッククラスタの要件の詳細については、を参照してください https://kubernetes.io/docs/concepts/services-networking/dual-stack/["Kubernetes のドキュメント"^]。
 
 |===
 | ソース | 宛先 | ポート | プロトコル | 目的 

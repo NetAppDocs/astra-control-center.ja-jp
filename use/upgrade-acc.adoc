@@ -24,7 +24,7 @@ Astra Control Centerをアップグレードするには、NetApp Support Site �
 kubectl get tridentversion -n trident
 ----
 +
-を参照してください https://["Astra Trident のドキュメント"] 古いバージョンからアップグレードするには、次の手順に従います。
+を参照してください https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html#determine-the-version-to-upgrade-to["Astra Trident のドキュメント"] 古いバージョンからアップグレードするには、次の手順に従います。
 
 +
 
@@ -72,7 +72,7 @@ TIP: スケジュール、バックアップ、 Snapshot が実行されてい�
 
 == Astra Control Centerをダウンロードして展開します
 
-. にアクセスします https://["Astra Control Centerの製品ダウンロードページ"^] をクリックしますNetApp Support Site 。ドロップダウンメニューから最新バージョンまたは別のバージョンを選択できます。
+. にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerの製品ダウンロードページ"^] をクリックしますNetApp Support Site 。ドロップダウンメニューから最新バージョンまたは別のバージョンを選択できます。
 . Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）。
 . （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）バンドルの署名を確認するには、次の手順を実行します。
 +
@@ -155,7 +155,7 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 . Astra Control Centerのイメージディレクトリにあるパッケージイメージをローカルレジストリにプッシュします。を実行する前に、次の置換を行ってください `push-images` コマンドを実行します
 +
 ** <BUNDLE_FILE> をAstra Controlバンドルファイルの名前に置き換えます (`acc.manifest.bundle.yaml`）。
-** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 "https://[]。
+** <MY_FULL_REGISTRY_PATH> をDockerリポジトリのURLに置き換えます。次に例を示します。 "https://<docker-registry>"[]。
 ** <MY_REGISTRY_USER> をユーザ名に置き換えます。
 ** <MY_REGISTRY_TOKEN> をレジストリの認証済みトークンに置き換えます。
 +

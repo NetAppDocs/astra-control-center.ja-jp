@@ -32,16 +32,16 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 == 2022年11月22日（22.11.0）
 
 .新機能とサポート
-* https://["複数のネームスペースにまたがるアプリケーションのサポート"^]
-* https://["アプリケーション定義にクラスタリソースを含めることができます"^]
-* https://["ロールベースアクセス制御（RBAC）を統合してLDAP認証を強化"^]
-* https://["Kubernetes 1.25およびポッドセキュリティアドミッション（PSA）のサポートを追加"^]
-* https://["バックアップ、リストア、クローニングの各処理の進捗状況レポートが強化されました"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["複数のネームスペースにまたがるアプリケーションのサポート"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["アプリケーション定義にクラスタリソースを含めることができます"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-remote-authentication.html["ロールベースアクセス制御（RBAC）を統合してLDAP認証を強化"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/get-started/requirements.html["Kubernetes 1.25およびポッドセキュリティアドミッション（PSA）のサポートを追加"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/monitor-running-tasks.html["バックアップ、リストア、クローニングの各処理の進捗状況レポートが強化されました"^]
 
 
 .既知の問題および制限事項
-* https://["このリリースの既知の問題"^]
-* https://["このリリースの既知の制限事項は以下のとおりです"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-issues.html["このリリースの既知の問題"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
 
 
 
@@ -58,21 +58,21 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 [%collapsible]
 ====
 .新機能とサポート
-* https://["NetApp SnapMirrorテクノロジを使用したアプリケーションのレプリケーション"^]
-* https://["アプリ管理ワークフローの改善"^]
-* https://["拡張された独自の実行フック機能"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/use/replicate_snapmirror.html["NetApp SnapMirrorテクノロジを使用したアプリケーションのレプリケーション"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/use/manage-apps.html#define-apps["アプリ管理ワークフローの改善"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/use/execution-hooks.html["拡張された独自の実行フック機能"^]
 +
 
-NOTE: ネットアップが提供している、特定のアプリケーションのデフォルトのPre-snapshot実行フックとPost-Snapshot実行フックは、このリリースでは削除されています。このリリースにアップグレードし、スナップショットの実行フックを独自に提供しない場合、Astra Controlはクラッシュコンシステントスナップショットのみを作成します。にアクセスします https://["ネットアップのVerda"^] GitHubリポジトリ：サンプルの実行フックスクリプトを使用します。環境に合わせて変更できます。
+NOTE: ネットアップが提供している、特定のアプリケーションのデフォルトのPre-snapshot実行フックとPost-Snapshot実行フックは、このリリースでは削除されています。このリリースにアップグレードし、スナップショットの実行フックを独自に提供しない場合、Astra Controlはクラッシュコンシステントスナップショットのみを作成します。にアクセスします https://github.com/NetApp/Verda["ネットアップのVerda"^] GitHubリポジトリ：サンプルの実行フックスクリプトを使用します。環境に合わせて変更できます。
 
-* https://["VMware Tanzu Kubernetes Grid Integrated Edition（TKGI）のサポート"^]
-* https://["Google Anthosに対応しています"^]
-* https://["LDAP設定（Astra Control API経由）"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html["VMware Tanzu Kubernetes Grid Integrated Edition（TKGI）のサポート"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html#operational-environment-requirements["Google Anthosに対応しています"^]
+* https://docs.netapp.com/us-en/astra-automation-2208/workflows_infra/ldap_prepare.html["LDAP設定（Astra Control API経由）"^]
 
 
 .既知の問題および制限事項
-* https://["このリリースの既知の問題"^]
-* https://["このリリースの既知の制限事項は以下のとおりです"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/release-notes/known-issues.html["このリリースの既知の問題"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
 
 
 ====
@@ -84,16 +84,16 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 [%collapsible]
 ====
 .新機能とサポート
-* https://["ネームスペースのロールベースアクセス制御（ RBAC ）"^]
-* https://["Cloud Volumes ONTAP のサポート"^]
-* https://["Astra Control Center の一般的な入力イネーブルメント"^]
-* https://["Astra Control からバケットを取り外す"^]
-* https://["VMware Tanzu ポートフォリオのサポート"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["ネームスペースのロールベースアクセス制御（ RBAC ）"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/install_acc-cvo.html["Cloud Volumes ONTAP のサポート"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Astra Control Center の一般的な入力イネーブルメント"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/use/manage-buckets.html#remove-a-bucket["Astra Control からバケットを取り外す"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["VMware Tanzu ポートフォリオのサポート"^]
 
 
 .既知の問題および制限事項
-* https://["このリリースの既知の問題"^]
-* https://["このリリースの既知の制限事項は以下のとおりです"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues.html["このリリースの既知の問題"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
 
 
 ====
@@ -105,21 +105,21 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 [%collapsible]
 ====
 .新機能とサポート
-* https://["アプリケーションのリストア"^]
-* https://["実行フック"^]
-* https://["ネームスペースを対象とした演算子を使用して展開されたアプリケーションのサポート"^]
-* https://["アップストリーム Kubernetes と Rancher もサポートしています"^]
-* https://["Astra Control Center のアップグレード"^]
-* https://["インストール用の Red Hat OperatorHub オプションです"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/use/restore-apps.html["アプリケーションのリストア"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/use/execution-hooks.html["実行フック"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/requirements.html#supported-app-installation-methods["ネームスペースを対象とした演算子を使用して展開されたアプリケーションのサポート"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/requirements.html["アップストリーム Kubernetes と Rancher もサポートしています"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/use/upgrade-acc.html["Astra Control Center のアップグレード"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/acc_operatorhub_install.html["インストール用の Red Hat OperatorHub オプションです"^]
 
 
 .解決済みの問題
-* https://["このリリースの解決済みの問題"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/resolved-issues.html["このリリースの解決済みの問題"^]
 
 
 .既知の問題および制限事項
-* https://["このリリースの既知の問題"^]
-* https://["このリリースの既知の制限事項は以下のとおりです"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-issues.html["このリリースの既知の問題"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
 
 
 ====
@@ -132,14 +132,14 @@ NOTE: ネットアップが提供している、特定のアプリケーショ�
 ====
 Astra Control Center の初回リリース。
 
-* https://["それは何であるか"^]
-* https://["アーキテクチャとコンポーネントを理解する"^]
-* https://["開始には何が必要ですか"^]
-* https://["をインストールします"^] および https://["セットアップ（ Setup ）"^]
-* https://["管理"^] および https://["保護"^] アプリケーション
-* https://["バケットを管理する"^] および https://["ストレージバックエンド"^]
-* https://["アカウントを管理"^]
-* https://["API による自動化"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/concepts/intro.html["それは何であるか"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/concepts/architecture.html["アーキテクチャとコンポーネントを理解する"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/get-started/requirements.html["開始には何が必要ですか"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/get-started/install_acc.html["をインストールします"^] および https://docs.netapp.com/us-en/astra-control-center-2108/get-started/setup_overview.html["セットアップ（ Setup ）"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-apps.html["管理"^] および https://docs.netapp.com/us-en/astra-control-center-2108/use/protect-apps.html["保護"^] アプリケーション
+* https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-buckets.html["バケットを管理する"^] および https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-backend.html["ストレージバックエンド"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-users.html["アカウントを管理"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/rest-api/api-intro.html["API による自動化"^]
 
 
 ====
