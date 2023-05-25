@@ -171,7 +171,7 @@ TIP: ルールを含むリソースと除外するリソースは必要なだけ
 
 == 経済性に優れたONTAP-NASストレージからONTAP-NASストレージへの移行
 
-Astra Controlを使用できます link:../use/restore-apps.html["アプリケーションのリストア"] に対応するストレージクラスからアプリケーションボリュームを移行する処理 `ontap-nas-economy`では、でサポートされるストレージクラスに制限されたアプリケーション保護オプションが許可されます `ontap-nas` Astra Controlのあらゆる保護オプションを利用できます。リストア処理では、を使用するqtreeベースのボリュームが移行されます `ontap-nas-economy` でサポートされる標準ボリュームへのバックエンド `ontap-nas`。ボリューム（ボリュームが存在するかどうかに関係なく） `ontap-nas-economy` BACKED ONLYまたはMIXEDは、ターゲットストレージクラスに移行されます。移行が完了すると、保護オプションの制限がなくなります。
+Astra Controlを使用できます link:../use/restore-apps.html["アプリケーションのリストア"] または link:../use/clone-apps.html["アプリケーションのクローン"^] に対応するストレージクラスからアプリケーションボリュームを移行する処理 `ontap-nas-economy`では、でサポートされるストレージクラスに制限されたアプリケーション保護オプションが許可されます `ontap-nas` Astra Controlのあらゆる保護オプションを利用できます。クローンまたはリストア処理では、を使用するqtreeベースのボリュームが移行されます `ontap-nas-economy` でサポートされる標準ボリュームへのバックエンド `ontap-nas`。ボリューム（ボリュームが存在するかどうかに関係なく） `ontap-nas-economy` BACKED ONLYまたはMIXEDは、ターゲットストレージクラスに移行されます。移行が完了すると、保護オプションの制限がなくなります。
 
 
 

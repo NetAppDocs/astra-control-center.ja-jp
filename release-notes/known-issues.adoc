@@ -28,6 +28,7 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 .クラスタ
 * <<デフォルトの kubeconfig ファイルに複数のコンテキストが含まれている場合、 Astra Control Center を使用したクラスタの管理が失敗します>>
 * <<Astra Control Center 23.04へのアップグレード後に一部のポッドが起動しない>>
+* <<一部のポッドでは、23.04から23.04.2へのアップグレードのパージステージ後にエラー状態が表示されます>>
 * <<Istio環境で監視ポッドがクラッシュする可能性があります>>
 
 
@@ -100,6 +101,24 @@ kubectl delete pod pcloud-astra-control-center-au-pod-0 -n <namespace>
 ----
 
 
+
+
+== 一部のポッドでは、23.04から23.04.2へのアップグレードのパージステージ後にエラー状態が表示されます
+
+Astra Control Center 23.04.2にアップグレードしたあと、一部のポッドでに関連するログにエラーが表示されることがあります `task-service-task-purge`：
+
+[listing]
+----
+kubectl get all -n netapp-acc -o wide|grep purge
+
+pod/task-service-task-purge-28282828-ab1cd     0/1     Error       0             48m     10.111.0.111   openshift-clstr-ol-07-zwlj8-worker-jhp2b   <none>           <none>
+----
+このエラー状態は、クリーンアップステップが正しく実行されなかったことを意味します。23.04.2への全体的なアップグレードが成功しました。次のコマンドを実行してタスクをクリーンアップし、エラー状態を解消します。
+
+[listing]
+----
+kubectl delete job task-service-task-purge-[system-generated task ID] -n <netapp-acc or custom namespace>
+----
 
 
 == Istio環境で監視ポッドがクラッシュする可能性があります

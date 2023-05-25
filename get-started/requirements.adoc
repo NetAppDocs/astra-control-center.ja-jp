@@ -144,7 +144,7 @@ Astra Control Centerのビルドイメージをプッシュできる既存のプ
 
 == Astra Control Centerのライセンス
 
-Astra Control CenterにはAstra Control Centerライセンスが必要です。Astra Control Centerをインストールすると、4、800 CPUユニットの90日間の評価用ライセンスがすでにアクティブ化されています。容量の追加や評価期間の変更が必要な場合や、フルライセンスにアップグレードする場合は、ネットアップから別の評価用ライセンスまたはフルライセンスを取得できます。アプリケーションとデータを保護するにはライセンスが必要です。を参照してください link:../concepts/intro.html["Astra Control Centerの機能"] を参照してください。
+Astra Control CenterにはAstra Control Centerライセンスが必要です。Astra Control Centerをインストールすると、4、800 CPUユニットの90日間の評価用ライセンスがすでにアクティブ化されています。容量の追加や評価期間の変更が必要な場合や、フルライセンスにアップグレードする場合は、ネットアップから別の評価用ライセンスまたはフルライセンスを取得できます。アプリケーションとデータを保護するにはライセンスが必要です。
 
 Astra Control Centerは無償トライアルにサインアップして試すことができます。登録することでサインアップできます link:https://bluexp.netapp.com/astra-register["こちらをご覧ください"^]。
 
