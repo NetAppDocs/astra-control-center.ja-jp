@@ -155,7 +155,7 @@ AWS のドキュメントに従って次の手順を実行します。を参照�
 
 . AWS仮想ネットワークを作成します。
 . EC2 コンピューティングインスタンスを確認します。AWS ではベアメタルサーバまたは VM を使用できます。
-. インスタンスタイプが、マスターノードとワーカーノードの Astra の最小リソース要件に一致していない場合は、 Astra の要件に合わせて AWS でインスタンスタイプを変更します。を参照してください link:../get-started/requirements.html["Astra Control Center の要件"^]。
+. インスタンスタイプが、マスターノードとワーカーノードの Astra の最小リソース要件に一致していない場合は、 Astra の要件に合わせて AWS でインスタンスタイプを変更します。  を参照してください link:../get-started/requirements.html["Astra Control Center の要件"^]。
 . バックアップを格納する AWS S3 バケットを少なくとも 1 つ作成します。
 . すべての ACC イメージをホストする AWS Elastic Container Registry （ ECR ）を作成します。
 +
@@ -593,7 +593,7 @@ Azure のドキュメントに従って、次の手順を実行します。を�
 
 . Azure Virtual Networkの作成
 . コンピューティングインスタンスを確認します。Azure の場合、ベアメタルサーバまたは VM を使用できます。
-. インスタンスタイプがまだマスターノードとワーカーノードの Astra 最小リソース要件に一致していない場合は、 Azure でインスタンスタイプを変更して Astra の要件を満たします。を参照してください link:../get-started/requirements.html["Astra Control Center の要件"^]。
+. インスタンスタイプがまだマスターノードとワーカーノードの Astra 最小リソース要件に一致していない場合は、 Azure でインスタンスタイプを変更して Astra の要件を満たします。  を参照してください link:../get-started/requirements.html["Astra Control Center の要件"^]。
 . バックアップを格納するAzure BLOBコンテナを少なくとも1つ作成します。
 . ストレージアカウントを作成します。Astra Control Center でバケットとして使用するコンテナを作成するには、ストレージアカウントが必要です。
 . バケットへのアクセスに必要なシークレットを作成します。

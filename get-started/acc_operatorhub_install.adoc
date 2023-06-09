@@ -301,7 +301,7 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
 
 +
 
-NOTE: サービスタイプ「 LoadBalancer 」および入力の詳細については、を参照してください link:../get-started/requirements.html["要件"^]。
+NOTE: 「LoadBalancer」およびIngressのサービスタイプの詳細については、を参照してください link:../get-started/requirements.html["要件"^]。
 
 
 

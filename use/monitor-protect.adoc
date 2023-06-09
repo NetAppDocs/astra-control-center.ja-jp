@@ -56,7 +56,7 @@ image:proxy-new.png["この画像は、プロキシサーバーが正常に接�
 .手順
 . * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
 . [*Account*>*Connections*] を選択します。
-. ドロップダウンリストから * Edit * を選択して、接続を編集します。
+. ドロップダウンリストから*[編集]*を選択して、接続を編集します。
 . サーバの詳細と認証情報を編集します。
 . [ 保存（ Save ） ] を選択します。
 
@@ -176,7 +176,7 @@ NOTE: 編集できるのは API キーのみです。Cloud Insights テナント
 .手順
 . * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
 . [*Account*>*Connections*] を選択します。
-. ドロップダウンリストから * Edit * を選択して、接続を編集します。
+. ドロップダウンリストから*[編集]*を選択して、接続を編集します。
 . Cloud Insights 接続設定を編集します。
 . [ 保存（ Save ） ] を選択します。
 
@@ -320,7 +320,7 @@ Fluentd 接続を Astra Control Center インスタンスに編集できます�
 .手順
 . * admin * / * owner * 権限を持つアカウントを使用して Astra Control Center にログインします。
 . [*Account*>*Connections*] を選択します。
-. ドロップダウンリストから * Edit * を選択して、接続を編集します。
+. ドロップダウンリストから*[編集]*を選択して、接続を編集します。
 . Fluentd エンドポイントの設定を変更します。
 . [ 保存（ Save ） ] を選択します。
 
