@@ -909,7 +909,6 @@
   <block id="c05d7f375daa05c9c20834d303b00fd0" category="paragraph">ここでは、Astra Control Centerの導入に必要な手順の概要を示します。各ステップ内のリンクから、詳細が記載されたページに移動できます。</block>
   <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">1つ</block>
   <block id="13a0d74de4f994f2861da351c22e5549" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Kubernetes クラスタの要件を確認</block>
-  <block id="a8a5da0c5d62ec5f7225e0ce27261da7" category="paragraph">環境がこれらの要件を満たしていることを確認します。</block>
   <block id="b5233b1e8c04e10566734b9cecfc92b1" category="paragraph">* Kubernetesクラスタ*</block>
   <block id="9075e632fc6c099653c3c60ce5f635c5" category="inline-link-macro">オンプレミスKubernetesクラスタでロードバランシングを行うための入力を設定する</block>
   <block id="737d5c48f1830eb81614b8f6e0e6b6cc" category="list-text"><block ref="737d5c48f1830eb81614b8f6e0e6b6cc" category="inline-link-macro-rx"></block></block>
@@ -930,7 +929,6 @@
   <block id="27912e4366edb4ee86aa373395b590f5" category="list-text"><block ref="27912e4366edb4ee86aa373395b590f5" category="inline-link-macro-rx"></block></block>
   <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">2 つ</block>
   <block id="6e6d8bfff1b16149f8c62cfee0d2f62e" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Astra Control Centerをダウンロードしてインストールします</block>
-  <block id="7ae94f3e29fb1789e466d68ff3b7719d" category="paragraph">次のインストールタスクを実行します。</block>
   <block id="c4002b4ebee895edc6f5898ff73a5ad8" category="list-text">ネットアップライセンスファイルを入手します。</block>
   <block id="fbc059a4c4dca73352b8c2d2b522c031" category="inline-link-macro">Astra Control Centerをすでに購入している場合は、ライセンスファイルを生成します</block>
   <block id="d3e8fd495d55bcc11d404a5401147b55" category="list-text"><block ref="d3e8fd495d55bcc11d404a5401147b55" category="inline-link-macro-rx"></block></block>
@@ -939,7 +937,6 @@
   <block id="8a2d0b5d3ae0c64a9bbd6f907fdd49a9" category="list-text"><block ref="8a2d0b5d3ae0c64a9bbd6f907fdd49a9" category="inline-link-macro-rx"></block></block>
   <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">3つ</block>
   <block id="ba9e9d1eb144bbf0eb66ffe3fb01e03a" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> いくつかの初期セットアップ作業を完了します</block>
-  <block id="fc902c0e2ec2761be704bc86d6da6195" category="paragraph">いくつかの基本的な作業を完了して開始します。</block>
   <block id="ec01ce5d7a75843507cddc0f1e980f6a" category="inline-link-macro">ライセンスを追加します</block>
   <block id="9cd5bd1af078069458de7df94bbb3c5a" category="list-text"><block ref="9cd5bd1af078069458de7df94bbb3c5a" category="inline-link-macro-rx"></block></block>
   <block id="e615e4db7ab4de24645d9fa039b73e02" category="inline-link-macro">クラスタ管理のための環境を準備します</block>
@@ -953,13 +950,10 @@
   <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">4.</block>
   <block id="9824425bd5418e5e140ee6b8561b8914" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Astra Control Center を使用</block>
   <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link">Astra Control API の略</block>
-  <block id="a06e11c328de2e8797a5126bacc41f4a" category="paragraph">Astra Control Centerのセットアップが完了したら、次の手順を実行します。Astra Controlのユーザインターフェイス（UI）またはを使用できます<block ref="c076c843349c85837d82b7f2e26fe2bf" category="inline-link-rx"></block>。</block>
   <block id="0fae08f8fcd64cec619ae5065fc2aa88" category="inline-link-macro">アプリの管理</block>
-  <block id="6fe79d58f8a8b720433194a3efe0f398" category="list-text"><block ref="6fe79d58f8a8b720433194a3efe0f398" category="inline-link-macro-rx"></block></block>
   <block id="3a2448fbaa994c176580cbee02393309" category="inline-link-macro">アプリを保護します</block>
   <block id="ea0df431e9a218f5a0629b3821a462af" category="list-text"><block ref="a31feca3886e9400a923ff8b2642373f" category="inline-link-macro-rx"></block>：保護ポリシーを構成し、アプリケーションのレプリケーション、クローニング、移行を行います。</block>
   <block id="afa76abc4566eab1fcb19c24508a45f6" category="inline-link-macro">アカウントを管理</block>
-  <block id="a17247e8a3b531331724f69e1e71949a" category="list-text"><block ref="442a8ba322bd53d625de068878060461" category="inline-link-macro-rx"></block>ユーザ、ロール、LDAP、クレデンシャルなど</block>
   <block id="d9379e355ade43c04f76c0b075ef6732" category="inline-link-macro">必要に応じて、Cloud Insights に接続します</block>
   <block id="cd0049b5789664729fdfe7d5fc0b4f40" category="list-text"><block ref="bf4c77b3020a0bd5cc9fb63a5d3fb351" category="inline-link-macro-rx"></block>：システムの健全性に関する指標を表示します。</block>
   <block id="e84bb7e947a5b25481546110f575734a" category="list-text"><block ref="e84bb7e947a5b25481546110f575734a" category="inline-link-rx"></block></block>
@@ -1882,8 +1876,6 @@
   <block id="b8f3bc1c4097cf013ff9bb82ec30af2e" category="section-title">サポートされているアプリインストール方法</block>
   <block id="a90a8c7f23b615986d59344298e29223" category="paragraph">Astra Control は、次のアプリケーションインストール方法をサポートしています。</block>
   <block id="1633320139361ee32414ab0910725238" category="list-text">* マニフェストファイル * ： Astra Control は、 kubectl を使用してマニフェストファイルからインストールされたアプリケーションをサポートします。例：</block>
-  <block id="a117e5ae155bb69285242a4c89875dd6" category="list-text">* Helm 3 * ： Helm を使用してアプリケーションをインストールする場合、 Astra Control には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用してインストールされたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 でインストールされたアプリケーションの管理はサポートされていません。</block>
-  <block id="456907dc64f076d8c8ed113ea6a4ac8f" category="list-text">*オペレータが導入したアプリケーション*：Astra Controlは、ネームスペースを対象とした演算子を使用してインストールされたアプリケーションをサポートしています。一般的には、「パスバイリファレンス」アーキテクチャではなく「パスバイバリュー」アーキテクチャで設計されています。インストールする演算子とアプリケーションは、同じ名前空間を使用する必要があります。このような名前空間を使用するには、演算子の deployment.yaml ファイルを変更する必要があります。</block>
   <block id="be4629edbb6c58ee13cd278ee7ec5a4f" category="paragraph">これらのパターンに続くいくつかのオペレータアプリを次に示します。</block>
   <block id="262c2c7b16c416e39567678b2dfa52c1" category="section-title">クラスタにアプリをインストールします</block>
   <block id="8cff84c3972d27d6ae049edd6c88a417" category="inline-link-macro">クラスタが追加されました</block>
@@ -2566,7 +2558,6 @@
   <block id="3881c3bffcc8a7541f238ffd9bd110e8" category="list-text"><block ref="3881c3bffcc8a7541f238ffd9bd110e8" category="inline-link-macro-rx"></block></block>
   <block id="f79c72229ccb3aeca03756bbe7324c9e" category="inline-link">NetApp Support Site のダウンロードページからAstra Control Centerをダウンロードします</block>
   <block id="15dc068a0743eecccf27c4a805c80f21" category="list-text"><block ref="15dc068a0743eecccf27c4a805c80f21" category="inline-link-rx"></block></block>
-  <block id="b73cdf72d6d55064ddff88092ae6133b" category="list-text">Astra Control Centerを評価する場合は、組み込みの評価用ライセンスがすでに付属しています。</block>
   <block id="b076c1f761d0b92929621e81c3c931c3" category="summary">Astra Control Centerをインストールし、UIにログインしてパスワードを変更したら、ライセンスのセットアップ、クラスタの追加、認証の有効化、ストレージの管理、バケットの追加を行うことができます。</block>
   <block id="9dff1d917a2ab55f9b011693f3edb2e6" category="list-text"><block ref="57bfe64ccef32c62c91778f81d22de6e" category="inline-xref-macro-rx"></block></block>
   <block id="9b9a4bad5c62667ce507fae6527af6a1" category="paragraph">Astra Control Centerをインストールすると、組み込みの評価用ライセンスがすでにインストールされています。Astra Control Centerを評価する場合は、この手順を省略できます。</block>
@@ -2924,4 +2915,13 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
   <block id="ef13295b074595a0d0b8611526c15d76" category="list-text">インスタンスタイプがまだマスターノードとワーカーノードの Astra 最小リソース要件に一致していない場合は、 Azure でインスタンスタイプを変更して Astra の要件を満たします。  を参照してください <block ref="09f78935ac7c88e2178fe1d6a911634a" category="inline-link-macro-rx"></block>。</block>
   <block id="e8322268b8f0ad7381af9899d339e2ff" category="paragraph">Astra Control Center を使用して、 Azure バケットを追加する。を参照してください <block ref="89e4f3ed5a430daa461d5b5082fe9398" category="inline-link-macro-rx"></block>。</block>
   <block id="94c24f2fdb5fcc8ac662287d8f22040b" category="admonition">「LoadBalancer」およびIngressのサービスタイプの詳細については、を参照してください <block ref="f326683052260ae8ea69adae62a4336c" category="inline-link-macro-rx"></block>。</block>
+  <block id="d029da9201b0669cba4f3b93daf90afe" category="list-text">* Helm 3 * ： Helm を使用してアプリケーションをインストールする場合、 Astra Control には Helm バージョン 3 が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用してインストールされたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 でインストールされたアプリケーションの管理はサポートされていません。</block>
+  <block id="fda2313c80662faccdf8a7b0c8a9d3a5" category="list-text">*オペレータが導入するアプリ*：Astra Controlは、ネームスペーススコープの演算子を使用してインストールされたアプリをサポートします。これらの演算子は、一般的に「pass-by-reference」アーキテクチャではなく「pass-by-value」アーキテクチャで設計されています。オペレーターとそれがインストールするアプリは、同じ名前空間を使用する必要があります。これを確実にするために、オペレーターの配置YAMLファイルを変更する必要がある場合があります。</block>
+  <block id="ebe354daa850c07255922b36c38442da" category="paragraph">環境が次の要件を満たしていることを確認します。</block>
+  <block id="48b5d328b123f4e05f5a4f65f897189d" category="paragraph">次のインストールタスクを実行します。</block>
+  <block id="838fcb8e71dcfbd66a61fc27b2cfb4cc" category="list-text">Astra Control Centerを評価する場合は、組み込みの評価用ライセンスがすでに付属しています</block>
+  <block id="2c6dff9a92bbcef6a5083cd35891c541" category="paragraph">開始するには、いくつかの基本的なタスクを実行します。</block>
+  <block id="0c39f9a137a0a9c47a6f520e25815ae4" category="paragraph">Astra Control Centerのセットアップが完了したら、Astra Control UIまたはを使用します<block ref="c076c843349c85837d82b7f2e26fe2bf" category="inline-link-rx"></block> アプリの管理と保護を開始するには：</block>
+  <block id="a104969737461afdb4fd0f2b1121cbf5" category="list-text"><block ref="6fe79d58f8a8b720433194a3efe0f398" category="inline-link-macro-rx"></block>:管理するリソースを定義します。</block>
+  <block id="caffc5ba1163dd0a5508fd1eae34a69c" category="list-text"><block ref="442a8ba322bd53d625de068878060461" category="inline-link-macro-rx"></block>：ユーザ、ロール、LDAP、クレデンシャルなど。</block>
 </blocks>
