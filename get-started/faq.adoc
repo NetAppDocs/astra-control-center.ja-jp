@@ -91,7 +91,7 @@ Astra Control はアプリケーションを導入しない。アプリケーシ
 
 * Astra Control自体を管理する必要がありますか？*
 
-いいえ。Astra Control自体は「システムアプリケーション」であるため、管理しないでください。
+デフォルトでは、管理可能なアプリケーションとしてAstra Control Centerが表示されませんが、別のAstra Control Centerインスタンスを使用してAstra Control Centerインスタンスをバックアップおよびリストアできます。
 
 *不健全なポッドはアプリ管理に影響しますか？*
 

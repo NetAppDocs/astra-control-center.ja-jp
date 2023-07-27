@@ -6,22 +6,23 @@
 
 == Astra Control Centerをダウンロードして展開します
 
-. にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerのダウンロードページ"^] をクリックしますNetApp Support Site 。
-. Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）。
-. （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）バンドルの署名を確認するには、次の手順を実行します。
+. Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）から https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerのダウンロードページ"^]。
+. （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）をクリックして、バンドルのシグネチャを確認します。
 +
+.展開して詳細を表示
+[%collapsible]
+====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
 ----
-+
 [source, console]
 ----
 openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
-+
 出力にはと表示されます `Verified OK` 検証が成功したあとに、
 
+====
 . Astra Control Centerバンドルからイメージを抽出します。
 +
 [source, console]

@@ -15,44 +15,90 @@ summary: Astra Control Center をアップグレードするには、バンド�
 Astra Control Centerをアップグレードするには、NetApp Support Site からインストールバンドルをダウンロードし、以下の手順を実行します。この手順を使用して、インターネット接続環境またはエアギャップ環境の Astra コントロールセンターをアップグレードできます。
 
 .作業を開始する前に
-* アップグレードする前に、を参照してください link:../get-started/requirements.html["運用環境の要件"^] 環境がAstra Control Center導入の最小要件を満たしていることを確認する。環境に次の要素が必要です。
+アップグレードする前に、環境が link:../get-started/requirements.html["Astra Control Center環境の最小要件"^]。環境に次の要素が必要です。
+
+* サポートされるAstra Tridentバージョン
 +
-** サポートされているAstra Tridentバージョンで、実行しているバージョンを確認するには、既存のAstra Control Centerに対して次のコマンドを実行します。
-+
-[listing]
+[%collapsible]
+====
+実行しているTridentのバージョンを確認します。
+
+[source, console]
 ----
 kubectl get tridentversion -n trident
 ----
-+
 を参照してください https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html#determine-the-version-to-upgrade-to["Astra Trident のドキュメント"] 古いバージョンからアップグレードするには、次の手順に従います。
 
-+
 
 WARNING: Kubernetes 1.25にアップグレードするには、Astra Trident 22.10 *にアップグレードする必要があります。
 
-** サポートされているKubernetesディストリビューションで実行しているバージョンを確認するには、既存のAstra Control Centerに対して次のコマンドを実行します。 `kubectl get nodes -o wide`
-** 十分なクラスタリソースを使用してクラスタリソースを確認し、既存のAstra Control Centerクラスタで次のコマンドを実行します。 `kubectl describe node <node name>`
-** Astra Control Centerイメージのプッシュおよびアップロードに使用できるレジストリ
-** デフォルトのストレージクラスデフォルトのストレージクラスを決定するには、既存のアストラコントロールセンターに対して次のコマンドを実行します。 `kubectl get storageclass`
-
-
-* （OpenShiftのみ）すべてのクラスタオペレータが正常な状態であり、使用可能であることを確認します。
+====
+* サポートされているKubernetesディストリビューション
 +
-[listing]
+[%collapsible]
+====
+実行しているKubernetesのバージョンを確認します。
+
+[source, console]
 ----
-kubectl get clusteroperators
+kubectl get nodes -o wide
 ----
-* すべての API サービスが正常な状態であり、使用可能であることを確認します。
+====
+* 十分なクラスタリソース
 +
-[listing]
+[%collapsible]
+====
+使用可能なクラスタリソースを確認します。
+
+[source, console]
+----
+kubectl describe node <node name>
+----
+====
+* Astra Control Centerイメージのプッシュおよびアップロードに使用できるレジストリ
+* デフォルトのストレージクラス
++
+[%collapsible]
+====
+デフォルトのストレージクラスを確認します。
+
+[source, console]
+----
+kubectl get storageclass
+----
+====
+* 健全で使用可能なAPIサービス
++
+[%collapsible]
+====
+すべての API サービスが正常な状態であり、使用可能であることを確認します。
+
+[source, console]
 ----
 kubectl get apiservices
 ----
-* アップグレードを開始する前に、Astra Control Center UIからログアウトします。
+====
+* （OpenShiftのみ）正常で使用可能なクラスタ演算子
++
+[%collapsible]
+====
+すべてのクラスタオペレータが正常な状態であり、使用可能であることを確認します。
 
+[source, console]
+----
+kubectl get clusteroperators
+----
+====
+
+
+
+IMPORTANT: この手順の一部として、  Astra Control Centerをアップグレードする場合。この更新されたオペレータを使用して以前のバージョンのAstra Control Centerにアップグレードすることはできません。
 
 .このタスクについて
 Astra Control Center のアップグレードプロセスでは、次の手順を実行できます。
+
+
+NOTE: アップグレードを開始する前に、Astra Control Center UIからログアウトします。
 
 * <<Astra Control Centerをダウンロードして展開します>>
 * <<NetApp Astra kubectlプラグインを削除して、再度インストールします>>
@@ -73,21 +119,22 @@ TIP: スケジュール、バックアップ、 Snapshot が実行されてい�
 == Astra Control Centerをダウンロードして展開します
 
 . にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerの製品ダウンロードページ"^] をクリックしますNetApp Support Site 。ドロップダウンメニューから最新バージョンまたは別のバージョンを選択できます。
-. Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）。
-. （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）バンドルの署名を確認するには、次の手順を実行します。
+. （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）をクリックして、バンドルのシグネチャを確認します。
 +
+.展開して詳細を表示
+[%collapsible]
+====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
 ----
-+
 [source, console]
 ----
 openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
-+
 出力にはと表示されます `Verified OK` 検証が成功したあとに、
 
+====
 . Astra Control Centerバンドルからイメージを抽出します。
 +
 [source, console]
@@ -104,13 +151,13 @@ NetApp Astra kubectlコマンドラインプラグインを使用して、ロー
 
 . プラグインがインストールされているかどうかを確認します。
 +
-[listing]
+[source, console]
 ----
 kubectl astra
 ----
 . 次のいずれかを実行します。
 +
-** プラグインがインストールされている場合、コマンドはkubectlプラグインのヘルプを返す必要があります。既存のバージョンのkubectl-mstraを削除するには、次のコマンドを実行します。 `delete /usr/local/bin/kubectl-astra`。
+** プラグインがインストールされている場合は、コマンドによってkubectlプラグインのヘルプが返され、既存のバージョンのkubectl-Astraを削除できます。 `delete /usr/local/bin/kubectl-astra`。
 ** コマンドからエラーが返された場合は、プラグインがインストールされていません。次の手順に進んでインストールしてください。
 
 
@@ -192,7 +239,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.04.2-7
+export PACKAGEVERSION=23.07.0-24
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -211,7 +258,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.04.2-7
+export PACKAGEVERSION=23.07.0-24
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -227,7 +274,7 @@ NOTE: レジストリ設定に応じて、スクリプトが作成するイメ�
 +
 [listing]
 ----
-https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.2-7/image:version
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.07.0-24/image:version
 ----
 
 
@@ -239,33 +286,38 @@ https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.0
 
 . ディレクトリを変更します。
 +
-[listing]
+[source, console]
 ----
 cd manifests
 ----
 . Astra Control Centerオペレータ配置YAMLを編集します (`astra_control_center_operator_deploy.yaml`)を参照して、ローカルレジストリとシークレットを参照してください。
 +
-[listing]
+[source, console]
 ----
 vim astra_control_center_operator_deploy.yaml
 ----
 +
 .. 認証が必要なレジストリを使用する場合は、のデフォルト行を置換または編集します `imagePullSecrets: []` 次の条件を満たす場合：
 +
-[listing]
+[source, console]
 ----
 imagePullSecrets: [{name: astra-registry-cred}]
 ----
-.. 変更 `[your_registry_path]` をクリックします `kube-rbac-proxy` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
-.. 変更 `[your_registry_path]` をクリックします `acc-operator` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
+.. 変更 `ASTRA_IMAGE_REGISTRY` をクリックします `kube-rbac-proxy` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
+.. 変更 `ASTRA_IMAGE_REGISTRY` をクリックします `acc-operator` でイメージをプッシュしたレジストリパスへのイメージ <<イメージをローカルレジストリに追加します,前の手順>>。
 .. に次の値を追加します `env` セクション。
 +
-[listing]
+[source, console]
 ----
 - name: ACCOP_HELM_UPGRADETIMEOUT
   value: 300m
 ----
+
+
 +
+.Astra control_center_operator_deploy.yamlの例：
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 apiVersion: apps/v1
@@ -293,7 +345,7 @@ spec:
         - --upstream=http://127.0.0.1:8080/
         - --logtostderr=true
         - --v=10
-        *image: [your_registry_path]/kube-rbac-proxy:v4.8.0*
+        *image: ASTRA_IMAGE_REGISTRY/kube-rbac-proxy:v4.8.0*
         name: kube-rbac-proxy
         ports:
         - containerPort: 8443
@@ -307,7 +359,7 @@ spec:
           value: "2"
         *- name: ACCOP_HELM_UPGRADETIMEOUT*
           *value: 300m*
-        *image: [your_registry_path]/acc-operator:23.04.36*
+        *image: ASTRA_IMAGE_REGISTRY/acc-operator:23.07.24*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -336,18 +388,17 @@ spec:
         runAsUser: 65532
       terminationGracePeriodSeconds: 10
 ----
-
-
+====
 . 更新された Astra Control Center オペレータをインストールします。
 +
-[listing]
+[source, console]
 ----
 kubectl apply -f astra_control_center_operator_deploy.yaml
 ----
 +
-回答例：
-
-+
+.回答例：
+[%collapsible]
+====
 [listing]
 ----
 namespace/netapp-acc-operator unchanged
@@ -363,9 +414,10 @@ configmap/acc-operator-manager-config unchanged
 service/acc-operator-controller-manager-metrics-service unchanged
 deployment.apps/acc-operator-controller-manager configured
 ----
+====
 . ポッドが実行中であることを確認します
 +
-[listing]
+[source, console]
 ----
 kubectl get pods -n netapp-acc-operator
 ----
@@ -377,7 +429,7 @@ kubectl get pods -n netapp-acc-operator
 
 . Astra Control Centerカスタムリソース（CR）を編集します。
 +
-[listing]
+[source, console]
 ----
 kubectl edit AstraControlCenter -n [netapp-acc or custom namespace]
 ----
@@ -398,14 +450,14 @@ spec:
 ----
 . に次の項目を追加します `crds` の内部の設定 `spec`：
 +
-[listing]
+[source, console]
 ----
 crds:
   shouldUpgrade: true
 ----
 . 内に次の行を追加します `additionalValues` の内部 `spec` Astra Control Center CRで、次の手順を実行します。
 +
-[listing]
+[source, console]
 ----
 additionalValues:
     nautilus:
@@ -416,13 +468,13 @@ additionalValues:
 . ファイルエディタを保存して終了します。変更が適用され、アップグレードが開始されます。
 . （オプション）ポッドが終了し、再び使用可能になったことを確認します。
 +
-[listing]
+[source, console]
 ----
 watch kubectl get pods -n [netapp-acc or custom namespace]
 ----
 . アップグレードが完了して準備ができたことを示すため、Astra Controlのステータス状態が表示されるまで待ちます (`True`）：
 +
-[listing]
+[source, console]
 ----
 kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 ----
@@ -433,7 +485,7 @@ kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 [listing]
 ----
 NAME    UUID                                      VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      23.04.2-7   10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      23.07.0-24   10.111.111.111  True
 ----
 +
 

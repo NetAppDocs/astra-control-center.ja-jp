@@ -63,7 +63,7 @@ summary: 数ステップで Astra Control を使い始めましょう。
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4."] Astra Control Center を使用
-Astra Control Centerのセットアップが完了したら、Astra Control UIまたはを使用します https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API の略"^] アプリの管理と保護を開始するには：
+Astra Control Centerのセットアップが完了したら、Astra Control UIまたはを使用します https://docs.netapp.com/us-en/astra-automation["Astra Control API の略"^] アプリの管理と保護を開始するには：
 
 * link:../use/manage-apps.html["アプリの管理"^]:管理するリソースを定義します。
 * link:../use/protection-overview.html["アプリを保護します"^]：保護ポリシーを構成し、アプリケーションのレプリケーション、クローニング、移行を行います。
@@ -75,7 +75,7 @@ Astra Control Centerのセットアップが完了したら、Astra Control UI�
 
 == を参照してください。
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API の略"^]
+* https://docs.netapp.com/us-en/astra-automation["Astra Control API を使用"^]
 * link:../use/upgrade-acc.html["Astra Control Center をアップグレードします"^]
 * link:../support/get-help.html["Astra Controlのヘルプ"^]
 

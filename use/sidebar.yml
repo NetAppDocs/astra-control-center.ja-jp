@@ -12,7 +12,7 @@ entries:
     url: "/use/protect-apps.html"
   - title: アプリケーションのリストア
     url: "/use/restore-apps.html"
-  - title: アプリケーションをリモートシステムにレプリケートします
+  - title: ストレージバックエンド間でアプリケーションをレプリケート
     url: "/use/replicate_snapmirror.html"
   - title: アプリケーションのクローン作成と移行
     url: "/use/clone-apps.html"

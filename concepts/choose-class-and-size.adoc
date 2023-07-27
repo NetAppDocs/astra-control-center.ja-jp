@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concepts/choose-class-and-size.html 
 keywords: service level, storage class, storage classes, pv size, persistent volume size, volume size, bandwidth, performance, persistent, volume, kubernetes, containers 
-summary: Astra Control Centerは、ONTAP ストレージをベースとするTridentストレージクラスをサポートしています。ストレージクラスと永続的ボリュームのサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。 
+summary: Astra Control Centerはさまざまなストレージバックエンドをサポートします。  ストレージクラスと永続的ボリュームのサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。 
 ---
 = ストレージクラスと永続的ボリュームサイズ
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Astra Control Centerは、ONTAP ストレージをベースとするTri
 
 
 [role="lead"]
-Astra Control Centerは、ONTAP をストレージバックエンドとしてサポートします。
+Astra Control Centerでは、NetApp ONTAPとLonghornがストレージバックエンドとしてサポートされます。
 
 
 
@@ -21,6 +21,7 @@ Astra Control Centerは、ONTAP をストレージバックエンドとしてサ
 Astra Control Center は、次の機能をサポートします。
 
 * * ONTAP ストレージを基盤とするAstra Tridentストレージクラス*：ONTAP バックエンドを使用している場合、Astra Control CenterでONTAP バックエンドをインポートしてさまざまな監視情報をレポートすることができます。
+* *LonghornによってサポートされるCSIベースのストレージクラス*: Longhorn Container Storage Interface (CSI)ドライバでLonghornを使用できます。
 
 
 

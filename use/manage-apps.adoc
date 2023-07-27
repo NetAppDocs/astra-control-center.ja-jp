@@ -75,7 +75,7 @@ kubectl apply -f myapp.yaml
 これらのパターンに続くいくつかのオペレータアプリを次に示します。
 
 +
-** https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
+** https://github.com/k8ssandra/cass-operator["Apache K8ssandra"^]
 +
 
 NOTE: K8ssandra では、 In Place リストア処理がサポートされます。新しいネームスペースまたはクラスタにリストアするには、アプリケーションの元のインスタンスを停止する必要があります。これは、ピアグループ情報がインスタンス間通信を行わないようにするためです。アプリケーションのクローニングはサポートされていません。
@@ -139,7 +139,7 @@ TIP: ラベルは、 Kubernetes オブジェクトに割り当てて識別でき
 
 WARNING: アプリケーションを定義するときは、保護ポリシーを使用して複数のアプリケーションにKubernetesリソースを含めないようにしてください。Kubernetesリソースの保護ポリシーが重複していると、原因 のデータが競合する可能性があります <<例：リリースごとに保護ポリシーを分ける,詳細については、例を参照してください。>>
 
-.アプリケーションネームスペースへのクラスタを対象としたリソースの追加の詳細については、こちらをご覧ください。
+.を展開して、アプリケーションネームスペースへのクラスタを対象としたリソースの追加について詳しく説明します。
 [%collapsible]
 ====
 ネームスペースリソースに関連付けられているクラスタリソースを、自動的に含まれるアストラコントロールに加えてインポートできます。特定のグループ、種類、バージョンのリソースを含むルールを追加し、必要に応じてラベルを付けることができます。この処理は、Astra Controlに自動的に含まれないリソースがある場合などに実行します。
@@ -249,7 +249,7 @@ Astra Controlは、Kubernetesクラスタ上のシステムネームスペース
 image:acc_namespace_system.png["名前空間タブで使用可能な*システム名前空間の表示*オプションを示すスクリーンショット。"]
 
 
-TIP: Astra Control 自体は標準のアプリケーションではなく、「システムアプリケーション」です。 Astra Control 自体は管理しないでください。Astra Control 自体は、管理用にデフォルトでは表示されません。
+TIP: デフォルトでは、管理可能なアプリケーションとしてAstra Control Centerが表示されませんが、別のAstra Control Centerインスタンスを使用してAstra Control Centerインスタンスをバックアップおよびリストアできます。
 
 
 
@@ -267,6 +267,6 @@ DevOpsチームのKubernetes管理者がラベルを追加します `deployment=
 
 == 詳細については、こちらをご覧ください
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+* https://docs.netapp.com/us-en/astra-automation["Astra Control API を使用"^]
 * link:../use/unmanage.html["アプリの管理を解除します"]
 

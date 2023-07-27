@@ -16,25 +16,15 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 
 
 
-== 2023年5月18日（23.04.2）
-
-Astra Control Center（23.04.0）向けのこのパッチリリース（23.04.2）では、がサポートされます https://newreleases.io/project/github/kubernetes-csi/external-snapshotter/release/v6.1.0["Kubernetes CSI外部Snapshotコピーv6.1.0"^] およびは、次の項目を修正します。
-
-* 実行フックを使用する場合のインプレースアプリケーションリストアのバグ
-* バケットサービスとの接続に問題があります
-
-
-
-
-== 2023年4月25日（23.04.0）
+== 2023年7月26日（23.07.0）
 
 .新機能とサポート
-* link:../concepts/licensing.html["Astra Control Centerの新規インストールでは、90日間の評価用ライセンスがデフォルトで有効になります"^]
-* link:../use/execution-hooks.html["強化された実行フック機能と追加のフィルタオプション"^]
-* link:../use/execution-hooks.html["Astra Control Centerでレプリケーションのフェイルオーバー後に実行フックを実行できるようになりました"^]
-* link:../use/restore-apps.html#migrate-from-ontap-nas-economy-storage-to-ontap-nas-storage["「ontap-nas-economy storage」クラスから「ontap-nas」ストレージクラスへのボリュームの移行がサポートされます"^]
-* link:../use/restore-apps.html#filter-resources-during-an-application-restore["リストア処理中のアプリケーションリソースの追加または除外がサポートされます"^]
-* link:../use/manage-apps.html["データ専用アプリケーションの管理がサポートされます"]
+* link:../get-started/requirements.html#storage-backends["ストレッチ構成でのNetApp MetroClusterのストレージバックエンドとしての使用のサポート"^]
+* link:../get-started/requirements.html#storage-backends["Longhornをストレージバックエンドとして使用するためのサポート"^]
+* link:../use/replicate_snapmirror.html#delete-an-application-replication-relationship["同じKubernetesクラスタのONTAPバックエンド間でアプリケーションをレプリケートできるようになりました。"]
+* link:../use/manage-remote-authentication.html["Astra Control Centerで、リモート（LDAP）ユーザのログイン属性として「userPrincipalName」がサポートされるようになりました。"^]
+* link:../use/execution-hooks.html["Astra Control Centerを使用してレプリケーションのフェイルオーバー後に新しい実行フックタイプ「post-failover」を実行可能"^]
+* クローンワークフローでは、ライブクローンのみ（管理対象アプリケーションの現在の状態）がサポートされるようになりました。スナップショットまたはバックアップからクローンを作成するには、 link:../use/restore-apps.html["リストアのワークフロー"^]。
 
 
 .既知の問題および制限事項
@@ -44,8 +34,47 @@ Astra Control Center（23.04.0）向けのこのパッチリリース（23.04.2�
 
 
 
+== 2023年5月18日（23.04.2）
+
+.詳細
+[%collapsible]
+====
+Astra Control Center（23.04.0）向けのこのパッチリリース（23.04.2）では、がサポートされます https://newreleases.io/project/github/kubernetes-csi/external-snapshotter/release/v6.1.0["Kubernetes CSI外部Snapshotコピーv6.1.0"^] およびは、次の項目を修正します。
+
+* 実行フックを使用する場合のインプレースアプリケーションリストアのバグ
+* バケットサービスとの接続に問題があります
+
+
+====
+
+
+== 2023年4月25日（23.04.0）
+
+.詳細
+[%collapsible]
+====
+.新機能とサポート
+* https://docs.netapp.com/us-en/astra-control-center-2304/concepts/licensing.html["Astra Control Centerの新規インストールでは、90日間の評価用ライセンスがデフォルトで有効になります"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/execution-hooks.html["強化された実行フック機能と追加のフィルタオプション"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/execution-hooks.html["Astra Control Centerでレプリケーションのフェイルオーバー後に実行フックを実行できるようになりました"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/restore-apps.html#migrate-from-ontap-nas-economy-storage-to-ontap-nas-storage["「ontap-nas-economy storage」クラスから「ontap-nas」ストレージクラスへのボリュームの移行がサポートされます"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/restore-apps.html#filter-resources-during-an-application-restore["リストア処理中のアプリケーションリソースの追加または除外がサポートされます"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/manage-apps.html["データ専用アプリケーションの管理がサポートされます"]
+
+
+.既知の問題および制限事項
+* https://docs.netapp.com/us-en/astra-control-center-2304/release-notes/known-issues.html["このリリースの既知の問題"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
+
+
+====
+
+
 == 2022年11月22日（22.11.0）
 
+.詳細
+[%collapsible]
+====
 .新機能とサポート
 * https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["複数のネームスペースにまたがるアプリケーションのサポート"^]
 * https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["アプリケーション定義にクラスタリソースを含めることができます"^]
@@ -59,12 +88,17 @@ Astra Control Center（23.04.0）向けのこのパッチリリース（23.04.2�
 * https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
 
 
+====
 
 
 == 2022年9月8日（22.08.1）
 
+.詳細
+[%collapsible]
+====
 このパッチリリース（22.08.1）for Astra Control Center（22.08.0）では、NetApp SnapMirrorを使用したアプリケーションレプリケーションの小さなバグが修正されています。
 
+====
 
 
 == 2022年8月10日（22.08.0）

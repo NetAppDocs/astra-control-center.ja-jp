@@ -29,7 +29,7 @@ Astra Control Centerをインストールし、UIにログインしてパスワ�
 
 Astra Control Centerをインストールすると、組み込みの評価用ライセンスがすでにインストールされています。Astra Control Centerを評価する場合は、この手順を省略できます。
 
-新しいライセンスは、Astra Control UIまたはを使用して追加できます https://docs.netapp.com/us-en/astra-automation/index.html["API"^]。
+新しいライセンスは、Astra Control UIまたはを使用して追加できます https://docs.netapp.com/us-en/astra-automation["Astra Control API の略"^]。
 
 Astra Control Centerライセンスは、Kubernetes CPUユニットを使用してCPUリソースを測定し、すべての管理対象Kubernetesクラスタのワーカーノードに割り当てられたCPUリソースを考慮します。ライセンスはvCPUの使用量に基づいています。ライセンスの計算方法の詳細については、を参照してください link:../concepts/licensing.html["ライセンス"^]。
 
@@ -78,7 +78,7 @@ NOTE: 可能です https://docs.netapp.com/us-en/trident/trident-get-started/kub
 ** * Astra Tridentボリュームスナップショットコントローラとボリュームスナップショットクラスがインストールおよび設定されている*：ボリュームスナップショットコントローラがである必要があります https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["インストール済み"^] Astra Controlでスナップショットを作成できるようにします。Astra Tridentが少なくとも1つ `VolumeSnapshotClass` はい https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["セットアップ"^] 管理者による。
 
 
-* *Kubeconfigにアクセス可能*:にアクセスできます https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["クラスタkubeconfig"^] コンテキスト要素が1つだけ含まれます。
+* *Kubeconfigにアクセス可能*:にアクセスできます https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["デフォルトのクラスタkubeconfig"^] それは link:../get-started/install_acc.html#set-up-namespace-and-secret-for-registries-with-auth-requirements["インストール時に設定"^]。
 * * ONTAP クレデンシャル*：Astra Control Centerを使用してアプリケーションをバックアップおよびリストアするには、バックアップONTAP システムでONTAP クレデンシャルとスーパーユーザーIDを設定する必要があります。
 +
 ONTAP コマンドラインで次のコマンドを実行します。
@@ -112,7 +112,7 @@ Astra Tridentが存在する場合は、次のような出力が表示されま�
 [listing]
 ----
 NAME      VERSION
-trident   22.10.0
+trident   23.XX.X
 ----
 +
 Astra Tridentが存在しない場合は、次のような出力が表示されます。
@@ -151,9 +151,15 @@ ontap-gold (default)  csi.trident.netapp.io  Delete         Immediate          t
 
 
 
-=== 制限されたクラスタロールkubeconfigを作成します
+=== クラスタロールkubeconfigを作成します。
 
-必要に応じて、Astra Control Centerの限定管理者ロールを作成できます。これは、Astra Control Centerのセットアップに必要な手順 ではありません。この手順 を使用すると、管理対象のクラスタのAstra Control権限を制限する別のkubeconfigを作成できます。
+必要に応じて、Astra Control Center用の限定された権限または拡張された権限管理者ロールを作成できます。kubeconfigはAstra Control Centerのセットアップですでに設定されているため、これは必須の手順ではありません。 link:../get-started/install_acc.html#set-up-namespace-and-secret-for-registries-with-auth-requirements["インストールプロセス"^]。
+
+この手順を使用すると、次のいずれかのシナリオで環境を環境化する場合に、別のkubeconfigを作成できます。
+
+* 管理対象のクラスタに対するAstra Controlの権限を制限する
+* 複数のコンテキストを使用し、インストール時に設定されたデフォルトのAstra Control kubeconfigは使用できません。また、単一のコンテキストを持つ限定されたロールは環境では機能しません。
+
 
 .作業を開始する前に
 手順 の手順を実行する前に、管理するクラスタに次の情報があることを確認してください。
@@ -168,8 +174,6 @@ NOTE: この手順 では、Astra Control Centerを実行しているクラス�
 
 
 .手順
-[%collapsible]
-====
 . サービスアカウントを作成します。
 +
 .. という名前のサービスアカウントファイルを作成します `astracontrol-service-account.yaml`。
@@ -198,9 +202,14 @@ kubectl apply -f astracontrol-service-account.yaml
 ----
 
 
-. Astra Controlでクラスタを管理するために必要な最小限の権限を持つ、制限付きのクラスタロールを作成します。
+. 次のいずれかのクラスタロールを作成し、Astra Controlで管理するクラスタに必要な権限を割り当てます。
 +
-.. を作成します `ClusterRole` という名前のファイルです `astra-admin-account.yaml`。
+** *クラスタロールの制限*：このロールには、Astra Controlでクラスタを管理するために必要な最小限の権限が含まれます。
++
+.ステップのために展開
+[%collapsible]
+====
+... を作成します `ClusterRole` という名前のファイル。例： `astra-admin-account.yaml`。
 +
 名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。
 
@@ -310,12 +319,73 @@ rules:
   verbs:
   - use
 ----
-.. クラスタロールを適用します。
+... （OpenShiftクラスタの場合のみ） `astra-admin-account.yaml` ファイルまたは `# Use PodSecurityPolicies` セクション。
++
+[source, console]
+----
+# OpenShift security
+- apiGroups:
+  - security.openshift.io
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
+----
+... クラスタロールを適用します。
 +
 [source, console]
 ----
 kubectl apply -f astra-admin-account.yaml
 ----
+
+
+====
+** *クラスタロールの拡張*：Astra Controlで管理するクラスタの権限の拡張が含まれます。このロールは、複数のコンテキストを使用し、インストール時に設定されたデフォルトのAstra Control kubeconfigを使用できない場合や、単一のコンテキストを持つ限定されたロールが環境で機能しない場合に使用できます。
++
+
+NOTE: 次のようになります `ClusterRole` 手順はKubernetesの一般的な例です。ご使用の環境に固有の手順については、ご使用のKubernetesディストリビューションのドキュメントを参照してください。
+
++
+.ステップのために展開
+[%collapsible]
+====
+... を作成します `ClusterRole` という名前のファイル。例： `astra-admin-account.yaml`。
++
+名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。
+
++
+[source, subs="specialcharacters,quotes"]
+----
+*astra-admin-account.yaml*
+----
++
+[source, yaml]
+----
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: astra-admin-account
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - '*'
+  verbs:
+  - '*'
+- nonResourceURLs:
+  - '*'
+  verbs:
+  - '*'
+----
+... クラスタロールを適用します。
++
+[source, console]
+----
+kubectl apply -f astra-admin-account.yaml
+----
+
+
+====
 
 
 . サービスアカウントへのクラスタロールバインド用に、クラスタロールを作成します。
@@ -353,6 +423,60 @@ kubectl apply -f astracontrol-clusterrolebinding.yaml
 ----
 
 
+. トークンシークレットを作成して適用します。
++
+.. という名前のトークンシークレットファイルを作成します。 `secret-astracontrol-service-account.yaml`。
++
+[source, subs="specialcharacters,quotes"]
+----
+*secret-astracontrol-service-account.yaml*
+----
++
+[source, yaml]
+----
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret-astracontrol-service-account
+  namespace: default
+  annotations:
+    kubernetes.io/service-account.name: "astracontrol-service-account"
+type: kubernetes.io/service-account-token
+----
+.. トークンシークレットを適用します。
++
+[source, console]
+----
+kubectl apply -f secret-astracontrol-service-account.yaml
+----
+
+
+. トークンシークレットの名前を `secrets` Array（次の例の最後の行）：
++
+[source, console]
+----
+kubectl edit sa astracontrol-service-account
+----
++
+[source, subs="verbatim,quotes"]
+----
+apiVersion: v1
+imagePullSecrets:
+- name: astracontrol-service-account-dockercfg-48xhx
+kind: ServiceAccount
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"ServiceAccount","metadata":{"annotations":{},"name":"astracontrol-service-account","namespace":"default"}}
+  creationTimestamp: "2023-06-14T15:25:45Z"
+  name: astracontrol-service-account
+  namespace: default
+  resourceVersion: "2767069"
+  uid: 2ce068c4-810e-4a96-ada3-49cbf9ec3f89
+secrets:
+- name: astracontrol-service-account-dockercfg-48xhx
+*- name: secret-astracontrol-service-account*
+----
 . サービスアカウントのシークレットを一覧表示します（置き換えます） `<context>` インストールに適したコンテキストを使用して、次の操作を行います。
 +
 [source, console]
@@ -366,12 +490,12 @@ kubectl get serviceaccount astracontrol-service-account --context <context> --na
 [listing]
 ----
 "secrets": [
-{ "name": "astracontrol-service-account-dockercfg-vhz87"},
-{ "name": "astracontrol-service-account-token-r59kr"}
+{ "name": "astracontrol-service-account-dockercfg-48xhx"},
+{ "name": "secret-astracontrol-service-account"}
 ]
 ----
 +
-内の各要素のインデックス `secrets` アレイは0から始まります。上記の例では、のインデックスです `astracontrol-service-account-dockercfg-vhz87` は0、のインデックスです `astracontrol-service-account-token-r59kr` は1です。出力で、 "token" という単語が含まれるサービスアカウント名のインデックスをメモしてください。
+内の各要素のインデックス `secrets` アレイは0から始まります。上記の例では、のインデックスです `astracontrol-service-account-dockercfg-48xhx` は0、のインデックスです `secret-astracontrol-service-account` は1です。出力で、サービスアカウントシークレットのインデックス番号をメモします。このインデックス番号は次の手順で必要になります。
 
 . 次のように kubeconfig を生成します。
 +
@@ -460,7 +584,6 @@ mv kubeconfig-sa YOUR_CLUSTER_NAME_kubeconfig
 ----
 
 
-====
 
 
 === 次の手順
@@ -494,7 +617,7 @@ NOTE: 。 `kubeconfig.yaml` ファイルには、1つのクラスタのクラス
 
 +
 
-IMPORTANT: 自分で作成する場合は `kubeconfig` ファイルには、* 1つの*コンテキストエレメントのみを定義する必要があります。を参照してください https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes のドキュメント"^] を参照してください `kubeconfig` ファイル。を使用して、制限されたクラスタロールのkubeconfigを作成した場合 <<制限されたクラスタロールkubeconfigを作成します,上記のプロセス>>この手順では、kubeconfigをアップロードまたは貼り付けてください。
+IMPORTANT: 自分で作成する場合は `kubeconfig` ファイルには、* 1つの*コンテキストエレメントのみを定義する必要があります。を参照してください https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes のドキュメント"^] を参照してください `kubeconfig` ファイル。を使用して、制限されたクラスタロールのkubeconfigを作成した場合 <<クラスタロールkubeconfigを作成します。,上記のプロセス>>この手順では、kubeconfigをアップロードまたは貼り付けてください。
 
 . クレデンシャル名を指定します。デフォルトでは、クレデンシャル名がクラスタの名前として自動的に入力されます。
 . 「 * 次へ * 」を選択します。
@@ -631,9 +754,7 @@ openssl req -new -newkey rsa:4096 -nodes -sha256 -subj "/" -outform pem -out ont
 
 . これらの証明書をONTAP にインストールします。生成してインストールします `server` および `server-ca` ONTAP の証明書。
 +
-詳細はsample.yamlを参照してください
-
-+
+.sample.yamlの展開
 [%collapsible]
 ====
 [listing]
@@ -716,9 +837,7 @@ Certificate chain
 . パスワードを使用しない通信用に同じホストのクライアント証明書を作成します。Astra Control Centerは、このプロセスを使用してONTAP と通信します。
 . クライアント証明書を生成してONTAP にインストールします。
 +
-詳細はsample.yamlを参照してください
-
-+
+.sample.yamlの展開
 [%collapsible]
 ====
 [listing]
@@ -838,7 +957,7 @@ NOTE: バックエンドが表示されるようにページを更新する必�
 
 == バケットを追加します
 
-バケットは、Astra Control UIまたはを使用して追加できます https://docs.netapp.com/us-en/astra-automation/index.html["API"^]。アプリケーションと永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションのクローニングを行う場合は、オブジェクトストアバケットプロバイダの追加が不可欠です。Astra Control は、これらのバックアップまたはクローンを、定義したオブジェクトストアバケットに格納します。
+バケットは、Astra Control UIまたはを使用して追加できます https://docs.netapp.com/us-en/astra-automation["Astra Control API の略"^]。アプリケーションと永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションのクローニングを行う場合は、オブジェクトストアバケットプロバイダの追加が不可欠です。Astra Control は、これらのバックアップまたはクローンを、定義したオブジェクトストアバケットに格納します。
 
 アプリケーション構成と永続的ストレージを同じクラスタにクローニングする場合、Astra Controlにバケットを作成する必要はありません。アプリケーションのSnapshot機能にはバケットは必要ありません。
 
@@ -915,6 +1034,6 @@ Astra Control Centerにログインしてクラスタを追加したので、Ast
 [discrete]
 == 詳細については、こちらをご覧ください
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+* https://docs.netapp.com/us-en/astra-automation["Astra Control API を使用"^]
 * link:../release-notes/known-issues.html["既知の問題"]
 

@@ -25,7 +25,7 @@ Astra Control Center で管理するクラスタを追加すると、その場�
 . [* Clusters] ページで、詳細を表示するクラスタを選択します。
 +
 
-NOTE: クラスタの構成 `removed` クラスタとネットワークの接続が正常であると表示される（Kubernetes APIを使用してクラスタに外部からアクセスしようとすると成功する）場合は、Astra Controlに指定したkubeconfigが無効になる可能性があります。クラスタでの証明書のローテーションまたは有効期限が原因の可能性があります。この問題を修正するには、を使用して、 Astra Control のクラスタに関連付けられたクレデンシャルを更新します link:https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API の略"]。
+NOTE: クラスタの構成 `removed` クラスタとネットワークの接続が正常であると表示される（Kubernetes APIを使用してクラスタに外部からアクセスしようとすると成功する）場合は、Astra Controlに指定したkubeconfigが無効になる可能性があります。クラスタでの証明書のローテーションまたは有効期限が原因の可能性があります。この問題を修正するには、を使用して、 Astra Control のクラスタに関連付けられたクレデンシャルを更新します https://docs.netapp.com/us-en/astra-automation["Astra Control API の略"]。
 
 . [Overview （概要） ] 、 [* Storage （ * ストレージ） ] 、 [* Activity * （アクティビティ * ） ] タブの情報を表示して、必要な情報を検索します。
 +

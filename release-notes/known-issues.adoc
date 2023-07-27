@@ -17,43 +17,12 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 
 現在のリリースに影響する既知の問題は次のとおりです。
 
-.アプリケーション
-* <<アプリケーションをリストアすると、 PV のサイズが元の PV よりも大きくなります>>
-* <<特定のバージョンの PostgreSQL を使用すると、アプリケーションクローンが失敗します>>
-* <<サービスアカウントレベルの OCP セキュリティコンテキスト制約（ SCC ）を使用すると、アプリケーションのクローンが失敗する>>
-* <<ストレージクラスを設定してアプリケーションを導入すると、アプリケーションのクローンが失敗する>>
 * <<クラスタの管理後にボリュームnapshotclassを追加すると、アプリケーションのバックアップとSnapshotが失敗します>>
-
-
-.クラスタ
-* <<デフォルトの kubeconfig ファイルに複数のコンテキストが含まれている場合、 Astra Control Center を使用したクラスタの管理が失敗します>>
-* <<Astra Control Center 23.04へのアップグレード後に一部のポッドが起動しない>>
-* <<一部のポッドでは、23.04から23.04.2へのアップグレードのパージステージ後にエラー状態が表示されます>>
+* <<ストレージクラスを設定してアプリケーションを導入すると、アプリケーションのクローンが失敗する>>
+* <<kubeconfigファイルに複数のコンテキストが含まれている場合にAstra Control Centerでクラスタの管理が失敗する>>
 * <<Istio環境で監視ポッドがクラッシュする可能性があります>>
-
-
-.その他の問題
-* <<プロキシ経由で接続している場合、管理対象クラスタはNetApp Cloud Insights に表示されません>>
 * <<Astra Trident がオフラインの場合、 Internal Service Error （ 500 ）によりアプリケーションデータ管理処理が失敗する>>
 
-
-
-
-== アプリケーションをリストアすると、 PV のサイズが元の PV よりも大きくなります
-
-バックアップの作成後に永続ボリュームのサイズを変更し、そのバックアップからリストアすると、永続ボリュームのサイズはバックアップのサイズではなく PV の新しいサイズと一致します。
-
-
-
-== 特定のバージョンの PostgreSQL を使用すると、アプリケーションクローンが失敗します
-
-Bitnami PostgreSQL 11.5.0 チャートを使用すると、同じクラスタ内のアプリケーションクローンは一貫して失敗します。正常にクローニングするには、以前のバージョンのグラフを使用してください。
-
-
-
-== サービスアカウントレベルの OCP セキュリティコンテキスト制約（ SCC ）を使用すると、アプリケーションのクローンが失敗する
-
-OpenShift Container Platform クラスタのネームスペース内のサービスアカウントレベルで元のセキュリティコンテキストの制約が設定されていると、アプリケーションクローンが失敗する場合があります。アプリケーションクローンが失敗すると、Astra Control Centerの管理対象アプリケーション領域にステータスとともに表示されます `Removed`。を参照してください https://kb.netapp.com/Cloud/Astra/Control/Application_clone_is_failing_for_an_application_in_Astra_Control_Center["技術情報アーティクル"^] を参照してください。
 
 
 
@@ -69,56 +38,10 @@ OpenShift Container Platform クラスタのネームスペース内のサービ
 
 
 
-== デフォルトの kubeconfig ファイルに複数のコンテキストが含まれている場合、 Astra Control Center を使用したクラスタの管理が失敗します
+== kubeconfigファイルに複数のコンテキストが含まれている場合にAstra Control Centerでクラスタの管理が失敗する
 
 複数のクラスタおよびコンテキストで kubeconfig を使用することはできません。を参照してください link:https://kb.netapp.com/Cloud/Astra/Control/Managing_cluster_with_Astra_Control_Center_may_fail_when_using_default_kubeconfig_file_contains_more_than_one_context["技術情報アーティクル"^] を参照してください。
 
-
-
-== Astra Control Center 23.04へのアップグレード後に一部のポッドが起動しない
-
-Astra Control Center 23.04にアップグレードすると、一部のポッドが起動しないことがあります。回避策 として、次の手順に従って該当するポッドを手動で再起動します。
-
-. 影響を受けるポッドを特定し、<namespace> を現在のネームスペースに置き換えます。
-+
-[listing]
-----
-kubectl get pods -n <namespace> | grep au-pod
-----
-+
-影響を受けるポッドの結果は次のようになります。
-
-+
-[listing]
-----
-pcloud-astra-control-center-au-pod-0 0/1 CreateContainerConfigError 0 13s
-----
-. 影響を受ける各ポッドを再起動し、<namespace> を現在のネームスペースに置き換えます。
-+
-[listing]
-----
-kubectl delete pod pcloud-astra-control-center-au-pod-0 -n <namespace>
-----
-
-
-
-
-== 一部のポッドでは、23.04から23.04.2へのアップグレードのパージステージ後にエラー状態が表示されます
-
-Astra Control Center 23.04.2にアップグレードしたあと、一部のポッドでに関連するログにエラーが表示されることがあります `task-service-task-purge`：
-
-[listing]
-----
-kubectl get all -n netapp-acc -o wide|grep purge
-
-pod/task-service-task-purge-28282828-ab1cd     0/1     Error       0             48m     10.111.0.111   openshift-clstr-ol-07-zwlj8-worker-jhp2b   <none>           <none>
-----
-このエラー状態は、クリーンアップステップが正しく実行されなかったことを意味します。23.04.2への全体的なアップグレードが成功しました。次のコマンドを実行してタスクをクリーンアップし、エラー状態を解消します。
-
-[listing]
-----
-kubectl delete job task-service-task-purge-[system-generated task ID] -n <netapp-acc or custom namespace>
-----
 
 
 == Istio環境で監視ポッドがクラッシュする可能性があります
@@ -171,24 +94,6 @@ telegraf-rs-rrnsb 2/2 Running 0 11s
 ----
 
 
-
-
-== プロキシ経由で接続している場合、管理対象クラスタはNetApp Cloud Insights に表示されません
-
-アストラコントロールセンターがプロキシ経由でネットアップCloud Insights に接続している場合、管理対象クラスタがCloud Insights に表示されないことがあります。回避策 として、管理対象の各クラスタで次のコマンドを実行します。
-
-[source, console]
-----
-kubectl get cm telegraf-conf -o yaml -n netapp-monitoring | sed '/\[\[outputs.http\]\]/c\    [[outputs.http]]\n    use_system_proxy = true' | kubectl replace -f -
-----
-[source, console]
-----
-kubectl get cm telegraf-conf-rs -o yaml -n netapp-monitoring | sed '/\[\[outputs.http\]\]/c\    [[outputs.http]]\n    use_system_proxy = true' | kubectl replace -f -
-----
-[source, console]
-----
-kubectl get pods -n netapp-monitoring --no-headers=true | grep 'telegraf-ds\|telegraf-rs' | awk '{print $1}' | xargs kubectl delete -n netapp-monitoring pod
-----
 
 
 == Astra Trident がオフラインの場合、 Internal Service Error （ 500 ）によりアプリケーションデータ管理処理が失敗する

@@ -81,65 +81,6 @@ kubectl delete limitrange cpu-limit-range -n [netapp-acc or custom namespace]
 
 
 
-== ネームスペース間のネットワーク通信を有効にします
-
-一部の環境では、NetworkPolicy構造体を使用してネームスペース間のトラフィックを制限します。Astra Control CenterオペレータとAstra Control Centerは異なる名前空間にあります。これらの異なるネームスペース内のサービスは、相互に通信できる必要があります。この通信をイネーブルにするには、次の手順を実行します。
-
-.手順
-. Astra Control Center名前空間に存在するNetworkPolicyリソースをすべて削除します。
-+
-[source, console]
-----
-kubectl get networkpolicy -n [netapp-acc or custom namespace]
-----
-. 前のコマンドで返された各NetworkPolicyオブジェクトについて、次のコマンドを使用して削除します。[object_name]を、返されたオブジェクトの名前に置き換えます。
-+
-[source, console]
-----
-kubectl delete networkpolicy [OBJECT_NAME] -n [netapp-acc or custom namespace]
-----
-. 次のリソースファイルを適用してを設定します `acc-avp-network-policy` AstraプラグインサービスがAstra Control Centerサービスに要求を行うことを許可するオブジェクト。角かっこ内の情報を環境内の情報に置き換えます。
-+
-[source, yaml]
-----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: acc-avp-network-policy
-  namespace: <ACC_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA CONTROL CENTER NAMESPACE NAME
-spec:
-  podSelector: {}
-  policyTypes:
-    - Ingress
-  ingress:
-    - from:
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: <PLUGIN_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA PLUGIN NAMESPACE NAME
-----
-. 次のリソースファイルを適用してを設定します `acc-operator-network-policy` Astra Control CenterオペレータがAstra Control Centerサービスと通信できるようにするためのオブジェクト。角かっこ内の情報を環境内の情報に置き換えます。
-+
-[source, yaml]
-----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: acc-operator-network-policy
-  namespace: <ACC_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA CONTROL CENTER NAMESPACE NAME
-spec:
-  podSelector: {}
-  policyTypes:
-    - Ingress
-  ingress:
-    - from:
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: <NETAPP-ACC-OPERATOR> # REPLACE THIS WITH THE OPERATOR NAMESPACE NAME
-----
-
-
-
-
 == カスタム TLS 証明書を追加します
 
 Astra Control Centerは、入力コントローラトラフィック（一部の設定のみ）およびWebブラウザでのWeb UI認証に、デフォルトで自己署名TLS証明書を使用します。既存の自己署名 TLS 証明書を削除して、認証局（ CA ）が署名した TLS 証明書に置き換えることができます。
@@ -179,6 +120,10 @@ kubectl get certificate -n <ACC-deployment-namespace>
 [source, console]
 ----
 kubectl delete cert cert-manager-certificates -n <ACC-deployment-namespace>
+----
++
+[source, console]
+----
 kubectl delete secret secure-testing-cert -n <ACC-deployment-namespace>
 ----
 
@@ -197,11 +142,16 @@ kubectl create secret tls <secret-name> --key <private-key-filename> --cert <cer
 ----
 . 次のコマンドと例を使用して、クラスタカスタムリソース定義（CRD）ファイルを編集し、を変更します `spec.selfSigned` の値 `spec.ca.secretName` 以前に作成したTLSシークレットを参照するには、次の手順を実行します
 +
-[listing]
+[source, console]
 ----
 kubectl edit clusterissuers.cert-manager.io/cert-manager-certificates -n <ACC-deployment-namespace>
-....
+----
++
+CRD：
 
++
+[listing]
+----
 #spec:
 #  selfSigned: {}
 
@@ -211,11 +161,16 @@ spec:
 ----
 . 次のコマンドと出力例を使用して、変更が正しいこと、および交換する証明書をクラスタで検証する準備ができていることを確認します `<ACC-deployment-namespace>` Astra Control Center導入ネームスペースを使用して、次の作業を行います。
 +
-[listing]
+[source, yaml]
 ----
 kubectl describe clusterissuers.cert-manager.io/cert-manager-certificates -n <ACC-deployment-namespace>
-....
+----
++
+対応：
 
++
+[listing]
+----
 Status:
   Conditions:
     Last Transition Time:  2021-07-01T23:50:27Z
@@ -224,23 +179,22 @@ Status:
     Status:                True
     Type:                  Ready
 Events:                    <none>
-
 ----
 . を作成します `certificate.yaml` 次の例を使用してファイルを作成し、括弧<>のプレースホルダ値を適切な情報に置き換えます。
 +
-[source, yaml]
+[source, yaml, subs="+quotes"]
 ----
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: <certificate-name>
+  *name: <certificate-name>*
   namespace: <ACC-deployment-namespace>
 spec:
-  secretName: <certificate-secret-name>
+  *secretName: <certificate-secret-name>*
   duration: 2160h # 90d
   renewBefore: 360h # 15d
   dnsNames:
-  - <astra.dnsname.example.com> #Replace with the correct Astra Control Center DNS address
+  *- <astra.dnsname.example.com>* #Replace with the correct Astra Control Center DNS address
   issuerRef:
     kind: ClusterIssuer
     name: cert-manager-certificates
@@ -253,11 +207,16 @@ kubectl apply -f certificate.yaml
 ----
 . 次のコマンドと出力例を使用して、証明書が正しく作成されていること、および作成時に指定した引数（名前、期間、更新期限、 DNS 名など）を使用していることを確認します。
 +
-[listing]
+[source, console]
 ----
 kubectl describe certificate -n <ACC-deployment-namespace>
-....
+----
++
+対応：
 
++
+[listing]
+----
 Spec:
   Dns Names:
     astra.example.com
@@ -280,26 +239,38 @@ Status:
   Revision:                1
 Events:                    <none>
 ----
+. 次のコマンドと例を使用してTLS Stores CRDを編集し、括弧<>のプレースホルダ値を適切な情報に置き換えます。
++
+[listing]
+----
+kubectl edit tlsstores.traefik.io -n <ACC-deployment-namespace>
+----
++
+CRD：
+
++
+[listing]
+----
+...
+spec:
+  defaultCertificate:
+    secretName: <certificate-secret-name>
+----
 . 次のコマンドおよび例を使用して、入力 CRD TLS オプションを編集し、新しい証明書シークレットを指定します。括弧 <> のプレースホルダ値を適切な情報に置き換えます。
 +
 [listing]
 ----
-kubectl edit ingressroutes.traefik.containo.us -n <ACC-deployment-namespace>
-....
+kubectl edit ingressroutes.traefik.io -n <ACC-deployment-namespace>
+----
++
+CRD：
 
-# tls:
-#    options:
-#      name: default
-#    secretName: secure-testing-cert
-#    store:
-#      name: default
-
++
+[listing]
+----
+...
  tls:
-    options:
-      name: default
     secretName: <certificate-secret-name>
-    store:
-      name: default
 ----
 . Web ブラウザを使用して、 Astra Control Center の導入 IP アドレスにアクセスします。
 . 証明書の詳細がインストールした証明書の詳細と一致していることを確認します。

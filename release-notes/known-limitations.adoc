@@ -21,7 +21,6 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 
 .Role-Based Access Control （ RBAC ；ロールベースアクセス制御）の制限事項があります
 * <<ネームスペースの RBAC に制約があるユーザは、クラスタの追加と管理解除を行うことができます>>
-* <<名前空間の制約を持つメンバは、管理者が名前空間を制約に追加するまで、クローンまたは復元されたアプリケーションにアクセスできません>>
 
 
 .アプリケーション管理の制限
@@ -32,16 +31,16 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 * <<証明書マネージャを使用するアプリケーションの In Place リストア処理はサポートされていません>>
 * <<OLM 対応およびクラスタ対象のオペレータ展開アプリケーションはサポートされていません>>
 * <<Helm 2 で展開されたアプリケーションはサポートされていません>>
+* <<特定のバージョンのSnapshotコントローラを含むKubernetes 1.25以降のクラスタでは、Snapshotが失敗することがあります>>
+* <<Astra Control Center インスタンスの削除中にバックアップとスナップショットが保持されない場合があります>>
 
 
 .一般的な制限事項
+* <<LDAPユーザおよびグループの制限事項>>
 * <<Astra Control Center の S3 バケットは、使用可能容量を報告しません>>
 * <<Astra Control Center は、プロキシサーバー用に入力した詳細を検証しません>>
 * <<Postgres ポッドへの既存の接続が原因で障害が発生します>>
-* <<Astra Control Center インスタンスの削除中にバックアップとスナップショットが保持されない場合があります>>
-* <<LDAPユーザおよびグループの制限事項>>
 * <<[Activity]ページには、最大10万件のイベントが表示されます>>
-* <<特定のバージョンのSnapshotコントローラを含むKubernetes 1.25以降のクラスタでは、Snapshotが失敗することがあります>>
 
 
 
@@ -100,12 +99,6 @@ current-context: kubernetes-admin@kubernetes
 
 
 
-== 名前空間の制約を持つメンバは、管理者が名前空間を制約に追加するまで、クローンまたは復元されたアプリケーションにアクセスできません
-
-任意 `member` ネームスペース名/ IDによるRBACの制約があるユーザは、同じクラスタまたは組織のアカウントにある他のクラスタの新しいネームスペースにアプリケーションをクローニングまたはリストアできます。ただし、同じユーザが、クローニングまたはリストアされたアプリケーションに新しいネームスペースからアクセスすることはできません。クローンまたはリストア処理によって新しいネームスペースが作成されると、アカウントの管理者または所有者はを編集できるようになります `member` 影響を受けるユーザーが新しい名前空間へのアクセスを許可するためのユーザーアカウントの制約を更新します。
-
-
-
 == 1つのネームスペース内の複数のアプリケーションをまとめて別のネームスペースにリストアすることはできません
 
 複数のアプリケーションを1つのネームスペースで管理する場合（Astra Controlで複数のアプリケーション定義を作成する）、すべてのアプリケーションを別の1つのネームスペースにリストアすることはできません。各アプリケーションを専用のネームスペースにリストアする必要があります。
@@ -128,7 +121,7 @@ Astra Controlでは、どのクラウドインスタンスに対してもデフ�
 
 Astra Control は、名前空間を対象とした演算子でインストールされたアプリケーションをサポートします。これらの演算子は、一般に「パスバイリファレンス」アーキテクチャではなく「パスバイ値」で設計されています。これらのパターンに続くいくつかのオペレータアプリを次に示します。
 
-* https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
+* https://github.com/k8ssandra/cass-operator["Apache K8ssandra"^]
 +
 
 NOTE: K8ssandra では、 In Place リストア処理がサポートされます。新しいネームスペースまたはクラスタにリストアするには、アプリケーションの元のインスタンスを停止する必要があります。これは、ピアグループ情報がインスタンス間通信を行わないようにするためです。アプリケーションのクローニングはサポートされていません。
@@ -162,6 +155,35 @@ Helm を使用してアプリケーションを展開する場合、 Astra Contr
 
 
 
+== 特定のバージョンのSnapshotコントローラを含むKubernetes 1.25以降のクラスタでは、Snapshotが失敗することがあります
+
+バージョン1.25以降を実行しているKubernetesクラスタのSnapshotは、クラスタにSnapshotコントローラAPIのバージョンv1beta1がインストールされている場合に失敗することがあります。
+
+既存のKubernetes 1.25以降のインストールをアップグレードする場合は、回避策 として次の手順を実行します。
+
+. 既存のSnapshot CRDと既存のSnapshotコントローラをすべて削除します。
+. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Astra Trident をアンインストール"^]。
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["スナップショットCRDとスナップショットコントローラをインストールします"^]。
+. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["最新バージョンのAstra Tridentをインストール"^]。
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["VolumeSnapshotClassを作成します"^]。
+
+
+
+
+== Astra Control Center インスタンスの削除中にバックアップとスナップショットが保持されない場合があります
+
+評価用ライセンスをお持ちの場合は、 Astra Control Center に障害が発生したときに ASUP を送信していないときにデータが失われないように、アカウント ID を必ず保存してください。
+
+
+
+== LDAPユーザおよびグループの制限事項
+
+Astra Control Centerは、最大5,000のリモートグループと10,000のリモートユーザをサポートします。
+
+Astra Controlでは、末尾にスペースがあるRDNを含むDNを持つLDAPエンティティ（ユーザまたはグループ）はサポートされません。
+
+
+
 == Astra Control Center の S3 バケットは、使用可能容量を報告しません
 
 Astra Control Center で管理されているアプリケーションのバックアップまたはクローニングを行う前に、 ONTAP または StorageGRID 管理システムでバケット情報を確認します。
@@ -180,36 +202,9 @@ Postgres ポッドで操作を実行する場合は、 psql コマンドを使�
 
 
 
-== Astra Control Center インスタンスの削除中にバックアップとスナップショットが保持されない場合があります
-
-評価用ライセンスをお持ちの場合は、 Astra Control Center に障害が発生したときに ASUP を送信していないときにデータが失われないように、アカウント ID を必ず保存してください。
-
-
-
-== LDAPユーザおよびグループの制限事項
-
-Astra Control Centerは、最大5,000のリモートグループと10,000のリモートユーザをサポートします。
-
-
-
 == [Activity]ページには、最大10万件のイベントが表示されます
 
-[Astra Control Activity]ページには、最大10、000件のイベントを表示できます。ログに記録されたすべてのイベントを表示するには、を使用してイベントを取得します link:../rest-api/api-intro.html["Astra Control REST API"^]。
-
-
-
-== 特定のバージョンのSnapshotコントローラを含むKubernetes 1.25以降のクラスタでは、Snapshotが失敗することがあります
-
-バージョン1.25以降を実行しているKubernetesクラスタのSnapshotは、クラスタにSnapshotコントローラAPIのバージョンv1beta1がインストールされている場合に失敗することがあります。
-
-既存のKubernetes 1.25以降のインストールをアップグレードする場合は、回避策 として次の手順を実行します。
-
-. 既存のSnapshot CRDと既存のSnapshotコントローラをすべて削除します。
-. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Astra Trident をアンインストール"^]。
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["スナップショットCRDとスナップショットコントローラをインストールします"^]。
-. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["最新バージョンのAstra Tridentをインストール"^]。
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["VolumeSnapshotClassを作成します"^]。
-
+[Astra Control Activity]ページには、最大10、000件のイベントを表示できます。ログに記録されたすべてのイベントを表示するには、を使用してイベントを取得します link:../rest-api/api-intro.html["Astra Control API の略"^]。
 
 
 

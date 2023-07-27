@@ -52,7 +52,7 @@ AWS に Astra Control Center を導入する前に、次のものが必要です
 
 Astra Control Center を使用するには、 AWS 向けに次の運用環境が必要です。
 
-* Red Hat OpenShift Container Platform 4.8 の場合
+* Red Hat OpenShift Container Platform 4.11~4.13
 
 
 
@@ -86,12 +86,16 @@ Astra Control Center の FQDN をロードバランシング IP アドレスに�
 
 
 | Astra Trident（以前のCloud Managerで、Kubernetesクラスタ検出の一部としてNetApp BlueXPにインストール）  a| 
-Trident 21.04 以降がインストールおよび設定され、 NetApp ONTAP バージョン 9.5 以降がストレージバックエンドとしてインストールされている必要があります
+Astra Trident 22.10以降のインストールと設定、およびストレージバックエンドとしてのNetApp ONTAPバージョン9.8以降[[aws-registry]]
 
 
 
 | イメージレジストリ  a| 
-Astra Control Center のビルドイメージをプッシュできる、 AWS Elastic Container Registry などの既存のプライベートレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
+NetAppには、Astra Control Centerのビルドイメージの取得に使用できるレジストリが用意されています。
+`http://netappdownloads.jfrog.io/docker-astra-control-prod`
+Astra Control Centerのインストールプロセスでこのイメージレジストリを使用する手順については、NetAppサポートにお問い合わせください。
+
+NetAppイメージレジストリにアクセスできない場合は、AWS Elastic Container Registry（ECR）などの既存のプライベートレジストリを用意しておく必要があります。このレジストリにAstra Control Centerのビルドイメージをプッシュできます。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
 
 
 NOTE: Restic ベースのイメージを使用してアプリケーションをバックアップおよび復元するには、 Astra Control Center ホストクラスタと管理対象クラスタが同じイメージレジストリにアクセスできる必要があります。
@@ -143,26 +147,30 @@ Red Hat OpenShiftクラスタとNetApp BlueXP（旧Cloud Manager）コネクタ�
 
 AWS に Red Hat OpenShift Container Platform クラスタをインストールします。
 
-インストール手順については、を参照してください https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["AWS で OpenShift Container Platform にクラスタをインストールします"^]。
+インストール手順については、を参照してください https://docs.openshift.com/container-platform/4.13/installing/installing_aws/installing-aws-default.html["AWS で OpenShift Container Platform にクラスタをインストールします"^]。
 
 
 
 === AWS を設定します
 
-次に、仮想ネットワークの作成、EC2コンピューティングインスタンスのセットアップ、AWS S3バケットの作成、Astra Control CenterイメージをホストするElastic Container Register（ECR）の作成、このレジストリへのイメージのプッシュを行うようにAWSを設定します。
+次に、仮想ネットワークを作成するようにAWSを設定し、EC2コンピューティングインスタンスをセットアップし、AWS S3バケットを作成します。にアクセスできない場合 <<aws-registry,NetApp Astra Control Centerイメージレジストリ>>また、Astra Control CenterのイメージをホストするElastic Container Registry（ECR）を作成し、このレジストリにイメージをプッシュする必要があります。
 
-AWS のドキュメントに従って次の手順を実行します。を参照してください https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-default.html["AWS インストールドキュメント"^]。
+AWS のドキュメントに従って次の手順を実行します。を参照してください https://docs.openshift.com/container-platform/4.13/installing/installing_aws/installing-aws-default.html["AWS インストールドキュメント"^]。
 
 . AWS仮想ネットワークを作成します。
 . EC2 コンピューティングインスタンスを確認します。AWS ではベアメタルサーバまたは VM を使用できます。
 . インスタンスタイプが、マスターノードとワーカーノードの Astra の最小リソース要件に一致していない場合は、 Astra の要件に合わせて AWS でインスタンスタイプを変更します。  を参照してください link:../get-started/requirements.html["Astra Control Center の要件"^]。
 . バックアップを格納する AWS S3 バケットを少なくとも 1 つ作成します。
-. すべての ACC イメージをホストする AWS Elastic Container Registry （ ECR ）を作成します。
+. （オプション） <<aws-registry,NetAppイメージレジストリ>>次の手順を実行します。
++
+.. AWS Elastic Container Registry（ECR）を作成して、Astra Control Centerのすべてのイメージをホストします。
 +
 
 NOTE: ECRを作成しないと、Astra Control Centerは、AWSバックエンドを持つCloud Volumes ONTAP を含むクラスタからモニタリングデータにアクセスできません。問題 は、 Astra Control Center を使用して検出および管理しようとしたクラスタに AWS ECR アクセスがない場合に発生します。
 
-. ACC イメージを定義済みのレジストリにプッシュします。
+.. Astra Control Centerのイメージを定義済みのレジストリにプッシュ
+
+
 
 
 
@@ -234,7 +242,7 @@ GCPでAstra Control Centerを導入する前に、次の項目が必要です。
 * Astra Control Center ライセンス。を参照してください link:../get-started/requirements.html["Astra Control Center のライセンス要件"^]。
 * link:../get-started/requirements.html["Astra Control Center の要件を満たす"^]。
 * NetApp Cloud Central アカウント
-* OCPを使用している場合は、Red Hat OpenShift Container Platform（OCP）4.10
+* OCPを使用している場合、Red Hat OpenShift Container Platform（OCP）4.11~4.13
 * OCPを使用する場合は、Red Hat OpenShift Container Platform（OCP）権限（ポッドを作成するためのネームスペースレベル）
 * バケットとコネクタの作成を可能にする権限を持つGCPサービスアカウント
 
@@ -274,12 +282,16 @@ Astra Control Center の FQDN をロードバランシング IP アドレスに�
 
 
 | Astra Trident（以前のCloud Managerで、Kubernetesクラスタ検出の一部としてNetApp BlueXPにインストール）  a| 
-Trident 21.04 以降がインストールおよび設定され、 NetApp ONTAP バージョン 9.5 以降がストレージバックエンドとしてインストールされている必要があります
+Astra Trident 22.10以降のインストールと設定、およびストレージバックエンドとしてのNetApp ONTAPバージョン9.8以降[gcp-registry]]
 
 
 
 | イメージレジストリ  a| 
-Astra Control Centerビルドイメージをプッシュできる、Google Container Registryなどの既存のプライベートレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
+NetAppには、Astra Control Centerのビルドイメージの取得に使用できるレジストリが用意されています。
+`http://netappdownloads.jfrog.io/docker-astra-control-prod`
+Astra Control Centerのインストールプロセスでこのイメージレジストリを使用する手順については、NetAppサポートにお問い合わせください。
+
+NetAppイメージレジストリにアクセスできない場合は、Google Container Registryなどの既存のプライベートレジストリを用意しておく必要があります。このレジストリにAstra Control Centerのビルドイメージをプッシュできます。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
 
 
 NOTE: バックアップ用にリストアイメージを取得するには、匿名アクセスを有効にする必要があります。
@@ -323,7 +335,7 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 
 インストール手順については、次を参照してください。
 
-* https://access.redhat.com/documentation/en-us/openshift_container_platform/4.10/html-single/installing/index#installing-on-gcp["GCPにOpenShiftクラスタをインストールする"^]
+* https://access.redhat.com/documentation/en-us/openshift_container_platform/4.13/html/installing/index#installing-on-gcp["GCPにOpenShiftクラスタをインストールする"^]
 * https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["GCPサービスアカウントの作成"^]
 
 
@@ -350,7 +362,7 @@ Red Hat OpenShiftクラスタとNetApp BlueXP（旧Cloud Manager）コネクタ�
 
 === GCPを設定します
 
-次に、VPCの作成、コンピューティングインスタンスのセットアップ、Google Cloud Object Storageの作成、Astra Control CenterイメージのホストにGoogle Container Registerの作成、このレジストリへのイメージのプッシュを行うようにGCPを設定します。
+次に、GCPを設定してVPCを作成し、コンピューティングインスタンスをセットアップし、Google Cloud Object Storageを作成します。にアクセスできない場合 <<gcp-registry,NetApp Astra Control Centerイメージレジストリ>>また、Astra Control CenterのイメージをホストするGoogle Container Registryを作成し、このレジストリにイメージをプッシュする必要があります。
 
 GCPのドキュメントに従って、次の手順を実行します。「GCPへのOpenShiftクラスタのインストール」を参照してください。
 
@@ -359,10 +371,12 @@ GCPのドキュメントに従って、次の手順を実行します。「GCP�
 . インスタンスタイプが、マスターノードとワーカーノードのAstra最小リソース要件と一致していない場合は、GCPでインスタンスタイプを変更してAstraの要件を満たします。を参照してください link:../get-started/requirements.html["Astra Control Center の要件"^]。
 . バックアップを保存するGCP Cloud Storageバケットを少なくとも1つ作成します。
 . バケットへのアクセスに必要なシークレットを作成します。
-. すべてのAstra Control CenterイメージをホストするGoogle Container Registryを作成します。
-. すべてのAstra Control Centerイメージに対して、Dockerプッシュ/プル用のGoogle Container Registryアクセスを設定します。
+. （オプション） <<gcp-registry,NetAppイメージレジストリ>>次の手順を実行します。
 +
-例：次のスクリプトを入力すると、ACCイメージをこのレジストリにプッシュできます。
+.. Astra Control CenterのイメージをホストするGoogle Container Registryを作成します。
+.. すべてのAstra Control Centerイメージに対して、Dockerプッシュ/プル用のGoogle Container Registryアクセスを設定します。
++
+例：次のスクリプトを入力して、Astra Control Centerのイメージをこのレジストリにプッシュできます。
 
 +
 [listing]
@@ -373,15 +387,20 @@ gcloud auth activate-service-account <service account email address>
 +
 このスクリプトには、Astra Control CenterマニフェストファイルとGoogle Image Registryの場所が必要です。
 
+
+
 +
 例
+
++
+[+]
 
 +
 [listing]
 ----
 manifestfile=astra-control-center-<version>.manifest
-GCP_CR_REGISTRY=<target image repository>
-ASTRA_REGISTRY=<source ACC image repository>
+GCP_CR_REGISTRY=<target image registry>
+ASTRA_REGISTRY=<source Astra Control Center image registry>
 
 while IFS= read -r image; do
     echo "image: $ASTRA_REGISTRY/$image $GCP_CR_REGISTRY/$image"
@@ -470,7 +489,7 @@ Azure に Astra Control Center を導入する前に、次のものが必要で�
 * Astra Control Center ライセンス。を参照してください link:../get-started/requirements.html["Astra Control Center のライセンス要件"^]。
 * link:../get-started/requirements.html["Astra Control Center の要件を満たす"^]。
 * NetApp Cloud Central アカウント
-* OCPを使用する場合、Red Hat OpenShift Container Platform（OCP）4.8
+* OCPを使用している場合、Red Hat OpenShift Container Platform（OCP）4.11~4.13
 * OCPを使用する場合は、Red Hat OpenShift Container Platform（OCP）権限（ポッドを作成するためのネームスペースレベル）
 * バケットとコネクタの作成を可能にする権限を持つ Azure クレデンシャル
 
@@ -511,12 +530,16 @@ Astra Control Center の FQDN をロードバランシング IP アドレスに�
 
 
 | Astra Trident（NetApp BlueXPのKubernetesクラスタ検出の一部としてインストール）  a| 
-Trident 21.04 以降がインストールおよび設定され、 NetApp ONTAP バージョン 9.5 以降がストレージバックエンドとして使用されます
+Astra Trident 22.10以降のインストールと設定、およびNetApp ONTAPバージョン9.8以降がストレージバックエンドとして使用されます[[azure-registry]]
 
 
 
 | イメージレジストリ  a| 
-Astra Control Center ビルドイメージをプッシュできる、 Azure Container Registry （ ACR ）などの既存のプライベートレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
+NetAppには、Astra Control Centerのビルドイメージの取得に使用できるレジストリが用意されています。
+`http://netappdownloads.jfrog.io/docker-astra-control-prod`
+Astra Control Centerのインストールプロセスでこのイメージレジストリを使用する手順については、NetAppサポートにお問い合わせください。
+
+NetAppイメージレジストリにアクセスできない場合は、Azure Container Registry（ACR）などの既存のプライベートレジストリを用意しておく必要があります。このレジストリにAstra Control Centerのビルドイメージをプッシュできます。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
 
 
 NOTE: バックアップ用にリストアイメージを取得するには、匿名アクセスを有効にする必要があります。
@@ -560,8 +583,8 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 
 インストール手順については、次を参照してください。
 
-* https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html["Azure への OpenShift クラスタのインストール"^]。
-* https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-account.html#installing-azure-account["Azure アカウントをインストールする"^]。
+* https://docs.openshift.com/container-platform/4.13/installing/installing_azure/preparing-to-install-on-azure.html["Azure への OpenShift クラスタのインストール"^]。
+* https://docs.openshift.com/container-platform/4.13/installing/installing_azure/installing-azure-account.html["Azure アカウントをインストールする"^]。
 
 
 
@@ -587,9 +610,9 @@ Red Hat OpenShiftクラスタとNetApp BlueXP Connectorをインストールで�
 
 === Azure を設定
 
-次に、仮想ネットワークの作成、コンピューティングインスタンスのセットアップ、Azure Blobコンテナの作成、Astra Control CenterイメージをホストするAzure Container Register（ACR）の作成、このレジストリへのイメージのプッシュを行うようにAzureを設定します。
+次に、仮想ネットワークを作成し、コンピューティングインスタンスをセットアップし、Azure Blobコンテナを作成するようにAzureを設定します。にアクセスできない場合 <<azure-registry,NetApp Astra Control Centerイメージレジストリ>>また、Astra Control CenterのイメージをホストするAzure Container Registry（ACR）を作成し、このレジストリにイメージをプッシュする必要があります。
 
-Azure のドキュメントに従って、次の手順を実行します。を参照してください https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html["Azure への OpenShift クラスタのインストール"^]。
+Azure のドキュメントに従って、次の手順を実行します。を参照してください https://docs.openshift.com/container-platform/4.13/installing/installing_azure/preparing-to-install-on-azure.html["Azure への OpenShift クラスタのインストール"^]。
 
 . Azure Virtual Networkの作成
 . コンピューティングインスタンスを確認します。Azure の場合、ベアメタルサーバまたは VM を使用できます。
@@ -597,14 +620,16 @@ Azure のドキュメントに従って、次の手順を実行します。を�
 . バックアップを格納するAzure BLOBコンテナを少なくとも1つ作成します。
 . ストレージアカウントを作成します。Astra Control Center でバケットとして使用するコンテナを作成するには、ストレージアカウントが必要です。
 . バケットへのアクセスに必要なシークレットを作成します。
-. Azure Container Registry （ ACR ）を作成して、すべての Astra Control Center イメージをホストします。
-. ACR アクセスを設定して Docker プッシュ / プルをすべての Astra Control Center イメージに適用します。
-. 次のスクリプトを入力して、 ACC イメージをこのレジストリにプッシュします。
+. （オプション） <<azure-registry,NetAppイメージレジストリ>>次の手順を実行します。
++
+.. Astra Control CenterのイメージをホストするAzure Container Registry（ACR）を作成します。
+.. Astra Control Centerのすべてのイメージに対して、Dockerによるプッシュ/プルのACRアクセスをセットアップします。
+.. 次のスクリプトを使用して、Astra Control Centerのイメージをこのレジストリにプッシュします。
 +
 [listing]
 ----
 az acr login -n <AZ ACR URL/Location>
-This script requires ACC manifest file and your Azure ACR location.
+This script requires the Astra Control Center manifest file and your Azure ACR location.
 ----
 +
 * 例 * ：
@@ -613,8 +638,8 @@ This script requires ACC manifest file and your Azure ACR location.
 [listing]
 ----
 manifestfile=astra-control-center-<version>.manifest
-AZ_ACR_REGISTRY=<target image repository>
-ASTRA_REGISTRY=<source ACC image repository>
+AZ_ACR_REGISTRY=<target image registry>
+ASTRA_REGISTRY=<source Astra Control Center image registry>
 
 while IFS= read -r image; do
     echo "image: $ASTRA_REGISTRY/$image $AZ_ACR_REGISTRY/$image"
@@ -625,6 +650,8 @@ while IFS= read -r image; do
     docker push $AZ_ACR_REGISTRY/$image
 done < astra-control-center-22.04.41.manifest
 ----
+
+
 . DNS ゾーンを設定します。
 
 

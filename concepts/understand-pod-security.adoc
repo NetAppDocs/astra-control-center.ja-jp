@@ -22,7 +22,7 @@ Kubernetesディストリビューションの中には、デフォルトのポ�
 
 == Astra Control Centerによって強制されるPSAS
 
-Astra Control Centerのインストール中に、次のラベルをに追加することで、ポッドのセキュリティアドミッションを強制できます `netapp-acc` またはカスタムネームスペース：
+Astra Control Centerでは、Astraがインストールされているネームスペース（netapp-accまたはカスタムネームスペース）とバックアップ用に作成されたネームスペースに次のラベルを追加することで、ポッドのセキュリティアドミッションを適用できます。
 
 [listing]
 ----

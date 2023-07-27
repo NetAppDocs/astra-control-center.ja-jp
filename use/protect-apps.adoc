@@ -12,7 +12,7 @@ summary: 自動保護ポリシーまたはアドホックベースを使用し�
 
 
 [role="lead"]
-自動保護ポリシーまたはアドホックベースを使用して、スナップショットやバックアップを作成することで、すべてのアプリケーションを保護します。Astra Control Center UIまたはを使用できます https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^] アプリを保護します。
+自動保護ポリシーまたはアドホックベースを使用して、スナップショットやバックアップを作成することで、すべてのアプリケーションを保護します。Astra Control Center UIまたはを使用できます https://docs.netapp.com/us-en/astra-automation["Astra Control API"^] アプリを保護します。
 
 .このタスクについて
 * * Helmでアプリケーションを展開*：Helmを使用してアプリケーションを展開する場合、Astra Control CenterにはHelmバージョン3が必要です。Helm 3 （または Helm 2 から Helm 3 にアップグレード）を使用して展開されたアプリケーションの管理とクローニングが完全にサポートされています。Helm 2 で展開されたアプリケーションはサポートされていません。
