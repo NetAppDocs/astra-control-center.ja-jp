@@ -2954,4 +2954,7 @@ RKE 2（v1.25.x）とRancher 2.7</block>
   <block id="980370488ee5e5166f21d62e451f7039" category="list-text">（オプション）<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> 進捗状況を監視するログ：</block>
   <block id="750f2ebc195cf07a175766bcf4ee1c37" category="paragraph">セットアップ手順は、使用する入力コントローラのタイプによって異なります。Astra Control Centerは、多くの入力コントローラタイプをサポートしています。ここでは、一部の一般的な入力コントローラタイプの設定手順の例を示します。</block>
   <block id="c9d16052598dc5cdb9929332cfd140c3" category="sidebar">ストレージバックエンド間でアプリケーションをレプリケート</block>
+  <block id="692bef51c3cefb709496e672979fafda" category="list-text"><block ref="c3444bf1f6ccff644809494fcfe68216" category="inline-xref-macro-rx"></block></block>
+  <block id="8164f139371aabdbe264f5f85a178858" category="section-title">名前空間の制約を持つメンバは、管理者が名前空間を制約に追加するまで、クローンまたは復元されたアプリケーションにアクセスできません</block>
+  <block id="33e9a46dfde5bb0f5a8b8327623cb998" category="paragraph">任意<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> ネームスペース名/ IDによるRBACの制約があるユーザは、同じクラスタまたは組織のアカウントにある他のクラスタの新しいネームスペースにアプリケーションをクローニングまたはリストアできます。ただし、同じユーザが、クローニングまたはリストアされたアプリケーションに新しいネームスペースからアクセスすることはできません。クローンまたはリストア処理によって新しいネームスペースが作成されると、アカウントの管理者または所有者はを編集できるようになります<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> 影響を受けるユーザーが新しい名前空間へのアクセスを許可するためのユーザーアカウントの制約を更新します。</block>
 </blocks>
