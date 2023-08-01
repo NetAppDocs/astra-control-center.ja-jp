@@ -2829,7 +2829,6 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
   <block id="2b751178c5ccb62da62318c7ba67bcb7" category="list-text">Astra Control Centerを含むバンドルをダウンロードします <block ref="f38ca01b4c2fe15aa06076beb2ee98ff" prefix="(" category="inline-code"></block>）から<block ref="ad7a4184e43a3f62f1a8252e7d3ef71f" category="inline-link-rx"></block>。</block>
   <block id="56a360133c3f49b082fb3e559dc6c359" category="paragraph">Astra Controlでは、末尾にスペースがあるRDNを含むDNを持つLDAPエンティティ（ユーザまたはグループ）はサポートされません。</block>
   <block id="3b4c39fc71daebe02ce601e0e52cb002" category="paragraph">[Astra Control Activity]ページには、最大10、000件のイベントを表示できます。ログに記録されたすべてのイベントを表示するには、を使用してイベントを取得します <block ref="cc52bf3aaccbc518b140a6ab7d8d53a9" category="inline-link-macro-rx"></block>。</block>
-  <block id="342146f49f3dbf04f3f41cdd047ee611" category="section-title">2023年7月26日（23.07.0）</block>
   <block id="00f23e3f73f2ff6910e3c1c923caed3b" category="inline-link-macro">ストレッチ構成でのNetApp MetroClusterのストレージバックエンドとしての使用のサポート</block>
   <block id="d8ff8e6d69947f9d7ee57077dfe0e3ee" category="list-text"><block ref="d8ff8e6d69947f9d7ee57077dfe0e3ee" category="inline-link-macro-rx"></block></block>
   <block id="7857e72e296955e1be96bd0c04406cbe" category="inline-link-macro">Longhornをストレージバックエンドとして使用するためのサポート</block>
@@ -2885,7 +2884,6 @@ Astra Control Centerのインストールプロセスでこのイメージレジ
   <block id="24c356496f4f777434b1554b8c1ce87e" category="list-text">Astra Control Centerのすべてのイメージに対して、Dockerによるプッシュ/プルのACRアクセスをセットアップします。</block>
   <block id="80647e7e0bb86f8566d4cda7efd6ba2b" category="list-text">次のスクリプトを使用して、Astra Control Centerのイメージをこのレジストリにプッシュします。</block>
   <block id="e9e74ff4b7d306a6d494267203d879d8" category="admonition">このオペレータを使用している場合は、Astra Control Centerの最新バージョンにのみアップグレードできます。</block>
-  <block id="6f9a41c50e286a2a3eb1249e34e3b034" category="list-text">Astra Control Centerのバージョンを入力します（例：23.07.0-24）。</block>
   <block id="ce75759d9f826b61ea1a10ccd4fec6c4" category="paragraph">Astra Control Centerのセットアップが完了したら、Astra Control UIまたはを使用します<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> アプリの管理と保護を開始するには：</block>
   <block id="ce0f35f37592c103c45f7f61252c9305" category="paragraph">新しいライセンスは、Astra Control UIまたはを使用して追加できます<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block>。</block>
   <block id="1fc721e2d5dd058eff74433a513547f9" category="inline-link-macro">インストール時に設定</block>
@@ -2944,11 +2942,9 @@ RKE 2（v1.25.x）とRancher 2.7</block>
   <block id="0e4c628a5a8957cfc5bfe05ab3d4cade" category="list-text">オペレーティングシステムとCPUアーキテクチャに必要なファイルを現在のパスに移動し、次の名前に変更します。<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>：</block>
   <block id="509e9a9c4ddecec71646527fad155699" category="list-text">Astra Control Centerホストクラスタのkubeconfigをエクスポートします。</block>
   <block id="4757e8443e86513707f05c0d519574c8" category="admonition">インストールを完了する前に、Astra Control Centerをインストールするクラスタをkubeconfigで指定していることを確認してください。</block>
-  <block id="eb4ae875392779932df9d5d2fbb9ccaf" category="admonition">プレースホルダ<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 以前にアップロードした画像の場所と一致する必要があります（例：<block ref="fb729bc0081792c3577384b3c4b3710a" prefix=" " category="inline-code"></block>）。</block>
   <block id="6a81830068d10bff560d62bc97f3c053" category="list-text">変更<block ref="e7fbb61ffc587682a801796b46db408a" prefix=" " category="inline-code"></block> をクリックします<block ref="83f93b05da174976bd534cc67ad9f7b4" prefix=" " category="inline-code"></block> でイメージをプッシュしたレジストリパスへのイメージ <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>。</block>
   <block id="87b9501fe070f005832572ffd2aba4ae" category="example-title">サンプルastra_control_center_operator_deploy.yamlの展開</block>
   <block id="a8f13cd419087c3fb4f7d66dde9dadda" category="example-title">回答例を表示するには展開します。</block>
-  <block id="98908576b345537859881e0fbe16b44a" category="cell"><block ref="141b2e73605e12a2ae1bb4fb0b4221ca" prefix="" category="inline-code"></block></block>
   <block id="3297ea664e090716a24f598d90bc398c" category="example-title">サンプルのastra_control_center.yamlを展開します。</block>
   <block id="d3e309a143a3ce8e127ce3e32a113e5d" category="example-title">サンプル応答のために展開</block>
   <block id="980370488ee5e5166f21d62e451f7039" category="list-text">（オプション）<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> 進捗状況を監視するログ：</block>
@@ -2957,4 +2953,8 @@ RKE 2（v1.25.x）とRancher 2.7</block>
   <block id="692bef51c3cefb709496e672979fafda" category="list-text"><block ref="c3444bf1f6ccff644809494fcfe68216" category="inline-xref-macro-rx"></block></block>
   <block id="8164f139371aabdbe264f5f85a178858" category="section-title">名前空間の制約を持つメンバは、管理者が名前空間を制約に追加するまで、クローンまたは復元されたアプリケーションにアクセスできません</block>
   <block id="33e9a46dfde5bb0f5a8b8327623cb998" category="paragraph">任意<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> ネームスペース名/ IDによるRBACの制約があるユーザは、同じクラスタまたは組織のアカウントにある他のクラスタの新しいネームスペースにアプリケーションをクローニングまたはリストアできます。ただし、同じユーザが、クローニングまたはリストアされたアプリケーションに新しいネームスペースからアクセスすることはできません。クローンまたはリストア処理によって新しいネームスペースが作成されると、アカウントの管理者または所有者はを編集できるようになります<block ref="aa08769cdcb26674c6706093503ff0a3" prefix=" " category="inline-code"></block> 影響を受けるユーザーが新しい名前空間へのアクセスを許可するためのユーザーアカウントの制約を更新します。</block>
+  <block id="0cb712ec711a0ca7c7b006e073338a3f" category="section-title">2023年7月31日（23.07.0）</block>
+  <block id="fa7403eec50d35b5a484623b60ab5bdd" category="list-text">Astra Control Centerのバージョン（23.07.0-25など）を入力します。</block>
+  <block id="a35ec6e52d1ea46e15e5890b9f04b338" category="admonition">プレースホルダ<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 以前にアップロードした画像の場所と一致する必要があります（例：<block ref="ed714721ea39215dfe5e8dfa919a906a" prefix=" " category="inline-code"></block>）。</block>
+  <block id="fa202cf5d815f8dd19123dbdb19b51e6" category="cell"><block ref="c0004ca895ff57b100007a4b52125d05" prefix="" category="inline-code"></block></block>
 </blocks>
