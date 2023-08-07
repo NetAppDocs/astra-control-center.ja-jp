@@ -610,6 +610,18 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
 .<code>additionalValues</code>
 [%collapsible]
 ====
+
+IMPORTANT: 23.07のインストールで既知の問題が検出されないようにするには、Astra Control CenterのCRに次の値を追加します。
+
+[listing]
+----
+additionalValues:
+    polaris-keycloak:
+      livenessProbe:
+        initialDelaySeconds: 180
+      readinessProbe:
+        initialDelaySeconds: 180
+----
 ** アストラルコントロールセンターおよびCloud Insights 通信では、TLS証明書の検証はデフォルトで無効になっています。の次のセクションを追加して、Cloud Insights とAstra Control Centerのホストクラスタと管理対象クラスタの両方の間の通信に対してTLS証明書の検証を有効にすることができます `additionalValues`。
 
 
@@ -674,7 +686,12 @@ spec:
   ingressType: "Generic"
   scaleSize: "Medium"
   astraResourcesScaler: "Default"
-  additionalValues: {}
+  additionalValues:
+    polaris-keycloak:
+      livenessProbe:
+        initialDelaySeconds: 180
+      readinessProbe:
+        initialDelaySeconds: 180
   crds:
     externalTraefik: false
     externalCertManager: false

@@ -464,6 +464,11 @@ additionalValues:
       startupProbe:
         periodSeconds: 30
         failureThreshold: 600
+    polaris-keycloak:
+      livenessProbe:
+        initialDelaySeconds: 180
+      readinessProbe:
+        initialDelaySeconds: 180
 ----
 . ファイルエディタを保存して終了します。変更が適用され、アップグレードが開始されます。
 . （オプション）ポッドが終了し、再び使用可能になったことを確認します。
