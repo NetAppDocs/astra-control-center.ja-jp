@@ -67,6 +67,12 @@ NOTE: 評価用ライセンスをお持ちで、AutoSupport にデータを送�
 .作業を開始する前に
 * クラスタ内のワーカーノードで適切なストレージドライバが設定されていることを確認します。これにより、ポッドがバックエンドストレージと通信できるようになります。
 * が環境に合っている link:../get-started/requirements.html["運用環境の要件"^] Astra TridentとAstra Control Centerに最適。
+* プライベート認証局（CA）を参照するkubeconfigファイルを使用してクラスタを追加する場合は、 `cluster` kubeconfigファイルのセクションを参照してください。これにより、Astra Controlでクラスタを追加できます。
++
+[listing]
+----
+insecure-skip-tls-verify: true
+----
 * Astra Tridentの一バージョン link:../get-started/requirements.html#astra-trident-requirements["Astra Control Centerによってサポートされます"^] がインストールされている：
 +
 
