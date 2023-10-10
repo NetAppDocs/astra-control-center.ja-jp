@@ -55,6 +55,10 @@ Astra Controlによるアプリケーションのレプリケーションを開�
 * *ピアリング*：
 +
 ** *クラスタとSVM *：ONTAPストレージバックエンドにピア関係が設定されている必要があります。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["クラスタと SVM のピアリングの概要"^] を参照してください。
++
+
+IMPORTANT: 2つのONTAPクラスタ間のレプリケーション関係で使用されるSVM名が一意であることを確認してください。
+
 ** * Astra TridentとSVM *：ピア関係にあるリモートSVMがデスティネーションクラスタのAstra Tridentで使用可能である必要があります。
 
 
