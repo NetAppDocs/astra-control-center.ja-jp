@@ -1,0 +1,391 @@
+---
+sidebar: sidebar 
+permalink: use/protect-acc-with-acc.html 
+keywords: backup astra control center, restore astra control center 
+summary: Astra Control Centerのバックアップとリストアは、セカンダリのAstra Control Centerインスタンスを使用するか、基盤となるストレージでONTAPを使用している場合はAstraレプリケーションを使用して実行できます。 
+---
+= Astra Control Centerを使用したAstra Control Centerの保護
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Astra Control Centerが実行されているKubernetesクラスタで致命的なエラーに対する耐障害性を高めるには、Astra Control Centerアプリケーション自体を保護します。セカンダリのAstra Control Centerインスタンスを使用してAstra Control Centerをバックアップおよびリストアするか、基盤となるストレージでONTAPを使用している場合はAstraレプリケーションを使用できます。
+
+これらのシナリオでは、Astra Control Centerの2つ目のインスタンスを別のフォールトドメインに導入して設定し、プライマリAstra Control Centerインスタンスとは別の2つ目のKubernetesクラスタで実行します。2つ目のAstra Controlインスタンスは、プライマリのAstra Control Centerインスタンスのバックアップに使用され、場合によってはリストアにも使用されます。リストアまたはレプリケートされたAstra Control Centerインスタンスは、引き続きアプリケーションクラスタアプリケーションのアプリケーションデータ管理機能を提供し、それらのアプリケーションのバックアップやSnapshotへのアクセスをリストアします。
+
+.作業を開始する前に
+Astra Control Centerの保護シナリオを設定する前に、次の情報を確認してください。
+
+* *プライマリAstra Control Centerインスタンスを実行するKubernetesクラスタ*：このクラスタは、アプリケーションクラスタを管理するプライマリAstra Control Centerインスタンスをホストします。
+* *セカンダリAstra Control Centerインスタンスを実行しているプライマリと同じKubernetesディストリビューションタイプの2つ目のKubernetesクラスタ*：このクラスタは、プライマリAstra Control Centerインスタンスを管理するAstra Control Centerインスタンスをホストします。
+* *プライマリと同じKubernetesディストリビューションタイプの3つ目のKubernetesクラスタ*：このクラスタは、Astra Control Centerのリストアまたはレプリケートされたインスタンスをホストします。現在プライマリに導入されているものと同じAstra Control Centerネームスペースを使用する必要があります。たとえば、Astra Control Centerがネームスペースに導入されている場合 `netapp-acc` ソースクラスタで、ネームスペース `netapp-acc` デスティネーションKubernetesクラスタ上のどのアプリケーションでも使用できない状態である必要があります。
+* * S3互換バケット*：各Astra Control Centerインスタンスには、アクセス可能なS3互換オブジェクトストレージバケットがあります。
+* *設定されたロードバランサ*：ロードバランサはAstraのIPアドレスを提供し、アプリケーションクラスタと両方のS3バケットへのネットワーク接続を確立する必要があります。
+* *クラスタはAstra Control Centerの要件に準拠*：Astra Control Center保護で使用される各クラスタは、 https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#kubernetes-cluster-general-requirement["Astra Control Centerの一般的な要件"^]。
+
+
+.このタスクについて
+以下の手順では、以下のコマンドを使用してAstra Control Centerを新しいクラスタにリストアするために必要な手順について説明します。 <<ステップ1オプション：Astra Control Centerのバックアップとリストア,バックアップとリストア>> または <<ステップ1オプション：レプリケーションを使用してAstra Control Centerを保護,レプリケーション>>。手順は、ここに示す構成例に基づいています。
+
+image:backup-or-replicate-acc-w-acc-example-flow.png["保護ワークフローの図。Astra Control Centerのレプリケーションまたはバックアップのシナリオで、3つのKubernetesクラスタとAstra Control Centerのうちの2つに配置されています。"]
+
+この設定例では、次の情報が表示されています。
+
+* *プライマリAstra Control Centerインスタンスを実行するKubernetesクラスタ*：
++
+** OpenShiftクラスタ： `ocp-cluster-1`
+** Astra Control Centerプライマリインスタンス： `ocp-cluster-1.company.com`
+** このクラスタは、アプリケーションクラスタを管理します。
+
+
+* *セカンダリAstra Control Centerインスタンスを実行しているプライマリと同じKubernetesディストリビューションタイプの2つ目のKubernetesクラスタ*：
++
+** OpenShiftクラスタ： `ocp-cluster-2`
+** Astra Control Centerのセカンダリインスタンス： `ocp-cluster-2.company.com`
+** このクラスタを使用して、プライマリのAstra Control Centerインスタンスをバックアップするか、別のクラスタへのレプリケーションを設定します（この例では、 `ocp-cluster-3` クラスタ）。
+
+
+* *リストア処理に使用されるプライマリと同じKubernetesディストリビューションタイプの3つ目のKubernetesクラスタ*：
++
+** OpenShiftクラスタ： `ocp-cluster-3`
+** Astra Control Center 3つ目のインスタンス： `ocp-cluster-3.company.com`
+** このクラスタは、Astra Control Centerのリストアまたはレプリケーションのフェイルオーバーに使用されます。
+
+
+
+
+
+NOTE: アプリケーションクラスタは、上図のKubernetesクラスタとRancherクラスタからわかるように、3つのAstra Control Centerクラスタの外部に配置するのが理想的です。
+
+図には示されていません。
+
+* すべてのクラスタに、TridentがインストールされたONTAPバックエンドがあります。
+* この構成では、OpenShiftクラスタがMetalLBをロードバランサとして使用しています。
+* SnapshotコントローラとVolumeSnapshotClassもすべてのクラスタにインストールされています（を参照）。 link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["前提条件"^]。
+
+
+
+
+== ステップ1オプション：Astra Control Centerのバックアップとリストア
+
+この手順では、バックアップとリストアを使用して新しいクラスタにAstra Control Centerをリストアするために必要な手順について説明します。
+
+この例では、Astra Control Centerは常に `netapp-acc` 名前空間と演算子は、 `netapp-acc-operator` ネームスペース：
+
+
+NOTE: ここでは説明しませんが、Astra Control Centerのオペレータは、Astra CRと同じネームスペースに導入することもできます。
+
+.作業を開始する前に
+* プライマリのAstra Control Centerをクラスタにインストールしておきます。
+* セカンダリのAstra Control Centerを別のクラスタにインストールしておきます。
+
+
+.手順
+. プライマリAstra Control Centerアプリケーションとデスティネーションクラスタを、（実行中の）セカンダリAstra Control Centerインスタンスから管理 `ocp-cluster-2` クラスタ）：
++
+.. セカンダリAstra Control Centerインスタンスにログインします。
+.. link:../get-started/setup_overview.html#add-cluster["プライマリAstra Control Centerクラスタを追加"] (`ocp-cluster-1`）。
+.. link:../get-started/setup_overview.html#add-cluster["デスティネーションの3つ目のクラスタを追加"] (`ocp-cluster-3`）をクリックします。
+
+
+. セカンダリのAstra Control CenterでAstra Control CenterとAstra Control Centerオペレータを管理します。
++
+.. [アプリケーション（Applications）]ページで、[*定義（* Define）]を選択します
+.. [アプリケーションの定義]ウィンドウで、新しいアプリケーション名を入力します。 (`netapp-acc`）。
+.. プライマリAstra Control Centerを実行しているクラスタを選択 (`ocp-cluster-1`）をクリックします。
+.. を選択します `netapp-acc` Astra Control Centerのネームスペース（*[ネームスペース]*ドロップダウンリスト）。
+.. [クラスタリソース]ページで、*[クラスタを対象とした追加のリソースを含める]*をオンにします。
+.. 「*含めるルールを追加*」を選択します。
+.. 次のエントリを選択し、*[追加]*を選択します。
++
+*** ラベルセレクタ:acc-crd
+*** グループ：apiextensions.k8s.io
+*** バージョン：v1
+*** 種類: CustomResourceDefinition
+
+
+.. アプリケーション情報を確認します。
+.. [ * 定義（ Define ） ] を選択します
++
+「* define *」を選択した後、演算子に対して「アプリケーションの定義」プロセスを繰り返します。  `netapp-acc-operator`）をクリックし、 `netapp-acc-operator` [アプリケーションの定義]ウィザードの名前空間。
+
+
+
+. Astra Control Centerとオペレータのバックアップ：
++
+.. セカンダリAstra Control Centerで、[Applications]タブを選択して[Applications]ページに移動します。
+.. link:../use/protect-apps.html#create-a-backup["バックアップ"^] Astra Control Centerアプリケーション (`netapp-acc`）。
+.. link:../use/protect-apps.html#create-a-backup["バックアップ"^] 演算子 (`netapp-acc-operator`）。
+
+
+. Astra Control Centerとオペレータをバックアップしたら、次のツールでディザスタリカバリ（DR）シナリオをシミュレートします。 link:../use/uninstall_acc.html["Astra Control Centerのアンインストール"^] プライマリクラスタから削除します。
++
+
+NOTE: 新しいクラスタ（この手順で説明する3つ目のKubernetesクラスタ）にAstra Control Centerをリストアし、新しくインストールしたAstra Control Centerのプライマリクラスタと同じDNSを使用します。
+
+. セカンダリAstra Control Centerを使用 link:../use/restore-apps.html["リストア"^] バックアップから作成したAstra Control Centerアプリケーションのプライマリインスタンス：
++
+.. [Applications]*を選択し、Astra Control Centerアプリケーションの名前を選択します。
+.. [オプション]メニューの[操作]列で、*[リストア]*を選択します。
+.. リストアタイプとして*[新しいネームスペースにリストアする]*を選択します。
+.. リストア名を入力 (`netapp-acc`）。
+.. デスティネーションの3番目のクラスタを選択 (`ocp-cluster-3`）。
+.. 元のネームスペースと同じネームスペースになるようにデスティネーションネームスペースを更新します。
+.. [Restore Source]ページで、リストア・ソースとして使用するアプリケーション・バックアップを選択します。
+.. [元のストレージクラスを使用してリストアする]*を選択します。
+.. [すべてのリソースをリストア]*を選択します。
+.. リストア情報を確認し、*[Restore]*を選択して、Astra Control Centerをデスティネーションクラスタにリストアするリストアプロセスを開始します。 (`ocp-cluster-3`）。アプリケーションが起動すると、リストアが完了します。 `available` 状態。
+
+
+. デスティネーションクラスタでAstra Control Centerを設定します。
++
+.. ターミナルを開き、kubeconfigを使用してデスティネーションクラスタに接続します。 (`ocp-cluster-3`）をクリックします。
+.. を確認します `ADDRESS` Astra Control Center構成の列で参照されるプライマリシステムのDNS名は次のとおりです。
++
+[listing]
+----
+kubectl get acc -n netapp-acc
+----
++
+対応：
+
++
+[listing]
+----
+NAME  UUID                                 VERSION    ADDRESS                             READY
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 23.07.0-24 ocp-cluster-1.company.com           True
+----
+.. 状況に応じて `ADDRESS` 上記の応答のフィールドにプライマリAstra Control CenterインスタンスのFQDNがない場合は、Astra Control CenterのDNSを参照するように設定を更新します。
++
+[listing]
+----
+kubectl edit acc -n netapp-acc
+----
++
+... を変更します `astraAddress` の下 `spec:` FQDNへ (`ocp-cluster-1.company.com` （この例では）のプライマリAstra Control Centerインスタンス。
+... 設定を保存します。
+... アドレスが更新されたことを確認します。
++
+[listing]
+----
+kubectl get acc -n netapp-acc
+----
+
+
+.. にアクセスします <<ステップ2：Astra Control Centerのオペレータをリストア,Astra Control Centerのオペレータのリストア>> セクションを参照して、リストアプロセスを完了してください。
+
+
+
+
+
+
+== ステップ1オプション：レプリケーションを使用してAstra Control Centerを保護
+
+この手順では、設定に必要な手順について説明します。 link:../use/replicate_snapmirror.html["Astra Control Centerのレプリケーション"^] を使用して、プライマリAstra Control Centerインスタンスを保護します。
+
+この例では、Astra Control Centerは常に `netapp-acc` 名前空間と演算子は、 `netapp-acc-operator` ネームスペース：
+
+.作業を開始する前に
+* プライマリのAstra Control Centerをクラスタにインストールしておきます。
+* セカンダリのAstra Control Centerを別のクラスタにインストールしておきます。
+
+
+.手順
+. セカンダリAstra Control CenterインスタンスからプライマリAstra Control Centerアプリケーションとデスティネーションクラスタを管理します。
++
+.. セカンダリAstra Control Centerインスタンスにログインします。
+.. link:../get-started/setup_overview.html#add-cluster["プライマリAstra Control Centerクラスタを追加"] (`ocp-cluster-1`）。
+.. link:../get-started/setup_overview.html#add-cluster["デスティネーションの3つ目のクラスタを追加"] (`ocp-cluster-3`）をクリックします。
+
+
+. セカンダリのAstra Control CenterでAstra Control CenterとAstra Control Centerオペレータを管理します。
++
+.. [Clusters]*を選択し、プライマリAstra Control Centerが含まれるクラスタを選択します。 (`ocp-cluster-1`）。
+.. [*名前空間*]タブを選択します。
+.. 選択するオプション `netapp-acc` および `netapp-acc-operator` 名前空間。
+.. [アクション]メニューを選択し、*[アプリケーションとして定義]*を選択します。
+.. 定義されたアプリケーションを表示するには、*[アプリケーションで表示]*を選択します。
+
+
+. レプリケーションのバックエンドを構成します。
++
+
+NOTE: レプリケーションには、プライマリのAstra Control Centerクラスタとデスティネーションクラスタが必要 (`ocp-cluster-3`）別のピアONTAPストレージバックエンドを使用します。
+各バックエンドがピアリングされてAstra Controlに追加されると、[Backends]ページの*[Discovered]*タブにバックエンドが表示されます。
+
++
+.. link:../get-started/setup_overview.html#add-a-storage-backend["ピアバックエンドの追加"^] をプライマリクラスタのAstra Control Centerに接続します。
+.. link:../get-started/setup_overview.html#add-a-storage-backend["ピアバックエンドの追加"^] デスティネーションクラスタのAstra Control Centerに接続します。
+
+
+. レプリケーションを設定します。
++
+.. [Applications]画面で、 `netapp-acc` アプリケーション：
+.. [レプリケーションポリシーの設定]*を選択します。
+.. 選択するオプション `ocp-cluster-3` をデスティネーションクラスタとして指定します。
+.. ストレージクラスを選択します。
+.. 入力するコマンド `netapp-acc` をデスティネーションネームスペースとして指定します。
+.. 必要に応じてレプリケーション頻度を変更します。
+.. 「 * 次へ * 」を選択します。
+.. 設定が正しいことを確認し、*[保存]*を選択します。
++
+レプリケーション関係の移行元 `Establishing` 終了： `Established`。アクティブな場合、このレプリケーションは、レプリケーション設定が削除されるまで5分おきに実行されます。
+
+
+
+. プライマリシステムが破損しているかアクセスできなくなった場合は、レプリケーションをもう一方のクラスタにフェイルオーバーします。
++
+
+NOTE: フェイルオーバーが正常に実行されるように、デスティネーションクラスタにAstra Control Centerがインストールされていないことを確認してください。
+
++
+.. 縦の楕円アイコンを選択し、*フェイルオーバー*を選択します。
++
+image:acc-to-acc-replication-example.png["レプリケーション関係の「フェイルオーバー」オプションを示すイメージ"]
+
+.. 詳細を確認し、*[フェイルオーバー]*を選択してフェイルオーバープロセスを開始します。
++
+レプリケーション関係のステータスがに変わります。 `Failing over` 次に `Failed over` 完了したら、
+
+
+
+. フェイルオーバーの設定を完了します。
++
+.. ターミナルを開き、3番目のクラスタのkubeconfigを使用して接続します。 (`ocp-cluster-3`）。このクラスタにはAstra Control Centerがインストールされています。
+.. 3つ目のクラスタのAstra Control Center FQDNを確認 (`ocp-cluster-3`）。
+.. Astra Control CenterのDNSを参照するように設定を更新します。
++
+[listing]
+----
+kubectl edit acc -n netapp-acc
+----
++
+... を変更します `astraAddress` の下 `spec:` FQDNを使用 (`ocp-cluster-3.company.com`）をクリックします。
+... 設定を保存します。
+... アドレスが更新されたことを確認します。
++
+[listing]
+----
+kubectl get acc -n netapp-acc
+----
+
+
+.. [[missing-traefik-crd]]必要なすべてのtraefik CRDが存在することを確認します。
++
+[listing]
+----
+kubectl get crds | grep traefik
+----
++
+必要なtraefik CRD：
+
++
+[listing]
+----
+ingressroutes.traefik.containo.us
+ingressroutes.traefik.io
+ingressroutetcps.traefik.containo.us
+ingressroutetcps.traefik.io
+ingressrouteudps.traefik.containo.us
+ingressrouteudps.traefik.io
+middlewares.traefik.containo.us
+middlewares.traefik.io
+middlewaretcps.traefik.containo.us
+middlewaretcps.traefik.io
+serverstransports.traefik.containo.us
+serverstransports.traefik.io
+tlsoptions.traefik.containo.us
+tlsoptions.traefik.io
+tIsstores.traefik.containo.us
+tIsstores.traefik.io
+traefikservices.traefik.containo.us
+traefikservices.traefik.io
+----
+.. 上記のCRDの一部がない場合は、次の手順を実行します。
++
+... に進みます https://doc.traefik.io/traefik/reference/dynamic-configuration/kubernetes-crd/["traefikドキュメント"^]。
+... 「定義」領域をファイルにコピーします。
+... 変更を適用：
++
+[listing]
+----
+kubectl apply -f <file name>
+----
+... traefikを再起動します。
++
+[listing]
+----
+kubectl get pods -n netapp-acc | grep -e "traefik" | awk '{print $1}' | xargs kubectl delete pod -n netapp-acc"
+----
+
+
+.. にアクセスします <<ステップ2：Astra Control Centerのオペレータをリストア,Astra Control Centerのオペレータのリストア>> セクションを参照して、リストアプロセスを完了してください。
+
+
+
+
+
+
+== ステップ2：Astra Control Centerのオペレータをリストア
+
+セカンダリのAstra Control Centerを使用して、プライマリのAstra Control Centerオペレータをバックアップからリストアデスティネーションネームスペースは、ソースネームスペースと同じである必要があります。Astra Control Centerをプライマリソースクラスタから削除しても、同じリストア手順を実行するためのバックアップは引き続き存在します。
+
+.手順
+. *アプリケーション*を選択し、オペレータアプリの名前を選択します。 (`netapp-acc-operator`）。
+. [操作]列の[オプション]メニューから*[リストア]*を選択します。
+. リストアタイプとして*[新しいネームスペースにリストアする]*を選択します。
+. デスティネーションの3番目のクラスタを選択 (`ocp-cluster-3`）。
+. ネームスペースをプライマリソースクラスタに関連付けられているネームスペースと同じに変更する (`netapp-acc-operator`）。
+. リストア・ソースとして以前に作成されたバックアップを選択します。
+. [元のストレージクラスを使用してリストアする]*を選択します。
+. [すべてのリソースをリストア]*を選択します。
+. 詳細を確認し、*[リストア]*をクリックしてリストアプロセスを開始します。
++
+[Applications]ページには、Astra Control Centerオペレータがデスティネーションの第3のクラスタにリストアされていることが表示される (`ocp-cluster-3`）。プロセスが完了すると、状態はとして表示されます。 `Available`。10分以内に、ページでDNSアドレスが解決されます。
+
+
+
+.結果
+Astra Control Centerとその登録済みクラスタ、Snapshotとバックアップを使用した管理対象アプリケーションを、デスティネーションの第3のクラスタで利用できるようになりました。 (`ocp-cluster-3`）。元のインスタンスに対して使用していた保護ポリシーは、新しいインスタンスにも適用されます。スケジュールされたバックアップやオンデマンドのバックアップやスナップショットを引き続き作成できます。
+
+
+
+== トラブルシューティング
+
+システムの健全性と保護プロセスが成功したかどうかを確認します。
+
+* *ポッドが実行されていません*：すべてのポッドが実行中であることを確認します。
++
+[listing]
+----
+kubectl get pods -n netapp-acc
+----
++
+一部のポッドが `CrashLookBackOff` 状態、再起動し、次の状態に移行する必要があります。 `Running` 状態。
+
+* *システムステータスの確認*：Astra Control Centerシステムが `ready` 都道府県：
++
+[listing]
+----
+kubectl get acc -n netapp-acc
+----
++
+対応：
+
++
+[listing]
+----
+NAME  UUID                                 VERSION    ADDRESS                             READY
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 23.07.0-24 ocp-cluster-1.company.com           True
+----
+* *導入ステータスの確認*：Astra Control Centerの導入情報を表示して `Deployment State` はです `Deployed`。
++
+[listing]
+----
+kubectl describe acc astra -n netapp-acc
+----
+* *リストアしたAstra Control Center UIで404エラーが返される*： `AccTraefik` 入力オプションとして、 <<missing-traefik-crd,traefik CRD>> すべてインストールされていることを確認します。
+

@@ -18,6 +18,8 @@ entries:
     url: "/use/clone-apps.html"
   - title: アプリケーション実行フックを管理します
     url: "/use/execution-hooks.html"
+  - title: Astra Control Centerを使用したAstra Control Centerの保護
+    url: "/use/protect-acc-with-acc.html"
 - title: アプリケーションとクラスタの健常性を監視
   entries:
   - title: ダッシュボードの概要

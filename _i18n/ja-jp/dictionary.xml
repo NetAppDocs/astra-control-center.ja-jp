@@ -2265,7 +2265,6 @@
   <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">ネットアップコミュニティ</block>
   <block id="874d8a5301794a9ca2aba132ac2460f3" category="sidebar">Kubernetes ハブ</block>
   <block id="213686afc3803be7caa09348765467fe" category="sidebar">サポートへのアクセス</block>
-  <block id="f21f22dde0e0692333a7a28cce456b08" category="sidebar">すべてのAstraドキュメント</block>
   <block id="f789b438cbc1e82cd52918fc029eeb85" category="sidebar">Astra Control REST APIで自動化</block>
   <block id="0b79795d3efc95b9976c7c5b933afce2" category="sidebar">はじめに</block>
   <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">知識とサポート</block>
@@ -2962,4 +2961,152 @@ RKE 2（v1.25.x）とRancher 2.7</block>
   <block id="dce58385777428b5d9a30460fe36730a" category="list-text">プライベート認証局（CA）を参照するkubeconfigファイルを使用してクラスタを追加する場合は、<block ref="06b2d4b91b5c9eaa8c20a1c270f95b3c" prefix=" " category="inline-code"></block> kubeconfigファイルのセクションを参照してください。これにより、Astra Controlでクラスタを追加できます。</block>
   <block id="6a73c62ec3ca96f8f08220eeac3380d9" category="list-text"><block ref="6a73c62ec3ca96f8f08220eeac3380d9" category="inline-link-rx"></block></block>
   <block id="94ac6b3955eab183cb88ab17c91000eb" category="admonition">2つのONTAPクラスタ間のレプリケーション関係で使用されるSVM名が一意であることを確認してください。</block>
+  <block id="51ec83fd81ce58f9ea70187b74727aff" category="doc">Astra Control Center 23.07ドキュメント</block>
+  <block id="5625dd52348931a3850857d7f3f08b69" category="summary">Astra Control Centerのバックアップとリストアは、セカンダリのAstra Control Centerインスタンスを使用するか、基盤となるストレージでONTAPを使用している場合はAstraレプリケーションを使用して実行できます。</block>
+  <block id="969f7a76db712779eff5291ca8b43ac7" category="doc">Astra Control Centerを使用したAstra Control Centerの保護</block>
+  <block id="c9a7b310785e9556ae984aa393db6588" category="paragraph">Astra Control Centerが実行されているKubernetesクラスタで致命的なエラーに対する耐障害性を高めるには、Astra Control Centerアプリケーション自体を保護します。セカンダリのAstra Control Centerインスタンスを使用してAstra Control Centerをバックアップおよびリストアするか、基盤となるストレージでONTAPを使用している場合はAstraレプリケーションを使用できます。</block>
+  <block id="6b755da339d1771f5f970f17eecb0565" category="paragraph">これらのシナリオでは、Astra Control Centerの2つ目のインスタンスを別のフォールトドメインに導入して設定し、プライマリAstra Control Centerインスタンスとは別の2つ目のKubernetesクラスタで実行します。2つ目のAstra Controlインスタンスは、プライマリのAstra Control Centerインスタンスのバックアップに使用され、場合によってはリストアにも使用されます。リストアまたはレプリケートされたAstra Control Centerインスタンスは、引き続きアプリケーションクラスタアプリケーションのアプリケーションデータ管理機能を提供し、それらのアプリケーションのバックアップやSnapshotへのアクセスをリストアします。</block>
+  <block id="69114e1f39ba205e49c3f6602104d621" category="paragraph">Astra Control Centerの保護シナリオを設定する前に、次の情報を確認してください。</block>
+  <block id="896f58b429f78d8109fc3e7c03093aba" category="list-text">*プライマリAstra Control Centerインスタンスを実行するKubernetesクラスタ*：このクラスタは、アプリケーションクラスタを管理するプライマリAstra Control Centerインスタンスをホストします。</block>
+  <block id="8aa15a1fee5460adea916879ed7d7268" category="list-text">*セカンダリAstra Control Centerインスタンスを実行しているプライマリと同じKubernetesディストリビューションタイプの2つ目のKubernetesクラスタ*：このクラスタは、プライマリAstra Control Centerインスタンスを管理するAstra Control Centerインスタンスをホストします。</block>
+  <block id="32e73be9be858fa95196efd19be99032" category="list-text">*プライマリと同じKubernetesディストリビューションタイプの3つ目のKubernetesクラスタ*：このクラスタは、Astra Control Centerのリストアまたはレプリケートされたインスタンスをホストします。現在プライマリに導入されているものと同じAstra Control Centerネームスペースを使用する必要があります。たとえば、Astra Control Centerがネームスペースに導入されている場合<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> ソースクラスタで、ネームスペース<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> デスティネーションKubernetesクラスタ上のどのアプリケーションでも使用できない状態である必要があります。</block>
+  <block id="49a26f277918e7ec7fcd2b6c725b22db" category="list-text">* S3互換バケット*：各Astra Control Centerインスタンスには、アクセス可能なS3互換オブジェクトストレージバケットがあります。</block>
+  <block id="b6a057580445c60da8ca68e040c35359" category="list-text">*設定されたロードバランサ*：ロードバランサはAstraのIPアドレスを提供し、アプリケーションクラスタと両方のS3バケットへのネットワーク接続を確立する必要があります。</block>
+  <block id="71be9d294d226c86caf4e6d0304e76bc" category="inline-link">Astra Control Centerの一般的な要件</block>
+  <block id="e5f96d86911475b63eda9de332d71989" category="list-text">*クラスタはAstra Control Centerの要件に準拠*：Astra Control Center保護で使用される各クラスタは、<block ref="b5b2197abd24b9a933084786e7341ea5" category="inline-link-rx"></block>。</block>
+  <block id="26ce8c3f9eb6f4198d7e290f318122b0" category="inline-xref">バックアップとリストア</block>
+  <block id="f29fabe637a472bf5222b12a0bc5df77" category="inline-xref">レプリケーション</block>
+  <block id="179e155261916c90c5ba827f30f81009" category="paragraph">以下の手順では、以下のコマンドを使用してAstra Control Centerを新しいクラスタにリストアするために必要な手順について説明します。 <block ref="ee90a91fd29d312c3755f81256004469" category="inline-xref-macro-rx"></block> または <block ref="7f9810b8c245a008d25b1cf6ca6e070c" category="inline-xref-macro-rx"></block>。手順は、ここに示す構成例に基づいています。</block>
+  <block id="085e18a4e893a18eb4b3be644e0d0787" category="inline-image-macro">保護ワークフローの図。Astra Control Centerのレプリケーションまたはバックアップのシナリオで、3つのKubernetesクラスタとAstra Control Centerのうちの2つに配置されています。</block>
+  <block id="3fa6dfe19fa7d9c2568673cfed4aa973" category="paragraph"><block ref="3fa6dfe19fa7d9c2568673cfed4aa973" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d1a92d24a7adeca4e03c1e14f5dbd5ef" category="paragraph">この設定例では、次の情報が表示されています。</block>
+  <block id="5af2adb89714b8e388459fa74d8e3176" category="list-text">*プライマリAstra Control Centerインスタンスを実行するKubernetesクラスタ*：</block>
+  <block id="5ca66f0f84413c9635248af29099d016" category="list-text">OpenShiftクラスタ：<block ref="c6de64d6df231e6979b9dcb292a4e09e" prefix=" " category="inline-code"></block></block>
+  <block id="5ae9096cdbfa2c5295c888167237bac6" category="list-text">Astra Control Centerプライマリインスタンス：<block ref="1e551b4381f3d89f6626ceafdded33bd" prefix=" " category="inline-code"></block></block>
+  <block id="eb833f6af7ead6a0e9464d032755cc83" category="list-text">このクラスタは、アプリケーションクラスタを管理します。</block>
+  <block id="8361de6458819a4215c0652c8868e68f" category="list-text">*セカンダリAstra Control Centerインスタンスを実行しているプライマリと同じKubernetesディストリビューションタイプの2つ目のKubernetesクラスタ*：</block>
+  <block id="53a83d56e989fcb9c14d3472f11cbb6f" category="list-text">OpenShiftクラスタ：<block ref="2c798d6ccc4a7655866b43fbe94b95a5" prefix=" " category="inline-code"></block></block>
+  <block id="801590b559643f9a9f2f607350337edb" category="list-text">Astra Control Centerのセカンダリインスタンス：<block ref="ae31bcfac9b2be0104f617c5807509e3" prefix=" " category="inline-code"></block></block>
+  <block id="6695b68a353bef262b413bd1c6f1e439" category="list-text">このクラスタを使用して、プライマリのAstra Control Centerインスタンスをバックアップするか、別のクラスタへのレプリケーションを設定します（この例では、<block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix=" " category="inline-code"></block> クラスタ）。</block>
+  <block id="3da5486b34ef54de60c44461411039d0" category="list-text">*リストア処理に使用されるプライマリと同じKubernetesディストリビューションタイプの3つ目のKubernetesクラスタ*：</block>
+  <block id="8d84a986a56f1897f286d501cd51ed79" category="list-text">OpenShiftクラスタ：<block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix=" " category="inline-code"></block></block>
+  <block id="c422eacf56b56c6007299895e2d81d87" category="list-text">Astra Control Center 3つ目のインスタンス：<block ref="3579b970b0a80f0707d02e4ef2973d55" prefix=" " category="inline-code"></block></block>
+  <block id="7e0372ad48e0b9816b54b95befcb684a" category="list-text">このクラスタは、Astra Control Centerのリストアまたはレプリケーションのフェイルオーバーに使用されます。</block>
+  <block id="98f78468837601c6ce54ee67eca65c20" category="admonition">アプリケーションクラスタは、上図のKubernetesクラスタとRancherクラスタからわかるように、3つのAstra Control Centerクラスタの外部に配置するのが理想的です。</block>
+  <block id="602ccad37ebee4ebe450f21cd85f3ec9" category="paragraph">図には示されていません。</block>
+  <block id="52e5800681694dd36c1678833c3ebed3" category="list-text">すべてのクラスタに、TridentがインストールされたONTAPバックエンドがあります。</block>
+  <block id="41eb2137b66d4ca3d8eab49c3169aafa" category="list-text">この構成では、OpenShiftクラスタがMetalLBをロードバランサとして使用しています。</block>
+  <block id="b5b8e67d6a37d24ad73c89e4c7ac8c9e" category="inline-link-macro">前提条件</block>
+  <block id="3a6d969276b16565b36a8c5c47ff26af" category="list-text">SnapshotコントローラとVolumeSnapshotClassもすべてのクラスタにインストールされています（を参照）。 <block ref="c7ad65e2d260b81d69f72ee0061ea668" category="inline-link-macro-rx"></block>。</block>
+  <block id="8163401d74ada705f56b234c0334a732" category="section-title">ステップ1オプション：Astra Control Centerのバックアップとリストア</block>
+  <block id="0651312a32a51b75f38b06ed41be90ec" category="paragraph">この手順では、バックアップとリストアを使用して新しいクラスタにAstra Control Centerをリストアするために必要な手順について説明します。</block>
+  <block id="0744a2bfe53bd1f93727419955aac4fe" category="paragraph">この例では、Astra Control Centerは常に<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> 名前空間と演算子は、<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> ネームスペース：</block>
+  <block id="5933535c297d6907cd8bb37dc6807ae7" category="admonition">ここでは説明しませんが、Astra Control Centerのオペレータは、Astra CRと同じネームスペースに導入することもできます。</block>
+  <block id="2a209b3640899f9ac53a34c7f2998fa9" category="list-text">プライマリのAstra Control Centerをクラスタにインストールしておきます。</block>
+  <block id="40167b34ba3c203ad4a89b1783dee4f8" category="list-text">セカンダリのAstra Control Centerを別のクラスタにインストールしておきます。</block>
+  <block id="ced5ebb83366f4dc6c484cd399df9fa4" category="list-text">プライマリAstra Control Centerアプリケーションとデスティネーションクラスタを、（実行中の）セカンダリAstra Control Centerインスタンスから管理<block ref="2c798d6ccc4a7655866b43fbe94b95a5" prefix=" " category="inline-code"></block> クラスタ）：</block>
+  <block id="24157c04c090c658365a1a1381733bee" category="list-text">セカンダリAstra Control Centerインスタンスにログインします。</block>
+  <block id="905b6595a1144d79054d16d70f241e0c" category="inline-link-macro">プライマリAstra Control Centerクラスタを追加</block>
+  <block id="64b9baaed07c5b60ec7fd1209d712850" category="list-text"><block ref="47faa60f4194d98e38c238d529e9f3ba" category="inline-link-macro-rx"></block> <block ref="c6de64d6df231e6979b9dcb292a4e09e" prefix="(" category="inline-code"></block>）。</block>
+  <block id="cce02a27fcc73636fb714a5b4bc12dbe" category="inline-link-macro">デスティネーションの3つ目のクラスタを追加</block>
+  <block id="2235e4f2af222fc49c32655c592f7a13" category="list-text"><block ref="e21ec3fc9b132c482f17f04af2363163" category="inline-link-macro-rx"></block> <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）をクリックします。</block>
+  <block id="4eb02c6222945af8e35359c90993d745" category="list-text">セカンダリのAstra Control CenterでAstra Control CenterとAstra Control Centerオペレータを管理します。</block>
+  <block id="f51ffb9c77ca44fd28cb7d10f441ccff" category="list-text">[アプリケーションの定義]ウィンドウで、新しいアプリケーション名を入力します。 <block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix="(" category="inline-code"></block>）。</block>
+  <block id="bd86b7d3bce29159ded59cde7d1db272" category="list-text">プライマリAstra Control Centerを実行しているクラスタを選択 <block ref="c6de64d6df231e6979b9dcb292a4e09e" prefix="(" category="inline-code"></block>）をクリックします。</block>
+  <block id="5e0afc8490cb0f9aef8e7d6aa9c2a95b" category="list-text">を選択します<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> Astra Control Centerのネームスペース（*[ネームスペース]*ドロップダウンリスト）。</block>
+  <block id="13728b663815d8b9b7f3110a0f6ae3d3" category="list-text">[クラスタリソース]ページで、*[クラスタを対象とした追加のリソースを含める]*をオンにします。</block>
+  <block id="de4566456b44943a73dbc9f1d5f4cfb5" category="list-text">次のエントリを選択し、*[追加]*を選択します。</block>
+  <block id="25a653c17051ef3ca841d953bbc19608" category="list-text">ラベルセレクタ:acc-crd</block>
+  <block id="ece2d00e491a614dbc2abe1f851d18eb" category="list-text">グループ：apiextensions.k8s.io</block>
+  <block id="7ad0a964a0623e55a6f1d8cd78457694" category="list-text">バージョン：v1</block>
+  <block id="5b8e73d5fcf09db630648e42903cd2b0" category="list-text">種類: CustomResourceDefinition</block>
+  <block id="70df6adc26f110b5012bc3980b97ec00" category="list-text">アプリケーション情報を確認します。</block>
+  <block id="e69f748bec017b909dbea596f6f8dc81" category="paragraph">「* define *」を選択した後、演算子に対して「アプリケーションの定義」プロセスを繰り返します。 <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>）をクリックし、<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> [アプリケーションの定義]ウィザードの名前空間。</block>
+  <block id="d57219211eee2c9ac61353961ee18a5d" category="list-text">Astra Control Centerとオペレータのバックアップ：</block>
+  <block id="7f4d957664298337c8d5157fa149a990" category="list-text">セカンダリAstra Control Centerで、[Applications]タブを選択して[Applications]ページに移動します。</block>
+  <block id="278dad820960e96a9ce6541346dd4ba9" category="inline-link-macro">バックアップ</block>
+  <block id="941c84a0653e644d5ab9ac150fb9c6b7" category="list-text"><block ref="ffec47dbb72ad940d976d493fbb373a6" category="inline-link-macro-rx"></block> Astra Control Centerアプリケーション <block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix="(" category="inline-code"></block>）。</block>
+  <block id="61519ed400e73a738969e7370bac17ee" category="list-text"><block ref="ffec47dbb72ad940d976d493fbb373a6" category="inline-link-macro-rx"></block> 演算子 <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>）。</block>
+  <block id="3620c91a5ce84ffd285ec21372cfe15f" category="inline-link-macro">Astra Control Centerのアンインストール</block>
+  <block id="8372d448a6d84ac9d6457bd1d62e39cd" category="list-text">Astra Control Centerとオペレータをバックアップしたら、次のツールでディザスタリカバリ（DR）シナリオをシミュレートします。 <block ref="c0a8da0102c6c1626f1a9bd5b3d39b7e" category="inline-link-macro-rx"></block> プライマリクラスタから削除します。</block>
+  <block id="0a06b3d497cd0818ddc4081fd5085a94" category="admonition">新しいクラスタ（この手順で説明する3つ目のKubernetesクラスタ）にAstra Control Centerをリストアし、新しくインストールしたAstra Control Centerのプライマリクラスタと同じDNSを使用します。</block>
+  <block id="614c81b0eeb6c12dd4aaa3bb219365e8" category="list-text">セカンダリAstra Control Centerを使用 <block ref="c187a3e1878878e5987ba2dae2e97e3b" category="inline-link-macro-rx"></block> バックアップから作成したAstra Control Centerアプリケーションのプライマリインスタンス：</block>
+  <block id="f94329559aeea58ade037e247a10a440" category="list-text">[Applications]*を選択し、Astra Control Centerアプリケーションの名前を選択します。</block>
+  <block id="e329c9e9b3f1e5268c38c059d96714a5" category="list-text">リストアタイプとして*[新しいネームスペースにリストアする]*を選択します。</block>
+  <block id="db33cdfe838c8248e7475ea24002e1c5" category="list-text">リストア名を入力 <block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix="(" category="inline-code"></block>）。</block>
+  <block id="221cfbda20ceb580c1e53521cb9a8340" category="list-text">デスティネーションの3番目のクラスタを選択 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）。</block>
+  <block id="d1285da7ee51ae8f019ffc93064f4ef1" category="list-text">元のネームスペースと同じネームスペースになるようにデスティネーションネームスペースを更新します。</block>
+  <block id="a1c4429eb9da28aa020c08aef6590a55" category="list-text">[Restore Source]ページで、リストア・ソースとして使用するアプリケーション・バックアップを選択します。</block>
+  <block id="e1929df758ae80ddec3d307d6f8b5c48" category="list-text">[元のストレージクラスを使用してリストアする]*を選択します。</block>
+  <block id="7247b0618202329b2ab0af353626c9ab" category="list-text">[すべてのリソースをリストア]*を選択します。</block>
+  <block id="c70836f462f4f6702b9a139649608439" category="list-text">リストア情報を確認し、*[Restore]*を選択して、Astra Control Centerをデスティネーションクラスタにリストアするリストアプロセスを開始します。 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）。アプリケーションが起動すると、リストアが完了します。<block ref="e4894ca167b08880bfc35862f18575eb" prefix=" " category="inline-code"></block> 状態。</block>
+  <block id="24c4abff05451e6058ec89e05fe3f560" category="list-text">デスティネーションクラスタでAstra Control Centerを設定します。</block>
+  <block id="8c0181c3c54e924e6c8251f6434552d7" category="list-text">ターミナルを開き、kubeconfigを使用してデスティネーションクラスタに接続します。 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）をクリックします。</block>
+  <block id="7ccba7a2e64f551441aea8a49495251d" category="list-text">を確認します<block ref="2664f03ac6b8bb9eee4287720e407db3" prefix=" " category="inline-code"></block> Astra Control Center構成の列で参照されるプライマリシステムのDNS名は次のとおりです。</block>
+  <block id="2040f7af66253ebbe0667af4c0828762" category="list-text">状況に応じて<block ref="2664f03ac6b8bb9eee4287720e407db3" prefix=" " category="inline-code"></block> 上記の応答のフィールドにプライマリAstra Control CenterインスタンスのFQDNがない場合は、Astra Control CenterのDNSを参照するように設定を更新します。</block>
+  <block id="6dfa48d4f2467071ce6e0f84fe3006bb" category="list-text">を変更します<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> の下<block ref="084d5d41838f6b2d8b0c1f1176d66d01" prefix=" " category="inline-code"></block> FQDNへ <block ref="1e551b4381f3d89f6626ceafdded33bd" prefix="(" category="inline-code"></block> （この例では）のプライマリAstra Control Centerインスタンス。</block>
+  <block id="25812ed1432cfe46632186b5957ebe26" category="list-text">設定を保存します。</block>
+  <block id="3b02ce4030d877283176db26e25cca57" category="list-text">アドレスが更新されたことを確認します。</block>
+  <block id="58352934cc7c347e2fd6b8aac19ac694" category="inline-xref">Astra Control Centerのオペレータのリストア</block>
+  <block id="2617a6dc5f64d3041af70a4c660dcdb0" category="list-text">にアクセスします <block ref="c104a16b91349430118376c82eb8b32b" category="inline-xref-macro-rx"></block> セクションを参照して、リストアプロセスを完了してください。</block>
+  <block id="686531f5cdaf39d33f2480c055816558" category="section-title">ステップ1オプション：レプリケーションを使用してAstra Control Centerを保護</block>
+  <block id="9a1444b1c133e42ccb1d97ee2025cdac" category="inline-link-macro">Astra Control Centerのレプリケーション</block>
+  <block id="9291c718d85e7bcfb0e1411d0b1c9a6e" category="paragraph">この手順では、設定に必要な手順について説明します。 <block ref="90fb6a19cf7930e9ab4b6d3e8bb24100" category="inline-link-macro-rx"></block> を使用して、プライマリAstra Control Centerインスタンスを保護します。</block>
+  <block id="5635b44a250915076a5eb24fca6e9950" category="list-text">セカンダリAstra Control CenterインスタンスからプライマリAstra Control Centerアプリケーションとデスティネーションクラスタを管理します。</block>
+  <block id="9207ac3bd12b2fa43f3524815a74cfdd" category="list-text"><block ref="e21ec3fc9b132c482f17f04af2363163" category="inline-link-macro-rx"></block> <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）をクリックします。</block>
+  <block id="73a01c3fff16c0348c04f681860fd9d1" category="list-text">[Clusters]*を選択し、プライマリAstra Control Centerが含まれるクラスタを選択します。 <block ref="c6de64d6df231e6979b9dcb292a4e09e" prefix="(" category="inline-code"></block>）。</block>
+  <block id="b1583f3dc5a5e69c92e9c6428583cb45" category="list-text">選択するオプション<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> および<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> 名前空間。</block>
+  <block id="98ef596f9a9a869b5014c601276e1db7" category="list-text">[アクション]メニューを選択し、*[アプリケーションとして定義]*を選択します。</block>
+  <block id="ded592a2dd874d97359c95f2eaa29421" category="list-text">定義されたアプリケーションを表示するには、*[アプリケーションで表示]*を選択します。</block>
+  <block id="7f5732477ab7b56be355975c7d13c1df" category="list-text">レプリケーションのバックエンドを構成します。</block>
+  <block id="a5fdf01a9a15b06aa316075a3525120f" category="admonition">レプリケーションには、プライマリのAstra Control Centerクラスタとデスティネーションクラスタが必要 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）別のピアONTAPストレージバックエンドを使用します。
+各バックエンドがピアリングされてAstra Controlに追加されると、[Backends]ページの*[Discovered]*タブにバックエンドが表示されます。</block>
+  <block id="91a0f8c844251f5189f5504593539794" category="inline-link-macro">ピアバックエンドの追加</block>
+  <block id="ab03d90a9fdb3fdf625d9aca81417e46" category="list-text"><block ref="978f815d0ef0db82fc827303a3ad02ca" category="inline-link-macro-rx"></block> をプライマリクラスタのAstra Control Centerに接続します。</block>
+  <block id="fd826e05ce5b455d7acefde843e26f20" category="list-text"><block ref="978f815d0ef0db82fc827303a3ad02ca" category="inline-link-macro-rx"></block> デスティネーションクラスタのAstra Control Centerに接続します。</block>
+  <block id="9356fa122297edcda026cd57fdc3d5e3" category="list-text">レプリケーションを設定します。</block>
+  <block id="8beda0998dc29d932cf830815de72ad4" category="list-text">[Applications]画面で、<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> アプリケーション：</block>
+  <block id="95eee5643c6ea92bf408bfecd9a7b10b" category="list-text">[レプリケーションポリシーの設定]*を選択します。</block>
+  <block id="6378adb28198926b11ac65eb9cea850d" category="list-text">選択するオプション<block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix=" " category="inline-code"></block> をデスティネーションクラスタとして指定します。</block>
+  <block id="c803f3bcb9b9fd80a88ad7b1a6db021e" category="list-text">ストレージクラスを選択します。</block>
+  <block id="541bb632fcb2088d2023df5041ddcc6e" category="list-text">入力するコマンド<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> をデスティネーションネームスペースとして指定します。</block>
+  <block id="9cbdfe3d15f7fd64c6fd610312533b95" category="list-text">必要に応じてレプリケーション頻度を変更します。</block>
+  <block id="eb23f2145c46a18f7c55bc5bb9994af8" category="list-text">設定が正しいことを確認し、*[保存]*を選択します。</block>
+  <block id="f684373abd46b45391eb415a770205be" category="paragraph">レプリケーション関係の移行元<block ref="6f5e6e098505ac366a921fdd2e9dfbe8" prefix=" " category="inline-code"></block> 終了：<block ref="072f9734fceb02f516b50d4174ac0f18" prefix=" " category="inline-code"></block>。アクティブな場合、このレプリケーションは、レプリケーション設定が削除されるまで5分おきに実行されます。</block>
+  <block id="f8ac0bf20f4e83443becf25c67c8dd23" category="list-text">プライマリシステムが破損しているかアクセスできなくなった場合は、レプリケーションをもう一方のクラスタにフェイルオーバーします。</block>
+  <block id="2a5c691cfbc0e53ab9e3c59a54c85440" category="admonition">フェイルオーバーが正常に実行されるように、デスティネーションクラスタにAstra Control Centerがインストールされていないことを確認してください。</block>
+  <block id="071a074466d02cd4e0aaa0b4de4bd015" category="list-text">縦の楕円アイコンを選択し、*フェイルオーバー*を選択します。</block>
+  <block id="eb6498814838443cb837fec23bd9588c" category="inline-image-macro">レプリケーション関係の「フェイルオーバー」オプションを示すイメージ</block>
+  <block id="52613449476ac17405b8af6309067c8d" category="paragraph"><block ref="52613449476ac17405b8af6309067c8d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fd0509d535a6917607fc96bea6fb5b05" category="list-text">詳細を確認し、*[フェイルオーバー]*を選択してフェイルオーバープロセスを開始します。</block>
+  <block id="8ace1a586dc143db5ddfbd93ea99332d" category="paragraph">レプリケーション関係のステータスがに変わります。<block ref="2c8f732ca2bd1b62efb460fa5c2d6e4d" prefix=" " category="inline-code"></block> 次に<block ref="8b9489927c1c03581481cfefcf835120" prefix=" " category="inline-code"></block> 完了したら、</block>
+  <block id="82685812b31cfcecb8abcb724f425fa8" category="list-text">フェイルオーバーの設定を完了します。</block>
+  <block id="c08a43dadfceec3eb757735076d86287" category="list-text">ターミナルを開き、3番目のクラスタのkubeconfigを使用して接続します。 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）。このクラスタにはAstra Control Centerがインストールされています。</block>
+  <block id="63272416ff671e2cd071cc6fbf47d1ca" category="list-text">3つ目のクラスタのAstra Control Center FQDNを確認 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）。</block>
+  <block id="982e9218f2e08e1fd0f4d400ef3d0e75" category="list-text">Astra Control CenterのDNSを参照するように設定を更新します。</block>
+  <block id="c07ad5d483cf962f73b521090b7ff568" category="list-text">を変更します<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> の下<block ref="084d5d41838f6b2d8b0c1f1176d66d01" prefix=" " category="inline-code"></block> FQDNを使用 <block ref="3579b970b0a80f0707d02e4ef2973d55" prefix="(" category="inline-code"></block>）をクリックします。</block>
+  <block id="121944d9253d29f9f083abff9613ddc7" category="list-text">[[missing-traefik-crd]]必要なすべてのtraefik CRDが存在することを確認します。</block>
+  <block id="2d02cb2ce67247a18945ee0b7d49bebe" category="paragraph">必要なtraefik CRD：</block>
+  <block id="fcc7cca69eff70efc25ddd0fc3a4acf7" category="list-text">上記のCRDの一部がない場合は、次の手順を実行します。</block>
+  <block id="bb88971c352167a3a42c197b16ef4465" category="inline-link">traefikドキュメント</block>
+  <block id="2be174f6f759928d5ba86348e9b1e266" category="list-text">に進みます<block ref="d290875ab1e38c2569ff86f76b73296b" category="inline-link-rx"></block>。</block>
+  <block id="b5837c59520923ed6dd4fd8ba1cc7e49" category="list-text">「定義」領域をファイルにコピーします。</block>
+  <block id="ea7463422c1ab87e16568f20144a8f56" category="list-text">変更を適用：</block>
+  <block id="30eef5ffc659f1b49b40f3bdac6a81da" category="list-text">traefikを再起動します。</block>
+  <block id="250729ff35e6ada8a47a36ef1a6ac694" category="section-title">ステップ2：Astra Control Centerのオペレータをリストア</block>
+  <block id="baa33bb55433337969dadc7d383cff14" category="paragraph">セカンダリのAstra Control Centerを使用して、プライマリのAstra Control Centerオペレータをバックアップからリストアデスティネーションネームスペースは、ソースネームスペースと同じである必要があります。Astra Control Centerをプライマリソースクラスタから削除しても、同じリストア手順を実行するためのバックアップは引き続き存在します。</block>
+  <block id="4c7254ab16d8ef09a273f3d96e69bf1c" category="list-text">*アプリケーション*を選択し、オペレータアプリの名前を選択します。 <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>）。</block>
+  <block id="ea2832681a21bc1855e50cfe212e73bd" category="list-text">[操作]列の[オプション]メニューから*[リストア]*を選択します。</block>
+  <block id="76d6679f0128260426340811fccf4a8f" category="list-text">ネームスペースをプライマリソースクラスタに関連付けられているネームスペースと同じに変更する <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>）。</block>
+  <block id="7644d571cdb353d1a0235344eb44d2bf" category="list-text">リストア・ソースとして以前に作成されたバックアップを選択します。</block>
+  <block id="9d606654f9638f2043447b697898f09c" category="list-text">詳細を確認し、*[リストア]*をクリックしてリストアプロセスを開始します。</block>
+  <block id="ac478eb1284026f74c3f5ac74484f605" category="paragraph">[Applications]ページには、Astra Control Centerオペレータがデスティネーションの第3のクラスタにリストアされていることが表示される <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）。プロセスが完了すると、状態はとして表示されます。<block ref="78945de8de090e90045d299651a68a9b" prefix=" " category="inline-code"></block>。10分以内に、ページでDNSアドレスが解決されます。</block>
+  <block id="b601247b675f590aa27dcdc8134318f2" category="paragraph">Astra Control Centerとその登録済みクラスタ、Snapshotとバックアップを使用した管理対象アプリケーションを、デスティネーションの第3のクラスタで利用できるようになりました。 <block ref="f5a2d3cd2198d56dec960ceb8ccc13a6" prefix="(" category="inline-code"></block>）。元のインスタンスに対して使用していた保護ポリシーは、新しいインスタンスにも適用されます。スケジュールされたバックアップやオンデマンドのバックアップやスナップショットを引き続き作成できます。</block>
+  <block id="76ca73343a876eeb3c91722eb0a00de9" category="paragraph">システムの健全性と保護プロセスが成功したかどうかを確認します。</block>
+  <block id="e30b18c15d0e16dfa86486a6e44c0dcf" category="list-text">*ポッドが実行されていません*：すべてのポッドが実行中であることを確認します。</block>
+  <block id="e714a0eaa24af6b5857a0f2ca298c9f4" category="paragraph">一部のポッドが<block ref="9b9a6b49b6ab8fd31c78a10bb618f32b" prefix=" " category="inline-code"></block> 状態、再起動し、次の状態に移行する必要があります。<block ref="5bda814c4aedb126839228f1a3d92f09" prefix=" " category="inline-code"></block> 状態。</block>
+  <block id="d07a1b5feb65868482c68e0ceb9c3c00" category="list-text">*システムステータスの確認*：Astra Control Centerシステムが<block ref="b2fdab230a2c39f3595a947861863cb7" prefix=" " category="inline-code"></block> 都道府県：</block>
+  <block id="04f941910085f8a8e8c42f056eff9594" category="list-text">*導入ステータスの確認*：Astra Control Centerの導入情報を表示して<block ref="5e157d538e3ec1b01bf3ba3bd8b358f5" prefix=" " category="inline-code"></block> はです<block ref="ea9823706636090045090bd57654debb" prefix=" " category="inline-code"></block>。</block>
+  <block id="42f792b9c26a4fc874c76169d7b73cf2" category="inline-xref">traefik CRD</block>
+  <block id="24af7920af161c9a7731c3eb37db9d88" category="list-text">*リストアしたAstra Control Center UIで404エラーが返される*：<block ref="0a3e1793e4eaf6bd67bdf43d1bca1c74" prefix=" " category="inline-code"></block> 入力オプションとして、 <block ref="192695547ed338030dabb8777268a730" category="inline-xref-macro-rx"></block> すべてインストールされていることを確認します。</block>
 </blocks>
