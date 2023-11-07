@@ -43,7 +43,7 @@ AWS に Astra Control Center を導入する前に、次のものが必要です
 * OCPを使用する場合は、Red Hat OpenShift Container Platform（OCP）権限（ポッドを作成するためのネームスペースレベル）
 * バケットとコネクタを作成するための権限を持つ AWS クレデンシャル、アクセス ID 、シークレットキー
 * AWS アカウント Elastic Container Registry （ ECR ）アクセスおよびログイン
-* AWS がホストするゾーンと Route 53 エントリは、 Astra Control UI にアクセスするために必要です
+* AWSでホストされるゾーンとAmazon Route 53のエントリがAstra Control UIにアクセスするために必要
 
 
 
@@ -86,7 +86,7 @@ Astra Control Center の FQDN をロードバランシング IP アドレスに�
 
 
 | Astra Trident（以前のCloud Managerで、Kubernetesクラスタ検出の一部としてNetApp BlueXPにインストール）  a| 
-Astra Trident 22.10以降のインストールと設定、およびストレージバックエンドとしてのNetApp ONTAPバージョン9.8以降[[aws-registry]]
+Astra Trident 23.01以降のインストールと設定、およびストレージバックエンドとしてのNetApp ONTAPバージョン9.9.1以降[[aws-registry]]
 
 
 
@@ -282,7 +282,7 @@ Astra Control Center の FQDN をロードバランシング IP アドレスに�
 
 
 | Astra Trident（以前のCloud Managerで、Kubernetesクラスタ検出の一部としてNetApp BlueXPにインストール）  a| 
-Astra Trident 22.10以降のインストールと設定、およびストレージバックエンドとしてのNetApp ONTAPバージョン9.8以降[gcp-registry]]
+Astra Trident 23.01以降のインストールと設定、およびストレージバックエンドとしてのNetApp ONTAPバージョン9.9.1以降[gcp-registry]]
 
 
 
@@ -385,15 +385,7 @@ gcloud auth activate-service-account <service account email address>
 --key-file=<GCP Service Account JSON file>
 ----
 +
-このスクリプトには、Astra Control CenterマニフェストファイルとGoogle Image Registryの場所が必要です。
-
-
-
-+
-例
-
-+
-[+]
+このスクリプトには、Astra Control CenterマニフェストファイルとGoogle Image Registryの場所が必要です。例
 
 +
 [listing]
@@ -411,6 +403,8 @@ while IFS= read -r image; do
     docker push $GCP_CR_REGISTRY/$image
 done < astra-control-center-22.04.41.manifest
 ----
+
+
 . DNS ゾーンを設定します。
 
 
@@ -530,7 +524,7 @@ Astra Control Center の FQDN をロードバランシング IP アドレスに�
 
 
 | Astra Trident（NetApp BlueXPのKubernetesクラスタ検出の一部としてインストール）  a| 
-Astra Trident 22.10以降のインストールと設定、およびNetApp ONTAPバージョン9.8以降がストレージバックエンドとして使用されます[[azure-registry]]
+Astra Trident 23.01以降のインストールと設定、およびNetApp ONTAPバージョン9.9.1以降がストレージバックエンドとして使用されます[[azure-registry]]
 
 
 

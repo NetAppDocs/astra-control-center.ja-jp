@@ -56,7 +56,7 @@ NOTE: ベストプラクティスとして、LDAPサーバに接続するとき�
 . [* User Match]セクションで、次の手順を実行します。
 +
 .. LDAPサーバからユーザ情報を取得するときに使用するベースDNと適切なユーザ検索フィルタを入力します。
-.. （オプション）ディレクトリでuser login属性が使用されている場合 `userPrincipalName` ではなく `mail`と入力します `userPrincipalName` [ユーザーログイン属性]フィールドの正しい属性に入力します。
+.. （オプション）ディレクトリでuser login属性が使用されている場合 `userPrincipalName` ではなく `mail`と入力します `userPrincipalName` [ユーザーログイン属性（User login attribute）]フィールドの正しい属性に入力します。
 
 
 . ［*グループ一致*］セクションで、グループ検索ベースDNと適切なカスタムグループ検索フィルタを入力します。

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/replicate_snapmirror.html 
 keywords: replicate, replication, disaster, recovery 
-summary: Astra では、スナップショットまたはバックアップからアプリケーション構成と永続的ストレージをリストアできます。オブジェクトストアから永続的ストレージのバックアップが転送されるため、既存のバックアップからのリストアが最も高速に完了します。 
+summary: Astra では、スナップショットまたはバックアップからアプリケーション構成と永続的ストレージをリストアできます。永続的ストレージバックアップはオブジェクトストアから転送されるため、既存のバックアップからのリストアが最速で完了します。 
 ---
 = SnapMirrorテクノロジを使用してストレージバックエンド間でアプリケーションをレプリケート
 :hardbreaks:
@@ -46,40 +46,46 @@ Astra Controlを使用すると、アプリケーションのレプリケーシ�
 
 Astra Controlによるアプリケーションのレプリケーションを開始するには、次の前提条件を満たしている必要があります。
 
-* * ONTAPクラスタ*：
-+
-** * Astra Trident *：ONTAPをバックエンドとして利用するソースとデスティネーションの両方のKubernetesクラスタに、Astra Tridentバージョン22.10以降が存在している必要があります。
-** *ライセンス*：Data Protection Bundleを使用するONTAP SnapMirror非同期ライセンスが、ソースとデスティネーションの両方のONTAPクラスタで有効になっている必要があります。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP のSnapMirrorライセンスの概要"^] を参照してください。
+.ONTAP クラスタ
+* * Astra Trident *：ONTAPをバックエンドとして利用するソースとデスティネーションの両方のKubernetesクラスタに、Astra Tridentバージョン22.10以降が存在している必要があります。
+* *ライセンス*：Data Protection Bundleを使用するONTAP SnapMirror非同期ライセンスが、ソースとデスティネーションの両方のONTAPクラスタで有効になっている必要があります。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP のSnapMirrorライセンスの概要"^] を参照してください。
 
 
-* *ピアリング*：
-+
-** *クラスタとSVM *：ONTAPストレージバックエンドにピア関係が設定されている必要があります。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["クラスタと SVM のピアリングの概要"^] を参照してください。
+.ピアリング
+* *クラスタとSVM *：ONTAPストレージバックエンドにピア関係が設定されている必要があります。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["クラスタと SVM のピアリングの概要"^] を参照してください。
 +
 
 IMPORTANT: 2つのONTAPクラスタ間のレプリケーション関係で使用されるSVM名が一意であることを確認してください。
 
-** * Astra TridentとSVM *：ピア関係にあるリモートSVMがデスティネーションクラスタのAstra Tridentで使用可能である必要があります。
+* * Astra TridentとSVM *：ピア関係にあるリモートSVMがデスティネーションクラスタのAstra Tridentで使用可能である必要があります。
 
 
-* * Astra Control Center *：
+.Astra Control Center の略
+* *マネージドバックエンド*：レプリケーション関係を作成するには、Astra Control CenterでONTAPストレージバックエンドを追加および管理する必要があります。
 +
+*_ Astra Control Provisionerのみ_*：Astra Control Center 23.10以降でAstra Control Provisionerを有効にしている場合、Astra Control CenterでONTAPストレージバックエンドの追加と管理は任意です。
+
+* *管理対象クラスタ*：Astra Controlを使用して次のクラスタを追加、管理できます。理想的には、異なる障害ドメインまたはサイトに配置されます。
++
+** ソースKubernetesクラスタ
+** デスティネーションKubernetesクラスタ
+** 関連付けられているONTAPクラスタ
+
+
+* *ユーザアカウント*：ONTAPストレージバックエンドをAstra Control Centerに追加する場合は、「admin」ロールのユーザクレデンシャルを適用します。このロールにはアクセス方法があります `http` および `ontapi` ONTAP ソースとデスティネーションの両方のクラスタで有効にします。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
++
+*_ Astra Control Provisionerのみ_*：Astra Control Provisioner機能を有効にした場合、Astra Control Centerでクラスタを管理するために「admin」ロールを明確に定義する必要はなくなりました。これらのクレデンシャルは不要になりました。
+
+
+
 
 TIP: link:../get-started/install_acc.html["Astra Control Centerを導入"^] シームレスなディザスタリカバリのための第3の障害ドメインまたはセカンダリサイト。
 
-+
-** *管理対象クラスタ*：次のクラスタをAstra Controlに追加して管理する必要があります（理想的には障害ドメインやサイトが異なる場合）。
-+
-*** ソースKubernetesクラスタ
-*** デスティネーションKubernetesクラスタ
-*** 関連付けられているONTAPクラスタ
 
+NOTE: Astra Control Centerでは、NVMe over TCPプロトコルを使用するストレージバックエンドのNetApp SnapMirrorレプリケーションはサポートされません。
 
-** *ユーザアカウント*：ONTAPストレージバックエンドをAstra Control Centerに追加する場合は、「admin」ロールのユーザクレデンシャルを適用します。このロールにはアクセス方法があります `http` および `ontapi` ONTAP ソースとデスティネーションの両方のクラスタで有効にします。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
-
-
-* * Astra Trident / ONTAPの設定*：Astra Control Centerでは、ソースクラスタとデスティネーションクラスタの両方のレプリケーションをサポートするストレージバックエンドを少なくとも1つ設定する必要があります。ソースクラスタとデスティネーションクラスタが同じである場合は、耐障害性を最大限に高めるために、デスティネーションアプリケーションでソースアプリケーションとは別のストレージバックエンドを使用する必要があります。
-
+.Astra Trident / ONTAP 構成
+Astra Control Centerでは、ソースとデスティネーションの両方のクラスタのレプリケーションをサポートするストレージバックエンドを少なくとも1つ設定する必要があります。ソースクラスタとデスティネーションクラスタが同じである場合は、耐障害性を最大限に高めるために、デスティネーションアプリケーションでソースアプリケーションとは別のストレージバックエンドを使用する必要があります。
 
 
 IMPORTANT: Astra Controlレプリケーションでは、単一のストレージクラスを使用するアプリケーションがサポートされます。ネームスペースにアプリケーションを追加するときは、そのアプリケーションのストレージクラスがネームスペース内の他のアプリケーションと同じであることを確認してください。レプリケートされたアプリケーションにPVCを追加するときは、新しいPVCのストレージクラスがネームスペース内の他のPVCと同じであることを確認してください。

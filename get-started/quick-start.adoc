@@ -25,7 +25,8 @@ summary: 数ステップで Astra Control を使い始めましょう。
 
 *ストレージ統合*
 
-* link:../get-started/requirements.html#astra-trident-requirements["サポートされているAstra Tridentバージョンが環境に含まれていることを確認します"^]
+* link:../get-started/requirements.html#astra-trident-requirements["環境にAstra Tridentのサポート対象バージョンが含まれていることを確認"^]
+* link:../use/enable-acp.html["Astra Control Provisionerの高度な管理機能とストレージプロビジョニング機能を有効にする"^]
 * https://docs.netapp.com/us-en/trident/trident-use/worker-node-prep.html["ワーカーノードを準備します"^]
 * https://docs.netapp.com/us-en/trident/trident-use/backends.html["Astra Tridentストレージバックエンドを設定"^]
 * https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Astra Tridentストレージクラスを設定する"^]

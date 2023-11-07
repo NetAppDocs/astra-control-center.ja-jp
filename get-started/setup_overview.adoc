@@ -65,26 +65,28 @@ NOTE: 評価用ライセンスをお持ちで、AutoSupport にデータを送�
 クラスタを追加する前に、次の前提条件を満たしていることを確認する必要があります。また、資格チェックを実行して、クラスタをAstra Control Centerに追加し、クラスタ管理の役割を作成する準備ができていることを確認する必要もあります。
 
 .作業を開始する前に
-* クラスタ内のワーカーノードで適切なストレージドライバが設定されていることを確認します。これにより、ポッドがバックエンドストレージと通信できるようになります。
-* が環境に合っている link:../get-started/requirements.html["運用環境の要件"^] Astra TridentとAstra Control Centerに最適。
-* プライベート認証局（CA）を参照するkubeconfigファイルを使用してクラスタを追加する場合は、 `cluster` kubeconfigファイルのセクションを参照してください。これにより、Astra Controlでクラスタを追加できます。
+* *環境の前提条件を満たしている*：環境が link:../get-started/requirements.html["運用環境の要件"^] Astra TridentとAstra Control Centerに最適。
+* *ワーカーノードの構成*:ポッドがバックエンドストレージと対話できるように、クラスタ内のワーカーノードを適切なストレージドライバで構成します。
+* * kubeconfigをアクセス可能にする*: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["デフォルトのクラスタkubeconfig"^] それは link:../get-started/install_acc.html#set-up-namespace-and-secret-for-registries-with-auth-requirements["インストール時に設定"^]。
+* *認証局に関する考慮事項*：プライベート認証局（CA）を参照するkubeconfigファイルを使用してクラスタを追加する場合は、 `cluster` kubeconfigファイルのセクションを参照してください。これにより、Astra Controlでクラスタを追加できます。
 +
 [listing]
 ----
 insecure-skip-tls-verify: true
 ----
-* Astra Tridentの一バージョン link:../get-started/requirements.html#astra-trident-requirements["Astra Control Centerによってサポートされます"^] がインストールされている：
+* * Astra Tridentの要件*：
++
+** *サポートされているバージョンをインストール*：Astra Tridentのバージョン link:../get-started/requirements.html#astra-trident-requirements["Astra Control Centerによってサポートされます"^] がインストールされている：
 +
 
 NOTE: 可能です https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method["Astra Tridentを導入"^] Astra Tridentオペレータ（手動またはHelmチャートを使用）またはを使用 `tridentctl`。Astra Tridentのインストールまたはアップグレードを行う前に、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html["サポートされるフロントエンド、バックエンド、およびホスト構成"^]。
 
-+
-** * Astra Tridentストレージバックエンドの設定*：Astra Tridentストレージバックエンドが少なくとも1つ必要です https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["を設定します"^] クラスタのポリシーを確認してください。
-** * Astra Tridentストレージクラスを設定*：Astra Tridentストレージクラスを少なくとも1つ設定する必要があります https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["を設定します"^] クラスタのポリシーを確認してください。デフォルトのストレージクラスが設定されている場合は、そのストレージクラスがデフォルトのアノテーションを持つ唯一のストレージクラスであることを確認します。
-** * Astra Tridentボリュームスナップショットコントローラとボリュームスナップショットクラスがインストールおよび設定されている*：ボリュームスナップショットコントローラがである必要があります https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["インストール済み"^] Astra Controlでスナップショットを作成できるようにします。Astra Tridentが少なくとも1つ `VolumeSnapshotClass` はい https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["セットアップ"^] 管理者による。
+** * Astra Tridentストレージバックエンドの設定*：少なくとも1つのAstra Tridentストレージバックエンドが https://docs.netapp.com/us-en/trident/trident-use/backends.html["を設定します"^] クラスタのポリシーを確認してください。
+** * Astra Tridentストレージクラスを設定*：少なくとも1つのAstra Tridentストレージクラスを https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["を設定します"^] クラスタのポリシーを確認してください。デフォルトのストレージクラスが設定されている場合は、そのストレージクラスがデフォルトのアノテーションを持つ唯一のストレージクラスであることを確認します。
+** * Astra TridentボリュームSnapshotコントローラを設定し、ボリュームSnapshotクラスをインストール*：ボリュームSnapshotコントローラは https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["インストール済み"^] Astra Controlでスナップショットを作成できるようにします。Astra Tridentが少なくとも1つ `VolumeSnapshotClass` はい https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["セットアップ"^] 管理者による。
 
 
-* *Kubeconfigにアクセス可能*:にアクセスできます https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["デフォルトのクラスタkubeconfig"^] それは link:../get-started/install_acc.html#set-up-namespace-and-secret-for-registries-with-auth-requirements["インストール時に設定"^]。
+* * Astra Control Provisioner *：Astra Control Provisionerの高度な管理機能とストレージプロビジョニング機能を使用するには、Astra Trident 23.10以降をインストールし、 link:../use/enable-acp.html["Astra Control Provisionerの機能"]。
 * * ONTAP クレデンシャル*：Astra Control Centerを使用してアプリケーションをバックアップおよびリストアするには、バックアップONTAP システムでONTAP クレデンシャルとスーパーユーザーIDを設定する必要があります。
 +
 ONTAP コマンドラインで次のコマンドを実行します。
@@ -607,6 +609,7 @@ TIP: 他のクラスタを Astra Control Center に追加して管理する前�
 
 .作業を開始する前に
 * クラスタを追加する前に、必要なを確認し、実行しておきます <<Astra Controlを使用して、クラスタ管理のための環境を準備する,前提条件となるタスク>>。
+* ONTAP SANドライバを使用している場合は、すべてのKubernetesクラスタでマルチパスが有効になっていることを確認します。
 
 
 .手順
@@ -861,11 +864,11 @@ Please enter Certificate: Press <Enter> when done
 -----END CERTIFICATE-----
 
 You should keep a copy of the CA-signed digital certificate for future reference.
-The installed certificate’s CA and serial number for reference:
+The installed certificate's CA and serial number for reference:
 
 CA:
 serial:
-The certificate’s generated name for reference:
+The certificate's generated name for reference:
 
 
 ==
@@ -968,9 +971,9 @@ NOTE: バックエンドが表示されるようにページを更新する必�
 アプリケーション構成と永続的ストレージを同じクラスタにクローニングする場合、Astra Controlにバケットを作成する必要はありません。アプリケーションのSnapshot機能にはバケットは必要ありません。
 
 .作業を開始する前に
-* Astra Control Centerで管理しているクラスタから到達できるバケット。
-* バケットのクレデンシャル。
-* 次のタイプのバケット
+* Astra Control Centerで管理されているクラスタから到達できるバケットを用意します。
+* バケットのクレデンシャルがあることを確認します。
+* バケットが次のいずれかのタイプであることを確認します。
 +
 ** NetApp ONTAP S3
 ** NetApp StorageGRID S3 の略

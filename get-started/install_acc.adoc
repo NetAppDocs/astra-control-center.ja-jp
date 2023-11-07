@@ -17,7 +17,7 @@ Astra Control Centerをインストールするには、NetApp Support Site か�
 .その他のインストール手順については展開してください
 [%collapsible]
 ====
-* * RedHat OpenShift OperatorHub *でのインストール：これを使用してください link:../get-started/acc_operatorhub_install.html["代替手順"] OperatorHubを使用してOpenShiftにAstra Control Centerをインストールするには、次の手順を実行します。
+* * Red Hat OpenShift OperatorHubでインストール*：これを使用 link:../get-started/acc_operatorhub_install.html["代替手順"] OperatorHubを使用してOpenShiftにAstra Control Centerをインストールするには、次の手順を実行します。
 * * Cloud Volumes ONTAP バックエンドを使用してパブリッククラウドにインストール*：ユース link:../get-started/install_acc-cvo.html["これらの手順に従います"] Amazon Web Services（AWS）、Google Cloud Platform（GCP）、またはCloud Volumes ONTAP ストレージバックエンドを使用するMicrosoft AzureにAstra Control Centerをインストールするには、次の手順を実行します。
 
 
@@ -25,20 +25,79 @@ Astra Control Centerをインストールするには、NetApp Support Site か�
 Astra Control Centerのインストールプロセスのデモについては、を参照してください https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["このビデオでは"^]。
 
 .作業を開始する前に
-* link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"]。
-* 使用環境でポッドセキュリティポリシーを設定または設定したい場合は、ポッドセキュリティポリシーと、それらがAstra Control Centerのインストールに与える影響について理解しておいてください。を参照してください link:../concepts/understand-pod-security.html["ポッドのセキュリティ制限事項"^]。
-* すべての API サービスが正常な状態であり、使用可能であることを確認します。
+* *環境条件を満たしている*： link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"]。
++
+
+TIP: 3つ目の障害ドメインまたはセカンダリサイトにAstra Control Centerを導入これは、アプリケーションのレプリケーションとシームレスなディザスタリカバリに推奨されます。
+
+* *ポッドのセキュリティポリシーを検討する*：ご使用の環境でポッドのセキュリティポリシーを設定済みまたは設定する場合は、ポッドのセキュリティポリシーと、ポッドのセキュリティポリシーがAstra Control Centerのインストールにどのように影響するかをよく理解してください。を参照してください link:../concepts/understand-pod-security.html["ポッドのセキュリティ制限事項"^]。
+* *正常なサービスを確認*：すべてのAPIサービスが正常な状態で使用可能であることを確認します。
 +
 [source, console]
 ----
 kubectl get apiservices
 ----
-* 使用するネットアップFQDNがこのクラスタにルーティング可能であることを確認します。つまり、内部 DNS サーバに DNS エントリがあるか、すでに登録されているコア URL ルートを使用しています。
-* クラスタに証明書マネージャがすでに存在する場合は、いくつかの手順を実行する必要があります link:../get-started/cert-manager-prereqs.html["事前に必要な手順"^] そのため、Astra Control Centerは独自の証明書マネージャのインストールを試みません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
+* *ルーティング可能なFQDN *：使用するAstra FQDNをクラスタにルーティングできることを確認します。つまり、内部 DNS サーバに DNS エントリがあるか、すでに登録されているコア URL ルートを使用しています。
+* *証明書マネージャの設定*:クラスタに証明書マネージャがすでに存在する場合は、一部の証明書マネージャを実行する必要があります。 link:../get-started/cert-manager-prereqs.html["事前に必要な手順"^] そのため、Astra Control Centerは独自の証明書マネージャのインストールを試みません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
+* * NetApp Astra Controlイメージレジストリにアクセス*：
+Astra Control Provisionerなど、Astra Controlのインストールイメージや機能強化された機能をNetAppイメージレジストリから取得することができます。
++
+.ステップのために展開
+[%collapsible]
+====
+.. レジストリへのログインに必要なAstra ControlアカウントIDを記録します。
++
+アカウントIDはAstra Control Service Web UIで確認できます。ページ右上の図アイコンを選択し、* APIアクセス*を選択して、アカウントIDを書き留めます。
+
+.. 同じページから* APIトークンの生成*を選択し、APIトークン文字列をクリップボードにコピーしてエディターに保存します。
+.. Astra Controlレジストリにログインします。
++
+[source, console]
+----
+docker login cr.astra.netapp.io -u <account-id> -p <api-token>
+----
 
 
+====
+* *サービスメッシュを検討*：Astra Controlホストクラスタの通信チャネルは、 link:requirements.html#service-mesh-requirements["サポートされるサービスメッシュ"^]。
++
+.Istioサービスメッシュの詳細
+[%collapsible]
+====
+Istioサービスメッシュを使用するには、次の手順を実行する必要があります。
 
-TIP: 3つ目の障害ドメインまたはセカンダリサイトにAstra Control Centerを導入これは、アプリケーションのレプリケーションとシームレスなディザスタリカバリに推奨されます。
+** を追加します。 `istio-injection:enabled` <<Astra Control Center とオペレータのインストールを完了します,ラベル>> にアクセスしてからAstra Control Centerを導入する必要があります。
+** を使用します `Generic` <<generic-ingress,入力設定>> 別のイングレスを提供します。 <<ロードバランシング用の入力を設定します,外部ロードバランシング>>。
+** Red Hat OpenShiftクラスタの場合は、 `NetworkAttachmentDefinition` 関連付けられているすべてのAstra Control Centerネームスペース (`netapp-acc-operator`、 `netapp-acc`、 `netapp-monitoring` アプリケーションクラスタの場合、または置換されたカスタムネームスペースの場合）。
++
+[listing]
+----
+cat <<EOF | oc -n netapp-acc-operator create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: istio-cni
+EOF
+
+cat <<EOF | oc -n netapp-acc create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: istio-cni
+EOF
+
+cat <<EOF | oc -n netapp-monitoring create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: istio-cni
+EOF
+----
+
+
+====
+* * ONTAP SANドライバのみ*：ONTAP SANドライバを使用している場合は、すべてのKubernetesクラスタでマルチパスが有効になっていることを確認してください。
+
 
 .手順
 Astra Control Center をインストールするには、次の手順に従います。
@@ -62,12 +121,18 @@ IMPORTANT: Astra Control Centerオペレータ（たとえば、 `kubectl delete
 
 == Astra Control Centerをダウンロードして展開します
 
-. Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）から https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerのダウンロードページ"^]。
+NetApp Support SiteからAstra Control Centerバンドルをダウンロードするか、Dockerを使用してAstra Controlサービスのイメージレジストリからバンドルを取得できます。
+
+[role="tabbed-block"]
+====
+.NetApp Support Site
+--
+. Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）をクリックします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerのダウンロードページ"^]。
 . （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）をクリックして、バンドルのシグネチャを確認します。
 +
 .展開して詳細を表示
 [%collapsible]
-====
+=====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
@@ -78,7 +143,7 @@ openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature cert
 ----
 出力にはと表示されます `Verified OK` 検証が成功したあとに、
 
-====
+=====
 . Astra Control Centerバンドルからイメージを抽出します。
 +
 [source, console]
@@ -87,6 +152,16 @@ tar -vxzf astra-control-center-[version].tar.gz
 ----
 
 
+--
+.Astra Controlイメージレジストリ
+--
+. Astra Control Serviceにログインします。
+. ダッシュボードで、*[Deploy a self-managed instance of Astra Control]*を選択します。
+. 手順に従ってAstra Controlイメージのレジストリにログインし、Astra Control Centerのインストールイメージを取得してイメージを展開します。
+
+
+--
+====
 
 
 == ネットアップAstra kubectlプラグインをインストール
@@ -154,8 +229,9 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 . tarballのルートディレクトリに移動します。次のファイルとディレクトリが表示されます。
 +
-`acc.manifest.bundle.yaml`
 `acc/`
+`kubectl-astra/`
+`acc.manifest.bundle.yaml`
 
 . レジストリにログインします。
 +
@@ -174,7 +250,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-25
+export PACKAGEVERSION=23.10.0-68
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -193,7 +269,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-25
+export PACKAGEVERSION=23.10.0-68
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -209,7 +285,7 @@ NOTE: レジストリ設定に応じて、スクリプトが作成するイメ�
 +
 [listing]
 ----
-https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.07.0-25/image:version
+https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/23.10.0-68/image:version
 ----
 
 
@@ -243,7 +319,7 @@ kubectl create ns netapp-acc-operator
 .. のシークレットを作成します `netapp-acc-operator` ネームスペース：Docker 情報を追加して次のコマンドを実行します。
 +
 
-NOTE: プレースホルダ `your_registry_path` 以前にアップロードした画像の場所と一致する必要があります（例： `[Registry_URL]/netapp/astra/astracc/23.07.0-25`）。
+NOTE: プレースホルダ `your_registry_path` 以前にアップロードした画像の場所と一致する必要があります（例： `[Registry_URL]/netapp/astra/astracc/23.10.0-68`）。
 
 +
 [source, console]
@@ -347,7 +423,7 @@ spec:
           value: "2"
         - name: ACCOP_HELM_INSTALLTIMEOUT
           value: 5m
-        *image: ASTRA_IMAGE_REGISTRY/acc-operator:23.07.25*
+        *image: ASTRA_IMAGE_REGISTRY/acc-operator:23.10.72*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -445,7 +521,7 @@ NOTE: 注釈付きサンプルYAMLは以下の手順に従います。
 | 設定 | ガイダンス（Guidance） | を入力します | 例 
 
 
-| `astraVersion` | 導入するAstra Control Centerのバージョン。この設定には値があらかじめ入力されているため、対処は不要です。 | 文字列 | `23.07.0-25` 
+| `astraVersion` | 導入するAstra Control Centerのバージョン。この設定には値があらかじめ入力されているため、対処は不要です。 | 文字列 | `23.10.0-68` 
 |===
 ====
 +
@@ -554,7 +630,7 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 ====
 +
 .<code>ingressType</code>
-[%collapsible]
+[#generic-ingress%collapsible]
 ====
 |===
 | 設定 | ガイダンス（Guidance） | を入力します | オプション（ Options ） 
@@ -562,8 +638,11 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 
 | `ingressType` | 次の入力タイプのいずれかを使用します。
 
-*`Generic`* (`ingressType: "Generic"`）（デフォルト）
+ `Generic`* (`ingressType: "Generic"`）（デフォルト）
 このオプションは、別の入力コントローラを使用している場合、または独自の入力コントローラを使用する場合に使用します。Astra Control Centerを導入したら、を設定する必要があります link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["入力コントローラ"^] URLを使用してAstra Control Centerを公開します。
+
+重要：Astra Control Centerでサービスメッシュを使用する場合は、 `Generic` 入力タイプとして入力し、独自の設定を行います。 link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["入力コントローラ"^]。
+
 
 *`AccTraefik`* (`ingressType: "AccTraefik"`)
 入力コントローラを設定しない場合は、このオプションを使用します。これにより、Astra Control Centerが導入されます `traefik` Gateway as a Kubernetes LoadBalancer type serviceの略。
@@ -612,7 +691,7 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
 [%collapsible]
 ====
 
-IMPORTANT: 23.07のインストールで既知の問題が検出されないようにするには、Astra Control CenterのCRに次の値を追加します。
+IMPORTANT: インストール時に既知の問題が表示されないように、Astra Control CenterのCRに次の値を追加します。
 
 [listing]
 ----
@@ -707,6 +786,30 @@ spec:
 [source, console]
 ----
 kubectl create ns [netapp-acc or custom namespace]
+----
+. Astra Control Centerでサービスメッシュを使用している場合は、 `netapp-acc` またはカスタムネームスペース：
++
+
+IMPORTANT: 入力タイプ (`ingressType`）をに設定する必要があります。 `Generic` このコマンドを実行する前に、Astra Control Center CRで確認する必要があります。
+
++
+[source, console]
+----
+kubectl label ns [netapp-acc or custom namespace] istio-injection:enabled
+----
+. （推奨） https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/["厳密なMTLを有効にする"^] Istioサービスメッシュの場合：
++
+[source, console]
+----
+kubectl apply -n istio-system -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: default
+spec:
+  mtls:
+    mode: STRICT
+EOF
 ----
 . にAstra Control Centerをインストールします `netapp-acc` （またはカスタムの）ネームスペース：
 +
@@ -871,7 +974,7 @@ kubectl get AstraControlCenter -n [netapp-acc or custom namespace]
 [listing]
 ----
 NAME    UUID                                  VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  23.07.0-25   10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  23.10.0-68   10.111.111.111  True
 ----
 +
 

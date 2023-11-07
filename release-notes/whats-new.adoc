@@ -16,15 +16,33 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 
 
 
-== 2023年7月31日（23.07.0）
+== 2023年11月7日（23.10.0）
 
+[[nas-eco-backup-restore]]
 .新機能とサポート
-* link:../get-started/requirements.html#storage-backends["ストレッチ構成でのNetApp MetroClusterのストレージバックエンドとしての使用のサポート"^]
-* link:../get-started/requirements.html#storage-backends["Longhornをストレージバックエンドとして使用するためのサポート"^]
-* link:../use/replicate_snapmirror.html#delete-an-application-replication-relationship["同じKubernetesクラスタのONTAPバックエンド間でアプリケーションをレプリケートできるようになりました。"]
-* link:../use/manage-remote-authentication.html["Astra Control Centerで、リモート（LDAP）ユーザのログイン属性として「userPrincipalName」がサポートされるようになりました。"^]
-* link:../use/execution-hooks.html["Astra Control Centerを使用してレプリケーションのフェイルオーバー後に新しい実行フックタイプ「post-failover」を実行可能"^]
-* クローンワークフローでは、ライブクローンのみ（管理対象アプリケーションの現在の状態）がサポートされるようになりました。スナップショットまたはバックアップからクローンを作成するには、 link:../use/restore-apps.html["リストアのワークフロー"^]。
+* * ONTAP NAS経済性に優れたドライバベースのストレージバックエンドを使用したアプリケーションのバックアップとリストア機能*：バックアップとリストアの処理を `ontap-nas-economy` いくつかの link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["シンプルなステップ"^]。
+* *変更不可のバックアップ*：Astra Controlが新たにサポート link:../concepts/data-protection.html#immutable-backups["変更不可の読み取り専用バックアップ"^] マルウェアやその他の脅威に対する追加のセキュリティレイヤとして。
+* * Astra Control Provisionerのご紹介*
++
+23.10リリースでは、Astra ControlにAstra Control Provisionerという新しいソフトウェアコンポーネントが導入されています。このソフトウェアコンポーネントは、Astra Controlのライセンスを取得したすべてのユーザが使用できます。Astra Control Provisionerでは、Astra Tridentよりも高度な管理機能とストレージプロビジョニング機能を利用できます。これらの機能は、Astra Controlをご利用のすべてのお客様が追加コストなしで利用できます。
+
++
+** * Astra Control Provisionerの利用を開始*
+可能です link:../use/enable-acp.html["Astra Control Provisionerを有効にする"^] Astra Trident 23.10を使用するように環境をインストールして設定している場合。
+** * Astra Control Provisionerの機能*
++
+Astra Control Provisioner 23.10リリースでは、次の機能を使用できます。
+
++
+*** * Kerberos 5暗号化によるストレージバックエンドセキュリティの強化*：ストレージセキュリティを link:../use-acp/configure-storage-backend-encryption.html["暗号化の有効化"^] 管理対象クラスタとストレージバックエンド間のトラフィック用。Astra Control Provisionerは、Red Hat OpenShiftクラスタからAzure NetApp FilesおよびオンプレミスのONTAPボリュームへのNFSv4.1接続でKerberos 5暗号化をサポートします。
+*** * Snapshotを使用したデータのリカバリ*：Astra Control Provisionerを使用すると、Snapshotからインプレースで迅速にボリュームをリストアできます。 `TridentActionSnapshotRestore` （TASR）CR。
+*** * SnapMirrorの機能拡張*：Astra ControlからONTAPクラスタに直接接続できない環境やONTAPクレデンシャルにアクセスできない環境では、アプリケーションレプリケーション機能を使用できます。この機能を使用すると、Astra Controlでストレージバックエンドやそのクレデンシャルを管理することなく、レプリケーションを使用できます。
+*** *アプリケーションのバックアップおよびリストア機能 `ontap-nas-economy` ドライバ・バックアップ・ストレージ・バックエンド*：説明どおり <<nas-eco-backup-restore,上>>。
+
+
+
+
+* *実行フックはデフォルトでオフになっています*:このリリース以降、実行フック機能は次のようになります。 link:../use/execution-hooks.html#enable-the-execution-hooks-feature["有効"] または、セキュリティを強化するために無効にします（デフォルトでは無効になっています）。Astra Controlで使用する実行フックをまだ作成していない場合は、 link:../use/execution-hooks.html#enable-the-execution-hooks-feature["実行フック機能を有効にする"^] フックの作成を開始します。このリリースより前に実行フックを作成した場合、実行フック機能は有効なままになり、通常どおりフックを使用できます。
 
 
 .既知の問題および制限事項
@@ -32,6 +50,28 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 * link:../release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
 
 
+
+
+== 2023年7月31日（23.07.0）
+
+.詳細
+[%collapsible]
+====
+.新機能とサポート
+* https://docs.netapp.com/us-en/astra-control-center-2307/get-started/requirements.html#storage-backends["ストレッチ構成でのNetApp MetroClusterのストレージバックエンドとしての使用のサポート"^]
+* https://docs.netapp.com/us-en/astra-control-center-2307/get-started/requirements.html#storage-backends["Longhornをストレージバックエンドとして使用するためのサポート"^]
+* https://docs.netapp.com/us-en/astra-control-center-2307/use/replicate_snapmirror.html#delete-an-application-replication-relationship["同じKubernetesクラスタのONTAPバックエンド間でアプリケーションをレプリケートできるようになりました。"]
+* https://docs.netapp.com/us-en/astra-control-center-2307/use/manage-remote-authentication.html["Astra Control Centerで、リモート（LDAP）ユーザのログイン属性として「userPrincipalName」がサポートされるようになりました。"^]
+* https://docs.netapp.com/us-en/astra-control-center-2307/use/execution-hooks.html["Astra Control Centerを使用してレプリケーションのフェイルオーバー後に新しい実行フックタイプ「post-failover」を実行可能"^]
+* クローンワークフローでは、ライブクローンのみ（管理対象アプリケーションの現在の状態）がサポートされるようになりました。スナップショットまたはバックアップからクローンを作成するには、 https://docs.netapp.com/us-en/astra-control-center-2307/use/restore-apps.html["リストアのワークフロー"^]。
+
+
+.既知の問題および制限事項
+* https://docs.netapp.com/us-en/astra-control-center-2307/release-notes/known-issues.html["このリリースの既知の問題"^]
+* https://docs.netapp.com/us-en/astra-control-center-2307/release-notes/known-limitations.html["このリリースの既知の制限事項は以下のとおりです"^]
+
+
+====
 
 
 == 2023年5月18日（23.04.2）
