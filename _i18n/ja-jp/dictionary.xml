@@ -3426,4 +3426,6 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
   <block id="9e586fb8e7af6f105f029bce05abcad4" category="section-title">保持ポリシーの期限が切れたバケットでは、削除後もバックアップデータがバケットに残る</block>
   <block id="03281739854e4951c0f98529e54a24f2" category="sidebar">Astra Controlプロビジョニングツールを使用</block>
   <block id="3c4db63c6115c69942c67f6b04d8e645" category="paragraph">バケットの保持ポリシーの期限が切れたあとにアプリケーションの変更不可のバックアップを削除すると、バックアップはバケットではなくAstra Controlから削除されます。この問題は今後のリリースで修正される予定です。</block>
+  <block id="ac4da6c6894a7c36281036138b93deac" category="list-text">* NVMe/TCPストレージを使用するアプリケーションの管理のサポート*
+NVMe / TCPを使用して接続された永続ボリュームでバックアップされたアプリケーションをAstra Controlで管理できるようになりました。</block>
 </blocks>
