@@ -101,7 +101,7 @@ NOTE: ここでは説明しませんが、Astra Control Centerのオペレータ
 .. 「*含めるルールを追加*」を選択します。
 .. 次のエントリを選択し、*[追加]*を選択します。
 +
-*** ラベルセレクタ:acc-crd
+*** ラベルセレクタ:<label name>
 *** グループ：apiextensions.k8s.io
 *** バージョン：v1
 *** 種類: CustomResourceDefinition

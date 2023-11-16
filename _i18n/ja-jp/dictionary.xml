@@ -2879,7 +2879,6 @@ Astra Control Centerのインストールプロセスでこのイメージレジ
   <block id="5e0afc8490cb0f9aef8e7d6aa9c2a95b" category="list-text">を選択します<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> Astra Control Centerのネームスペース（*[ネームスペース]*ドロップダウンリスト）。</block>
   <block id="13728b663815d8b9b7f3110a0f6ae3d3" category="list-text">[クラスタリソース]ページで、*[クラスタを対象とした追加のリソースを含める]*をオンにします。</block>
   <block id="de4566456b44943a73dbc9f1d5f4cfb5" category="list-text">次のエントリを選択し、*[追加]*を選択します。</block>
-  <block id="25a653c17051ef3ca841d953bbc19608" category="list-text">ラベルセレクタ:acc-crd</block>
   <block id="ece2d00e491a614dbc2abe1f851d18eb" category="list-text">グループ：apiextensions.k8s.io</block>
   <block id="7ad0a964a0623e55a6f1d8cd78457694" category="list-text">バージョン：v1</block>
   <block id="5b8e73d5fcf09db630648e42903cd2b0" category="list-text">種類: CustomResourceDefinition</block>
@@ -3428,4 +3427,5 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
   <block id="ac4da6c6894a7c36281036138b93deac" category="list-text">* NVMe/TCPストレージを使用するアプリケーションの管理のサポート*
 NVMe / TCPを使用して接続された永続ボリュームでバックアップされたアプリケーションをAstra Controlで管理できるようになりました。</block>
   <block id="e19d9fd02be50073f892bf959070ea25" category="list-text">Astra Control Provisionerイメージのレジストリの場所を設定する <block ref="20edfaac0850c3e3743b65fa227b6f0b" prefix="(" category="inline-code"></block>）。</block>
+  <block id="2e307acdc1434ce81b546c869ac5d37c" category="list-text">ラベルセレクタ:&lt;label name&gt;</block>
 </blocks>
