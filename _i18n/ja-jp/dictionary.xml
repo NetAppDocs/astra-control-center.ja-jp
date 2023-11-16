@@ -953,7 +953,6 @@
   <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">結果</block>
   <block id="f152ec5ba865e7c8d2750571a4baa896" category="paragraph">クラスタが「* discovering *」状態になり、「Healthy *」に変わります。これで、Astra Control Centerを使用してクラスタを管理できるようになりました。</block>
   <block id="30d1bfe2e9b6bfe1d2ea5dd7e0e26c80" category="admonition">Astra Control Center で管理するクラスタを追加したあと、監視オペレータの配置に数分かかる場合があります。それまでは、通知アイコンが赤に変わり、 * モニタリングエージェントステータスチェック失敗 * イベントが記録されます。この問題は無視してかまいません。問題は、 Astra Control Center が正しいステータスを取得したときに解決します。数分経っても問題 が解決しない場合は、クラスタに移動してを実行します<block ref="9239d6fbde1b253c1a0bbe20e8f71ebb" prefix=" " category="inline-code"></block> を開始点として指定します。問題をデバッグするには、監視オペレータのログを調べる必要があります。</block>
-  <block id="ff9492d1695d9e5fe8ee2d412256cd28" category="paragraph">既存のONTAP ストレージバックエンドをAstra Control Centerに追加して、そのリソースを管理できます。</block>
   <block id="eb33ac2274505b5f55f336ecd9e9a2d2" category="paragraph">ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。</block>
   <block id="f458d757cde06889f0974a654df0a5b7" category="list-text">左側のナビゲーション領域のダッシュボードで、* Backends *を選択します。</block>
   <block id="365d382b2d9ecca9b0d40171c69b38ff" category="list-text">次のいずれかを実行します。</block>
@@ -3428,4 +3427,5 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
 NVMe / TCPを使用して接続された永続ボリュームでバックアップされたアプリケーションをAstra Controlで管理できるようになりました。</block>
   <block id="e19d9fd02be50073f892bf959070ea25" category="list-text">Astra Control Provisionerイメージのレジストリの場所を設定する <block ref="20edfaac0850c3e3743b65fa227b6f0b" prefix="(" category="inline-code"></block>）。</block>
   <block id="2e307acdc1434ce81b546c869ac5d37c" category="list-text">ラベルセレクタ:&lt;label name&gt;</block>
+  <block id="aa22bb99bde532781940eb4a1e458758" category="paragraph">*_ Astra Control Provisionerのみ_*：NetApp Control Center 23.10以降でAstra Control Provisionerを有効にしている場合、Astra Control CenterでONTAPストレージバックエンドの追加と管理はオプションです。</block>
 </blocks>

@@ -932,11 +932,11 @@ curl --cacert ontap_signed_cert.crt  --key ontap_test_client.key --cert ontap_te
 
 == ストレージバックエンドを追加します
 
-既存のONTAP ストレージバックエンドをAstra Control Centerに追加して、そのリソースを管理できます。
+クレデンシャルまたは証明書認証情報を設定したら、Astra Control Centerに既存のONTAP ストレージバックエンドを追加してリソースを管理できます。
 
 ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。
 
-クレデンシャルまたは証明書認証情報を設定したら、Astra Control Centerに既存のONTAP ストレージバックエンドを追加してリソースを管理できます。
+*_ Astra Control Provisionerのみ_*：NetApp Control Center 23.10以降でAstra Control Provisionerを有効にしている場合、Astra Control CenterでONTAPストレージバックエンドの追加と管理はオプションです。
 
 .手順
 . 左側のナビゲーション領域のダッシュボードで、* Backends *を選択します。
