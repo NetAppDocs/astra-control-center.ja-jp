@@ -3313,11 +3313,9 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
   <block id="cb902cabe05f2e75ccb2bfe8f46e3e1d" category="list-text">バケットのクラウドプロバイダの保持期間が終了する前にWrite Once Read Many（WORM）バケットを削除することはできません。WORMバケットは、バケット名の横に「Locked」と表示されます。</block>
   <block id="261f0b7f37f0dd290043aab033357d32" category="summary">Astra Control Provisionerを有効にして、高度なストレージプロビジョニングおよび管理機能にアクセスします。</block>
   <block id="bd748c545b83229576e1ff062aaacf08" category="paragraph">Astra Tridentバージョン23.10以降には、Astra Control Provisionerを使用するオプションが用意されています。このオプションを使用すると、ライセンスを取得したAstra Controlユーザは、高度なストレージプロビジョニング機能にアクセスできます。Astra Control Provisionerは、Astra Trident CSIベースの標準機能に加えて、この拡張機能を提供します。</block>
-  <block id="ea513a4deb2445ac25d1082dc1af99e1" category="paragraph">今後のAstra Controlの更新では、Astra Control ProvisionerがAstra ControlアーキテクチャのストレージプロビジョニングおよびオーケストレータとしてAstra Tridentに代わるものとなります。そのため、Astra ControlのユーザはAstra Control Provisionerを有効にすることを強く推奨します。Astra Tridentは引き続きオープンソースであり、NetAppの新しいCSIやその他の機能でリリース、メンテナンス、サポート、更新されます。</block>
   <block id="80bb20cedf78b8489265ff8e9b411cb2" category="paragraph">Astra Control Centerのライセンスを取得していて、Astra Control Provisioner機能を使用する場合は、この手順に従う必要があります。また、Astra Tridentを使用していて、Astra Control Provisionerが提供する追加機能をAstra Controlを使用せずに使用する場合も、この手順に従う必要があります。</block>
   <block id="16185b8c95bafd08c429f8e30bcc7054" category="paragraph">どちらの場合も、Astra Trident 23.10ではプロビジョニングツール機能はデフォルトでは有効になりませんが、このプロセスを使用して有効にすることができます。</block>
   <block id="aae97e973132b3157377d72e07afb848" category="paragraph">Astra Control Provisionerを有効にする場合は、まず次の手順を実行します。</block>
-  <block id="49c36796227bb74be6548ae6950546e0" category="list-title">Astra ControlプロビジョニングツールユーザとAstra Control Center</block>
   <block id="7005abad8b98fad0575f3c9af4fc49fa" category="list-text">* Astra Control Centerライセンスの取得*： <block ref="d2e976b6271caffc0309faf092075998" category="inline-link-macro-rx"></block> Astra Control Provisionerを有効にし、提供される機能にアクセスするため。</block>
   <block id="b4ee3c2dba27e2f04db76cfd397012cb" category="list-text">* Astra Control Center 23.10をインストールまたはアップグレード*：Astra Control ProvisionerをAstra Controlで使用する場合は、このバージョンが必要になります。</block>
   <block id="ad3dcfab7172a482308ac0917ba2ac42" category="list-text">*クラスタにAMD64システムアーキテクチャがあることを確認する*：Astra Control ProvisionerイメージはAMD64とARM64の両方のCPUアーキテクチャで提供されますが、Astra Control CenterでサポートされるのはAMD64のみです。</block>
@@ -3428,4 +3426,6 @@ NVMe / TCPを使用して接続された永続ボリュームでバックアッ�
   <block id="e19d9fd02be50073f892bf959070ea25" category="list-text">Astra Control Provisionerイメージのレジストリの場所を設定する <block ref="20edfaac0850c3e3743b65fa227b6f0b" prefix="(" category="inline-code"></block>）。</block>
   <block id="2e307acdc1434ce81b546c869ac5d37c" category="list-text">ラベルセレクタ:&lt;label name&gt;</block>
   <block id="aa22bb99bde532781940eb4a1e458758" category="paragraph">*_ Astra Control Provisionerのみ_*：NetApp Control Center 23.10以降でAstra Control Provisionerを有効にしている場合、Astra Control CenterでONTAPストレージバックエンドの追加と管理はオプションです。</block>
+  <block id="4985a3b824e2fb63f86dcaa415a32c2d" category="paragraph">今後のAstra Controlの更新では、Astra Control ProvisionerがAstra ControlアーキテクチャのストレージプロビジョニングおよびオーケストレータとしてAstra Tridentに代わるものとなります。そのため、Astra ControlのユーザはAstra Control Provisionerを有効にすることを強く推奨します。Astra Tridentは引き続きオープンソースであり、NetAppの新しいCSIやその他の機能でリリース、メンテナンス、サポート、更新されます。</block>
+  <block id="8af227b0e0743a7dba6ed339a67722c9" category="list-title">Astra Control ProvisionerのユーザとAstra Control Center</block>
 </blocks>
