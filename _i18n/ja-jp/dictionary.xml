@@ -3428,4 +3428,8 @@ NVMe / TCPを使用して接続された永続ボリュームでバックアッ�
   <block id="aa22bb99bde532781940eb4a1e458758" category="paragraph">*_ Astra Control Provisionerのみ_*：NetApp Control Center 23.10以降でAstra Control Provisionerを有効にしている場合、Astra Control CenterでONTAPストレージバックエンドの追加と管理はオプションです。</block>
   <block id="4985a3b824e2fb63f86dcaa415a32c2d" category="paragraph">今後のAstra Controlの更新では、Astra Control ProvisionerがAstra ControlアーキテクチャのストレージプロビジョニングおよびオーケストレータとしてAstra Tridentに代わるものとなります。そのため、Astra ControlのユーザはAstra Control Provisionerを有効にすることを強く推奨します。Astra Tridentは引き続きオープンソースであり、NetAppの新しいCSIやその他の機能でリリース、メンテナンス、サポート、更新されます。</block>
   <block id="8af227b0e0743a7dba6ed339a67722c9" category="list-title">Astra Control ProvisionerのユーザとAstra Control Center</block>
+  <block id="cd27a1715aac859bc2a48a86ed2000c0" category="inline-link">ロングホーン"</block>
+  <block id="1752f949f63eb1f41cea70be24a2a732" category="list-text"><block ref="1752f949f63eb1f41cea70be24a2a732" category="inline-link-rx"></block></block>
+  <block id="d5bd450a47d2497dc5f133703c0fab95" category="list-text">オンプレミスクラスタ：</block>
+  <block id="00ae925249b1dcd734cdb679b48bf8f7" category="list-text">NetApp ONTAP Select の略</block>
 </blocks>
