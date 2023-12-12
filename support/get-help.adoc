@@ -27,8 +27,8 @@ IMPORTANT: Astra Control Center の評価用ライセンスをお持ちの場合
 
 次のオプションは、 24 時間 365 日無料で利用できます。
 
-* https://kb.netapp.com/Cloud/Astra/Control["* ナレッジベース * （ログインが必要）"^]： Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。
-* * ドキュメントセンター * ：現在表示しているドキュメントサイトです。
+* https://kb.netapp.com/Cloud/Astra/Control["*ナレッジベースを使用*（ログインが必要）"^]： Astra Control に関する記事、 FAQ 、またはトラブルシューティング情報を検索します。
+* *製品ドキュメントを参照してください*：現在表示しているドキュメントサイトです。
 * https://discord.gg/NetApp["* Discord *で助けを得なさい"^]：thePubカテゴリのAstraに移動して、他のユーザやエキスパートと交流しましょう。
 * * サポートケースの作成 * ：トラブルシューティングのためにネットアップサポートに提供するサポートバンドルを生成
 * * Astra Control についてのフィードバック * ： astra.feedback@netapp.com に電子メールを送信して、あなたの考え、アイデア、懸念を知らせてください。
