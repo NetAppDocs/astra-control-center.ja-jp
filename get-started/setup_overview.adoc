@@ -74,6 +74,24 @@ NOTE: 評価用ライセンスをお持ちで、AutoSupport にデータを送�
 ----
 insecure-skip-tls-verify: true
 ----
+
+
+* [[enable-psa]]* PSA制限を有効にする*：Kubernetes 1.25以降のクラスタで標準であるポッドセキュリティアドミッション強制が有効になっている場合は、次の名前空間でPSA制限を有効にする必要があります。
++
+** `netapp-acc-operator` ネームスペース：
++
+[listing]
+----
+kubectl label --overwrite ns netapp-acc-operator pod-security.kubernetes.io/enforce=privileged
+----
+** `netapp monitoring` ネームスペース：
++
+[listing]
+----
+kubectl label --overwrite ns netapp-monitoring pod-security.kubernetes.io/enforce=privileged
+----
+
+
 * * Astra Tridentの要件*：
 +
 ** *サポートされているバージョンをインストール*：Astra Tridentのバージョン link:../get-started/requirements.html#astra-trident-requirements["Astra Control Centerによってサポートされます"^] がインストールされている：

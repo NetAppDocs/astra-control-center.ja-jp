@@ -2699,7 +2699,6 @@
   <block id="3355b77143abcc47ad763361c0a24b74" category="paragraph">評価用ライセンスをフルライセンスに変換したり、既存の評価用ライセンスまたはフルライセンスを新しいライセンスで更新したりできます。フルライセンスがない場合は、ネットアップの営業担当者に連絡して、ライセンスとシリアル番号の全文を入手してください。Astra Control Center UIまたはを使用できます<block ref="bd25eec94181cb8a1c6322299b11a4e5" category="inline-link-rx"></block> 既存のライセンスを更新します。</block>
   <block id="e2345475f657a83bdb89f0d758173706" category="inline-link">Astra Control Center 23.04のドキュメント</block>
   <block id="331507753b11b0196d31031604e3a720" category="list-text"><block ref="331507753b11b0196d31031604e3a720" category="inline-link-rx"></block></block>
-  <block id="9fb980f4590b677cdb520d20933d84f4" category="paragraph">Astra Control Centerでは、Astraがインストールされているネームスペース（netapp-accまたはカスタムネームスペース）とバックアップ用に作成されたネームスペースに次のラベルを追加することで、ポッドのセキュリティアドミッションを適用できます。</block>
   <block id="3e2c006717cc8b00761751de7e11d362" category="summary">Astra Control Centerはさまざまなストレージバックエンドをサポートします。  ストレージクラスと永続的ボリュームのサイズがパフォーマンス目標の達成にどのように役立つかを理解しておく必要があります。</block>
   <block id="8cbd2767e7cb5131483f14b9f5693a7c" category="paragraph">Astra Control Centerでは、NetApp ONTAPとLonghornがストレージバックエンドとしてサポートされます。</block>
   <block id="0e1a55abe469167871f67cf77d4a08a7" category="list-text">* ONTAP ストレージを基盤とするAstra Tridentストレージクラス*：ONTAP バックエンドを使用している場合、Astra Control CenterでONTAP バックエンドをインポートしてさまざまな監視情報をレポートすることができます。</block>
@@ -3443,4 +3442,9 @@ NVMe / TCPを使用して接続された永続ボリュームでバックアッ�
   <block id="a65211330b142f51904ccfb3741cc124" category="inline-link">既存のAstra Tridentがある場合は、そのTridentをホストしているクラスタからアンインストール</block>
   <block id="00c4331aab8ed2101088511f96b6af8e" category="list-text"><block ref="f21e19b64d79b0da0ff48729d1b28669" category="inline-link-rx"></block>。</block>
   <block id="005a56f182fe268e9f6977b39114eab8" category="list-text">Astra Control Provisionerを有効にしてAstra Tridentをインストール <block ref="87d6b9737ff6f9e44e3dd25c182cf495" prefix="(" category="inline-code"></block>）：</block>
+  <block id="591fd31287d2fc729bd2ed59d856b1e2" category="inline-link-macro">適用を有効にする</block>
+  <block id="07d347dcf19fe0ea209afdba6b2c1488" category="paragraph">Astra Control Centerでは、次のことが可能です。 <block ref="5957daf8ac28c5997f77f7cbb0504148" category="inline-link-macro-rx"></block> 次のラベルを<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> および<block ref="aadb900c6eaeed8ade58660fe972acec" prefix=" " category="inline-code"></block> Astraのネームスペース：</block>
+  <block id="76356ba85ed09ac1c7a6d1fbf72a3bfe" category="list-text">[[enable-psa]]* PSA制限を有効にする*：Kubernetes 1.25以降のクラスタで標準であるポッドセキュリティアドミッション強制が有効になっている場合は、次の名前空間でPSA制限を有効にする必要があります。</block>
+  <block id="6ec7da0a465c6f281367f7b3cc204a04" category="list-text"><block ref="cadbba5231afda9b003503d57805b87d" prefix="" category="inline-code"></block> ネームスペース：</block>
+  <block id="6e9af694d79083d4bda3f226db24b704" category="list-text"><block ref="ab22b85c122f9a24c4ad6781f066be29" prefix="" category="inline-code"></block> ネームスペース：</block>
 </blocks>
