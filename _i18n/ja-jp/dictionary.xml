@@ -713,7 +713,6 @@
   <block id="8304923f61b35eb89581fa0086ed14f5" category="cell">クライアント PC</block>
   <block id="13f3cf8c531952d72e5847c4183e6910" category="cell">443</block>
   <block id="0e8433f9a404f1f3ba601c14b026d321" category="cell">HTTPS</block>
-  <block id="2d9fec261b12bd71da19f847d4e58d8d" category="cell">UI / API アクセス - Astra Control Center をホストしているクラスタと各管理対象クラスタの間で、このポートが双方向に開いていることを確認します</block>
   <block id="24efa4ba853cd9af293a840b0bf27678" category="cell">指標利用者</block>
   <block id="c2b9f54ff75ba870e024a0704429b5a7" category="cell">Astra Control Center ワーカーノード</block>
   <block id="38f629170ac3ab74b9d6d2cc411c2f3c" category="cell">9090</block>
@@ -3447,4 +3446,9 @@ NVMe / TCPを使用して接続された永続ボリュームでバックアッ�
   <block id="76356ba85ed09ac1c7a6d1fbf72a3bfe" category="list-text">[[enable-psa]]* PSA制限を有効にする*：Kubernetes 1.25以降のクラスタで標準であるポッドセキュリティアドミッション強制が有効になっている場合は、次の名前空間でPSA制限を有効にする必要があります。</block>
   <block id="6ec7da0a465c6f281367f7b3cc204a04" category="list-text"><block ref="cadbba5231afda9b003503d57805b87d" prefix="" category="inline-code"></block> ネームスペース：</block>
   <block id="6e9af694d79083d4bda3f226db24b704" category="list-text"><block ref="ab22b85c122f9a24c4ad6781f066be29" prefix="" category="inline-code"></block> ネームスペース：</block>
+  <block id="6d26bffa3f2c51cba98a836beaa92f94" category="cell">UI / APIアクセス- Astra Control CenterとAstra Control Centerへのアクセスに使用するシステムの間で、このポートが両方向で開いていることを確認する</block>
+  <block id="95a19d64e8d86d082c85e6f6ffc78968" category="cell">管理対象のKubernetesクラスタ</block>
+  <block id="1351c5abff1fb0f0f349af5e26b94ac5" category="cell">443/6443
+*注*：管理対象クラスタが使用するポートは、クラスタによって異なる場合があります。クラスタソフトウェアベンダーのドキュメントを参照してください。</block>
+  <block id="3f55106e32511a9a3d0948154923bc88" category="cell">管理対象クラスタとの通信- Astra Control Centerをホストするクラスタと各管理対象クラスタの間でこのポートが双方向に開いていることを確認します。</block>
 </blocks>
