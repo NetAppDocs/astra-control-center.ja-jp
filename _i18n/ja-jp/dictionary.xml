@@ -3353,11 +3353,9 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
   <block id="58a03d8d21572c27eb60cf9bd5c8d43e" category="inline-link">Astra Controlに関するNetAppのナレッジベース</block>
   <block id="f20acb61cfb1565991cf5d6bd4b2db45" category="paragraph"><block ref="f20acb61cfb1565991cf5d6bd4b2db45" category="inline-link-rx"></block></block>
   <block id="615193f2c37d9fd054a61bf78b73ad01" category="section-title">変更不可のバックアップ</block>
-  <block id="f0e127be77c9992dc0642704c5c451f5" category="paragraph">Astra Control Centerでは、次のプラットフォームおよびバケットタイプを使用して、変更不可のバックアップを作成できます。</block>
   <block id="10c409f776da63661445303239e693a2" category="list-text">S3オブジェクトロックが設定されたAmazon S3バケットを使用するAmazon Web Services</block>
   <block id="2068f70db106b56bd996eac3699fdfcf" category="list-text">S3オブジェクトロックが設定されたS3バケットを使用するNetApp StorageGRID</block>
   <block id="81a25fa8f10fc7cec301084797002d71" category="paragraph">変更不可のバックアップを使用する場合は、次の点に注意してください。</block>
-  <block id="582c23d1f9cff824030194a7519dc569" category="list-text">サポートされていないプラットフォームまたはサポートされていないバケットタイプのWrite Once Read Many（WORM）バケットにバックアップすると、保持期間が経過してもバックアップの削除が失敗するなど、予期しない結果が生じることがあります。</block>
   <block id="046b0dc975ab97773b3ec3307b750bf6" category="list-text">Astra Controlでは、データのライフサイクル管理ポリシーや、変更不可のバックアップで使用するバケット上のオブジェクトの手動削除はサポートされていません。Astra ControlのSnapshotやバックアップデータのライフサイクルを管理するようにストレージバックエンドが設定されていないことを確認します。</block>
   <block id="7568249152714205d217e48a3ef0bb10" category="paragraph">Kubernetes 1.24にAstra Control Centerをインストールすると、インストール時にいくつかのポッドセキュリティポリシーが作成されます。これらの中には永続的なものもあれば、一部のものは特定の処理中に作成され、処理が完了すると削除されます。ホストクラスタでKubernetes 1.25以降が実行されている場合、これらのバージョンではサポートされていないため、Astra Control CenterはPSPのインストールを試みません。</block>
   <block id="99d812e9a37f17344dd9e9d894e9cb39" category="paragraph">を作成し、ドキュメントに関するフィードバックを送信します <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> または、 doccomments@netapp.com に電子メールを送信します。</block>
@@ -3451,4 +3449,7 @@ NVMe / TCPを使用して接続された永続ボリュームでバックアッ�
 *注*：管理対象クラスタが使用するポートは、クラスタによって異なる場合があります。クラスタソフトウェアベンダーのドキュメントを参照してください。</block>
   <block id="3f55106e32511a9a3d0948154923bc88" category="cell">管理対象クラスタとの通信- Astra Control Centerをホストするクラスタと各管理対象クラスタの間でこのポートが双方向に開いていることを確認します。</block>
   <block id="89de75d28b7402eb7cc9790aa9e4f669" category="cell">4.11~4.14</block>
+  <block id="e04a358cba8d50694f1716ff3cdb4c21" category="paragraph">変更不可のバックアップとは、指定した期間中に変更または削除できないバックアップです。書き換え不可のバックアップを作成すると、Astra Controlは使用しているバケットがWrite Once Read Many（WORM）バケットであるかどうかを確認し、使用している場合はAstra Control内からバックアップを変更できないかどうかを確認します。
+Astra Control Centerでは、次のプラットフォームおよびバケットタイプを使用して、変更不可のバックアップを作成できます。</block>
+  <block id="2d0336a0c7896d90ad095dbc30578198" category="list-text">サポートされていないプラットフォームまたはサポートされていないバケットタイプのWORMバケットにバックアップすると、保持期間が経過してもバックアップの削除が失敗するなど、予期しない結果が発生する可能性があります。</block>
 </blocks>
