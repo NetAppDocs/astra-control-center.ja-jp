@@ -245,20 +245,6 @@
   <block id="959c3f7b4bbcebb70e2a9561abf23064" category="paragraph"><block ref="959c3f7b4bbcebb70e2a9561abf23064" category="inline-image-macro-rx" type="image"></block></block>
   <block id="60f694f21643599c137f6c610e48124e" category="summary">ここでは、 Astra Control 環境のさまざまなコンポーネントの概要を示します。</block>
   <block id="9282ad3aef7e124a3b2b9c7eab52b33d" category="doc">アーキテクチャとコンポーネント</block>
-  <block id="f5e1d8b0770bb73b3dfb08ad39ded132" category="summary">Astra Control Centerをインストールする前に、PODセキュリティがどのように機能するかを理解しておく必要があります。</block>
-  <block id="6b0fa39c831534ec56dc4961f42c32c5" category="doc">ポッドセキュリティ</block>
-  <block id="8a0f5030dd9899e876c3e8a355890b18" category="paragraph">Astra Control Centerは、PoDセキュリティポリシー（PSP）およびPoDセキュリティアドミッション（PSA）による特権制限をサポートします。これらのフレームワークを使用すると、ユーザまたはグループがコンテナを実行できる対象や、コンテナに付与できる権限を制限できます。</block>
-  <block id="76c76b3c18290cf8627af11b8fe7962a" category="paragraph">Kubernetesディストリビューションの中には、デフォルトのポッドセキュリティ構成が用意されているものがあり、制限が厳しく、Astra Control Centerのインストール時に問題が発生する場合があります。</block>
-  <block id="cafa60baff264721b406c2ce9d383fd5" category="paragraph">ここに記載されている情報と例を使用して、Astra Control Centerが行うポッドのセキュリティの変更を理解し、Astra Control Centerの機能を妨げずに必要な保護を提供するポッドのセキュリティアプローチを使用できます。</block>
-  <block id="c90727acfbbc4ca587a6b933b72e196f" category="section-title">Astra Control Centerによって強制されるPSAS</block>
-  <block id="52913e7a98da14ff1b85bfe6ade5baae" category="section-title">Astra Control CenterによってインストールされたPSP</block>
-  <block id="441bc72de0516ac10b182a0da6d92ddc" category="section-title">インストール中に作成されたPSP</block>
-  <block id="b8d4d634b190031290c70773522846be" category="paragraph">Astra Control Centerのインストール中、Astra Control CenterオペレータはカスタムポッドセキュリティポリシーAをインストールします<block ref="bbbabdbe1b262f75d99d62880b953be1" prefix=" " category="inline-code"></block> オブジェクト、および<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> Astra Control CenterネームスペースへのAstra Control Centerサービスの導入をサポートするオブジェクト。</block>
-  <block id="fa8501fe06bb26b6d228be2795ca7ab7" category="paragraph">新しいポリシーとオブジェクトには次の属性があります。</block>
-  <block id="f489543943b835018355a7f98551ed7e" category="section-title">バックアップ処理中に作成されたPSP</block>
-  <block id="8513cb080cab78ccf96de84f5f78e0bb" category="paragraph">バックアップ操作中に、Astra Control Centerは動的なポッドセキュリティポリシーAを作成します<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> オブジェクト、および<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> オブジェクト。これらの機能により、別のネームスペースで実行されるバックアッププロセスがサポートされます。</block>
-  <block id="0606641f2b729119d7709942743b8888" category="section-title">クラスタ管理中に作成されたPSP</block>
-  <block id="be8388c8f6217d1c42721f925d1fd7a9" category="paragraph">クラスターを管理する場合、Astra Control Centerは管理対象クラスタにNetApp Monitoringオペレータをインストールします。この演算子は、ポッドセキュリティポリシーAを作成します<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> オブジェクト、および<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> テレメトリサービスをAstra Control Center名前空間に展開するオブジェクト。</block>
   <block id="254a18b3f13c4603a1e896ef9d067cab" category="summary">環境に関するいくつかの前提条件に対処した後に Astra Control Center をインストールするには、バンドルをダウンロードして、説明されている手順に従ってインストールします。</block>
   <block id="6ffac32d322f5864924327003ba10101" category="doc">標準の手順で Astra Control Center をインストールします</block>
   <block id="0865e3e3a3839a597542d410b4de9778" category="paragraph">Astra Control Centerをインストールするには、NetApp Support Site からインストールバンドルをダウンロードし、次の手順を実行します。この手順を使用して、インターネット接続環境またはエアギャップ環境に Astra コントロールセンターをインストールできます。</block>
@@ -2636,7 +2622,6 @@
   <block id="d79b6655a940561714d550a1c8160ab1" category="paragraph">Astra Controlを使用すると、NetApp SnapMirrorテクノロジの非同期レプリケーション機能を使用して、RPO（目標復旧時点）とRTO（目標復旧時間）の低いアプリケーションのビジネス継続性を構築できます。設定が完了すると、アプリケーションは、ストレージバックエンド間、同じクラスタ上、または異なるクラスタ間でデータやアプリケーションの変更をレプリケートできるようになります。</block>
   <block id="9b680dd780b9b2f23b7b82214b8ac6cb" category="list-text">オンプレミスサイトAからオンプレミスサイトAへ</block>
   <block id="feb06739d88af83f802d1d27e9957a4f" category="admonition">別のアプリケーションを逆方向に同時に複製できます。たとえば、アプリケーションA、B、Cはデータセンター1からデータセンター2にレプリケートでき、アプリケーションX、Y、Zはデータセンター2からデータセンター1にレプリケートできます。</block>
-  <block id="91e72b9550cecc5282265dceea3825e2" category="list-text">* Astra Trident *：ONTAPをバックエンドとして利用するソースとデスティネーションの両方のKubernetesクラスタに、Astra Tridentバージョン22.10以降が存在している必要があります。</block>
   <block id="02b05cdd8f0a8c426f307085cc1004f7" category="list-text">*クラスタとSVM *：ONTAPストレージバックエンドにピア関係が設定されている必要があります。を参照してください<block ref="60333a598df416e49fbceb5a88dce370" category="inline-link-rx"></block> を参照してください。</block>
   <block id="7a9bb8c391edea6ea22cd61c24a950c5" category="list-text">* Astra TridentとSVM *：ピア関係にあるリモートSVMがデスティネーションクラスタのAstra Tridentで使用可能である必要があります。</block>
   <block id="45a50040e8d78cff10f199bb2d56942f" category="list-text">Astra ControlでアプリケーションSnapshotを作成する頻度を選択します（アプリケーションのKubernetesリソースと、アプリケーションの各ボリュームのボリュームSnapshotが含まれます）。</block>
@@ -2793,7 +2778,6 @@ Astra Control Centerのインストールプロセスでこのイメージレジ
   <block id="c07ee5debf5f3a3fef16c1ee5e8e4942" category="inline-link">NAS</block>
   <block id="a5c314c9c3a96fcd331ae9d454b5c305" category="list-text"><block ref="a5c314c9c3a96fcd331ae9d454b5c305" category="inline-link-rx"></block></block>
   <block id="8cf3b51c0706caf62937352ed2233eb9" category="example-title">その他のインストール手順については展開してください</block>
-  <block id="da34d7b3ad82100be38c4bc4758b9a28" category="inline-link-macro">ポッドのセキュリティ制限事項</block>
   <block id="91c27887bf935546865c646ae339197c" category="list-text">使用可能なNetApp Astra kubectlプラグインのバイナリを一覧表示します。</block>
   <block id="0e4c628a5a8957cfc5bfe05ab3d4cade" category="list-text">オペレーティングシステムとCPUアーキテクチャに必要なファイルを現在のパスに移動し、次の名前に変更します。<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>：</block>
   <block id="509e9a9c4ddecec71646527fad155699" category="list-text">Astra Control Centerホストクラスタのkubeconfigをエクスポートします。</block>
@@ -3048,7 +3032,6 @@ RKE 2（v1.26.x）とRancher 2.7</block>
   <block id="77d0972678b1443a036216745289ebfe" category="paragraph">Astra Trident 23.01以降のインストールと設定、およびNetApp ONTAPバージョン9.9.1以降がストレージバックエンドとして使用されます[[azure-registry]]</block>
   <block id="7c8b38b671e18a6ca924f7b2dfeb5b29" category="list-text">* Red Hat OpenShift OperatorHubでインストール*：これを使用 <block ref="3070b96c53dc6268c37367db253e962f" category="inline-link-macro-rx"></block> OperatorHubを使用してOpenShiftにAstra Control Centerをインストールするには、次の手順を実行します。</block>
   <block id="748a7a1711b184c4e02102a84264406d" category="list-text">*環境条件を満たしている*： <block ref="689b20f2e0a9cb0a12bc48475b3f81ee" category="inline-link-macro-rx"></block>。</block>
-  <block id="734271f586009a9dcb0721580301649c" category="list-text">*ポッドのセキュリティポリシーを検討する*：ご使用の環境でポッドのセキュリティポリシーを設定済みまたは設定する場合は、ポッドのセキュリティポリシーと、ポッドのセキュリティポリシーがAstra Control Centerのインストールにどのように影響するかをよく理解してください。を参照してください <block ref="d77e6e5f0b1b5e8f15429de2d058f94b" category="inline-link-macro-rx"></block>。</block>
   <block id="4c6af79913263c3d336738d84e09cdce" category="list-text">*正常なサービスを確認*：すべてのAPIサービスが正常な状態で使用可能であることを確認します。</block>
   <block id="ce77f4b2ceb95d91648d61c8dd5817d5" category="list-text">*ルーティング可能なFQDN *：使用するAstra FQDNをクラスタにルーティングできることを確認します。つまり、内部 DNS サーバに DNS エントリがあるか、すでに登録されているコア URL ルートを使用しています。</block>
   <block id="437d0026f569b2af39f38c878b425f04" category="list-text">*証明書マネージャの設定*:クラスタに証明書マネージャがすでに存在する場合は、一部の証明書マネージャを実行する必要があります。 <block ref="7f9e8cec8531f8660dfaaf382da03535" category="inline-link-macro-rx"></block> そのため、Astra Control Centerは独自の証明書マネージャのインストールを試みません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。</block>
@@ -3357,7 +3340,6 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
   <block id="2068f70db106b56bd996eac3699fdfcf" category="list-text">S3オブジェクトロックが設定されたS3バケットを使用するNetApp StorageGRID</block>
   <block id="81a25fa8f10fc7cec301084797002d71" category="paragraph">変更不可のバックアップを使用する場合は、次の点に注意してください。</block>
   <block id="046b0dc975ab97773b3ec3307b750bf6" category="list-text">Astra Controlでは、データのライフサイクル管理ポリシーや、変更不可のバックアップで使用するバケット上のオブジェクトの手動削除はサポートされていません。Astra ControlのSnapshotやバックアップデータのライフサイクルを管理するようにストレージバックエンドが設定されていないことを確認します。</block>
-  <block id="7568249152714205d217e48a3ef0bb10" category="paragraph">Kubernetes 1.24にAstra Control Centerをインストールすると、インストール時にいくつかのポッドセキュリティポリシーが作成されます。これらの中には永続的なものもあれば、一部のものは特定の処理中に作成され、処理が完了すると削除されます。ホストクラスタでKubernetes 1.25以降が実行されている場合、これらのバージョンではサポートされていないため、Astra Control CenterはPSPのインストールを試みません。</block>
   <block id="99d812e9a37f17344dd9e9d894e9cb39" category="paragraph">を作成し、ドキュメントに関するフィードバックを送信します <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> または、 doccomments@netapp.com に電子メールを送信します。</block>
   <block id="ab04bf08161dfce9831a1c265d0260fb" category="section-title">2023年11月7日（23.10.0）</block>
   <block id="d19668a1d8d1bd385693755af3a4d795" category="inline-link-macro">シンプルなステップ</block>
@@ -3438,8 +3420,6 @@ NVMe / TCPを使用して接続された永続ボリュームでバックアッ�
   <block id="a65211330b142f51904ccfb3741cc124" category="inline-link">既存のAstra Tridentがある場合は、そのTridentをホストしているクラスタからアンインストール</block>
   <block id="00c4331aab8ed2101088511f96b6af8e" category="list-text"><block ref="f21e19b64d79b0da0ff48729d1b28669" category="inline-link-rx"></block>。</block>
   <block id="005a56f182fe268e9f6977b39114eab8" category="list-text">Astra Control Provisionerを有効にしてAstra Tridentをインストール <block ref="87d6b9737ff6f9e44e3dd25c182cf495" prefix="(" category="inline-code"></block>）：</block>
-  <block id="591fd31287d2fc729bd2ed59d856b1e2" category="inline-link-macro">適用を有効にする</block>
-  <block id="07d347dcf19fe0ea209afdba6b2c1488" category="paragraph">Astra Control Centerでは、次のことが可能です。 <block ref="5957daf8ac28c5997f77f7cbb0504148" category="inline-link-macro-rx"></block> 次のラベルを<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> および<block ref="aadb900c6eaeed8ade58660fe972acec" prefix=" " category="inline-code"></block> Astraのネームスペース：</block>
   <block id="76356ba85ed09ac1c7a6d1fbf72a3bfe" category="list-text">[[enable-psa]]* PSA制限を有効にする*：Kubernetes 1.25以降のクラスタで標準であるポッドセキュリティアドミッション強制が有効になっている場合は、次の名前空間でPSA制限を有効にする必要があります。</block>
   <block id="6ec7da0a465c6f281367f7b3cc204a04" category="list-text"><block ref="cadbba5231afda9b003503d57805b87d" prefix="" category="inline-code"></block> ネームスペース：</block>
   <block id="6e9af694d79083d4bda3f226db24b704" category="list-text"><block ref="ab22b85c122f9a24c4ad6781f066be29" prefix="" category="inline-code"></block> ネームスペース：</block>
@@ -3452,4 +3432,10 @@ NVMe / TCPを使用して接続された永続ボリュームでバックアッ�
   <block id="e04a358cba8d50694f1716ff3cdb4c21" category="paragraph">変更不可のバックアップとは、指定した期間中に変更または削除できないバックアップです。書き換え不可のバックアップを作成すると、Astra Controlは使用しているバケットがWrite Once Read Many（WORM）バケットであるかどうかを確認し、使用している場合はAstra Control内からバックアップを変更できないかどうかを確認します。
 Astra Control Centerでは、次のプラットフォームおよびバケットタイプを使用して、変更不可のバックアップを作成できます。</block>
   <block id="2d0336a0c7896d90ad095dbc30578198" category="list-text">サポートされていないプラットフォームまたはサポートされていないバケットタイプのWORMバケットにバックアップすると、保持期間が経過してもバックアップの削除が失敗するなど、予期しない結果が発生する可能性があります。</block>
+  <block id="2b298e0fe3f26bd15bd0a6fde1cc37ca" category="paragraph">Astra Controlでは、次のドライバでサポートされるストレージクラスを使用したSnapshotの作成がサポートされます。</block>
+  <block id="73b781a615cea2647a87ff2035e296b1" category="list-text"><block ref="3016c12c1db45f14c80c9c1731b9c26a" prefix="" category="inline-code"></block></block>
+  <block id="7699a29541e69341e6490b2f436f651b" category="paragraph">Astra Controlでは、次のドライバでサポートされるストレージクラスを使用したバックアップの作成がサポートされます。</block>
+  <block id="cecdaed309330a9e7dea16b2076957ee" category="list-text"><block ref="caafdf62a2c609bfa5316118231a1007" prefix="" category="inline-code"></block></block>
+  <block id="66d6ba69ab917e04e877d01c6a07fb15" category="list-text">* Astra Trident *：ONTAPをバックエンドとして利用するソースとデスティネーションの両方のKubernetesクラスタに、Astra Tridentバージョン22.10以降が存在している必要があります。Astra Controlは、次のドライバでサポートされるストレージクラスを使用して、NetApp SnapMirrorテクノロジによるレプリケーションをサポートします。</block>
+  <block id="d5011d1ec3e5cf71761411134c41a9cd" category="list-text">*サポートされるストレージクラスドライバ*：Astra Controlでは、次のドライバに基づくストレージクラスを使用したバックアップのリストアがサポートされます。</block>
 </blocks>

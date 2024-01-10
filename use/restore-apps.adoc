@@ -24,6 +24,14 @@ Astra Control を使用すると、スナップショットまたはバックア
 `oc adm policy add-scc-to-group anyuid system:serviceaccounts:wordpress`
 `oc adm policy add-scc-to-user privileged -z default -n wordpress`
 
+* *サポートされるストレージクラスドライバ*：Astra Controlでは、次のドライバに基づくストレージクラスを使用したバックアップのリストアがサポートされます。
++
+** `ontap-nas`
+** `ontap-nas-economy`
+** `ontap-san`
+** `ontap-san-economy`
+
+
 * *（ontap-nas-economyドライバのみ）バックアップとリストア*： `ontap-nas-economy` ドライバを使用して、 link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["ONTAPストレージバックエンドのSnapshotディレクトリが非表示になっている"]。このディレクトリを非表示にしないと、アプリケーション（特にNFSv3を使用している場合）へのアクセスが失われる可能性があります。
 * * Helmデプロイ済みアプリ*：Helm 3でデプロイされたアプリ（またはHelm 2からHelm 3にアップグレードされたアプリ）は完全にサポートされます。Helm 2 で展開されたアプリケーションはサポートされていません。
 

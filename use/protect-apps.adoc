@@ -81,6 +81,14 @@ Astra Control は、定義したスケジュールと保持ポリシーを使用
 
 オンデマンド Snapshot はいつでも作成できます。
 
+.このタスクについて
+Astra Controlでは、次のドライバでサポートされるストレージクラスを使用したSnapshotの作成がサポートされます。
+
+* `ontap-nas`
+* `ontap-san`
+* `ontap-san-economy`
+
+
 
 IMPORTANT: アプリケーションがでサポートされるストレージクラスを使用している場合 `ontap-nas-economy` ドライバ、スナップショットを作成できません。スナップショットには代替のストレージクラスを使用します。
 
@@ -105,6 +113,17 @@ Astra Controlのバケットで使用可能な容量が報告されません。A
 
 アプリケーションがでサポートされるストレージクラスを使用している場合 `ontap-nas-economy` 運転手、あなたがする必要があります <<ONTAP NAS経済性に優れた運用向けのバックアップとリストアを実現,バックアップとリストアの有効化>> 機能性：次を定義したことを確認してください： `backendType` のパラメータ https://docs.netapp.com/us-en/trident/trident-reference/objects.html#kubernetes-storageclass-objects["Kubernetesストレージオブジェクト"^] を使用します `ontap-nas-economy` 保護処理を実行する前に
 
+[NOTE]
+====
+Astra Controlでは、次のドライバでサポートされるストレージクラスを使用したバックアップの作成がサポートされます。
+
+* `ontap-nas`
+* `ontap-nas-economy`
+* `ontap-san`
+* `ontap-san-economy`
+
+
+====
 .手順
 . 「 * アプリケーション * 」を選択します。
 . 目的のアプリケーションの*アクション*列のオプションメニューから、*バックアップ*を選択します。
