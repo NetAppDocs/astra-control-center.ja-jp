@@ -94,7 +94,7 @@ NOTE: ホストクラスタにサービスメッシュを設定せずにAstra Co
 *** `ontap-nas`
 *** `ontap-san`
 *** `ontap-san-economy` （このストレージクラスタイプではアプリケーションレプリケーションは使用できません）
-*** `ontap-nas-economy` （Snapshot、レプリケーションポリシー、保護ポリシーは、このストレージクラスタイプでは使用できません）。
+*** `ontap-nas-economy` （このストレージクラスタイプではSnapshotとレプリケーションポリシーは使用できません）
 
 
 
