@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/manage-backend.html 
 keywords: how to use astra control, what is astra storage, how to set up astra storage backend, ontap storage in astra, backend storage in astra 
-summary: ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。ストレージ容量と健全性の詳細を監視できます。 Astra Control Center が Cloud Insights に接続されている場合のパフォーマンスも監視できます。 
+summary: ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。ストレージ容量と健全性の詳細を監視できます。 
 ---
 = ストレージバックエンドを管理します
 :hardbreaks:
@@ -12,13 +12,13 @@ summary: ストレージバックエンドとして Astra Control のストレ�
 
 
 [role="lead"]
-ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。ストレージ容量と健全性の詳細を監視できます。 Astra Control Center が Cloud Insights に接続されている場合のパフォーマンスも監視できます。
+ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。
 
 Astra Control API を使用してストレージバックエンドを管理する方法については、を参照してください link:https://docs.netapp.com/us-en/astra-automation/["Astra の自動化と API に関する情報"^]。
 
 ストレージバックエンドの管理に関連して、次のタスクを実行できます。
 
-* link:../get-started/setup_overview.html#add-a-storage-backend["ストレージバックエンドを追加します"]
+* link:../get-started/add-storage-backend.html["ストレージバックエンドを追加します"]
 * <<ストレージバックエンドの詳細を表示します>>
 * <<ストレージバックエンド認証の詳細を編集します>>
 * <<検出されたストレージバックエンドを管理します>>
@@ -53,19 +53,11 @@ Astra Control API を使用してストレージバックエンドを管理す�
 
 バックエンドの健常性、容量、パフォーマンス（ IOPS スループット、レイテンシ）に関する情報を表示します。
 
-Kubernetesアプリケーションが使用しているボリュームが表示され、選択したストレージバックエンドに格納されます。Cloud Insights を使用すると、追加情報 が表示されます。を参照してください https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"^]。
+Kubernetesアプリケーションが使用しているボリュームが表示され、選択したストレージバックエンドに格納されます。
 
 .手順
 . 左側のナビゲーション領域で、 * Backends * を選択します。
 . ストレージバックエンドを選択します。
-+
-
-TIP: NetApp Cloud Insights に接続した場合、 Cloud Insights からの抜粋がバックエンドのページに表示されます。
-
-+
-image:../use/acc_backends_ci_connection2.png["バックエンドページのスクリーンショット"]
-
-. Cloud Insights に直接移動するには、指標画像の横にある * Cloud Insights * アイコンを選択します。
 
 
 
@@ -80,7 +72,7 @@ Astra Control Centerには、ONTAP バックエンドの認証に2つのモー�
 
 既存のバックエンドを更新して、あるタイプの認証から別の方法に移行できます。一度にサポートされる認証方式は1つだけです。
 
-証明書ベースの認証の有効化の詳細については、を参照してください link:../get-started/setup_overview.html#enable-authentication-on-the-ontap-storage-backend["ONTAP ストレージバックエンドで認証を有効にします"]。
+証明書ベースの認証の有効化の詳細については、を参照してください link:../get-started/enable-auth-ontap-backend.html["ONTAP ストレージバックエンドで認証を有効にします"]。
 
 .手順
 . 左のナビゲーションから、 * Backends * を選択します。

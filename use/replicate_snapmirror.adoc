@@ -47,7 +47,7 @@ Astra Controlを使用すると、アプリケーションのレプリケーシ�
 Astra Controlによるアプリケーションのレプリケーションを開始するには、次の前提条件を満たしている必要があります。
 
 .ONTAP クラスタ
-* * Astra Trident *：ONTAPをバックエンドとして利用するソースとデスティネーションの両方のKubernetesクラスタに、Astra Tridentバージョン22.10以降が存在している必要があります。Astra Controlは、次のドライバでサポートされるストレージクラスを使用して、NetApp SnapMirrorテクノロジによるレプリケーションをサポートします。
+* * Astra Control ProvisionerまたはAstra Trident *：Astra Control ProvisionerまたはAstra Tridentは、ONTAPをバックエンドとして利用するソースとデスティネーションの両方のKubernetesクラスタに存在する必要があります。Astra Controlは、次のドライバでサポートされるストレージクラスを使用して、NetApp SnapMirrorテクノロジによるレプリケーションをサポートします。
 +
 ** `ontap-nas`
 ** `ontap-san`
@@ -62,13 +62,17 @@ Astra Controlによるアプリケーションのレプリケーションを開�
 
 IMPORTANT: 2つのONTAPクラスタ間のレプリケーション関係で使用されるSVM名が一意であることを確認してください。
 
-* * Astra TridentとSVM *：ピア関係にあるリモートSVMがデスティネーションクラスタのAstra Tridentで使用可能である必要があります。
+* * Astra Control ProvisionerまたはAstra TridentとSVM *：ピア関係にあるリモートSVMは、デスティネーションクラスタのAstra Control ProvisionerまたはAstra Tridentで使用できる必要があります。
 
 
 .Astra Control Center の略
+
+TIP: link:../get-started/install_acc.html["Astra Control Centerを導入"] シームレスなディザスタリカバリのための第3の障害ドメインまたはセカンダリサイト。
+
 * *マネージドバックエンド*：レプリケーション関係を作成するには、Astra Control CenterでONTAPストレージバックエンドを追加および管理する必要があります。
 +
-*_ Astra Control Provisionerのみ_*：Astra Control Center 23.10以降でAstra Control Provisionerを有効にしている場合、Astra Control CenterでONTAPストレージバックエンドの追加と管理は任意です。
+
+NOTE: Astra Control Provisionerを有効にしている場合、Astra Control CenterでONTAPストレージバックエンドの追加と管理はオプションです。
 
 * *管理対象クラスタ*：Astra Controlを使用して次のクラスタを追加、管理できます。理想的には、異なる障害ドメインまたはサイトに配置されます。
 +
@@ -79,12 +83,10 @@ IMPORTANT: 2つのONTAPクラスタ間のレプリケーション関係で使用
 
 * *ユーザアカウント*：ONTAPストレージバックエンドをAstra Control Centerに追加する場合は、「admin」ロールのユーザクレデンシャルを適用します。このロールにはアクセス方法があります `http` および `ontapi` ONTAP ソースとデスティネーションの両方のクラスタで有効にします。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
 +
-*_ Astra Control Provisionerのみ_*：Astra Control Provisioner機能を有効にした場合、Astra Control Centerでクラスタを管理するために「admin」ロールを明確に定義する必要はなくなりました。これらのクレデンシャルは不要になりました。
+
+NOTE: Astra Control Provisioner機能では、Astra Control Centerでクラスタを管理するために「admin」ロールを明確に定義する必要はありません。これらのクレデンシャルはAstra Control Centerでは必要ありません。
 
 
-
-
-TIP: link:../get-started/install_acc.html["Astra Control Centerを導入"^] シームレスなディザスタリカバリのための第3の障害ドメインまたはセカンダリサイト。
 
 
 NOTE: Astra Control Centerでは、NVMe over TCPプロトコルを使用するストレージバックエンドのNetApp SnapMirrorレプリケーションはサポートされません。

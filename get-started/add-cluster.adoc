@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-cluster.html 
+keywords: set up astra control, add cluster 
+summary: Astra Control Centerのインストール、ライセンスのセットアップ、環境の準備が完了したら、Astra Control管理にクラスタを追加できます。 
+---
+= クラスタを追加
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+アプリケーションの管理を開始するには、 Kubernetes クラスタを追加し、コンピューティングリソースとして管理します。Kubernetes アプリケーションを検出するには、 Astra Control Center のクラスタを追加する必要があります。
+
+
+TIP: 他のクラスタを Astra Control Center に追加して管理する前に、 Astra Control Center が最初に導入したクラスタを管理することをお勧めします。指標およびトラブルシューティング用の Kubemetrics データとクラスタ関連データを送信するには、最初のクラスタを管理下に配置する必要があります。
+
+.作業を開始する前に
+* クラスタを追加する前に、必要なを確認し、実行しておきます link:../get-started/prep-for-cluster-management.html["前提条件となるタスク"]。
+* ONTAP SANドライバを使用している場合は、すべてのKubernetesクラスタでマルチパスが有効になっていることを確認します。
+
+
+.手順
+. ダッシュボードまたはクラスタメニューのいずれかから移動します。
++
+** リソースサマリの*ダッシュボード*で、クラスタペインから*追加*を選択します。
+** 左側のナビゲーション領域で、*クラスタ*を選択し、クラスタページから*クラスタの追加*を選択します。
+
+
+. 表示された*クラスタの追加*ウィンドウで、をアップロードします `kubeconfig.yaml` の内容をファイルまたは貼り付けます `kubeconfig.yaml` ファイル。
++
+
+NOTE: 。 `kubeconfig.yaml` ファイルには、1つのクラスタのクラスタクレデンシャルのみを含める必要があります*。
+
++
+
+IMPORTANT: 自分で作成する場合は `kubeconfig` ファイルには、* 1つの*コンテキストエレメントのみを定義する必要があります。を参照してください https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes のドキュメント"^] を参照してください `kubeconfig` ファイル。を使用して、制限されたクラスタロールのkubeconfigを作成した場合 link:../get-started/add-cluster.html["このプロセスは"]この手順では、kubeconfigをアップロードまたは貼り付けてください。
+
+. クレデンシャル名を指定します。デフォルトでは、クレデンシャル名がクラスタの名前として自動的に入力されます。
+. 「 * 次へ * 」を選択します。
+. このKubernetesクラスタに使用するデフォルトのストレージクラスを選択し、* Next *を選択します。
++
+
+NOTE: Astra Control Provisionerで設定され、ONTAPストレージでバックアップされるストレージクラスを選択してください。
+
+. 情報を確認し、すべてが良好な場合は、「*追加」を選択します。
+
+
+.結果
+クラスタが「* discovering *」状態になり、「Healthy *」に変わります。これで、Astra Control Centerを使用してクラスタを管理できるようになりました。
+
+
+IMPORTANT: Astra Control Center で管理するクラスタを追加したあと、監視オペレータの配置に数分かかる場合があります。それまでは、通知アイコンが赤に変わり、 * モニタリングエージェントステータスチェック失敗 * イベントが記録されます。この問題は無視してかまいません。問題は、 Astra Control Center が正しいステータスを取得したときに解決します。数分経っても問題 が解決しない場合は、クラスタに移動してを実行します `oc get pods -n netapp-monitoring` を開始点として指定します。この問題をデバッグするには、監視オペレータのログを調べる必要があります。

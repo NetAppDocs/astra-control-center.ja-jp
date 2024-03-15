@@ -50,13 +50,13 @@ entries:
   url: "/use/manage-backend.html"
 - title: 実行中のタスクを監視します
   url: "/use/monitor-running-tasks.html"
-- title: Cloud Insights とFluentdを使用してインフラを監視します
+- title: CRSを使用したAstra Controlアプリケーションの管理
+  url: "/use/cr-manage-options.html"
+- title: PrometheusとFluentdでインフラを監視
   url: "/use/monitor-protect.html"
 - title: アプリケーションとクラスタの管理を解除します
   url: "/use/unmanage.html"
 - title: Astra Control Center をアップグレードします
   url: "/use/upgrade-acc.html"
-- title: Astra Control Provisionerを有効にする
-  url: "/use/enable-acp.html"
 - title: Astra Control Center をアンインストールします
   url: "/use/uninstall_acc.html"

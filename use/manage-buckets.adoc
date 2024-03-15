@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/manage-buckets.html 
-keywords: how to set up object storage in astra, how to set up astra buckets, s3, astra, setting up astra control, astra control center, kubernetes 
+keywords: object storage, astra, buckets, s3, cr, custom resource 
 summary: アプリケーションと永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションのクローニングを行う場合は、オブジェクトストアバケットプロバイダの追加が不可欠です。 
 ---
 = バケットを管理する
@@ -43,11 +43,12 @@ Astra Control API を使用してバケットを管理する方法について�
 
 バケットの管理に関連して次のタスクを実行できます。
 
-* link:../get-started/setup_overview.html#add-a-bucket["バケットを追加します"]
+* link:../get-started/add-bucket.html["バケットを追加します"]
 * <<バケットを編集する>>
 * <<デフォルトバケットを設定する>>
 * <<バケットのクレデンシャルをローテーションするか、削除する>>
 * <<バケットを削除する>>
+* link:../use/manage-buckets.html#manage-a-bucket-using-a-custom-resource["（テクニカルプレビュー）カスタムリソースを使用したバケットの管理"]
 
 
 
@@ -141,7 +142,7 @@ Astra Control APIを使用してS3クレデンシャルを削除する方法に�
 * アクティブな保護ポリシーでバケットが使用されていないことを確認する必要があります。
 
 
-ある場合は、続行できません。
+あれば続けることはできません。
 
 .手順
 . 左ナビゲーションから、 * バケット * を選択します。
@@ -152,6 +153,94 @@ NOTE: Astra Control を使用すると、最初にバケットを使用してバ
 
 . 「 remove 」と入力して操作を確認します。
 . 「 * Yes 、 remove bucket * 」を選択します。
+
+
+
+
+== [Tech preview]カスタムリソースを使用したバケットの管理
+
+アプリケーションクラスタでAstra Controlのカスタムリソース（CR）を使用してバケットを追加できます。アプリケーションと永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションのクローニングを行う場合は、オブジェクトストアバケットプロバイダの追加が不可欠です。Astra Control は、これらのバックアップまたはクローンを、定義したオブジェクトストアバケットに格納します。カスタムリソースメソッドを使用している場合、アプリケーションのスナップショット機能にはバケットが必要です。
+
+アプリケーション構成と永続的ストレージを同じクラスタにクローニングする場合、Astra Controlにバケットを作成する必要はありません。
+
+Astra ControlのバケットカスタムリソースはAppVaultと呼ばれます。このCRには、保護処理でバケットを使用するために必要な設定が含まれています。
+
+.作業を開始する前に
+* Astra Control Centerで管理されているクラスタから到達できるバケットを用意します。
+* バケットのクレデンシャルがあることを確認します。
+* バケットが次のいずれかのタイプであることを確認します。
++
+** NetApp ONTAP S3
+** NetApp StorageGRID S3 の略
+** Microsoft Azure
+** 汎用 S3
+
+
+
+
+
+NOTE: Amazon Web Services（AWS）とGoogle Cloud Platform（GCP）では、汎用のS3バケットタイプを使用します。
+
+
+NOTE: Astra Control CenterはAmazon S3を汎用のS3バケットプロバイダとしてサポートしていますが、Astra Control Centerは、AmazonのS3をサポートしていると主張するすべてのオブジェクトストアベンダーをサポートしているわけではありません。
+
+.手順
+. カスタムリソース（CR）ファイルを作成し、という名前を付けます（例： `astra_appvault.yaml`）。
+. 次の属性を設定します。
++
+** * metadata.name*:_（必須）_ AppVaultカスタムリソースの名前。
+** * spec.prefix *：_（オプション）_ AppVaultに保存されているすべてのエンティティの名前のプレフィックスが付いたパス。
+** * spec.providerConfig*:_（必須）_指定されたプロバイダを使用してAppVaultにアクセスするために必要な設定を保存します。
+** * spec.providerCredentials*:_(オプション)_指定されたプロバイダを使用してAppVaultにアクセスするために必要なすべての資格情報への参照を保存します。
++
+*** * spec.providerCredentials.valueFromSecret*:_（オプション）_は、クレデンシャル値がシークレットから取得される必要があることを示します。
++
+**** * key *：_（valueFromSecretを使用する場合は必須）_選択するシークレットの有効なキー。
+**** * name *：_（valueFromSecretを使用する場合は必須）_このフィールドの値を含むシークレットの名前。同じネームスペースになければなりません。
+
+
+
+
+** * spec.providerType*:_（必須）_バックアップを提供するものを決定します（例：S3またはファイルシステム）。
++
+YAMLの例：
+
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: AppVault
+metadata:
+  name: astra_appvault
+spec:
+  providerType: generic-s3
+  providerConfig:
+    path: testpath
+    endpoint: 192.168.1.100:80
+    bucketName: bucket1
+    secure: "false"
+  providerCredentials:
+    accessKeyID:
+      valueFromSecret:
+        name: s3-creds
+        key: accessKeyID
+    secretAccessKey:
+      valueFromSecret:
+        name: s3-creds
+        key: secretAccessKey
+----
+
+
+. データを入力した後、 `astra_appvault.yaml` 正しい値を持つファイルを作成し、CRを適用します。
++
+[source, console]
+----
+kubectl apply -f astra_appvault.yaml -n neptune-system
+----
++
+
+NOTE: バケットを追加すると、デフォルトのバケットインジケータで1つのバケットがAstra Controlによってマークされます。最初に作成したバケットがデフォルトバケットになります。バケットを追加する際、あとでを選択できます link:../use/manage-buckets.html#set-the-default-bucket["別のデフォルトバケットを設定する"^]。
+
 
 
 

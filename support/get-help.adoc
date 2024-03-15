@@ -17,7 +17,7 @@ summary: ネットアップでは、 Astra Control をさまざまな方法で�
 
 IMPORTANT: Astra Control Center の評価用ライセンスをお持ちの場合は、テクニカルサポートを受けることができます。ただし、NetApp Support Site（ NSS ）でケースを作成することはできません。フィードバック・オプションを使用してサポートに連絡するか、Discordチャネルを使用してセルフサービスで連絡できます。
 
-最初に実行する必要があります link:../get-started/setup_overview.html["ネットアップのシリアル番号のサポートを有効にします"] これらの非セルフサービスサポートオプションを使用するには、次の手順に従います。チャットや Web でのチケット発行、ケース管理には、NetApp Support Site（ NSS ）の SSO アカウントが必要です。
+最初に実行する必要があります link:../get-started/add-license.html["ネットアップのシリアル番号のサポートを有効にします"] これらの非セルフサービスサポートオプションを使用するには、次の手順に従います。チャットや Web でのチケット発行、ケース管理には、NetApp Support Site（ NSS ）の SSO アカウントが必要です。
 
 
 

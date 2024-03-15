@@ -22,6 +22,7 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 .Role-Based Access Control （ RBAC ；ロールベースアクセス制御）の制限事項があります
 * <<ネームスペースの RBAC に制約があるユーザは、クラスタの追加と管理解除を行うことができます>>
 * <<名前空間の制約を持つメンバは、管理者が名前空間を制約に追加するまで、クローンまたは復元されたアプリケーションにアクセスできません>>
+* <<コネクタ以外のクラスタのリソースでは、制限的なロール制約は無視できます。>>
 
 
 .アプリケーション管理の制限
@@ -107,6 +108,14 @@ current-context: kubernetes-admin@kubernetes
 
 
 
+== コネクタ以外のクラスタのリソースでは、制限的なロール制約は無視できます。
+
+* *アクセス対象のリソースが最新のAstra Connectorがインストールされているクラスタに属している場合*：LDAPグループメンバーシップを通じてユーザに複数のロールが割り当てられると、ロールの制約が結合されます。たとえば、ローカルのビューアロールを持つユーザーが、メンバーロールにバインドされている3つのグループに参加した場合、ユーザーは元のリソースへのビューアロールアクセス権と、グループメンバーシップによって取得されたリソースへのメンバーロールアクセス権を持つようになります。
+* *アクセス対象のリソースがAstra Connectorがインストールされていないクラスタに属している場合*：ユーザにLDAPグループメンバーシップを通じて複数のロールが割り当てられている場合、最も権限の厳しいロールの制約のみが有効になります。
+
+
+
+
 == 1つのネームスペース内の複数のアプリケーションをまとめて別のネームスペースにリストアすることはできません
 
 複数のアプリケーションを1つのネームスペースで管理する場合（Astra Controlで複数のアプリケーション定義を作成する）、すべてのアプリケーションを別の1つのネームスペースにリストアすることはできません。各アプリケーションを専用のネームスペースにリストアする必要があります。
@@ -171,7 +180,7 @@ Helm を使用してアプリケーションを展開する場合、 Astra Contr
 
 . 既存のSnapshot CRDと既存のSnapshotコントローラをすべて削除します。
 . https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Astra Trident をアンインストール"^]。
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["スナップショットCRDとスナップショットコントローラをインストールします"^]。
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploy-a-volume-snapshot-controller["スナップショットCRDとスナップショットコントローラをインストールします"^]。
 . https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["最新バージョンのAstra Tridentをインストール"^]。
 . https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["VolumeSnapshotClassを作成します"^]。
 
@@ -212,7 +221,7 @@ Postgres ポッドで操作を実行する場合は、 psql コマンドを使�
 
 == [Activity]ページには、最大10万件のイベントが表示されます
 
-[Astra Control Activity]ページには、最大10、000件のイベントを表示できます。ログに記録されたすべてのイベントを表示するには、を使用してイベントを取得します link:../rest-api/api-intro.html["Astra Control API の略"^]。
+[Astra Control Activity]ページには、最大10、000件のイベントを表示できます。ログに記録されたすべてのイベントを表示するには、を使用してイベントを取得します https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API の略"^]。
 
 
 

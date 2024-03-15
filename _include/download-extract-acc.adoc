@@ -6,43 +6,45 @@
 
 == Astra Control Centerをダウンロードして展開します
 
-NetApp Support SiteからAstra Control Centerバンドルをダウンロードするか、Dockerを使用してAstra Controlサービスのイメージレジストリからバンドルを取得できます。
+次のいずれかの場所からAstra Control Centerのイメージをダウンロードします。
+
+* * Astra Controlサービスのイメージレジストリ*：Astra Control Centerのイメージでローカルレジストリを使用しない場合や、NetApp Support Siteからバンドルをダウンロードするよりもこの方法を使用する場合は、このオプションを使用します。
+* * NetApp Support Site *：このオプションは、Astra Control Centerのイメージでローカルレジストリを使用する場合に使用します。
+
 
 [role="tabbed-block"]
 ====
+.Astra Controlイメージレジストリ
+--
+. Astra Control Serviceにログインします。
+. ダッシュボードで、*[Deploy a self-managed instance of Astra Control]*を選択します。
+. 手順に従ってAstra Controlイメージのレジストリにログインし、Astra Control Centerのインストールイメージを取得してイメージを展開します。
+
+
+--
 .NetApp Support Site
 --
 . Astra Control Centerを含むバンドルをダウンロードします (`astra-control-center-[version].tar.gz`）をクリックします https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Centerのダウンロードページ"^]。
 . （推奨ですがオプション）Astra Control Centerの証明書と署名のバンドルをダウンロードします (`astra-control-center-certs-[version].tar.gz`）をクリックして、バンドルのシグネチャを確認します。
 +
-.展開して詳細を表示
-[%collapsible]
-=====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
 ----
++
 [source, console]
 ----
 openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
++
 出力にはと表示されます `Verified OK` 検証が成功したあとに、
 
-=====
 . Astra Control Centerバンドルからイメージを抽出します。
 +
 [source, console]
 ----
 tar -vxzf astra-control-center-[version].tar.gz
 ----
-
-
---
-.Astra Controlイメージレジストリ
---
-. Astra Control Serviceにログインします。
-. ダッシュボードで、*[Deploy a self-managed instance of Astra Control]*を選択します。
-. 手順に従ってAstra Controlイメージのレジストリにログインし、Astra Control Centerのインストールイメージを取得してイメージを展開します。
 
 
 --

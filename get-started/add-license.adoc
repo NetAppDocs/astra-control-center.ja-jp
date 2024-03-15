@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-license.html 
+keywords: set up astra control, astra control license 
+summary: Astra Control Centerをインストールし、UIにログインしてパスワードを変更したら、ライセンスを設定します。 
+---
+= Astra Control Center のライセンスを追加します
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Astra Control Centerをインストールすると、組み込みの評価用ライセンスがすでにインストールされています。Astra Control Centerを評価する場合は、この手順を省略できます。
+
+新しいライセンスは、Astra Control UIまたはを使用して追加できます https://docs.netapp.com/us-en/astra-automation["Astra Control API の略"^]。
+
+Astra Control Centerライセンスは、Kubernetes CPUユニットを使用してCPUリソースを測定し、すべての管理対象Kubernetesクラスタのワーカーノードに割り当てられたCPUリソースを考慮します。ライセンスはvCPUの使用量に基づいています。ライセンスの計算方法の詳細については、を参照してください link:../concepts/licensing.html["ライセンス"]。
+
+
+NOTE: インストールがライセンス数を超えると、 Astra Control Center は新しいアプリケーションを管理できなくなります。容量を超えるとアラートが表示されます。
+
+
+NOTE: 既存の評価版またはフルライセンスを更新するには、を参照してください link:../use/update-licenses.html["既存のライセンスを更新する"]。
+
+.作業を開始する前に
+* 新しくインストールしたAstra Control Centerインスタンスへのアクセス。
+* 管理者ロールの権限。
+* A link:../concepts/licensing.html["ネットアップライセンスファイル"] （NLF）。
+
+
+.手順
+. Astra Control Center UI にログインします。
+. 「 * アカウント * > * ライセンス * 」を選択します。
+. 「 * ライセンスの追加 * 」を選択します。
+. ダウンロードしたライセンスファイル（ NLF ）を参照します。
+. 「 * ライセンスの追加 * 」を選択します。
+
+
+*Account*>*License* ページには、ライセンス情報、有効期限、ライセンスシリアル番号、アカウント ID 、および使用されている CPU ユニットが表示されます。
+
+
+NOTE: 評価用ライセンスをお持ちで、AutoSupport にデータを送信していない場合は、Astra Control Centerに障害が発生したときにデータが失われないように、アカウントIDを必ず保存してください。

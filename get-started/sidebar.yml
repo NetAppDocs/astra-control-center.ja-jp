@@ -23,6 +23,22 @@ entries:
   - title: インストール後にAstra Control Centerを設定します
     url: "/get-started/configure-after-install.html"
 - title: Astra Control Center をセットアップします
-  url: "/get-started/setup_overview.html"
+  entries:
+  - title: ライセンスの追加
+    url: "/get-started/add-license.html"
+  - title: Astra Control Provisionerを有効にする
+    url: "/get-started/enable-acp.html"
+  - title: Astra Controlを使用したクラスタ管理の準備
+    url: "/get-started/prep-for-cluster-management.html"
+  - title: 管理対象クラスタ用のAstra Connectorのインストール
+    url: "/get-started/install-astra-connector.html"
+  - title: クラスタを追加
+    url: "/get-started/add-cluster.html"
+  - title: ストレージバックエンド認証を有効にする
+    url: "/get-started/enable-auth-ontap-backend.html"
+  - title: ストレージバックエンドを追加します
+    url: "/get-started/add-storage-backend.html"
+  - title: バケットを追加します
+    url: "/get-started/add-bucket.html"
 - title: よく寄せられる質問
   url: "/get-started/faq.html"

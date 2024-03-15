@@ -27,25 +27,21 @@ NOTE: Astra Control CenterをホストするKubernetes環境が、環境の公�
 | ホストクラスタ上のKubernetesディストリビューション | サポートされるバージョン 
 
 
-| Azure Stack HCIで実行されるAzure Kubernetes Service | Azure Stack HCI 21H2および22H2（AKS 1.24.xおよび1.25.xを使用） 
+| Azure Stack HCIで実行されるAzure Kubernetes Service | Azure Stack HCI 21H2および22H2（AKS 1.24.11~1.26.6を使用） 
 
 
 | Google Anthos | 1.15～1.16（を参照） <<Google Anthos Ingressの要件>>) 
 
 
-| Kubernetes（アップストリーム） | 1.26 ~ 1.28 
+| Kubernetes（アップストリーム） | 1.27～1.29 
 
 
-| Rancher Kubernetes Engine （ RKE ） | RKE 1.3とRancher Manager 2.6
-RKE 1.4とRancher Manager 2.7
-RKE 2（v1.24.x）とRancher 2.6
-RKE 2（v1.26.x）とRancher 2.7 
+| Rancher Kubernetes Engine （ RKE ） | RKE 1：バージョン1.24.17、1.25.13、1.26.8（Rancher Manager 2.7.9を使用）
+RKE 2：Rancher Manager 2.6.13を使用したバージョン1.23.16および1.24.13
+RKE 2：バージョン1.24.17、1.25.14、1.26.9（Rancher Manager 2.7.9を使用） 
 
 
-| Red Hat OpenShift Container Platform | 4.11~4.14 
-
-
-| VMware Tanzu Kubernetes Grid統合エディション | 1.16.x（ <<ホストクラスタリソースの要件>>) 
+| Red Hat OpenShift Container Platform | 4.12~4.14 
 |===
 
 
@@ -63,7 +59,13 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 ** デフォルトの VMware TKG および TKGi 設定ファイルトークンの有効期限は、展開後 10 時間です。Tanzu ポートフォリオ製品を使用する場合は、 Astra Control Center と管理対象アプリケーションクラスタ間の接続の問題を回避するために、期限切れにならないトークンを含む Tanzu Kubernetes Cluster 構成ファイルを生成する必要があります。手順については、を参照してください https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["VMware NSX -T Data Center 製品ドキュメント"^]
 ** を使用します `kubectl get nsxlbmonitors -A` 入力トラフィックを受け入れるように設定されたサービスモニタがすでにあるかどうかを確認するコマンド。MetalLB が存在する場合は、既存のサービスモニタが新しいロードバランサ設定を上書きするため、 MetalLB をインストールしないでください。
 ** TKG または TKGi のデフォルト・ストレージ・クラス・エンフォースメントは、 Astra Control によって管理されるすべてのアプリケーション・クラスタで無効にします。これを行うには、を編集します `TanzuKubernetesCluster` ネームスペースクラスタ上のリソース。
-** TKG または TKGi 環境に Astra Control Center を導入する際には、 Astra Trident の特定の要件に注意してください。詳細については、を参照してください https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident のドキュメント"^]。
+** TKGまたはTKGi環境にAstra Control Centerを導入する場合は、Astra Control Provisionerに固有の要件に注意してください。
++
+*** クラスタが特権ワークロードをサポートしている必要があります。
+*** 。 `--kubelet-dir` フラグはkubeletディレクトリの場所に設定する必要があります。デフォルトはです `/var/vcap/data/kubelet`。
+*** を使用してkubeletの場所を指定します `--kubelet-dir` は、Trident Operator、Helm、およびで動作することがわかっています `tridentctl` 導入：
+
+
 
 
 
@@ -74,38 +76,40 @@ NOTE: これらの要件は、運用環境で実行されている唯一のア�
 
 サポートされているバニラバージョンのIstioサービスメッシュをAstra Control Centerホストクラスタにインストールすることを強く推奨します。を参照してください https://istio.io/latest/docs/releases/supported-releases/["サポートされるリリース"^] サポートされているバージョンのIstioの場合。OpenShift Service MeshなどのIstioサービスメッシュのブランドリリースは、Astra Control Centerでは検証されていません。
 
-ホストクラスタにインストールされているIstioサービスメッシュとAstra Control Centerを統合するには、Astra Control Centerの一部として統合を行う必要があります。 link:../get-started/install_acc.html["インストール"] プロセスであり、このプロセスとは独立していません。
+ホストクラスタにインストールされているIstioサービスメッシュとAstra Control Centerを統合するには、Astra Control Centerの一部として統合を行う必要があります。 link:../get-started/install_acc.html["インストール"] そしてこのプロセスから独立していません。
 
 
-NOTE: ホストクラスタにサービスメッシュを設定せずにAstra Control Serviceをインストールすると、セキュリティに重大な影響を及ぼす可能性があります。
-
-
-
-== Astra Trident の要件
-
-お客様の環境のニーズに固有のAstra Tridentの次の要件を満たしていることを確認します。
-
-* * Astra Control Centerで使用する最小バージョン*：Astra Trident 23.01以降のインストールと設定
-* * Astra Tridentを使用したONTAP 構成*：
-+
-** *ストレージクラス*：クラスタに少なくとも1つのAstra Tridentストレージクラスを設定します。デフォルトのストレージクラスが設定されている場合は、そのストレージクラスがデフォルトで指定された唯一のストレージクラスであることを確認します。
-** *ストレージドライバとワーカーノード*:ポッドがバックエンドストレージと対話できるように、クラスタ内のワーカーノードを適切なストレージドライバで構成します。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。
-+
-*** `ontap-nas`
-*** `ontap-san`
-*** `ontap-san-economy` （このストレージクラスタイプではアプリケーションレプリケーションは使用できません）
-*** `ontap-nas-economy` （このストレージクラスタイプではSnapshotとレプリケーションポリシーは使用できません）
+NOTE: ホストクラスタにサービスメッシュを設定せずにAstra Control Centerをインストールして使用すると、セキュリティに重大な影響を及ぼす可能性があります。
 
 
 
+== Astra Trident
 
-
+本リリースでAstra Control Provisionerの代わりにAstra Tridentを使用する場合は、Astra Trident 23.04以降のバージョンがサポートされます。Astra Control Centerには <<Astra Controlプロビジョニングツール>> 今後のリリースでは、
 
 
 
 == Astra Controlプロビジョニングツール
 
-Astra Control Provisionerの高度なストレージ機能を使用するには、Astra Trident 23.10以降をインストールし、 link:../use/enable-acp.html["Astra Control Provisionerの機能"]。
+Astra Control Provisionerの高度なストレージ機能を使用するには、Astra Trident 23.10以降をインストールし、 link:../get-started/enable-acp.html["Astra Control Provisionerの機能"]。最新のAstra Control Provisioner機能を使用するには、Astra TridentとAstra Control Centerの最新バージョンが必要です。
+
+* * Astra Control Centerで使用するAstra Control Provisionerの最小バージョン*：Astra Control Provisioner 23.10以降がインストールおよび設定されています。
+
+
+
+
+=== Astra Tridentを使用したONTAPの設定
+
+* *ストレージクラス*：クラスタに少なくとも1つのストレージクラスを設定します。デフォルトのストレージクラスが設定されている場合は、そのストレージクラスがデフォルトで指定された唯一のストレージクラスであることを確認します。
+* *ストレージドライバとワーカーノード*:ポッドがバックエンドストレージと対話できるように、クラスタ内のワーカーノードを適切なストレージドライバで構成します。Astra Control Center は、 Astra Trident が提供する次の ONTAP ドライバをサポートしています。
++
+** `ontap-nas`
+** `ontap-san`
+** `ontap-san-economy` （このストレージクラスタイプではアプリケーションレプリケーションは使用できません）
+** `ontap-nas-economy` （このストレージクラスタイプではSnapshotおよびアプリケーションレプリケーションポリシーは使用できません）
+
+
+
 
 
 
@@ -119,6 +123,7 @@ Astra Control Provisionerの高度なストレージ機能を使用するには�
 ** NetApp ONTAP 9.9.1以降のAFF、FAS、ASAシステム
 ** NetApp ONTAP Select 9.9.1以降
 ** NetApp Cloud Volumes ONTAP 9.9.1以降
+** （Astra Control Centerのテクニカルプレビュー）技術プレビューとして提供されるデータ保護処理用のNetApp ONTAP 9.10.1以降
 ** Longhorn 1.5.0以降
 +
 *** VolumeSnapshotClassオブジェクトを手動で作成する必要があります。を参照してください https://longhorn.io/docs/1.5.0/snapshots-and-backups/csi-snapshot-support/csi-volume-snapshot-associated-with-longhorn-snapshot/#create-a-csi-volumesnapshot-associated-with-longhorn-snapshot["Longhornドキュメント"^] 手順については、を参照し
@@ -157,17 +162,11 @@ NetApp MetroClusterをストレージバックエンドとして使用する場�
 * 適切なONTAPライセンスがあることを確認します。
 
 
-MetroCluster LIFを設定するには、Astra Tridentのドキュメントで各ドライバの詳細を参照してください。
+MetroCluster LIFを設定するには、各ドライバについて次のオプションと例を参照してください。
 
 * https://docs.netapp.com/us-en/trident/trident-use/ontap-san-examples.html["SAN"^]
 * https://docs.netapp.com/us-en/trident/trident-use/ontap-nas-examples.html["NAS"^]
 
-
-
-
-== イメージレジストリ
-
-Astra Control Centerのビルドイメージをプッシュできる既存のプライベートDockerイメージレジストリが必要です。イメージをアップロードするイメージレジストリの URL を指定する必要があります。
 
 
 
@@ -177,9 +176,9 @@ Astra Control CenterにはAstra Control Centerライセンスが必要です。A
 
 Astra Control Centerは無償トライアルにサインアップして試すことができます。登録することでサインアップできます link:https://bluexp.netapp.com/astra-register["こちらをご覧ください"^]。
 
-ライセンスをセットアップするには、を参照してください link:setup_overview.html["90 日間の評価版ライセンスを使用する"^]。
+ライセンスをセットアップするには、を参照してください link:add-license.html["90 日間の評価版ライセンスを使用する"]。
 
-ライセンスの機能の詳細については、を参照してください link:../concepts/licensing.html["ライセンス"^]。
+ライセンスの機能の詳細については、を参照してください link:../concepts/licensing.html["ライセンス"]。
 
 
 
@@ -188,7 +187,7 @@ Astra Control Centerは無償トライアルにサインアップして試すこ
 Astra Control Centerが適切に通信できるように運用環境を設定します。次のネットワーク設定が必要です。
 
 * * FQDNアドレス*：Astra Control CenterのFQDNアドレスが必要です。
-* *インターネットへのアクセス*：インターネットに外部からアクセスできるかどうかを判断する必要があります。この処理を行わないと、 NetApp Cloud Insights からの監視データや指標データの受信や、へのサポートバンドルの送信など、一部の機能が制限される可能性があります https://mysupport.netapp.com/site/["NetApp Support Site"^]。
+* *インターネットへのアクセス*：インターネットに外部からアクセスできるかどうかを判断する必要があります。そうしないと、サポートバンドルをへ送信するなど、一部の機能が制限されることがあります。 https://mysupport.netapp.com/site/["NetApp Support Site"^]。
 * *ポートアクセス*：Astra Control Centerをホストする運用環境は、次のTCPポートを使用して通信します。これらのポートがファイアウォールを通過できることを確認し、 Astra ネットワークからの HTTPS 出力トラフィックを許可するようにファイアウォールを設定する必要があります。一部のポートでは、 Astra Control Center をホストする環境と各管理対象クラスタ（該当する場合はメモ）の両方の接続方法が必要です。
 
 
@@ -203,9 +202,6 @@ NOTE: Astra Control Center はデュアルスタック Kubernetes クラスタ�
 
 
 | 指標利用者 | Astra Control Center ワーカーノード | 9090 | HTTPS | メトリックデータ通信 - 各管理対象クラスタが、アストラコントロールセンターをホストしているクラスタ上のこのポートにアクセスできることを確認します （双方向通信が必要） 
-
-
-| Astra Control Center の略 | Hosted Cloud Insights サービスの略  | 443 | HTTPS | Cloud Insights 通信 
 
 
 | Astra Control Center の略 | Amazon S3 ストレージバケットプロバイダ | 443 | HTTPS | Amazon S3 ストレージ通信 
@@ -226,13 +222,13 @@ NOTE: Astra Control Center はデュアルスタック Kubernetes クラスタ�
 
 NOTE: ロードバランサは、Astra Control CenterワーカーノードのIPアドレスと同じサブネットにあるIPアドレスを使用する必要があります。
 
-詳細については、を参照してください link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["ロードバランシング用の入力を設定します"^]。
+詳細については、を参照してください link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["ロードバランシング用の入力を設定します"]。
 
 
 
 === Google Anthos Ingressの要件
 
-Google AnthosクラスタでAstra Control Centerをホストする場合、Google AnthosにはMetalLBロードバランサとIstio Ingressサービスがデフォルトで含まれているため、インストール時にAstra Control Centerの一般的な入力機能を簡単に使用できます。を参照してください link:install_acc.html#configure-astra-control-center["Astra Control Center を設定します"^] を参照してください。
+Google AnthosクラスタでAstra Control Centerをホストする場合、Google AnthosにはMetalLBロードバランサとIstio Ingressサービスがデフォルトで含まれているため、インストール時にAstra Control Centerの一般的な入力機能を簡単に使用できます。を参照してください link:install_acc.html#configure-astra-control-center["Astra Control Centerのインストールドキュメント"] を参照してください。
 
 
 
@@ -246,10 +242,10 @@ Astra Control Center は、最新バージョンの Firefox 、 Safari 、 Chrom
 
 次のAstra Control Center機能を使用する場合は、次の要件に注意してください。
 
-* *アプリケーションクラスタの要件*： link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["クラスタ管理の要件"^]
+* *アプリケーションクラスタの要件*： link:../get-started/prep-for-cluster-management.html["クラスタ管理の要件"]
 +
-** *アプリケーション要件の管理*： link:../use/manage-apps.html#application-management-requirements["アプリケーション管理の要件"^]
-** *アプリケーション・レプリケーションの追加要件*： link:../use/replicate_snapmirror.html#replication-prerequisites["レプリケーションの前提条件"^]
+** *アプリケーション要件の管理*： link:../use/manage-apps.html#application-management-requirements["アプリケーション管理の要件"]
+** *アプリケーションレプリケーションの追加要件*： link:../use/replicate_snapmirror.html#replication-prerequisites["レプリケーションの前提条件"]
 
 
 
@@ -258,4 +254,4 @@ Astra Control Center は、最新バージョンの Firefox 、 Safari 、 Chrom
 
 == 次のステップ
 
-を表示します link:quick-start.html["クイックスタート"^] 概要（ Overview ）：
+を表示します link:quick-start.html["クイックスタート"] 概要（ Overview ）：

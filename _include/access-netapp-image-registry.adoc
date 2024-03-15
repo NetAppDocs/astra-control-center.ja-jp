@@ -2,24 +2,17 @@
 :allow-uri-read: 
 
 
-* * NetApp Astra Controlイメージレジストリにアクセス*：
 Astra Control Provisionerなど、Astra Controlのインストールイメージや機能強化された機能をNetAppイメージレジストリから取得することができます。
-+
-.ステップのために展開
-[%collapsible]
-====
-.. レジストリへのログインに必要なAstra ControlアカウントIDを記録します。
+
+. レジストリへのログインに必要なAstra ControlアカウントIDを記録します。
 +
 アカウントIDはAstra Control Service Web UIで確認できます。ページ右上の図アイコンを選択し、* APIアクセス*を選択して、アカウントIDを書き留めます。
 
-.. 同じページから* APIトークンの生成*を選択し、APIトークン文字列をクリップボードにコピーしてエディターに保存します。
-.. Astra Controlレジストリにログインします。
+. 同じページから* APIトークンの生成*を選択し、APIトークン文字列をクリップボードにコピーしてエディターに保存します。
+. Astra Controlレジストリにログインします。
 +
 [source, console]
 ----
 docker login cr.astra.netapp.io -u <account-id> -p <api-token>
 ----
-
-
-====
 

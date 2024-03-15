@@ -41,7 +41,7 @@ summary: 自動保護ポリシーまたはアドホックベースを使用し�
 
 == 保護ポリシーを設定します
 
-保護ポリシーは、定義されたスケジュールでスナップショット、バックアップ、またはその両方を作成することでアプリケーションを保護します。Snapshot とバックアップを毎時、日次、週次、および月単位で作成し、保持するコピーの数を指定できます。
+保護ポリシーは、定義されたスケジュールでスナップショット、バックアップ、またはその両方を作成することでアプリケーションを保護します。Snapshot とバックアップを毎時、日次、週次、および月単位で作成し、保持するコピーの数を指定できます。保護ポリシーは、Astra Control Web UIまたはカスタムリソース（CR）ファイルを使用して定義できます。
 
 1 時間に 1 回以上の頻度でバックアップや Snapshot を実行する必要がある場合は、次の方法があります https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html["Astra Control REST API を使用して、スナップショットとバックアップを作成"^]。
 
@@ -51,6 +51,10 @@ NOTE: Write Once Read Many（WORM）バケットに書き換え不能なバッ�
 
 TIP: バックアップとレプリケーションのスケジュールをオフセットして、スケジュールの重複を回避します。たとえば、1時間ごとに1時間の最上部にバックアップを実行し、オフセットを5分、間隔を10分に設定してレプリケーションを開始するようにスケジュールを設定します。
 
+[role="tabbed-block"]
+====
+.Web UIを使用して保護ポリシーを設定する
+--
 .手順
 . 「 * アプリケーション」を選択し、アプリケーションの名前を選択します。
 . [ * データ保護 * ] を選択します。
@@ -68,10 +72,65 @@ TIP: バックアップとレプリケーションのスケジュールをオフ
 +
 image:screenshot-config-protection-policy.png["Snapshot とバックアップを毎時、毎日、毎週、または毎月作成する設定ポリシーの例のスクリーンショット。"]
 
+. [*技術プレビュー*]ストレージバケットのリストから、バックアップまたはスナップショットのデスティネーションバケットを選択します。
 . [* Review （レビュー） ] を選択します
 . ［ * 保護ポリシーの設定 * ］ を選択します
 
 
+--
+.[テクニカルプレビュー] CRを使用した保護ポリシーの設定
+--
+.手順
+. カスタムリソース（CR）ファイルを作成して名前を付けます。 `astra-control-schedule-cr.yaml`。Astra Control環境、クラスタ構成、データ保護のニーズに合わせて、かっこ<>の値を更新します。
++
+** <CR_NAME>：このカスタムリソースの名前。環境に適した一意の適切な名前を選択します。
+** <APPLICATION_NAME>：バックアップするアプリケーションのKubernetes名。
+** <APPVAULT_NAME>：バックアップコンテンツを格納するAppVaultの名前。
+** <BACKUPS_RETAINED>：保持するバックアップの数。ゼロは、バックアップを作成しないことを示します。
+** <SNAPSHOTS_RETAINED>：保持するSnapshotの数。ゼロは、スナップショットを作成しないことを示します。
+** <GRANULARITY>：スケジュールを実行する頻度。指定可能な値と必須の関連フィールドは次のとおりです。
++
+*** `hourly` （次を指定する必要があります： `spec.minute`)
+*** `daily` （次を指定する必要があります： `spec.minute` および `spec.hour`)
+*** `weekly` （次を指定する必要があります： `spec.minute`、 `spec.hour`および `spec.dayOfWeek`)
+*** `monthly` （次を指定する必要があります： `spec.minute`、 `spec.hour`および `spec.dayOfMonth`)
+
+
+** <DAY_OF_MONTH>：_（オプション）_スケジュールを実行する日にち（1 ~ 31）。このフィールドは、粒度が次の値に設定されている場合は必須です。 `monthly`。
+** <DAY_OF_WEEK>：_（オプション）_スケジュールを実行する曜日（0 ~ 7）。0または7の値は日曜日を示します。このフィールドは、粒度が次の値に設定されている場合は必須です。 `weekly`。
+** <HOUR_OF_DAY>：_（オプション）_スケジュールを実行する時間（0 ~ 23）。このフィールドは、粒度が次の値に設定されている場合は必須です。 `daily`、 `weekly`または `monthly`。
+** <MINUTE_OF_HOUR>：_（オプション）_スケジュールを実行する分（0~59）。このフィールドは、粒度が次の値に設定されている場合は必須です。 `hourly`、 `daily`、 `weekly`または `monthly`。
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: Schedule
+metadata:
+  namespace: astra-connector
+  name: <CR_NAME>
+spec:
+  applicationRef: <APPLICATION_NAME>
+  appVaultRef: <APPVAULT_NAME>
+  backupRetention: "<BACKUPS_RETAINED>"
+  snapshotRetention: "<SNAPSHOTS_RETAINED>"
+  granularity: <GRANULARITY>
+  dayOfMonth: "<DAY_OF_MONTH>"
+  dayOfWeek: "<DAY_OF_WEEK>"
+  hour: "<HOUR_OF_DAY>"
+  minute: "<MINUTE_OF_HOUR>"
+----
+
+
+. データを入力した後、 `astra-control-schedule-cr.yaml` 正しい値を持つファイルを作成し、CRを適用します。
++
+[source, console]
+----
+kubectl apply -f astra-control-schedule-cr.yaml
+----
+
+
+--
+====
 .結果
 Astra Control は、定義したスケジュールと保持ポリシーを使用して、スナップショットとバックアップを作成し、保持することによって、データ保護ポリシーを実装します。
 
@@ -92,13 +151,58 @@ Astra Controlでは、次のドライバでサポートされるストレージ�
 
 IMPORTANT: アプリケーションがでサポートされるストレージクラスを使用している場合 `ontap-nas-economy` ドライバ、スナップショットを作成できません。スナップショットには代替のストレージクラスを使用します。
 
+[role="tabbed-block"]
+====
+.Web UIを使用したSnapshotの作成
+--
 .手順
 . 「 * アプリケーション * 」を選択します。
 . 目的のアプリケーションの * アクション * 列のオプションメニューから、 * スナップショット * を選択します。
 . スナップショットの名前をカスタマイズし、*次へ*を選択します。
+. [*技術プレビュー*]ストレージバケットのリストからスナップショットのデスティネーションバケットを選択します。
 . Snapshot の概要を確認し、「 * Snapshot * 」を選択します。
 
 
+--
+.[テクニカルプレビュー] CRを使用したスナップショットの作成
+--
+.手順
+. カスタムリソース（CR）ファイルを作成して名前を付けます。 `astra-control-snapshot-cr.yaml`。カッコ内の値を、Astra Controlの環境とクラスタの構成に合わせて更新します。
++
+** <CR_NAME>：このカスタムリソースの名前。環境に適した一意の適切な名前を選択します。
+** <APPLICATION_NAME>：Snapshotを作成するアプリケーションのKubernetes名。
+** <APPVAULT_NAME>：スナップショットの内容を格納するAppVaultの名前。
+** <RECLAIM_POLICY>：_（オプション）_スナップショットCRが削除されたときのスナップショットの処理を定義します。有効なオプション：
++
+*** `Retain`
+*** `Delete` （デフォルト）
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: Snapshot
+metadata:
+  namespace: astra-connector
+  name: <CR_NAME>
+spec:
+  applicationRef: <APPLICATION_NAME>
+  appVaultRef: <APPVAULT_NAME>
+  reclaimPolicy: <RECLAIM_POLICY>
+----
+
+
+
+
+. データを入力した後、 `astra-control-snapshot-cr.yaml` 正しい値を持つファイルを作成し、CRを適用します。
++
+[source, console]
+----
+kubectl apply -f astra-control-snapshot-cr.yaml
+----
+
+
+--
+====
 .結果
 スナップショットプロセスが開始されます。スナップショットは'ステータスが* Healthy *である場合に成功します（* Data protection *>* Snapshots *ページの* State *列）
 
@@ -124,16 +228,53 @@ Astra Controlでは、次のドライバでサポートされるストレージ�
 
 
 ====
+[role="tabbed-block"]
+====
+.Web UIを使用したバックアップの作成
+--
 .手順
 . 「 * アプリケーション * 」を選択します。
 . 目的のアプリケーションの*アクション*列のオプションメニューから、*バックアップ*を選択します。
 . バックアップ名をカスタマイズする。
 . 既存のスナップショットからアプリケーションをバックアップするかどうかを選択します。このオプションを選択すると、既存の Snapshot のリストから選択できます。
-. ストレージバケットのリストから、バックアップのデスティネーションバケットを選択します。
+. [*技術プレビュー*]ストレージバケットのリストからバックアップ先のバケットを選択します。
 . 「 * 次へ * 」を選択します。
 . バックアップの概要を確認し、「バックアップ」を選択します。
 
 
+--
+.[テクニカルプレビュー] CRを使用したバックアップの作成
+--
+.手順
+. カスタムリソース（CR）ファイルを作成して名前を付けます。 `astra-control-backup-cr.yaml`。カッコ内の値を、Astra Controlの環境とクラスタの構成に合わせて更新します。
++
+** <CR_NAME>：このカスタムリソースの名前。環境に適した一意の適切な名前を選択します。
+** <APPLICATION_NAME>：バックアップするアプリケーションのKubernetes名。
+** <APPVAULT_NAME>：バックアップコンテンツを格納するAppVaultの名前。
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: Backup
+metadata:
+  namespace: astra-connector
+  name: <CR_NAME>
+spec:
+  applicationRef: <APPLICATION_NAME>
+  appVaultRef: <APPVAULT_NAME>
+----
+
+
+. データを入力した後、 `astra-control-backup-cr.yaml` 正しい値を持つファイルを作成し、CRを適用します。
++
+[source, console]
+----
+kubectl apply -f astra-control-backup-cr.yaml
+----
+
+
+--
+====
 .結果
 Astra Control ：アプリケーションのバックアップを作成
 
@@ -152,14 +293,12 @@ Astra Control ：アプリケーションのバックアップを作成
 Astra Control Provisionerは、バックアップとリストアの機能を提供します。この機能は、 `ontap-nas-economy` ストレージクラス。
 
 .作業を開始する前に
-* これで完了です link:../use/enable-acp.html["Astra Control Provisionerを有効にしました"]。
+* これで完了です link:../get-started/enable-acp.html["Astra Control Provisionerを有効にしました"]。
 * Astra Controlでアプリケーションを定義しておきます。この手順を完了するまで、このアプリケーションの保護機能は制限されます。
 * これで完了です `ontap-nas-economy` ストレージバックエンドのデフォルトのストレージクラスとして選択されています。
 
 
-.構成手順用に展開
-[%collapsible]
-====
+.手順
 . ONTAPストレージバックエンドで次の手順を実行します。
 +
 .. をホストしているSVMを検索します。 `ontap-nas-economy`-アプリケーションのボリュームベース。
@@ -180,7 +319,7 @@ IMPORTANT: ONTAPストレージバックエンドのsnapshotディレクトリ�
 
 
 
-. Astra Tridentで次の手順を実行します。
+. Astra Control Provisionerで次の手順を実行します。
 +
 .. 次のPVごとにSnapshotディレクトリを有効にします。 `ontap-nas-economy` ベースで、アプリケーションに関連付けられています。
 +
@@ -210,12 +349,11 @@ snapshotDirectory: "true"
 .結果
 Astra Controlを使用して、アプリケーションのバックアップとリストアを実行できるようになります。各PVCは、他のアプリケーションでバックアップおよびリストアに使用することもできます。
 
-====
 
 
 == 変更不可のバックアップの作成
 
-変更不可のバックアップは、バックアップを格納するバケットの保持ポリシーで禁止されているかぎり、変更、削除、上書きすることはできません。保持ポリシーが設定されたバケットにアプリケーションをバックアップすることで、変更不可のバックアップを作成できます。を参照してください link:../concepts/data-protection.html#immutable-backups["データ保護"^] を参照してください。
+変更不可のバックアップは、バックアップを格納するバケットの保持ポリシーで禁止されているかぎり、変更、削除、上書きすることはできません。保持ポリシーが設定されたバケットにアプリケーションをバックアップすることで、変更不可のバックアップを作成できます。を参照してください link:../concepts/data-protection.html#immutable-backups["データ保護"] を参照してください。
 
 .作業を開始する前に
 保持ポリシーを使用してデスティネーションバケットを設定する必要があります。その方法は、使用するストレージプロバイダによって異なります。詳細については、ストレージプロバイダのドキュメントを参照してください。

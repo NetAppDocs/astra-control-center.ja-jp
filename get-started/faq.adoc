@@ -71,7 +71,8 @@ Astra Control からクラスタを削除しても、クラスタの構成（ア
 
 WARNING: 他の方法でクラスタを削除する場合は、必ず事前に Astra Control からクラスタを削除してください。Astra Control で管理している間に別のツールを使用してクラスタを削除した場合、原因で Astra Control アカウントに問題が発生する可能性があります。
 
-* NetApp Astra Tridentの管理を解除すると、クラスタから自動的にアンインストールされますか？* Astra Control Centerでクラスタの管理を解除しても、Astra Tridentはクラスタから自動的にアンインストールされません。Astra Trident をアンインストールするには、が必要です https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Astra Trident のドキュメントで次の手順を実行します"^]。
+*管理を解除すると、Astra Control Provisioner（Astra Trident）がクラスタから自動的にアンインストールされますか？*
+Astra Control Centerでクラスタの管理を解除しても、Astra Control ProvisionerまたはAstra Tridentはクラスタから自動的にアンインストールされません。Astra Control ProvisionerとそのコンポーネントまたはAstra Tridentをアンインストールするには、次の手順を実行する必要があります： https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["次の手順に従って、Astra Control Provisionerサービスが含まれているAstra Tridentインスタンスをアンインストールします。"^]。
 
 
 
@@ -118,26 +119,25 @@ Astra Control はアプリケーションを導入しない。アプリケーシ
 Astra Control Provisionerは、Astra Controlの一部として、オープンソースのAstra Tridentでは利用できないストレージプロビジョニング機能のスーパーセットをサポートします。これらの機能は、オープンソースのTridentで利用できるすべての機能に加えて提供されます。
 
 * Astra Control ProvisionerはAstra Tridentの後継ですか？*
-
-今後のAstra Controlの更新では、Astra Control ProvisionerがAstra ControlアーキテクチャのストレージプロビジョニングおよびオーケストレータとしてAstra Tridentに代わるものとなります。そのため、Astra Controlを使用することを強く推奨します link:../use/enable-acp.html["Astra Control Provisionerを有効にする"]。Astra Tridentは引き続きオープンソースであり、NetAppの新しいCSIやその他の機能でリリース、メンテナンス、サポート、更新されます。
+Astra Control Provisionerは、Astra ControlアーキテクチャのストレージプロビジョニングおよびオーケストレーションツールとしてAstra Tridentに代わるものです。Astra Controlを使用する場合は、 link:../get-started/enable-acp.html["Astra Control Provisionerを有効にする"] Astra Controlを使用する場合。Astra Tridentはこのリリースでも引き続きサポートされますが、今後のリリースではサポートされません。Astra Tridentは引き続きオープンソースであり、NetAppの新しいCSIやその他の機能でリリース、保守、サポート、更新されます。ただし、Astra Controlの今後のリリースで使用できるのは、Astra TridentのCSI機能と拡張されたストレージ管理機能を備えたAstra Control Provisionerだけです。
 
 * Astra Tridentの料金を支払う必要がありますか？*
 
-いいえAstra Tridentは引き続きオープンソースであり、無償でダウンロードできます。
+いいえAstra Tridentは引き続きオープンソースであり、無償でダウンロードできます。Astra Control Provisioner機能を使用するには、Astra Controlライセンスが必要です。
 
 * Astra Controlをすべてインストールして使用しなくても、Astra Controlでストレージ管理とプロビジョニングの機能を使用できますか。*
 
-はい。Astra Controlのデータ管理機能のすべての機能セットを使用する必要がなくても、Astra Trident 23.10以降にアップグレードしてAstra Control Provisioner機能を有効にできます。
+はい。Astra Control Provisionerにアップグレードして、Astra Controlのすべてのデータ管理機能を使用する必要がなくても、その機能を使用できます。
 
-*既存のTridentユーザからAstra Controlに移行して、高度なストレージ管理とプロビジョニングの機能を使用するにはどうすればよいですか？*
+*既存のAstra TridentユーザからAstra Controlに移行して、高度なストレージ管理とプロビジョニングの機能を使用するにはどうすればよいですか？*
 
-既存のTridentユーザ（パブリッククラウドのAstra Tridentのユーザを含む）の場合は、まずAstra Controlライセンスを取得する必要があります。インストールが完了したら、Astra Control Provisionerバンドルをダウンロードし、Astra Tridentをアップグレードし、 link:../use/enable-acp.html["Astra Control Provisioner機能を有効にする"]。
+既存のAstra Tridentユーザ（パブリッククラウドのAstra Tridentのユーザを含む）の場合は、まずAstra Controlライセンスを取得する必要があります。インストールが完了したら、Astra Control Provisionerバンドルをダウンロードし、Astra Tridentをアップグレードし、 link:../get-started/enable-acp.html["Astra Control Provisioner機能を有効にする"]。
 
-*クラスタのAstra TridentにAstra Control Provisionerが置き換えられたかどうかを確認するにはどうすればよいですか？*
+[[running-acp-check]]*クラスタのAstra TridentにAstra Control Provisionerが置き換えられたかどうかを確認するにはどうすればよいですか？*
 
 Astra Control Provisionerをインストールすると、Astra Control UIのホストクラスタに `ACP version` 代わりに `Trident version` フィールドと現在インストールされているバージョン番号。
 
-image:use/ac-acp-version.png["UIでのACPバージョンの場所を示すスクリーンショット"]
+image:use/ac-acp-version.png["Astra Control Provisionerのバージョンを示すUIのスクリーンショット"]
 
 UIにアクセスできない場合は、次の方法でインストールが正常に完了したことを確認できます。
 
@@ -145,7 +145,7 @@ UIにアクセスできない場合は、次の方法でインストールが正
 ====
 .Astra Trident運用者
 --
-を確認します `trident-acp` コンテナが実行中で、 `acpVersion` はです `23.10.0` ステータス： `Installed`：
+を確認します `trident-acp` コンテナが実行中で、 `acpVersion` はです `23.10.0` またはそれ以降（最小バージョンは23.10）でステータスが `Installed`：
 
 [listing]
 ----
@@ -156,10 +156,10 @@ kubectl get torc -o yaml
 [listing]
 ----
 status:
-  acpVersion: 23.10.0
+  acpVersion: 24.10.0
   currentInstallationParams:
     ...
-    acpImage: <my_custom_registry>/trident-acp:23.10.0
+    acpImage: <my_custom_registry>/trident-acp:24.10.0
     enableACP: "true"
     ...
   ...
@@ -178,7 +178,7 @@ Astra Control Provisionerが有効になっていることを確認します。
 
 [listing]
 ----
-+----------------+----------------+-------------+ | SERVER VERSION | CLIENT VERSION | ACP VERSION | +----------------+----------------+-------------+ | 23.10.0 | 23.10.0 | 23.10.0. | +----------------+----------------+-------------+
++----------------+----------------+-------------+ | SERVER VERSION | CLIENT VERSION | ACP VERSION | +----------------+----------------+-------------+ | 24.10.0 | 24.10.0 | 24.10.0. | +----------------+----------------+-------------+
 ----
 --
 ====

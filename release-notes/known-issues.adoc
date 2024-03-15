@@ -19,7 +19,6 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 
 * <<クラスタの管理後にボリュームnapshotclassを追加すると、アプリケーションのバックアップとSnapshotが失敗します>>
 * <<kubeconfigファイルに複数のコンテキストが含まれている場合にAstra Control Centerでクラスタの管理が失敗する>>
-* <<Istio環境で監視ポッドがクラッシュする可能性があります>>
 * <<Astra Trident がオフラインの場合、 Internal Service Error （ 500 ）によりアプリケーションデータ管理処理が失敗する>>
 * <<ONTAP NASエコノミーストレージクラスへのIn Placeリストア処理が失敗する>>
 * <<Kerberos転送中暗号化を使用する場合にバックアップからのリストアが失敗することがある>>
@@ -40,58 +39,6 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 
 
 
-== Istio環境で監視ポッドがクラッシュする可能性があります
-
-Istio環境でAstra Control CenterをCloud Insights とペアリングする場合は `telegraf-rs` ポッドがクラッシュすることがあります。回避策として、次の手順を実行します。
-
-. クラッシュしたポッドを検索します。
-+
-[listing]
-----
-kubectl -n netapp-monitoring get pod | grep Error
-----
-+
-次のような出力が表示されます。
-
-+
-[listing]
-----
-NAME READY STATUS RESTARTS AGE
-telegraf-rs-fhhrh 1/2 Error 2 (26s ago) 32s
-----
-. クラッシュしたポッドを再起動し、交換します `<pod_name_from_output>` 影響を受けるポッドの名前を入力します。
-+
-[listing]
-----
-kubectl -n netapp-monitoring delete pod <pod_name_from_output>
-----
-+
-次のような出力が表示されます。
-
-+
-[listing]
-----
-pod "telegraf-rs-fhhrh" deleted
-----
-. PODが再起動し、Error状態でないことを確認します。
-+
-[listing]
-----
-kubectl -n netapp-monitoring get pod
-----
-+
-次のような出力が表示されます。
-
-+
-[listing]
-----
-NAME READY STATUS RESTARTS AGE
-telegraf-rs-rrnsb 2/2 Running 0 11s
-----
-
-
-
-
 == Astra Trident がオフラインの場合、 Internal Service Error （ 500 ）によりアプリケーションデータ管理処理が失敗する
 
 アプリケーションクラスタの Astra Trident がオフラインになり（オンラインに戻った）、 500 件の内部サービスエラーが発生した場合に、アプリケーションデータ管理を試みると、アプリケーションクラスタ内のすべての Kubernetes ノードを再起動して機能を復旧します。
@@ -100,7 +47,7 @@ telegraf-rs-rrnsb 2/2 Running 0 11s
 
 == ONTAP NASエコノミーストレージクラスへのIn Placeリストア処理が失敗する
 
-アプリケーションのインプレースリストアを実行し（アプリケーションを元のネームスペースにリストア）、アプリケーションのストレージクラスで `ontap-nas-economy` ドライバの場合、スナップショットディレクトリが非表示になっていないとリストア処理が失敗することがあります。インプレースでリストアする前に、の手順に従ってください。 link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["ONTAP NAS経済性に優れた運用向けのバックアップとリストアを実現"^] Snapshotディレクトリを非表示にします。
+アプリケーションのインプレースリストアを実行し（アプリケーションを元のネームスペースにリストア）、アプリケーションのストレージクラスで `ontap-nas-economy` ドライバの場合、スナップショットディレクトリが非表示になっていないとリストア処理が失敗することがあります。インプレースでリストアする前に、の手順に従ってください。 link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["ONTAP NAS経済性に優れた運用向けのバックアップとリストアを実現"] Snapshotディレクトリを非表示にします。
 
 
 

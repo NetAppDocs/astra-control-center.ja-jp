@@ -25,7 +25,7 @@ Astra Control Provisionerを使用すると、ディザスタリカバリ用に�
 作業を開始する前に、次の前提条件を満たしていることを確認してください。
 
 .ONTAP クラスタ
-* * Astra Control Provisioner *：ONTAPをバックエンドとして利用するソースとデスティネーションの両方のKubernetesクラスタに、Astra Control Provisionerバージョン22.10以降が必要です。
+* * Astra Control Provisioner *：Astra Control Provisionerバージョン23.10以降 link:../get-started/requirements.html["Astra Tridentのサポート"] ONTAPをバックエンドとして利用するソースとデスティネーションの両方のKubernetesクラスタに存在する必要があります。
 * *ライセンス*：Data Protection Bundleを使用するONTAP SnapMirror非同期ライセンスが、ソースとデスティネーションの両方のONTAPクラスタで有効になっている必要があります。を参照してください https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["ONTAP のSnapMirrorライセンスの概要"^] を参照してください。
 
 

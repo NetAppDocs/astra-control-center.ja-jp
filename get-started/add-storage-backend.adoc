@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-storage-backend.html 
+keywords: set up astra control, astra control license, add cluster, add storage backend, import storage, add bucket 
+summary: ストレージバックエンド認証を有効にしたら、管理するストレージバックエンドを選択する必要があります。 
+---
+= ストレージバックエンドを追加します
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+クレデンシャルまたは証明書認証情報を設定したら、Astra Control Centerに既存のONTAP ストレージバックエンドを追加してリソースを管理できます。
+
+ストレージバックエンドとして Astra Control のストレージクラスタを管理することで、永続ボリューム（ PVS ）とストレージバックエンドの間のリンケージを取得できるだけでなく、追加のストレージ指標も取得できます。
+
+Control Provisionerを有効にしている場合、NetApp SnapMirrorテクノロジを使用する場合、Astra Control CenterでONTAPストレージバックエンドの追加と管理はオプションです。
+
+.手順
+. 左側のナビゲーション領域のダッシュボードで、* Backends *を選択します。
+. 「 * 追加」を選択します。
+. [Add storage backend]ページの[Use existing]セクションで、* ONTAP *を選択します。
+. 次のいずれかを選択します。
++
+** *管理者のクレデンシャルを使用*：ONTAP クラスタ管理IPアドレスと管理者のクレデンシャルを入力します。クレデンシャルはクラスタ全体のクレデンシャルである必要があります。
++
+
+NOTE: ここで入力するクレデンシャルのユーザは、を持っている必要があります `ontapi` ONTAP クラスタのONTAP System Managerで有効になっているユーザログインアクセス方法。SnapMirrorレプリケーションを使用する場合は、アクセス方法が指定された「admin」ロールのユーザクレデンシャルを適用します `ontapi` および `http`、ソースとデスティネーションの両方のONTAP クラスタ。を参照してください https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["ONTAP ドキュメントの「ユーザーアカウントの管理」を参照してください"^] を参照してください。
+
+** *証明書を使用*：証明書をアップロードします `.pem` ファイル、証明書キー `.key` ファイルを指定し、必要に応じて認証局ファイルを指定します。
+
+
+. 「 * 次へ * 」を選択します。
+. バックエンドの詳細を確認し、 * Manage * を選択します。
+
+
+.結果
+バックエンドがに表示されます `online` リストに概要情報を表示します。
+
+
+NOTE: バックエンドが表示されるようにページを更新する必要がある場合があります。

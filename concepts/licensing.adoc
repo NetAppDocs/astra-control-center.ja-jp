@@ -17,13 +17,13 @@ Astra Control Centerを導入すると、4、800 CPUユニットの90日間の�
 次のいずれかの方法でライセンスを取得します。
 
 * Astra Control Centerを評価する際に、組み込みの評価用ライセンスと異なる評価条件が必要な場合は、ネットアップに連絡して別の評価用ライセンスファイルをリクエストしてください。
-* link:https://mysupport.netapp.com/site/["Astra Control Centerを購入済みの場合は、ネットアップライセンスファイル（NLF）を生成する"^] NetApp Support Site にログインし、[Systems]メニューからソフトウェアライセンスに移動します。
+* https://mysupport.netapp.com/site/["Astra Control Centerを購入済みの場合は、ネットアップライセンスファイル（NLF）を生成する"^] NetApp Support Site にログインし、[Systems]メニューからソフトウェアライセンスに移動します。
 
 
 ONTAP ストレージバックエンドに必要なライセンスの詳細については、を参照してください link:../get-started/requirements.html["サポートされるストレージバックエンド"]。
 
 
-NOTE: ライセンスで有効になっているCPUユニットが必要な数以上であることを確認してください。Astra Control Centerで現在管理しているCPUユニット数が、適用する新しいライセンスで使用可能なCPUユニット数を超えると、新しいライセンスを適用できなくなります。
+NOTE: ライセンスで有効になっているCPUユニットが必要な数以上であることを確認してください。Astra Control Centerで現在管理しているCPUユニット数が、適用する新しいライセンスで使用可能なCPUユニット数を超えると、新しいライセンスを適用できません。
 
 
 
@@ -60,6 +60,6 @@ NOTE: Red Hat OpenShiftインフラノードでは、Astra Control Centerのラ�
 
 == 詳細については、こちらをご覧ください
 
-* link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["Astra Control Centerの初回セットアップ時にライセンスを追加します"]
+* link:../get-started/add-license.html["Astra Control Centerの初回セットアップ時にライセンスを追加します"]
 * link:../use/update-licenses.html["既存のライセンスを更新する"]
 

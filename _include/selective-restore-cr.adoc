@@ -1,0 +1,36 @@
+= 
+:allow-uri-read: 
+
+
+. （オプション）リストアするアプリケーションの特定のリソースのみを選択する必要がある場合は、特定のラベルが付いたリソースを含めるか除外するフィルタリングを追加します。
++
+** 「<INCLUDE-EXCLUDE>」：_（フィルタリングに必要）_使用 `include` または `exclude` resourceMatchersで定義されているリソースを含めるか除外します。次のresourceMatchersパラメータを追加して、追加または除外するリソースを定義します。
++
+*** <GROUP>：_（オプション）_フィルタリングするリソースのグループ。
+*** <KIND>：_（オプション）_フィルタリングするリソースの種類。
+*** <VERSION>：_（オプション）_フィルタリングするリソースのバージョン。
+*** <NAMES>：_（オプション）_ namesをフィルタリングするリソースのKubernetes metadata.nameフィールドに入力します。
+*** <NAMESPACES>：_（オプション）_NamespacesフィルタリングするリソースのKubernetes metadata.nameフィールド。
+*** <SELECTORS>：_（オプション）_で定義されているリソースのKubernetes metadata.nameフィールドのラベルセレクタ文字列 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors["Kubernetes のドキュメント"^]。例 `"trident.netapp.io/os=linux"`。
++
+例
+
++
+[source, yaml]
+----
+spec:
+    resourceFilter:
+        resourceSelectionCriteria: "<INCLUDE-EXCLUDE>"
+        resourceMatchers:
+           group: <GROUP>
+           kind: <KIND>
+           version: <VERSION>
+           names: <NAMES>
+           namespaces: <NAMESPACES>
+           labelSelectors: <SELECTORS>
+----
+
+
+
+
+
