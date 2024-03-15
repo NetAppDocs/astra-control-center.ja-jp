@@ -158,9 +158,6 @@ NOTE: この手順 では、Astra Control Centerを実行しているクラス�
 +
 .. という名前のサービスアカウントファイルを作成します `astracontrol-service-account.yaml`。
 +
-名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。
-
-+
 [source, subs="specialcharacters,quotes"]
 ----
 *astracontrol-service-account.yaml*
@@ -191,9 +188,6 @@ kubectl apply -f astracontrol-service-account.yaml
 このロールには、Astra Controlでクラスタを管理するために必要な最小限の権限が含まれています。
 
 .. を作成します `ClusterRole` という名前のファイル。例： `astra-admin-account.yaml`。
-+
-名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。
-
 +
 [source, subs="specialcharacters,quotes"]
 ----
@@ -311,6 +305,7 @@ rules:
   - securitycontextconstraints
   verbs:
   - use
+  - update
 ----
 .. クラスタロールを適用します。
 +
@@ -329,9 +324,6 @@ kubectl apply -f astra-admin-account.yaml
 NOTE: 次のようになります `ClusterRole` 手順はKubernetesの一般的な例です。ご使用の環境に固有の手順については、ご使用のKubernetesディストリビューションのドキュメントを参照してください。
 
 .. を作成します `ClusterRole` という名前のファイル。例： `astra-admin-account.yaml`。
-+
-名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。
-
 +
 [source, subs="specialcharacters,quotes"]
 ----
@@ -369,9 +361,6 @@ kubectl apply -f astra-admin-account.yaml
 . サービスアカウントへのクラスタロールバインド用に、クラスタロールを作成します。
 +
 .. を作成します `ClusterRoleBinding` という名前のファイルです `astracontrol-clusterrolebinding.yaml`。
-+
-必要に応じて、サービスアカウントの作成時に変更した名前と名前空間を調整します。
-
 +
 [source, subs="specialcharacters,quotes"]
 ----
@@ -433,7 +422,7 @@ kubectl apply -f secret-astracontrol-service-account.yaml
 +
 [source, console]
 ----
-kubectl edit sa astracontrol-service-account -n <netapp-acc or custom namespace>
+kubectl edit sa astracontrol-service-account
 ----
 +
 [source, subs="verbatim,quotes"]
@@ -479,14 +468,13 @@ kubectl get serviceaccount astracontrol-service-account --context <context> --na
 +
 .. を作成します `create-kubeconfig.sh` ファイル。
 .. 交換してください `TOKEN_INDEX` 次のスクリプトの先頭に正しい値を入力します。
-.. 交換してください `NAMESPACE` Astra Control Centerのネームスペースを使用。
 +
 [source, subs="specialcharacters,quotes"]
 ----
 *create-kubeconfig.sh*
 ----
 +
-[source, console]
+[source, subs="verbatim,quotes"]
 ----
 # Update these to match your environment.
 # Replace TOKEN_INDEX with the correct value
@@ -504,7 +492,7 @@ CONTEXT=$(kubectl config current-context)
 SECRET_NAME=$(kubectl get serviceaccount ${SERVICE_ACCOUNT_NAME} \
   --context ${CONTEXT} \
   --namespace ${NAMESPACE} \
-  -o jsonpath='{.secrets[TOKEN_INDEX].name}')
+  *-o jsonpath='{.secrets[TOKEN_INDEX].name}')
 TOKEN_DATA=$(kubectl get secret ${SECRET_NAME} \
   --context ${CONTEXT} \
   --namespace ${NAMESPACE} \

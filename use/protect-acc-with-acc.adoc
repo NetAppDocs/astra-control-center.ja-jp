@@ -156,7 +156,7 @@ kubectl get acc -n netapp-acc
 [listing]
 ----
 NAME  UUID                                 VERSION    ADDRESS                             READY
-astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-65 ocp-cluster-1.company.com           True
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-69 ocp-cluster-1.company.com           True
 ----
 .. 状況に応じて `ADDRESS` 上記の応答のフィールドにプライマリAstra Control CenterインスタンスのFQDNがない場合は、Astra Control CenterのDNSを参照するように設定を更新します。
 +
@@ -379,7 +379,7 @@ kubectl get acc -n netapp-acc
 [listing]
 ----
 NAME  UUID                                 VERSION    ADDRESS                             READY
-astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-65 ocp-cluster-1.company.com           True
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-69 ocp-cluster-1.company.com           True
 ----
 * *導入ステータスの確認*：Astra Control Centerの導入情報を表示して `Deployment State` はです `Deployed`。
 +

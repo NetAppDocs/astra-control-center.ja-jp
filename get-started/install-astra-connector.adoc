@@ -38,7 +38,7 @@ NOTE: Kubernetes 1.25以降のクラスタのデフォルトであるポッド�
 +
 [source, console]
 ----
-kubectl apply -f https://github.com/NetApp/astra-connector-operator/releases/download/24.02.0-202403141622/astraconnector_operator.yaml
+kubectl apply -f https://github.com/NetApp/astra-connector-operator/releases/download/24.02.0-202403151353/astraconnector_operator.yaml
 ----
 . オペレータが設置され、準備ができていることを確認します。
 +

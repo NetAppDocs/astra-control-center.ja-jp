@@ -772,12 +772,10 @@
   <block id="c49be33f592950e78d23dd417a4a75e5" category="list-text">アクティブなコンテキストのクラスタ管理者の権限で管理するクラスタのアクティブなkubeconfigです</block>
   <block id="565bfe8a9451afd10f3c41fe9fa4cf22" category="list-text">サービスアカウントを作成します。</block>
   <block id="4ab759267d2877902a521921e10f5f5b" category="list-text">という名前のサービスアカウントファイルを作成します<block ref="a22dad5601b31427598f571133fb2aed" prefix=" " category="inline-code"></block>。</block>
-  <block id="210c5331ab46caa141e6ac9d5aeb1bee" category="paragraph">名前と名前空間を必要に応じて調整します。ここで変更を行った場合は、以降の手順でも同じ変更を適用する必要があります。</block>
   <block id="605443509a67749999ab3b0d3ba43e8b" category="list-text">サービスアカウントを適用します。</block>
   <block id="d2f7aa8c006dd5e0b027cb6e32926a4e" category="list-text">クラスタロールを適用します。</block>
   <block id="a30ca90c640932dfa98b3ac560bb10ab" category="list-text">サービスアカウントへのクラスタロールバインド用に、クラスタロールを作成します。</block>
   <block id="b29afe741178d8d4966c07c97f9892db" category="list-text">を作成します<block ref="e866afd8290d5c73cda6260e04e6eef0" prefix=" " category="inline-code"></block> という名前のファイルです<block ref="79e1486667eff2c5e1915f58701f3a18" prefix=" " category="inline-code"></block>。</block>
-  <block id="51980eaff0de60f578593fb8ae77f9b3" category="paragraph">必要に応じて、サービスアカウントの作成時に変更した名前と名前空間を調整します。</block>
   <block id="c6c2bc2133c73ae2516508de9a2b5869" category="list-text">クラスタロールバインドを適用します。</block>
   <block id="b6e00a7dda090ccd5afd1c904d80548c" category="list-text">サービスアカウントのシークレットを一覧表示します（置き換えます）<block ref="af16c4db277e0498b5fa9e30613367f1" prefix=" " category="inline-code"></block> インストールに適したコンテキストを使用して、次の操作を行います。</block>
   <block id="f087976277d273660b942918b43af841" category="paragraph">出力の末尾は次のようになります。</block>
@@ -3315,7 +3313,6 @@ Astra Control Centerのインストール時にIstioサービスメッシュを�
   <block id="cafefc5f50506723aef36efe08228ac6" category="list-text"><block ref="cafefc5f50506723aef36efe08228ac6" category="inline-link-macro-rx"></block></block>
   <block id="ebbf8ab2cc98d2a82b96a1a2f7b5ae63" category="list-text">* ONTAPストレージでサポートされるストレージクラス*：ONTAPバックエンドを使用している場合、Astra Control CenterでONTAPバックエンドをインポートして監視情報をレポートすることができます。</block>
   <block id="8253c8b1a609f9ce1a02c4e2a504c939" category="admonition">ストレージクラスは<block ref="77905d0564a40ee81ff9591499f11020" category="inline-link-rx"></block> Astra Control Provisionerを使用します。</block>
-  <block id="14fe383b66664af3f619add4f5177375" category="section-title">2023年3月14日（24.02.0）</block>
   <block id="d63699561e9e89b24f74267a42a43fcb" category="list-text">*プライベートレジストリを使用せずにAstra Control Centerを導入*：Astra Control Centerのイメージをプライベートレジストリにプッシュしたり、Astra Control環境の一部として使用したりする必要がなくなりました。</block>
   <block id="2d34fffcd239d9123b41c19f296a8e34" category="list-text">*マイナーバグ修正*</block>
   <block id="52431bbd389e0fa547d3457c7623dfdb" category="paragraph-title">（テクニカルプレビュー）宣言型Kubernetesワークフロー</block>
@@ -3360,12 +3357,10 @@ Astra Control Centerのインストール時にIstioサービスメッシュを�
   <block id="12547cb718bd5cdda0698d3425c2efd9" category="admonition">Astra Control Centerとサービスメッシュの統合は、Astra Control Centerでのみ実行可能 <block ref="62b215247cb296dff8f12da472ca9c46" category="inline-link-macro-rx"></block> そしてこのプロセスから独立していません。メッシュ環境から非メッシュ環境に戻すことはサポートされていません。</block>
   <block id="8eae7b52d2951fd68c2e610fc6a8003d" category="paragraph">次の手順を実行して、最新のNetApp Astra kubectlコマンドラインプラグインをインストールします。</block>
   <block id="fa221b4f0b04edab66e833af2ce3f2ef" category="paragraph">以前のインストールからプラグインがインストールされている場合は、 <block ref="2a7472047c8e1a767aa63b6d837cb04d" category="inline-link-macro-rx"></block> これらの手順を実行する前に。</block>
-  <block id="93cd09cf13a63fbf73e885567e601af2" category="admonition">プレースホルダ<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 以前にアップロードした画像の場所と一致する必要があります（例：<block ref="4bb7b95e87f41970aa8eeb1f4893161d" prefix=" " category="inline-code"></block>）。</block>
   <block id="5168e33647c31de13dabe5499c7ce89a" category="list-text">のシークレットを作成します<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> （またはカスタム名）ネームスペース。Docker情報を追加し、レジストリの設定に応じて適切なコマンドのいずれかを実行します。</block>
   <block id="1464e6df18144d722e7dceece5a6e602" category="list-text">変更<block ref="e7fbb61ffc587682a801796b46db408a" prefix=" " category="inline-code"></block> をクリックします<block ref="83f93b05da174976bd534cc67ad9f7b4" prefix=" " category="inline-code"></block> でイメージをプッシュしたレジストリパスへのイメージ <block ref="354650eb3180bfec1ebeac2793978bb8" category="inline-xref-macro-rx"></block>。</block>
   <block id="cd7a180ee2029176203abb971a5e5ed9" category="example-title">アカウント名</block>
   <block id="bbdbf70444e48a34a4a7e7d708d85eec" category="example-title">astraVersion</block>
-  <block id="79f6e92153762d586d165283a990b5d3" category="cell"><block ref="5649416aab23d5e9c0991adb30326363" prefix="" category="inline-code"></block></block>
   <block id="d27903c79b643b2f565c31e894abb568" category="example-title">astraitAddress</block>
   <block id="3b34fa10a1849149ef360d65f3b2584b" category="cell">を変更します<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> ブラウザで使用するFQDN（推奨）またはIPアドレスを指定して、Astra Control Centerにアクセスします。このアドレスは、データセンターでAstra Control Centerがどのように検出されるかを定義します。このアドレスは、完了時にロードバランサからプロビジョニングしたFQDNまたはIPアドレスと同じです <block ref="474766b82367a3ec4c760e75a04081da" category="inline-link-macro-rx"></block>。
 
@@ -3426,7 +3421,6 @@ Astra Control Centerは、タイプ「LoadBalancer」のサービスを使用し
   <block id="ff8f3c1816620cf8943535a74e369c1e" category="list-text">を使用します<block ref="8045a0a6c688b0635e3caccc408a1446" prefix=" " category="inline-code"></block> <block ref="8787af0c37edaa1239d34c7f166a1210" category="inline-xref-macro-rx"></block> 別のイングレスを提供します。 <block ref="e5cc4e9a9ac2da26f1059b40c2f5790a" category="inline-link-macro-rx"></block>。</block>
   <block id="783fbd40d340f1c6d7af1fab635a9cf5" category="open-title">Red Hat OpenShift Webコンソール</block>
   <block id="de70fb086d01bb5437ce1b74c04a3604" category="admonition">手動承認ストラテジーを選択した場合は、このオペレーターの手動インストール計画を承認するように求められます。</block>
-  <block id="4012f625d5dc882e710f5fd5f479e236" category="list-text">Astra Control Centerのバージョン（例：24.02.0-65）を入力します。</block>
   <block id="15105b1c130e1cdf07a5bcc7b4c2e25a" category="list-text">インストールのスケールサイズを選択します。</block>
   <block id="a56226948269f21e33c8cedc94f81f6e" category="list-text">*汎用* <block ref="70110d526a7afb77cc9b5240e79845c0" prefix="(" category="inline-code"></block>）（デフォルト）</block>
   <block id="bc56063dd5f901e8aacc233e02694865" category="paragraph">このオプションは、別の入力コントローラを使用している場合、または独自の入力コントローラを使用する場合に使用します。Astra Control Centerを導入したら、 <block ref="d5e402858a9f759437c0ead0501ac799" category="inline-link-macro-rx"></block> URLを使用してAstra Control Centerを公開します。</block>
@@ -3556,7 +3550,6 @@ RKE 2：バージョン1.24.17、1.25.14、1.26.9（Rancher Manager 2.7.9を使�
   <block id="8af6183c9bdfc7399cee2ffcfafecbd2" category="paragraph">内の各要素のインデックス<block ref="7de38f3c3d3baa7ca58a366f09577586" prefix=" " category="inline-code"></block> アレイは0から始まります。上記の例では、のインデックスです<block ref="b91e4862bb487ade8bbd4f9eefe0618e" prefix=" " category="inline-code"></block> は0、のインデックスです<block ref="ce8dd462bb623b9902ba4f0151eb2f1b" prefix=" " category="inline-code"></block> は1です。出力で、サービスアカウントシークレットのインデックス番号をメモします。このインデックス番号は次の手順で必要になります。</block>
   <block id="a40c084314b74a686572312dc71c4738" category="list-text">を作成します<block ref="3d3f9b7a5974a7898593a3d2f5549f15" prefix=" " category="inline-code"></block> ファイル。</block>
   <block id="23ed633c6130c18f08608b6efce84dc4" category="list-text">交換してください<block ref="089d02fba2ffcdb49a91320ff506dfa3" prefix=" " category="inline-code"></block> 次のスクリプトの先頭に正しい値を入力します。</block>
-  <block id="8ef78cb986fb315aafc3d106d5e46291" category="list-text">交換してください<block ref="7347fe5a0f184f79ef064e92e3beb297" prefix=" " category="inline-code"></block> Astra Control Centerのネームスペースを使用。</block>
   <block id="c103c1b613b979158e5cb38bf6ed5f16" category="inline-link">次の手順に従って、Astra Control Provisionerサービスが含まれているAstra Tridentインスタンスをアンインストールします。</block>
   <block id="2c5e000851530d456765d6ad7069ee9a" category="paragraph">*管理を解除すると、Astra Control Provisioner（Astra Trident）がクラスタから自動的にアンインストールされますか？*
 Astra Control Centerでクラスタの管理を解除しても、Astra Control ProvisionerまたはAstra Tridentはクラスタから自動的にアンインストールされません。Astra Control ProvisionerとそのコンポーネントまたはAstra Tridentをアンインストールするには、次の手順を実行する必要があります：<block ref="20ce5e359d2a1fb9fe63ec6fbc3432ca" category="inline-link-rx"></block>。</block>
@@ -3616,4 +3609,8 @@ Astra Control Provisionerは、インポートと検出のプロセスで自動�
   <block id="7742ba7740cead9fe565013f4bdb49ae" category="sidebar">Astra Controlを使用したクラスタ管理の準備</block>
   <block id="3b99b0d7fdee4b22f7669dcf30bd5137" category="sidebar">管理対象クラスタ用のAstra Connectorのインストール</block>
   <block id="bb46bb8b123b387689649bcd6e67f690" category="sidebar">ストレージバックエンド認証を有効にする</block>
+  <block id="e9876a34f200453c5276db1bcd936066" category="section-title">2023年3月15日（24.02.0）</block>
+  <block id="8eb0443b63cbd12e3161aa0214feb89c" category="admonition">プレースホルダ<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 以前にアップロードした画像の場所と一致する必要があります（例：<block ref="69d1ad4e27c121d5699f0cde5eb5c93c" prefix=" " category="inline-code"></block>）。</block>
+  <block id="f768e6dcac13eb19534cf966f45963b6" category="cell"><block ref="f88ff30441dac38b9948d4f74cec7a17" prefix="" category="inline-code"></block></block>
+  <block id="a4d0aec7cffdaed0bf8e97e7c30b486b" category="list-text">Astra Control Centerのバージョン（例：24.02.0-69）を入力します。</block>
 </blocks>
