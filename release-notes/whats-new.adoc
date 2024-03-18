@@ -16,7 +16,7 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 
 
 
-== 2023年3月15日（24.02.0）
+== 2024年3月15日（24.02.0）
 
 .新機能とサポート
 * *プライベートレジストリを使用せずにAstra Control Centerを導入*：Astra Control Centerのイメージをプライベートレジストリにプッシュしたり、Astra Control環境の一部として使用したりする必要がなくなりました。

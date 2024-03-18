@@ -3609,8 +3609,8 @@ Astra Control Provisionerは、インポートと検出のプロセスで自動�
   <block id="7742ba7740cead9fe565013f4bdb49ae" category="sidebar">Astra Controlを使用したクラスタ管理の準備</block>
   <block id="3b99b0d7fdee4b22f7669dcf30bd5137" category="sidebar">管理対象クラスタ用のAstra Connectorのインストール</block>
   <block id="bb46bb8b123b387689649bcd6e67f690" category="sidebar">ストレージバックエンド認証を有効にする</block>
-  <block id="e9876a34f200453c5276db1bcd936066" category="section-title">2023年3月15日（24.02.0）</block>
   <block id="8eb0443b63cbd12e3161aa0214feb89c" category="admonition">プレースホルダ<block ref="facf912114e23f5e3f2192e508b5894a" prefix=" " category="inline-code"></block> 以前にアップロードした画像の場所と一致する必要があります（例：<block ref="69d1ad4e27c121d5699f0cde5eb5c93c" prefix=" " category="inline-code"></block>）。</block>
   <block id="f768e6dcac13eb19534cf966f45963b6" category="cell"><block ref="f88ff30441dac38b9948d4f74cec7a17" prefix="" category="inline-code"></block></block>
   <block id="a4d0aec7cffdaed0bf8e97e7c30b486b" category="list-text">Astra Control Centerのバージョン（例：24.02.0-69）を入力します。</block>
+  <block id="da65a49714e715e3103c6d4e4765ad79" category="section-title">2024年3月15日（24.02.0）</block>
 </blocks>
