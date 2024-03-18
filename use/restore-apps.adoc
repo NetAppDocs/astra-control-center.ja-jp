@@ -124,7 +124,6 @@ NOTE: includeルールとexcludeルールの設定については、を参照し
 . カスタムリソース（CR）ファイルを作成して名前を付けます。 `astra-control-backup-restore-cr.yaml`。カッコ内の値を、Astra Controlの環境とクラスタの構成に合わせて更新します。
 +
 ** <CR_NAME>：このCR操作の名前。環境に適した適切な名前を選択します。
-** <ASTRA_CONNECTOR_NAMESPACE>：Astra Connectorがインストールされているネームスペース。
 ** <APPVAULT_NAME>：バックアップコンテンツが格納されているAppVaultの名前。
 ** <BACKUP_PATH>：バックアップコンテンツが格納されているAppVault内のパス。例：
 +
@@ -141,7 +140,7 @@ apiVersion: astra.netapp.io/v1
 kind: BackupRestore
 metadata:
   name: <CR_NAME>
-  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+  namespace: astra-connector
 spec:
   appVaultRef: <APPVAULT_NAME>
   appArchivePath: <BACKUP_PATH>
@@ -195,7 +194,6 @@ kubectl apply -f astra-control-backup-restore-cr.yaml
 . カスタムリソース（CR）ファイルを作成して名前を付けます。 `astra-control-backup-ipr-cr.yaml`。カッコ内の値を、Astra Controlの環境とクラスタの構成に合わせて更新します。
 +
 ** <CR_NAME>：このCR操作の名前。環境に適した適切な名前を選択します。
-** <ASTRA_CONNECTOR_NAMESPACE>：Astra Connectorがインストールされているネームスペース。これは、バックアップが作成されたネームスペースである必要があります。
 ** <APPVAULT_NAME>：バックアップコンテンツが格納されているAppVaultの名前。
 ** <BACKUP_PATH>：バックアップコンテンツが格納されているAppVault内のパス。例：
 +
@@ -210,7 +208,7 @@ apiVersion: astra.netapp.io/v1
 kind: BackupInplaceRestore
 metadata:
   name: <CR_NAME>
-  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+  namespace: astra-connector
 spec:
   appVaultRef: <APPVAULT_NAME>
   appArchivePath: <BACKUP_PATH>
@@ -272,7 +270,6 @@ kubectl apply -f astra-control-backup-ipr-cr.yaml
 . カスタムリソース（CR）ファイルを作成して名前を付けます。 `astra-control-snapshot-restore-cr.yaml`。カッコ内の値を、Astra Controlの環境とクラスタの構成に合わせて更新します。
 +
 ** <CR_NAME>：このCR操作の名前。環境に適した適切な名前を選択します。
-** <ASTRA_CONNECTOR_NAMESPACE>：Astra Connectorがインストールされているネームスペース。
 ** <APPVAULT_NAME>：バックアップコンテンツが格納されているAppVaultの名前。
 ** <BACKUP_PATH>：バックアップコンテンツが格納されているAppVault内のパス。例：
 +
@@ -289,7 +286,7 @@ apiVersion: astra.netapp.io/v1
 kind: SnapshotRestore
 metadata:
   name: <CR_NAME>
-  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+  namespace: astra-connector
 spec:
   appArchivePath: <BACKUP_PATH>
   appVaultRef: <APPVAULT_NAME>
@@ -343,7 +340,6 @@ kubectl apply -f astra-control-snapshot-restore-cr.yaml
 . カスタムリソース（CR）ファイルを作成して名前を付けます。 `astra-control-snapshot-ipr-cr.yaml`。カッコ内の値を、Astra Controlの環境とクラスタの構成に合わせて更新します。
 +
 ** <CR_NAME>：このCR操作の名前。環境に適した適切な名前を選択します。
-** <ASTRA_CONNECTOR_NAMESPACE>：Astra Connectorがインストールされているネームスペース。これは、Snapshotが作成されたネームスペースです。
 ** <APPVAULT_NAME>：バックアップコンテンツが格納されているAppVaultの名前。
 ** <BACKUP_PATH>：バックアップコンテンツが格納されているAppVault内のパス。例：
 +
@@ -358,7 +354,7 @@ apiVersion: astra.netapp.io/v1
 kind: SnapshotInplaceRestore
 metadata:
   name: <CR_NAME>
-  namespace: <ASTRA_CONNECTOR_NAMESPACE>
+  namespace: astra-connector
 spec:
   appArchivePath: <BACKUP_PATH>
   appVaultRef: <APPVAULT_NAME>
