@@ -242,7 +242,6 @@ rules:
   - poddisruptionbudgets
   - pods
   - podtemplates
-  - podsecuritypolicies
   - replicasets
   - replicationcontrollers
   - replicationcontrollers/scale
@@ -284,17 +283,8 @@ rules:
   - imagetags
   verbs:
   - update
-
-# Use PodSecurityPolicies
-- apiGroups:
-  - extensions
-  - policy
-  resources:
-  - podsecuritypolicies
-  verbs:
-  - use
 ----
-.. （OpenShiftクラスタの場合のみ） `astra-admin-account.yaml` ファイルまたは `# Use PodSecurityPolicies` セクション。
+.. （OpenShiftクラスタの場合のみ） `astra-admin-account.yaml` ファイル：
 +
 [source, console]
 ----
