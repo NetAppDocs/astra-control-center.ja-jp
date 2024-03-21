@@ -669,12 +669,10 @@
   <block id="396cd1df886b31da3577b40fa6f7cf0f" category="list-text">次のいずれかの手順を実行して、オペレータインストールページにアクセスします。</block>
   <block id="1b37bd82bf53c89bcedcfc65519416b2" category="list-text">OpenShift Container Platform UI にログインします。</block>
   <block id="d23202f3a841766e7b5d6b37777fc6c3" category="list-text">サイドメニューから、 * 演算子 &gt; OperatorHub * を選択します。</block>
-  <block id="eb5ffd4ef5a8aa98e9c36b2c79cea4ed" category="list-text">NetApp Astra Control Centerオペレータを検索して選択します。</block>
   <block id="ad33954d9b6a97c5e3d83a747222ea5c" category="inline-image-macro">この画像は、OpenShift Container Platform UIからのAstra Control Centerインストールページを示しています</block>
   <block id="c1461863db43079243c4c84fb794292c" category="paragraph"><block ref="c1461863db43079243c4c84fb794292c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4b583376b2767b923c3e1da60d10de59" category="inline-link">演算子</block>
   <block id="91ec9a89e3a33fa6bc118cf53ef60c2e" category="list-text">NetApp Astra Control Center を選択します<block ref="e9d5520af4877fc40e9611f3ebf55be3" category="inline-link-rx"></block>。</block>
-  <block id="13191ff715c85f59fd2da330d31c4e9f" category="list-text">[Deploy and Use] を選択します。</block>
   <block id="ae94e6397160111c3d2cf22d9a8ca3ec" category="inline-image-macro">この画像は、RedHatエコシステムカタログから入手できるAstra Control Centerの概要ページを示しています</block>
   <block id="a4503954adc0dc79a485e6b85ec3e042" category="paragraph"><block ref="a4503954adc0dc79a485e6b85ec3e042" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a961f7d3b56fe3f9b072af70813d6f82" category="section-title">オペレータをインストールします</block>
@@ -2679,7 +2677,6 @@
   <block id="0f31c8d4b3ae834c0062c8056c4cb5b7" category="inline-link">厳密なMTLを有効にする</block>
   <block id="4c6c19221d15e9ceaf813bb76e0266f7" category="list-text">（推奨）<block ref="bf40c5ba89ffee197f368678037a1b36" category="inline-link-rx"></block> Istioサービスメッシュの場合：</block>
   <block id="842bb2b25b0ccc10b1fb3de7084fc991" category="list-text">*正常なクラスタオペレータとAPIサービスを確保*：</block>
-  <block id="c2f6a0ef27a00211c21a249f0a3b79d5" category="list-text">* OpenShiftの権限を取得する*:説明されているインストール手順を実行するには、必要なすべての権限とRed Hat OpenShift Container Platformへのアクセスが必要です。</block>
   <block id="1e49b9057d379a0d559e616836652580" category="list-text">を追加します。<block ref="c0261c4509dcb52c25794852cf3367a6" prefix=" " category="inline-code"></block> Astra Control Centerを導入する前に、Astraネームスペースにラベルを付けます。</block>
   <block id="4cc3351439de416fee936093cb5a065a" category="list-text">Red Hat OpenShiftクラスタの場合は、<block ref="d4ee387f8cc8e4354b61e452ecbf6a15" prefix=" " category="inline-code"></block> 関連付けられているすべてのAstra Control Centerネームスペース <block ref="cadbba5231afda9b003503d57805b87d" prefix="(" category="inline-code"></block>、<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block>、<block ref="aadb900c6eaeed8ade58660fe972acec" prefix=" " category="inline-code"></block> アプリケーションクラスタの場合、または置換されたカスタムネームスペースの場合）。</block>
   <block id="22851966368f7a8e3c0bf121d7203ca1" category="list-text">[[generic-ingress]]入力タイプを選択します。</block>
@@ -3609,4 +3606,43 @@ Astra Control Provisionerは、インポートと検出のプロセスで自動�
   <block id="da65a49714e715e3103c6d4e4765ad79" category="section-title">2024年3月15日（24.02.0）</block>
   <block id="3e10c4dd91af2dc1835b50343bc5fbd0" category="list-text">1つまたは複数のレジストリ内の画像</block>
   <block id="03af53c262f33cd7a040764e24c068eb" category="list-text">（OpenShiftクラスタの場合のみ）<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block> ファイル：</block>
+  <block id="652aa122a3c8a61f53fecfe7a2e38472" category="summary">Red Hat OpenShiftを使用している場合は、OperatorHubを使用してAstra Control Centerをアップグレードできます。</block>
+  <block id="d1810a7b7ece844661c0ebd3f6d6b734" category="doc">OpenShift OperatorHubを使用したAstra Control Centerのアップグレード</block>
+  <block id="d65f6afdd601abb375246f62e4d974af" category="paragraph">Red Hat認定オペレータを使用してAstra Control Centerをインストールした場合は、OperatorHubから更新されたオペレータを使用してAstra Control Centerをアップグレードできます。この手順を使用して、<block ref="a0bebb9db4c42678b95afc86229a893d" category="inline-link-rx"></block> または、 Red Hat OpenShift Container Platform を使用します。</block>
+  <block id="dba0214a5ff4087709345c59f18d5ecc" category="list-text">*環境の前提条件を満たしている*：アップグレードする前に、環境が <block ref="a5e730f4eb1e05ab5d051c5fbaad1711" category="inline-link-macro-rx"></block>。</block>
+  <block id="ee69e430ad6ce53b164d990d32171363" category="list-text">*有効になっていることを確認します。 <block ref="253c06b63fbdc34e8258634f6035573c" category="inline-link-macro-rx"></block> Astra Tridentを使用*</block>
+  <block id="9e7dceeac2c1b47a8a65fc5301cfbc97" category="list-text">* OpenShiftの権限*：ここに記載されているアップグレード手順を実行するために必要なすべての権限とRed Hat OpenShift Container Platformへのアクセス権が必要です。</block>
+  <block id="14d39dcccbea7ad3c78e42b59aea8467" category="list-text"><block ref="ddb3eae04adcef55bc274001e6992ab5" category="inline-xref-macro-rx"></block></block>
+  <block id="7eb5c0427d3e2c95f7a7d55cb263dcad" category="list-text"><block ref="132acb99c1ed8179266ddab65ea75c5b" category="inline-xref-macro-rx"></block></block>
+  <block id="bcbf9322019433e2070bc9f950cdfaf9" category="list-text"><block ref="0ef2d18cbf3f0253133fb82832963633" category="inline-xref-macro-rx"></block></block>
+  <block id="1b36ea2dbec733bbc7b1bcf18df08b61" category="section-title">オペレータインストールページへのアクセス</block>
+  <block id="c3c26a3600766eef19453ba36cab80bd" category="list-text">OpenShift Container Platformまたはエコシステムカタログに対応する手順を完成させます。</block>
+  <block id="274eca9a1fdbeaf2cd7a241794769214" category="list-text">を検索します<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> にアクセスし、NetApp Astra Control Centerオペレータを選択します。</block>
+  <block id="b2a595165e0c0ce7d437b83d5749b051" category="inline-image-macro">この画像は、オペレータページからのアンインストールオプションを示しています。</block>
+  <block id="49ae0d594dc9a41982d54abc03e36805" category="paragraph"><block ref="49ae0d594dc9a41982d54abc03e36805" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="76fe74a55acaaea036adbcecca799a9c" category="list-text">[Deploy and Use]*を選択します。</block>
+  <block id="0c15ff02cb7be3c55794dcb6ef61a65e" category="section-title">既存のオペレータのアンインストール</block>
+  <block id="99fdc785f49075cddc07fa753a02366c" category="list-text">[netapp-acc-operator]ページで、*[アンインストール]*を選択して既存のオペレータを削除します。</block>
+  <block id="0d1008fb06b7595c8715c6fbdbf7f070" category="list-text">操作を確定します。</block>
+  <block id="5ba5f5a565d608a4c86672b4c55d2884" category="admonition">この処理では、netapp-acc-operatorが削除されますが、関連付けられている元のネームスペースとリソース（シークレットなど）は保持されます。</block>
+  <block id="e6143c3bb511918ab7bc7ab6a4c6313f" category="section-title">最新のオペレータのインストール</block>
+  <block id="49a6422574d0d2c657fdd914194af4bc" category="list-text">に移動します<block ref="f156b3af9d1139da01a7b4bb0a5ad8f0" prefix=" " category="inline-code"></block> オペレータページを再度表示します。</block>
+  <block id="41091ca348ff3c35ab2e0a3ca76978cb" category="list-text">[Install Operator]ページに入力し、最新のオペレータをインストールします。</block>
+  <block id="550520c6515847a3b49e4f21211149bf" category="paragraph"><block ref="550520c6515847a3b49e4f21211149bf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c15c094418b557ddfd8a322d12f0deda" category="list-text">オペレータの<block ref="cadbba5231afda9b003503d57805b87d" prefix=" " category="inline-code"></block> 削除されたオペレータの以前のインストールから残っている名前空間(またはカスタム名前空間)。</block>
+  <block id="48512efbd6cbb72ba05990b4a58edec2" category="inline-image-macro">この図は、元のAstra Control Centerの編集オプションを示しています。</block>
+  <block id="2c6460dd8a4dbbe1efa73f9ebeefd4ec" category="list-text">[Astra Control Center]の[Operator]タブで、前のインストールで使用していたAstra Control Centerを選択し、*[Edit AstraControlCenter]*を選択します。
+<block ref="9897d0c5e439746e21018ef6131a3268" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fe17b9a46bce70651034916e5ecbcf12" category="list-text">を更新します<block ref="1980c0ae033e18fad473fcada20addbd" prefix=" " category="inline-code"></block> YAML：</block>
+  <block id="aa3489d5761937b25dc8cd9ecbf228a7" category="list-text">Astra Control Centerの最新バージョン（24.02.0-69など）を入力します。</block>
+  <block id="7246877ec7577a15a569ab8756a799b5" category="list-text">インチ<block ref="f141c732c6aae0fddd2afdfac3f75f3f" prefix=" " category="inline-code"></block>必要に応じて、イメージレジストリパスを更新します。</block>
+  <block id="c89beb8febcc73c18bcf859e8544a034" category="list-text">Astra Controlレジストリオプションを使用している場合は、パスをに変更します。<block ref="e943374c8f90757f171b7cd56af795fd" prefix=" " category="inline-code"></block>。</block>
+  <block id="c260a95d05bc62ad161afe8692c68c61" category="list-text">ローカルレジストリを設定した場合は、前の手順でイメージをプッシュしたローカルイメージレジストリパスを変更または保持します。</block>
+  <block id="8c7b7976b37ce7ebd902a92d017eecc8" category="admonition">入らないでください<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> または<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> をクリックします。</block>
+  <block id="790b293d8648860acef001057e8a9691" category="list-text">を更新します<block ref="c6fe3b36a104e3ea913f9a6b82389050" prefix=" " category="inline-code"></block> 必要に応じて。</block>
+  <block id="e74609fc41a466140744e1cd3b6029c9" category="admonition">オペレータによるアンインストールプロセスでは、既存のシークレットは削除されません。このフィールドを更新する必要があるのは、既存のシークレットとは異なる名前で新しいシークレットを作成する場合だけです。</block>
+  <block id="3523d7bdfad5124dba6032cbc37814c8" category="list-text">に次の項目を追加します<block ref="c16ae51f09d668b952e5ab23072ad64e" prefix=" " category="inline-code"></block> 構成：</block>
+  <block id="345e93a96b6e66cb9274dbad975c0db2" category="list-text">変更を保存します。</block>
+  <block id="622f51a75f238bac126a4e3b58d91991" category="list-text">アップグレードが正常に完了したことを示す画面が表示されます。</block>
+  <block id="ecba1fa6966e7dffc085b7fc45ca2133" category="list-text">* OpenShiftの権限を取得する*:説明されているインストール手順を実行するには、Red Hat OpenShift Container Platformに必要なすべての権限とアクセス権が必要です。</block>
 </blocks>

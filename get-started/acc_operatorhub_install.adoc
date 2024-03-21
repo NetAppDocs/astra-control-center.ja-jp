@@ -39,7 +39,7 @@ oc get apiservices
 
 
 * *ルーティング可能なFQDN *：使用するAstra FQDNをクラスタにルーティングできることを確認します。つまり、内部 DNS サーバに DNS エントリがあるか、すでに登録されているコア URL ルートを使用しています。
-* * OpenShiftの権限を取得する*:説明されているインストール手順を実行するには、必要なすべての権限とRed Hat OpenShift Container Platformへのアクセスが必要です。
+* * OpenShiftの権限を取得する*:説明されているインストール手順を実行するには、Red Hat OpenShift Container Platformに必要なすべての権限とアクセス権が必要です。
 * *証明書マネージャの設定*:クラスタに証明書マネージャがすでに存在する場合は、一部の証明書マネージャを実行する必要があります。 link:../get-started/cert-manager-prereqs.html["事前に必要な手順"] そのため、Astra Control Centerは独自の証明書管理ツールをインストールしません。デフォルトでは、Astra Control Centerはインストール時に独自の証明書マネージャをインストールします。
 * * Kubernetes Ingressコントローラのセットアップ*：クラスタ内のロードバランシングなど、サービスへの外部アクセスを管理するKubernetes Ingressコントローラがある場合は、Astra Control Centerで使用するようにセットアップする必要があります。
 +
@@ -56,6 +56,24 @@ oc create namespace netapp-acc-operator
 
 
 また、次の点も考慮する必要があります。
+
+* * NetApp Astra Controlイメージレジストリへのアクセス*：
++
+Astra Control Provisionerなど、Astra Controlのインストールイメージや機能強化された機能をNetAppイメージレジストリから取得することができます。
+
++
+.. レジストリへのログインに必要なAstra ControlアカウントIDを記録します。
++
+アカウントIDはAstra Control Service Web UIで確認できます。ページ右上の図アイコンを選択し、* APIアクセス*を選択して、アカウントIDを書き留めます。
+
+.. 同じページから* APIトークンの生成*を選択し、APIトークン文字列をクリップボードにコピーしてエディターに保存します。
+.. Astra Controlレジストリにログインします。
++
+[source, console]
+----
+docker login cr.astra.netapp.io -u <account-id> -p <api-token>
+----
+
 
 * *セキュアな通信のためのサービスメッシュをインストール*：Astra Controlホストクラスタの通信チャネルは、 link:requirements.html#service-mesh-requirements["サポートされるサービスメッシュ"]。
 +
@@ -313,7 +331,7 @@ cd manifests
 
 NOTE: このオペレータを使用している場合は、Astra Control Centerの最新バージョンにのみアップグレードできます。
 
-.. NetApp Astra Control Centerオペレータを検索して選択します。
+.. を検索します `netapp-acc` にアクセスし、NetApp Astra Control Centerオペレータを選択します。
 +
 image:openshift_operatorhub.png["この画像は、OpenShift Container Platform UIからのAstra Control Centerインストールページを示しています"]
 
@@ -323,7 +341,7 @@ image:openshift_operatorhub.png["この画像は、OpenShift Container Platform 
 .Red Hat エコシステムカタログ
 --
 .. NetApp Astra Control Center を選択します https://catalog.redhat.com/software/operators/detail/611fd22aaf489b8bb1d0f274["演算子"^]。
-.. [Deploy and Use] を選択します。
+.. [Deploy and Use]*を選択します。
 +
 image:red_hat_catalog.png["この画像は、RedHatエコシステムカタログから入手できるAstra Control Centerの概要ページを示しています"]
 

@@ -1,0 +1,199 @@
+---
+sidebar: sidebar 
+permalink: use/upgrade-acc-operatorhub.html 
+keywords: upgrade astra, upgrade operator, operatorhub, openshift, upgrade astra control center, service mesh 
+summary: Red Hat OpenShiftを使用している場合は、OperatorHubを使用してAstra Control Centerをアップグレードできます。 
+---
+= OpenShift OperatorHubを使用したAstra Control Centerのアップグレード
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Red Hat認定オペレータを使用してAstra Control Centerをインストールした場合は、OperatorHubから更新されたオペレータを使用してAstra Control Centerをアップグレードできます。この手順を使用して、 https://catalog.redhat.com/software/operators/explore["Red Hat エコシステムカタログ"^] または、 Red Hat OpenShift Container Platform を使用します。
+
+.作業を開始する前に
+* *環境の前提条件を満たしている*：アップグレードする前に、環境が link:requirements.html["Astra Control Center環境の最小要件"]。
+* *有効になっていることを確認します。 link:../get-started/requirements.html#astra-control-provisioner["Astra Controlプロビジョニングツール"] Astra Tridentを使用*
++
+.. 実行しているAstra Tridentのバージョンを確認します。
++
+[source, console]
+----
+kubectl get tridentversion -n trident
+----
++
+
+NOTE: Astra Trident 23.01以前を実行している場合は、以下を使用 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["手順"^] Astra Control Provisionerにアップグレードする前に、Astra Tridentの最新バージョンにアップグレードすること。Astra Tridentがバージョン24.02の4リリース期間内にある場合は、Astra Control Provisioner 24.02への直接アップグレードを実行できます。たとえば、Astra Trident 23.04からAstra Control Provisioner 24.02に直接アップグレードできます。
+
+.. Astra Control Provisionerが link:../get-started/faq.html#running-acp-check["有効"]。Astra Control Provisionerは、23.10より前のリリースのAstra Control Centerでは機能しません。最新の機能にアクセスするには、アップグレードするAstra Control Centerと同じバージョンのAstra Control Provisionerをアップグレードしてください。
+
+
+* *正常なクラスタオペレータとAPIサービスを確保*：
++
+** OpenShiftクラスタから、すべてのクラスタオペレータが正常な状態にあることを確認します。
++
+[source, console]
+----
+oc get clusteroperators
+----
+** OpenShiftクラスタから、すべてのAPIサービスが正常な状態であることを確認します。
++
+[source, console]
+----
+oc get apiservices
+----
+
+
+* * OpenShiftの権限*：ここに記載されているアップグレード手順を実行するために必要なすべての権限とRed Hat OpenShift Container Platformへのアクセス権が必要です。
+* *（ONTAP SANドライバのみ）マルチパスの有効化*：ONTAP SANドライバを使用している場合は、すべてのKubernetesクラスタでマルチパスが有効になっていることを確認してください。
+
+
+また、次の点も考慮する必要があります。
+
+* * NetApp Astra Controlイメージレジストリへのアクセス*：
++
+Astra Control Provisionerなど、Astra Controlのインストールイメージや機能強化された機能をNetAppイメージレジストリから取得することができます。
+
++
+.. レジストリへのログインに必要なAstra ControlアカウントIDを記録します。
++
+アカウントIDはAstra Control Service Web UIで確認できます。ページ右上の図アイコンを選択し、* APIアクセス*を選択して、アカウントIDを書き留めます。
+
+.. 同じページから* APIトークンの生成*を選択し、APIトークン文字列をクリップボードにコピーしてエディターに保存します。
+.. Astra Controlレジストリにログインします。
++
+[source, console]
+----
+docker login cr.astra.netapp.io -u <account-id> -p <api-token>
+----
+
+
+
+
+.手順
+* <<オペレータインストールページへのアクセス>>
+* <<既存のオペレータのアンインストール>>
+* <<最新のオペレータのインストール>>
+* <<Astra Control Center をアップグレードします>>
+
+
+
+
+== オペレータインストールページへのアクセス
+
+. OpenShift Container Platformまたはエコシステムカタログに対応する手順を完成させます。
++
+[role="tabbed-block"]
+====
+.Red Hat OpenShift Webコンソール
+--
+.. OpenShift Container Platform UI にログインします。
+.. サイドメニューから、 * 演算子 > OperatorHub * を選択します。
++
+
+NOTE: このオペレータを使用している場合は、Astra Control Centerの最新バージョンにのみアップグレードできます。
+
+.. を検索します `netapp-acc` にアクセスし、NetApp Astra Control Centerオペレータを選択します。
++
+image:../use/operatorhub-upgrade-uninstall.png["この画像は、オペレータページからのアンインストールオプションを示しています。"]
+
+
+
+--
+.Red Hat エコシステムカタログ
+--
+.. NetApp Astra Control Center を選択します https://catalog.redhat.com/software/operators/detail/611fd22aaf489b8bb1d0f274["演算子"^]。
+.. [Deploy and Use]*を選択します。
++
+image:red_hat_catalog.png["この画像は、RedHatエコシステムカタログから入手できるAstra Control Centerの概要ページを示しています"]
+
+
+
+--
+====
+
+
+
+
+== 既存のオペレータのアンインストール
+
+. [netapp-acc-operator]ページで、*[アンインストール]*を選択して既存のオペレータを削除します。
++
+image:../use/operatorhub-upgrade-uninstall.png["この画像は、オペレータページからのアンインストールオプションを示しています。"]
+
+. 操作を確定します。
++
+
+NOTE: この処理では、netapp-acc-operatorが削除されますが、関連付けられている元のネームスペースとリソース（シークレットなど）は保持されます。
+
+
+
+
+
+== 最新のオペレータのインストール
+
+. に移動します `netapp-acc` オペレータページを再度表示します。
+. [Install Operator]ページに入力し、最新のオペレータをインストールします。
++
+image:../use/operatorhub-upgrade-install-page.png["この画像は、オペレータページからのアンインストールオプションを示しています。"]
+
++
+
+NOTE: オペレータはすべてのクラスタネームスペースで使用できます。
+
++
+.. オペレータの `netapp-acc-operator` 削除されたオペレータの以前のインストールから残っている名前空間(またはカスタム名前空間)。
+.. 手動または自動の承認方法を選択します。
++
+
+NOTE: 手動による承認が推奨されます。1 つのクラスタで実行する演算子インスタンスは 1 つだけです。
+
+.. 「 * Install * 」を選択します。
++
+
+NOTE: 手動承認ストラテジーを選択した場合は、このオペレーターの手動インストール計画を承認するように求められます。
+
+
+
+. コンソールで、 OperatorHub メニューに移動して、オペレータが正常にインストールされたことを確認します。
+
+
+
+
+== Astra Control Center をアップグレードします
+
+. [Astra Control Center]の[Operator]タブで、前のインストールで使用していたAstra Control Centerを選択し、*[Edit AstraControlCenter]*を選択します。
+image:../use/operatorhub-upgrade-yaml-edit.png["この図は、元のAstra Control Centerの編集オプションを示しています。"]
+. を更新します `AstraControlCenter` YAML：
++
+.. Astra Control Centerの最新バージョン（24.02.0-69など）を入力します。
+.. インチ `imageRegistry.name`必要に応じて、イメージレジストリパスを更新します。
++
+*** Astra Controlレジストリオプションを使用している場合は、パスをに変更します。 `cr.astra.netapp.io`。
+*** ローカルレジストリを設定した場合は、前の手順でイメージをプッシュしたローカルイメージレジストリパスを変更または保持します。
++
+
+NOTE: 入らないでください `http://` または `https://` をクリックします。
+
+
+
+.. を更新します `imageRegistry.secret` 必要に応じて。
++
+
+NOTE: オペレータによるアンインストールプロセスでは、既存のシークレットは削除されません。このフィールドを更新する必要があるのは、既存のシークレットとは異なる名前で新しいシークレットを作成する場合だけです。
+
+.. に次の項目を追加します `crds` 構成：
++
+[source, console]
+----
+crds:
+  shouldUpgrade: true
+----
+
+
+. 変更を保存します。
+. アップグレードが正常に完了したことを示す画面が表示されます。
+
