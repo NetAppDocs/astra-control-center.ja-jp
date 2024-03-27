@@ -3078,7 +3078,6 @@ Astra Control Centerでは、次のプラットフォームおよびバケット
   <block id="8bdcf20b5d7c7cba89c4e9cdaba07ad2" category="list-text">* Astra Control Provisioner *：Astra Trident CSIの機能と拡張されたストレージ管理機能を搭載した、NetAppが保守する、フルサポートのストレージプロビジョニングツールおよびオーケストレーションツールであるAstra Control Provisionerを使用すると、DockerおよびKubernetesで管理されるコンテナ化アプリケーション用のストレージボリュームを作成できます。Astra Control Centerを導入した場合、Astra Control Provisionerには、設定済みのONTAPストレージバックエンドが含まれます。</block>
   <block id="f8eb25c26ac0064b456c26bd4bb1642b" category="list-text">Astra Tridentを24.02.0に更新：</block>
   <block id="c88d85553b81a72e9b28005772f27281" category="list-text">Astra Tridentイメージのカスタムレジストリの場所を設定するか、Astra Controlレジストリから取得 <block ref="c063da0c4010a4b533407346a02dd83c" prefix="(" category="inline-code"></block> または<block ref="cad26ce67501baab70dd72ffd03b01e6" prefix=" " category="inline-code"></block>）。</block>
-  <block id="1a94316615bc7bfa28020fb176113eb9" category="list-text">Astra Control Provisionerイメージのカスタムレジストリの場所を設定するか、Astra Controlレジストリから取得 <block ref="6fd47d0a38cf5afec555b659aaed6104" prefix="(" category="inline-code"></block> または<block ref="3a419c3a7ea2390874c7e355a5180c2e" prefix=" " category="inline-code"></block>）。</block>
   <block id="faba39ec34eed502aea6d805d792a9ea" category="list-text">を確認します<block ref="49c9f6c98d04c8c76aee7448fd9136ed" prefix=" " category="inline-code"></block> コンテナが実行中で、<block ref="507c6bbca2ad57c69e89a97ee8714536" prefix=" " category="inline-code"></block> はです<block ref="50ce33a86e6915635518e9752cf0a12f" prefix=" " category="inline-code"></block> ステータス：<block ref="98dd43dfae05b11befe1f140e0ec787a" prefix=" " category="inline-code"></block>：</block>
   <block id="152090ff5e9a05ea7e1cf0c248449638" category="open-title">Helm</block>
   <block id="fe98497efedbe156ecc4b953aea77e07" category="inline-link">をアンインストールします</block>
@@ -3588,7 +3587,6 @@ Astra Control Provisionerは、インポートと検出のプロセスで自動�
   <block id="b958ffb6ec0df501d8af8958e6e6886e" category="section-title">（手順1）Astra Control Provisionerの画像を取得</block>
   <block id="72e3bbaf3c42bb9392b29dab7f3c1fcd" category="paragraph">Astra Control Centerのユーザは、Astra ControlのレジストリまたはNetApp Support Siteメソッドを使用してAstra Control Provisionerイメージを取得できます。Astra Controlを使用せずにAstra Control Provisionerを使用する場合は、レジストリ方式を使用する必要があります。</block>
   <block id="bb26b4631543d5a0abc8825972e08f98" category="list-text">(カスタムレジストリのみ)イメージをカスタムレジストリに移動するには、次の手順に従います。レジストリを使用していない場合は、 <block ref="2d2b9c949531b9f99c6a28a29b1f0f0f" category="inline-link-macro-rx"></block>。</block>
-  <block id="b15422fe6a04c1756d962ad1805ba054" category="admonition">次のDockerコマンドを実行する代わりに、クレーンコピーを使用できます。<block ref="eaad9c7eff5248ae539d1d15dc40f8dd" prefix=" " category="inline-code"></block></block>
   <block id="d1dfc89a8ef8bd6c9cec36534bb87719" category="inline-link">オペレータ（手動またはHelmを使用）またはtridentctl</block>
   <block id="283c6d5556e7b2c19a19454a5d839d84" category="paragraph">元のインストール方法で<block ref="239d7749678a5515d5ba8991e8dc37eb" category="inline-link-rx"></block> そして、元の方法に従って適切な手順を完了します。</block>
   <block id="02a9d2702f20af4981fc27f25359bc43" category="paragraph"><block ref="02a9d2702f20af4981fc27f25359bc43" category="inline-image-macro-rx" type="image"></block></block>
@@ -3645,4 +3643,6 @@ Astra Control Provisionerは、インポートと検出のプロセスで自動�
   <block id="345e93a96b6e66cb9274dbad975c0db2" category="list-text">変更を保存します。</block>
   <block id="622f51a75f238bac126a4e3b58d91991" category="list-text">アップグレードが正常に完了したことを示す画面が表示されます。</block>
   <block id="ecba1fa6966e7dffc085b7fc45ca2133" category="list-text">* OpenShiftの権限を取得する*:説明されているインストール手順を実行するには、Red Hat OpenShift Container Platformに必要なすべての権限とアクセス権が必要です。</block>
+  <block id="4fb568c8c39da9ff518771b8039f3dac" category="admonition">次のDockerコマンドを実行する代わりに、クレーンコピーを使用できます。<block ref="db464ced3bc25798a8a58f345be6100d" prefix=" " category="inline-code"></block></block>
+  <block id="1e402f84b3c57afa8aaf19779147556d" category="list-text">Astra Control Provisionerイメージのカスタムレジストリの場所を設定するか、Astra Controlレジストリから取得 <block ref="6fd47d0a38cf5afec555b659aaed6104" prefix="(" category="inline-code"></block> または<block ref="e419be77a3ebdbec678982ec1d2d40b2" prefix=" " category="inline-code"></block>）。</block>
 </blocks>
