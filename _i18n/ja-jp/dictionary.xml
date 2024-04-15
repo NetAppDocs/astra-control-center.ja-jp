@@ -3064,7 +3064,6 @@ Astra Control Centerでは、次のプラットフォームおよびバケット
   <block id="49684a471d9d2c3e43b0340cd823401d" category="list-text">* Astra Controlサービスのイメージレジストリ*：Astra Control Centerのイメージでローカルレジストリを使用しない場合や、NetApp Support Siteからバンドルをダウンロードするよりもこの方法を使用する場合は、このオプションを使用します。</block>
   <block id="9ff8ac0cba71abefaef6a160e1bcd24c" category="list-text">* NetApp Support Site *：このオプションは、Astra Control Centerのイメージでローカルレジストリを使用する場合に使用します。</block>
   <block id="9e20715af8d716f80efc8ab273947db0" category="list-text">Astra Control Centerバンドルをローカルのレジストリにプッシュする場合は、コンテナエンジンに応じた手順を実行します。</block>
-  <block id="8e6cec5cb70fd73f642f611c0ae2f5f4" category="paragraph"><block ref="8e6cec5cb70fd73f642f611c0ae2f5f4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8bdcf20b5d7c7cba89c4e9cdaba07ad2" category="list-text">* Astra Control Provisioner *：Astra Trident CSIの機能と拡張されたストレージ管理機能を搭載した、NetAppが保守する、フルサポートのストレージプロビジョニングツールおよびオーケストレーションツールであるAstra Control Provisionerを使用すると、DockerおよびKubernetesで管理されるコンテナ化アプリケーション用のストレージボリュームを作成できます。Astra Control Centerを導入した場合、Astra Control Provisionerには、設定済みのONTAPストレージバックエンドが含まれます。</block>
   <block id="f8eb25c26ac0064b456c26bd4bb1642b" category="list-text">Astra Tridentを24.02.0に更新：</block>
   <block id="c88d85553b81a72e9b28005772f27281" category="list-text">Astra Tridentイメージのカスタムレジストリの場所を設定するか、Astra Controlレジストリから取得 <block ref="c063da0c4010a4b533407346a02dd83c" prefix="(" category="inline-code"></block> または<block ref="cad26ce67501baab70dd72ffd03b01e6" prefix=" " category="inline-code"></block>）。</block>
@@ -3645,4 +3644,5 @@ Astra Control Provisionerは、インポートと検出のプロセスで自動�
   <block id="ceb069762daa2570f1611c95b2775501" category="list-text">Cloud Volumes ONTAPでオンプレミスからクラウドへ</block>
   <block id="0db934fe5d747898582ef7b2fe037806" category="list-text">Cloud Volumes ONTAPを使用したクラウドからオンプレミスへの移行</block>
   <block id="e83e31033bbd8a95537d872ec339409c" category="list-text">* Kerberos 5暗号化によるストレージバックエンドセキュリティの強化*：ストレージセキュリティを<block ref="0a6b595cfc16ab1c35e55d5e4c214ee8" category="inline-link-rx"></block> 管理対象クラスタとストレージバックエンド間のトラフィック用。Astra Control Provisionerは、Red Hat OpenShiftクラスタからAzure NetApp FilesおよびオンプレミスのONTAPボリュームへのNFSv4.1接続でKerberos 5暗号化をサポートします。</block>
+  <block id="ac40c2ee060ee67bf0598e61daec4365" category="paragraph"><block ref="ac40c2ee060ee67bf0598e61daec4365" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
