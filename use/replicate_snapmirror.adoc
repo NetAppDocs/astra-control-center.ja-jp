@@ -20,8 +20,8 @@ Astra Controlを使用すると、NetApp SnapMirrorテクノロジの非同期�
 
 * オンプレミスサイトAからオンプレミスサイトAへ
 * オンプレミスサイトAからオンプレミスサイトBへ
-* Cloud Volumes ONTAP を使用してオンプレミスからクラウドに移行できます
-* Cloud Volumes ONTAP を使用したクラウドをオンプレミスに移行
+* Cloud Volumes ONTAPでオンプレミスからクラウドへ
+* Cloud Volumes ONTAPを使用したクラウドからオンプレミスへの移行
 * Cloud Volumes ONTAP を使用したクラウドからクラウドへ（同じクラウドプロバイダ内の異なるリージョン間または異なるクラウドプロバイダ間）
 
 
