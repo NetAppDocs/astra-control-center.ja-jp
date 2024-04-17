@@ -288,6 +288,52 @@ Astra Control ：アプリケーションのバックアップを作成
 ====
 
 
+=== [テクニカルプレビュー]ネームスペースのスケジュールバックアップを作成
+
+クラスタ上の一部またはすべてのネームスペースについて、スケジュールに基づいて自動でバックアップを作成できます。これらのワークフローは、NetAppによって、Pythonスクリプトと組み合わせてCRファイルとして提供されます。ワークフローを設定してインストールすると、インストール時に選択したスケジュールに従ってネームスペースのバックアップが自動的に作成されます。クラスタのフルバックアップワークフローでは、クラスタ上のすべてのネームスペースを保護することも、ラベルベースのバックアップワークフローでは特定のネームスペースのみを保護することもできます。
+
+バックアップスケジュールの範囲に含まれる新しいネームスペースまたはアプリケーションがクラスタに追加されると、自動的に保護されます。
+
+.例：クラスタのフルバックアップ
+たとえば、フルクラスタバックアップワークフローを構成してインストールすると、任意のネームスペース内のすべてのアプリケーションが定期的にバックアップされます。管理者はこれ以上の作業を行う必要はありません。ワークフローのインストール時に名前空間が存在している必要はありません。将来追加された名前空間は保護されます。
+
+.例：ラベルベースのバックアップ
+詳細については、ラベルベースのワークフローを使用できます。たとえば、このワークフローをインストールし、必要な保護レベルに応じて、保護する名前空間に複数のラベルのいずれかを適用するようにユーザに指示できます。これにより、ユーザーはこれらのラベルのいずれかを使用して名前空間を作成でき、管理者に通知する必要はありません。新しいネームスペースとその中のすべてのアプリは自動的に保護されます。
+
+
+
+==== すべてのネームスペースのスケジュールされたバックアップを作成する
+
+フルクラスタバックアップワークフローを使用して、クラスタ上のすべてのネームスペースのスケジュールされたバックアップを作成できます。
+
+.手順
+. クラスタにネットワークでアクセスできるマシンに、次のファイルをダウンロードします。
++
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/fullcluster-backup/components.yaml["コンポーネント.yaml CRDファイル"]
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/fullcluster-backup/protectCluster.py["protectCluster.py Pythonスクリプト"]
+
+
+. ツールキットを設定してインストールするには、次の手順に従います。 https://github.com/NetApp/netapp-astra-toolkits/blob/main/examples/fullcluster-backup/README.md["付属の手順に従います。"^]。
+
+
+
+
+==== 特定のネームスペースのスケジュールされたバックアップを作成する
+
+ラベルベースのバックアップワークフローを使用して、ラベル別に特定のネームスペースのスケジュールされたバックアップを作成できます。
+
+.手順
+. クラスタにネットワークでアクセスできるマシンに、次のファイルをダウンロードします。
++
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/labelbased-backup/components.yaml["コンポーネント.yaml CRDファイル"]
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/labelbased-backup/protectCluster.py["protectCluster.py Pythonスクリプト"]
+
+
+. ツールキットを設定してインストールするには、次の手順に従います。 https://github.com/NetApp/netapp-astra-toolkits/blob/main/examples/labelbased-backup/README.md["付属の手順に従います。"^]。
+
+
+
+
 == ONTAP NAS経済性に優れた運用向けのバックアップとリストアを実現
 
 Astra Control Provisionerは、バックアップとリストアの機能を提供します。この機能は、 `ontap-nas-economy` ストレージクラス。
