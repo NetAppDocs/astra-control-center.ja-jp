@@ -48,7 +48,7 @@ Astra Control API を使用してバケットを管理する方法について�
 * <<デフォルトバケットを設定する>>
 * <<バケットのクレデンシャルをローテーションするか、削除する>>
 * <<バケットを削除する>>
-* link:../use/manage-buckets.html#manage-a-bucket-using-a-custom-resource["（テクニカルプレビュー）カスタムリソースを使用したバケットの管理"]
+* link:["[Tech preview]カスタムリソースを使用したバケットの管理"]
 
 
 
@@ -179,19 +179,19 @@ Astra ControlのバケットカスタムリソースはAppVaultと呼ばれま�
 
 
 
-NOTE: Amazon Web Services（AWS）とGoogle Cloud Platform（GCP）では、汎用のS3バケットタイプを使用します。
+NOTE: Amazon Web Services（AWS）では、Generic S3バケットタイプが使用されます。
 
 
 NOTE: Astra Control CenterはAmazon S3を汎用のS3バケットプロバイダとしてサポートしていますが、Astra Control Centerは、AmazonのS3をサポートしていると主張するすべてのオブジェクトストアベンダーをサポートしているわけではありません。
 
 .手順
-. カスタムリソース（CR）ファイルを作成し、という名前を付けます（例： `astra_appvault.yaml`）。
+. カスタムリソース（CR）ファイルを作成し、という名前を付けます（例： `astra-appvault.yaml`）。
 . 次の属性を設定します。
 +
 ** * metadata.name*:_（必須）_ AppVaultカスタムリソースの名前。
 ** * spec.prefix *：_（オプション）_ AppVaultに保存されているすべてのエンティティの名前のプレフィックスが付いたパス。
 ** * spec.providerConfig*:_（必須）_指定されたプロバイダを使用してAppVaultにアクセスするために必要な設定を保存します。
-** * spec.providerCredentials*:_(オプション)_指定されたプロバイダを使用してAppVaultにアクセスするために必要なすべての資格情報への参照を保存します。
+** * spec.providerCredentials*:_(必須)_指定されたプロバイダを使用してAppVaultにアクセスするために必要なすべての資格情報への参照を保存します。
 +
 *** * spec.providerCredentials.valueFromSecret*:_（オプション）_は、クレデンシャル値がシークレットから取得される必要があることを示します。
 +
@@ -201,7 +201,7 @@ NOTE: Astra Control CenterはAmazon S3を汎用のS3バケットプロバイダ�
 
 
 
-** * spec.providerType*:_（必須）_バックアップを提供するものを決定します（例：S3またはファイルシステム）。
+** * spec.providerType*:_（必須）_バックアップの提供元を決定します（例：NetApp ONTAP S3、Microsoft Azure）。
 +
 YAMLの例：
 
@@ -211,7 +211,7 @@ YAMLの例：
 apiVersion: astra.netapp.io/v1
 kind: AppVault
 metadata:
-  name: astra_appvault
+  name: astra-appvault
 spec:
   providerType: generic-s3
   providerConfig:
@@ -231,11 +231,11 @@ spec:
 ----
 
 
-. データを入力した後、 `astra_appvault.yaml` 正しい値を持つファイルを作成し、CRを適用します。
+. データを入力した後、 `astra-appvault.yaml` 正しい値を持つファイルを作成し、CRを適用します。
 +
 [source, console]
 ----
-kubectl apply -f astra_appvault.yaml -n astra-connector
+kubectl apply -f astra-appvault.yaml -n astra-connector
 ----
 +
 

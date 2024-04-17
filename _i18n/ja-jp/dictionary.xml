@@ -3104,25 +3104,19 @@ Astra Control Centerでは、次のプラットフォームおよびバケット
   <block id="abb7c3ebf06b3571c54effe000eacb4f" category="paragraph">Astra Control Centerでは、限定的な（7日間の指標）監視とテレメトリを使用できます。また、オープンな指標エンドポイントを介してKubernetesネイティブの監視ツール（PrometheusやGrafanaなど）にエクスポートすることもできます。</block>
   <block id="bbe71981163eb88f46656ae206520076" category="paragraph">方法の詳細については、こちらをご覧ください<block ref="31b8a7a4945fd5ae7cbcb56f7853f12a" category="inline-link-rx"></block>。</block>
   <block id="e3c8bf2347de157b4abad5f780210813" category="list-text"><block ref="e3c8bf2347de157b4abad5f780210813" category="inline-link-macro-rx"></block></block>
-  <block id="079a04c4738a8e0fe552cfb1c79bfcab" category="inline-link-macro">（テクニカルプレビュー）カスタムリソースを使用したバケットの管理</block>
-  <block id="9f64819f608bb6d24fce86291cd75b4e" category="list-text"><block ref="9f64819f608bb6d24fce86291cd75b4e" category="inline-link-macro-rx"></block></block>
   <block id="a5ca26c1ce60561cc151f1d680e539d2" category="paragraph">あれば続けることはできません。</block>
   <block id="c9d43c9d4ce1936591207cd7ff5311cb" category="section-title">[Tech preview]カスタムリソースを使用したバケットの管理</block>
   <block id="e2af1d5e5fa116233e71ad721f3e307b" category="paragraph">アプリケーションクラスタでAstra Controlのカスタムリソース（CR）を使用してバケットを追加できます。アプリケーションと永続的ストレージをバックアップする場合や、クラスタ間でアプリケーションのクローニングを行う場合は、オブジェクトストアバケットプロバイダの追加が不可欠です。Astra Control は、これらのバックアップまたはクローンを、定義したオブジェクトストアバケットに格納します。カスタムリソースメソッドを使用している場合、アプリケーションのスナップショット機能にはバケットが必要です。</block>
   <block id="e397375a1991bd3b78d0436ce29592b7" category="paragraph">アプリケーション構成と永続的ストレージを同じクラスタにクローニングする場合、Astra Controlにバケットを作成する必要はありません。</block>
   <block id="d8b0a07b7fa1af1e74af87346ff33870" category="paragraph">Astra ControlのバケットカスタムリソースはAppVaultと呼ばれます。このCRには、保護処理でバケットを使用するために必要な設定が含まれています。</block>
-  <block id="6689ac5f8250bfb3251ebafd061d6e83" category="list-text">カスタムリソース（CR）ファイルを作成し、という名前を付けます（例：<block ref="9ac2f7756ee6a07f372b889fd11538e1" prefix=" " category="inline-code"></block>）。</block>
   <block id="18924d9e76d2dc9a88bddb772904461d" category="list-text">次の属性を設定します。</block>
   <block id="1224dce1461236a797d84749d37c9491" category="list-text">* metadata.name*:_（必須）_ AppVaultカスタムリソースの名前。</block>
   <block id="69b5be000688679a9ee2fef5a4c0c6e5" category="list-text">* spec.prefix *：_（オプション）_ AppVaultに保存されているすべてのエンティティの名前のプレフィックスが付いたパス。</block>
   <block id="fcbc6a61a9db33b3fae0293b3f248d8b" category="list-text">* spec.providerConfig*:_（必須）_指定されたプロバイダを使用してAppVaultにアクセスするために必要な設定を保存します。</block>
-  <block id="a18bb623149b1b0cdb92de70c655b829" category="list-text">* spec.providerCredentials*:_(オプション)_指定されたプロバイダを使用してAppVaultにアクセスするために必要なすべての資格情報への参照を保存します。</block>
   <block id="343fc86e1ff54e13706200b99b851d91" category="list-text">* spec.providerCredentials.valueFromSecret*:_（オプション）_は、クレデンシャル値がシークレットから取得される必要があることを示します。</block>
   <block id="2d32c7aa536ab1e00f078fb24a7eb990" category="list-text">* key *：_（valueFromSecretを使用する場合は必須）_選択するシークレットの有効なキー。</block>
   <block id="d1b4714eb6d54919b20d4d6f82d1acb4" category="list-text">* name *：_（valueFromSecretを使用する場合は必須）_このフィールドの値を含むシークレットの名前。同じネームスペースになければなりません。</block>
-  <block id="627ea743649e303af861c29448fa1e18" category="list-text">* spec.providerType*:_（必須）_バックアップを提供するものを決定します（例：S3またはファイルシステム）。</block>
   <block id="139f344cca23a89c521bc7cc6c7100b8" category="paragraph">YAMLの例：</block>
-  <block id="230df5decc6ffa08ae4102ee7abc0787" category="list-text">データを入力した後、<block ref="9ac2f7756ee6a07f372b889fd11538e1" prefix=" " category="inline-code"></block> 正しい値を持つファイルを作成し、CRを適用します。</block>
   <block id="899ffe13f2bb16a187ce9807836e3d5f" category="paragraph">保護ポリシーは、定義されたスケジュールでスナップショット、バックアップ、またはその両方を作成することでアプリケーションを保護します。Snapshot とバックアップを毎時、日次、週次、および月単位で作成し、保持するコピーの数を指定できます。保護ポリシーは、Astra Control Web UIまたはカスタムリソース（CR）ファイルを使用して定義できます。</block>
   <block id="d306a8d55f523487d15819734d6cfba4" category="open-title">Web UIを使用して保護ポリシーを設定する</block>
   <block id="9f33a2042fc3e70dae9f8c5507596e07" category="list-text">[*技術プレビュー*]ストレージバケットのリストから、バックアップまたはスナップショットのデスティネーションバケットを選択します。</block>
@@ -3677,4 +3671,10 @@ Astra Control Provisionerは、インポートと検出のプロセスで自動�
   <block id="823f5a690316e8d8db6de2fd88676b37" category="paragraph">たとえば、フルクラスタバックアップワークフローを構成してインストールすると、任意のネームスペース内のすべてのアプリケーションが定期的に管理され、管理者による追加の作業なしに保護されます。ワークフローのインストール時に名前空間が存在している必要はありません。将来追加された名前空間は保護されます。</block>
   <block id="20220274e3d349d98f94f4af6c1d54cf" category="paragraph-title">例：ラベルベースの保護</block>
   <block id="6a96f7d929fa0abae3976fe12471f4f9" category="sidebar">クラスタ全体の保護</block>
+  <block id="55d08039eefc426d5a6685a3feb092fb" category="list-text"><block ref="55d08039eefc426d5a6685a3feb092fb" category="inline-link-macro-rx"></block></block>
+  <block id="01b6447cd56032ea0ac37c19fdaa4224" category="admonition">Amazon Web Services（AWS）では、Generic S3バケットタイプが使用されます。</block>
+  <block id="45a79ca58f818fe6f7e34d3ad01781ce" category="list-text">カスタムリソース（CR）ファイルを作成し、という名前を付けます（例：<block ref="056c513f9078872b92d07c3cc704b909" prefix=" " category="inline-code"></block>）。</block>
+  <block id="2bda4ec158506a5cc3faac161d6d620d" category="list-text">* spec.providerCredentials*:_(必須)_指定されたプロバイダを使用してAppVaultにアクセスするために必要なすべての資格情報への参照を保存します。</block>
+  <block id="9c20f9a97f5024f7f0cbeebb01127512" category="list-text">* spec.providerType*:_（必須）_バックアップの提供元を決定します（例：NetApp ONTAP S3、Microsoft Azure）。</block>
+  <block id="a7f829a367be9439add4237b61a50388" category="list-text">データを入力した後、<block ref="056c513f9078872b92d07c3cc704b909" prefix=" " category="inline-code"></block> 正しい値を持つファイルを作成し、CRを適用します。</block>
 </blocks>
