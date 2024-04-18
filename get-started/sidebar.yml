@@ -40,5 +40,3 @@ entries:
     url: "/get-started/add-storage-backend.html"
   - title: バケットを追加します
     url: "/get-started/add-bucket.html"
-- title: よく寄せられる質問
-  url: "/get-started/faq.html"

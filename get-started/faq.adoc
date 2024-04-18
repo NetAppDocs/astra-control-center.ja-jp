@@ -4,7 +4,7 @@ permalink: get-started/faq.html
 keywords: astra faq, astra frequently asked questions, what is astra, astra control, kubernetes, persistent volumes 
 summary: この FAQ は、質問に対する簡単な回答を探している場合に役立ちます。 
 ---
-= Astra Control Center に関するよくある質問
+= よくある質問
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -24,8 +24,7 @@ summary: この FAQ は、質問に対する簡単な回答を探している場
 
 == Astra Control Center へのアクセス
 
-* Astra Control の URL は何であるか。 *
-
+.Astra ControlのURLとは何ですか？
 Astra Control Center は、ローカル認証と各環境に固有の URL を使用します。
 
 URLには、ブラウザで、Astra Control Centerをインストールしたときに、Astra_control_center.yamlカスタムリソース（CR）ファイルのspec.astraatAddressフィールドに設定した完全修飾ドメイン名（FQDN）を入力します。emailは、Astra_control_center.yaml CRのspec.emailフィールドで設定した値です。
@@ -34,8 +33,7 @@ URLには、ブラウザで、Astra Control Centerをインストールしたと
 
 == ライセンス
 
-*評価ライセンスを使用しています。フルライセンスに変更するにはどうすればよいですか?*
-
+.評価ライセンスを使用しています。フルライセンスに変更するにはどうすればよいですか。
 フルライセンスに変更するには、ネットアップからネットアップライセンスファイル（NLF）を入手します。
 
 * 手順 *
@@ -46,95 +44,79 @@ URLには、ブラウザで、Astra Control Centerをインストールしたと
 . ダウンロードしたライセンスファイルを参照し、 * 追加 * を選択します。
 
 
-*評価ライセンスを使用しています。アプリを管理できますか？ *
-
+.評価ライセンスを使用しています。アプリを管理することはできますか?
 はい。評価ライセンス（デフォルトでインストールされている組み込み評価ライセンスを含む）を使用して、アプリケーションの管理機能をテストできます。評価用ライセンスとフルライセンスでは、機能や機能に違いはありません。評価用ライセンスは、単純に寿命が短くなります。を参照してください link:../concepts/licensing.html["ライセンス"^] を参照してください。
 
 
 
 == Kubernetes クラスタを登録しています
 
-* Astra Control に追加したワーカーノードを Kubernetes クラスタに追加する必要があります。どうすればよいですか？ *
-
+.Astra Controlに追加したあと、Kubernetesクラスタにワーカーノードを追加する必要があります。どうすればいいですか?
 新しいワーカーノードを既存のプールに追加できます。これらは Astra Control によって自動的に検出されます。新しいノードが Astra Control に表示されない場合は、新しいワーカーノードでサポートされているイメージタイプが実行されているかどうかを確認します。を使用して、新しいワーカーノードの健全性を確認することもできます `kubectl get nodes` コマンドを実行します
 
-* クラスタの管理を適切に解除するにはどうすればよいですか *
-
+.クラスタの管理を適切に解除するにはどうすればよいですか？
 . link:../use/unmanage.html["Astra Control からアプリケーションの管理を解除"]。
 . link:../use/unmanage.html#stop-managing-compute["Astra Control からクラスタの管理を解除"]。
 
 
-* Kubernetes クラスタを Astra Control から削除した後、アプリケーションとデータはどうなりますか。 *
-
+.Astra ControlからKubernetesクラスタを削除したあと、アプリケーションとデータはどうなりますか？
 Astra Control からクラスタを削除しても、クラスタの構成（アプリケーションと永続的ストレージ）は変更されません。このクラスタで作成されたアプリケーションの Snapshot やバックアップを Astra Control で復元することはできません。Astra Control で作成した永続的ストレージのバックアップは Astra Control に残っていますが、リストアには使用できません。
 
 
 WARNING: 他の方法でクラスタを削除する場合は、必ず事前に Astra Control からクラスタを削除してください。Astra Control で管理している間に別のツールを使用してクラスタを削除した場合、原因で Astra Control アカウントに問題が発生する可能性があります。
 
-*管理を解除すると、Astra Control Provisioner（Astra Trident）がクラスタから自動的にアンインストールされますか？*
+.管理を解除すると、Astra Control Provisioner（Astra Trident）はクラスタから自動的にアンインストールされますか。
 Astra Control Centerでクラスタの管理を解除しても、Astra Control ProvisionerまたはAstra Tridentはクラスタから自動的にアンインストールされません。Astra Control ProvisionerとそのコンポーネントまたはAstra Tridentをアンインストールするには、次の手順を実行する必要があります： https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["次の手順に従って、Astra Control Provisionerサービスが含まれているAstra Tridentインスタンスをアンインストールします。"^]。
 
 
 
 == アプリケーションの管理
 
-* Astra Control はアプリケーションを導入できますか。 *
-
+.Astra Controlはアプリケーションを導入できますか。
 Astra Control はアプリケーションを導入しない。アプリケーションは Astra Control の外部に導入する必要があります。
 
-* アプリケーションを Astra Control から管理しなくなった後、どうなりますか。 *
-
+.Astra Controlからの管理を停止したアプリケーションはどうなりますか？
 既存のバックアップまたは Snapshot がすべて削除されます。アプリケーションとデータは引き続き使用できます。管理対象外のアプリケーション、またはそのアプリケーションに属するバックアップや Snapshot では、データ管理操作を実行できません。
 
-* ネットアップ以外のストレージにあるアプリケーションは Astra Control で管理できますか。 *
-
+.Astra Controlは、ネットアップ以外のストレージ上にあるアプリケーションを管理できますか。
 いいえAstra Controlはネットアップ以外のストレージを使用しているアプリケーションを検出できますが、ネットアップ以外のストレージを使用しているアプリケーションを管理することはできません。
 
-* Astra Control自体を管理する必要がありますか？*
-
+.Astra Control自体を管理する必要はありますか？
 デフォルトではAstra Control Centerは管理可能なアプリケーションとして表示されていませんが、 link:../use/protect-acc-with-acc.html["バックアップとリストア"] 別のAstra Control Centerインスタンスを使用するAstra Control Centerインスタンス。
 
-*不健全なポッドはアプリ管理に影響しますか？*
-
+.正常でないポッドはアプリケーション管理に影響しますか？
 いいえ、ポッドの健全性はアプリ管理には影響しません。
 
 
 
 == データ管理の操作
 
-* アプリケーションは複数の PVS を使用しています。Astra ControlはこれらのPVSのスナップショットとバックアップを作成しますか*
-
+.私のアプリケーションは複数のPVSを使用しています。Astra ControlはこれらのPVのSnapshotとバックアップを作成しますか？
 はい。Astra Controlによるアプリケーションのスナップショット操作には、アプリケーションのPVCにバインドされているすべてのPVSのスナップショットが含まれます。
 
-* Astra Control で取得したスナップショットを、別のインターフェイスやオブジェクトストレージから直接管理できますか。 *
-
+.Astra Controlで作成されたSnapshotを別のインターフェイスやオブジェクトストレージから直接管理できますか。
 いいえAstra Controlで作成されたSnapshotとバックアップは、Astra Controlでのみ管理できます。
 
 
 
 == Astra Controlプロビジョニングツール
 
-* Astra Control Provisionerのストレージプロビジョニング機能は、Astra Tridentのストレージプロビジョニング機能とどのような点が異なりますか。*
-
+.Astra Control Provisionerのストレージプロビジョニング機能とAstra Tridentのストレージプロビジョニング機能の違いは何ですか。
 Astra Control Provisionerは、Astra Controlの一部として、オープンソースのAstra Tridentでは利用できないストレージプロビジョニング機能のスーパーセットをサポートします。これらの機能は、オープンソースのTridentで利用できるすべての機能に加えて提供されます。
 
-* Astra Control ProvisionerはAstra Tridentの後継ですか？*
+.Astra Control ProvisionerはAstra Tridentの後継ですか。
 Astra Control Provisionerは、Astra ControlアーキテクチャのストレージプロビジョニングおよびオーケストレーションツールとしてAstra Tridentに代わるものです。Astra Controlを使用する場合は、 link:../get-started/enable-acp.html["Astra Control Provisionerを有効にする"] Astra Controlを使用する場合。Astra Tridentはこのリリースでも引き続きサポートされますが、今後のリリースではサポートされません。Astra Tridentは引き続きオープンソースであり、NetAppの新しいCSIやその他の機能でリリース、保守、サポート、更新されます。ただし、Astra Controlの今後のリリースで使用できるのは、Astra TridentのCSI機能と拡張されたストレージ管理機能を備えたAstra Control Provisionerだけです。
 
-* Astra Tridentの料金を支払う必要がありますか？*
-
+.Astra Tridentの料金は発生しますか？
 いいえAstra Tridentは引き続きオープンソースであり、無償でダウンロードできます。Astra Control Provisioner機能を使用するには、Astra Controlライセンスが必要です。
 
-* Astra Controlをすべてインストールして使用しなくても、Astra Controlでストレージ管理とプロビジョニングの機能を使用できますか。*
-
+.Astra Controlをすべてインストールして使用しなくても、Astra Controlでストレージ管理機能とプロビジョニング機能を使用できますか。
 はい。Astra Control Provisionerにアップグレードして、Astra Controlのすべてのデータ管理機能を使用する必要がなくても、その機能を使用できます。
 
-*既存のAstra TridentユーザからAstra Controlに移行して、高度なストレージ管理とプロビジョニングの機能を使用するにはどうすればよいですか？*
-
+.既存のAstra TridentユーザからAstra Controlに移行して、高度なストレージ管理とプロビジョニングの機能を使用するにはどうすればよいですか？
 既存のAstra Tridentユーザ（パブリッククラウドのAstra Tridentのユーザを含む）の場合は、まずAstra Controlライセンスを取得する必要があります。インストールが完了したら、Astra Control Provisionerバンドルをダウンロードし、Astra Tridentをアップグレードし、 link:../get-started/enable-acp.html["Astra Control Provisioner機能を有効にする"]。
 
-[[running-acp-check]]*クラスタのAstra TridentにAstra Control Provisionerが置き換えられたかどうかを確認するにはどうすればよいですか？*
-
+.クラスタのAstra Tridentに代わってAstra Control Provisionerが使用されているかどうかを確認するにはどうすればよいですか。
 Astra Control Provisionerをインストールすると、Astra Control UIのホストクラスタに `ACP version` 代わりに `Trident version` フィールドと現在インストールされているバージョン番号。
 
 image:use/ac-acp-version.png["Astra Control Provisionerのバージョンを示すUIのスクリーンショット"]

@@ -40,6 +40,8 @@ sidebar:
   - section: support
   - title: 以前のバージョン
     url: "/acc-earlier-versions.html"
+  - title: よく寄せられる質問
+    url: "/get-started/faq.html"
   - title: 法的通知
     url: "/legal-notices.html"
 product-family:
