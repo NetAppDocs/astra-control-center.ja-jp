@@ -3677,4 +3677,48 @@ Astra Control Provisionerは、インポートと検出のプロセスで自動�
   <block id="369842d22c436a81bf21800576abee8b" category="paragraph-title">Astra Controlをすべてインストールして使用しなくても、Astra Controlでストレージ管理機能とプロビジョニング機能を使用できますか。</block>
   <block id="daab2094276c52a4b52a45f95303d09e" category="paragraph-title">既存のAstra TridentユーザからAstra Controlに移行して、高度なストレージ管理とプロビジョニングの機能を使用するにはどうすればよいですか？</block>
   <block id="63bdba47639989b6e534ecb34c5f142e" category="paragraph-title">クラスタのAstra Tridentに代わってAstra Control Provisionerが使用されているかどうかを確認するにはどうすればよいですか。</block>
+  <block id="82ec2cd6fda87713f588da75c3b1d0ed" category="doc">機能</block>
+  <block id="9323549177620e1dd794512ee7cc0748" category="paragraph">Astra Controlは、Kubernetesアプリケーションデータのライフサイクル管理解決策です。ステートフルアプリケーションの運用を簡易化し、ハイブリッドおよびマルチクラウド環境全体でKubernetesワークロードを格納、保護、移動するのに役立ちます。</block>
+  <block id="953ad711b5d812e3876fb8a28266ba3e" category="paragraph">*ストア*：</block>
+  <block id="1cc20f69146066d58ea30c167da06503" category="list-text">コンテナ化されたワークロード向けの動的なストレージプロビジョニング</block>
+  <block id="40f0627cce837b232dcada830895754a" category="list-text">コンテナから永続的ボリュームへの転送中データの暗号化</block>
+  <block id="4d8ebc166f514bc42ed5a5c421a85b7b" category="list-text">リージョン間、ゾーン間レプリケーション</block>
+  <block id="f748216a486ca824f2e1350704fdf7cd" category="paragraph">*保護*：</block>
+  <block id="5eea249d5621961399d6b0e6cd549b2a" category="list-text">アプリケーション全体とそのデータを自動検出し、アプリケーション対応の保護を実現</block>
+  <block id="0905306fb359d754b2fb6b91b4b687b6" category="list-text">組織のニーズに基づいて'任意のスナップショット・バージョンからアプリケーションを即座にリカバリ</block>
+  <block id="43130eaaed6187a0c013e3badf7d841a" category="list-text">ゾーン、リージョン、クラウドプロバイダ間で高速フェイルオーバー</block>
+  <block id="1b329bb5f586d96aac9b868339b54d3c" category="paragraph">*移動*：</block>
+  <block id="fc1049d8b413380216308212cf5b9cd9" category="list-text">Kubernetesクラスタとクラウド間でアプリケーションとデータを完全に移動</block>
+  <block id="1f86e32e0eaaa822d13a5b9730c85ab7" category="list-text">アプリケーションとデータ全体を瞬時にクローニング</block>
+  <block id="b54bcca0ec823f9bf8916580d0df9186" category="list-text">一貫したWeb UIとAPIでワンクリックでアプリケーションを移行</block>
+  <block id="2d242bb36ec91b32005f9296ff03a912" category="section-title">アーキテクチャ</block>
+  <block id="56da5995454440513c0c0a111bb3b132" category="paragraph">IT部門はAstra Controlのアーキテクチャにより、高度なデータ管理機能を提供できるようになり、Kubernetesアプリケーションの機能と可用性の両方を強化し、パブリッククラウドとオンプレミス環境にわたるコンテナ化されたワークロードの管理、保護、移動を簡易化できます。 また、REST APIとSDKを使用した自動化機能を提供し、プログラム経由でアクセスして既存のワークフローとシームレスに統合できます。</block>
+  <block id="f0f6f0fb4331084912739b8873eea074" category="paragraph">Astra ControlはKubernetesネイティブであるため、既存のAPIやSDKとの後方互換性を維持しながら、カスタムリソースを活用するデータ保護ワークフローを実現できます。Kubernetesネイティブのデータ保護には大きなメリットがあります。KubernetesのAPIやリソースとシームレスに統合することで、組織の既存のCI / CDツールやGitOpsツールを通じて、データ保護がアプリケーションのライフサイクルに本質的に組み込まれるようになります。</block>
+  <block id="3e9fd553c2a72f2fea1001b682208a54" category="inline-image-macro">Astra Controlのアーキテクチャ</block>
+  <block id="28a0c6c94cda259516d07dedb9c854ef" category="paragraph"><block ref="28a0c6c94cda259516d07dedb9c854ef" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8103c53d603644d4ee7cc959e53cf3a4" category="paragraph">Astra Controlは、次の4つのコンポーネントを基盤として構築されています。</block>
+  <block id="4f16f53fe0ab96995516c186edf87fe6" category="list-text">* Astra Control *：Astra Controlは、すべての管理対象クラスタを一元的に管理するサービスです。クラウドとオンプレミスでのアプリケーションの保護とモビリティのためのワークロードのオーケストレーションと、次の機能を提供します。</block>
+  <block id="51fed4624a5a53152693a41ce5efa15a" category="list-text">複数のクラスタとクラウドを組み合わせて表示</block>
+  <block id="e046b9c3be3479bde3b3259db738a78f" category="list-text">オーケストレーションされたワークフローの保護</block>
+  <block id="8dc1680125686fe1458b22e1961b1899" category="list-text">きめ細かなリソースの視覚化と選択</block>
+  <block id="4568e5d7e97ee5d6e4866ccd0c1dc770" category="list-text">* Astra Connector *：Astra Connectorは、Astra Controlと連携して各管理対象クラスタへのセキュアな接続を提供し、接続ステータスに関係なくスケジュールされた処理をローカルで実行できるようにします。また、次の機能も提供します。</block>
+  <block id="7655b1a562ca01e9844b38904e5aa812" category="list-text">接続ステータスに関係なく、スケジュールされた操作をローカルで実行</block>
+  <block id="e41d9e394671a0a661bcca4d52b1926b" category="list-text">Astraのシステムリソース使用量をクラスタ間で分散、最適化するローカル運用</block>
+  <block id="579304cbfdd1e8dd005de8205aa02d54" category="list-text">セキュリティを向上させるために、クラスタへの最小限の権限でのアクセスを可能にするローカルインストール</block>
+  <block id="389aa9334cd9e108116e432d44e3be76" category="list-text">* Astra Control Provisioner *：Astra Control Provisionerは、CSIのコアプロビジョニング機能と高度なストレージ管理機能を提供し、セキュリティとディザスタリカバリの設定を強化します。さらに、以下の機能も提供します。</block>
+  <block id="c965b0e84a84d7b5a6b37d24fb0c0ebd" category="list-text">高度なストレージ管理：</block>
+  <block id="6b7d4094418426d522e44a55d578c055" category="list-text">コンテナからPVへのデータの転送中暗号化</block>
+  <block id="378d291dd5c8d9b13457391d74a1c166" category="list-text">リージョン間、ゾーン間レプリケーションを使用したSnapMirror Cloud機能</block>
+  <block id="0aa3c724313cb48f6cecfc8393736174" category="list-text">* Astraカスタムリソース*：各クラスタで使用されるカスタムリソースにより、Kubernetesネイティブのアプローチでローカルで運用を実行できるため、Kubernetesに対応した他のツールや自動化との統合が簡易化され、次の機能が提供されます。</block>
+  <block id="427ee8760fb4e2d4c8d849fa36bab15b" category="list-text">エコシステムツールの直接統合と自動化のワークフロー</block>
+  <block id="c7349a414c37176e5941afbe8fd1bf31" category="list-text">カスタムワークフローを可能にする下位レベルのプリミティブ</block>
+  <block id="15bdafd183c9dcdccccb2ef960342018" category="paragraph">Astra Controlには2つの導入モデルがあります。</block>
+  <block id="e2a57f6b4c1a4fc07e57320580de76c4" category="inline-image-macro">Astraの導入モデル</block>
+  <block id="ed910480be660ce44964d26abfc6a0d8" category="paragraph"><block ref="ed910480be660ce44964d26abfc6a0d8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b7372905cd310308af0541e07ef5175f" category="list-text">* Astra Control Service *：複数のクラウドプロバイダ環境および自己管理型KubernetesクラスタのKubernetesクラスタに対して、アプリケーション対応のデータ管理を提供する、ネットアップのマネージドサービスです。</block>
+  <block id="db7cdbe16748f17a4795bd3e96b798a0" category="list-text">* Astra Control Center * ：オンプレミス環境で実行される Kubernetes クラスタのアプリケーション対応データ管理を提供する、自己管理ソフトウェアです。NetApp Cloud Volumes ONTAP ストレージバックエンドを使用して、複数のクラウドプロバイダ環境にAstra Control Centerをインストールすることもできます。</block>
+  <block id="281db70ca8dfcac9ebe6166029058548" category="paragraph"><block ref="281db70ca8dfcac9ebe6166029058548" category="inline-link-rx"></block></block>
+  <block id="e84bb7e947a5b25481546110f575734a" category="list-text"><block ref="e84bb7e947a5b25481546110f575734a" category="inline-link-rx"></block></block>
+  <block id="5858ee4031acd7b896faa2d3d2c1a299" category="inline-link">Cloud Insights のドキュメント</block>
+  <block id="2b93b48daf034e4100d00b85950e109d" category="list-text"><block ref="2b93b48daf034e4100d00b85950e109d" category="inline-link-rx"></block></block>
 </blocks>
