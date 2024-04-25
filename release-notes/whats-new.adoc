@@ -35,6 +35,7 @@ summary: ネットアップは Astra Control Center を定期的に更新して�
 
 * link:../use/manage-apps.html#tech-preview-define-an-application-using-a-kubernetes-custom-resource["カスタムリソースを使用したアプリケーションの定義"]
 * link:../use/manage-buckets.html#tech-preview-manage-a-bucket-using-a-custom-resource["バケットを定義する"]
+* link:../use/back-up-full-cluster.html["クラスタ全体の保護"]
 * link:../use/protect-apps.html#create-a-backup["アプリケーションのバックアップ"]
 * link:../use/protect-apps.html#create-a-snapshot["Snapshot を作成します"]
 * link:../use/protect-apps.html#configure-a-protection-policy["スナップショットまたはバックアップのスケジュールを作成する"]
