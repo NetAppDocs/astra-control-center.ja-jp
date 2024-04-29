@@ -156,6 +156,9 @@ NOTE: 複数のクラスタデータが収集された場合、各クラスタ�
 
 Astra Control Centerで監視されているシステムからFluentdエンドポイントにログ（Kubernetesイベント）を送信できます。Fluentd 接続はデフォルトで無効になっています。
 
+
+NOTE: Fluentd接続は、宣言型Kubernetesワークフローで管理されるクラスタではサポートされません。Fluentdは、非Kubernetesネイティブワークフローで管理されるクラスタにのみ接続できます。
+
 image:fluentbit.png["ここでは、AstraからFluentdまでのイベントログの概念図を示します。"]
 
 
