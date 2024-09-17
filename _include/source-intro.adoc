@@ -187,7 +187,7 @@ Astra Control Centerは、ONTAPストレージバックエンドを使用するA
 
 Astra Control Centerでは、限定的な（7日間の指標）監視とテレメトリを使用できます。また、オープンな指標エンドポイントを介してKubernetesネイティブの監視ツール（PrometheusやGrafanaなど）にエクスポートすることもできます。
 
-Astra Control Center は、 AutoSupport と Active IQ のエコシステムに完全に統合されており、ユーザとネットアップサポートにトラブルシューティングと使用に関する情報を提供します。
+Astra Control Centerは、AutoSupportとActive IQのデジタルアドバイザ（デジタルアドバイザとも呼ばれます）エコシステムに完全に統合されており、ユーザとNetAppサポートにトラブルシューティングと使用状況の情報を提供します。
 
 90日間の組み込み評価用ライセンスを使用して、Astra Control Centerを試用できます。Astra Control Centerの評価中は、Eメールとコミュニティのオプションでサポートを受けることができます。また、製品内サポートダッシュボードから技術情報アーティクルやドキュメントにアクセスすることもできます。
 

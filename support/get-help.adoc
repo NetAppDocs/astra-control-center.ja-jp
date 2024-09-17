@@ -100,7 +100,7 @@ TIP: UI の右上にある通知アイコンには、バンドルの作成に成
 +
 ** 使用 https://upload.netapp.com/sg["NetApp Authenticated File Upload （ログインが必要）"^]。
 ** NSS でケースにバンドルを直接添付します。
-** NetApp Active IQ を使用する。
+** Digital Advisorを使用します。
 
 
 

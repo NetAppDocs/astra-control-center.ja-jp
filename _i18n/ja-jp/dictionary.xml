@@ -48,7 +48,6 @@
   <block id="35f3a2f7a0f2c01d03afedb95ece66ab" category="inline-link">NetApp Authenticated File Upload （ログインが必要）</block>
   <block id="1c2989d4329c8aeec5e01506816fb04e" category="list-text">使用<block ref="4b0bc63f683ccbf4dcf0ba2a6a1b561f" category="inline-link-rx"></block>。</block>
   <block id="94bcffc8ff8a109a8267202d2aaa5526" category="list-text">NSS でケースにバンドルを直接添付します。</block>
-  <block id="4345f2150d39e38a6a11ee7ee57bed28" category="list-text">NetApp Active IQ を使用する。</block>
   <block id="9c83e144e5481ac6766f4055e566594d" category="floating-title">詳細については、こちらをご覧ください</block>
   <block id="4be9b50faf5ab46a9d28ac23f7713bec" category="inline-link">ネットアップにファイルをアップロードする方法（ログインが必要）</block>
   <block id="3b6bf15bbdfc90c8dc6d6778808539e1" category="list-text"><block ref="3b6bf15bbdfc90c8dc6d6778808539e1" category="inline-link-rx"></block></block>
@@ -155,7 +154,6 @@
   <block id="181e1260b62d0667dd25d8e26eba83f5" category="paragraph">Astra Controlの無料プランを使用すると、最大10個のネームスペースをアカウントで管理できます。10以上を管理する場合は、無料プランからプレミアムプランにアップグレードして請求を設定する必要があります。</block>
   <block id="b714fdd25acef8e71be758de7ff02f0b" category="section-title">Astra Control Center の仕組み</block>
   <block id="90d397f2aa31c2e6d9f5dfda5d12adca" category="paragraph">Astra Control Center は、お客様のプライベートクラウドでローカルに実行されます。</block>
-  <block id="ea2708b459fc0cad6936ec216bd9405e" category="paragraph">Astra Control Center は、 AutoSupport と Active IQ のエコシステムに完全に統合されており、ユーザとネットアップサポートにトラブルシューティングと使用に関する情報を提供します。</block>
   <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link">要件</block>
   <block id="6319f881d45c326a5f6222a746f50981" category="paragraph">Astra Control Center の概要は次のように機能します。</block>
   <block id="2cb07ff1146f3d6896d00ffdcea250ef" category="inline-link">Astra Control Center をインストールします</block>
@@ -3319,7 +3317,6 @@ Astra Control Centerのインストール時にIstioサービスメッシュを�
 
 注：は使用しないでください<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> または<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> をクリックします。この FQDN をコピーしてで使用します <block ref="39c8566ec35b62823c898c5e38a4b78c" category="inline-xref-macro-rx"></block>。</block>
   <block id="5398d7dab242bfea13c044912cacfd10" category="example-title">AutoSupport</block>
-  <block id="0ce9b2186063c7d6c825ba5631c6f471" category="paragraph">このセクションでの選択内容によって、ネットアップのプロアクティブなサポートアプリケーションNetApp Active IQに参加するかどうか、データの送信先が決まります。インターネット接続が必要です（ポート442）。サポートデータはすべて匿名化されます。</block>
   <block id="0c83f57c786a0b4a39efab23731c7ebc" category="example-title">E メール</block>
   <block id="ed89387bcd11937a7a92a99a2cbfb5d7" category="example-title">FirstName</block>
   <block id="539c5300bf48f8a3e3009ce33d49a240" category="example-title">姓</block>
@@ -3717,4 +3714,7 @@ Astra Control Provisionerは、インポートと検出のプロセスで自動�
   <block id="adeac59ad1862a3e0c4f40cfe863ae90" category="list-text"><block ref="adeac59ad1862a3e0c4f40cfe863ae90" category="inline-link-macro-rx"></block></block>
   <block id="a8d3d65f332ebd25e2d0cd4a39fa56bb" category="admonition">Fluentd接続は、宣言型Kubernetesワークフローで管理されるクラスタではサポートされません。Fluentdは、非Kubernetesネイティブワークフローで管理されるクラスタにのみ接続できます。</block>
   <block id="a4c308fa75b477e34ffefe1e02628412" category="list-text">*環境の前提条件を満たしている*：アップグレードする前に、環境が <block ref="7b0354d91aa605027490ffc0bb4c260d" category="inline-link-macro-rx"></block>。</block>
+  <block id="a9cf730f8ab04a5b52f1d19c74c1483c" category="paragraph">Astra Control Centerは、AutoSupportとActive IQのデジタルアドバイザ（デジタルアドバイザとも呼ばれます）エコシステムに完全に統合されており、ユーザとNetAppサポートにトラブルシューティングと使用状況の情報を提供します。</block>
+  <block id="10c74eb5a029f34a100ad38aab60e5a3" category="paragraph">このセクションで選択した内容によって、NetAppのプロアクティブサポートアプリケーション、デジタルアドバイザ、およびデータの送信先が決まります。インターネット接続が必要です（ポート442）。サポートデータはすべて匿名化されます。</block>
+  <block id="3cf9bc07c0ae31018d3336b8f32de6c8" category="list-text">Digital Advisorを使用します。</block>
 </blocks>
