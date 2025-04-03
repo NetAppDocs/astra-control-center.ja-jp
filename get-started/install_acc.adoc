@@ -14,7 +14,7 @@ summary: 環境に関するいくつかの前提条件に対処した後に Astr
 [role="lead"]
 Astra Control Centerをインストールするには、インストールイメージをダウンロードして次の手順を実行します。この手順を使用して、インターネット接続環境またはエアギャップ環境に Astra コントロールセンターをインストールできます。
 
-Astra Control Centerのインストールプロセスのデモについては、を参照してください https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["このビデオでは"^]。
+Astra Control Centerのインストールプロセスのデモについては、を参照してください https://www.youtube.com/watch?v=kfmQDqPi9fU&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["このビデオでは"^]。
 
 .作業を開始する前に
 * *環境条件を満たしている*： link:requirements.html["インストールを開始する前に、 Astra Control Center の導入環境を準備します"]。
