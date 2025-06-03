@@ -38,14 +38,6 @@ indexpage:
       url: https://docs.netapp.com/us-en/astra-automation/reference/overview.html
     - title: API ワークフロー
       url: https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html
-  - title: Astra Control Service を使用
-    links:
-    - title: Astra Control Service の詳細をご確認ください
-      url: https://docs.netapp.com/us-en/astra/get-started/intro.html
-    - title: Astra Control Serviceの新機能
-      url: https://docs.netapp.com/us-en/astra/release-notes/whats-new.html
-    - title: Astra Control Service のクイックスタート
-      url: https://docs.netapp.com/us-en/astra/get-started/quick-start.html
   - title: 解決策概要
     links:
     - title: Astra Control を使用した PostgreSQL DBaaS
