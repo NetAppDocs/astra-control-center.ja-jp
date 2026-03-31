@@ -1,5 +1,11 @@
 ---
 indexpage:
+  title: Astra Control Center 24.02ドキュメント
+  summary: Astra Control Centerソフトウェアは、オンプレミス環境のKubernetesクラスタに対してアプリケーション対応のデータ管理機能を提供します。Kubernetes
+    アプリケーションを簡単にバックアップし、データを別のクラスタに移行して、作業用アプリケーションのクローンを瞬時に作成できます。パブリッククラウドで実行されている
+    Kubernetes アプリケーションを管理する必要がある場合は、 Astra Control Service のドキュメントを参照してください。
+  keywords: astra control center, kubernetes data management, backup kubernetes apps,
+    migrate kubernetes data, on-premises kubernetes management
   lead: Astra Control Centerソフトウェアは、オンプレミス環境のKubernetesクラスタに対してアプリケーション対応のデータ管理機能を提供します。Kubernetes
     アプリケーションを簡単にバックアップし、データを別のクラスタに移行して、作業用アプリケーションのクローンを瞬時に作成できます。パブリッククラウドで実行されている
     Kubernetes アプリケーションを管理する必要がある場合は、 Astra Control Service のドキュメントを参照してください。
