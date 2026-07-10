@@ -4,6 +4,7 @@
 
 
 
+[[download-and-extract-astra-control-center]]
 == Astra Control Centerをダウンロードして展開します
 
 次のいずれかの場所からAstra Control Centerのイメージをダウンロードします。

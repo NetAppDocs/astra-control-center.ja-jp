@@ -72,6 +72,7 @@ insecure-skip-tls-verify: true
 
 
 
+[[run-eligibility-checks]]
 == 資格チェックを実行します
 
 次の資格チェックを実行して、 Astra Control Center にクラスタを追加する準備ができていることを確認します。
@@ -131,6 +132,7 @@ ontap-gold (default)  csi.trident.netapp.io  Delete         Immediate          t
 
 
 
+[[create-a-cluster-role-kubeconfig]]
 == クラスタロールkubeconfigを作成します。
 
 kubeconfigを使用して管理されるクラスタの場合は、必要に応じて、制限された権限または拡張された権限管理者ロールをAstra Control Centerに対して作成できます。kubeconfigはAstra Control Centerのセットアップですでに設定されているため、これは必須の手順ではありません。 link:../get-started/install_acc.html#set-up-namespace-and-secret-for-registries-with-auth-requirements["インストールプロセス"]。

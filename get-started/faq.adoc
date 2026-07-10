@@ -16,12 +16,14 @@ summary: この FAQ は、質問に対する簡単な回答を探している場
 
 
 
+[[overview]]
 == 概要
 
 次のセクションでは、 Astra Control Center を使用しているときに発生する可能性のあるその他の質問に対する回答を示します。詳しい説明については、 astra.feedback@netapp.com までお問い合わせください
 
 
 
+[[access-to-astra-control-center]]
 == Astra Control Center へのアクセス
 
 .Astra ControlのURLとは何ですか？
@@ -31,6 +33,7 @@ URLには、ブラウザで、Astra Control Centerをインストールしたと
 
 
 
+[[licensing]]
 == ライセンス
 
 .評価ライセンスを使用しています。フルライセンスに変更するにはどうすればよいですか。
@@ -49,6 +52,7 @@ URLには、ブラウザで、Astra Control Centerをインストールしたと
 
 
 
+[[registering-kubernetes-clusters]]
 == Kubernetes クラスタを登録しています
 
 .Astra Controlに追加したあと、Kubernetesクラスタにワーカーノードを追加する必要があります。どうすればいいですか?
@@ -56,7 +60,7 @@ URLには、ブラウザで、Astra Control Centerをインストールしたと
 
 .クラスタの管理を適切に解除するにはどうすればよいですか？
 . link:../use/unmanage.html["Astra Control からアプリケーションの管理を解除"]。
-. link:../use/unmanage.html#stop-managing-compute["Astra Control からクラスタの管理を解除"]。
+. link:../use/unmanage.html#unmanage-a-cluster["Astra Control からクラスタの管理を解除"]。
 
 
 .Astra ControlからKubernetesクラスタを削除したあと、アプリケーションとデータはどうなりますか？
@@ -70,6 +74,7 @@ Astra Control Centerでクラスタの管理を解除しても、Astra Control P
 
 
 
+[[managing-applications]]
 == アプリケーションの管理
 
 .Astra Controlはアプリケーションを導入できますか。
@@ -89,6 +94,7 @@ Astra Control はアプリケーションを導入しない。アプリケーシ
 
 
 
+[[data-management-operations]]
 == データ管理の操作
 
 .私のアプリケーションは複数のPVSを使用しています。Astra ControlはこれらのPVのSnapshotとバックアップを作成しますか？
@@ -99,6 +105,7 @@ Astra Control はアプリケーションを導入しない。アプリケーシ
 
 
 
+[[astra-control-provisioner]]
 == Astra Controlプロビジョニングツール
 
 .Astra Control Provisionerのストレージプロビジョニング機能とAstra Tridentのストレージプロビジョニング機能の違いは何ですか。
@@ -116,6 +123,7 @@ Astra Control Provisionerは、Astra Controlアーキテクチャのストレー
 .既存のAstra TridentユーザからAstra Controlに移行して、高度なストレージ管理とプロビジョニングの機能を使用するにはどうすればよいですか？
 既存のAstra Tridentユーザ（パブリッククラウドのAstra Tridentのユーザを含む）の場合は、まずAstra Controlライセンスを取得する必要があります。インストールが完了したら、Astra Control Provisionerバンドルをダウンロードし、Astra Tridentをアップグレードし、 link:../get-started/enable-acp.html["Astra Control Provisioner機能を有効にする"]。
 
+[[running-acp-check]]
 .クラスタのAstra Tridentに代わってAstra Control Provisionerが使用されているかどうかを確認するにはどうすればよいですか。
 Astra Control Provisionerをインストールすると、Astra Control UIのホストクラスタに `ACP version` 代わりに `Trident version` フィールドと現在インストールされているバージョン番号。
 

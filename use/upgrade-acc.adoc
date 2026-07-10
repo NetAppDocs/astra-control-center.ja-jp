@@ -127,6 +127,7 @@ IMPORTANT: Astra Control Centerオペレータ（たとえば、 `kubectl delete
 
 
 
+[[download-and-extract-astra-control-center]]
 == Astra Control Centerをダウンロードして展開します
 
 次のいずれかの場所からAstra Control Centerのイメージをダウンロードします。
@@ -174,12 +175,14 @@ tar -vxzf astra-control-center-[version].tar.gz
 ====
 
 
+[[complete-additional-steps-if-you-use-a-local-registry]]
 == ローカルレジストリを使用する場合は、追加の手順を実行します。
 
 Astra Control Centerバンドルをローカルのレジストリにプッシュする場合は、NetApp Astra kubectlコマンドラインプラグインを使用する必要があります。
 
 
 
+[[remove-the-netapp-astra-kubectl-plugin-and-install-it-again]]
 === NetApp Astra kubectlプラグインを削除して、再度インストールします
 
 イメージをローカルのDockerリポジトリにプッシュするには、最新バージョンのNetApp Astra kubectlコマンドラインプラグインを使用する必要があります。
@@ -220,6 +223,7 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 
 
 
+[[add-the-images-to-your-registry]]
 === イメージをレジストリに追加する
 
 . Astra Control Centerバンドルをローカルのレジストリにプッシュする場合は、コンテナエンジンに応じた手順を実行します。
@@ -326,6 +330,7 @@ cd manifests
 
 
 
+[[install-the-updated-astra-control-center-operator]]
 == 更新された Astra Control Center オペレータをインストールします
 
 . （ローカルレジストリのみ）ローカルレジストリを使用している場合は、次の手順を実行します。
@@ -464,6 +469,7 @@ kubectl get pods -n netapp-acc-operator
 
 
 
+[[upgrade-astra-control-center]]
 == Astra Control Center をアップグレードします
 
 . Astra Control Centerカスタムリソース（CR）を編集します。
@@ -557,6 +563,7 @@ NOTE: Astra Control Centerのオペレータログを調べるには、次のコ
 
 
 
+[[verify-system-status]]
 == システムステータスを確認します
 
 . Astra Control Center にログインします。

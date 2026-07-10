@@ -16,6 +16,7 @@ summary: 環境によっては、Astra Control Centerのインストール後に
 
 
 
+[[remove-resource-limitations]]
 == リソースの制限を解除します
 
 一部の環境では、ResourceQuotasオブジェクトとLimitRangesオブジェクトを使用して、ネームスペース内のリソースがクラスタ上の使用可能なCPUとメモリをすべて消費しないようにします。Astra Control Centerでは上限が設定されていないため、これらのリソースに準拠していません。この方法で環境を構成している場合は、Astra Control Centerをインストールするネームスペースからリソースを削除する必要があります。
@@ -81,6 +82,7 @@ kubectl delete limitrange cpu-limit-range -n [netapp-acc or custom namespace]
 
 
 
+[[add-a-custom-tls-certificate]]
 == カスタム TLS 証明書を追加します
 
 Astra Control Centerは、入力コントローラトラフィック（一部の設定のみ）およびWebブラウザでのWeb UI認証に、デフォルトで自己署名TLS証明書を使用します。本番環境で使用する場合は、既存の自己署名TLS証明書を削除して、認証局（CA）によって署名されたTLS証明書に置き換える必要があります。
@@ -104,6 +106,7 @@ Astra Control Centerは、入力コントローラトラフィック（一部の
 
 
 
+[[remove-the-self-signed-certificate]]
 === 自己署名証明書を削除します
 
 既存の自己署名 TLS 証明書を削除します。
@@ -130,6 +133,7 @@ kubectl delete secret secure-testing-cert -n <ACC-deployment-namespace>
 
 
 
+[[add-a-new-certificate-using-the-command-line]]
 === コマンドラインを使用して新しい証明書を追加します
 
 CA によって署名された新しい TLS 証明書を追加します。

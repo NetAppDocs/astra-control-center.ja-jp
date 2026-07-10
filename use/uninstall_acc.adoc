@@ -79,12 +79,14 @@ deployment.apps/acc-operator-controller-manager deleted
 
 
 
+[[troubleshooting-uninstall-issues]]
 == アンインストールに関する問題のトラブルシューティング
 
 Astra Control Center のアンインストールで発生した問題に対処するには、次の回避策を実行します。
 
 
 
+[[uninstall-of-astra-control-center-fails-to-clean-up-the-monitoring-operator-pod-on-the-managed-cluster]]
 === Astra Control Center をアンインストールしても、管理対象クラスタで監視オペレータポッドがクリーンアップされない
 
 Astra Control Center をアンインストールする前にクラスタの管理を解除していない場合は、次のコマンドを使用して、ネットアップ監視ネームスペースとネームスペース内のポッドを手動で削除できます。
@@ -164,6 +166,7 @@ customresourcedefinition.apiextensions.k8s.io "agents.monitoring.netapp.com" del
 
 
 
+[[uninstall-of-astra-control-center-fails-to-clean-up-traefik-crds]]
 === Astra Control Center をアンインストールしても、 Traefik CRD をクリーンアップできない
 
 Traefik CRD を手動で削除できます。CRD はグローバルリソースであり、削除するとクラスタ上の他のアプリケーションに影響を与える可能性があります。
@@ -201,6 +204,7 @@ kubectl delete crd ingressroutes.traefik.containo.us ingressroutetcps.traefik.co
 
 
 
+[[find-more-information]]
 == 詳細については、こちらをご覧ください
 
 * link:../release-notes/known-issues.html["アンインストールに関する既知の問題"]

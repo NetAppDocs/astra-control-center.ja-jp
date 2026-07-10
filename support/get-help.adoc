@@ -21,6 +21,7 @@ IMPORTANT: Astra Control Center の評価用ライセンスをお持ちの場合
 
 
 
+[[self-support-options]]
 == セルフサポートオプション
 
 メインメニューから * Support * タブを選択すると、 Astra Control Center UI からサポートオプションにアクセスできます。
@@ -36,12 +37,14 @@ IMPORTANT: Astra Control Center の評価用ライセンスをお持ちの場合
 
 
 
+[[enable-daily-scheduled-support-bundle-upload-to-netapp-support]]
 == ネットアップサポートへのサポートバンドルの日次アップロードを有効にします
 
 Astra Control Centerのインストール中に、を指定した場合 `enrolled: true` の場合 `autoSupport` Astra Control Centerカスタムリソース（CR）ファイル (`astra_control_center.yaml`）を指定すると、日次サポートバンドルがに自動的にアップロードされます https://mysupport.netapp.com/site/["NetApp Support Site"^]。
 
 
 
+[[generate-support-bundle-to-provide-to-netapp-support]]
 == ネットアップサポートに提供するサポートバンドルを生成する
 
 Astra Control Center を使用すると、管理者ユーザはバンドルを生成できます。バンドルには、ネットアップサポートに役立つログ、 Astra 環境のすべてのコンポーネントに対するイベント、管理対象のクラスタとアプリケーションに関する指標、トポロジ情報などが含まれます。インターネットに接続している場合は、NetApp Support Site（ NSS ）に Astra Control Center の UI から直接サポートバンドルをアップロードすることができます。
@@ -87,6 +90,7 @@ TIP: UI の右上にある通知アイコンには、バンドルの作成に成
 
 
 
+[[if-you-have-an-air-gapped-installation]]
 === エアギャップ設置がある場合
 
 エアギャップのある設置の場合は、サポートバンドルが生成されたあとに次の手順を実行します。バンドルがダウンロード可能になると、 [ サポート * ] ページの [ サポートバンドル * ] セクションの [ 生成 * ] の横に [ ダウンロード ] アイコンが表示されます。

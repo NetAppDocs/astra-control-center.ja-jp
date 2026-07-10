@@ -16,6 +16,7 @@ Astra Control Centerで管理されるクラスタは、Astra Connectorを使用
 
 
 
+[[install-astra-connector]]
 == Astra Connectorのインストール
 
 KubernetesコマンドとCustom Resource（CR）ファイルを使用してAstra Connectorをインストールします。

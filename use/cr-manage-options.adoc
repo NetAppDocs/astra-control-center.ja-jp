@@ -14,6 +14,6 @@ summary: Kubernetesのカスタムリソース（CR）を使用してAstra Contr
 [role="lead"]
 Kubernetesのカスタムリソース（CR）を使用してAstra Controlアプリケーションを管理次のオプションを使用できます。
 
-* link:../use/manage-apps.html#define-an-application-using-a-kubernetes-custom-resource["Kubernetesのカスタムリソースを使用してアプリケーションを定義する"]
-* link:../use/manage-buckets.html#manage-a-bucket-using-a-custom-resource["カスタムリソースを使用したバケットの管理"]
+* link:../use/manage-apps.html#tech-preview-define-an-application-using-a-kubernetes-custom-resource["Kubernetesのカスタムリソースを使用してアプリケーションを定義する"]
+* link:../use/manage-buckets.html#tech-preview-manage-a-bucket-using-a-custom-resource["カスタムリソースを使用したバケットの管理"]
 
