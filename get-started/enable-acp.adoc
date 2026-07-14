@@ -282,7 +282,7 @@ status:
 --
 .Tridentctl
 --
-. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html#step-1-download-the-trident-installer-package["Astra Tridentインストーラをダウンロードして展開"^]。
+. https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy-tridentctl.html#step-1-download-the-trident-installer-package["Astra Tridentインストーラをダウンロードして展開"^]。
 . https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-tridentctl.html["既存のAstra Tridentがある場合は、そのTridentをホストしているクラスタからアンインストール"^]。
 . Astra Control Provisionerを有効にしてAstra Tridentをインストール (`--enable-acp=true`）：
 +
